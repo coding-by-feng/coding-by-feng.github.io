@@ -3,9 +3,9 @@
   
     
     <entry>
-      <title><![CDATA[Hello Hexo Blog]]></title>
-      <url>%2F2016%2F11%2F17%2Fhello-world%2F</url>
-      <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+      <title><![CDATA[github+hexo+next 快速搭建偏亮的个人博客]]></title>
+      <url>%2F2016%2F11%2F18%2Fgithub-hexo-next-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%81%8F%E4%BA%AE%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%2F</url>
+      <content type="text"><![CDATA[本教程针对windows用户，苦逼实习生用不起mac 1、环境搭建安装git for windows《下载安装入口》关于github与本地git客户端的关联这里不做阐述，百度一大把。 安装node.js《node.js下载安装入口》官网下载速度可能会很慢，安装完毕之后可以再cmd窗口测试一下是否安装成功。键入以下命令，你会看到对应的版本号node -v除此之外还要检测一下npm是否安装成功，npm作为node.js的子项目也被安装进去了，后面安装hexo需要依赖于npm，用下面命令测试，成功依然会返回版本号npm -v 安装hexo在你想要安装hexo的目录里面右键Git Bash Here，然后键入以下命令$ npm install -g hexo-cli详情可以参照《hexo 中文文档入口》 下载next主题首先在你git bash窗口定位到安装hexo的根目录$ cd your-hexo-site$ git clone https://github.com/iissnan/hexo-theme-next themes/next详情请参照《hexo next主题中文配置教程入口》 hexo next配置打开git bash，定位到你的hexo安装目录，执行$ hexo init关于hexo的命令参照《hexo 命令文档》关于next第三方服务配置参照《next第三方服务配置》]]></content>
     </entry>
 
     
