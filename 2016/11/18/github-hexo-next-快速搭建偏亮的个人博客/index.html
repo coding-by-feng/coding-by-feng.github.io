@@ -87,7 +87,9 @@
 <meta name="description" content="本教程针对windows用户，苦逼实习生用不起mac
 
 环境搭建安装git for windows《下载安装入口》关于github与本地git客户端的关联这里不做阐述，百度一大把。
-安装node.js《node.js下载安装入口》官网下载速度可能会很慢，安装完毕之后可以再cmd窗口测试一下是否安装成功。键入以下命令，你会看到对应的版本号node -v除此之外还要检测一下npm是否安装成功，npm">
+安装node.js《node.js下载安装入口》官网下载速度可能会很慢，安装完毕之后可以再cmd窗口测试一下是否安装成功。键入以下命令，你会看到对应的版本号。
+$ node -v
+除此之外还要检测一下npm是否安装成">
 <meta property="og:type" content="article">
 <meta property="og:title" content="github+hexo+next 快速搭建漂亮的个人博客">
 <meta property="og:url" content="http://yoursite.com/2016/11/18/github-hexo-next-快速搭建偏亮的个人博客/index.html">
@@ -95,14 +97,18 @@
 <meta property="og:description" content="本教程针对windows用户，苦逼实习生用不起mac
 
 环境搭建安装git for windows《下载安装入口》关于github与本地git客户端的关联这里不做阐述，百度一大把。
-安装node.js《node.js下载安装入口》官网下载速度可能会很慢，安装完毕之后可以再cmd窗口测试一下是否安装成功。键入以下命令，你会看到对应的版本号node -v除此之外还要检测一下npm是否安装成功，npm">
-<meta property="og:updated_time" content="2016-11-18T08:29:12.531Z">
+安装node.js《node.js下载安装入口》官网下载速度可能会很慢，安装完毕之后可以再cmd窗口测试一下是否安装成功。键入以下命令，你会看到对应的版本号。
+$ node -v
+除此之外还要检测一下npm是否安装成">
+<meta property="og:updated_time" content="2016-11-19T11:39:23.666Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github+hexo+next 快速搭建漂亮的个人博客">
 <meta name="twitter:description" content="本教程针对windows用户，苦逼实习生用不起mac
 
 环境搭建安装git for windows《下载安装入口》关于github与本地git客户端的关联这里不做阐述，百度一大把。
-安装node.js《node.js下载安装入口》官网下载速度可能会很慢，安装完毕之后可以再cmd窗口测试一下是否安装成功。键入以下命令，你会看到对应的版本号node -v除此之外还要检测一下npm是否安装成功，npm">
+安装node.js《node.js下载安装入口》官网下载速度可能会很慢，安装完毕之后可以再cmd窗口测试一下是否安装成功。键入以下命令，你会看到对应的版本号。
+$ node -v
+除此之外还要检测一下npm是否安装成">
 
 
 
@@ -402,13 +408,36 @@
 <p>本教程针对windows用户，苦逼实习生用不起mac</p>
 </blockquote>
 <h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><h3 id="安装git-for-windows"><a href="#安装git-for-windows" class="headerlink" title="安装git for windows"></a>安装git for windows</h3><p><a href="https://git-for-windows.github.io/" target="_blank" rel="external">《下载安装入口》</a><br>关于github与本地git客户端的关联这里不做阐述，百度一大把。</p>
-<h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><p><a href="https://nodejs.org/en/download/" target="_blank" rel="external">《node.js下载安装入口》</a><br>官网下载速度可能会很慢，安装完毕之后可以再cmd窗口测试一下是否安装成功。<br>键入以下命令，你会看到对应的版本号<br><code>node -v</code><br>除此之外还要检测一下npm是否安装成功，npm作为node.js的子项目也被安装进去了，后面安装hexo需要依赖于npm，用下面命令测试，成功依然会返回版本号<br><code>npm -v</code></p>
-<h4 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h4><p>在你想要安装hexo的目录里面右键Git Bash Here，然后键入以下命令<br><code>$ npm install -g hexo-cli</code><br>详情可以参照<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">《hexo 中文文档入口》</a></p>
-<h4 id="下载next主题"><a href="#下载next主题" class="headerlink" title="下载next主题"></a>下载next主题</h4><p>首先在你git bash窗口定位到安装hexo的根目录<br><code>$ cd your-hexo-site</code><br><code>$ git clone https://github.com/iissnan/hexo-theme-next themes/next</code><br>详情请参照<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">《hexo next主题中文配置教程入口》</a></p>
-<h4 id="hexo-next配置"><a href="#hexo-next配置" class="headerlink" title="hexo next配置"></a>hexo next配置</h4><p>打开git bash，定位到你的hexo安装目录，执行<br><code>$ hexo init</code><br>关于hexo的命令参照<a href="https://hexo.io/zh-cn/docs/commands.html" target="_blank" rel="external">《hexo 命令文档》</a><br>关于next第三方服务配置参照<a href="http://theme-next.iissnan.com/third-party-services.html" target="_blank" rel="external">《next第三方服务配置》</a></p>
-<h1 id="编写博文"><a href="#编写博文" class="headerlink" title="编写博文"></a>编写博文</h1><blockquote>
-<p>hexo 支持使用markdown</p>
+<h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><p><a href="https://nodejs.org/en/download/" target="_blank" rel="external">《node.js下载安装入口》</a><br>官网下载速度可能会很慢，安装完毕之后可以再cmd窗口测试一下是否安装成功。<br>键入以下命令，你会看到对应的版本号。</p>
+<pre><code>$ node -v
+</code></pre><p>除此之外还要检测一下npm是否安装成功，npm作为node.js的子项目也被安装进去了，后面安装hexo需要依赖于npm，用下面命令测试，成功依然会返回版本号。</p>
+<pre><code>$ npm -v
+</code></pre><h4 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h4><p>在你想要安装hexo的目录里面右键Git Bash Here，然后键入以下命令。</p>
+<pre><code>$ npm install -g hexo-cli
+</code></pre><p>详情可以参照<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">《hexo 中文文档入口》</a></p>
+<h4 id="下载next主题"><a href="#下载next主题" class="headerlink" title="下载next主题"></a>下载next主题</h4><p>首先在你git bash窗口定位到安装hexo的根目录。</p>
+<pre><code>$ cd your-hexo-site    
+$ git clone https://github.com/iissnan/hexo-theme-next themes/next
+</code></pre><p>详情请参照<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">《hexo next主题中文配置教程入口》</a></p>
+<h4 id="hexo-next配置"><a href="#hexo-next配置" class="headerlink" title="hexo next配置"></a>hexo next配置</h4><p>打开git bash，定位到你的hexo安装目录，执行</p>
+<pre><code>$ hexo init
+</code></pre><p>关于hexo的命令参照<a href="https://hexo.io/zh-cn/docs/commands.html" target="_blank" rel="external">《hexo 命令文档》</a><br>关于next第三方服务配置参照<a href="http://theme-next.iissnan.com/third-party-services.html" target="_blank" rel="external">《next第三方服务配置》</a></p>
+<h1 id="编写博文"><a href="#编写博文" class="headerlink" title="编写博文"></a>编写博文</h1><p>hexo 支持使用常用的markdown语法，关于markdown的语法可以参照<a href="http://www.jianshu.com/p/075d7cac8fef" target="_blank" rel="external">《markdown新手教程》</a></p>
+<blockquote>
+<p>特别要注意的地方是，关于代码块网上很多都说得模棱两可，要实现上面代码高亮的代码块只要在代码上面空一行，前面键入大空格Tab开头就可以了，详细的markdown语法这里就不一一列出。</p>
 </blockquote>
+<p>博文的md文件写完之后保存，切回git bash窗口，重新生成静态文件</p>
+<pre><code>$ hexo g
+INFO  Start processing
+INFO  Files loaded in 1.93 s
+INFO  Generated: search.xml
+INFO  Generated: 2016/11/18/github-hexo-next-快速搭建偏亮的个人博客/index.html
+INFO  2 files generated in 874 ms
+</code></pre><p>静态文件生成之后可以先部署到本地预览一下</p>
+<pre><code>$ hexo s
+INFO  Start processing
+INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
+</code></pre><p>效果满意的话就可以执行一下命令发布到github远程仓库，然后访问your_username.github.io。<br>ok，博客搭建完毕！</p>
 
       
     </div>
@@ -441,6 +470,22 @@
         </div>
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/19/尴尬的周五/" rel="prev" title="尴尬的周五">
+                尴尬的周五 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -509,7 +554,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -517,7 +562,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -526,7 +571,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

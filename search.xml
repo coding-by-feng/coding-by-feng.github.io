@@ -3,9 +3,16 @@
   
     
     <entry>
+      <title><![CDATA[尴尬的周五]]></title>
+      <url>%2F2016%2F11%2F19%2F%E5%B0%B4%E5%B0%AC%E7%9A%84%E5%91%A8%E4%BA%94%2F</url>
+      <content type="text"><![CDATA[在公司已经实习了快四个月了，感觉学到的东西真的不多，被分配到的任务量略少，这周几乎没有新任务，索性我就瞎折腾了这个博客，周五的每周工作报告感觉没什么可以写，于是我将搭建博客的过程写了进去，并写下“本周空余时间比较多”的字典，公司规定每个实习生由mentor带6个月，工作报告在发给经理的同时要抄送给导师，结果导师看了我这周的工作总结，QQ上回了我一段文字，差点吓尿我。 大概意思就是我没有侧重报告总结的重点，搭建这个博客和工作内容瓜葛不大，而且我总结中“本周空余时间比较多”的字眼会给导师带来麻烦，领导会误以为导师没有给实习生安排好工作和时间。 我立马回复了两个好的好的，加上个流汗的表情，本以为本周干了什么，报告就如实写什么，看来我too young，too simple. 越来越向往米国，最近打算开始认真学英语了，用金山词霸感觉比有道词典好多了，喜欢它的双语悦读。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[github+hexo+next 快速搭建漂亮的个人博客]]></title>
       <url>%2F2016%2F11%2F18%2Fgithub-hexo-next-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%81%8F%E4%BA%AE%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%2F</url>
-      <content type="text"><![CDATA[本教程针对windows用户，苦逼实习生用不起mac 环境搭建安装git for windows《下载安装入口》关于github与本地git客户端的关联这里不做阐述，百度一大把。 安装node.js《node.js下载安装入口》官网下载速度可能会很慢，安装完毕之后可以再cmd窗口测试一下是否安装成功。键入以下命令，你会看到对应的版本号node -v除此之外还要检测一下npm是否安装成功，npm作为node.js的子项目也被安装进去了，后面安装hexo需要依赖于npm，用下面命令测试，成功依然会返回版本号npm -v 安装hexo在你想要安装hexo的目录里面右键Git Bash Here，然后键入以下命令$ npm install -g hexo-cli详情可以参照《hexo 中文文档入口》 下载next主题首先在你git bash窗口定位到安装hexo的根目录$ cd your-hexo-site$ git clone https://github.com/iissnan/hexo-theme-next themes/next详情请参照《hexo next主题中文配置教程入口》 hexo next配置打开git bash，定位到你的hexo安装目录，执行$ hexo init关于hexo的命令参照《hexo 命令文档》关于next第三方服务配置参照《next第三方服务配置》 编写博文 hexo 支持使用markdown]]></content>
+      <content type="text"><![CDATA[本教程针对windows用户，苦逼实习生用不起mac 环境搭建安装git for windows《下载安装入口》关于github与本地git客户端的关联这里不做阐述，百度一大把。 安装node.js《node.js下载安装入口》官网下载速度可能会很慢，安装完毕之后可以再cmd窗口测试一下是否安装成功。键入以下命令，你会看到对应的版本号。 $ node -v 除此之外还要检测一下npm是否安装成功，npm作为node.js的子项目也被安装进去了，后面安装hexo需要依赖于npm，用下面命令测试，成功依然会返回版本号。 $ npm -v 安装hexo在你想要安装hexo的目录里面右键Git Bash Here，然后键入以下命令。 $ npm install -g hexo-cli 详情可以参照《hexo 中文文档入口》 下载next主题首先在你git bash窗口定位到安装hexo的根目录。 $ cd your-hexo-site $ git clone https://github.com/iissnan/hexo-theme-next themes/next 详情请参照《hexo next主题中文配置教程入口》 hexo next配置打开git bash，定位到你的hexo安装目录，执行 $ hexo init 关于hexo的命令参照《hexo 命令文档》关于next第三方服务配置参照《next第三方服务配置》 编写博文hexo 支持使用常用的markdown语法，关于markdown的语法可以参照《markdown新手教程》 特别要注意的地方是，关于代码块网上很多都说得模棱两可，要实现上面代码高亮的代码块只要在代码上面空一行，前面键入大空格Tab开头就可以了，详细的markdown语法这里就不一一列出。 博文的md文件写完之后保存，切回git bash窗口，重新生成静态文件 $ hexo g INFO Start processing INFO Files loaded in 1.93 s INFO Generated: search.xml INFO Generated: 2016/11/18/github-hexo-next-快速搭建偏亮的个人博客/index.html INFO 2 files generated in 874 ms 静态文件生成之后可以先部署到本地预览一下 $ hexo s INFO Start processing INFO Hexo is running at http://localhost:4000/. Press Ctrl+C to stop. 效果满意的话就可以执行一下命令发布到github远程仓库，然后访问your_username.github.io。ok，博客搭建完毕！]]></content>
     </entry>
 
     
