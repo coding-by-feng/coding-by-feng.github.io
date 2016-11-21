@@ -3,6 +3,20 @@
   
     
     <entry>
+      <title><![CDATA[超详细Maven总结]]></title>
+      <url>%2F2016%2F11%2F21%2F%E8%B6%85%E8%AF%A6%E7%BB%86Maven%E6%80%BB%E7%BB%93%2F</url>
+      <content type="text"><![CDATA[一直以来对于maven只是基本会用，配置文件只认得几个常用到的标签，今晚月黑风高，甚是寂寥，不凡总结一下maven。 什么是maven，为什么需要maven。在没有maven的时代，程序员往往需要花较多的精力在引用Jar包搭建项目环境上，而这一项工作尤为艰难，少一个Jar包、多一个Jar包往往会报一些让人摸不着头脑的异常，于是maven应运而生。而Maven就是一款帮助程序员构建项目的工具，我们只需要告诉Maven需要哪些Jar 包，它会帮助我们下载所有的Jar，极大提升开发效率。 maven的安装《eclipse Maven插件安装》myeclipse有自带maven插件。 maven的基本命令使用IDE和maven的话基本用不到命令，有兴趣自行百度。 maven的一些基本概念仓库maven的仓库分为本地仓库和远程仓库，都可以通过setting.xml配置。当项目编译时，Maven首先从本地仓库中寻找项目所需的Jar包，若本地仓库没有，再到Maven的中央仓库下载所需Jar包。 坐标在Maven中，坐标是Jar包的唯一标识，Maven通过坐标在仓库中找到项目所需的Jar包。如下代码中，groupId和artifactId构成了一个Jar包的坐标。 &lt;dependency&gt; &lt;groupId&gt;org.feng.blog&lt;/groupId&gt; &lt;artifactId&gt;maven-test&lt;/artifactId&gt; &lt;version&gt;1.1.1&lt;/version&gt; &lt;/dependency&gt; groupId:所需Jar包的项目名 artifactId:所需Jar包的模块名 version:所需Jar包的版本号传递依赖 &amp;&amp; 排除依赖 传递依赖：如果我们的项目引用了一个Jar包，而该Jar包又引用了其他Jar包，那么在默认情况下项目编译时，Maven会把直接引用和间接引用的Jar包都下载到本地。 排除依赖：如果我们只想下载直接引用的Jar包，那么需要在pom.xml中做如下配置：(将需要排除的Jar包的坐标写在中) ch.qos.logback logback-classic 关于排除依赖如果不理解可以参照下面的博客&gt;&gt;&gt;http://www.cnblogs.com/victorma/p/mavenconflict.html 短路优先若存在下面这种依赖情况，优先选择”短路“的依赖关系。 本项目——&gt;A.jar——&gt;B.jar——&gt;X.jar本项目——&gt;C.jar——&gt;X.jar 聚合关于maven的聚合，推荐以下博文。一个多maven项目聚合的实例Maven工程聚合,多个Java工程、web工程聚合后者讲得比较详细。 继承]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[ear、ejb、war、jar的使用与区别]]></title>
+      <url>%2F2016%2F11%2F21%2Fear%E3%80%81ejb%E3%80%81war%E3%80%81jar%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8E%E5%8C%BA%E5%88%AB%2F</url>
+      <content type="text"></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[hexo在github搭建的博客绑定阿里云域名解析到github.io]]></title>
       <url>%2F2016%2F11%2F20%2Fhexo%E5%9C%A8github%E6%90%AD%E5%BB%BA%E7%9A%84%E5%8D%9A%E5%AE%A2%E7%BB%91%E5%AE%9A%E9%98%BF%E9%87%8C%E4%BA%91%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E5%88%B0github-io%2F</url>
       <content type="text"><![CDATA[阿里云之前充了点钱，用到现在刚好剩下二十多块，索性把域名fengblog.cn给续费了，正好解析到我的博客过来，于是我兴致勃勃，直到我膝盖中了一箭。。。莫慌，跟着下面的流程走轻松搞定，首先在CMD窗口键入命令。你会看到github.io的ip地址，在域名控制台新建以下的A记录解析。然后在你的github对应的博客仓库中点击下面选项找到Custom domain配置,将你的域名填进去，save之后再访问你的域名就大功告成了，可能存在解析延迟。]]></content>
