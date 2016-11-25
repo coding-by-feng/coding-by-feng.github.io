@@ -95,7 +95,7 @@
 
 什么是maven，为什么需要maven。在没有maven的时代，程序员往往需要花较多的精力在引用Jar包搭建项目环境上，而这一项工作尤为艰难，少一个Jar包、多一个Jar包往往会报一些让人摸不着头脑的异常，于是maven应运而生。而Maven就是一款帮助程序员构建项目的工具，我">
 <meta property="og:image" content="http://yoursite.com/images/post/img7.png">
-<meta property="og:updated_time" content="2016-11-22T09:36:39.800Z">
+<meta property="og:updated_time" content="2016-11-22T12:53:19.506Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="超详细Maven总结">
 <meta name="twitter:description" content="一直以来对于maven只是基本会用，配置文件只认得几个常用到的标签，今晚月黑风高，甚是寂寥，不凡总结一下maven。
@@ -402,7 +402,7 @@
 </blockquote>
 <h2 id="什么是maven，为什么需要maven。"><a href="#什么是maven，为什么需要maven。" class="headerlink" title="什么是maven，为什么需要maven。"></a>什么是maven，为什么需要maven。</h2><p>在没有maven的时代，程序员往往需要花较多的精力在引用Jar包搭建项目环境上，而这一项工作尤为艰难，少一个Jar包、多一个Jar包往往会报一些让人摸不着头脑的异常，于是maven应运而生。<br>而Maven就是一款帮助程序员构建项目的工具，我们只需要告诉Maven需要哪些Jar 包，它会帮助我们下载所有的Jar，极大提升开发效率。</p>
 <h2 id="maven的安装"><a href="#maven的安装" class="headerlink" title="maven的安装"></a>maven的安装</h2><p><a href="http://dead-knight.iteye.com/blog/1841658" target="_blank" rel="external">《eclipse Maven插件安装》</a><br>myeclipse有自带maven插件。</p>
-<h2 id="maven的基本命令"><a href="#maven的基本命令" class="headerlink" title="maven的基本命令"></a>maven的基本命令</h2><p>使用IDE和maven的话基本用不到命令，有兴趣自行百度。</p>
+<h2 id="maven的基本命令"><a href="#maven的基本命令" class="headerlink" title="maven的基本命令"></a>maven的基本命令</h2><p>常用命令可以参考这篇博客<a href="http://www.cnblogs.com/xdp-gacl/p/4051690.html" target="_blank" rel="external">http://www.cnblogs.com/xdp-gacl/p/4051690.html</a><br>使用IDE和maven的话基本用不到命令，有兴趣自行百度。</p>
 <h2 id="maven的一些基本概念"><a href="#maven的一些基本概念" class="headerlink" title="maven的一些基本概念"></a>maven的一些基本概念</h2><h4 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h4><p>maven的仓库分为本地仓库和远程仓库，都可以通过setting.xml配置。当项目编译时，Maven首先从本地仓库中寻找项目所需的Jar包，若本地仓库没有，再到Maven的中央仓库下载所需Jar包。<br>Maven默认的远程仓库，URL地址：<a href="http://search.maven.org/" target="_blank" rel="external">http://search.maven.org/</a><br>我个人习惯使用<a href="http://mvnrepository.com/" target="_blank" rel="external">http://mvnrepository.com/</a></p>
 <h6 id="私服"><a href="#私服" class="headerlink" title="私服"></a>私服</h6><p>私服：是一种特殊的远程仓库，它是架设在局域网内的仓库<br><img src="/images/post/img7.png" alt=""></p>
 <h4 id="坐标"><a href="#坐标" class="headerlink" title="坐标"></a>坐标</h4><p>在Maven中，坐标是Jar包的唯一标识，Maven通过坐标在仓库中找到项目所需的Jar包。<br>如下代码中，groupId和artifactId构成了一个Jar包的坐标。</p>
@@ -1169,8 +1169,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/21/ear、ejb、war、jar的使用与区别/" rel="next" title="ear、ejb、war、jar的使用与区别">
-                <i class="fa fa-chevron-left"></i> ear、ejb、war、jar的使用与区别
+              <a href="/2016/11/20/hexo在github搭建的博客绑定阿里云域名解析到github-io/" rel="next" title="hexo在github搭建的博客绑定阿里云域名解析到github.io">
+                <i class="fa fa-chevron-left"></i> hexo在github搭建的博客绑定阿里云域名解析到github.io
               </a>
             
           </div>
@@ -1178,6 +1178,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/23/windows环境下mysql提示ERROR-1045-28000-Access-denied-for-user-root-localhost-using-passwor-YES-的解决办法/" rel="prev" title="windows环境下mysql提示ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using passwor: YES)的解决办法">
+                windows环境下mysql提示ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using passwor: YES)的解决办法 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -1249,7 +1253,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1257,7 +1261,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1266,7 +1270,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
