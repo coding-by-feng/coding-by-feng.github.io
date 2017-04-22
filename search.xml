@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[游侵华日军南京大屠杀遇难同胞纪念馆有感]]></title>
+      <url>%2F2017%2F04%2F22%2F%E6%B8%B8%E4%BE%B5%E5%8D%8E%E6%97%A5%E5%86%9B%E5%8D%97%E4%BA%AC%E5%A4%A7%E5%B1%A0%E6%9D%80%E9%81%87%E9%9A%BE%E5%90%8C%E8%83%9E%E7%BA%AA%E5%BF%B5%E9%A6%86%E6%9C%89%E6%84%9F%2F</url>
+      <content type="text"><![CDATA[万人坑虽然早有预感，但是进去了还是有些压抑，几度鼻子稍微有点酸，看来我依然是个多愁善感的人，成具的尸骨，历历在目，不过像我这种6个罗的，不会有多少感触，何况我也算身经百战。 蜡像模拟还原现场这个确实有点震撼到我，老旧年代的韵味，旁边有小孩和陪同他的妈妈在谅解，我在想，若是那个年纪的我来了，可能会怕得紧抓长辈裤腿，就是不知道抓谁的裤腿，反正爸妈是不可能。 屠生佛油画画面实在血腥，在天朝，能够在公众示以如此画面，我想也只有这里了，毕竟残臂断头的，此画是星云大师牵引，台湾的星云大师听说过，竟然是江苏人，让我意外。 空袭里面有个纪录片吸引我站那里看了好久，一个老奶奶讲述当年她被炸断腿，还有被炸死两个儿女，包括手里被炸飞的女儿，含泪的谈话中让我感受到无比的悲凉，和平年代还是要感谢那些年英勇抗战的勇士们。展示空袭的区域头顶还一直播放着飞机轰炸的声音，仿佛身临其境。 吐槽导航图当前位置被扣掉，公共厕所永远没纸，在天朝我已经习惯，只是墙外某些国度我又再次向往了。 抗战胜利最后的抗战胜利纪念墙，我拍了下来，历史途径坎坷，最后胜利，人生应当也是这样，就看我如何步步为营。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[沾ibator的光，sql忘得不能再多了]]></title>
       <url>%2F2017%2F04%2F18%2F%E6%B2%BEibator%E7%9A%84%E5%85%89%EF%BC%8Csql%E5%BF%98%E5%BE%97%E4%B8%8D%E8%83%BD%E5%86%8D%E5%A4%9A%E4%BA%86%2F</url>
       <content type="text"><![CDATA[单行子查询select * from t_mon_task tmt where tmt.bill_id=(select tpt.bill_id from t_pub_task tpt where tpt.task_sn=&apos;anything&apos;); 多行子查询select * from t_mon_task tmt where tmt.bill_id in (select tpt.bill_id from t_pub_task tpt where tpt.task_sn=&apos;anything&apos;); 多列子查询select tmt.deal_desc from t_mon_task tmt where (tmt.bill_id, tmt.task_id) in (select tpt.bill_id,tpt.task_id from t_pub_task tpt where tpt.task_sn=&apos;anything&apos;); sql函数http://blog.csdn.net/jojo52013145/article/details/6998984 未完待续]]></content>
