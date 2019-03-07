@@ -3,16 +3,30 @@
   
     
     <entry>
-      <title><![CDATA[游侵华日军南京大屠杀遇难同胞纪念馆有感]]></title>
-      <url>%2F2017%2F04%2F22%2F%E6%B8%B8%E4%BE%B5%E5%8D%8E%E6%97%A5%E5%86%9B%E5%8D%97%E4%BA%AC%E5%A4%A7%E5%B1%A0%E6%9D%80%E9%81%87%E9%9A%BE%E5%90%8C%E8%83%9E%E7%BA%AA%E5%BF%B5%E9%A6%86%E6%9C%89%E6%84%9F%2F</url>
-      <content type="text"><![CDATA[万人坑虽然早有预感，但是进去了还是有些压抑，看来我依然是个多愁善感的人，成具的尸骨，历历在目，不过像我这种6个罗的，不会有多少感触，何况我也算身经百战。 蜡像模拟还原现场这个确实有点震撼到我，老旧年代的韵味，旁边有小孩和陪同他的妈妈在谅解，我在想，若是那个年纪的我来了，可能会怕得紧抓长辈裤腿，就是不知道抓谁的裤腿，反正爸妈是不可能。 屠生佛油画画面实在血腥，在天朝，能够在公众示以如此画面，我想也只有这里了，毕竟残臂断头的，此画是星云大师牵引，台湾的星云大师听说过，竟然是江苏人，让我意外。 空袭里面有个纪录片吸引我站那里看了好久，一个老奶奶讲述当年她被炸断腿，还有被炸死两个儿女，包括手里被炸飞的女儿，含泪的谈话中让我感受到无比的悲凉，和平年代还是要感谢那些年英勇抗战的勇士们。展示空袭的区域头顶还一直播放着飞机轰炸的声音，仿佛身临其境。 吐槽导航图当前位置被扣掉，公共厕所永远没纸，在天朝我已经习惯，只是墙外某些国度我又再次向往了。 抗战胜利最后的抗战胜利纪念墙，我拍了下来，历史途径坎坷，最后胜利，人生应当也是这样，就看我如何步步为营。]]></content>
+      <title><![CDATA[java过时类的巨坑]]></title>
+      <url>%2F2019%2F02%2F26%2Fjava%E8%BF%87%E6%97%B6%E7%B1%BB%E7%9A%84%E5%B7%A8%E5%9D%91%2F</url>
+      <content type="text"><![CDATA[从eclipse迁移到idea之后在本地跑服务的时候，反射调用方法老旧的代码遇到一个巨坑，抛出异常是wrong number of arguments。 根据网上的方法，将invoke方法的入参中数组转为Object都不行，折腾了半天，发现代码中抛出了一个过时的异常，我突发奇想，将这个过时的异常类去掉，结果run success了，真的是惨痛的教训，过时的类和方法，能不用，千万别用。下面上代码：报错代码：12345678910public static Object invoke(Object obj, String methodName, Object[] params) throws Exception &#123; Method method = methodByName(obj.getClass(), methodName); if (method == null) method = methodByName(obj.getClass().getSuperclass(), methodName); if (method != null) &#123; return method.invoke(obj, params); &#125; else &#123; throw new MethodNotFoundException(methodName); &#125;&#125; 修改后的代码:1234567891011public static Object invoke(Object obj, String methodName, Object[] params) throws InvocationTargetException, IllegalAccessException, BOException &#123; Method method = methodByName(obj.getClass(), methodName); if (method == null) method = methodByName(obj.getClass().getSuperclass(), methodName); if (method != null) &#123; return method.invoke(obj, params); &#125; else &#123; //之前抛出的异常已经过时，在jdk新版本环境会报错，优化了一下。 throw new BOException(&quot;方法&quot;+methodName+&quot;没找到&quot;); &#125;&#125;`]]></content>
     </entry>
 
     
     <entry>
-      <title><![CDATA[IntelliJ IDEA 从入门到放弃]]></title>
-      <url>%2F2017%2F04%2F20%2FIntelliJ%20IDEA%20%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83%2F</url>
-      <content type="text"><![CDATA[常用快捷键]]></content>
+      <title><![CDATA[linux使用命令]]></title>
+      <url>%2F2019%2F02%2F26%2Flinux%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4%2F</url>
+      <content type="text"><![CDATA[自我感觉记性不是很好，本文随便记录一些日常使用到的非常有用的linux常用命令 查找文件or文件夹命令12find /dir -name filename 在/dir目录及其子目录下面查找find . -name filename 在当前目录及其子目录查 ##]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[从eclipse转到idea的艰辛历程]]></title>
+      <url>%2F2019%2F02%2F24%2F%E4%BB%8Eeclipse%E8%BD%AC%E5%88%B0idea%E7%9A%84%E8%89%B0%E8%BE%9B%E5%8E%86%E7%A8%8B%2F</url>
+      <content type="text"><![CDATA[这篇文章会比较乱，因为我不想做太多系列细分，就是单纯地把我从eclipse转到idea的经过写出来而已，公司的项目一直采用的&gt;是eclipse+maven+jboss的环境开发的，版本控制通过svn控制，这年代还用svn做控制确实有点更不上时代了，转的过程有点麻烦，但是最终我还是顺利用上idea，只是目前还不太习惯。想入坑idea很早之前就有这个想法了，eclipse我们公司一直都在用很古老的一个版本，隐藏的bug且不说，时不时的卡顿就够影响效率的了。 idea的subversion巨坑转idea遇到第一个大难题就是svn版本控制的转换，我司采用svn+ssh协议，还是秘钥文件+密码验证的。以前使用的一直是入职就分给我的一个ssh的秘钥文件eclipse专用的，还附带了一个ppk后缀的秘钥文件，但是ppk那个一直没有派上用途。idea的svn用户认证可能存在bug，我和在elipse上做了类似的svn地址和用户+秘钥文件的配置之后一直无法脸上代码仓库，一直无限弹出让我输入密码。搞得我一度想放弃。后来在查了下，ssh+svn协议原则上是先通过ssh登录svn服务端的机器，等于先打通一条数据流通的渠道，然后svn的交互依赖于这条ssh的通道上面。一直依赖我都是直接在eclipse做svn的操作，没有考虑太多，于是我好奇用我的svn账号密码+ppk秘钥文件去登录svn指向ip的服务器，果然成功了，既然能不能登上去，说明idea只是没有正确通过ssh登录到svn服务器上而已，通过搜索我才知道，原来的ppk文件是putty的专用格式秘钥文件，而openssh一般采用pem，于是刻不容缓，我又查了下ppk转pem的方法，然后顺利转换到pem文件，在idea的preferences-&gt;Version Control-&gt;Subversion-&gt;SSH上面的Private key指向到新的pem秘钥文件，then connect svn server success，注意其他关于svn的设置先还原，保持默认即可。 不复存在的workspace使用eclipse的开发者转到idea最不习惯的地方之一就是idea没有eclipse对应的workspace，我们公司是采用maven来控制jar依赖的,通过maven实现多个子工程（project-anything）继承一个父工程(project-parent)，父工程的依赖jar可以被子工程共用。我直接粗暴得将所有模块的根目录直接check out到新的目录（idea-all-project），然后选择idea的import project，因为eclipse不存在workspace的概念，所以我直接import idea-all-project这个跟目录，因为根目录也有一个pom.xml指向了project-parent，project-parent会因为子模块继承了它，它回去自动匹配到所哟偶子模块，只要在引入的时候勾选了项目是由maven做jar管控。其实，很多时候如果存在子模块，或者其他模块不在所引入的目录之下可以通过project structure里面的modules去增减想要的模块。从这种角度上来讲，其实任何一个目录都是一个workspace，也可以说任何一个module都是workspace。 maven管控的企业级j2ee应用架构我们的整个应用架构可以这样分级。架构类似采用金字塔三角形管控。工程application-all的pom.xml中引入apache的maven-ear-plugin插件，这个EAR插件主要用于生成Java EE Enterprise Archive (EAR)文件，即将各种组件打包到一起生成一个ear文件。此外，EAR插件也用于生成EAR的部署描述符文件application.xml。application-all通过maven-ear-plugin指向了子模块console-web-all，console-web-all采用了maven-war-plugin插件,maven-war-plugin顾名思义，是将底下所有依赖的资源打包成一个war包，war被ear包含。 在idea中将ear部署到jboss中一直依赖我都以为，jboss是启动的时候自动加载他对应的部署目录下面的应用，使用了idea之后，才发现，idea中maven项目是默认将资源部署到maven目录架构对应的target中的。。idea会去先启动jboss，jboss只有启动成功之后，才通过它的EARDeployer，传给部署器一个资源目录，然后jboss加载部署资源还是部署。部署ear到jboss的时候有一点要特别注意的。由于我们项目采用ear管控war，所以需要一些额外的配置操作，开发过程中建议部署Artifacts中的exploded，exploded是被分解的意思，翻译成中文我也不知道叫什么合适，总之开发模式采用这个比较好。我还在Project Structure的Artifacts对ear exploded的资源输出目录手动加了个ear后缀，不加应该也没关系，还是我又强迫症，然后在war exploded的资源输出目录手动加了war后缀，还有对资源输出做了一些配置调整，最后成功部署到jboss。 不习惯的subservion操作模式用惯eclipse的svn插件就知道，eclipse的资源同步功能非常实用，然后idea乍眼一看貌似是没有这个类似的功能的，这让我很抓狂，后来通过摸索找到了可以基本代替之的办法。idea底部有个Version Control栏，其tool bar上有个Local Changes，打开这个刷新，可以看到本地改了那些代码，Local Changes旁边的Incoming可以看到别人新提交我没有更新下来的代码，Repository可以看到所有人的操作记录，还可以在Local Changes左边的tool bar对一些文件做一些辅助性的操作，比如搁置，忽略版本控制，还原等操作，实用性可以说五五开吧，虽然还是很不习惯。其他的基本操作基本会无师自通的。 强大无比的各种快捷键]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[游侵华日军南京大屠杀遇难同胞纪念馆有感]]></title>
+      <url>%2F2017%2F04%2F22%2F%E6%B8%B8%E4%BE%B5%E5%8D%8E%E6%97%A5%E5%86%9B%E5%8D%97%E4%BA%AC%E5%A4%A7%E5%B1%A0%E6%9D%80%E9%81%87%E9%9A%BE%E5%90%8C%E8%83%9E%E7%BA%AA%E5%BF%B5%E9%A6%86%E6%9C%89%E6%84%9F%2F</url>
+      <content type="text"><![CDATA[万人坑虽然早有预感，但是进去了还是有些压抑，看来我依然是个多愁善感的人，成具的尸骨，历历在目，不过像我这种6个罗的，不会有多少感触，何况我也算身经百战。 蜡像模拟还原现场这个确实有点震撼到我，老旧年代的韵味，旁边有小孩和陪同他的妈妈在谅解，我在想，若是那个年纪的我来了，可能会怕得紧抓长辈裤腿，就是不知道抓谁的裤腿，反正爸妈是不可能。 屠生佛油画画面实在血腥，在天朝，能够在公众示以如此画面，我想也只有这里了，毕竟残臂断头的，此画是星云大师牵引，台湾的星云大师听说过，竟然是江苏人，让我意外。 空袭里面有个纪录片吸引我站那里看了好久，一个老奶奶讲述当年她被炸断腿，还有被炸死两个儿女，包括手里被炸飞的女儿，含泪的谈话中让我感受到无比的悲凉，和平年代还是要感谢那些年英勇抗战的勇士们。展示空袭的区域头顶还一直播放着飞机轰炸的声音，仿佛身临其境。 吐槽导航图当前位置被扣掉，公共厕所永远没纸，在天朝我已经习惯，只是墙外某些国度我又再次向往了。 抗战胜利最后的抗战胜利纪念墙，我拍了下来，历史途径坎坷，最后胜利，人生应当也是这样，就看我如何步步为营。]]></content>
     </entry>
 
     
@@ -97,13 +111,6 @@
       <title><![CDATA[github+hexo+next 快速搭建漂亮的个人博客]]></title>
       <url>%2F2016%2F11%2F18%2Fgithub-hexo-next-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%81%8F%E4%BA%AE%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%2F</url>
       <content type="text"><![CDATA[本教程针对windows用户，苦逼实习生用不起mac 环境搭建安装git for windows《下载安装入口》关于github与本地git客户端的关联这里不做阐述，百度一大把。 安装node.js《node.js下载安装入口》官网下载速度可能会很慢，安装完毕之后可以再cmd窗口测试一下是否安装成功。键入以下命令，你会看到对应的版本号。 $ node -v 除此之外还要检测一下npm是否安装成功，npm作为node.js的子项目也被安装进去了，后面安装hexo需要依赖于npm，用下面命令测试，成功依然会返回版本号。 $ npm -v 安装hexo在你想要安装hexo的目录里面右键Git Bash Here，然后键入以下命令。 $ npm install -g hexo-cli 详情可以参照《hexo 中文文档入口》 下载next主题首先在你git bash窗口定位到安装hexo的根目录。 $ cd your-hexo-site $ git clone https://github.com/iissnan/hexo-theme-next themes/next 详情请参照《hexo next主题中文配置教程入口》 hexo next配置打开git bash，定位到你的hexo安装目录，执行 $ hexo init 关于hexo的命令参照《hexo 命令文档》关于next第三方服务配置参照《next第三方服务配置》 编写博文hexo 支持使用常用的markdown语法，关于markdown的语法可以参照《markdown新手教程》 特别要注意的地方是，关于代码块网上很多都说得模棱两可，要实现上面代码高亮的代码块只要在代码上面空一行，前面键入大空格Tab开头就可以了，详细的markdown语法这里就不一一列出。 博文的md文件写完之后保存，切回git bash窗口，重新生成静态文件 $ hexo g INFO Start processing INFO Files loaded in 1.93 s INFO Generated: search.xml INFO Generated: 2016/11/18/github-hexo-next-快速搭建偏亮的个人博客/index.html INFO 2 files generated in 874 ms 静态文件生成之后可以先部署到本地预览一下 $ hexo s INFO Start processing INFO Hexo is running at http://localhost:4000/. Press Ctrl+C to stop. 效果满意的话就可以执行一下命令发布到github远程仓库，然后访问your_username.github.io。ok，博客搭建完毕！]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[IntelliJ IDEA 从入门到放弃]]></title>
-      <url>%2F2016%2F04%2F20%2FIntelliJ%20IDEA%20%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83%2F</url>
-      <content type="text"><![CDATA[快捷键Ctrl+Shift+F12 最大化窗口Ctrl+B 定位到方法或者类的定义处]]></content>
     </entry>
 
     

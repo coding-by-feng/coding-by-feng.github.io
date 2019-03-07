@@ -6,15 +6,15 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -63,44 +63,40 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="maven," />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
+  <meta name="keywords" content="maven,">
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
 
 
 
 
 
 
-<meta name="description" content="一直以来对于maven只是基本会用，配置文件只认得几个常用到的标签，今晚月黑风高，甚是寂寥，不凡总结一下maven。
-
-什么是maven，为什么需要maven。在没有maven的时代，程序员往往需要花较多的精力在引用Jar包搭建项目环境上，而这一项工作尤为艰难，少一个Jar包、多一个Jar包往往会报一些让人摸不着头脑的异常，于是maven应运而生。而Maven就是一款帮助程序员构建项目的工具，我">
+<meta name="description" content="一直以来对于maven只是基本会用，配置文件只认得几个常用到的标签，今晚月黑风高，甚是寂寥，不凡总结一下maven。  什么是maven，为什么需要maven。在没有maven的时代，程序员往往需要花较多的精力在引用Jar包搭建项目环境上，而这一项工作尤为艰难，少一个Jar包、多一个Jar包往往会报一些让人摸不着头脑的异常，于是maven应运而生。而Maven就是一款帮助程序员构建项目的工具，我">
+<meta name="keywords" content="maven">
 <meta property="og:type" content="article">
 <meta property="og:title" content="超详细Maven总结">
 <meta property="og:url" content="http://yoursite.com/2016/11/21/超详细Maven总结/index.html">
-<meta property="og:site_name" content="Feng's Blog">
-<meta property="og:description" content="一直以来对于maven只是基本会用，配置文件只认得几个常用到的标签，今晚月黑风高，甚是寂寥，不凡总结一下maven。
-
-什么是maven，为什么需要maven。在没有maven的时代，程序员往往需要花较多的精力在引用Jar包搭建项目环境上，而这一项工作尤为艰难，少一个Jar包、多一个Jar包往往会报一些让人摸不着头脑的异常，于是maven应运而生。而Maven就是一款帮助程序员构建项目的工具，我">
+<meta property="og:site_name" content="Feng&#39;s Blog">
+<meta property="og:description" content="一直以来对于maven只是基本会用，配置文件只认得几个常用到的标签，今晚月黑风高，甚是寂寥，不凡总结一下maven。  什么是maven，为什么需要maven。在没有maven的时代，程序员往往需要花较多的精力在引用Jar包搭建项目环境上，而这一项工作尤为艰难，少一个Jar包、多一个Jar包往往会报一些让人摸不着头脑的异常，于是maven应运而生。而Maven就是一款帮助程序员构建项目的工具，我">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/post/img7.png">
 <meta property="og:updated_time" content="2016-11-22T12:53:19.506Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="超详细Maven总结">
-<meta name="twitter:description" content="一直以来对于maven只是基本会用，配置文件只认得几个常用到的标签，今晚月黑风高，甚是寂寥，不凡总结一下maven。
-
-什么是maven，为什么需要maven。在没有maven的时代，程序员往往需要花较多的精力在引用Jar包搭建项目环境上，而这一项工作尤为艰难，少一个Jar包、多一个Jar包往往会报一些让人摸不着头脑的异常，于是maven应运而生。而Maven就是一款帮助程序员构建项目的工具，我">
+<meta name="twitter:description" content="一直以来对于maven只是基本会用，配置文件只认得几个常用到的标签，今晚月黑风高，甚是寂寥，不凡总结一下maven。  什么是maven，为什么需要maven。在没有maven的时代，程序员往往需要花较多的精力在引用Jar包搭建项目环境上，而这一项工作尤为艰难，少一个Jar包、多一个Jar包往往会报一些让人摸不着头脑的异常，于是maven应运而生。而Maven就是一款帮助程序员构建项目的工具，我">
 <meta name="twitter:image" content="http://yoursite.com/images/post/img7.png">
 
 
@@ -129,7 +125,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/21/超详细Maven总结/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/21/超详细Maven总结/">
 
 
 
@@ -174,7 +170,7 @@
   
 
   <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">Feng's Blog</span>
       <span class="logo-line-after"><i></i></span>
@@ -201,7 +197,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -211,7 +207,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -221,7 +217,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
           </a>
@@ -231,7 +227,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -241,7 +237,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -254,7 +250,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索
           </a>
@@ -303,14 +299,14 @@
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="James Feng">
-    <meta itemprop="description" content="">
+    <meta itemprop="description" content>
     <meta itemprop="image" content="/images/avatar.jpg">
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="Feng's Blog">
     <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Feng's Blog" src="">
+      <img style="display:none;" itemprop="url image" alt="Feng's Blog" src>
     </span>
   </span>
 
@@ -347,7 +343,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -401,10 +397,10 @@
 <p>一直以来对于maven只是基本会用，配置文件只认得几个常用到的标签，今晚月黑风高，甚是寂寥，不凡总结一下maven。</p>
 </blockquote>
 <h2 id="什么是maven，为什么需要maven。"><a href="#什么是maven，为什么需要maven。" class="headerlink" title="什么是maven，为什么需要maven。"></a>什么是maven，为什么需要maven。</h2><p>在没有maven的时代，程序员往往需要花较多的精力在引用Jar包搭建项目环境上，而这一项工作尤为艰难，少一个Jar包、多一个Jar包往往会报一些让人摸不着头脑的异常，于是maven应运而生。<br>而Maven就是一款帮助程序员构建项目的工具，我们只需要告诉Maven需要哪些Jar 包，它会帮助我们下载所有的Jar，极大提升开发效率。</p>
-<h2 id="maven的安装"><a href="#maven的安装" class="headerlink" title="maven的安装"></a>maven的安装</h2><p><a href="http://dead-knight.iteye.com/blog/1841658" target="_blank" rel="external">《eclipse Maven插件安装》</a><br>myeclipse有自带maven插件。</p>
-<h2 id="maven的基本命令"><a href="#maven的基本命令" class="headerlink" title="maven的基本命令"></a>maven的基本命令</h2><p>常用命令可以参考这篇博客<a href="http://www.cnblogs.com/xdp-gacl/p/4051690.html" target="_blank" rel="external">http://www.cnblogs.com/xdp-gacl/p/4051690.html</a><br>使用IDE和maven的话基本用不到命令，有兴趣自行百度。</p>
-<h2 id="maven的一些基本概念"><a href="#maven的一些基本概念" class="headerlink" title="maven的一些基本概念"></a>maven的一些基本概念</h2><h4 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h4><p>maven的仓库分为本地仓库和远程仓库，都可以通过setting.xml配置。当项目编译时，Maven首先从本地仓库中寻找项目所需的Jar包，若本地仓库没有，再到Maven的中央仓库下载所需Jar包。<br>Maven默认的远程仓库，URL地址：<a href="http://search.maven.org/" target="_blank" rel="external">http://search.maven.org/</a><br>我个人习惯使用<a href="http://mvnrepository.com/" target="_blank" rel="external">http://mvnrepository.com/</a></p>
-<h6 id="私服"><a href="#私服" class="headerlink" title="私服"></a>私服</h6><p>私服：是一种特殊的远程仓库，它是架设在局域网内的仓库<br><img src="/images/post/img7.png" alt=""></p>
+<h2 id="maven的安装"><a href="#maven的安装" class="headerlink" title="maven的安装"></a>maven的安装</h2><p><a href="http://dead-knight.iteye.com/blog/1841658" target="_blank" rel="noopener">《eclipse Maven插件安装》</a><br>myeclipse有自带maven插件。</p>
+<h2 id="maven的基本命令"><a href="#maven的基本命令" class="headerlink" title="maven的基本命令"></a>maven的基本命令</h2><p>常用命令可以参考这篇博客<a href="http://www.cnblogs.com/xdp-gacl/p/4051690.html" target="_blank" rel="noopener">http://www.cnblogs.com/xdp-gacl/p/4051690.html</a><br>使用IDE和maven的话基本用不到命令，有兴趣自行百度。</p>
+<h2 id="maven的一些基本概念"><a href="#maven的一些基本概念" class="headerlink" title="maven的一些基本概念"></a>maven的一些基本概念</h2><h4 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h4><p>maven的仓库分为本地仓库和远程仓库，都可以通过setting.xml配置。当项目编译时，Maven首先从本地仓库中寻找项目所需的Jar包，若本地仓库没有，再到Maven的中央仓库下载所需Jar包。<br>Maven默认的远程仓库，URL地址：<a href="http://search.maven.org/" target="_blank" rel="noopener">http://search.maven.org/</a><br>我个人习惯使用<a href="http://mvnrepository.com/" target="_blank" rel="noopener">http://mvnrepository.com/</a></p>
+<h6 id="私服"><a href="#私服" class="headerlink" title="私服"></a>私服</h6><p>私服：是一种特殊的远程仓库，它是架设在局域网内的仓库<br><img src="/images/post/img7.png" alt></p>
 <h4 id="坐标"><a href="#坐标" class="headerlink" title="坐标"></a>坐标</h4><p>在Maven中，坐标是Jar包的唯一标识，Maven通过坐标在仓库中找到项目所需的Jar包。<br>如下代码中，groupId和artifactId构成了一个Jar包的坐标。</p>
 <pre><code>&lt;dependency&gt;
     &lt;groupId&gt;cn.fengblog.maven&lt;/groupId&gt;
@@ -424,7 +420,7 @@
         &lt;artifactId&gt;maven-exclusion&lt;/artifactId&gt;
     &lt;/exclusion&gt;
 &lt;/exclusions&gt;
-</code></pre><p>关于排除依赖如果不理解可以参照下面的博客&gt;&gt;&gt;<br><a href="http://www.cnblogs.com/victorma/p/mavenconflict.html" target="_blank" rel="external">http://www.cnblogs.com/victorma/p/mavenconflict.html</a></p>
+</code></pre><p>关于排除依赖如果不理解可以参照下面的博客&gt;&gt;&gt;<br><a href="http://www.cnblogs.com/victorma/p/mavenconflict.html" target="_blank" rel="noopener">http://www.cnblogs.com/victorma/p/mavenconflict.html</a></p>
 <h6 id="依赖范围"><a href="#依赖范围" class="headerlink" title="依赖范围"></a>依赖范围</h6><p>依赖配置主要包含如下元素：</p>
 <pre><code>&lt;!--添加依赖配置--&gt;
 &lt;dependencies&gt;
@@ -454,7 +450,7 @@
 <blockquote>
 <p>本项目——&gt;A.jar——&gt;B.jar——&gt;X.jar<br>本项目——&gt;C.jar——&gt;X.jar</p>
 </blockquote>
-<h4 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a>聚合</h4><p>关于maven的聚合，推荐以下博文。<br><a href="https://my.oschina.net/xuqiang/blog/99854" target="_blank" rel="external">一个多maven项目聚合的实例</a><br><a href="http://blog.csdn.net/qq_32588349/article/details/51934100" target="_blank" rel="external">Maven工程聚合,多个Java工程、web工程聚合</a><br><a href="http://www.cnblogs.com/xdp-gacl/p/4058008.html" target="_blank" rel="external">Maven学习总结(五)——聚合与继承</a></p>
+<h4 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a>聚合</h4><p>关于maven的聚合，推荐以下博文。<br><a href="https://my.oschina.net/xuqiang/blog/99854" target="_blank" rel="noopener">一个多maven项目聚合的实例</a><br><a href="http://blog.csdn.net/qq_32588349/article/details/51934100" target="_blank" rel="noopener">Maven工程聚合,多个Java工程、web工程聚合</a><br><a href="http://www.cnblogs.com/xdp-gacl/p/4058008.html" target="_blank" rel="noopener">Maven学习总结(五)——聚合与继承</a></p>
 <h4 id="继承-amp-amp-如何实现继承"><a href="#继承-amp-amp-如何实现继承" class="headerlink" title="继承 &amp;&amp; 如何实现继承"></a>继承 &amp;&amp; 如何实现继承</h4><p>在聚合多个项目时，如果这些被聚合的项目中需要引入相同的Jar，那么可以将这些Jar写入父pom中，各个子项目继承该pom即可。</p>
 <h6 id="父pom配置：将需要继承的Jar包的坐标放入标签即可。"><a href="#父pom配置：将需要继承的Jar包的坐标放入标签即可。" class="headerlink" title="父pom配置：将需要继承的Jar包的坐标放入标签即可。"></a>父pom配置：将需要继承的Jar包的坐标放入标签即可。</h6><pre><code>&lt;dependencyManagement&gt;
     &lt;dependencies&gt;
@@ -1135,8 +1131,8 @@
   &lt;!--以值替代名称，Properties可以在整个POM中使用，也可以作为触发条件（见settings.xml配置文件里activation元素的说明）。格式是&lt;name&gt;value&lt;/name&gt;。 --&gt;
   &lt;properties /&gt;
 &lt;/project&gt;
-</code></pre><p>关于pom.xml配置，推荐博客<br><a href="http://blog.csdn.net/zhuxinhua/article/details/5788546" target="_blank" rel="external">maven核心，pom.xml详解</a><br><a href="http://blog.csdn.net/taiyangdao/article/details/52374125" target="_blank" rel="external">Maven的pom.xml文件结构之Build配置build</a></p>
-<h2 id="使用Maven运行Web项目"><a href="#使用Maven运行Web项目" class="headerlink" title="使用Maven运行Web项目"></a>使用Maven运行Web项目</h2><h2 id="参照博客"><a href="#参照博客" class="headerlink" title="参照博客"></a>参照博客</h2><p><a href="http://www.cnblogs.com/xdp-gacl/p/3498271.html" target="_blank" rel="external">《Maven学习总结(一)——Maven入门》</a>(整个系列)</p>
+</code></pre><p>关于pom.xml配置，推荐博客<br><a href="http://blog.csdn.net/zhuxinhua/article/details/5788546" target="_blank" rel="noopener">maven核心，pom.xml详解</a><br><a href="http://blog.csdn.net/taiyangdao/article/details/52374125" target="_blank" rel="noopener">Maven的pom.xml文件结构之Build配置build</a></p>
+<h2 id="使用Maven运行Web项目"><a href="#使用Maven运行Web项目" class="headerlink" title="使用Maven运行Web项目"></a>使用Maven运行Web项目</h2><h2 id="参照博客"><a href="#参照博客" class="headerlink" title="参照博客"></a>参照博客</h2><p><a href="http://www.cnblogs.com/xdp-gacl/p/3498271.html" target="_blank" rel="noopener">《Maven学习总结(一)——Maven入门》</a>(整个系列)</p>
 
       
     </div>
@@ -1207,8 +1203,7 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/21/超详细Maven总结/"
-           data-title="超详细Maven总结" data-url="http://yoursite.com/2016/11/21/超详细Maven总结/">
+      <div class="ds-thread" data-thread-key="2016/11/21/超详细Maven总结/" data-title="超详细Maven总结" data-url="http://yoursite.com/2016/11/21/超详细Maven总结/">
       </div>
     
   </div>
@@ -1233,7 +1228,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -1244,16 +1239,14 @@
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.jpg"
-               alt="James Feng" />
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="James Feng">
           <p class="site-author-name" itemprop="name">James Feng</p>
           <p class="site-description motion-element" itemprop="description">The wind blew, only to survive!</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1261,7 +1254,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1270,7 +1263,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1325,7 +1318,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是maven，为什么需要maven。"><span class="nav-number">1.</span> <span class="nav-text">什么是maven，为什么需要maven。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven的安装"><span class="nav-number">2.</span> <span class="nav-text">maven的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven的基本命令"><span class="nav-number">3.</span> <span class="nav-text">maven的基本命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven的一些基本概念"><span class="nav-number">4.</span> <span class="nav-text">maven的一些基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#仓库"><span class="nav-number">4.0.1.</span> <span class="nav-text">仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#私服"><span class="nav-number">4.0.1.0.1.</span> <span class="nav-text">私服</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#坐标"><span class="nav-number">4.0.2.</span> <span class="nav-text">坐标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#依赖"><span class="nav-number">4.0.3.</span> <span class="nav-text">依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#传递依赖"><span class="nav-number">4.0.3.0.1.</span> <span class="nav-text">传递依赖</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#排除依赖"><span class="nav-number">4.0.3.0.2.</span> <span class="nav-text">排除依赖</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#依赖范围"><span class="nav-number">4.0.3.0.3.</span> <span class="nav-text">依赖范围</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#短路优先"><span class="nav-number">4.0.4.</span> <span class="nav-text">短路优先</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#聚合"><span class="nav-number">4.0.5.</span> <span class="nav-text">聚合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#继承-amp-amp-如何实现继承"><span class="nav-number">4.0.6.</span> <span class="nav-text">继承 && 如何实现继承</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#父pom配置：将需要继承的Jar包的坐标放入标签即可。"><span class="nav-number">4.0.6.0.1.</span> <span class="nav-text">父pom配置：将需要继承的Jar包的坐标放入标签即可。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#子pom配置："><span class="nav-number">4.0.6.0.2.</span> <span class="nav-text">子pom配置：</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pom配置详解"><span class="nav-number">5.</span> <span class="nav-text">pom配置详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Maven运行Web项目"><span class="nav-number">6.</span> <span class="nav-text">使用Maven运行Web项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参照博客"><span class="nav-number">7.</span> <span class="nav-text">参照博客</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是maven，为什么需要maven。"><span class="nav-number">1.</span> <span class="nav-text">什么是maven，为什么需要maven。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven的安装"><span class="nav-number">2.</span> <span class="nav-text">maven的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven的基本命令"><span class="nav-number">3.</span> <span class="nav-text">maven的基本命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven的一些基本概念"><span class="nav-number">4.</span> <span class="nav-text">maven的一些基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#仓库"><span class="nav-number">4.0.1.</span> <span class="nav-text">仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#私服"><span class="nav-number">4.0.1.0.1.</span> <span class="nav-text">私服</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#坐标"><span class="nav-number">4.0.2.</span> <span class="nav-text">坐标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#依赖"><span class="nav-number">4.0.3.</span> <span class="nav-text">依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#传递依赖"><span class="nav-number">4.0.3.0.1.</span> <span class="nav-text">传递依赖</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#排除依赖"><span class="nav-number">4.0.3.0.2.</span> <span class="nav-text">排除依赖</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#依赖范围"><span class="nav-number">4.0.3.0.3.</span> <span class="nav-text">依赖范围</span></a></li></ol></li></ol><li class="nav-item nav-level-4"><a class="nav-link" href="#短路优先"><span class="nav-number">4.0.4.</span> <span class="nav-text">短路优先</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#聚合"><span class="nav-number">4.0.5.</span> <span class="nav-text">聚合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#继承-amp-amp-如何实现继承"><span class="nav-number">4.0.6.</span> <span class="nav-text">继承 &amp;&amp; 如何实现继承</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#父pom配置：将需要继承的Jar包的坐标放入标签即可。"><span class="nav-number">4.0.6.0.1.</span> <span class="nav-text">父pom配置：将需要继承的Jar包的坐标放入标签即可。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#子pom配置："><span class="nav-number">4.0.6.0.2.</span> <span class="nav-text">子pom配置：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pom配置详解"><span class="nav-number">5.</span> <span class="nav-text">pom配置详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Maven运行Web项目"><span class="nav-number">6.</span> <span class="nav-text">使用Maven运行Web项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参照博客"><span class="nav-number">7.</span> <span class="nav-text">参照博客</span></a></li></div>
             
 
           </div>
@@ -1346,10 +1339,10 @@
         <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
 
-<div class="copyright" >
+<div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1366,7 +1359,7 @@
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Mist
   </a>
-  <span >&nbsp; &nbsp;|&nbsp; &nbsp;</span>
+  <span>&nbsp; &nbsp;|&nbsp; &nbsp;</span>
   Total <span id="busuanzi_value_site_uv"></span> views.
 </div>
 

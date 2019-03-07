@@ -1,0 +1,903 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="java,maven,idea,eclipse,jboss,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="这篇文章会比较乱，因为我不想做太多系列细分，就是单纯地把我从eclipse转到idea的经过写出来而已，公司的项目一直采用的&amp;gt;是eclipse+maven+jboss的环境开发的，版本控制通过svn控制，这年代还用svn做控制确实有点更不上时代了，转的过程有点麻烦，但是最终我还是顺利用上idea，只是目前还不太习惯。想入坑idea很早之前就有这个想法了，eclipse我们公司一直都在用很古">
+<meta name="keywords" content="java,maven,idea,eclipse,jboss">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从eclipse转到idea的艰辛历程">
+<meta property="og:url" content="http://yoursite.com/2019/02/24/从eclipse转到idea的艰辛历程/index.html">
+<meta property="og:site_name" content="Feng&#39;s Blog">
+<meta property="og:description" content="这篇文章会比较乱，因为我不想做太多系列细分，就是单纯地把我从eclipse转到idea的经过写出来而已，公司的项目一直采用的&amp;gt;是eclipse+maven+jboss的环境开发的，版本控制通过svn控制，这年代还用svn做控制确实有点更不上时代了，转的过程有点麻烦，但是最终我还是顺利用上idea，只是目前还不太习惯。想入坑idea很早之前就有这个想法了，eclipse我们公司一直都在用很古">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-25T13:30:32.180Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从eclipse转到idea的艰辛历程">
+<meta name="twitter:description" content="这篇文章会比较乱，因为我不想做太多系列细分，就是单纯地把我从eclipse转到idea的经过写出来而已，公司的项目一直采用的&amp;gt;是eclipse+maven+jboss的环境开发的，版本控制通过svn控制，这年代还用svn做控制确实有点更不上时代了，转的过程有点麻烦，但是最终我还是顺利用上idea，只是目前还不太习惯。想入坑idea很早之前就有这个想法了，eclipse我们公司一直都在用很古">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '10000',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/24/从eclipse转到idea的艰辛历程/">
+
+
+
+
+
+  <title> 从eclipse转到idea的艰辛历程 | Feng's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?1bc877799c79c2fb2806df9b1c09c678";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Feng's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/24/从eclipse转到idea的艰辛历程/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="James Feng">
+    <meta itemprop="description" content>
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Feng's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Feng's Blog" src>
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                从eclipse转到idea的艰辛历程
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-24T22:51:27+08:00">
+                2019-02-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/idea/" itemprop="url" rel="index">
+                    <span itemprop="name">idea</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/idea/eclipse/" itemprop="url" rel="index">
+                    <span itemprop="name">eclipse</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2019/02/24/从eclipse转到idea的艰辛历程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/02/24/从eclipse转到idea的艰辛历程/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>这篇文章会比较乱，因为我不想做太多系列细分，就是单纯地把我从eclipse转到idea的经过写出来而已，公司的项目一直采用的&gt;是eclipse+maven+jboss的环境开发的，版本控制通过svn控制，这年代还用svn做控制确实有点更不上时代了，转的过程有点麻烦，但是最终我还是顺利用上idea，只是目前还不太习惯。想入坑idea很早之前就有这个想法了，eclipse我们公司一直都在用很古老的一个版本，隐藏的bug且不说，时不时的卡顿就够影响效率的了。</p>
+</blockquote>
+<h2 id="idea的subversion巨坑"><a href="#idea的subversion巨坑" class="headerlink" title="idea的subversion巨坑"></a>idea的subversion巨坑</h2><p>转idea遇到第一个大难题就是svn版本控制的转换，我司采用svn+ssh协议，还是秘钥文件+密码验证的。以前使用的一直是入职就分给我的一个ssh的秘钥文件eclipse专用的，还附带了一个ppk后缀的秘钥文件，但是ppk那个一直没有派上用途。idea的svn用户认证可能存在bug，我和在elipse上做了类似的svn地址和用户+秘钥文件的配置之后一直无法脸上代码仓库，一直无限弹出让我输入密码。搞得我一度想放弃。<br>后来在查了下，ssh+svn协议原则上是先通过ssh登录svn服务端的机器，等于先打通一条数据流通的渠道，然后svn的交互依赖于这条ssh的通道上面。一直依赖我都是直接在eclipse做svn的操作，没有考虑太多，于是我好奇用我的svn账号密码+ppk秘钥文件去登录svn指向ip的服务器，果然成功了，既然能不能登上去，说明idea只是没有正确通过ssh登录到svn服务器上而已，<strong><em>通过搜索我才知道，原来的ppk文件是putty的专用格式秘钥文件，而openssh一般采用pem，于是刻不容缓，我又查了下ppk转pem的方法，然后顺利转换到pem文件，在idea的preferences-&gt;Version Control-&gt;Subversion-&gt;SSH上面的Private key指向到新的pem秘钥文件，then connect svn server success，注意其他关于svn的设置先还原，保持默认即可。</em></strong></p>
+<h2 id="不复存在的workspace"><a href="#不复存在的workspace" class="headerlink" title="不复存在的workspace"></a>不复存在的workspace</h2><p>使用eclipse的开发者转到idea最不习惯的地方之一就是idea没有eclipse对应的workspace，我们公司是采用maven来控制jar依赖的,<br>通过maven实现多个子工程（project-anything）继承一个父工程(project-parent)，父工程的依赖jar可以被子工程共用。我直接粗暴得将所有模块的根目录直接check out到新的目录（idea-all-project），然后选择idea的import project，因为eclipse不存在workspace的概念，所以我直接import idea-all-project这个跟目录，因为根目录也有一个pom.xml指向了project-parent，project-parent会因为子模块继承了它，它回去自动匹配到所哟偶子模块，只要在引入的时候勾选了项目是由maven做jar管控。<br>其实，很多时候如果存在子模块，或者其他模块不在所引入的目录之下可以通过project structure里面的modules去增减想要的模块。从这种角度上来讲，其实任何一个目录都是一个workspace，也可以说任何一个module都是workspace。</p>
+<h2 id="maven管控的企业级j2ee应用架构"><a href="#maven管控的企业级j2ee应用架构" class="headerlink" title="maven管控的企业级j2ee应用架构"></a>maven管控的企业级j2ee应用架构</h2><p>我们的整个应用架构可以这样分级。架构类似采用金字塔三角形管控。工程application-all的pom.xml中引入apache的maven-ear-plugin插件，这个EAR插件主要用于生成Java EE Enterprise Archive (EAR)文件，即将各种组件打包到一起生成一个ear文件。此外，EAR插件也用于生成EAR的部署描述符文件application.xml。<br>application-all通过maven-ear-plugin指向了子模块console-web-all，console-web-all采用了maven-war-plugin插件,maven-war-plugin顾名思义，是将底下所有依赖的资源打包成一个war包，war被ear包含。</p>
+<h2 id="在idea中将ear部署到jboss中"><a href="#在idea中将ear部署到jboss中" class="headerlink" title="在idea中将ear部署到jboss中"></a>在idea中将ear部署到jboss中</h2><p>一直依赖我都以为，jboss是启动的时候自动加载他对应的部署目录下面的应用，使用了idea之后，才发现，idea中maven项目是默认将资源部署到maven目录架构对应的target中的。。idea会去先启动jboss，jboss只有启动成功之后，才通过它的EARDeployer，传给部署器一个资源目录，然后jboss加载部署资源还是部署。<br><strong><em>部署ear到jboss的时候有一点要特别注意的。由于我们项目采用ear管控war，所以需要一些额外的配置操作，开发过程中建议部署Artifacts中的exploded，exploded是被分解的意思，翻译成中文我也不知道叫什么合适，总之开发模式采用这个比较好。我还在Project Structure的Artifacts对ear exploded的资源输出目录手动加了个ear后缀，不加应该也没关系，还是我又强迫症，然后在war exploded的资源输出目录手动加了war后缀，还有对资源输出做了一些配置调整，最后成功部署到jboss。</em></strong></p>
+<h2 id="不习惯的subservion操作模式"><a href="#不习惯的subservion操作模式" class="headerlink" title="不习惯的subservion操作模式"></a>不习惯的subservion操作模式</h2><p>用惯eclipse的svn插件就知道，eclipse的资源同步功能非常实用，然后idea乍眼一看貌似是没有这个类似的功能的，这让我很抓狂，后来通过摸索找到了可以基本代替之的办法。<br><strong><em>idea底部有个Version Control栏，其tool bar上有个Local Changes，打开这个刷新，可以看到本地改了那些代码，Local Changes旁边的Incoming可以看到别人新提交我没有更新下来的代码，Repository可以看到所有人的操作记录，还可以在Local Changes左边的tool bar对一些文件做一些辅助性的操作，比如搁置，忽略版本控制，还原等操作，实用性可以说五五开吧，虽然还是很不习惯。其他的基本操作基本会无师自通的。</em></strong></p>
+<p><strong><em>强大无比的各种快捷键</em></strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/maven/" rel="tag"># maven</a>
+          
+            <a href="/tags/idea/" rel="tag"># idea</a>
+          
+            <a href="/tags/eclipse/" rel="tag"># eclipse</a>
+          
+            <a href="/tags/jboss/" rel="tag"># jboss</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/22/游侵华日军南京大屠杀遇难同胞纪念馆有感/" rel="next" title="游侵华日军南京大屠杀遇难同胞纪念馆有感">
+                <i class="fa fa-chevron-left"></i> 游侵华日军南京大屠杀遇难同胞纪念馆有感
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/26/linux使用命令/" rel="prev" title="linux使用命令">
+                linux使用命令 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2019/02/24/从eclipse转到idea的艰辛历程/" data-title="从eclipse转到idea的艰辛历程" data-url="http://yoursite.com/2019/02/24/从eclipse转到idea的艰辛历程/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="James Feng">
+          <p class="site-author-name" itemprop="name">James Feng</p>
+          <p class="site-description motion-element" itemprop="description">The wind blew, only to survive!</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/coding-by-feng" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3219972752?is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#idea的subversion巨坑"><span class="nav-number">1.</span> <span class="nav-text">idea的subversion巨坑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不复存在的workspace"><span class="nav-number">2.</span> <span class="nav-text">不复存在的workspace</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven管控的企业级j2ee应用架构"><span class="nav-number">3.</span> <span class="nav-text">maven管控的企业级j2ee应用架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在idea中将ear部署到jboss中"><span class="nav-number">4.</span> <span class="nav-text">在idea中将ear部署到jboss中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不习惯的subservion操作模式"><span class="nav-number">5.</span> <span class="nav-text">不习惯的subservion操作模式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">James Feng</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+  <span>&nbsp; &nbsp;|&nbsp; &nbsp;</span>
+  Total <span id="busuanzi_value_site_uv"></span> views.
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"coding-by-feng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
