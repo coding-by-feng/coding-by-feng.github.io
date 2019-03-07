@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="什么是触发器触发器是一个特殊的存储过程，是一个与表相关联的，存储的PL/SQL程序，每当一个特定的数据操作语句（insert，update，delete）在指定的表上发出时，Oracle自动地执行触发器中定义的语句序列。 触发器的语法如何创建触发器123456789--Print ’insert success‘ after insert record into the table.create">
+<meta name="description" content="什么事触发器触发器是一个特殊的存储过程，是一个与表相关联的，存储的PL/SQL程序，每当一个特定的数据操作语句（insert，update，delete）在指定的表上发出时，Oracle自动地执行触发器中定义的语句序列。 触发器的语法如何创建触发器123456789--Print ’insert success‘ after insert record into the table.create">
 <meta name="keywords" content="oracle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="oracle系列之触发器">
 <meta property="og:url" content="http://yoursite.com/2019/03/04/oracle系列之触发器/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="什么是触发器触发器是一个特殊的存储过程，是一个与表相关联的，存储的PL/SQL程序，每当一个特定的数据操作语句（insert，update，delete）在指定的表上发出时，Oracle自动地执行触发器中定义的语句序列。 触发器的语法如何创建触发器123456789--Print ’insert success‘ after insert record into the table.create">
+<meta property="og:description" content="什么事触发器触发器是一个特殊的存储过程，是一个与表相关联的，存储的PL/SQL程序，每当一个特定的数据操作语句（insert，update，delete）在指定的表上发出时，Oracle自动地执行触发器中定义的语句序列。 触发器的语法如何创建触发器123456789--Print ’insert success‘ after insert record into the table.create">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-04T13:38:05.885Z">
+<meta property="og:updated_time" content="2019-03-07T14:32:32.050Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="oracle系列之触发器">
-<meta name="twitter:description" content="什么是触发器触发器是一个特殊的存储过程，是一个与表相关联的，存储的PL/SQL程序，每当一个特定的数据操作语句（insert，update，delete）在指定的表上发出时，Oracle自动地执行触发器中定义的语句序列。 触发器的语法如何创建触发器123456789--Print ’insert success‘ after insert record into the table.create">
+<meta name="twitter:description" content="什么事触发器触发器是一个特殊的存储过程，是一个与表相关联的，存储的PL/SQL程序，每当一个特定的数据操作语句（insert，update，delete）在指定的表上发出时，Oracle自动地执行触发器中定义的语句序列。 触发器的语法如何创建触发器123456789--Print ’insert success‘ after insert record into the table.create">
 
 
 
@@ -391,7 +391,7 @@
       
 
       
-        <h2 id="什么是触发器"><a href="#什么是触发器" class="headerlink" title="什么是触发器"></a>什么是触发器</h2><p>触发器是一个特殊的存储过程，是一个与表相关联的，存储的PL/SQL程序，每当一个特定的数据操作语句（insert，update，delete）在指定的表上发出时，Oracle自动地执行触发器中定义的语句序列。</p>
+        <h2 id="什么事触发器"><a href="#什么事触发器" class="headerlink" title="什么事触发器"></a>什么事触发器</h2><p>触发器是一个特殊的存储过程，是一个与表相关联的，存储的PL/SQL程序，每当一个特定的数据操作语句（insert，update，delete）在指定的表上发出时，Oracle自动地执行触发器中定义的语句序列。</p>
 <h2 id="触发器的语法"><a href="#触发器的语法" class="headerlink" title="触发器的语法"></a>触发器的语法</h2><h4 id="如何创建触发器"><a href="#如何创建触发器" class="headerlink" title="如何创建触发器"></a>如何创建触发器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">--Print ’insert success‘ after insert record into the table.</span><br><span class="line">create [or replace] trigger trigger_name </span><br><span class="line">&#123;after|before&#125; &#123;insert|delete|update|of row_name&#125;</span><br><span class="line">on table_name</span><br><span class="line">[for each row [when(条件)]]</span><br><span class="line">declare</span><br><span class="line">begin</span><br><span class="line">    dbms_output.put_line(&apos;insert success!&apos;);</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
 <h2 id="触发器的类型"><a href="#触发器的类型" class="headerlink" title="触发器的类型"></a>触发器的类型</h2><h4 id="语句级触发器和行级触发器"><a href="#语句级触发器和行级触发器" class="headerlink" title="语句级触发器和行级触发器"></a>语句级触发器和行级触发器</h4><p>语句级没有for each row，行级反之。<br>语句级触发器：在指定的操作语句操作之前或之后执行一次，不管这条语句影响了多少行。<br>行级触发器：触发语句作用的每条记录都被触发。在其中使用:old和:new伪记录变量，识别值的状态。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">insert into emp10 select * from emp where depno=10;</span><br><span class="line">-- 3 rows of records</span><br><span class="line">-- 语句级触发器：针对的是表，只执行一次。</span><br><span class="line">-- 行级触发器：针对的是行，执行了3次。</span><br></pre></td></tr></table></figure></p>
 <h2 id="触发器的具体应用场景"><a href="#触发器的具体应用场景" class="headerlink" title="触发器的具体应用场景"></a>触发器的具体应用场景</h2><h4 id="复杂的安全性检查"><a href="#复杂的安全性检查" class="headerlink" title="复杂的安全性检查"></a>复杂的安全性检查</h4><blockquote>
@@ -405,7 +405,7 @@
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">--创建表，用于保存审计信息</span><br><span class="line">create table audit_emp</span><br><span class="line">(</span><br><span class="line">infomation varchar2(200);</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">create or replace trigger do_audit_emp_salary</span><br><span class="line">after update</span><br><span class="line">on emp</span><br><span class="line">for each row</span><br><span class="line">begin</span><br><span class="line">    if :new.salary &gt; 6000 then</span><br><span class="line">        insert into audit_emp values(&apos;员工信息:&apos;||:new.somerows);</span><br><span class="line">    end if;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
 <h3 id="完成数据的备份和同步"><a href="#完成数据的备份和同步" class="headerlink" title="完成数据的备份和同步"></a>完成数据的备份和同步</h3><blockquote>
-<p>给员工涨薪水之后，自动备份新工资到备份表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create or replace trigger sync_salary</span><br><span class="line">after update</span><br><span class="line">on emp</span><br><span class="line">for earch row</span><br><span class="line">begin</span><br><span class="line">    update emp_bak set sal=:new.sal where empno=:new.empno;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure></p>
+<p>给员工涨薪水之后，自动备份新工资到备份表<br>create or replace trigger sync_salary<br>after update<br>on emp<br>for earch row<br>begin<br>    update emp_bak set sal=:new.sal where empno=:new.empno;<br>end;<br>‘</p>
 </blockquote>
 
       
@@ -448,6 +448,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/07/vim的使用技巧/" rel="prev" title="vim的使用技巧">
+                vim的使用技巧 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -516,7 +520,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -524,7 +528,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -533,7 +537,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -588,7 +592,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是触发器"><span class="nav-number">1.</span> <span class="nav-text">什么是触发器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触发器的语法"><span class="nav-number">2.</span> <span class="nav-text">触发器的语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何创建触发器"><span class="nav-number">2.0.1.</span> <span class="nav-text">如何创建触发器</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#触发器的类型"><span class="nav-number">3.</span> <span class="nav-text">触发器的类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语句级触发器和行级触发器"><span class="nav-number">3.0.1.</span> <span class="nav-text">语句级触发器和行级触发器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触发器的具体应用场景"><span class="nav-number">4.</span> <span class="nav-text">触发器的具体应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#复杂的安全性检查"><span class="nav-number">4.0.1.</span> <span class="nav-text">复杂的安全性检查</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据确认"><span class="nav-number">4.0.2.</span> <span class="nav-text">数据确认</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现审计功能"><span class="nav-number">4.0.3.</span> <span class="nav-text">实现审计功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完成数据的备份和同步"><span class="nav-number">4.1.</span> <span class="nav-text">完成数据的备份和同步</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么事触发器"><span class="nav-number">1.</span> <span class="nav-text">什么事触发器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触发器的语法"><span class="nav-number">2.</span> <span class="nav-text">触发器的语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何创建触发器"><span class="nav-number">2.0.1.</span> <span class="nav-text">如何创建触发器</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#触发器的类型"><span class="nav-number">3.</span> <span class="nav-text">触发器的类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语句级触发器和行级触发器"><span class="nav-number">3.0.1.</span> <span class="nav-text">语句级触发器和行级触发器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触发器的具体应用场景"><span class="nav-number">4.</span> <span class="nav-text">触发器的具体应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#复杂的安全性检查"><span class="nav-number">4.0.1.</span> <span class="nav-text">复杂的安全性检查</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据确认"><span class="nav-number">4.0.2.</span> <span class="nav-text">数据确认</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现审计功能"><span class="nav-number">4.0.3.</span> <span class="nav-text">实现审计功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完成数据的备份和同步"><span class="nav-number">4.1.</span> <span class="nav-text">完成数据的备份和同步</span></a></li></div>
             
 
           </div>

@@ -1,0 +1,945 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="oracle,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="分组查询常用分组函数12-- avg,sum,min,max,count,wm_concatselect avg(sal),sum(sal),min(sal),max(sal),count(sal) from emp; 1select count(*),count(comm) from emp; 上面二个值不一样，是因为分组函数会自动忽略空值，会自动忽略空值。NVL函数可以使分组函数无法忽略空值，">
+<meta name="keywords" content="oracle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="oracle系列之高级查询">
+<meta property="og:url" content="http://yoursite.com/2019/03/07/oracle系列之高级查询/index.html">
+<meta property="og:site_name" content="Feng&#39;s Blog">
+<meta property="og:description" content="分组查询常用分组函数12-- avg,sum,min,max,count,wm_concatselect avg(sal),sum(sal),min(sal),max(sal),count(sal) from emp; 1select count(*),count(comm) from emp; 上面二个值不一样，是因为分组函数会自动忽略空值，会自动忽略空值。NVL函数可以使分组函数无法忽略空值，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-07T14:43:39.069Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="oracle系列之高级查询">
+<meta name="twitter:description" content="分组查询常用分组函数12-- avg,sum,min,max,count,wm_concatselect avg(sal),sum(sal),min(sal),max(sal),count(sal) from emp; 1select count(*),count(comm) from emp; 上面二个值不一样，是因为分组函数会自动忽略空值，会自动忽略空值。NVL函数可以使分组函数无法忽略空值，">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '10000',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/07/oracle系列之高级查询/">
+
+
+
+
+
+  <title> oracle系列之高级查询 | Feng's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?1bc877799c79c2fb2806df9b1c09c678";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Feng's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/07/oracle系列之高级查询/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="James Feng">
+    <meta itemprop="description" content>
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Feng's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Feng's Blog" src>
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                oracle系列之高级查询
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-07T22:42:09+08:00">
+                2019-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/oracle/" itemprop="url" rel="index">
+                    <span itemprop="name">oracle</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2019/03/07/oracle系列之高级查询/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/03/07/oracle系列之高级查询/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h2><h4 id="常用分组函数"><a href="#常用分组函数" class="headerlink" title="常用分组函数"></a>常用分组函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- avg,sum,min,max,count,wm_concat</span><br><span class="line">select avg(sal),sum(sal),min(sal),max(sal),count(sal) from emp;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count(*),count(comm) from emp;</span><br></pre></td></tr></table></figure>
+<p><strong><em>上面二个值不一样，是因为分组函数会自动忽略空值，会自动忽略空值。NVL函数可以使分组函数无法忽略空值，例如下面的sql：</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count(*),count(nvl(comm, 0)) from emp;</span><br></pre></td></tr></table></figure></p>
+<h4 id="group-by语句"><a href="#group-by语句" class="headerlink" title="group by语句"></a>group by语句</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select column, from table_name [where condition] [group by group_by_condition] [having group_condition] [order by column];</span><br><span class="line">-- 平均工资</span><br><span class="line">select deptno,avg(sal) from emp group by deptno;</span><br></pre></td></tr></table></figure>
+<p><strong><em>错误写法：</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select a,b,avg(x) from emp group by a;</span><br><span class="line">-- b必须出现在group by 后面。</span><br></pre></td></tr></table></figure></p>
+<p><strong><em>注意：在select列表中所有未包含在组函数中的列都应该包含在group by子句中；包含在group by子句中的列不必包含在select列表中。</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-- 按照部门，不同职位，统计员工的工资总额</span><br><span class="line">select deptno,job,sum(sal) from emp group by deptno,job order by deptno;</span><br><span class="line">-- 分组按照group by子句列的先后顺序。</span><br></pre></td></tr></table></figure>
+<h4 id="过滤分组-having子句语法"><a href="#过滤分组-having子句语法" class="headerlink" title="过滤分组,having子句语法"></a>过滤分组,having子句语法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 求平均工资大于2000的部门</span><br><span class="line">select deptno,avg(sal) from emp group by deptno having avg(sal) &gt; 2000;</span><br></pre></td></tr></table></figure>
+<p><strong><em>注意：where子句不能使用组函数，having才可以。没有组函数的时候，条件写在二者之后都是可以的，但是从sql优化的角度上，where的效率会更加高。</em></strong></p>
+<blockquote>
+<p>having是先分组，后过滤。where是先过滤，后分组。</p>
+</blockquote>
+<h4 id="分组函数的嵌套"><a href="#分组函数的嵌套" class="headerlink" title="分组函数的嵌套"></a>分组函数的嵌套</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 求部门平均工资的最大值</span><br><span class="line">select max(avg(sal)) from emp group by deptno;</span><br></pre></td></tr></table></figure>
+<h4 id="group-by-的增强-rollup-a-b"><a href="#group-by-的增强-rollup-a-b" class="headerlink" title="group by 的增强 rollup(a,b)"></a>group by 的增强 rollup(a,b)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">group by rollup(a,b)</span><br><span class="line">-- 等价于</span><br><span class="line">group by a,b </span><br><span class="line">+</span><br><span class="line">group by a </span><br><span class="line">+</span><br><span class="line">group by null(不分组)</span><br></pre></td></tr></table></figure>
+<p><strong><em>rollup用于报表的生成非常有用</em></strong></p>
+<blockquote>
+<p>break on deptno skip 2（相同的部门号只显示一次，不同的部门号跳过2行）<br>select deptno,job,sum(sal) from emp group by rollup(deptno, job);–生成升序报表</p>
+</blockquote>
+<h4 id="order-by-排序"><a href="#order-by-排序" class="headerlink" title="order by 排序"></a>order by 排序</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select deptno,avg(sal) 平均工资 from emp group by deptno order by 平均工资</span><br></pre></td></tr></table></figure>
+<p><strong><em>上面平均工资也可以用2来代替，2代表select出来的列的序号。</em></strong></p>
+<h2 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h2><h4 id="笛卡尔积"><a href="#笛卡尔积" class="headerlink" title="笛卡尔积"></a>笛卡尔积</h4><blockquote>
+<p>假定有部门表dept和员工表emp</p>
+</blockquote>
+<p>笛卡尔全集的列数=dept行数*emp行数.<br>sql拼写的时候一定要注意避免错误的笛卡尔全集。</p>
+<h4 id="等值连接"><a href="#等值连接" class="headerlink" title="等值连接"></a>等值连接</h4><blockquote>
+<p>连接条件中如果是等于号，那就是等值连接。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 查询二个表的员工信息</span><br><span class="line">select ... from emp e, dept d where e.deptno=d.deptno</span><br></pre></td></tr></table></figure>
+<h4 id="不等值连接"><a href="#不等值连接" class="headerlink" title="不等值连接"></a>不等值连接</h4><blockquote>
+<p>连接条件中如果不是等于号，那就是等值连接。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-- salgrade薪水级别表</span><br><span class="line">select ... from emp e, salgrade s where e.sal between s.lowsal and s.highsal</span><br><span class="line">-- 使用between一定要注意小的在前大的在后</span><br></pre></td></tr></table></figure>
+<h4 id="外链接"><a href="#外链接" class="headerlink" title="外链接"></a>外链接</h4><blockquote>
+<p>核心：通过外链接，把对于连接条件不成立的记录，仍然包含在最后的结果中。<br>左外连接：当连接条件不成立的时候，等号左边的表仍然被包含。<br>右外链接：当连接条件不成立的时候，等号右边的表仍然被包含。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-- 右外链接</span><br><span class="line">select ... from emp e, dept d where e.deptno(+)=d.deptno group by ...;</span><br><span class="line">-- 左外链接反之</span><br></pre></td></tr></table></figure>
+<h4 id="自连接"><a href="#自连接" class="headerlink" title="自连接"></a>自连接</h4><blockquote>
+<p>通过别名，将同一张表视为多张表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 查询员工的老板，mgr员工老板的empno</span><br><span class="line">select ... from emp a, emp b where a.mgr=b.eepno;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h5 id="自连接存在的问题"><a href="#自连接存在的问题" class="headerlink" title="自连接存在的问题"></a>自连接存在的问题</h5><blockquote>
+<p>根据笛卡尔积，n个别名表，自连接的总行数是表记录的n次方，所以自连接不适合操作大表，解决方法：层次查询。</p>
+</blockquote>
+<h4 id="层次查询"><a href="#层次查询" class="headerlink" title="层次查询"></a>层次查询</h4><blockquote>
+<p>单表查询，树结构查询</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- 管理者和下属可以理解为树结构关系，emp.mgr指向管理者emp.empno</span><br><span class="line">select level, empno, ename, sal, mgr from emp connect by prior empno=mgr</span><br><span class="line">start with mgr is null order by 1;</span><br><span class="line">-- level是一个伪劣，相当于树结构的层次，越高层越小，从1开始，order by 1代表根据level排序</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>自连接优点是直观，缺点是不适合操作大表。<br>层次查询有点是单表查询，不会产生笛卡尔积，缺点是结果不直观，可能不满足某些应用场景。</p>
+</blockquote>
+<h2 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h2><blockquote>
+<p>子查询说白了只是select语句的嵌套。</p>
+<h4 id="子查询要注意的10个问题"><a href="#子查询要注意的10个问题" class="headerlink" title="子查询要注意的10个问题"></a>子查询要注意的10个问题</h4><ol>
+<li>语法的小括号不可缺少</li>
+<li>书写风格，让语句方便阅读</li>
+<li>可以使用子查询的位置：where，select，having，from</li>
+<li>不可以使用子查询的位置：group by</li>
+<li>强调：from后面的子查询</li>
+<li>主查询和子查询可以不是同一张表</li>
+<li>一般不在子查询中使用排序，但在top-n分析问题中，必须对子查询排序</li>
+<li>一般先执行子查询，再执行主查询；但是相关子查询例外</li>
+<li>单行子查询只能使用单行操作符；多行子查询只能使用多行操作符</li>
+<li>注意：子查询中是null值问题</li>
+</ol>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-- top-n分析问题</span><br><span class="line">-- 找到员工表中工资最高的前三名</span><br><span class="line">-- rownum：行号，伪列</span><br><span class="line"></span><br><span class="line">--以下是错误写法：</span><br><span class="line">select rownum, empno, ename, sal from emp where rownum&lt;=3 order by sal desc;</span><br></pre></td></tr></table></figure>
+<p><strong><em>rownum 行号永远按照默认的顺序生成，行号只能使用&lt;, &lt;=; 不能使用&gt;, &gt;=。默认顺序是指select不加排序条件查出来的顺序，使用rownum排序是误区。</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 正确的写法</span><br><span class="line">select rownum, empno, ename, sal from（select * from emp order by sal desc）where rownum&lt;=3;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">--一般先执行子查询，再执行主查询；但是相关子查询例外,例如下面的相关子查询。</span><br><span class="line">-- 找到员工表中薪水大于本部门平均薪水的员工</span><br><span class="line">select empno，ename，sal, (select avg(e2.sal) from emp e where e2.dept=e1.dept) avgsal from emp e where e.sal &gt; (select avg(e2.sal) from emp e where e2.dept=e1.dept);</span><br><span class="line">以上就是相关子查询实例，</span><br></pre></td></tr></table></figure>
+<h4 id="子查询的类型"><a href="#子查询的类型" class="headerlink" title="子查询的类型"></a>子查询的类型</h4><blockquote>
+<p>子查询分单行子查询和多行子查询。<br>多行操作符：in，any，all<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">-- 查询工资大于部门号30的任意一个员工工资的员工</span><br><span class="line">select * from emp e where e.sal &gt; any (select sal from emp where deptno=30);</span><br><span class="line">-- 或者使用min函数</span><br><span class="line">select * from emp e where e.sal &gt; (select min(sal) from emp where deptno=30);</span><br><span class="line">查询工资大于部门号30所有人工资的员工</span><br><span class="line">select * from emp e where e.sal &gt; any (select sal from emp where deptno=30);</span><br><span class="line">-- 同样可以用max函数</span><br><span class="line">-- 查询不是老板的员工</span><br><span class="line">-- 下面是错误写法：</span><br><span class="line">select * from emp where empno not in (select mgr from emp);--空结果</span><br><span class="line">--原因：a not in (10,20,null) == a!=10 and a!=20 and a!=null  最后一个条件永远不假</span><br><span class="line">-- 正确写法</span><br><span class="line">select * from emp where empno not in (select mgr from emp where mgr is not null);</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="综合示例"><a href="#综合示例" class="headerlink" title="综合示例"></a>综合示例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-- 分页案例 查询排序后的5到8条记录</span><br><span class="line">select * from (select rownum r,* from (select * from emp order by desc) e1  where rownum &lt;= 8) e2 where e2.r &gt; 5;</span><br><span class="line"></span><br><span class="line">-- 按照入职年份查询员工的人数, 例如1981</span><br><span class="line">select count(*) total, sum(decode(to_char(hiredate, &apos;YYYY&apos;), &apos;1981&apos;, 1, 0)) &apos;1981&apos; from emp;</span><br><span class="line">select (select count(*) from emp) total, (select count(*) from emp where ...) &apos;1981&apos; fro dual;</span><br></pre></td></tr></table></figure>
+<p><strong><em>相关子查询效率正常比多表查询快</em></strong></p>
+<h2 id="Extra-notes"><a href="#Extra-notes" class="headerlink" title="Extra notes"></a>Extra notes</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- desc emp</span><br><span class="line">-- show user</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/oracle/" rel="tag"># oracle</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/07/vim的使用技巧/" rel="next" title="vim的使用技巧">
+                <i class="fa fa-chevron-left"></i> vim的使用技巧
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2019/03/07/oracle系列之高级查询/" data-title="oracle系列之高级查询" data-url="http://yoursite.com/2019/03/07/oracle系列之高级查询/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="James Feng">
+          <p class="site-author-name" itemprop="name">James Feng</p>
+          <p class="site-description motion-element" itemprop="description">The wind blew, only to survive!</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/coding-by-feng" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3219972752?is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分组查询"><span class="nav-number">1.</span> <span class="nav-text">分组查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常用分组函数"><span class="nav-number">1.0.1.</span> <span class="nav-text">常用分组函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#group-by语句"><span class="nav-number">1.0.2.</span> <span class="nav-text">group by语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#过滤分组-having子句语法"><span class="nav-number">1.0.3.</span> <span class="nav-text">过滤分组,having子句语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分组函数的嵌套"><span class="nav-number">1.0.4.</span> <span class="nav-text">分组函数的嵌套</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#group-by-的增强-rollup-a-b"><span class="nav-number">1.0.5.</span> <span class="nav-text">group by 的增强 rollup(a,b)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#order-by-排序"><span class="nav-number">1.0.6.</span> <span class="nav-text">order by 排序</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#多表查询"><span class="nav-number">2.</span> <span class="nav-text">多表查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#笛卡尔积"><span class="nav-number">2.0.1.</span> <span class="nav-text">笛卡尔积</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#等值连接"><span class="nav-number">2.0.2.</span> <span class="nav-text">等值连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不等值连接"><span class="nav-number">2.0.3.</span> <span class="nav-text">不等值连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#外链接"><span class="nav-number">2.0.4.</span> <span class="nav-text">外链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自连接"><span class="nav-number">2.0.5.</span> <span class="nav-text">自连接</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#自连接存在的问题"><span class="nav-number">2.0.5.1.</span> <span class="nav-text">自连接存在的问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#层次查询"><span class="nav-number">2.0.6.</span> <span class="nav-text">层次查询</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子查询"><span class="nav-number">3.</span> <span class="nav-text">子查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#子查询要注意的10个问题"><span class="nav-number">3.0.1.</span> <span class="nav-text">子查询要注意的10个问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#子查询的类型"><span class="nav-number">3.0.2.</span> <span class="nav-text">子查询的类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#综合示例"><span class="nav-number">4.</span> <span class="nav-text">综合示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Extra-notes"><span class="nav-number">5.</span> <span class="nav-text">Extra notes</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">James Feng</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+  <span>&nbsp; &nbsp;|&nbsp; &nbsp;</span>
+  Total <span id="busuanzi_value_site_uv"></span> views.
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"coding-by-feng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
