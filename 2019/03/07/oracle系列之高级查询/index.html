@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="分组查询常用分组函数12-- avg,sum,min,max,count,wm_concatselect avg(sal),sum(sal),min(sal),max(sal),count(sal) from emp; 1select count(*),count(comm) from emp; 上面二个值不一样，是因为分组函数会自动忽略空值，会自动忽略空值。NVL函数可以使分组函数无法忽略空值，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-07T14:43:39.069Z">
+<meta property="og:updated_time" content="2019-04-07T02:33:57.799Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="oracle系列之高级查询">
 <meta name="twitter:description" content="分组查询常用分组函数12-- avg,sum,min,max,count,wm_concatselect avg(sal),sum(sal),min(sal),max(sal),count(sal) from emp; 1select count(*),count(comm) from emp; 上面二个值不一样，是因为分组函数会自动忽略空值，会自动忽略空值。NVL函数可以使分组函数无法忽略空值，">
@@ -458,7 +458,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-- top-n分析问题</span><br><span class="line">-- 找到员工表中工资最高的前三名</span><br><span class="line">-- rownum：行号，伪列</span><br><span class="line"></span><br><span class="line">--以下是错误写法：</span><br><span class="line">select rownum, empno, ename, sal from emp where rownum&lt;=3 order by sal desc;</span><br></pre></td></tr></table></figure>
 <p><strong><em>rownum 行号永远按照默认的顺序生成，行号只能使用&lt;, &lt;=; 不能使用&gt;, &gt;=。默认顺序是指select不加排序条件查出来的顺序，使用rownum排序是误区。</em></strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 正确的写法</span><br><span class="line">select rownum, empno, ename, sal from（select * from emp order by sal desc）where rownum&lt;=3;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">--一般先执行子查询，再执行主查询；但是相关子查询例外,例如下面的相关子查询。</span><br><span class="line">-- 找到员工表中薪水大于本部门平均薪水的员工</span><br><span class="line">select empno，ename，sal, (select avg(e2.sal) from emp e where e2.dept=e1.dept) avgsal from emp e where e.sal &gt; (select avg(e2.sal) from emp e where e2.dept=e1.dept);</span><br><span class="line">以上就是相关子查询实例，</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">--一般先执行子查询，再执行主查询；但是相关子查询例外,例如下面的相关子查询（子查询要依赖于父查询）。</span><br><span class="line">-- 找到员工表中薪水大于本部门平均薪水的员工</span><br><span class="line">select empno，ename，sal, (select avg(e2.sal) from emp e where e2.dept=e1.dept) avgsal from emp e where e.sal &gt; (select avg(e2.sal) from emp e where e2.dept=e1.dept);</span><br><span class="line">以上就是相关子查询实例，</span><br></pre></td></tr></table></figure>
 <h4 id="子查询的类型"><a href="#子查询的类型" class="headerlink" title="子查询的类型"></a>子查询的类型</h4><blockquote>
 <p>子查询分单行子查询和多行子查询。<br>多行操作符：in，any，all<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">-- 查询工资大于部门号30的任意一个员工工资的员工</span><br><span class="line">select * from emp e where e.sal &gt; any (select sal from emp where deptno=30);</span><br><span class="line">-- 或者使用min函数</span><br><span class="line">select * from emp e where e.sal &gt; (select min(sal) from emp where deptno=30);</span><br><span class="line">查询工资大于部门号30所有人工资的员工</span><br><span class="line">select * from emp e where e.sal &gt; any (select sal from emp where deptno=30);</span><br><span class="line">-- 同样可以用max函数</span><br><span class="line">-- 查询不是老板的员工</span><br><span class="line">-- 下面是错误写法：</span><br><span class="line">select * from emp where empno not in (select mgr from emp);--空结果</span><br><span class="line">--原因：a not in (10,20,null) == a!=10 and a!=20 and a!=null  最后一个条件永远不假</span><br><span class="line">-- 正确写法</span><br><span class="line">select * from emp where empno not in (select mgr from emp where mgr is not null);</span><br></pre></td></tr></table></figure></p>
 </blockquote>
@@ -578,7 +578,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-count">25</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
