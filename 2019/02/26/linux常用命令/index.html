@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="find和grepfind是在系统中搜索符合条件的文件名，grep是在文件中搜索符合条件的字符串。12find ~/dir -name filename.txtgrep &amp;quot;someStr&amp;quot; filename.txt ln链接命令123ln -s [源文件] [目标文件]# -s软链接，不带-s是硬链接，硬链接等于是copy了一份文件，软链接相当于window的快捷方式。# 硬链">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-07T02:33:24.401Z">
+<meta property="og:updated_time" content="2019-04-15T13:51:26.071Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux常用用命令">
 <meta name="twitter:description" content="find和grepfind是在系统中搜索符合条件的文件名，grep是在文件中搜索符合条件的字符串。12find ~/dir -name filename.txtgrep &amp;quot;someStr&amp;quot; filename.txt ln链接命令123ln -s [源文件] [目标文件]# -s软链接，不带-s是硬链接，硬链接等于是copy了一份文件，软链接相当于window的快捷方式。# 硬链">
@@ -396,9 +396,15 @@
 <h2 id="wget命令"><a href="#wget命令" class="headerlink" title="wget命令"></a>wget命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># 拉取文件</span><br></pre></td></tr></table></figure>
 <h2 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h2><p>tar -zxvf 用于解压  .tar.gz 后缀结尾的</p>
 <p>tar -xvf 用于解压   .tar后缀结尾的</p>
+<h2 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 启动指定部署目录：</span><br><span class="line">nohup ./run.sh -c web38b -b 0.0.0.0  &gt;/dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<blockquote>
+<p>/dev/null redirects standard output (stdout) to /dev/null, which discards it.<br>(The &gt;&gt; seems sort of superfluous, since &gt;&gt; means append while &gt; means truncate and write, and either appending to or writing to /dev/null has the same net effect. I usually just use &gt; for that reason.)<br>2&gt;&amp;1 redirects standard error (2) to standard output (1), which then discards it as well since standard output has already been redirected.</p>
+</blockquote>
+</blockquote>
+<h2 id="更改所有子文件和子目录所有者权限"><a href="#更改所有子文件和子目录所有者权限" class="headerlink" title="更改所有子文件和子目录所有者权限"></a>更改所有子文件和子目录所有者权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod -R 777 fileDir</span><br></pre></td></tr></table></figure>
 <p>whereis<br>which<br>xargs</p>
-<h2 id="https-blog-csdn-net-wzzfeitian-article-details-40985549"><a href="#https-blog-csdn-net-wzzfeitian-article-details-40985549" class="headerlink" title="https://blog.csdn.net/wzzfeitian/article/details/40985549"></a><a href="https://blog.csdn.net/wzzfeitian/article/details/40985549" target="_blank" rel="noopener">https://blog.csdn.net/wzzfeitian/article/details/40985549</a></h2><p>nohup</p>
-<p>标准输出重定向</p>
+<h2 id="https-blog-csdn-net-wzzfeitian-article-details-40985549"><a href="#https-blog-csdn-net-wzzfeitian-article-details-40985549" class="headerlink" title="https://blog.csdn.net/wzzfeitian/article/details/40985549"></a><a href="https://blog.csdn.net/wzzfeitian/article/details/40985549" target="_blank" rel="noopener">https://blog.csdn.net/wzzfeitian/article/details/40985549</a></h2><p>标准输出重定向</p>
 <h2 id="标准输出重定向到空，相当于忽略输出"><a href="#标准输出重定向到空，相当于忽略输出" class="headerlink" title="标准输出重定向到空，相当于忽略输出"></a>标准输出重定向到空，相当于忽略输出</h2><h2 id="查看防火墙，放开端口"><a href="#查看防火墙，放开端口" class="headerlink" title="查看防火墙，放开端口"></a>查看防火墙，放开端口</h2><h2 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h2>
       
     </div>
@@ -512,7 +518,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-count">29</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -520,7 +526,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -529,7 +535,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -584,7 +590,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#find和grep"><span class="nav-number">1.</span> <span class="nav-text">find和grep</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ln链接命令"><span class="nav-number">2.</span> <span class="nav-text">ln链接命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wget命令"><span class="nav-number">3.</span> <span class="nav-text">wget命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tar"><span class="nav-number">4.</span> <span class="nav-text">tar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#https-blog-csdn-net-wzzfeitian-article-details-40985549"><span class="nav-number">5.</span> <span class="nav-text">https://blog.csdn.net/wzzfeitian/article/details/40985549</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标准输出重定向到空，相当于忽略输出"><span class="nav-number">6.</span> <span class="nav-text">标准输出重定向到空，相当于忽略输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看防火墙，放开端口"><span class="nav-number">7.</span> <span class="nav-text">查看防火墙，放开端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ps"><span class="nav-number">8.</span> <span class="nav-text">ps</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#find和grep"><span class="nav-number">1.</span> <span class="nav-text">find和grep</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ln链接命令"><span class="nav-number">2.</span> <span class="nav-text">ln链接命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wget命令"><span class="nav-number">3.</span> <span class="nav-text">wget命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tar"><span class="nav-number">4.</span> <span class="nav-text">tar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nohup"><span class="nav-number">5.</span> <span class="nav-text">nohup</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更改所有子文件和子目录所有者权限"><span class="nav-number">6.</span> <span class="nav-text">更改所有子文件和子目录所有者权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#https-blog-csdn-net-wzzfeitian-article-details-40985549"><span class="nav-number">7.</span> <span class="nav-text">https://blog.csdn.net/wzzfeitian/article/details/40985549</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标准输出重定向到空，相当于忽略输出"><span class="nav-number">8.</span> <span class="nav-text">标准输出重定向到空，相当于忽略输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看防火墙，放开端口"><span class="nav-number">9.</span> <span class="nav-text">查看防火墙，放开端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ps"><span class="nav-number">10.</span> <span class="nav-text">ps</span></a></li></ol></div>
             
 
           </div>
