@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="JavaWeb,">
 
 
 
@@ -84,17 +84,18 @@
 
 
 
-<meta name="description" content="我司某项目关于web.xml配置的Filter中发挥到的作用 对整个请求路径或者路径的扩展名做校验。 读客户端请求的编码做校验或者更改。 对http请求头部信息的校验或者更改，比如日期格式，缓存大小等。 对请求服务的ip地址做校验，可以设置白名单或者黑名单。 对一些全局性的业务配置开关做控制，比如某些特定模块特定业务的日志记录开关的控制，方面排查问题，同时也控制日志流量。 登录的用户权限做校验。">
+<meta name="description" content="http://note.youdao.com/noteshare?id=d7e137587951ea943c71d39df6fbcd5f">
+<meta name="keywords" content="JavaWeb">
 <meta property="og:type" content="article">
 <meta property="og:title" content="公司项目随想">
 <meta property="og:url" content="http://yoursite.com/2019/04/15/公司项目随想/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="我司某项目关于web.xml配置的Filter中发挥到的作用 对整个请求路径或者路径的扩展名做校验。 读客户端请求的编码做校验或者更改。 对http请求头部信息的校验或者更改，比如日期格式，缓存大小等。 对请求服务的ip地址做校验，可以设置白名单或者黑名单。 对一些全局性的业务配置开关做控制，比如某些特定模块特定业务的日志记录开关的控制，方面排查问题，同时也控制日志流量。 登录的用户权限做校验。">
+<meta property="og:description" content="http://note.youdao.com/noteshare?id=d7e137587951ea943c71d39df6fbcd5f">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-15T13:50:41.914Z">
+<meta property="og:updated_time" content="2019-05-15T08:09:37.300Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="公司项目随想">
-<meta name="twitter:description" content="我司某项目关于web.xml配置的Filter中发挥到的作用 对整个请求路径或者路径的扩展名做校验。 读客户端请求的编码做校验或者更改。 对http请求头部信息的校验或者更改，比如日期格式，缓存大小等。 对请求服务的ip地址做校验，可以设置白名单或者黑名单。 对一些全局性的业务配置开关做控制，比如某些特定模块特定业务的日志记录开关的控制，方面排查问题，同时也控制日志流量。 登录的用户权限做校验。">
+<meta name="twitter:description" content="http://note.youdao.com/noteshare?id=d7e137587951ea943c71d39df6fbcd5f">
 
 
 
@@ -372,21 +373,8 @@
       
 
       
-        <h2 id="我司某项目关于web-xml配置的Filter中发挥到的作用"><a href="#我司某项目关于web-xml配置的Filter中发挥到的作用" class="headerlink" title="我司某项目关于web.xml配置的Filter中发挥到的作用"></a>我司某项目关于web.xml配置的Filter中发挥到的作用</h2><ol>
-<li>对整个请求路径或者路径的扩展名做校验。</li>
-<li>读客户端请求的编码做校验或者更改。</li>
-<li>对http请求头部信息的校验或者更改，比如日期格式，缓存大小等。</li>
-<li>对请求服务的ip地址做校验，可以设置白名单或者黑名单。</li>
-<li>对一些全局性的业务配置开关做控制，比如某些特定模块特定业务的日志记录开关的控制，方面排查问题，同时也控制日志流量。</li>
-<li>登录的用户权限做校验。</li>
-<li>对全局业务的初始化，比如加载常量数据到缓存。</li>
-<li>对业务日志做记录。</li>
-</ol>
-<h2 id="关于项目中跨域免登陆的实现方式"><a href="#关于项目中跨域免登陆的实现方式" class="headerlink" title="关于项目中跨域免登陆的实现方式"></a>关于项目中跨域免登陆的实现方式</h2><p>通过url后面附带用户名，还有filter对特定url不做权限校验，这种方式实际上是不安全的。</p>
-<h2 id="web-xml作用备忘"><a href="#web-xml作用备忘" class="headerlink" title="web.xml作用备忘"></a>web.xml作用备忘</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> &lt;filter-mapping&gt;</span><br><span class="line">        &lt;filter-name&gt;ajax4jsf&lt;/filter-name&gt;</span><br><span class="line">        &lt;servlet-name&gt;Faces Servlet&lt;/servlet-name&gt;</span><br><span class="line">        &lt;dispatcher&gt;REQUEST&lt;/dispatcher&gt;</span><br><span class="line">        &lt;dispatcher&gt;FORWARD&lt;/dispatcher&gt;</span><br><span class="line">        &lt;dispatcher&gt;INCLUDE&lt;/dispatcher&gt;</span><br><span class="line">&lt;/filter-mapping&gt;</span><br></pre></td></tr></table></figure>
-<p>如果请求是通过request,forward,include方法传递过来的对Faces Servlet的请求，则要经过这个过滤器的过滤。其它的诸如从客户端直接过来的对ProductServlet的请求等都不需要经过这个过滤器。 </p>
-<h2 id="关于web-xml之context-param-listener-filter-servlet和spring容器的加载顺序及其周边"><a href="#关于web-xml之context-param-listener-filter-servlet和spring容器的加载顺序及其周边" class="headerlink" title="关于web.xml之context-param,listener,filter,servlet和spring容器的加载顺序及其周边"></a>关于web.xml之context-param,listener,filter,servlet和spring容器的加载顺序及其周边</h2><p>context-param -&gt; listener -&gt; filter -&gt; servlet</p>
-<h2 id="HashMap和ConcurrentHashMap"><a href="#HashMap和ConcurrentHashMap" class="headerlink" title="HashMap和ConcurrentHashMap"></a>HashMap和ConcurrentHashMap</h2>
+        <p><a href="http://note.youdao.com/noteshare?id=d7e137587951ea943c71d39df6fbcd5f" target="_blank" rel="noopener">http://note.youdao.com/noteshare?id=d7e137587951ea943c71d39df6fbcd5f</a></p>
+
       
     </div>
 
@@ -406,6 +394,12 @@
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaWeb/" rel="tag"># JavaWeb</a>
+          
+        </div>
       
 
       
@@ -474,17 +468,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="James Feng">
           <p class="site-author-name" itemprop="name">James Feng</p>
@@ -493,7 +478,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -501,7 +486,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -510,7 +495,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -555,22 +540,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#我司某项目关于web-xml配置的Filter中发挥到的作用"><span class="nav-number">1.</span> <span class="nav-text">我司某项目关于web.xml配置的Filter中发挥到的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于项目中跨域免登陆的实现方式"><span class="nav-number">2.</span> <span class="nav-text">关于项目中跨域免登陆的实现方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web-xml作用备忘"><span class="nav-number">3.</span> <span class="nav-text">web.xml作用备忘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于web-xml之context-param-listener-filter-servlet和spring容器的加载顺序及其周边"><span class="nav-number">4.</span> <span class="nav-text">关于web.xml之context-param,listener,filter,servlet和spring容器的加载顺序及其周边</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap和ConcurrentHashMap"><span class="nav-number">5.</span> <span class="nav-text">HashMap和ConcurrentHashMap</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
     </div>

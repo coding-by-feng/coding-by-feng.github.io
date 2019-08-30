@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="重命名表1ALTER TABLE table_name RENAME TO new_table_name； 重命名字段1ALTER TABLE table_name RENAME COLUMN column_name TO new_column_name; 修改字段类型1ALTER TABLE tableName modify(columnName 类型); 删除列1ALTER TABLE tab">
+<meta name="description" content="http://note.youdao.com/noteshare?id=c4f15d43346736141686995282b1e8d4">
 <meta name="keywords" content="oracle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="oracle系列之常用操作命令">
 <meta property="og:url" content="http://yoursite.com/2019/04/07/oracle系列之常用操作命令/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="重命名表1ALTER TABLE table_name RENAME TO new_table_name； 重命名字段1ALTER TABLE table_name RENAME COLUMN column_name TO new_column_name; 修改字段类型1ALTER TABLE tableName modify(columnName 类型); 删除列1ALTER TABLE tab">
+<meta property="og:description" content="http://note.youdao.com/noteshare?id=c4f15d43346736141686995282b1e8d4">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-15T13:05:06.427Z">
+<meta property="og:updated_time" content="2019-05-15T05:24:25.034Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="oracle系列之常用操作命令">
-<meta name="twitter:description" content="重命名表1ALTER TABLE table_name RENAME TO new_table_name； 重命名字段1ALTER TABLE table_name RENAME COLUMN column_name TO new_column_name; 修改字段类型1ALTER TABLE tableName modify(columnName 类型); 删除列1ALTER TABLE tab">
+<meta name="twitter:description" content="http://note.youdao.com/noteshare?id=c4f15d43346736141686995282b1e8d4">
 
 
 
@@ -391,12 +391,7 @@
       
 
       
-        <h2 id="重命名表"><a href="#重命名表" class="headerlink" title="重命名表"></a>重命名表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name RENAME TO new_table_name；</span><br></pre></td></tr></table></figure>
-<h2 id="重命名字段"><a href="#重命名字段" class="headerlink" title="重命名字段"></a>重命名字段</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name RENAME COLUMN column_name TO new_column_name;</span><br></pre></td></tr></table></figure>
-<h2 id="修改字段类型"><a href="#修改字段类型" class="headerlink" title="修改字段类型"></a>修改字段类型</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE tableName modify(columnName 类型);</span><br></pre></td></tr></table></figure>
-<h2 id="删除列"><a href="#删除列" class="headerlink" title="删除列"></a>删除列</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name DROP COLUMN column_name;</span><br></pre></td></tr></table></figure>
-<h2 id="查询所有表及其所使用的表空间"><a href="#查询所有表及其所使用的表空间" class="headerlink" title="查询所有表及其所使用的表空间"></a>查询所有表及其所使用的表空间</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select table_name 表名 ,tablespace_name 所使用表空间 from user_tables t where t.TABLE_NAME=&apos;T_PRE_AI_ACTIVITY&apos;;</span><br></pre></td></tr></table></figure>
-<h2 id="查询所有表空间大小"><a href="#查询所有表空间大小" class="headerlink" title="查询所有表空间大小"></a>查询所有表空间大小</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT t.tablespace_name, round(SUM(bytes / (1024 * 1024)), 0) ts_size</span><br><span class="line">  FROM dba_tablespaces t, dba_data_files d</span><br><span class="line"> WHERE t.tablespace_name = d.tablespace_name</span><br><span class="line"> GROUP BY t.tablespace_name;</span><br></pre></td></tr></table></figure>
+        <p><a href="http://note.youdao.com/noteshare?id=c4f15d43346736141686995282b1e8d4" target="_blank" rel="noopener">http://note.youdao.com/noteshare?id=c4f15d43346736141686995282b1e8d4</a></p>
 
       
     </div>
@@ -491,17 +486,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="James Feng">
           <p class="site-author-name" itemprop="name">James Feng</p>
@@ -510,7 +496,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -518,7 +504,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -527,7 +513,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -572,22 +558,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#重命名表"><span class="nav-number">1.</span> <span class="nav-text">重命名表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重命名字段"><span class="nav-number">2.</span> <span class="nav-text">重命名字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改字段类型"><span class="nav-number">3.</span> <span class="nav-text">修改字段类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除列"><span class="nav-number">4.</span> <span class="nav-text">删除列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询所有表及其所使用的表空间"><span class="nav-number">5.</span> <span class="nav-text">查询所有表及其所使用的表空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询所有表空间大小"><span class="nav-number">6.</span> <span class="nav-text">查询所有表空间大小</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
     </div>

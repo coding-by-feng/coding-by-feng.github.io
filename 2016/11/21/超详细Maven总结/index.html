@@ -93,7 +93,7 @@
 <meta property="og:description" content="一直以来对于maven只是基本会用，配置文件只认得几个常用到的标签，今晚月黑风高，甚是寂寥，不凡总结一下maven。  什么是maven，为什么需要maven。在没有maven的时代，程序员往往需要花较多的精力在引用Jar包搭建项目环境上，而这一项工作尤为艰难，少一个Jar包、多一个Jar包往往会报一些让人摸不着头脑的异常，于是maven应运而生。而Maven就是一款帮助程序员构建项目的工具，我">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/post/img7.png">
-<meta property="og:updated_time" content="2016-11-22T12:53:19.506Z">
+<meta property="og:updated_time" content="2019-05-15T05:20:16.751Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="超详细Maven总结">
 <meta name="twitter:description" content="一直以来对于maven只是基本会用，配置文件只认得几个常用到的标签，今晚月黑风高，甚是寂寥，不凡总结一下maven。  什么是maven，为什么需要maven。在没有maven的时代，程序员往往需要花较多的精力在引用Jar包搭建项目环境上，而这一项工作尤为艰难，少一个Jar包、多一个Jar包往往会报一些让人摸不着头脑的异常，于是maven应运而生。而Maven就是一款帮助程序员构建项目的工具，我">
@@ -1132,7 +1132,8 @@
   &lt;properties /&gt;
 &lt;/project&gt;
 </code></pre><p>关于pom.xml配置，推荐博客<br><a href="http://blog.csdn.net/zhuxinhua/article/details/5788546" target="_blank" rel="noopener">maven核心，pom.xml详解</a><br><a href="http://blog.csdn.net/taiyangdao/article/details/52374125" target="_blank" rel="noopener">Maven的pom.xml文件结构之Build配置build</a></p>
-<h2 id="使用Maven运行Web项目"><a href="#使用Maven运行Web项目" class="headerlink" title="使用Maven运行Web项目"></a>使用Maven运行Web项目</h2><h2 id="参照博客"><a href="#参照博客" class="headerlink" title="参照博客"></a>参照博客</h2><p><a href="http://www.cnblogs.com/xdp-gacl/p/3498271.html" target="_blank" rel="noopener">《Maven学习总结(一)——Maven入门》</a>(整个系列)</p>
+<h2 id="使用Maven运行Web项目"><a href="#使用Maven运行Web项目" class="headerlink" title="使用Maven运行Web项目"></a>使用Maven运行Web项目</h2><h2 id="scope详解"><a href="#scope详解" class="headerlink" title="scope详解"></a>scope详解</h2><p><a href="https://www.cnblogs.com/hzzll/p/6738955.html" target="_blank" rel="noopener">https://www.cnblogs.com/hzzll/p/6738955.html</a></p>
+<h2 id="参照博客"><a href="#参照博客" class="headerlink" title="参照博客"></a>参照博客</h2><p><a href="http://www.cnblogs.com/xdp-gacl/p/3498271.html" target="_blank" rel="noopener">《Maven学习总结(一)——Maven入门》</a>(整个系列)</p>
 
       
     </div>
@@ -1246,7 +1247,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1254,7 +1255,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1263,7 +1264,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1318,7 +1319,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是maven，为什么需要maven。"><span class="nav-number">1.</span> <span class="nav-text">什么是maven，为什么需要maven。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven的安装"><span class="nav-number">2.</span> <span class="nav-text">maven的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven的基本命令"><span class="nav-number">3.</span> <span class="nav-text">maven的基本命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven的一些基本概念"><span class="nav-number">4.</span> <span class="nav-text">maven的一些基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#仓库"><span class="nav-number">4.0.1.</span> <span class="nav-text">仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#私服"><span class="nav-number">4.0.1.0.1.</span> <span class="nav-text">私服</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#坐标"><span class="nav-number">4.0.2.</span> <span class="nav-text">坐标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#依赖"><span class="nav-number">4.0.3.</span> <span class="nav-text">依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#传递依赖"><span class="nav-number">4.0.3.0.1.</span> <span class="nav-text">传递依赖</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#排除依赖"><span class="nav-number">4.0.3.0.2.</span> <span class="nav-text">排除依赖</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#依赖范围"><span class="nav-number">4.0.3.0.3.</span> <span class="nav-text">依赖范围</span></a></li></ol></li></ol><li class="nav-item nav-level-4"><a class="nav-link" href="#短路优先"><span class="nav-number">4.0.4.</span> <span class="nav-text">短路优先</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#聚合"><span class="nav-number">4.0.5.</span> <span class="nav-text">聚合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#继承-amp-amp-如何实现继承"><span class="nav-number">4.0.6.</span> <span class="nav-text">继承 &amp;&amp; 如何实现继承</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#父pom配置：将需要继承的Jar包的坐标放入标签即可。"><span class="nav-number">4.0.6.0.1.</span> <span class="nav-text">父pom配置：将需要继承的Jar包的坐标放入标签即可。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#子pom配置："><span class="nav-number">4.0.6.0.2.</span> <span class="nav-text">子pom配置：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pom配置详解"><span class="nav-number">5.</span> <span class="nav-text">pom配置详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Maven运行Web项目"><span class="nav-number">6.</span> <span class="nav-text">使用Maven运行Web项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参照博客"><span class="nav-number">7.</span> <span class="nav-text">参照博客</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是maven，为什么需要maven。"><span class="nav-number">1.</span> <span class="nav-text">什么是maven，为什么需要maven。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven的安装"><span class="nav-number">2.</span> <span class="nav-text">maven的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven的基本命令"><span class="nav-number">3.</span> <span class="nav-text">maven的基本命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven的一些基本概念"><span class="nav-number">4.</span> <span class="nav-text">maven的一些基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#仓库"><span class="nav-number">4.0.1.</span> <span class="nav-text">仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#私服"><span class="nav-number">4.0.1.0.1.</span> <span class="nav-text">私服</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#坐标"><span class="nav-number">4.0.2.</span> <span class="nav-text">坐标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#依赖"><span class="nav-number">4.0.3.</span> <span class="nav-text">依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#传递依赖"><span class="nav-number">4.0.3.0.1.</span> <span class="nav-text">传递依赖</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#排除依赖"><span class="nav-number">4.0.3.0.2.</span> <span class="nav-text">排除依赖</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#依赖范围"><span class="nav-number">4.0.3.0.3.</span> <span class="nav-text">依赖范围</span></a></li></ol></li></ol><li class="nav-item nav-level-4"><a class="nav-link" href="#短路优先"><span class="nav-number">4.0.4.</span> <span class="nav-text">短路优先</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#聚合"><span class="nav-number">4.0.5.</span> <span class="nav-text">聚合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#继承-amp-amp-如何实现继承"><span class="nav-number">4.0.6.</span> <span class="nav-text">继承 &amp;&amp; 如何实现继承</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#父pom配置：将需要继承的Jar包的坐标放入标签即可。"><span class="nav-number">4.0.6.0.1.</span> <span class="nav-text">父pom配置：将需要继承的Jar包的坐标放入标签即可。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#子pom配置："><span class="nav-number">4.0.6.0.2.</span> <span class="nav-text">子pom配置：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pom配置详解"><span class="nav-number">5.</span> <span class="nav-text">pom配置详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Maven运行Web项目"><span class="nav-number">6.</span> <span class="nav-text">使用Maven运行Web项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scope详解"><span class="nav-number">7.</span> <span class="nav-text">scope详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参照博客"><span class="nav-number">8.</span> <span class="nav-text">参照博客</span></a></li></div>
             
 
           </div>

@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="赋予权限1234-- 查看feng用户是否具备创建database link 权限select * from user_sys_privs where privilege like upper(&amp;apos;%DATABASE LINK%&amp;apos;) AND USERNAME=&amp;apos;FENG&amp;apos;;-- 如果查出结果行说明没有权限，给FENG用户授予创建dblink的权限grant c">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-07T02:38:14.634Z">
+<meta property="og:updated_time" content="2019-05-15T04:29:35.289Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="oracle系列之DBLink的使用">
 <meta name="twitter:description" content="赋予权限1234-- 查看feng用户是否具备创建database link 权限select * from user_sys_privs where privilege like upper(&amp;apos;%DATABASE LINK%&amp;apos;) AND USERNAME=&amp;apos;FENG&amp;apos;;-- 如果查出结果行说明没有权限，给FENG用户授予创建dblink的权限grant c">
@@ -394,7 +394,7 @@
         <h2 id="赋予权限"><a href="#赋予权限" class="headerlink" title="赋予权限"></a>赋予权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- 查看feng用户是否具备创建database link 权限</span><br><span class="line">select * from user_sys_privs where privilege like upper(&apos;%DATABASE LINK%&apos;) AND USERNAME=&apos;FENG&apos;;</span><br><span class="line">-- 如果查出结果行说明没有权限，给FENG用户授予创建dblink的权限</span><br><span class="line">grant create public database link to feng;</span><br></pre></td></tr></table></figure>
 <h2 id="使用DBLink"><a href="#使用DBLink" class="headerlink" title="使用DBLink"></a>使用DBLink</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- sql创建DBlink，ORCL21是配置在tnsnames.ora的远程数据库的别名</span><br><span class="line">create public database link TESTLINK2 connect to FENG identified by &quot;123456&quot; USING &apos;ORCL21&apos;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>ORCL21=<br>   (DESCRIPTION =<br>    (ADDRESS_LIST =<br>      (ADDRESS = (PROTOCOL = TCP)(HOST = 132.228.169.135)(PORT = 1521))<br>    )<br>    (CONNECT_DATA =<br>      (SERVICE_NAME = reportdb)<br>    )<br>  )</p>
+<p>ORCL21=<br>   (DESCRIPTION =<br>    (ADDRESS_LIST =<br>      (ADDRESS = (PROTOCOL = TCP)(HOST = 127.0.0.1)(PORT = 1521))<br>    )<br>    (CONNECT_DATA =<br>      (SERVICE_NAME = reportdb)<br>    )<br>  )</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">--通过DBLink查询远程数据库的表</span><br><span class="line">select * from testTable@TESTLINK2 order by id;</span><br><span class="line">insert into testTable@TESTLINK2 values(...);</span><br><span class="line">udpate testTable@TESTLINK2 set infoColumn=&apos;test&apos; where ...;</span><br><span class="line">delete from testTable@TESTLINK2 where ...;</span><br></pre></td></tr></table></figure>
 <h2 id="创建同义词"><a href="#创建同义词" class="headerlink" title="创建同义词"></a>创建同义词</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- 创建同义词</span><br><span class="line">create synonym TESTSYNONYM FOR testTable@TESTLINK2;</span><br><span class="line">-- 查询ORCL2中FENG用户的表TESTable</span><br><span class="line">SELECT * FROM TESTSYNONYM order by id</span><br></pre></td></tr></table></figure>
@@ -511,7 +511,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -519,7 +519,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -528,7 +528,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Java,">
+  <meta name="keywords" content="Java,工作流,">
 
 
 
@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="工作流引擎启动的逻辑：加在配置文件bpmp.properties：  获取配置工作流的数据源（可以直接JDBC，也可以使用jndi动态配置） 加载id生成器的依赖生成引擎，加载是否启动定时器配置，加载是否记录数据库流程日记配置等等。  初始化流程启动前和流程启动后的监听类。123456789101112131415161718192021222324252627282930313233343536">
-<meta name="keywords" content="Java">
+<meta name="description" content="http://note.youdao.com/noteshare?id=7d92d13a66b9935efb45b39e504f228f">
+<meta name="keywords" content="Java,工作流">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java系列之工作流">
 <meta property="og:url" content="http://yoursite.com/2019/04/23/Java系列之工作流/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="工作流引擎启动的逻辑：加在配置文件bpmp.properties：  获取配置工作流的数据源（可以直接JDBC，也可以使用jndi动态配置） 加载id生成器的依赖生成引擎，加载是否启动定时器配置，加载是否记录数据库流程日记配置等等。  初始化流程启动前和流程启动后的监听类。123456789101112131415161718192021222324252627282930313233343536">
+<meta property="og:description" content="http://note.youdao.com/noteshare?id=7d92d13a66b9935efb45b39e504f228f">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-23T08:30:47.617Z">
+<meta property="og:updated_time" content="2019-05-15T08:08:31.629Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java系列之工作流">
-<meta name="twitter:description" content="工作流引擎启动的逻辑：加在配置文件bpmp.properties：  获取配置工作流的数据源（可以直接JDBC，也可以使用jndi动态配置） 加载id生成器的依赖生成引擎，加载是否启动定时器配置，加载是否记录数据库流程日记配置等等。  初始化流程启动前和流程启动后的监听类。123456789101112131415161718192021222324252627282930313233343536">
+<meta name="twitter:description" content="http://note.youdao.com/noteshare?id=7d92d13a66b9935efb45b39e504f228f">
 
 
 
@@ -356,6 +356,17 @@
 
                 
                 
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/工作流/" itemprop="url" rel="index">
+                    <span itemprop="name">工作流</span>
+                  </a>
+                </span>
+
+                
+                
               
             </span>
           
@@ -391,12 +402,7 @@
       
 
       
-        <h2 id="工作流引擎启动的逻辑："><a href="#工作流引擎启动的逻辑：" class="headerlink" title="工作流引擎启动的逻辑："></a>工作流引擎启动的逻辑：</h2><p>加在配置文件bpmp.properties：</p>
-<ol>
-<li>获取配置工作流的数据源（可以直接JDBC，也可以使用jndi动态配置）</li>
-<li>加载id生成器的依赖生成引擎，加载是否启动定时器配置，加载是否记录数据库流程日记配置等等。</li>
-</ol>
-<p>初始化流程启动前和流程启动后的监听类。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br></pre></td><td class="code"><pre><span class="line">// 流程引擎初始化入口 BpmpEngineBuilder</span><br><span class="line"></span><br><span class="line">// 监听类的父接口</span><br><span class="line">public interface EngineStartEventHandler &#123;</span><br><span class="line">    void afterStartEngine(ProcessEngineConfigurationImpl var1, ProcessEngine var2) throws Exception;</span><br><span class="line"></span><br><span class="line">    void beforeStartEngine(ProcessEngineConfigurationImpl var1) throws Exception;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 两个实现类BehaviorFactoryHandler和EventDispatcherHandler</span><br><span class="line">字面意义理解EventDispatcherHandler就是对流程事件的监听处理</span><br><span class="line"></span><br><span class="line">public class EventDispatcherHandler implements EngineStartEventHandler &#123;</span><br><span class="line">    public EventDispatcherHandler() &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void afterStartEngine(ProcessEngineConfigurationImpl conf, ProcessEngine processEngine) throws Exception &#123;</span><br><span class="line">        conf.getEventDispatcher().addEventListener(new JobSuccessListener(), new ActivitiEventType[]&#123;ActivitiEventType.JOB_EXECUTION_SUCCESS&#125;);</span><br><span class="line">        conf.getEventDispatcher().addEventListener(new JobFailureListener(), new ActivitiEventType[]&#123;ActivitiEventType.JOB_EXECUTION_FAILURE&#125;);</span><br><span class="line">        conf.getEventDispatcher().addEventListener(new ProcessStartListener(), new ActivitiEventType[]&#123;ActivitiEventType.PROCESS_STARTED&#125;);</span><br><span class="line">        conf.getEventDispatcher().addEventListener(new ProcessEndListener(), new ActivitiEventType[]&#123;ActivitiEventType.PROCESS_COMPLETED, ActivitiEventType.PROCESS_CANCELLED, ActivitiEventType.PROCESS_COMPLETED_WITH_ERROR_END_EVENT&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void beforeStartEngine(ProcessEngineConfigurationImpl conf) throws Exception &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 事件监听的具体实现逻辑</span><br><span class="line">// 事件监听接口ActivitiEventListener</span><br><span class="line">public interface ActivitiEventListener &#123;</span><br><span class="line">    void onEvent(ActivitiEvent var1);</span><br><span class="line"></span><br><span class="line">    boolean isFailOnException();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 作业成功的事件监听实现类</span><br><span class="line">public class JobSuccessListener implements ActivitiEventListener &#123;</span><br><span class="line">    public JobSuccessListener() &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void onEvent(ActivitiEvent event) &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            List&lt;BpmCmd&gt; cmdList = BpmpContext.getCmdList();</span><br><span class="line">            if (cmdList != null &amp;&amp; cmdList.size() &gt; 0) &#123;</span><br><span class="line">                (new BpmCmdLocalExecutor()).execute(cmdList);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            BpmpContext.clear();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public boolean isFailOnException() &#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// BpmpContext处于线程安全考虑，ThreadLocal为变量在每个线程中都创建了一个副本，那么每个线程可以访问自己内部的副本变量。</span><br><span class="line">public class BpmpContext &#123;</span><br><span class="line">    static ThreadLocal&lt;List&lt;BpmCmd&gt;&gt; cmdThreadLocal = new ThreadLocal();</span><br><span class="line"></span><br><span class="line">    public BpmpContext() &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void addCmd(BpmCmd cmd) &#123;</span><br><span class="line">        List&lt;BpmCmd&gt; cmdList = getCmdList();</span><br><span class="line">        if (cmdList == null) &#123;</span><br><span class="line">            cmdList = new ArrayList();</span><br><span class="line">            cmdThreadLocal.set(cmdList);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ((List)cmdList).add(cmd);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static List&lt;BpmCmd&gt; getCmdList() &#123;</span><br><span class="line">        return (List)cmdThreadLocal.get();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void clear() &#123;</span><br><span class="line">        cmdThreadLocal.set((Object)null);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// BpmCmdLocalExecutor执行流程实例的实现类</span><br><span class="line">//其父接口</span><br><span class="line">public interface BpmCmdExecutor &#123;</span><br><span class="line">    BpmCmdResult execute(BpmCmd var1);</span><br><span class="line"></span><br><span class="line">    void execute(List&lt;BpmCmd&gt; var1);</span><br><span class="line">&#125;</span><br><span class="line">//具体实现类</span><br><span class="line">public class BpmCmdLocalExecutor implements BpmCmdExecutor &#123;</span><br><span class="line">    private static final Logger LOGGER = LoggerFactory.getLogger(BpmCmdLocalExecutor.class);</span><br><span class="line"></span><br><span class="line">    public BpmCmdLocalExecutor() &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private Connection getConnection() &#123;</span><br><span class="line">        CommandContext commandContext = Context.getCommandContext();</span><br><span class="line">        return commandContext != null ? commandContext.getDbSqlSession().getSqlSession().getConnection() : null;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public BpmCmdResult execute(BpmCmd cmd) &#123;</span><br><span class="line">        if (StringUtils.isBlank(cmd.getWorkFlowHandler())) &#123;</span><br><span class="line">            LOGGER.warn(&quot;can&apos;t execute &quot; + cmd.getType() + &quot; cmd,because [WorkFlowHandler] not set&quot;);</span><br><span class="line">            BpmCmdResult bpmCmdResult = new BpmCmdResult();</span><br><span class="line">            bpmCmdResult.setResultCode(&quot;1&quot;);</span><br><span class="line">            bpmCmdResult.setValue((Object)null);</span><br><span class="line">            return bpmCmdResult;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            try &#123;</span><br><span class="line">                WorkFlowHandler workFlowHandler = (WorkFlowHandler)ReflectUtil.instantiate(cmd.getWorkFlowHandler());</span><br><span class="line">                workFlowHandler.setConnection(this.getConnection());</span><br><span class="line">                Object value = this.onMessage(cmd, workFlowHandler);</span><br><span class="line">                BpmCmdResult bpmCmdResult = new BpmCmdResult();</span><br><span class="line">                bpmCmdResult.setResultCode(&quot;1&quot;);</span><br><span class="line">                bpmCmdResult.setMessage(&quot;&quot;);</span><br><span class="line">                bpmCmdResult.setValue(value);</span><br><span class="line">                return bpmCmdResult;</span><br><span class="line">            &#125; catch (Exception var5) &#123;</span><br><span class="line">                throw new RuntimeException(var5);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void execute(List&lt;BpmCmd&gt; cmdList) &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            Connection connection = this.getConnection();</span><br><span class="line">            Stack&lt;BpmCmd&gt; archiveCMDList = new Stack();</span><br><span class="line">            Map&lt;String, WorkFlowHandler&gt; workFlowHandlerMap = new HashMap();</span><br><span class="line">            Iterator var6 = cmdList.iterator();</span><br><span class="line"></span><br><span class="line">            BpmCmd cmd;</span><br><span class="line">            WorkFlowHandler workFlowHandler;</span><br><span class="line">            while(var6.hasNext()) &#123;</span><br><span class="line">                cmd = (BpmCmd)var6.next();</span><br><span class="line">                if (StringUtils.isBlank(cmd.getWorkFlowHandler())) &#123;</span><br><span class="line">                    LOGGER.warn(&quot;can&apos;t execute &quot; + cmd.getType() + &quot; cmd,because [WorkFlowHandler] not set&quot;);</span><br><span class="line">                &#125; else if (&quot;processEnd&quot;.equals(cmd.getType())) &#123;</span><br><span class="line">                    archiveCMDList.push(cmd);</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    workFlowHandler = (WorkFlowHandler)workFlowHandlerMap.get(cmd.getWorkFlowHandler());</span><br><span class="line">                    if (workFlowHandler == null) &#123;</span><br><span class="line">                        workFlowHandler = (WorkFlowHandler)ReflectUtil.instantiate(cmd.getWorkFlowHandler());</span><br><span class="line">                        workFlowHandler.setConnection(connection);</span><br><span class="line">                        workFlowHandlerMap.put(cmd.getWorkFlowHandler(), workFlowHandler);</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    this.onMessage(cmd, workFlowHandler);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            for(var6 = archiveCMDList.iterator(); var6.hasNext(); this.onMessage(cmd, workFlowHandler)) &#123;</span><br><span class="line">                cmd = (BpmCmd)var6.next();</span><br><span class="line">                workFlowHandler = (WorkFlowHandler)workFlowHandlerMap.get(cmd.getWorkFlowHandler());</span><br><span class="line">                if (workFlowHandler == null) &#123;</span><br><span class="line">                    workFlowHandler = (WorkFlowHandler)ReflectUtil.instantiate(cmd.getWorkFlowHandler());</span><br><span class="line">                    workFlowHandler.setConnection(connection);</span><br><span class="line">                    workFlowHandlerMap.put(cmd.getWorkFlowHandler(), workFlowHandler);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125; catch (Exception var8) &#123;</span><br><span class="line">            throw new RuntimeException(var8);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //这里实现具体的业务逻辑</span><br><span class="line">    private Object onMessage(BpmCmd cmd, WorkFlowHandler workFlowHandler) throws Exception &#123;</span><br><span class="line">        if (&quot;cancelTask&quot;.equals(cmd.getType())) &#123;</span><br><span class="line">            workFlowHandler.onAutoFinishTask((String)cmd.getVar(String.class));</span><br><span class="line">        &#125; else if (&quot;createTask&quot;.equals(cmd.getType())) &#123;</span><br><span class="line">            Object[] var = (Object[])cmd.getVar();</span><br><span class="line">            workFlowHandler.onCreateTask((BpmWorkItem)var[0], (Map)var[1]);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            if (&quot;getParticipantList&quot;.equals(cmd.getType())) &#123;</span><br><span class="line">                return workFlowHandler.getParticipantList(cmd.getBillId(), cmd.getActivityCode(), (Map)cmd.getVar(Map.class));</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            if (&quot;getTransitionCode&quot;.equals(cmd.getType())) &#123;</span><br><span class="line">                return workFlowHandler.getTransitionCode(cmd.getBillId(), cmd.getActivityCode(), (Map)cmd.getVar(Map.class));</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            if (&quot;processEnd&quot;.equals(cmd.getType())) &#123;</span><br><span class="line">                workFlowHandler.onProcessArchive(cmd.getBillId(), (String)cmd.getVar(String.class));</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                if (!&quot;processStart&quot;.equals(cmd.getType())) &#123;</span><br><span class="line">                    return workFlowHandler.onOtherEvent(cmd.getType(), cmd.getBillId(), cmd.getActivityCode());</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                workFlowHandler.onProcessStart(cmd.getProcessInsId(), cmd.getBillId());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <p><a href="http://note.youdao.com/noteshare?id=7d92d13a66b9935efb45b39e504f228f" target="_blank" rel="noopener">http://note.youdao.com/noteshare?id=7d92d13a66b9935efb45b39e504f228f</a></p>
 
       
     </div>
@@ -421,6 +427,8 @@
         <div class="post-tags">
           
             <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/工作流/" rel="tag"># 工作流</a>
           
         </div>
       
@@ -491,17 +499,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="James Feng">
           <p class="site-author-name" itemprop="name">James Feng</p>
@@ -510,7 +509,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -518,7 +517,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -527,7 +526,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -572,22 +571,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#工作流引擎启动的逻辑："><span class="nav-number">1.</span> <span class="nav-text">工作流引擎启动的逻辑：</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
     </div>
