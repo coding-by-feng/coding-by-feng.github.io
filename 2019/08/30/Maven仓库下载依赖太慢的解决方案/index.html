@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="maven,">
 
 
 
@@ -84,16 +84,18 @@
 
 
 
+<meta name="description" content="将仓库中心更改为阿里云的，修改setting.xml，如下：123456789101112131415161718192021222324252627282930&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;settings xmlns=&amp;quot;http://maven.apache.org/SETTI">
+<meta name="keywords" content="maven">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Maven仓库下载依赖太慢的解决方案">
 <meta property="og:url" content="http://yoursite.com/2019/08/30/Maven仓库下载依赖太慢的解决方案/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
+<meta property="og:description" content="将仓库中心更改为阿里云的，修改setting.xml，如下：123456789101112131415161718192021222324252627282930&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;settings xmlns=&amp;quot;http://maven.apache.org/SETTI">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/08/30/Maven仓库下载依赖太慢的解决方案/WX20190830-154529@2x.png">
-<meta property="og:updated_time" content="2019-08-30T07:46:35.671Z">
+<meta property="og:updated_time" content="2019-08-30T07:51:06.801Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven仓库下载依赖太慢的解决方案">
-<meta name="twitter:image" content="http://yoursite.com/2019/08/30/Maven仓库下载依赖太慢的解决方案/WX20190830-154529@2x.png">
+<meta name="twitter:description" content="将仓库中心更改为阿里云的，修改setting.xml，如下：123456789101112131415161718192021222324252627282930&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;settings xmlns=&amp;quot;http://maven.apache.org/SETTI">
 
 
 
@@ -339,6 +341,24 @@
           </span>
 
           
+            <span class="post-category">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/maven/" itemprop="url" rel="index">
+                    <span itemprop="name">maven</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -371,7 +391,7 @@
       
 
       
-        <img src="/2019/08/30/Maven仓库下载依赖太慢的解决方案/WX20190830-154529@2x.png" title="This is an example image">
+        <p>将仓库中心更改为阿里云的，修改setting.xml，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line"> &lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;</span><br><span class="line">  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">  xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd&quot;&gt;</span><br><span class="line">     &lt;mirrors&gt;</span><br><span class="line">         &lt;!-- 阿里云仓库 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://maven.aliyun.com/nexus/content/repositories/central/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line"></span><br><span class="line">         &lt;!-- 中央仓库1 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;repo1&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://repo1.maven.org/maven2/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line"></span><br><span class="line">         &lt;!-- 中央仓库2 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;repo2&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://repo2.maven.org/maven2/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line">     &lt;/mirrors&gt;</span><br><span class="line"> &lt;/settings&gt;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -392,6 +412,12 @@
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/maven/" rel="tag"># maven</a>
+          
+        </div>
       
 
       

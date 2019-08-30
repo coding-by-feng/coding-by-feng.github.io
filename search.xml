@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[Maven仓库下载依赖太慢的解决方案]]></title>
       <url>%2F2019%2F08%2F30%2FMaven%E4%BB%93%E5%BA%93%E4%B8%8B%E8%BD%BD%E4%BE%9D%E8%B5%96%E5%A4%AA%E6%85%A2%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%2F</url>
-      <content type="text"><![CDATA[]]></content>
+      <content type="text"><![CDATA[将仓库中心更改为阿里云的，修改setting.xml，如下：123456789101112131415161718192021222324252627282930&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd&quot;&gt; &lt;mirrors&gt; &lt;!-- 阿里云仓库 --&gt; &lt;mirror&gt; &lt;id&gt;alimaven&lt;/id&gt; &lt;mirrorOf&gt;central&lt;/mirrorOf&gt; &lt;name&gt;aliyun maven&lt;/name&gt; &lt;url&gt;http://maven.aliyun.com/nexus/content/repositories/central/&lt;/url&gt; &lt;/mirror&gt; &lt;!-- 中央仓库1 --&gt; &lt;mirror&gt; &lt;id&gt;repo1&lt;/id&gt; &lt;mirrorOf&gt;central&lt;/mirrorOf&gt; &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt; &lt;url&gt;http://repo1.maven.org/maven2/&lt;/url&gt; &lt;/mirror&gt; &lt;!-- 中央仓库2 --&gt; &lt;mirror&gt; &lt;id&gt;repo2&lt;/id&gt; &lt;mirrorOf&gt;central&lt;/mirrorOf&gt; &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt; &lt;url&gt;http://repo2.maven.org/maven2/&lt;/url&gt; &lt;/mirror&gt; &lt;/mirrors&gt; &lt;/settings&gt;]]></content>
     </entry>
 
     
