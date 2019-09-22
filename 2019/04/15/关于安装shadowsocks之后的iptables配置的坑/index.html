@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="利用shadowsocks科学上网的搭建方法网上教程很多，可以参考这个：https://www.vultrblog.com/vultr-ss.html 我shadowsocks配置的端口是19726，所以iptables正确的配置命令是：1234iptables -A INPUT -p tcp --dport 19726 -j ACCEPTiptables -I INPUT -m state --">
+<meta name="description" content="利用shadowsocks科学上网的搭建方法网上教程很多，可以参考这个：https://www.vultrblog.com/vultr-ss.html 为了防止上面的地址被墙，记录一下command12345wget --no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadows">
 <meta name="keywords" content="shadowsocks">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于安装shadowsocks之后的iptables配置的坑">
 <meta property="og:url" content="http://yoursite.com/2019/04/15/关于安装shadowsocks之后的iptables配置的坑/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="利用shadowsocks科学上网的搭建方法网上教程很多，可以参考这个：https://www.vultrblog.com/vultr-ss.html 我shadowsocks配置的端口是19726，所以iptables正确的配置命令是：1234iptables -A INPUT -p tcp --dport 19726 -j ACCEPTiptables -I INPUT -m state --">
+<meta property="og:description" content="利用shadowsocks科学上网的搭建方法网上教程很多，可以参考这个：https://www.vultrblog.com/vultr-ss.html 为了防止上面的地址被墙，记录一下command12345wget --no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadows">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-15T13:25:59.981Z">
+<meta property="og:updated_time" content="2019-09-18T02:39:47.791Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于安装shadowsocks之后的iptables配置的坑">
-<meta name="twitter:description" content="利用shadowsocks科学上网的搭建方法网上教程很多，可以参考这个：https://www.vultrblog.com/vultr-ss.html 我shadowsocks配置的端口是19726，所以iptables正确的配置命令是：1234iptables -A INPUT -p tcp --dport 19726 -j ACCEPTiptables -I INPUT -m state --">
+<meta name="twitter:description" content="利用shadowsocks科学上网的搭建方法网上教程很多，可以参考这个：https://www.vultrblog.com/vultr-ss.html 为了防止上面的地址被墙，记录一下command12345wget --no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadows">
 
 
 
@@ -392,6 +392,7 @@
 
       
         <p>利用shadowsocks科学上网的搭建方法网上教程很多，可以参考这个：<br><a href="https://www.vultrblog.com/vultr-ss.html" target="_blank" rel="noopener">https://www.vultrblog.com/vultr-ss.html</a></p>
+<h4 id="为了防止上面的地址被墙，记录一下command"><a href="#为了防止上面的地址被墙，记录一下command" class="headerlink" title="为了防止上面的地址被墙，记录一下command"></a>为了防止上面的地址被墙，记录一下command</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh</span><br><span class="line"></span><br><span class="line">chmod +x shadowsocks.sh</span><br><span class="line"></span><br><span class="line">./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log</span><br></pre></td></tr></table></figure>
 <p>我shadowsocks配置的端口是19726，所以iptables正确的配置命令是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p tcp --dport 19726 -j ACCEPT</span><br><span class="line">iptables -I INPUT -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT</span><br><span class="line">iptables -I INPUT -m state --state INVALID -j DROP</span><br><span class="line">service iptable save</span><br></pre></td></tr></table></figure></p>
 <p>网上很多配置上面最后二条命令。</p>
 
@@ -488,8 +489,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="James Feng">
           <p class="site-author-name" itemprop="name">James Feng</p>
@@ -560,6 +570,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#为了防止上面的地址被墙，记录一下command"><span class="nav-number">1.</span> <span class="nav-text">为了防止上面的地址被墙，记录一下command</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>

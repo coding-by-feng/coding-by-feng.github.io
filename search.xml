@@ -103,7 +103,7 @@
     <entry>
       <title><![CDATA[关于安装shadowsocks之后的iptables配置的坑]]></title>
       <url>%2F2019%2F04%2F15%2F%E5%85%B3%E4%BA%8E%E5%AE%89%E8%A3%85shadowsocks%E4%B9%8B%E5%90%8E%E7%9A%84iptables%E9%85%8D%E7%BD%AE%E7%9A%84%E5%9D%91%2F</url>
-      <content type="text"><![CDATA[利用shadowsocks科学上网的搭建方法网上教程很多，可以参考这个：https://www.vultrblog.com/vultr-ss.html 我shadowsocks配置的端口是19726，所以iptables正确的配置命令是：1234iptables -A INPUT -p tcp --dport 19726 -j ACCEPTiptables -I INPUT -m state --state NEW,ESTABLISHED,RELATED -j ACCEPTiptables -I INPUT -m state --state INVALID -j DROPservice iptable save 网上很多配置上面最后二条命令。]]></content>
+      <content type="text"><![CDATA[利用shadowsocks科学上网的搭建方法网上教程很多，可以参考这个：https://www.vultrblog.com/vultr-ss.html 为了防止上面的地址被墙，记录一下command12345wget --no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.shchmod +x shadowsocks.sh./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log 我shadowsocks配置的端口是19726，所以iptables正确的配置命令是：1234iptables -A INPUT -p tcp --dport 19726 -j ACCEPTiptables -I INPUT -m state --state NEW,ESTABLISHED,RELATED -j ACCEPTiptables -I INPUT -m state --state INVALID -j DROPservice iptable save 网上很多配置上面最后二条命令。]]></content>
     </entry>
 
     
@@ -180,7 +180,7 @@
     <entry>
       <title><![CDATA[linux常用用命令]]></title>
       <url>%2F2019%2F02%2F26%2Flinux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%2F</url>
-      <content type="text"><![CDATA[http://note.youdao.com/noteshare?id=4cbcd194d515f61800209c42d105475c]]></content>
+      <content type="text"><![CDATA[find和grepfind是在系统中搜索符合条件的文件名，grep是在文件中搜索符合条件的字符串。1234find ~/dir -name filename.txtgrep &quot;someStr&quot; filename.txt# 查询某个文件夹下面大小大于某个值文件find ~/dir -type f -size +1G ls 查询目录具体file1234# 按照时间升序ls -lrt# 按照时间降序ls -lt ll按时间排序1234# 升序ll -rt# 降序ll -t ll按大小排序1ll -Sh ln链接命令123ln -s [源文件] [目标文件]# -s软链接，不带-s是硬链接，硬链接等于是copy了一份文件，软链接相当于window的快捷方式。# 硬链接不能对目录使用，删除源文件，硬链接可以正常使用，软连接不可以。 wget命令1# 拉取文件 tartar -zxvf 用于解压 .tar.gz 后缀结尾的 tar -xvf 用于解压 .tar后缀结尾的 nohup12# 启动指定部署目录：nohup ./run.sh -c web38b -b 0.0.0.0 &gt;/dev/null 2&gt;&amp;1 &amp; /dev/null redirects standard output (stdout) to /dev/null, which discards it.(The &gt;&gt; seems sort of superfluous, since &gt;&gt; means append while &gt; means truncate and write, and either appending to or writing to /dev/null has the same net effect. I usually just use &gt; for that reason.)2&gt;&amp;1 redirects standard error (2) to standard output (1), which then discards it as well since standard output has already been redirected. 更改所有子文件和子目录所有者权限1chmod -R 777 fileDir curlcurl -H “Content-Type:application/json” -X POST -d ‘json data’ URL1curl -H &quot;Content-Type:application/json&quot; -X POST -d &apos;&#123;&quot;user&quot;: &quot;admin&quot;, &quot;passwd&quot;:&quot;12345678&quot;&#125;&apos; http://127.0.0.1:8000/login 1curl -d &quot;user=admin&amp;passwd=12345678&quot; http://127.0.0.1:8080/login df命令详解whereiswhichxargs https://blog.csdn.net/wzzfeitian/article/details/40985549标准输出重定向 标准输出重定向到空，相当于忽略输出查看防火墙，放开端口ps]]></content>
     </entry>
 
     
