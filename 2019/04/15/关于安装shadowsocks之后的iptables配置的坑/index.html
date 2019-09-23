@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="利用shadowsocks科学上网的搭建方法网上教程很多，可以参考这个：https://www.vultrblog.com/vultr-ss.html 为了防止上面的地址被墙，记录一下command12345wget --no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadows">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-18T02:39:47.791Z">
+<meta property="og:updated_time" content="2019-09-23T12:36:30.740Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于安装shadowsocks之后的iptables配置的坑">
 <meta name="twitter:description" content="利用shadowsocks科学上网的搭建方法网上教程很多，可以参考这个：https://www.vultrblog.com/vultr-ss.html 为了防止上面的地址被墙，记录一下command12345wget --no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadows">
@@ -393,6 +393,7 @@
       
         <p>利用shadowsocks科学上网的搭建方法网上教程很多，可以参考这个：<br><a href="https://www.vultrblog.com/vultr-ss.html" target="_blank" rel="noopener">https://www.vultrblog.com/vultr-ss.html</a></p>
 <h4 id="为了防止上面的地址被墙，记录一下command"><a href="#为了防止上面的地址被墙，记录一下command" class="headerlink" title="为了防止上面的地址被墙，记录一下command"></a>为了防止上面的地址被墙，记录一下command</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh</span><br><span class="line"></span><br><span class="line">chmod +x shadowsocks.sh</span><br><span class="line"></span><br><span class="line">./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log</span><br></pre></td></tr></table></figure>
+<h4 id="修改shadowsocks端口"><a href="#修改shadowsocks端口" class="headerlink" title="修改shadowsocks端口"></a>修改shadowsocks端口</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/shadowsocks.json</span><br><span class="line"></span><br><span class="line">/etc/init.d/shadowsocks restart</span><br></pre></td></tr></table></figure>
 <p>我shadowsocks配置的端口是19726，所以iptables正确的配置命令是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p tcp --dport 19726 -j ACCEPT</span><br><span class="line">iptables -I INPUT -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT</span><br><span class="line">iptables -I INPUT -m state --state INVALID -j DROP</span><br><span class="line">service iptable save</span><br></pre></td></tr></table></figure></p>
 <p>网上很多配置上面最后二条命令。</p>
 
@@ -580,7 +581,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#为了防止上面的地址被墙，记录一下command"><span class="nav-number">1.</span> <span class="nav-text">为了防止上面的地址被墙，记录一下command</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#为了防止上面的地址被墙，记录一下command"><span class="nav-number">1.</span> <span class="nav-text">为了防止上面的地址被墙，记录一下command</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改shadowsocks端口"><span class="nav-number">2.</span> <span class="nav-text">修改shadowsocks端口</span></a></li></ol></div>
             
 
           </div>

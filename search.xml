@@ -103,7 +103,7 @@
     <entry>
       <title><![CDATA[关于安装shadowsocks之后的iptables配置的坑]]></title>
       <url>%2F2019%2F04%2F15%2F%E5%85%B3%E4%BA%8E%E5%AE%89%E8%A3%85shadowsocks%E4%B9%8B%E5%90%8E%E7%9A%84iptables%E9%85%8D%E7%BD%AE%E7%9A%84%E5%9D%91%2F</url>
-      <content type="text"><![CDATA[利用shadowsocks科学上网的搭建方法网上教程很多，可以参考这个：https://www.vultrblog.com/vultr-ss.html 为了防止上面的地址被墙，记录一下command12345wget --no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.shchmod +x shadowsocks.sh./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log 我shadowsocks配置的端口是19726，所以iptables正确的配置命令是：1234iptables -A INPUT -p tcp --dport 19726 -j ACCEPTiptables -I INPUT -m state --state NEW,ESTABLISHED,RELATED -j ACCEPTiptables -I INPUT -m state --state INVALID -j DROPservice iptable save 网上很多配置上面最后二条命令。]]></content>
+      <content type="text"><![CDATA[利用shadowsocks科学上网的搭建方法网上教程很多，可以参考这个：https://www.vultrblog.com/vultr-ss.html 为了防止上面的地址被墙，记录一下command12345wget --no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.shchmod +x shadowsocks.sh./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log 修改shadowsocks端口123vi /etc/shadowsocks.json/etc/init.d/shadowsocks restart 我shadowsocks配置的端口是19726，所以iptables正确的配置命令是：1234iptables -A INPUT -p tcp --dport 19726 -j ACCEPTiptables -I INPUT -m state --state NEW,ESTABLISHED,RELATED -j ACCEPTiptables -I INPUT -m state --state INVALID -j DROPservice iptable save 网上很多配置上面最后二条命令。]]></content>
     </entry>
 
     
