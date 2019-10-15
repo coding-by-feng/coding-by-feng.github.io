@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="http://note.youdao.com/noteshare?id=c4f15d43346736141686995282b1e8d4">
+<meta name="description" content="查询建索引，约束，外键，视图等的DDL todo将a表的某些列插入b表的某些列1insert into a(ac1,ac2) select bc1,bc2 from b where ...; 重命名表1ALTER TABLE table_name RENAME TO new_table_name； 重命名字段1ALTER TABLE table_name RENAME COLUMN column_">
 <meta name="keywords" content="oracle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="oracle系列之常用操作命令">
 <meta property="og:url" content="http://yoursite.com/2019/04/07/oracle系列之常用操作命令/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="http://note.youdao.com/noteshare?id=c4f15d43346736141686995282b1e8d4">
+<meta property="og:description" content="查询建索引，约束，外键，视图等的DDL todo将a表的某些列插入b表的某些列1insert into a(ac1,ac2) select bc1,bc2 from b where ...; 重命名表1ALTER TABLE table_name RENAME TO new_table_name； 重命名字段1ALTER TABLE table_name RENAME COLUMN column_">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-15T05:24:25.034Z">
+<meta property="og:updated_time" content="2019-10-15T08:18:42.209Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="oracle系列之常用操作命令">
-<meta name="twitter:description" content="http://note.youdao.com/noteshare?id=c4f15d43346736141686995282b1e8d4">
+<meta name="twitter:description" content="查询建索引，约束，外键，视图等的DDL todo将a表的某些列插入b表的某些列1insert into a(ac1,ac2) select bc1,bc2 from b where ...; 重命名表1ALTER TABLE table_name RENAME TO new_table_name； 重命名字段1ALTER TABLE table_name RENAME COLUMN column_">
 
 
 
@@ -391,7 +391,23 @@
       
 
       
-        <p><a href="http://note.youdao.com/noteshare?id=c4f15d43346736141686995282b1e8d4" target="_blank" rel="noopener">http://note.youdao.com/noteshare?id=c4f15d43346736141686995282b1e8d4</a></p>
+        <h2 id="查询建索引，约束，外键，视图等的DDL-todo"><a href="#查询建索引，约束，外键，视图等的DDL-todo" class="headerlink" title="查询建索引，约束，外键，视图等的DDL todo"></a>查询建索引，约束，外键，视图等的DDL todo</h2><h2 id="将a表的某些列插入b表的某些列"><a href="#将a表的某些列插入b表的某些列" class="headerlink" title="将a表的某些列插入b表的某些列"></a>将a表的某些列插入b表的某些列</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into a(ac1,ac2) select bc1,bc2 from b where ...;</span><br></pre></td></tr></table></figure>
+<h2 id="重命名表"><a href="#重命名表" class="headerlink" title="重命名表"></a>重命名表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name RENAME TO new_table_name；</span><br></pre></td></tr></table></figure>
+<h2 id="重命名字段"><a href="#重命名字段" class="headerlink" title="重命名字段"></a>重命名字段</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name RENAME COLUMN column_name TO new_column_name;</span><br></pre></td></tr></table></figure>
+<h2 id="修改字段类型"><a href="#修改字段类型" class="headerlink" title="修改字段类型"></a>修改字段类型</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE tableName modify(columnName 类型);</span><br></pre></td></tr></table></figure>
+<h2 id="增加多个字段"><a href="#增加多个字段" class="headerlink" title="增加多个字段"></a>增加多个字段</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alter table test1 add (name varchar2(30) default ‘无名氏’ not null,</span><br><span class="line">age integer default 22 not null,</span><br><span class="line">has_money number(9,2));</span><br></pre></td></tr></table></figure>
+<h2 id="主键操作"><a href="#主键操作" class="headerlink" title="主键操作"></a>主键操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--设置主键</span><br><span class="line">alter table jack add constraint pk_id primary key(object_id);</span><br></pre></td></tr></table></figure>
+<h2 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop table tn;</span><br></pre></td></tr></table></figure>
+<h2 id="查询表所属表空间"><a href="#查询表所属表空间" class="headerlink" title="查询表所属表空间"></a>查询表所属表空间</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select tablespace_name, table_name</span><br><span class="line">  from user_tables</span><br><span class="line"> where table_name = &apos;EOMS_OUTER_PROJECT&apos;;</span><br></pre></td></tr></table></figure>
+<h2 id="查询索引所在表空间"><a href="#查询索引所在表空间" class="headerlink" title="查询索引所在表空间"></a>查询索引所在表空间</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select index_name,tablespace_name from dba_indexes where index_name=&apos;INDEX_PS&apos;;</span><br></pre></td></tr></table></figure>
+<h2 id="查询表的建表DDL"><a href="#查询表的建表DDL" class="headerlink" title="查询表的建表DDL"></a>查询表的建表DDL</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select dbms_metadata.get_ddl(&apos;TABLE&apos;,&apos;TABLE_NAME&apos;,&apos;DB_USER&apos;) from dual;</span><br></pre></td></tr></table></figure>
+<h2 id="查看所有表空间大小以及使用情况"><a href="#查看所有表空间大小以及使用情况" class="headerlink" title="查看所有表空间大小以及使用情况"></a>查看所有表空间大小以及使用情况</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">SELECT Upper(F.TABLESPACE_NAME) &quot;表空间名&quot;,</span><br><span class="line">       D.TOT_GROOTTE_MB &quot;表空间大小(M)&quot;,</span><br><span class="line">       D.TOT_GROOTTE_MB - F.TOTAL_BYTES &quot;已使用空间(M)&quot;,</span><br><span class="line">       To_char(Round((D.TOT_GROOTTE_MB - F.TOTAL_BYTES) / D.TOT_GROOTTE_MB * 100,</span><br><span class="line">                     2),</span><br><span class="line">               &apos;990.99&apos;) || &apos;%&apos; &quot;使用比&quot;,</span><br><span class="line">       F.TOTAL_BYTES &quot;空闲空间(M)&quot;,</span><br><span class="line">       F.MAX_BYTES &quot;最大块(M)&quot;</span><br><span class="line">  FROM (SELECT TABLESPACE_NAME,</span><br><span class="line">               Round(Sum(BYTES) / (1024 * 1024), 2) TOTAL_BYTES,</span><br><span class="line">               Round(Max(BYTES) / (1024 * 1024), 2) MAX_BYTES</span><br><span class="line">          FROM SYS.DBA_FREE_SPACE</span><br><span class="line">         GROUP BY TABLESPACE_NAME) F,</span><br><span class="line">       (SELECT DD.TABLESPACE_NAME,</span><br><span class="line">               Round(Sum(DD.BYTES) / (1024 * 1024), 2) TOT_GROOTTE_MB</span><br><span class="line">          FROM SYS.DBA_DATA_FILES DD</span><br><span class="line">         GROUP BY DD.TABLESPACE_NAME) D</span><br><span class="line"> WHERE D.TABLESPACE_NAME = F.TABLESPACE_NAME</span><br><span class="line"> ORDER BY &quot;使用比&quot; desc;</span><br></pre></td></tr></table></figure>
+<h2 id="指定表空间查询所有表名"><a href="#指定表空间查询所有表名" class="headerlink" title="指定表空间查询所有表名"></a>指定表空间查询所有表名</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Select Table_Name, Tablespace_Name</span><br><span class="line">From Dba_Tables</span><br><span class="line">Where Tablespace_Name = &apos;USERS&apos;;</span><br></pre></td></tr></table></figure>
+<h2 id="通过指定表空间查询所属表的占用空间"><a href="#通过指定表空间查询所属表的占用空间" class="headerlink" title="通过指定表空间查询所属表的占用空间"></a>通过指定表空间查询所属表的占用空间</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select segment_name, bytes/1024||&apos;KB&apos; &quot;占用空间&quot;</span><br><span class="line">from user_segments </span><br><span class="line">where segment_type=&apos;TABLE&apos; and tablespace_name=&apos;USERS&apos; order by segment_name asc;</span><br></pre></td></tr></table></figure>
+<h2 id="删除列"><a href="#删除列" class="headerlink" title="删除列"></a>删除列</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name DROP COLUMN column_name;</span><br></pre></td></tr></table></figure>
+<h2 id="查询所有表及其所使用的表空间"><a href="#查询所有表及其所使用的表空间" class="headerlink" title="查询所有表及其所使用的表空间"></a>查询所有表及其所使用的表空间</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select table_name 表名 ,tablespace_name 所使用表空间 from user_tables t where t.TABLE_NAME=&apos;T_PRE_AI_ACTIVITY&apos;;</span><br></pre></td></tr></table></figure>
+<h2 id="查询所有表空间大小"><a href="#查询所有表空间大小" class="headerlink" title="查询所有表空间大小"></a>查询所有表空间大小</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT t.tablespace_name, round(SUM(bytes / (1024 * 1024)), 0) ts_size</span><br><span class="line">  FROM dba_tablespaces t, dba_data_files d</span><br><span class="line"> WHERE t.tablespace_name = d.tablespace_name</span><br><span class="line"> GROUP BY t.tablespace_name;</span><br></pre></td></tr></table></figure>
+<h2 id="查询版本"><a href="#查询版本" class="headerlink" title="查询版本"></a>查询版本</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from v$version;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -486,8 +502,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="James Feng">
           <p class="site-author-name" itemprop="name">James Feng</p>
@@ -558,6 +583,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#查询建索引，约束，外键，视图等的DDL-todo"><span class="nav-number">1.</span> <span class="nav-text">查询建索引，约束，外键，视图等的DDL todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将a表的某些列插入b表的某些列"><span class="nav-number">2.</span> <span class="nav-text">将a表的某些列插入b表的某些列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重命名表"><span class="nav-number">3.</span> <span class="nav-text">重命名表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重命名字段"><span class="nav-number">4.</span> <span class="nav-text">重命名字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改字段类型"><span class="nav-number">5.</span> <span class="nav-text">修改字段类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增加多个字段"><span class="nav-number">6.</span> <span class="nav-text">增加多个字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主键操作"><span class="nav-number">7.</span> <span class="nav-text">主键操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除表"><span class="nav-number">8.</span> <span class="nav-text">删除表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询表所属表空间"><span class="nav-number">9.</span> <span class="nav-text">查询表所属表空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询索引所在表空间"><span class="nav-number">10.</span> <span class="nav-text">查询索引所在表空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询表的建表DDL"><span class="nav-number">11.</span> <span class="nav-text">查询表的建表DDL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看所有表空间大小以及使用情况"><span class="nav-number">12.</span> <span class="nav-text">查看所有表空间大小以及使用情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指定表空间查询所有表名"><span class="nav-number">13.</span> <span class="nav-text">指定表空间查询所有表名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过指定表空间查询所属表的占用空间"><span class="nav-number">14.</span> <span class="nav-text">通过指定表空间查询所属表的占用空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除列"><span class="nav-number">15.</span> <span class="nav-text">删除列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询所有表及其所使用的表空间"><span class="nav-number">16.</span> <span class="nav-text">查询所有表及其所使用的表空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询所有表空间大小"><span class="nav-number">17.</span> <span class="nav-text">查询所有表空间大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询版本"><span class="nav-number">18.</span> <span class="nav-text">查询版本</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>

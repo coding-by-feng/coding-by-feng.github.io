@@ -694,9 +694,11 @@
       
         
           
-          http://note.youdao.com/noteshare?id=2a5b0d91eff3b396db7fce105d68da62
+          问题与答案
+为什么加索引后会使写入、修改、删除变慢？
 
-          
+事物都是有两面的， 索引能让数据库查询数据的速度上升， 而使写入数据的速度下降，原因很简单的， 因为平衡树这个结构必须一直维持在一个正确的状态， 增删改数据都会改变平衡树各节点中的索引数据内容，破坏树结构， 因此，在每次数据改变时， DBMS必
+          ...
           <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2019/04/28/oracle系列之索引深入研究/#more" rel="contents">
