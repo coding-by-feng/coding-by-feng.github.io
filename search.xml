@@ -3,6 +3,20 @@
   
     
     <entry>
+      <title><![CDATA[WebStorm汇总]]></title>
+      <url>%2F2019%2F10%2F17%2FWebStorm%E6%B1%87%E6%80%BB%2F</url>
+      <content type="text"></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[ES6汇总]]></title>
+      <url>%2F2019%2F10%2F16%2FES6%E6%B1%87%E6%80%BB%2F</url>
+      <content type="text"><![CDATA[快速生成()=&gt;{};的liveTemplate todoES6教程 todohttp://es6.ruanyifeng.com/?search=%E8%A7%A3%E6%9E%84&amp;x=0&amp;y=0 ES6解构赋值 todohttp://es6.ruanyifeng.com/?search=%E8%A7%A3%E6%9E%84&amp;x=0&amp;y=0#docs/destructuring#%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC let vs var在ES6之前，我们都是用var来声明变量，而且JS只有函数作用域和全局作用域，没有块级作用域，所以{}限定不了var声明变量的访问范围。1234&#123; var i = 9;&#125; console.log(i); // 9 ES6新增的let，可以声明块级作用域的变量。1234&#123; let i = 9; // i变量只在 花括号内有效！！！&#125; console.log(i); // Uncaught ReferenceError: i is not defined https://www.jianshu.com/p/bd7f6cf64e41 const vs var vs lethttps://tylermcginnis.com/var-let-const/简而言之：1、var的作用域是函数级别，默认值是undefined；2、let的作用域是代码块级别，未赋值就引用会抛出ReferenceError3、const的作用域和let一样，但是const相当于是一个常量，赋值之后不能直接修改，不然会抛TypeError，但是如果是其指向的值是对象，那么可以修改对象的子属性，如：1234567const person = &#123; name: &apos;Kim Kardashian&apos;&#125;person.name = &apos;Kim Kardashian West&apos; // ✅person = &#123;&#125; // ❌ Assignment to constant variable. exportexport vs export default其中export和export default最大的区别就是export不限变量数 可以一直写，而export default 只输出一次 而且 export出的变量想要使用必须使用{}来盛放，而export default 不需要 只要import任意一个名字来接收对象即可。 export constexport const 可以导出多个对象，import的时候用{}承接。 letlet obj = {}, content; todoES6中import * as xxx from ‘xxx’的作用import * as obj from ‘xx’ 这种写法是把所有的输出包裹到obj对象里]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Mysql汇总]]></title>
       <url>%2F2019%2F10%2F15%2FMysql%E6%B1%87%E6%80%BB%2F</url>
       <content type="text"><![CDATA[修改表名1alter table sys_user_role rename to sys_user_role_rel;]]></content>
@@ -117,7 +131,7 @@
     <entry>
       <title><![CDATA[Mac汇总]]></title>
       <url>%2F2019%2F10%2F15%2FMac%E6%B1%87%E6%80%BB%2F</url>
-      <content type="text"><![CDATA[Mac原生功能⌘ + option + esc 强制退出某个软件。通常在软件无响应时使用⌘ + shift+ 3：对整个屏幕进行截图⌘ + shift + 4：对自行选择的区域进行截图⌘ + shift + 5：更多方式截图和录屏（新版本系统）⌘ + `：切换同个软件的不同窗口 Alfred强大功能command of close any app：quitcommand of search anything in file: in快速用类vim软件打开选中文件 Shell命令修改shell脚本可执行chmod +x file.command]]></content>
+      <content type="text"><![CDATA[Typora安装生成docx的插件 todovscode安装Markdown插件，代替Typora todoMac原生功能⌘ + option + esc 强制退出某个软件。通常在软件无响应时使用⌘ + shift+ 3：对整个屏幕进行截图⌘ + shift + 4：对自行选择的区域进行截图⌘ + shift + 5：更多方式截图和录屏（新版本系统）⌘ + `：切换同个软件的不同窗口 vscode强大的插件MetaGo: 字符跳转选择 Alfred强大功能command of close any app：quitcommand of search anything in file: in快速用类vim软件打开选中文件 Shell命令修改shell脚本可执行chmod +x file.command]]></content>
     </entry>
 
     
@@ -138,7 +152,7 @@
     <entry>
       <title><![CDATA[vue汇总]]></title>
       <url>%2F2019%2F10%2F15%2Fvue%E6%B1%87%E6%80%BB%2F</url>
-      <content type="text"><![CDATA[webstorm 调试技巧 todoconst vs var vs lethttps://tylermcginnis.com/var-let-const/简而言之：1、var的作用域是函数级别，默认值是undefined；2、let的作用域是代码块级别，未赋值就引用会抛出ReferenceError3、const的作用域和let一样，但是const相当于是一个常量，赋值之后不能直接修改，不然会抛TypeError，但是如果是其指向的值是对象，那么可以修改对象的子属性，如：1234567const person = &#123; name: &apos;Kim Kardashian&apos;&#125;person.name = &apos;Kim Kardashian West&apos; // ✅person = &#123;&#125; // ❌ Assignment to constant variable. API in common usev:bind:attributev-htmlv-on:clickv-on:dblclickv-on:mousemove v-on:可以用@代替 vue import @@ 等价于 /src 这个目录，避免写麻烦又易错的相对路径 ES6中import * as xxx from ‘xxx’的作用import * as obj from ‘xx’ 这种写法是把所有的输出包裹到obj对象里 使用Vue.prototype实现全局变量当你在main.js里声明了Vue.prototype.a = 1后，因为你的每一个vue组件都是一个Vue对象的实例，所以即使你没有在组件内部使用data(){return{……}}声明a，你依然可以在组件中通过this.a来访问。 let vs var在ES6之前，我们都是用var来声明变量，而且JS只有函数作用域和全局作用域，没有块级作用域，所以{}限定不了var声明变量的访问范围。1234&#123; var i = 9;&#125; console.log(i); // 9 ES6新增的let，可以声明块级作用域的变量。1234&#123; let i = 9; // i变量只在 花括号内有效！！！&#125; console.log(i); // Uncaught ReferenceError: i is not defined https://www.jianshu.com/p/bd7f6cf64e41 ES6解构赋值https://segmentfault.com/a/1190000015191681 Template Literals（模板对象） in ES6如在es5中拼凑字符串需要+’’以及变量名12var name = &apos;Your name is &apos; + first + &apos; &apos; + last + &apos;.&apos;;var url = &apos;http://localhost:3000/api/messages/&apos; + id; 在es6中新增添了${}的使用方法12var name = `Your name is $&#123;first&#125; $&#123;last&#125;. `;var url = `http://localhost:3000/api/messages/$&#123;id&#125;`; no-undef“extends”: “eslint:recommended”配置文件中的属性启用此规则。此规则可以帮助您查找由变量和参数名称拼写错误或意外隐式全局变量（例如，var在for循环初始值设定项中遗忘关键字）导致的潜在ReferenceErrors 。]]></content>
+      <content type="text"><![CDATA[webstorm 调试技巧 todoAPI in common usev:bind:attributev-htmlv-on:clickv-on:dblclickv-on:mousemove v-on:可以用@代替 vue import @@ 等价于 /src 这个目录，避免写麻烦又易错的相对路径 使用Vue.prototype实现全局变量当你在main.js里声明了Vue.prototype.a = 1后，因为你的每一个vue组件都是一个Vue对象的实例，所以即使你没有在组件内部使用data(){return{……}}声明a，你依然可以在组件中通过this.a来访问。 Template Literals（模板对象） in ES6如在es5中拼凑字符串需要+’’以及变量名12var name = &apos;Your name is &apos; + first + &apos; &apos; + last + &apos;.&apos;;var url = &apos;http://localhost:3000/api/messages/&apos; + id; 在es6中新增添了${}的使用方法12var name = `Your name is $&#123;first&#125; $&#123;last&#125;. `;var url = `http://localhost:3000/api/messages/$&#123;id&#125;`; no-undef“extends”: “eslint:recommended”配置文件中的属性启用此规则。此规则可以帮助您查找由变量和参数名称拼写错误或意外隐式全局变量（例如，var在for循环初始值设定项中遗忘关键字）导致的潜在ReferenceErrors 。]]></content>
     </entry>
 
     
