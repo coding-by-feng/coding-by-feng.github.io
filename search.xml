@@ -3,9 +3,16 @@
   
     
     <entry>
+      <title><![CDATA[RabbitMQ汇总]]></title>
+      <url>%2F2019%2F10%2F28%2FRabbitMQ%E6%B1%87%E6%80%BB%2F</url>
+      <content type="text"><![CDATA[guest取消本地登录限制https://blog.csdn.net/shenhonglei1234/article/details/82745601 12345678## 注意对应版本vi /usr/lib/rabbitmq/lib/rabbitmq_server-3.7.7/ebin/rabbit.app将：&#123;loopback_users, [&lt;&lt;”guest”&gt;&gt;]&#125;，改为：&#123;loopback_users, []&#125;，原因：rabbitmq从3.3.0开始禁止使用guest/guest权限通过除localhost外的访问service rabbitmq-server restart ##org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused (Connection refused)默认基于tcp的连接端口是5672，详情可见rabbit.app配置文件里面的1&#123;tcp_listeners, [5672]&#125; 还要注意防火墙是否屏蔽端口。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Mysql汇总]]></title>
       <url>%2F2019%2F10%2F24%2FMysql%E6%B1%87%E6%80%BB%2F</url>
-      <content type="text"></content>
+      <content type="text"><![CDATA[建模工具PDMan还是可视化视图清晰点，还可以导出自动生成sql。 查询数据库里面各个表的大小1234567SELECT CONCAT(table_schema,&apos;.&apos;,table_name) AS &apos;Table Name&apos;, table_rows AS &apos;Number of Rows&apos;, CONCAT(ROUND(data_length/(1024*1024*1024),6),&apos; G&apos;) AS &apos;Data Size&apos;, CONCAT(ROUND(index_length/(1024*1024*1024),6),&apos; G&apos;) AS &apos;Index Size&apos; , CONCAT(ROUND((data_length+index_length)/(1024*1024*1024),6),&apos; G&apos;) AS&apos;Total&apos;FROM information_schema.TABLESWHERE table_schema LIKE &apos;inspect_db&apos;;]]></content>
     </entry>
 
     
