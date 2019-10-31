@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="建模工具PDMan还是可视化视图清晰点，还可以导出自动生成sql。 查询数据库里面各个表的大小1234567SELECT CONCAT(table_schema,&amp;apos;.&amp;apos;,table_name) AS &amp;apos;Table Name&amp;apos;,    table_rows AS &amp;apos;Number of Rows&amp;apos;,    CONCAT(ROUND(data_">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-31T01:45:50.270Z">
+<meta property="og:updated_time" content="2019-10-31T02:44:48.236Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql汇总">
 <meta name="twitter:description" content="建模工具PDMan还是可视化视图清晰点，还可以导出自动生成sql。 查询数据库里面各个表的大小1234567SELECT CONCAT(table_schema,&amp;apos;.&amp;apos;,table_name) AS &amp;apos;Table Name&amp;apos;,    table_rows AS &amp;apos;Number of Rows&amp;apos;,    CONCAT(ROUND(data_">
@@ -393,7 +393,8 @@
       
         <h2 id="建模工具PDMan"><a href="#建模工具PDMan" class="headerlink" title="建模工具PDMan"></a>建模工具PDMan</h2><p>还是可视化视图清晰点，还可以导出自动生成sql。</p>
 <h2 id="查询数据库里面各个表的大小"><a href="#查询数据库里面各个表的大小" class="headerlink" title="查询数据库里面各个表的大小"></a>查询数据库里面各个表的大小</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT CONCAT(table_schema,&apos;.&apos;,table_name) AS &apos;Table Name&apos;,</span><br><span class="line">    table_rows AS &apos;Number of Rows&apos;,</span><br><span class="line">    CONCAT(ROUND(data_length/(1024*1024*1024),6),&apos; G&apos;) AS &apos;Data Size&apos;,</span><br><span class="line">    CONCAT(ROUND(index_length/(1024*1024*1024),6),&apos; G&apos;) AS &apos;Index Size&apos; ,</span><br><span class="line">    CONCAT(ROUND((data_length+index_length)/(1024*1024*1024),6),&apos; G&apos;) AS&apos;Total&apos;</span><br><span class="line">FROM information_schema.TABLES</span><br><span class="line">WHERE table_schema LIKE &apos;inspect_db&apos;;</span><br></pre></td></tr></table></figure>
-
+<h2 id="修改主键自增"><a href="#修改主键自增" class="headerlink" title="修改主键自增"></a>修改主键自增</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table word_fetch_queue modify queue_id int auto_increment;</span><br></pre></td></tr></table></figure>
+<h2 id="查询表的建表DDL"><a href="#查询表的建表DDL" class="headerlink" title="查询表的建表DDL"></a>查询表的建表DDL</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show create table table_name;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -578,7 +579,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#建模工具PDMan"><span class="nav-number">1.</span> <span class="nav-text">建模工具PDMan</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询数据库里面各个表的大小"><span class="nav-number">2.</span> <span class="nav-text">查询数据库里面各个表的大小</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#建模工具PDMan"><span class="nav-number">1.</span> <span class="nav-text">建模工具PDMan</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询数据库里面各个表的大小"><span class="nav-number">2.</span> <span class="nav-text">查询数据库里面各个表的大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改主键自增"><span class="nav-number">3.</span> <span class="nav-text">修改主键自增</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询表的建表DDL"><span class="nav-number">4.</span> <span class="nav-text">查询表的建表DDL</span></a></li></ol></div>
             
 
           </div>

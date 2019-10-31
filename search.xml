@@ -12,7 +12,7 @@
     <entry>
       <title><![CDATA[Mysql汇总]]></title>
       <url>%2F2019%2F10%2F24%2FMysql%E6%B1%87%E6%80%BB%2F</url>
-      <content type="text"><![CDATA[建模工具PDMan还是可视化视图清晰点，还可以导出自动生成sql。 查询数据库里面各个表的大小1234567SELECT CONCAT(table_schema,&apos;.&apos;,table_name) AS &apos;Table Name&apos;, table_rows AS &apos;Number of Rows&apos;, CONCAT(ROUND(data_length/(1024*1024*1024),6),&apos; G&apos;) AS &apos;Data Size&apos;, CONCAT(ROUND(index_length/(1024*1024*1024),6),&apos; G&apos;) AS &apos;Index Size&apos; , CONCAT(ROUND((data_length+index_length)/(1024*1024*1024),6),&apos; G&apos;) AS&apos;Total&apos;FROM information_schema.TABLESWHERE table_schema LIKE &apos;inspect_db&apos;;]]></content>
+      <content type="text"><![CDATA[建模工具PDMan还是可视化视图清晰点，还可以导出自动生成sql。 查询数据库里面各个表的大小1234567SELECT CONCAT(table_schema,&apos;.&apos;,table_name) AS &apos;Table Name&apos;, table_rows AS &apos;Number of Rows&apos;, CONCAT(ROUND(data_length/(1024*1024*1024),6),&apos; G&apos;) AS &apos;Data Size&apos;, CONCAT(ROUND(index_length/(1024*1024*1024),6),&apos; G&apos;) AS &apos;Index Size&apos; , CONCAT(ROUND((data_length+index_length)/(1024*1024*1024),6),&apos; G&apos;) AS&apos;Total&apos;FROM information_schema.TABLESWHERE table_schema LIKE &apos;inspect_db&apos;; 修改主键自增1alter table word_fetch_queue modify queue_id int auto_increment; 查询表的建表DDL1show create table table_name;]]></content>
     </entry>
 
     
@@ -152,7 +152,7 @@
     <entry>
       <title><![CDATA[Mac汇总]]></title>
       <url>%2F2019%2F10%2F15%2FMac%E6%B1%87%E6%80%BB%2F</url>
-      <content type="text"><![CDATA[Typora安装生成docx的插件 todovscode安装Markdown插件，代替Typora todoMac原生功能⌘ + option + esc 强制退出某个软件。通常在软件无响应时使用⌘ + shift+ 3：对整个屏幕进行截图⌘ + shift + 4：对自行选择的区域进行截图⌘ + shift + 5：更多方式截图和录屏（新版本系统）⌘ + `：切换同个软件的不同窗口 vscode强大的插件MetaGo: 字符跳转选择 Alfred强大功能command of close any app：quitcommand of search anything in file: in快速用类vim软件打开选中文件 Shell命令修改shell脚本可执行chmod +x file.command]]></content>
+      <content type="text"><![CDATA[Typora安装生成docx的插件 todovscode安装Markdown插件，代替Typora todoMac原生功能⌘ + option + esc 强制退出某个软件。通常在软件无响应时使用⌘ + shift+ 3：对整个屏幕进行截图⌘ + shift + 4：对自行选择的区域进行截图⌘ + shift + 5：更多方式截图和录屏（新版本系统）⌘ + `：切换同个软件的不同窗口 通过命令和粘贴文件1234567# 将a.txt文件类容写入剪切板，相当于 cmd + Cpbcopy &lt; blogpost.txtcat a.txt | pbcopy # 将主目录的文件列表复制到剪贴板ls ~ | pbcopy # 复制终端当前目录pwd | pbcopy 1234# 将刚刚存入剪切板的a.txt内容复制到终端，相当于 cmd + vpbpaste # 追加内容到对应的文件pbpaste &gt;&gt; tasklist.txt vscode强大的插件MetaGo: 字符跳转选择 Alfred强大功能command of close any app：quitcommand of search anything in file: in快速用类vim软件打开选中文件 Shell命令修改shell脚本可执行chmod +x file.command]]></content>
     </entry>
 
     
