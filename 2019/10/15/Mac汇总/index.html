@@ -94,7 +94,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://q0sd5ksib.bkt.clouddn.com/TmZg0s.png">
 <meta property="og:image" content="http://q0sd5ksib.bkt.clouddn.com/yAU7qe.png">
-<meta property="og:updated_time" content="2019-11-18T01:29:33.575Z">
+<meta property="og:updated_time" content="2019-11-20T01:52:04.709Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac汇总">
 <meta name="twitter:description" content="Mac原生功能⌘ + option + esc 强制退出某个软件。通常在软件无响应时使用⌘ + shift+ 3：对整个屏幕进行截图⌘ + shift + 4：对自行选择的区域进行截图⌘ + shift + 5：更多方式截图和录屏（新版本系统）⌘ + `：切换同个软件的不同窗口123cmd + opt + 8 open or close zoomcmd + opt + - zoom incmd +">
@@ -396,6 +396,7 @@
       
         <h2 id="Mac原生功能"><a href="#Mac原生功能" class="headerlink" title="Mac原生功能"></a>Mac原生功能</h2><p>⌘ + option + esc 强制退出某个软件。通常在软件无响应时使用<br>⌘ + shift+ 3：对整个屏幕进行截图<br>⌘ + shift + 4：对自行选择的区域进行截图<br>⌘ + shift + 5：更多方式截图和录屏（新版本系统）<br>⌘ + `：切换同个软件的不同窗口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cmd + opt + 8 open or close zoom</span><br><span class="line">cmd + opt + - zoom in</span><br><span class="line">cmd + opt + = zoom out</span><br></pre></td></tr></table></figure></p>
 <h2 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h2><p>非必要更新软件一定要在空闲时间更新，比如这个：<br><img src="http://q0sd5ksib.bkt.clouddn.com/TmZg0s.png" alt="macOS_img"><br><img src="http://q0sd5ksib.bkt.clouddn.com/yAU7qe.png" alt="macOS_img"></p>
+<p>Dock的最佳位置是放在右边，并且隐藏起来，这样既有较大的屏幕可视区间，也不会经常因为移动鼠标到左边而误触，毕竟MacOS的窗口控制习惯是在左边。</p>
 <h2 id="通过命令和粘贴文件"><a href="#通过命令和粘贴文件" class="headerlink" title="通过命令和粘贴文件"></a>通过命令和粘贴文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 将a.txt文件类容写入剪切板，相当于 cmd + C</span><br><span class="line">pbcopy &lt; blogpost.txt</span><br><span class="line">cat a.txt | pbcopy      </span><br><span class="line"># 将主目录的文件列表复制到剪贴板</span><br><span class="line">ls ~ | pbcopy      </span><br><span class="line"># 复制终端当前目录</span><br><span class="line">pwd | pbcopy</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 将刚刚存入剪切板的a.txt内容复制到终端，相当于 cmd + v</span><br><span class="line">pbpaste              </span><br><span class="line"># 追加内容到对应的文件</span><br><span class="line">pbpaste &gt;&gt; tasklist.txt</span><br></pre></td></tr></table></figure>
 <h2 id="Alfred"><a href="#Alfred" class="headerlink" title="Alfred"></a>Alfred</h2><p>command of close any app：quit<br>command of search anything in file: in<br>快速用类vim软件打开选中文件</p>
