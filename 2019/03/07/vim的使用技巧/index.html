@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="常用组合键和快捷操作方式快速移动到第1000行，在命令行模式下1:1000 将当前行向下移动  :m+  将当前行向下移动n行,最后一行使用$  :m+n  将当前行向上移动  :m-  将当前行向上移动n行,第一行使用0  :m-n  上下分割当前打开的文件。  ctrl+w s  左右分割当前打开的文件。  ctrl+w v  移动光标到不同的屏。  ctrl+w (h,l,j,k)  关闭当">
+<meta name="description" content="TodoItem异常情况处理 todoW10: Warning: Changing a readonly file Hotkeys In Normal ModeMoving(移动)   key desc     0 移动到行首   $ 移动到行尾   G 移动到最后一行   1G 移动到第一行   dG 从当前行删除到最后一行   v+hjkl 从当前位置开始移动并选中   V+jk 从当前行开始">
 <meta name="keywords" content="linux,vim,mac">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vim的使用技巧">
 <meta property="og:url" content="http://yoursite.com/2019/03/07/vim的使用技巧/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="常用组合键和快捷操作方式快速移动到第1000行，在命令行模式下1:1000 将当前行向下移动  :m+  将当前行向下移动n行,最后一行使用$  :m+n  将当前行向上移动  :m-  将当前行向上移动n行,第一行使用0  :m-n  上下分割当前打开的文件。  ctrl+w s  左右分割当前打开的文件。  ctrl+w v  移动光标到不同的屏。  ctrl+w (h,l,j,k)  关闭当">
+<meta property="og:description" content="TodoItem异常情况处理 todoW10: Warning: Changing a readonly file Hotkeys In Normal ModeMoving(移动)   key desc     0 移动到行首   $ 移动到行尾   G 移动到最后一行   1G 移动到第一行   dG 从当前行删除到最后一行   v+hjkl 从当前位置开始移动并选中   V+jk 从当前行开始">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-10T12:34:40.319Z">
+<meta property="og:updated_time" content="2019-11-20T13:04:37.671Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim的使用技巧">
-<meta name="twitter:description" content="常用组合键和快捷操作方式快速移动到第1000行，在命令行模式下1:1000 将当前行向下移动  :m+  将当前行向下移动n行,最后一行使用$  :m+n  将当前行向上移动  :m-  将当前行向上移动n行,第一行使用0  :m-n  上下分割当前打开的文件。  ctrl+w s  左右分割当前打开的文件。  ctrl+w v  移动光标到不同的屏。  ctrl+w (h,l,j,k)  关闭当">
+<meta name="twitter:description" content="TodoItem异常情况处理 todoW10: Warning: Changing a readonly file Hotkeys In Normal ModeMoving(移动)   key desc     0 移动到行首   $ 移动到行尾   G 移动到最后一行   1G 移动到第一行   dG 从当前行删除到最后一行   v+hjkl 从当前位置开始移动并选中   V+jk 从当前行开始">
 
 
 
@@ -391,81 +391,161 @@
       
 
       
-        <h2 id="常用组合键和快捷操作方式"><a href="#常用组合键和快捷操作方式" class="headerlink" title="常用组合键和快捷操作方式"></a>常用组合键和快捷操作方式</h2><p>快速移动到第1000行，在命令行模式下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:1000</span><br></pre></td></tr></table></figure></p>
-<p>将当前行向下移动</p>
-<blockquote>
-<p>:m+</p>
-</blockquote>
-<p>将当前行向下移动n行,最后一行使用$</p>
-<blockquote>
-<p>:m+n</p>
-</blockquote>
-<p>将当前行向上移动</p>
-<blockquote>
-<p>:m-</p>
-</blockquote>
-<p>将当前行向上移动n行,第一行使用0</p>
-<blockquote>
-<p>:m-n</p>
-</blockquote>
-<p>上下分割当前打开的文件。</p>
-<blockquote>
-<p>ctrl+w s</p>
-</blockquote>
-<p>左右分割当前打开的文件。</p>
-<blockquote>
-<p>ctrl+w v</p>
-</blockquote>
-<p>移动光标到不同的屏。</p>
-<blockquote>
-<p>ctrl+w (h,l,j,k)</p>
-</blockquote>
-<p>关闭当前窗口。</p>
-<blockquote>
-<p>ctrl+w c</p>
-</blockquote>
-<p>关闭当前窗口，如果只剩最后一个了，则退出Vim。</p>
-<blockquote>
-<p>ctrl+w q</p>
-</blockquote>
-<p>删除光标以下的N行</p>
-<blockquote>
-<p>Ndd</p>
-</blockquote>
-<p>删除光标所在行到最后一行的内容</p>
-<blockquote>
-<p>dG</p>
-</blockquote>
-<p>删除光标所在行到第一行的内容</p>
-<blockquote>
-<p>d1G</p>
-</blockquote>
-<p>删除光标所在到行尾</p>
-<blockquote>
-<p>d$</p>
-</blockquote>
-<p>删除光标所在到行首</p>
-<blockquote>
-<p>d0 （数字0）</p>
-</blockquote>
-<p>搜索字符串</p>
-<blockquote>
-<p>命令行模式输入:/要搜索的字符串</p>
-<p>查看下一个匹配按n</p>
-<p>查看上一个匹配按N</p>
-</blockquote>
-<p>命令行模式v进入选择模式。</p>
-<p>选择之后可以在命令行模式shift+&lt;或者shift+&gt;将代码进行左右移动。</p>
-<p>跳到文件最后一行</p>
-<blockquote>
-<p>:$</p>
-</blockquote>
-<p>跳到文件第一行</p>
-<blockquote>
-<p>:0</p>
-</blockquote>
-<p>移动当前行或者多行快捷键<br>&gt;</p>
-<h2 id="异常情况处理"><a href="#异常情况处理" class="headerlink" title="异常情况处理"></a>异常情况处理</h2><p>W10: Warning: Changing a readonly file</p>
+        <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="异常情况处理-todo"><a href="#异常情况处理-todo" class="headerlink" title="异常情况处理 todo"></a>异常情况处理 todo</h2><p>W10: Warning: Changing a readonly file</p>
+<h1 id="Hotkeys-In-Normal-Mode"><a href="#Hotkeys-In-Normal-Mode" class="headerlink" title="Hotkeys In Normal Mode"></a>Hotkeys In Normal Mode</h1><h4 id="Moving-移动"><a href="#Moving-移动" class="headerlink" title="Moving(移动)"></a>Moving(移动)</h4><table>
+<thead>
+<tr>
+<th>key</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>移动到行首</td>
+</tr>
+<tr>
+<td>$</td>
+<td>移动到行尾</td>
+</tr>
+<tr>
+<td>G</td>
+<td>移动到最后一行</td>
+</tr>
+<tr>
+<td>1G</td>
+<td>移动到第一行</td>
+</tr>
+<tr>
+<td>dG</td>
+<td>从当前行删除到最后一行</td>
+</tr>
+<tr>
+<td>v+hjkl</td>
+<td>从当前位置开始移动并选中</td>
+</tr>
+<tr>
+<td>V+jk</td>
+<td>从当前行开始移动并选中</td>
+</tr>
+<tr>
+<td>shift+<or shift+></or></td>
+<td>选择之后可以在命令行模式将代码进行左右移动。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Editing-编辑"><a href="#Editing-编辑" class="headerlink" title="Editing(编辑)"></a>Editing(编辑)</h4><table>
+<thead>
+<tr>
+<th>key</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dd</td>
+<td>删除当前行</td>
+</tr>
+<tr>
+<td>d1G</td>
+<td>从当前行删除到第一行</td>
+</tr>
+<tr>
+<td>Ndd</td>
+<td>删除光标以下的N行</td>
+</tr>
+<tr>
+<td>d$</td>
+<td>删除光标所在到行尾</td>
+</tr>
+<tr>
+<td>d0</td>
+<td>删除光标所在到行首</td>
+</tr>
+<tr>
+<td>daw</td>
+<td>删除光标所在单词</td>
+</tr>
+</tbody>
+</table>
+<h4 id="View-视图"><a href="#View-视图" class="headerlink" title="View(视图)"></a>View(视图)</h4><table>
+<thead>
+<tr>
+<th>key</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^+w s</td>
+<td>上下分割当前打开的文件。</td>
+</tr>
+<tr>
+<td>^+w v</td>
+<td>左右分割当前打开的文件。</td>
+</tr>
+<tr>
+<td>^+w (h,l,j,k)</td>
+<td>移动光标到不同的分屏。</td>
+</tr>
+<tr>
+<td>^+w c</td>
+<td>关闭当前窗口。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Commands-In-command-Mode"><a href="#Commands-In-command-Mode" class="headerlink" title="Commands In command Mode"></a>Commands In command Mode</h2><h4 id="search-搜索"><a href="#search-搜索" class="headerlink" title="search(搜索)"></a>search(搜索)</h4><table>
+<thead>
+<tr>
+<th>command</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:/ or ?</td>
+<td>命令行模式输入要搜索的字符串,查看下一个匹配按n,查看上一个匹配按N</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Moving-移动-1"><a href="#Moving-移动-1" class="headerlink" title="Moving(移动)"></a>Moving(移动)</h4><table>
+<thead>
+<tr>
+<th>command</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:1000</td>
+<td>快速移动到第1000行，在命令行模式下</td>
+</tr>
+<tr>
+<td>:m+</td>
+<td>将当前行向下移动</td>
+</tr>
+<tr>
+<td>:m+n</td>
+<td>将当前行向下移动n行,最后一行使用$</td>
+</tr>
+<tr>
+<td>:m-</td>
+<td>将当前行向上移动</td>
+</tr>
+<tr>
+<td>:m-n</td>
+<td>将当前行向上移动n行,第一行使用0</td>
+</tr>
+<tr>
+<td>:$</td>
+<td>跳到文件最后一行</td>
+</tr>
+<tr>
+<td>:0</td>
+<td>跳到文件第一行</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -655,7 +735,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用组合键和快捷操作方式"><span class="nav-number">1.</span> <span class="nav-text">常用组合键和快捷操作方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常情况处理"><span class="nav-number">2.</span> <span class="nav-text">异常情况处理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TodoItem"><span class="nav-number">1.</span> <span class="nav-text">TodoItem</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#异常情况处理-todo"><span class="nav-number">1.1.</span> <span class="nav-text">异常情况处理 todo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hotkeys-In-Normal-Mode"><span class="nav-number">2.</span> <span class="nav-text">Hotkeys In Normal Mode</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Moving-移动"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">Moving(移动)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Editing-编辑"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">Editing(编辑)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#View-视图"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">View(视图)</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#Commands-In-command-Mode"><span class="nav-number">2.1.</span> <span class="nav-text">Commands In command Mode</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#search-搜索"><span class="nav-number">2.1.0.1.</span> <span class="nav-text">search(搜索)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Moving-移动-1"><span class="nav-number">2.1.0.2.</span> <span class="nav-text">Moving(移动)</span></a></li></ol></li></div>
             
 
           </div>
