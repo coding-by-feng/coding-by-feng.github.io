@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="TodoItemdebug远程服务器 todo微服务的情况下，怎么自定义Application启动链，按照固定顺序依次启动n个服务 todo控制台能不能装上vim插件和emacsIdeas这种插件？ 评估一下自己开发一个？ todohotkeyUsage Search（使用查询）   key desc     cmd+opt+F7 搜索文件中用法，以弹窗方式显示   opt+F7 全局搜索引用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-20T12:53:57.299Z">
+<meta property="og:updated_time" content="2019-11-21T06:51:47.834Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Idea汇总">
 <meta name="twitter:description" content="TodoItemdebug远程服务器 todo微服务的情况下，怎么自定义Application启动链，按照固定顺序依次启动n个服务 todo控制台能不能装上vim插件和emacsIdeas这种插件？ 评估一下自己开发一个？ todohotkeyUsage Search（使用查询）   key desc     cmd+opt+F7 搜索文件中用法，以弹窗方式显示   opt+F7 全局搜索引用">
@@ -459,6 +459,14 @@
 <td>shift+F7</td>
 <td>智能步入，断点所在行上有多个方法调用，会弹出进入哪个方法</td>
 </tr>
+<tr>
+<td>^+F5</td>
+<td>重启debug服务</td>
+</tr>
+<tr>
+<td>cmd+F2</td>
+<td>终止debug服务</td>
+</tr>
 </tbody>
 </table>
 <h2 id="General（通用）"><a href="#General（通用）" class="headerlink" title="General（通用）"></a>General（通用）</h2><table>
@@ -477,6 +485,98 @@
 <td>^+cmd+C</td>
 <td>清理控制台的日志之类的，需要再keymap里面设置Other</td>
 <td>Clear All</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Refactoring（重构）"><a href="#Refactoring（重构）" class="headerlink" title="Refactoring（重构）"></a>Refactoring（重构）</h2><table>
+<thead>
+<tr>
+<th>key</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F5</td>
+<td>复制文件到指定包路径</td>
+</tr>
+<tr>
+<td>F6</td>
+<td>移动文件到指定包路径</td>
+</tr>
+<tr>
+<td>opt+cmd+m</td>
+<td>提取代码为方法</td>
+</tr>
+<tr>
+<td>opt+cmd+c</td>
+<td>提出代码为常量</td>
+</tr>
+<tr>
+<td>opt+cmd+v</td>
+<td>提出代码为变量</td>
+</tr>
+<tr>
+<td>opt+cmd+f</td>
+<td>提出代码为成员变量</td>
+</tr>
+<tr>
+<td>opt+cmd+p</td>
+<td>提出代码为方法的形参</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Navigation（导航）"><a href="#Navigation（导航）" class="headerlink" title="Navigation（导航）"></a>Navigation（导航）</h2><table>
+<thead>
+<tr>
+<th>key</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cmd+u</td>
+<td>前往当前光标所在方法的父类的方法 / 接口定义</td>
+</tr>
+<tr>
+<td>cmd+b</td>
+<td>进入定义处</td>
+</tr>
+<tr>
+<td>cmd+opt+b</td>
+<td>进入实现处</td>
+</tr>
+<tr>
+<td>cmd+o</td>
+<td>查询当前类的所有方法</td>
+</tr>
+<tr>
+<td>cmd+F12</td>
+<td>展示当前文件的结果大纲（可用于查询变量、方法等）</td>
+</tr>
+<tr>
+<td>^+shift+B</td>
+<td>跳转到类型声明处</td>
+</tr>
+<tr>
+<td>F12</td>
+<td>返回前一个工具窗口</td>
+</tr>
+<tr>
+<td>shift+esc</td>
+<td>隐藏当前或最后一个活动的窗口，且光标进入代码文件窗口</td>
+</tr>
+<tr>
+<td>opt+F1</td>
+<td>显示当前文件选择目标弹出层，弹出层中有很多目标可以进行选择（如在代码编辑窗口可以选择显示该文件的 Finder）</td>
+</tr>
+<tr>
+<td>⌃H</td>
+<td>显示当前类的层次结构</td>
+</tr>
+<tr>
+<td>^+opt+H</td>
+<td>显示所有调用的层次结构</td>
 </tr>
 </tbody>
 </table>
@@ -506,12 +606,14 @@
 </blockquote>
 <h2 id="ideaVim"><a href="#ideaVim" class="headerlink" title="ideaVim"></a>ideaVim</h2><p>yy 复制当值当前行，或者选中后y复制，然后输入数字n，再输入p，代表连续粘贴n次。<br>gg 快速移动到文件的开头<br>G  快速移动到文件的结尾</p>
 <h2 id="CamelCase"><a href="#CamelCase" class="headerlink" title="CamelCase"></a>CamelCase</h2><p>opt+shift+u 可以对字符进行驼峰式的不同格式变换，非常实用。</p>
+<h2 id="Grep-Console"><a href="#Grep-Console" class="headerlink" title="Grep Console"></a>Grep Console</h2><p>安装该日志插件，控制台的日志输出可以更加直观，还可以自定义颜色。</p>
 <h1 id="Others-其他"><a href="#Others-其他" class="headerlink" title="Others(其他)"></a>Others(其他)</h1><h2 id="修改包名要注意的地方"><a href="#修改包名要注意的地方" class="headerlink" title="修改包名要注意的地方"></a>修改包名要注意的地方</h2><p>修改了包名之后注意在编译输出的目录要清空之前的老的class，不然可能会引起意想不到的冲突。</p>
 <h2 id="有没有更加智能化的API注释查看方法，比如鼠标-cmd的方式就完整地将注释都展示出来？"><a href="#有没有更加智能化的API注释查看方法，比如鼠标-cmd的方式就完整地将注释都展示出来？" class="headerlink" title="有没有更加智能化的API注释查看方法，比如鼠标+cmd的方式就完整地将注释都展示出来？"></a>有没有更加智能化的API注释查看方法，比如鼠标+cmd的方式就完整地将注释都展示出来？</h2><p>ctrl+J<br>可以搜索keymap需改热键，Quick Documentation</p>
 <h2 id="debug的时候变量的多种不同的View"><a href="#debug的时候变量的多种不同的View" class="headerlink" title="debug的时候变量的多种不同的View"></a>debug的时候变量的多种不同的View</h2><p>在Variables右键要跟踪的变量,可以view text，或者view as 其他类型.</p>
 <h2 id="Performance-enhancements（性能增加）"><a href="#Performance-enhancements（性能增加）" class="headerlink" title="Performance enhancements（性能增加）"></a>Performance enhancements（性能增加）</h2><p>idea吃内存确实是有点恐怖，对于调大内存，网上基本都是说调整idea.vmoptions里面的这三个参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-Xms1024m</span><br><span class="line">-Xmx3000m</span><br><span class="line">-XX:ReservedCodeCacheSize=1024m</span><br></pre></td></tr></table></figure></p>
 <p>但是我自己是基于2019.02的版本，发现即使调整了之后重启，idea右下角的内存显示还是原来的Max。<br>其实要这样调整才能真正生效：<br>Help-&gt;Edit Custom VM Options<br>打开这个会发现里面的配置还是原来的，在这里更改再重启，右下角的内存Max才会变大，才能生效。</p>
 <h2 id="cmd-shift-A按第二次的时候老是换出Terminal"><a href="#cmd-shift-A按第二次的时候老是换出Terminal" class="headerlink" title="cmd+shift+A按第二次的时候老是换出Terminal"></a>cmd+shift+A按第二次的时候老是换出Terminal</h2><p><a href="https://intellij-support.jetbrains.com/hc/en-us/articles/360005137400-Cmd-Shift-A-hotkey-opens-Terminal-with-apropos-search-instead-of-the-Find-Action-dialog" target="_blank" rel="noopener">https://intellij-support.jetbrains.com/hc/en-us/articles/360005137400-Cmd-Shift-A-hotkey-opens-Terminal-with-apropos-search-instead-of-the-Find-Action-dialog</a></p>
+<h2 id="Bug"><a href="#Bug" class="headerlink" title="Bug"></a>Bug</h2><p>有时候会出现复制进来的新文件编译之后没有被输出到target对应的目录，应该是idea潜在的bug，如果点击重新加载文件索引太慢了，一般重启一下重新编译可以解决。</p>
 <h1 id="all-shortcut"><a href="#all-shortcut" class="headerlink" title="all shortcut"></a>all shortcut</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">新建文件的时候可以这样操作来脱离鼠标：</span><br><span class="line">cmd+1跳到Project目录上下移动到目标目录，然后cmd+shift+A跳出Action，输入new+文件类型或者手动选择文件类型就可以了。</span><br><span class="line"></span><br><span class="line">option+cmd+c 抽取局部字符串为静态变量</span><br><span class="line">cmd+shift+方向键  可以控制模态框的大小，和左右移动编辑区的内容</span><br><span class="line">ctrl+j  展示API文档</span><br><span class="line">ctrl+shift+F,[words 打钩可以搜索是否为单词]</span><br><span class="line">command+D,</span><br><span class="line">commond+F12(file structure)</span><br><span class="line">command+shift+N(search file&apos;s name and global)</span><br><span class="line">commond+option+shift+N(search method d variable global)</span><br><span class="line">shirt + option + (向上箭头)/（向下箭头）(move codes up or down)</span><br><span class="line">Command + Option + L(Format code)</span><br><span class="line">option+enter（add javadoc）</span><br><span class="line">option+command+b(jump into the class impl)</span><br><span class="line">command+e(recent file)</span><br><span class="line">command+shift+a(search action)</span><br><span class="line">command+number(window tab jump)</span><br><span class="line">shift(ctrl)+command+del(last(next) edit location)</span><br><span class="line">F11，command+F11，ctrl+number(alphabet)(bookmarks)</span><br><span class="line">option+shift+F(add to favorites)</span><br><span class="line">shift+option+U(toggle case)</span><br><span class="line">command+1,esc(switch between file navigate and edit area)</span><br><span class="line">option+F7(find usage)</span><br><span class="line">shift+option+方向(move caret to next word)</span><br><span class="line">command+方向(move to first or end of line)</span><br><span class="line">ctrl+command+G(sellect all occurrences) HOT</span><br><span class="line">F2(Quickly locate the wrong line)</span><br><span class="line">option+command+V(generate locate variable)</span><br><span class="line">shift+command+enter(generate some code)</span><br><span class="line">option+enter(generate some method)</span><br><span class="line">command+R(replace)</span><br><span class="line">shift+F6(rename)</span><br><span class="line">option+command+V(Extract Variable)</span><br><span class="line">option+command+C(Extract static Variable) HOT</span><br><span class="line">option+command+F(Extract field Variable)</span><br><span class="line">option+command+P(Extract field Variable into method)</span><br><span class="line">option+command+M(Extract some code to be a new method)HOT</span><br><span class="line">shift+command+F8(show all breakPoints)</span><br><span class="line">shift+command+V(copy history)</span><br><span class="line">shift+option+command+U(show maven dependencies)</span><br><span class="line">option+command+U(show class inherit) HOT</span><br><span class="line">ctrl+option+H(call method or be called history)</span><br><span class="line">ctrl+N(Generate anything)</span><br><span class="line">ctrl+w(select something)</span><br><span class="line">ctrl+&lt; or &gt; (move up or down next method) HOT</span><br><span class="line">cmd+option+T (surround) HOT</span><br></pre></td></tr></table></figure>
 
       
@@ -626,7 +728,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">73</span>
+              <span class="site-state-item-count">74</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -634,7 +736,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-count">50</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -643,7 +745,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">56</span>
+                <span class="site-state-item-count">57</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -698,7 +800,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TodoItem"><span class="nav-number">1.</span> <span class="nav-text">TodoItem</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#debug远程服务器-todo"><span class="nav-number">1.1.</span> <span class="nav-text">debug远程服务器 todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微服务的情况下，怎么自定义Application启动链，按照固定顺序依次启动n个服务-todo"><span class="nav-number">1.2.</span> <span class="nav-text">微服务的情况下，怎么自定义Application启动链，按照固定顺序依次启动n个服务 todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制台能不能装上vim插件和emacsIdeas这种插件？-评估一下自己开发一个？-todo"><span class="nav-number">1.3.</span> <span class="nav-text">控制台能不能装上vim插件和emacsIdeas这种插件？ 评估一下自己开发一个？ todo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hotkey"><span class="nav-number">2.</span> <span class="nav-text">hotkey</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Usage-Search（使用查询）"><span class="nav-number">2.1.</span> <span class="nav-text">Usage Search（使用查询）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Editing（编辑）"><span class="nav-number">2.2.</span> <span class="nav-text">Editing（编辑）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#debug"><span class="nav-number">2.3.</span> <span class="nav-text">debug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#General（通用）"><span class="nav-number">2.4.</span> <span class="nav-text">General（通用）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#plugin-插件"><span class="nav-number">3.</span> <span class="nav-text">plugin(插件)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#emacsIdeas-最强大没有之一"><span class="nav-number">3.1.</span> <span class="nav-text">emacsIdeas 最强大没有之一</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#jump"><span class="nav-number">3.1.0.1.</span> <span class="nav-text">jump</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emacsIdeas-copy"><span class="nav-number">3.1.0.2.</span> <span class="nav-text">emacsIdeas copy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emacsIdeas-delete"><span class="nav-number">3.1.0.3.</span> <span class="nav-text">emacsIdeas delete</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emacsIdeas-cut"><span class="nav-number">3.1.0.4.</span> <span class="nav-text">emacsIdeas cut</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emacsIdeas-more"><span class="nav-number">3.1.0.5.</span> <span class="nav-text">emacsIdeas more</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ideaVim"><span class="nav-number">3.2.</span> <span class="nav-text">ideaVim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CamelCase"><span class="nav-number">3.3.</span> <span class="nav-text">CamelCase</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Others-其他"><span class="nav-number">4.</span> <span class="nav-text">Others(其他)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#修改包名要注意的地方"><span class="nav-number">4.1.</span> <span class="nav-text">修改包名要注意的地方</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有没有更加智能化的API注释查看方法，比如鼠标-cmd的方式就完整地将注释都展示出来？"><span class="nav-number">4.2.</span> <span class="nav-text">有没有更加智能化的API注释查看方法，比如鼠标+cmd的方式就完整地将注释都展示出来？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#debug的时候变量的多种不同的View"><span class="nav-number">4.3.</span> <span class="nav-text">debug的时候变量的多种不同的View</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Performance-enhancements（性能增加）"><span class="nav-number">4.4.</span> <span class="nav-text">Performance enhancements（性能增加）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cmd-shift-A按第二次的时候老是换出Terminal"><span class="nav-number">4.5.</span> <span class="nav-text">cmd+shift+A按第二次的时候老是换出Terminal</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#all-shortcut"><span class="nav-number">5.</span> <span class="nav-text">all shortcut</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TodoItem"><span class="nav-number">1.</span> <span class="nav-text">TodoItem</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#debug远程服务器-todo"><span class="nav-number">1.1.</span> <span class="nav-text">debug远程服务器 todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微服务的情况下，怎么自定义Application启动链，按照固定顺序依次启动n个服务-todo"><span class="nav-number">1.2.</span> <span class="nav-text">微服务的情况下，怎么自定义Application启动链，按照固定顺序依次启动n个服务 todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制台能不能装上vim插件和emacsIdeas这种插件？-评估一下自己开发一个？-todo"><span class="nav-number">1.3.</span> <span class="nav-text">控制台能不能装上vim插件和emacsIdeas这种插件？ 评估一下自己开发一个？ todo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hotkey"><span class="nav-number">2.</span> <span class="nav-text">hotkey</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Usage-Search（使用查询）"><span class="nav-number">2.1.</span> <span class="nav-text">Usage Search（使用查询）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Editing（编辑）"><span class="nav-number">2.2.</span> <span class="nav-text">Editing（编辑）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#debug"><span class="nav-number">2.3.</span> <span class="nav-text">debug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#General（通用）"><span class="nav-number">2.4.</span> <span class="nav-text">General（通用）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Refactoring（重构）"><span class="nav-number">2.5.</span> <span class="nav-text">Refactoring（重构）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Navigation（导航）"><span class="nav-number">2.6.</span> <span class="nav-text">Navigation（导航）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#plugin-插件"><span class="nav-number">3.</span> <span class="nav-text">plugin(插件)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#emacsIdeas-最强大没有之一"><span class="nav-number">3.1.</span> <span class="nav-text">emacsIdeas 最强大没有之一</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#jump"><span class="nav-number">3.1.0.1.</span> <span class="nav-text">jump</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emacsIdeas-copy"><span class="nav-number">3.1.0.2.</span> <span class="nav-text">emacsIdeas copy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emacsIdeas-delete"><span class="nav-number">3.1.0.3.</span> <span class="nav-text">emacsIdeas delete</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emacsIdeas-cut"><span class="nav-number">3.1.0.4.</span> <span class="nav-text">emacsIdeas cut</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emacsIdeas-more"><span class="nav-number">3.1.0.5.</span> <span class="nav-text">emacsIdeas more</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ideaVim"><span class="nav-number">3.2.</span> <span class="nav-text">ideaVim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CamelCase"><span class="nav-number">3.3.</span> <span class="nav-text">CamelCase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Grep-Console"><span class="nav-number">3.4.</span> <span class="nav-text">Grep Console</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Others-其他"><span class="nav-number">4.</span> <span class="nav-text">Others(其他)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#修改包名要注意的地方"><span class="nav-number">4.1.</span> <span class="nav-text">修改包名要注意的地方</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有没有更加智能化的API注释查看方法，比如鼠标-cmd的方式就完整地将注释都展示出来？"><span class="nav-number">4.2.</span> <span class="nav-text">有没有更加智能化的API注释查看方法，比如鼠标+cmd的方式就完整地将注释都展示出来？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#debug的时候变量的多种不同的View"><span class="nav-number">4.3.</span> <span class="nav-text">debug的时候变量的多种不同的View</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Performance-enhancements（性能增加）"><span class="nav-number">4.4.</span> <span class="nav-text">Performance enhancements（性能增加）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cmd-shift-A按第二次的时候老是换出Terminal"><span class="nav-number">4.5.</span> <span class="nav-text">cmd+shift+A按第二次的时候老是换出Terminal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bug"><span class="nav-number">4.6.</span> <span class="nav-text">Bug</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#all-shortcut"><span class="nav-number">5.</span> <span class="nav-text">all shortcut</span></a></li></div>
             
 
           </div>
