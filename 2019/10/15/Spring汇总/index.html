@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="Flux和Mono todo为什么Spring5注入推荐用final去声明？@Primary123Indicates that a bean should be given preference when multiple candidates are qualified to autowire a single-valued dependency. If exactly one &amp;apos;pr">
+<meta name="description" content="TodoItemFlux和Mono todo为什么Spring5注入推荐用final去声明？Service层的代码相互调用，可能会导致依赖死循环可以在二个需要相互依赖的Service之间抽出一层OperateService，通过OperateService解耦。 @Transactional引发的思考加入有这样的场景：AService.doA()方法调用到BService.doB()方法，而且二者">
 <meta name="keywords" content="Spring">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring汇总">
 <meta property="og:url" content="http://yoursite.com/2019/10/15/Spring汇总/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="Flux和Mono todo为什么Spring5注入推荐用final去声明？@Primary123Indicates that a bean should be given preference when multiple candidates are qualified to autowire a single-valued dependency. If exactly one &amp;apos;pr">
+<meta property="og:description" content="TodoItemFlux和Mono todo为什么Spring5注入推荐用final去声明？Service层的代码相互调用，可能会导致依赖死循环可以在二个需要相互依赖的Service之间抽出一层OperateService，通过OperateService解耦。 @Transactional引发的思考加入有这样的场景：AService.doA()方法调用到BService.doB()方法，而且二者">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-15T13:31:55.100Z">
+<meta property="og:updated_time" content="2019-11-25T11:41:44.004Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring汇总">
-<meta name="twitter:description" content="Flux和Mono todo为什么Spring5注入推荐用final去声明？@Primary123Indicates that a bean should be given preference when multiple candidates are qualified to autowire a single-valued dependency. If exactly one &amp;apos;pr">
+<meta name="twitter:description" content="TodoItemFlux和Mono todo为什么Spring5注入推荐用final去声明？Service层的代码相互调用，可能会导致依赖死循环可以在二个需要相互依赖的Service之间抽出一层OperateService，通过OperateService解耦。 @Transactional引发的思考加入有这样的场景：AService.doA()方法调用到BService.doB()方法，而且二者">
 
 
 
@@ -391,7 +391,13 @@
       
 
       
-        <h2 id="Flux和Mono-todo"><a href="#Flux和Mono-todo" class="headerlink" title="Flux和Mono todo"></a>Flux和Mono todo</h2><h2 id="为什么Spring5注入推荐用final去声明？"><a href="#为什么Spring5注入推荐用final去声明？" class="headerlink" title="为什么Spring5注入推荐用final去声明？"></a>为什么Spring5注入推荐用final去声明？</h2><h2 id="Primary"><a href="#Primary" class="headerlink" title="@Primary"></a>@Primary</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Indicates that a bean should be given preference when multiple candidates are qualified to autowire a single-valued dependency. If exactly one &apos;primary&apos; bean exists among the candidates, it will be the autowired value.</span><br><span class="line">This annotation is semantically equivalent to the &lt;bean&gt; element&apos;s primary attribute in Spring XML.</span><br><span class="line">May be used on any class directly or indirectly annotated with @Component or on methods annotated with @Bean.</span><br></pre></td></tr></table></figure>
+        <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="Flux和Mono-todo"><a href="#Flux和Mono-todo" class="headerlink" title="Flux和Mono todo"></a>Flux和Mono todo</h2><h2 id="为什么Spring5注入推荐用final去声明？"><a href="#为什么Spring5注入推荐用final去声明？" class="headerlink" title="为什么Spring5注入推荐用final去声明？"></a>为什么Spring5注入推荐用final去声明？</h2><h2 id="Service层的代码相互调用，可能会导致依赖死循环"><a href="#Service层的代码相互调用，可能会导致依赖死循环" class="headerlink" title="Service层的代码相互调用，可能会导致依赖死循环"></a>Service层的代码相互调用，可能会导致依赖死循环</h2><p>可以在二个需要相互依赖的Service之间抽出一层OperateService，通过OperateService解耦。</p>
+<h2 id="Transactional引发的思考"><a href="#Transactional引发的思考" class="headerlink" title="@Transactional引发的思考"></a>@Transactional引发的思考</h2><p>加入有这样的场景：<br>AService.doA()方法调用到BService.doB()方法，而且二者都是注解了事务，抛出异常时会回滚。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@Transactional(rollbackFor = Exception.class)</span><br></pre></td></tr></table></figure></p>
+<p>加入在doA()中调用了doB()之后才出现的异常，这个时候doB()的事务会不会回滚？<br>根据我自己的测试，doB()中正常执行完毕，这个时候事务依然还不会被提交，而doA()在doB()执行完了之后如果抛出异常，那么doA()和doB都会回滚。<br><strong><em>那么问题来了，如果有这样的业务场景，需要再doB执行之后必须提交事务，即使在其执行之后doA()后面的逻辑抛出异常，doB的事务也要提交到数据库的时候，要怎么处理?</em></strong></p>
+<ol>
+<li>可以在事务注解的方法被调用的上层去做回调处理，但是要catch具体的异常做具体的逻辑处理。</li>
+</ol>
+<h4 id="Transactional原理"><a href="#Transactional原理" class="headerlink" title="@Transactional原理"></a>@Transactional原理</h4><h4 id="Transactional什么时候加，什么时候不用加又Spring自动加"><a href="#Transactional什么时候加，什么时候不用加又Spring自动加" class="headerlink" title="@Transactional什么时候加，什么时候不用加又Spring自动加"></a>@Transactional什么时候加，什么时候不用加又Spring自动加</h4><h2 id="Primary"><a href="#Primary" class="headerlink" title="@Primary"></a>@Primary</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Indicates that a bean should be given preference when multiple candidates are qualified to autowire a single-valued dependency. If exactly one &apos;primary&apos; bean exists among the candidates, it will be the autowired value.</span><br><span class="line">This annotation is semantically equivalent to the &lt;bean&gt; element&apos;s primary attribute in Spring XML.</span><br><span class="line">May be used on any class directly or indirectly annotated with @Component or on methods annotated with @Bean.</span><br></pre></td></tr></table></figure>
 <p>比如接口有多个候选依赖，指定一个具体的依赖实现用于自动注入。</p>
 <h2 id="Order"><a href="#Order" class="headerlink" title="@Order"></a>@Order</h2><p>自定义不指定其顺序的优先权值小一些，很多时候配置可能没有覆盖掉Spring默认的配置类。</p>
 
@@ -507,7 +513,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">76</span>
+              <span class="site-state-item-count">77</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -515,7 +521,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">53</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -524,7 +530,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -579,7 +585,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Flux和Mono-todo"><span class="nav-number">1.</span> <span class="nav-text">Flux和Mono todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么Spring5注入推荐用final去声明？"><span class="nav-number">2.</span> <span class="nav-text">为什么Spring5注入推荐用final去声明？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Primary"><span class="nav-number">3.</span> <span class="nav-text">@Primary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Order"><span class="nav-number">4.</span> <span class="nav-text">@Order</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TodoItem"><span class="nav-number">1.</span> <span class="nav-text">TodoItem</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Flux和Mono-todo"><span class="nav-number">1.1.</span> <span class="nav-text">Flux和Mono todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么Spring5注入推荐用final去声明？"><span class="nav-number">1.2.</span> <span class="nav-text">为什么Spring5注入推荐用final去声明？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Service层的代码相互调用，可能会导致依赖死循环"><span class="nav-number">1.3.</span> <span class="nav-text">Service层的代码相互调用，可能会导致依赖死循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transactional引发的思考"><span class="nav-number">1.4.</span> <span class="nav-text">@Transactional引发的思考</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Transactional原理"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">@Transactional原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Transactional什么时候加，什么时候不用加又Spring自动加"><span class="nav-number">1.4.0.2.</span> <span class="nav-text">@Transactional什么时候加，什么时候不用加又Spring自动加</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Primary"><span class="nav-number">1.5.</span> <span class="nav-text">@Primary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Order"><span class="nav-number">1.6.</span> <span class="nav-text">@Order</span></a></li></ol></div>
             
 
           </div>
