@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="利用@Valid对数据做优雅的校验利用JSR303的各种注解，然后可以Spring的机制定义全局异常处理器。">
+<meta name="description" content="利用@Valid对数据做优雅的校验利用JSR303的各种注解，然后可以Spring的机制定义全局异常处理器。Demo of Controller:1234@PostMapping(&amp;quot;/storeFetchWordResult&amp;quot;)public R storeFetchWordResult(@RequestBody @Valid FetchWordResultDTO fetchWo">
 <meta name="keywords" content="Java,JSR303">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JSR303">
 <meta property="og:url" content="http://yoursite.com/2019/11/26/JSR303/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="利用@Valid对数据做优雅的校验利用JSR303的各种注解，然后可以Spring的机制定义全局异常处理器。">
+<meta property="og:description" content="利用@Valid对数据做优雅的校验利用JSR303的各种注解，然后可以Spring的机制定义全局异常处理器。Demo of Controller:1234@PostMapping(&amp;quot;/storeFetchWordResult&amp;quot;)public R storeFetchWordResult(@RequestBody @Valid FetchWordResultDTO fetchWo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-26T07:25:16.538Z">
+<meta property="og:updated_time" content="2019-11-26T07:39:46.248Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSR303">
-<meta name="twitter:description" content="利用@Valid对数据做优雅的校验利用JSR303的各种注解，然后可以Spring的机制定义全局异常处理器。">
+<meta name="twitter:description" content="利用@Valid对数据做优雅的校验利用JSR303的各种注解，然后可以Spring的机制定义全局异常处理器。Demo of Controller:1234@PostMapping(&amp;quot;/storeFetchWordResult&amp;quot;)public R storeFetchWordResult(@RequestBody @Valid FetchWordResultDTO fetchWo">
 
 
 
@@ -391,7 +391,8 @@
       
 
       
-        <h2 id="利用-Valid对数据做优雅的校验"><a href="#利用-Valid对数据做优雅的校验" class="headerlink" title="利用@Valid对数据做优雅的校验"></a>利用@Valid对数据做优雅的校验</h2><p>利用JSR303的各种注解，然后可以Spring的机制定义全局异常处理器。</p>
+        <h2 id="利用-Valid对数据做优雅的校验"><a href="#利用-Valid对数据做优雅的校验" class="headerlink" title="利用@Valid对数据做优雅的校验"></a>利用@Valid对数据做优雅的校验</h2><p>利用JSR303的各种注解，然后可以Spring的机制定义全局异常处理器。<br>Demo of Controller:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@PostMapping(&quot;/storeFetchWordResult&quot;)</span><br><span class="line">public R storeFetchWordResult(@RequestBody @Valid FetchWordResultDTO fetchWordResultDTO) &#123;</span><br><span class="line">    // do something</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>全局异常处理器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@Slf4j</span><br><span class="line">@ControllerAdvice</span><br><span class="line">public class GlobalValidExceptionHandler &#123;</span><br><span class="line"></span><br><span class="line">    @ResponseBody</span><br><span class="line">    @ExceptionHandler(&#123;MethodArgumentNotValidException.class&#125;)</span><br><span class="line">    public R handleValidException(MethodArgumentNotValidException e)&#123;</span><br><span class="line">        //日志记录错误信息</span><br><span class="line">        log.error(Objects.requireNonNull(e.getBindingResult().getFieldError()).getDefaultMessage());</span><br><span class="line">        //将错误信息返回给前台</span><br><span class="line">        return R.failed(CommonConstants.FAIL, Objects.requireNonNull(e.getBindingResult().getFieldError()).getDefaultMessage());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
