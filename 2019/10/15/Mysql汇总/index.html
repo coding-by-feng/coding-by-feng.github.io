@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="修改表名1alter table sys_user_role rename to sys_user_role_rel; Mysql和Oracle的Sql的不同之处delete在oracle中是支持别名的，mysql不支持1delete from table_name tn;// mysql error">
+<meta name="description" content="修改表名1alter table sys_user_role rename to sys_user_role_rel; Mysql的级联更新12345678910111213141516171819202122update tb1,tb2set tb1.a=tb2.a,tb1.b=tb2.bwhere tb1.id=tb2.id;update tb1,(select * from tb2 wher">
 <meta name="keywords" content="Mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mysql汇总">
 <meta property="og:url" content="http://yoursite.com/2019/10/15/Mysql汇总/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="修改表名1alter table sys_user_role rename to sys_user_role_rel; Mysql和Oracle的Sql的不同之处delete在oracle中是支持别名的，mysql不支持1delete from table_name tn;// mysql error">
+<meta property="og:description" content="修改表名1alter table sys_user_role rename to sys_user_role_rel; Mysql的级联更新12345678910111213141516171819202122update tb1,tb2set tb1.a=tb2.a,tb1.b=tb2.bwhere tb1.id=tb2.id;update tb1,(select * from tb2 wher">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-25T12:45:17.412Z">
+<meta property="og:updated_time" content="2019-11-25T15:31:07.086Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql汇总">
-<meta name="twitter:description" content="修改表名1alter table sys_user_role rename to sys_user_role_rel; Mysql和Oracle的Sql的不同之处delete在oracle中是支持别名的，mysql不支持1delete from table_name tn;// mysql error">
+<meta name="twitter:description" content="修改表名1alter table sys_user_role rename to sys_user_role_rel; Mysql的级联更新12345678910111213141516171819202122update tb1,tb2set tb1.a=tb2.a,tb1.b=tb2.bwhere tb1.id=tb2.id;update tb1,(select * from tb2 wher">
 
 
 
@@ -374,6 +374,7 @@
 
       
         <h2 id="修改表名"><a href="#修改表名" class="headerlink" title="修改表名"></a>修改表名</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table sys_user_role rename to sys_user_role_rel;</span><br></pre></td></tr></table></figure>
+<h2 id="Mysql的级联更新"><a href="#Mysql的级联更新" class="headerlink" title="Mysql的级联更新"></a>Mysql的级联更新</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">update tb1,</span><br><span class="line">tb2</span><br><span class="line">set tb1.a=tb2.a,tb1.b=tb2.b</span><br><span class="line">where tb1.id=tb2.id;</span><br><span class="line"></span><br><span class="line">update tb1,</span><br><span class="line">(select * from tb2 where xxx) as tb2</span><br><span class="line">set tb1.a=tb2.a,tb1.b=tb2.b</span><br><span class="line">where tb1.id=tb2.id;</span><br><span class="line"></span><br><span class="line">update (select * from tb1 group by C) as temp,</span><br><span class="line">       tb2,</span><br><span class="line">       tb1</span><br><span class="line">set tb1.a = tb2.a,</span><br><span class="line">    tb1.b = tb2.b</span><br><span class="line">where tb1.id = tb2.id and</span><br><span class="line">      temp.id = tb2.id;</span><br><span class="line"></span><br><span class="line">update tb1 left join tb2 on tb1.id = tb2.id</span><br><span class="line">set tb1.a = tb2.a,</span><br><span class="line">    tb1.b = tb2.b</span><br><span class="line">where xxx;</span><br></pre></td></tr></table></figure>
 <h1 id="Mysql和Oracle的Sql的不同之处"><a href="#Mysql和Oracle的Sql的不同之处" class="headerlink" title="Mysql和Oracle的Sql的不同之处"></a>Mysql和Oracle的Sql的不同之处</h1><p>delete在oracle中是支持别名的，mysql不支持<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete from table_name tn;// mysql error</span><br></pre></td></tr></table></figure></p>
 
       
@@ -488,7 +489,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">78</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -505,7 +506,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">61</span>
+                <span class="site-state-item-count">62</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -560,7 +561,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#修改表名"><span class="nav-number">1.</span> <span class="nav-text">修改表名</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Mysql和Oracle的Sql的不同之处"><span class="nav-number"></span> <span class="nav-text">Mysql和Oracle的Sql的不同之处</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#修改表名"><span class="nav-number">1.</span> <span class="nav-text">修改表名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql的级联更新"><span class="nav-number">2.</span> <span class="nav-text">Mysql的级联更新</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Mysql和Oracle的Sql的不同之处"><span class="nav-number"></span> <span class="nav-text">Mysql和Oracle的Sql的不同之处</span></a></li></div>
             
 
           </div>

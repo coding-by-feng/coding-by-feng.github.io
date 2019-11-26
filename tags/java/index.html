@@ -297,6 +297,32 @@
 
       <h1 class="post-title">
         
+            <a class="post-title-link" href="/2019/11/26/JSR303/" itemprop="url">
+              
+                <span itemprop="name">JSR303</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-11-26T10:20:12+08:00" content="2019-11-26">
+          11-26
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
             <a class="post-title-link" href="/2019/04/23/Java系列之多线程并发-长篇/" itemprop="url">
               
                 <span itemprop="name">Java系列之多线程并发-长篇</span>
@@ -381,7 +407,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">78</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -398,7 +424,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">61</span>
+                <span class="site-state-item-count">62</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -730,22 +756,7 @@
 
 </body>
 </html>
- = data_title.indexOf(keyword);
-                    index_content = data_content.indexOf(keyword);
-                    if( index_title >= 0 || index_content >= 0 ){
-                      isMatch = true;
-                      if (i == 0) {
-                        first_occur = index_content;
-                      }
-                    }
-
-                  });
-                }
-                // show search results
-                if (isMatch) {
-                  matchcounts += 1;
-                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
-                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+            var content = data.content.trim().replace(/<[^>]+>/g,"");
                   if (first_occur >= 0) {
                     // cut out 100 characters
                     var start = first_occur - 20;
