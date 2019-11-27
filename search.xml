@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[Web前端汇总]]></title>
+      <url>%2F2019%2F11%2F27%2FWeb%E5%89%8D%E7%AB%AF%E6%B1%87%E6%80%BB%2F</url>
+      <content type="text"><![CDATA[TodoItemCode specification firm url aotu https://guide.aotu.io/docs/js/code.html 腾讯 https://www.kancloud.cn/digest/code-guide/42604 alibaba https://www.cnblogs.com/whitewolf/p/4491447.html?spm=a2c4e.10696291.0.0.5e2f19a4kuyhbl#types]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Hystrix汇总]]></title>
       <url>%2F2019%2F11%2F27%2FHystrix%E6%B1%87%E6%80%BB%2F</url>
       <content type="text"></content>
@@ -194,7 +201,7 @@
     <entry>
       <title><![CDATA[网络汇总]]></title>
       <url>%2F2019%2F10%2F15%2F%E7%BD%91%E7%BB%9C%E6%B1%87%E6%80%BB%2F</url>
-      <content type="text"><![CDATA[http vs https todoUnsupported Media Type在PostMan中调用后端微服务的Post接口，报了这个错，解决方法：Headers增加Content-Type:application/jsonBody采用raw和JSON(application/json)的方式发送，然后再下方填入json数据。]]></content>
+      <content type="text"><![CDATA[TodoItemhttp vs https todoSSL vs TLS todoTCP vs WebSocket vs KCPUnsupported Media Type在PostMan中调用后端微服务的Post接口，报了这个错，解决方法：Headers增加Content-Type:application/jsonBody采用raw和JSON(application/json)的方式发送，然后再下方填入json数据。]]></content>
     </entry>
 
     
@@ -467,7 +474,7 @@
     <entry>
       <title><![CDATA[linux常用用命令]]></title>
       <url>%2F2019%2F02%2F26%2Flinux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%2F</url>
-      <content type="text"><![CDATA[修改权限12# 修改文件夹以及其子文件夹chmod -R 777 fileName find和grepfind是在系统中搜索符合条件的文件名，grep是在文件中搜索符合条件的字符串。1234find ~/dir -name filename.txtgrep &quot;someStr&quot; filename.txt# 查询某个文件夹下面大小大于某个值文件find ~/dir -type f -size +1G ls 查询目录具体file1234# 按照时间升序ls -lrt# 按照时间降序ls -lt ll按时间排序1234# 升序ll -rt# 降序ll -t ll按大小排序1ll -Sh ln链接命令123ln -s [源文件] [目标文件]# -s软链接，不带-s是硬链接，硬链接等于是copy了一份文件，软链接相当于window的快捷方式。# 硬链接不能对目录使用，删除源文件，硬链接可以正常使用，软连接不可以。 wget命令1# 拉取文件 tartar -zxvf 用于解压 .tar.gz 后缀结尾的 tar -xvf 用于解压 .tar后缀结尾的 nohup12# 启动指定部署目录：nohup ./run.sh -c web38b -b 0.0.0.0 &gt;/dev/null 2&gt;&amp;1 &amp; /dev/null redirects standard output (stdout) to /dev/null, which discards it.(The &gt;&gt; seems sort of superfluous, since &gt;&gt; means append while &gt; means truncate and write, and either appending to or writing to /dev/null has the same net effect. I usually just use &gt; for that reason.)2&gt;&amp;1 redirects standard error (2) to standard output (1), which then discards it as well since standard output has already been redirected. 更改所有子文件和子目录所有者权限1chmod -R 777 fileDir curlcurl -H “Content-Type:application/json” -X POST -d ‘json data’ URL1curl -H &quot;Content-Type:application/json&quot; -X POST -d &apos;&#123;&quot;user&quot;: &quot;admin&quot;, &quot;passwd&quot;:&quot;12345678&quot;&#125;&apos; http://127.0.0.1:8000/login 1curl -d &quot;user=admin&amp;passwd=12345678&quot; http://127.0.0.1:8080/login df命令详解whereiswhichxargs https://blog.csdn.net/wzzfeitian/article/details/40985549标准输出重定向 标准输出重定向到空，相当于忽略输出查看防火墙，放开端口pskillall结束所有进程1killall -9 picName]]></content>
+      <content type="text"><![CDATA[修改权限12# 修改文件夹以及其子文件夹chmod -R 777 fileName find和grepfind是在系统中搜索符合条件的文件名，grep是在文件中搜索符合条件的字符串。1234find ~/dir -name filename.txtgrep &quot;someStr&quot; filename.txt# 查询某个文件夹下面大小大于某个值文件find ~/dir -type f -size +1G ls 查询目录具体file1234# 按照时间升序ls -lrt# 按照时间降序ls -lt ll按时间排序1234# 升序ll -rt# 降序ll -t ll按大小排序1ll -Sh ln链接命令123ln -s [源文件] [目标文件]# -s软链接，不带-s是硬链接，硬链接等于是copy了一份文件，软链接相当于window的快捷方式。# 硬链接不能对目录使用，删除源文件，硬链接可以正常使用，软连接不可以。 wget命令1# 拉取文件 tartar -zxvf 用于解压 .tar.gz 后缀结尾的 tar -xvf 用于解压 .tar后缀结尾的 nohup12# 启动指定部署目录：nohup ./run.sh -c web38b -b 0.0.0.0 &gt;/dev/null 2&gt;&amp;1 &amp; /dev/null redirects standard output (stdout) to /dev/null, which discards it.(The &gt;&gt; seems sort of superfluous, since &gt;&gt; means append while &gt; means truncate and write, and either appending to or writing to /dev/null has the same net effect. I usually just use &gt; for that reason.)2&gt;&amp;1 redirects standard error (2) to standard output (1), which then discards it as well since standard output has already been redirected. 更改所有子文件和子目录所有者权限1chmod -R 777 fileDir curlcurl -H “Content-Type:application/json” -X POST -d ‘json data’ URL1curl -H &quot;Content-Type:application/json&quot; -X POST -d &apos;&#123;&quot;user&quot;: &quot;admin&quot;, &quot;passwd&quot;:&quot;12345678&quot;&#125;&apos; http://127.0.0.1:8000/login 1curl -d &quot;user=admin&amp;passwd=12345678&quot; http://127.0.0.1:8080/login 监控某个网站的网页响应下载时间：1curl -o /dev/null -s -w ‘%&#123;time_total&#125;’ https://www.fengorz.me 更多用法参考：https://www.cnblogs.com/taosim/articles/4092572.html df命令详解whereiswhichxargs https://blog.csdn.net/wzzfeitian/article/details/40985549标准输出重定向 标准输出重定向到空，相当于忽略输出查看防火墙，放开端口pskillall结束所有进程1killall -9 picName]]></content>
     </entry>
 
     

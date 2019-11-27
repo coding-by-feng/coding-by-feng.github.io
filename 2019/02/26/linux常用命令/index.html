@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="修改权限12# 修改文件夹以及其子文件夹chmod -R 777 fileName find和grepfind是在系统中搜索符合条件的文件名，grep是在文件中搜索符合条件的字符串。1234find ~/dir -name filename.txtgrep &amp;quot;someStr&amp;quot; filename.txt# 查询某个文件夹下面大小大于某个值文件find ~/dir -type f">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-10T12:13:25.135Z">
+<meta property="og:updated_time" content="2019-11-27T13:47:16.402Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux常用用命令">
 <meta name="twitter:description" content="修改权限12# 修改文件夹以及其子文件夹chmod -R 777 fileName find和grepfind是在系统中搜索符合条件的文件名，grep是在文件中搜索符合条件的字符串。1234find ~/dir -name filename.txtgrep &amp;quot;someStr&amp;quot; filename.txt# 查询某个文件夹下面大小大于某个值文件find ~/dir -type f">
@@ -409,6 +409,8 @@
 <h2 id="更改所有子文件和子目录所有者权限"><a href="#更改所有子文件和子目录所有者权限" class="headerlink" title="更改所有子文件和子目录所有者权限"></a>更改所有子文件和子目录所有者权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod -R 777 fileDir</span><br></pre></td></tr></table></figure>
 <h2 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h2><p>curl -H “Content-Type:application/json” -X POST -d ‘json data’ URL<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -H &quot;Content-Type:application/json&quot; -X POST -d &apos;&#123;&quot;user&quot;: &quot;admin&quot;, &quot;passwd&quot;:&quot;12345678&quot;&#125;&apos; http://127.0.0.1:8000/login</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -d &quot;user=admin&amp;passwd=12345678&quot; http://127.0.0.1:8080/login</span><br></pre></td></tr></table></figure>
+<p>监控某个网站的网页响应下载时间：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o /dev/null -s -w ‘%&#123;time_total&#125;’ https://www.fengorz.me</span><br></pre></td></tr></table></figure></p>
+<p>更多用法参考：<a href="https://www.cnblogs.com/taosim/articles/4092572.html" target="_blank" rel="noopener">https://www.cnblogs.com/taosim/articles/4092572.html</a></p>
 <h2 id="df命令详解"><a href="#df命令详解" class="headerlink" title="df命令详解"></a>df命令详解</h2><p>whereis<br>which<br>xargs</p>
 <h2 id="https-blog-csdn-net-wzzfeitian-article-details-40985549"><a href="#https-blog-csdn-net-wzzfeitian-article-details-40985549" class="headerlink" title="https://blog.csdn.net/wzzfeitian/article/details/40985549"></a><a href="https://blog.csdn.net/wzzfeitian/article/details/40985549" target="_blank" rel="noopener">https://blog.csdn.net/wzzfeitian/article/details/40985549</a></h2><p>标准输出重定向</p>
 <h2 id="标准输出重定向到空，相当于忽略输出"><a href="#标准输出重定向到空，相当于忽略输出" class="headerlink" title="标准输出重定向到空，相当于忽略输出"></a>标准输出重定向到空，相当于忽略输出</h2><h2 id="查看防火墙，放开端口"><a href="#查看防火墙，放开端口" class="headerlink" title="查看防火墙，放开端口"></a>查看防火墙，放开端口</h2><h2 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h2><h2 id="killall"><a href="#killall" class="headerlink" title="killall"></a>killall</h2><p>结束所有进程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall -9 picName</span><br></pre></td></tr></table></figure></p>
@@ -525,7 +527,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">81</span>
+              <span class="site-state-item-count">82</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -533,7 +535,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -542,7 +544,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">64</span>
+                <span class="site-state-item-count">65</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
