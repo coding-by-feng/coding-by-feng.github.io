@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="scope详解https://www.cnblogs.com/hzzll/p/6738955.html dependencies与dependencyManagement的区别根据maven子模块继承父模块的特性，不难理解两者肯定都有继承父模块依赖的作用，但是要注意他们的区别是： dependencies里面声明的依赖，子模块会默认全部继承，不用手动去引入依赖；而dependencyManagem">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-15T13:30:11.084Z">
+<meta property="og:updated_time" content="2019-11-30T03:12:44.162Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven汇总">
 <meta name="twitter:description" content="scope详解https://www.cnblogs.com/hzzll/p/6738955.html dependencies与dependencyManagement的区别根据maven子模块继承父模块的特性，不难理解两者肯定都有继承父模块依赖的作用，但是要注意他们的区别是： dependencies里面声明的依赖，子模块会默认全部继承，不用手动去引入依赖；而dependencyManagem">
@@ -395,6 +395,7 @@
 <h2 id="dependencies与dependencyManagement的区别"><a href="#dependencies与dependencyManagement的区别" class="headerlink" title="dependencies与dependencyManagement的区别"></a>dependencies与dependencyManagement的区别</h2><p>根据maven子模块继承父模块的特性，不难理解两者肯定都有继承父模块依赖的作用，但是要注意他们的区别是：</p>
 <p><strong><em>dependencies里面声明的依赖，子模块会默认全部继承，不用手动去引入依赖；而dependencyManagement里面声明的依赖，则不会再子模块中自动去隐式依赖，只有子模块中声明了依赖，并且没有指明依赖的版本这种情况才会到父模块中寻找dependencyManagement中的对应依赖，要注意的是，如果子模块声明了依赖版本号，那么在dependencyManagement中如果也有同一依赖库的不同版本共存的话，maven优先去依赖的是子模块自己的版本</em></strong></p>
 <h2 id="SNAPSHOT和release"><a href="#SNAPSHOT和release" class="headerlink" title="SNAPSHOT和release"></a>SNAPSHOT和release</h2><p>maven中的仓库分为两种，snapshot快照仓库和release发布仓库。snapshot快照仓库用于保存开发过程中的不稳定版本，release正式仓库则是用来保存稳定的发行版本。</p>
+<h2 id="Maven仓库下载依赖太慢的解决方案"><a href="#Maven仓库下载依赖太慢的解决方案" class="headerlink" title="Maven仓库下载依赖太慢的解决方案"></a>Maven仓库下载依赖太慢的解决方案</h2><p>将仓库中心更改为阿里云的，修改setting.xml，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line"> &lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;</span><br><span class="line">  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">  xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd&quot;&gt;</span><br><span class="line">     &lt;mirrors&gt;</span><br><span class="line">         &lt;!-- 阿里云仓库 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://maven.aliyun.com/nexus/content/repositories/central/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line"></span><br><span class="line">         &lt;!-- 中央仓库1 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;repo1&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://repo1.maven.org/maven2/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line"></span><br><span class="line">         &lt;!-- 中央仓库2 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;repo2&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://repo2.maven.org/maven2/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line">     &lt;/mirrors&gt;</span><br><span class="line"> &lt;/settings&gt;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -427,8 +428,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/15/microservice/" rel="next" title="microservice">
-                <i class="fa fa-chevron-left"></i> microservice
+              <a href="/2019/10/15/SpringSecurity汇总/" rel="next" title="SpringSecurity汇总">
+                <i class="fa fa-chevron-left"></i> SpringSecurity汇总
               </a>
             
           </div>
@@ -508,7 +509,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">82</span>
+              <span class="site-state-item-count">72</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -516,7 +517,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">56</span>
+                <span class="site-state-item-count">57</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -525,7 +526,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">65</span>
+                <span class="site-state-item-count">66</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -580,7 +581,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#scope详解"><span class="nav-number">1.</span> <span class="nav-text">scope详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dependencies与dependencyManagement的区别"><span class="nav-number">2.</span> <span class="nav-text">dependencies与dependencyManagement的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SNAPSHOT和release"><span class="nav-number">3.</span> <span class="nav-text">SNAPSHOT和release</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#scope详解"><span class="nav-number">1.</span> <span class="nav-text">scope详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dependencies与dependencyManagement的区别"><span class="nav-number">2.</span> <span class="nav-text">dependencies与dependencyManagement的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SNAPSHOT和release"><span class="nav-number">3.</span> <span class="nav-text">SNAPSHOT和release</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven仓库下载依赖太慢的解决方案"><span class="nav-number">4.</span> <span class="nav-text">Maven仓库下载依赖太慢的解决方案</span></a></li></ol></div>
             
 
           </div>
