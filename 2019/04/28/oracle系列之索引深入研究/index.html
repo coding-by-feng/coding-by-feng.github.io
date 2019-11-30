@@ -92,12 +92,10 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="问题与答案 为什么加索引后会使写入、修改、删除变慢？  事物都是有两面的， 索引能让数据库查询数据的速度上升， 而使写入数据的速度下降，原因很简单的， 因为平衡树这个结构必须一直维持在一个正确的状态， 增删改数据都会改变平衡树各节点中的索引数据内容，破坏树结构， 因此，在每次数据改变时， DBMS必须去重新梳理树（索引）的结构以确保它的正确，这会带来不小的性能开销，也就是为什么索引会给查询以外的操">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/04/28/oracle系列之索引深入研究/WX20191015-195626@2x.png">
 <meta property="og:updated_time" content="2019-10-15T12:10:34.003Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="oracle系列之索引深入研究">
 <meta name="twitter:description" content="问题与答案 为什么加索引后会使写入、修改、删除变慢？  事物都是有两面的， 索引能让数据库查询数据的速度上升， 而使写入数据的速度下降，原因很简单的， 因为平衡树这个结构必须一直维持在一个正确的状态， 增删改数据都会改变平衡树各节点中的索引数据内容，破坏树结构， 因此，在每次数据改变时， DBMS必须去重新梳理树（索引）的结构以确保它的正确，这会带来不小的性能开销，也就是为什么索引会给查询以外的操">
-<meta name="twitter:image" content="http://yoursite.com/2019/04/28/oracle系列之索引深入研究/WX20191015-195626@2x.png">
 
 
 
@@ -364,13 +362,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <a href="/2019/04/28/oracle系列之索引深入研究/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/04/28/oracle系列之索引深入研究/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -431,7 +422,7 @@
 <li>适用于在表中严格排序的列上创建反向键索引</li>
 </ol>
 <p>在常规的B树索引中，如果主键列时递增的，那么往表中添加新的数据时，B树索引将直接访问最后一个数据，而不是一个节点一个节点的访问。这种情况造成的现象是：随着数据行的不断添加，已经原有数据行的删除，B树索引的很多空间会被浪费掉，如1012节点上方的几个数据行都是空的。而且B树索引将会变得越来越不均匀。如下图这般。</p>
-<img src="/2019/04/28/oracle系列之索引深入研究/WX20191015-195626@2x.png" title="null">
+
 <p>反向键索引原理<br>如果用户使用序列编号在表中添加新的纪录，则反向键索引首先反向转换每个键值的字节，然后在反向后的新数据在进行索引.</p>
 <p>例如：用户输入的索引键是4201，那么反向键索引将其反向转换为1024，这样索引键就变成非递增了，也就意味着，如果将反向后的索引键添加到叶子节点中，可能在任意的叶子节点中进行，从而使新的数据在值得范围分布式比原来的均匀。</p>
 <blockquote>
@@ -508,9 +499,6 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2019/04/28/oracle系列之索引深入研究/" data-title="oracle系列之索引深入研究" data-url="http://yoursite.com/2019/04/28/oracle系列之索引深入研究/">
-      </div>
-    
   </div>
 
 
@@ -559,7 +547,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -568,7 +556,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-count">60</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -747,37 +735,14 @@
 
   
 
-  
-    
-  
 
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"coding-by-feng"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
 
-  
-    
-      
-      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
-    
-    
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
   
 
 
 
 
+	
 
 
 
