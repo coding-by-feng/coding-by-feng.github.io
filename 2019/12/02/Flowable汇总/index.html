@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="Events（事件）Events are used to model something that happens during the lifetime of a process. Events are always visualized as a circle. In BPMN 2.0, there exist two main event categories: catching and t">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-06T03:07:37.137Z">
+<meta property="og:updated_time" content="2019-12-06T03:26:03.929Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flowable汇总">
 <meta name="twitter:description" content="Events（事件）Events are used to model something that happens during the lifetime of a process. Events are always visualized as a circle. In BPMN 2.0, there exist two main event categories: catching and t">
@@ -387,10 +387,15 @@
         <h1 id="Events（事件）"><a href="#Events（事件）" class="headerlink" title="Events（事件）"></a>Events（事件）</h1><p>Events are used to model something that happens during the lifetime of a process. Events are always visualized as a circle. In BPMN 2.0, there exist two main event categories: catching and throwing events.</p>
 <p>事件的类别主要有：捕捉事件和投掷事件。</p>
 <h4 id="Timer-Event-Definitions（定时器事件定义）"><a href="#Timer-Event-Definitions（定时器事件定义）" class="headerlink" title="Timer Event Definitions（定时器事件定义）"></a>Timer Event Definitions（定时器事件定义）</h4><p>Timer events are events that are triggered by a defined timer. They can be used as start event, intermediate event or boundary event.</p>
-<p>定时器事件由某个被预定义的定时器所触发，通常被用作于开始事件、中间事件或边界事件。</p>
+<p>定时器事件由某个被预定义的定时器所触发，通常被用作于开始事件、中间事件或边界事件，定时器事件中所以和事件相关的定义或变量值，都必须遵循ISO 8601标准。</p>
 <ul>
-<li><strong>timeDate</strong></li>
+<li><strong>timeDate</strong> 具体的时间点，当时间点到达，将触发事件。</li>
+<li><strong>timeDuration</strong> 每隔一个自定义的时间周期，将触发事件。</li>
+<li><strong>timeCycle</strong> 每隔一个自定义的时间周期，将触发事件，触发次数可以差异化，此外，它还具有一个EndDate属性，这个属性代表，当endDate的时间已到达，事件将不被触发，EndDate属性有两种写法，如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;timerEventDefinition&gt;</span><br><span class="line">    &lt;timeCycle flowable:endDate=&quot;2015-02-25T16:42:11+00:00&quot;&gt;R3/PT10H&lt;/timeCycle&gt;</span><br><span class="line">&lt;/timerEventDefinition&gt;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;timerEventDefinition&gt;</span><br><span class="line">    &lt;timeCycle&gt;R3/PT10H/$&#123;EndDate&#125;&lt;/timeCycle&gt;</span><br><span class="line">&lt;/timerEventDefinition&gt;</span><br></pre></td></tr></table></figure>
+<p>两种写法都存在同一个定时器事件的时候，Flowable默认采用第一种。</p>
 
       
     </div>
