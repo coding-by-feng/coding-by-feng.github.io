@@ -84,20 +84,20 @@
 
 
 
-<meta name="description" content="Required request body is missing一般都是@@RequestBody注解的参数，而请求数据空；或者用postman的话，注意要这样选择参数： What is difference between @RequestBody and @RequestParam?">
+<meta name="description" content="Required request body is missing一般都是@@RequestBody注解的参数，而请求数据空；或者用postman的话，注意要这样选择参数： What is difference between @RequestBody and @RequestParam? Spring WebFlux参考自：https://www.baeldung.com/spring-5-fun">
 <meta name="keywords" content="SpringMVC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringMVC汇总">
 <meta property="og:url" content="http://yoursite.com/2019/11/26/SpringMVC汇总/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="Required request body is missing一般都是@@RequestBody注解的参数，而请求数据空；或者用postman的话，注意要这样选择参数： What is difference between @RequestBody and @RequestParam?">
+<meta property="og:description" content="Required request body is missing一般都是@@RequestBody注解的参数，而请求数据空；或者用postman的话，注意要这样选择参数： What is difference between @RequestBody and @RequestParam? Spring WebFlux参考自：https://www.baeldung.com/spring-5-fun">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://q0sd5ksib.bkt.clouddn.com/BiF57m.png">
 <meta property="og:image" content="http://q0sd5ksib.bkt.clouddn.com/KCfLZy.png">
-<meta property="og:updated_time" content="2019-11-27T13:38:57.607Z">
+<meta property="og:updated_time" content="2019-12-11T02:47:07.981Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringMVC汇总">
-<meta name="twitter:description" content="Required request body is missing一般都是@@RequestBody注解的参数，而请求数据空；或者用postman的话，注意要这样选择参数： What is difference between @RequestBody and @RequestParam?">
+<meta name="twitter:description" content="Required request body is missing一般都是@@RequestBody注解的参数，而请求数据空；或者用postman的话，注意要这样选择参数： What is difference between @RequestBody and @RequestParam? Spring WebFlux参考自：https://www.baeldung.com/spring-5-fun">
 <meta name="twitter:image" content="http://q0sd5ksib.bkt.clouddn.com/BiF57m.png">
 
 
@@ -389,6 +389,11 @@
       
         <h2 id="Required-request-body-is-missing"><a href="#Required-request-body-is-missing" class="headerlink" title="Required request body is missing"></a>Required request body is missing</h2><p>一般都是@@RequestBody注解的参数，而请求数据空；或者用postman的话，注意要这样选择参数：<br><img src="http://q0sd5ksib.bkt.clouddn.com/BiF57m.png" alt="image"></p>
 <h2 id="What-is-difference-between-RequestBody-and-RequestParam"><a href="#What-is-difference-between-RequestBody-and-RequestParam" class="headerlink" title="What is difference between @RequestBody and @RequestParam?"></a>What is difference between @RequestBody and @RequestParam?</h2><p><img src="http://q0sd5ksib.bkt.clouddn.com/KCfLZy.png" alt="image"></p>
+<h2 id="Spring-WebFlux"><a href="#Spring-WebFlux" class="headerlink" title="Spring WebFlux"></a>Spring WebFlux</h2><p>参考自：<a href="https://www.baeldung.com/spring-5-functional-web" target="_blank" rel="noopener">https://www.baeldung.com/spring-5-functional-web</a></p>
+<h4 id="HandlerFunction"><a href="#HandlerFunction" class="headerlink" title="HandlerFunction"></a>HandlerFunction</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">public interface HandlerFunction&lt;T extends ServerResponse&gt; &#123;</span><br><span class="line">    Mono&lt;T&gt; handle(ServerRequest request);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个接口的实现其实类似servlet，如果和标准的Servlet.service(ServletRequest req, ServletResponse res)比对的话，HandlerFunction返回的是一个响应，而不是将和Servlet一样，将ServerResponse作为参数，这样子几乎没有副作用，而且更方便测试和重用。</p>
+<h4 id="RouterFunction"><a href="#RouterFunction" class="headerlink" title="RouterFunction"></a>RouterFunction</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">public interface RouterFunction&lt;T extends ServerResponse&gt; &#123;</span><br><span class="line">    Mono&lt;HandlerFunction&lt;T&gt;&gt; route(ServerRequest request);</span><br><span class="line">    // ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static &lt;T extends ServerResponse&gt; RouterFunction&lt;T&gt; route(</span><br><span class="line">  RequestPredicate predicate,</span><br><span class="line">  HandlerFunction&lt;T&gt; handlerFunction)</span><br></pre></td></tr></table></figure>
+<p>通常使用RouterFunctions.route()来绑定路由和HandlerFunction的实现，可以结合WebTestClient来做测试。</p>
 
       
     </div>
@@ -571,7 +576,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Required-request-body-is-missing"><span class="nav-number">1.</span> <span class="nav-text">Required request body is missing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-difference-between-RequestBody-and-RequestParam"><span class="nav-number">2.</span> <span class="nav-text">What is difference between @RequestBody and @RequestParam?</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Required-request-body-is-missing"><span class="nav-number">1.</span> <span class="nav-text">Required request body is missing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-difference-between-RequestBody-and-RequestParam"><span class="nav-number">2.</span> <span class="nav-text">What is difference between @RequestBody and @RequestParam?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-WebFlux"><span class="nav-number">3.</span> <span class="nav-text">Spring WebFlux</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HandlerFunction"><span class="nav-number">3.0.1.</span> <span class="nav-text">HandlerFunction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RouterFunction"><span class="nav-number">3.0.2.</span> <span class="nav-text">RouterFunction</span></a></li></ol></li></ol></div>
             
 
           </div>
