@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="如果配置文件不再Application启动器的同目录或者子目录下，就需要采用@Import引入？ todo有没有自动生成banner的工具？ todo@SpringBootConfiguration和@SpringBootApplication区别 todobootstrap.yml非默认的情况下怎样才能被application.yml覆盖？todorequired a bean of type">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-25T01:59:44.532Z">
+<meta property="og:updated_time" content="2019-12-19T06:27:37.590Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot汇总">
 <meta name="twitter:description" content="如果配置文件不再Application启动器的同目录或者子目录下，就需要采用@Import引入？ todo有没有自动生成banner的工具？ todo@SpringBootConfiguration和@SpringBootApplication区别 todobootstrap.yml非默认的情况下怎样才能被application.yml覆盖？todorequired a bean of type">
@@ -386,6 +386,7 @@
       
         <h2 id="如果配置文件不再Application启动器的同目录或者子目录下，就需要采用-Import引入？-todo"><a href="#如果配置文件不再Application启动器的同目录或者子目录下，就需要采用-Import引入？-todo" class="headerlink" title="如果配置文件不再Application启动器的同目录或者子目录下，就需要采用@Import引入？ todo"></a>如果配置文件不再Application启动器的同目录或者子目录下，就需要采用@Import引入？ todo</h2><h2 id="有没有自动生成banner的工具？-todo"><a href="#有没有自动生成banner的工具？-todo" class="headerlink" title="有没有自动生成banner的工具？ todo"></a>有没有自动生成banner的工具？ todo</h2><h2 id="SpringBootConfiguration和-SpringBootApplication区别-todo"><a href="#SpringBootConfiguration和-SpringBootApplication区别-todo" class="headerlink" title="@SpringBootConfiguration和@SpringBootApplication区别 todo"></a>@SpringBootConfiguration和@SpringBootApplication区别 todo</h2><h2 id="bootstrap-yml非默认的情况下怎样才能被application-yml覆盖？todo"><a href="#bootstrap-yml非默认的情况下怎样才能被application-yml覆盖？todo" class="headerlink" title="bootstrap.yml非默认的情况下怎样才能被application.yml覆盖？todo"></a>bootstrap.yml非默认的情况下怎样才能被application.yml覆盖？todo</h2><h2 id="required-a-bean-of-type-‘javax-sql-DataSource’-that-could-not-be-found"><a href="#required-a-bean-of-type-‘javax-sql-DataSource’-that-could-not-be-found" class="headerlink" title="required a bean of type ‘javax.sql.DataSource’ that could not be found."></a>required a bean of type ‘javax.sql.DataSource’ that could not be found.</h2><p>需要手动配置spring-boot-starter-jdbc的依赖jar</p>
 <h2 id="Consider-revisiting-the-entries-above-or-defining-a-bean-of-type-‘org-springframework-security-core-userdetails-UserDetailsService’-in-your-configuration"><a href="#Consider-revisiting-the-entries-above-or-defining-a-bean-of-type-‘org-springframework-security-core-userdetails-UserDetailsService’-in-your-configuration" class="headerlink" title="Consider revisiting the entries above or defining a bean of type ‘org.springframework.security.core.userdetails.UserDetailsService’ in your configuration."></a>Consider revisiting the entries above or defining a bean of type ‘org.springframework.security.core.userdetails.UserDetailsService’ in your configuration.</h2><p>需要自己实现UserDetailsService，并注入到Spring。</p>
+<h2 id="2019-12-19-14-24-44-064-WARN-2849-—-XNIO-1-task-7-com-zaxxer-hikari-pool-PoolBase-HikariPool-1-Failed-to-validate-connection-com-mysql-cj-jdbc-ConnectionImpl-6bee636d-No-operations-allowed-after-connection-closed-Possibly-consider-using-a-shorter-maxLifetime-value"><a href="#2019-12-19-14-24-44-064-WARN-2849-—-XNIO-1-task-7-com-zaxxer-hikari-pool-PoolBase-HikariPool-1-Failed-to-validate-connection-com-mysql-cj-jdbc-ConnectionImpl-6bee636d-No-operations-allowed-after-connection-closed-Possibly-consider-using-a-shorter-maxLifetime-value" class="headerlink" title="2019-12-19 14:24:44.064  WARN 2849 — [  XNIO-1 task-7] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6bee636d (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value."></a>2019-12-19 14:24:44.064  WARN 2849 — [  XNIO-1 task-7] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6bee636d (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.</h2><p>使用hikari需要配置加上max-lifetime: 27700000，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 数据源</span><br><span class="line">spring:</span><br><span class="line">  datasource:</span><br><span class="line">    type: com.zaxxer.hikari.HikariDataSource</span><br><span class="line">    driver-class-name: com.mysql.cj.jdbc.Driver</span><br><span class="line">    username: root</span><br><span class="line">    password: raubbhWy</span><br><span class="line">    url: jdbc:mysql://39.100.106.97:3306/inspect_db?characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=false&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Asia/Shanghai</span><br><span class="line">    hikari:</span><br><span class="line">      max-lifetime: 27700000</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -496,7 +497,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">83</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -504,7 +505,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-count">57</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -513,7 +514,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">63</span>
+                <span class="site-state-item-count">65</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -568,7 +569,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如果配置文件不再Application启动器的同目录或者子目录下，就需要采用-Import引入？-todo"><span class="nav-number">1.</span> <span class="nav-text">如果配置文件不再Application启动器的同目录或者子目录下，就需要采用@Import引入？ todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有没有自动生成banner的工具？-todo"><span class="nav-number">2.</span> <span class="nav-text">有没有自动生成banner的工具？ todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBootConfiguration和-SpringBootApplication区别-todo"><span class="nav-number">3.</span> <span class="nav-text">@SpringBootConfiguration和@SpringBootApplication区别 todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bootstrap-yml非默认的情况下怎样才能被application-yml覆盖？todo"><span class="nav-number">4.</span> <span class="nav-text">bootstrap.yml非默认的情况下怎样才能被application.yml覆盖？todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#required-a-bean-of-type-‘javax-sql-DataSource’-that-could-not-be-found"><span class="nav-number">5.</span> <span class="nav-text">required a bean of type ‘javax.sql.DataSource’ that could not be found.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Consider-revisiting-the-entries-above-or-defining-a-bean-of-type-‘org-springframework-security-core-userdetails-UserDetailsService’-in-your-configuration"><span class="nav-number">6.</span> <span class="nav-text">Consider revisiting the entries above or defining a bean of type ‘org.springframework.security.core.userdetails.UserDetailsService’ in your configuration.</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如果配置文件不再Application启动器的同目录或者子目录下，就需要采用-Import引入？-todo"><span class="nav-number">1.</span> <span class="nav-text">如果配置文件不再Application启动器的同目录或者子目录下，就需要采用@Import引入？ todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有没有自动生成banner的工具？-todo"><span class="nav-number">2.</span> <span class="nav-text">有没有自动生成banner的工具？ todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBootConfiguration和-SpringBootApplication区别-todo"><span class="nav-number">3.</span> <span class="nav-text">@SpringBootConfiguration和@SpringBootApplication区别 todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bootstrap-yml非默认的情况下怎样才能被application-yml覆盖？todo"><span class="nav-number">4.</span> <span class="nav-text">bootstrap.yml非默认的情况下怎样才能被application.yml覆盖？todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#required-a-bean-of-type-‘javax-sql-DataSource’-that-could-not-be-found"><span class="nav-number">5.</span> <span class="nav-text">required a bean of type ‘javax.sql.DataSource’ that could not be found.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Consider-revisiting-the-entries-above-or-defining-a-bean-of-type-‘org-springframework-security-core-userdetails-UserDetailsService’-in-your-configuration"><span class="nav-number">6.</span> <span class="nav-text">Consider revisiting the entries above or defining a bean of type ‘org.springframework.security.core.userdetails.UserDetailsService’ in your configuration.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2019-12-19-14-24-44-064-WARN-2849-—-XNIO-1-task-7-com-zaxxer-hikari-pool-PoolBase-HikariPool-1-Failed-to-validate-connection-com-mysql-cj-jdbc-ConnectionImpl-6bee636d-No-operations-allowed-after-connection-closed-Possibly-consider-using-a-shorter-maxLifetime-value"><span class="nav-number">7.</span> <span class="nav-text">2019-12-19 14:24:44.064  WARN 2849 — [  XNIO-1 task-7] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6bee636d (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.</span></a></li></ol></div>
             
 
           </div>

@@ -92,10 +92,13 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="OAuth2标准研究 todoAuthorizationServerConfigurerAdapter vsWebSecurityConfigurerAdapter todo判断是否超时的逻辑 todoCORS todoJSR-250 todotoken值在哪里生成？怎么生成？默认鉴权生成token的url是”/oauth/token”，在TokenEndpoint里面生成。 Authorizat">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-15T13:24:09.201Z">
+<meta property="og:image" content="http://q0sd5ksib.bkt.clouddn.com/wH4Lai.png">
+<meta property="og:image" content="http://q0sd5ksib.bkt.clouddn.com/cTim2v.png">
+<meta property="og:updated_time" content="2019-12-19T08:12:35.102Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringSecurity汇总">
 <meta name="twitter:description" content="OAuth2标准研究 todoAuthorizationServerConfigurerAdapter vsWebSecurityConfigurerAdapter todo判断是否超时的逻辑 todoCORS todoJSR-250 todotoken值在哪里生成？怎么生成？默认鉴权生成token的url是”/oauth/token”，在TokenEndpoint里面生成。 Authorizat">
+<meta name="twitter:image" content="http://q0sd5ksib.bkt.clouddn.com/wH4Lai.png">
 
 
 
@@ -387,6 +390,9 @@
         <h2 id="OAuth2标准研究-todo"><a href="#OAuth2标准研究-todo" class="headerlink" title="OAuth2标准研究 todo"></a>OAuth2标准研究 todo</h2><h2 id="AuthorizationServerConfigurerAdapter-vsWebSecurityConfigurerAdapter-todo"><a href="#AuthorizationServerConfigurerAdapter-vsWebSecurityConfigurerAdapter-todo" class="headerlink" title="AuthorizationServerConfigurerAdapter vsWebSecurityConfigurerAdapter todo"></a>AuthorizationServerConfigurerAdapter vsWebSecurityConfigurerAdapter todo</h2><h2 id="判断是否超时的逻辑-todo"><a href="#判断是否超时的逻辑-todo" class="headerlink" title="判断是否超时的逻辑 todo"></a>判断是否超时的逻辑 todo</h2><h2 id="CORS-todo"><a href="#CORS-todo" class="headerlink" title="CORS todo"></a>CORS todo</h2><h2 id="JSR-250-todo"><a href="#JSR-250-todo" class="headerlink" title="JSR-250 todo"></a>JSR-250 todo</h2><h2 id="token值在哪里生成？怎么生成？"><a href="#token值在哪里生成？怎么生成？" class="headerlink" title="token值在哪里生成？怎么生成？"></a>token值在哪里生成？怎么生成？</h2><p>默认鉴权生成token的url是”/oauth/token”，在TokenEndpoint里面生成。</p>
 <h2 id="AuthorizationServerSecurityConfigurer"><a href="#AuthorizationServerSecurityConfigurer" class="headerlink" title="AuthorizationServerSecurityConfigurer"></a>AuthorizationServerSecurityConfigurer</h2><p>allowFormAuthenticationForClients()：<br>在BasicAuthenticationFilter之前添加clientCredentialsTokenEndpointFilter。</p>
 <h2 id="maven依赖出现了不同版本的TokenEndpoint"><a href="#maven依赖出现了不同版本的TokenEndpoint" class="headerlink" title="maven依赖出现了不同版本的TokenEndpoint"></a>maven依赖出现了不同版本的TokenEndpoint</h2><p>原因是Spring自己的依赖冲突了，在父工程根目录的dependencyManagement里面添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--稳定版本，替代spring security bom内置--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.security.oauth&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-security-oauth2&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;$&#123;security.oauth.version&#125;&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="权限校验的配置不能冲突"><a href="#权限校验的配置不能冲突" class="headerlink" title="权限校验的配置不能冲突"></a>权限校验的配置不能冲突</h2><p>比如我在某个配置类配置了：<br><img src="http://q0sd5ksib.bkt.clouddn.com/wH4Lai.png" alt><br>这样会导致全局的权限放开失效：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 直接放行URL</span><br><span class="line">ignore:</span><br><span class="line">  urls:</span><br><span class="line">    - /EnhancerTokenEndpoint/**</span><br></pre></td></tr></table></figure></p>
+<p>全局的安全配置一般放在common-security模块：<br><img src="http://q0sd5ksib.bkt.clouddn.com/cTim2v.png" alt></p>
+<h2 id="Spring-Security默认不会打印debug日志"><a href="#Spring-Security默认不会打印debug日志" class="headerlink" title="Spring Security默认不会打印debug日志"></a>Spring Security默认不会打印debug日志</h2><p>可通过配置类打开：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -497,7 +503,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">83</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -505,7 +511,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-count">57</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -514,7 +520,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">63</span>
+                <span class="site-state-item-count">65</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -569,7 +575,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#OAuth2标准研究-todo"><span class="nav-number">1.</span> <span class="nav-text">OAuth2标准研究 todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AuthorizationServerConfigurerAdapter-vsWebSecurityConfigurerAdapter-todo"><span class="nav-number">2.</span> <span class="nav-text">AuthorizationServerConfigurerAdapter vsWebSecurityConfigurerAdapter todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断是否超时的逻辑-todo"><span class="nav-number">3.</span> <span class="nav-text">判断是否超时的逻辑 todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CORS-todo"><span class="nav-number">4.</span> <span class="nav-text">CORS todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSR-250-todo"><span class="nav-number">5.</span> <span class="nav-text">JSR-250 todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#token值在哪里生成？怎么生成？"><span class="nav-number">6.</span> <span class="nav-text">token值在哪里生成？怎么生成？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AuthorizationServerSecurityConfigurer"><span class="nav-number">7.</span> <span class="nav-text">AuthorizationServerSecurityConfigurer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven依赖出现了不同版本的TokenEndpoint"><span class="nav-number">8.</span> <span class="nav-text">maven依赖出现了不同版本的TokenEndpoint</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#OAuth2标准研究-todo"><span class="nav-number">1.</span> <span class="nav-text">OAuth2标准研究 todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AuthorizationServerConfigurerAdapter-vsWebSecurityConfigurerAdapter-todo"><span class="nav-number">2.</span> <span class="nav-text">AuthorizationServerConfigurerAdapter vsWebSecurityConfigurerAdapter todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断是否超时的逻辑-todo"><span class="nav-number">3.</span> <span class="nav-text">判断是否超时的逻辑 todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CORS-todo"><span class="nav-number">4.</span> <span class="nav-text">CORS todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSR-250-todo"><span class="nav-number">5.</span> <span class="nav-text">JSR-250 todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#token值在哪里生成？怎么生成？"><span class="nav-number">6.</span> <span class="nav-text">token值在哪里生成？怎么生成？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AuthorizationServerSecurityConfigurer"><span class="nav-number">7.</span> <span class="nav-text">AuthorizationServerSecurityConfigurer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven依赖出现了不同版本的TokenEndpoint"><span class="nav-number">8.</span> <span class="nav-text">maven依赖出现了不同版本的TokenEndpoint</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#权限校验的配置不能冲突"><span class="nav-number">9.</span> <span class="nav-text">权限校验的配置不能冲突</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Security默认不会打印debug日志"><span class="nav-number">10.</span> <span class="nav-text">Spring Security默认不会打印debug日志</span></a></li></ol></div>
             
 
           </div>
