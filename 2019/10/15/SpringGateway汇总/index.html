@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="如果统一通过网关来控制请求的话，其他业务服务提供者要怎么关闭外部请求权限？ todo两种实现过滤器方式的区别 通过继承AbstractGatewayFilterFactory工厂类 通过实现GlobalFilter和Ordered  简单来说就是：前者需要通过spring.cloud.routes.filters配置作用在指定的路由上，或者通过spring.cloud.default-filter">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-19T07:22:48.666Z">
+<meta property="og:updated_time" content="2020-01-07T06:59:42.225Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringGateway汇总">
 <meta name="twitter:description" content="如果统一通过网关来控制请求的话，其他业务服务提供者要怎么关闭外部请求权限？ todo两种实现过滤器方式的区别 通过继承AbstractGatewayFilterFactory工厂类 通过实现GlobalFilter和Ordered  简单来说就是：前者需要通过spring.cloud.routes.filters配置作用在指定的路由上，或者通过spring.cloud.default-filter">
@@ -391,7 +391,8 @@
 <p>简单来说就是：前者需要通过spring.cloud.routes.filters配置作用在指定的路由上，或者通过spring.cloud.default-filters配置，作用在全局路由上；后者无需配置，系统初始化的时候自动加载，作用在每个路由上。</p>
 <h2 id="No-operations-allowed-after-connection-closed-Possibly-consider-using-a-shorter-maxLifetime-value"><a href="#No-operations-allowed-after-connection-closed-Possibly-consider-using-a-shorter-maxLifetime-value" class="headerlink" title="(No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value."></a>(No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.</h2><p>HikariCP maxLifetime 参数设置太小了，或者太大，跟进HikariCP源码会发现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if (maxLifetime != 0 &amp;&amp; maxLifetime &lt; SECONDS.toMillis(30)) &#123;</span><br><span class="line">   LOGGER.warn(&quot;&#123;&#125; - maxLifetime is less than 30000ms, setting to default &#123;&#125;ms.&quot;, poolName, MAX_LIFETIME);</span><br><span class="line">   maxLifetime = MAX_LIFETIME;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">   private static final long MAX_LIFETIME = MINUTES.toMillis(30);</span><br></pre></td></tr></table></figure></p>
 <p>时间默认是30秒<br>这个要和MySQL的wait_timeout的值对应，建议略小于这个值即可，不能大于wait_timeout。</p>
-<h2 id="默认的TokenEndpoint通过Spring-Gateway的过滤器到了ForwardRoutingFilter之后请求转发不出去的问题"><a href="#默认的TokenEndpoint通过Spring-Gateway的过滤器到了ForwardRoutingFilter之后请求转发不出去的问题" class="headerlink" title="默认的TokenEndpoint通过Spring Gateway的过滤器到了ForwardRoutingFilter之后请求转发不出去的问题"></a>默认的TokenEndpoint通过Spring Gateway的过滤器到了ForwardRoutingFilter之后请求转发不出去的问题</h2>
+<h2 id="Dependency-annotations-org-springframework-beans-factory-annotation-Qualifier-value-webFluxConversionService"><a href="#Dependency-annotations-org-springframework-beans-factory-annotation-Qualifier-value-webFluxConversionService" class="headerlink" title="Dependency annotations: {@org.springframework.beans.factory.annotation.Qualifier(value=webFluxConversionService)}"></a>Dependency annotations: {@org.springframework.beans.factory.annotation.Qualifier(value=webFluxConversionService)}</h2><p><a href="https://blog.csdn.net/a807719447/article/details/97105422" target="_blank" rel="noopener">参考</a></p>
+
       
     </div>
 
@@ -501,7 +502,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">85</span>
+              <span class="site-state-item-count">89</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -509,7 +510,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -518,7 +519,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">67</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -573,7 +574,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如果统一通过网关来控制请求的话，其他业务服务提供者要怎么关闭外部请求权限？-todo"><span class="nav-number">1.</span> <span class="nav-text">如果统一通过网关来控制请求的话，其他业务服务提供者要怎么关闭外部请求权限？ todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两种实现过滤器方式的区别"><span class="nav-number">2.</span> <span class="nav-text">两种实现过滤器方式的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#No-operations-allowed-after-connection-closed-Possibly-consider-using-a-shorter-maxLifetime-value"><span class="nav-number">3.</span> <span class="nav-text">(No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#默认的TokenEndpoint通过Spring-Gateway的过滤器到了ForwardRoutingFilter之后请求转发不出去的问题"><span class="nav-number">4.</span> <span class="nav-text">默认的TokenEndpoint通过Spring Gateway的过滤器到了ForwardRoutingFilter之后请求转发不出去的问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如果统一通过网关来控制请求的话，其他业务服务提供者要怎么关闭外部请求权限？-todo"><span class="nav-number">1.</span> <span class="nav-text">如果统一通过网关来控制请求的话，其他业务服务提供者要怎么关闭外部请求权限？ todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两种实现过滤器方式的区别"><span class="nav-number">2.</span> <span class="nav-text">两种实现过滤器方式的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#No-operations-allowed-after-connection-closed-Possibly-consider-using-a-shorter-maxLifetime-value"><span class="nav-number">3.</span> <span class="nav-text">(No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dependency-annotations-org-springframework-beans-factory-annotation-Qualifier-value-webFluxConversionService"><span class="nav-number">4.</span> <span class="nav-text">Dependency annotations: {@org.springframework.beans.factory.annotation.Qualifier(value=webFluxConversionService)}</span></a></li></ol></div>
             
 
           </div>

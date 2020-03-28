@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="scope详解https://www.cnblogs.com/hzzll/p/6738955.html dependencies与dependencyManagement的区别根据maven子模块继承父模块的特性，不难理解两者肯定都有继承父模块依赖的作用，但是要注意他们的区别是： dependencies里面声明的依赖，子模块会默认全部继承，不用手动去引入依赖；而dependencyManagem">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-06T12:18:55.327Z">
+<meta property="og:updated_time" content="2020-03-10T10:41:28.324Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven汇总">
 <meta name="twitter:description" content="scope详解https://www.cnblogs.com/hzzll/p/6738955.html dependencies与dependencyManagement的区别根据maven子模块继承父模块的特性，不难理解两者肯定都有继承父模块依赖的作用，但是要注意他们的区别是： dependencies里面声明的依赖，子模块会默认全部继承，不用手动去引入依赖；而dependencyManagem">
@@ -402,6 +402,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencyManagement&gt;</span><br><span class="line">        &lt;dependencies&gt;</span><br><span class="line">            &lt;dependency&gt;</span><br><span class="line">                &lt;groupId&gt;baeldung&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;Baeldung-BOM&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br><span class="line">                &lt;type&gt;pom&lt;/type&gt;</span><br><span class="line">                &lt;scope&gt;import&lt;/scope&gt;</span><br><span class="line">            &lt;/dependency&gt;</span><br><span class="line">        &lt;/dependencies&gt;</span><br><span class="line">    &lt;/dependencyManagement&gt;</span><br></pre></td></tr></table></figure>
 <p>maven依赖版本的优先权如下：<br>1、项目自己pom.xml里面直接声明的版本<br>2、从parent项目继承的版本<br>3、通过import形式的依赖版本，和import的顺序有关，先import进来的版本被优先采用。</p>
 <p>详情参考：<a href="https://www.baeldung.com/spring-maven-bom#2-what-is-maven-bom" target="_blank" rel="noopener">https://www.baeldung.com/spring-maven-bom#2-what-is-maven-bom</a></p>
+<h1 id="记录一个Idea中Maven的奇葩错误"><a href="#记录一个Idea中Maven的奇葩错误" class="headerlink" title="记录一个Idea中Maven的奇葩错误"></a>记录一个Idea中Maven的奇葩错误</h1><p>因为我从SVN拉代码下来是将项目根目录的名字修改为其他，导致根目录的pom.xml里面的name标签的值和文件不匹配，idea就一直报红，无法依赖其他依赖。。</p>
 
       
     </div>
@@ -512,7 +513,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">85</span>
+              <span class="site-state-item-count">89</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -520,7 +521,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -529,7 +530,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">67</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -584,7 +585,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#scope详解"><span class="nav-number">1.</span> <span class="nav-text">scope详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dependencies与dependencyManagement的区别"><span class="nav-number">2.</span> <span class="nav-text">dependencies与dependencyManagement的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven仓库下载依赖太慢的解决方案"><span class="nav-number">3.</span> <span class="nav-text">Maven仓库下载依赖太慢的解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven-BOM"><span class="nav-number">4.</span> <span class="nav-text">Maven BOM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Transitive-Dependencies-依赖传递性"><span class="nav-number">4.0.1.</span> <span class="nav-text">Transitive Dependencies 依赖传递性</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#scope详解"><span class="nav-number">1.</span> <span class="nav-text">scope详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dependencies与dependencyManagement的区别"><span class="nav-number">2.</span> <span class="nav-text">dependencies与dependencyManagement的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven仓库下载依赖太慢的解决方案"><span class="nav-number">3.</span> <span class="nav-text">Maven仓库下载依赖太慢的解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven-BOM"><span class="nav-number">4.</span> <span class="nav-text">Maven BOM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Transitive-Dependencies-依赖传递性"><span class="nav-number">4.0.1.</span> <span class="nav-text">Transitive Dependencies 依赖传递性</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#记录一个Idea中Maven的奇葩错误"><span class="nav-number"></span> <span class="nav-text">记录一个Idea中Maven的奇葩错误</span></a></li></div>
             
 
           </div>

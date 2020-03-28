@@ -92,12 +92,12 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="官方参考文档baeldung参考文章 Fluxan Asynchronous Sequence of 0-N Items（是一个异步的处理序列，它有0或者多个条目）官方对Flux的原理解析图解： Spring Gateway的源码中重度依赖Reactor Project，比如：1return responseFlux.then(chain.filter(exchange)); 这句代码的逻辑会这么">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://q0sd5ksib.bkt.clouddn.com/2zMdgN.png">
-<meta property="og:updated_time" content="2019-12-19T07:46:50.917Z">
+<meta property="og:image" content="https://feng-blog.oss-cn-shenzhen.aliyuncs.com/blog_images/2zMdgN.png">
+<meta property="og:updated_time" content="2020-03-28T13:09:44.276Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Reactor响应式编程阅读源码有感">
 <meta name="twitter:description" content="官方参考文档baeldung参考文章 Fluxan Asynchronous Sequence of 0-N Items（是一个异步的处理序列，它有0或者多个条目）官方对Flux的原理解析图解： Spring Gateway的源码中重度依赖Reactor Project，比如：1return responseFlux.then(chain.filter(exchange)); 这句代码的逻辑会这么">
-<meta name="twitter:image" content="http://q0sd5ksib.bkt.clouddn.com/2zMdgN.png">
+<meta name="twitter:image" content="https://feng-blog.oss-cn-shenzhen.aliyuncs.com/blog_images/2zMdgN.png">
 
 
 
@@ -387,7 +387,7 @@
 
       
         <p><a href="https://projectreactor.io/docs/core/release/reference/" target="_blank" rel="noopener">官方参考文档</a><br><a href="https://www.baeldung.com/reactor-core" target="_blank" rel="noopener">baeldung参考文章</a></p>
-<h1 id="Flux"><a href="#Flux" class="headerlink" title="Flux"></a>Flux</h1><p>an Asynchronous Sequence of 0-N Items（是一个异步的处理序列，它有0或者多个条目）<br>官方对Flux的原理解析图解：<br><img src="http://q0sd5ksib.bkt.clouddn.com/2zMdgN.png" alt></p>
+<h1 id="Flux"><a href="#Flux" class="headerlink" title="Flux"></a>Flux</h1><p>an Asynchronous Sequence of 0-N Items（是一个异步的处理序列，它有0或者多个条目）<br>官方对Flux的原理解析图解：<br><img src="https://feng-blog.oss-cn-shenzhen.aliyuncs.com/blog_images/2zMdgN.png" alt></p>
 <p>Spring Gateway的源码中重度依赖Reactor Project，比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return responseFlux.then(chain.filter(exchange));</span><br></pre></td></tr></table></figure></p>
 <p>这句代码的逻辑会这么走：要等到responseFlux被subscribe了之后，chain.filter(exchange)（这是一个Mono），才会被继续流转运行。</p>
 <h2 id="Mono-just"><a href="#Mono-just" class="headerlink" title="Mono.just"></a>Mono.just</h2><p>I mean that calling Mono.just(System.currentTimeMillis()) will immediately invoke the currentTimeMillis() method and capture the result</p>
@@ -503,7 +503,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">85</span>
+              <span class="site-state-item-count">89</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -511,7 +511,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -520,7 +520,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">67</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
