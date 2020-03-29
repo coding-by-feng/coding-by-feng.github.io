@@ -1,0 +1,884 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Java,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="Java8 新特性Java8新特性参考 https://www.cnblogs.com/onetwo/p/8526374.html https://www.cnblogs.com/dzy521/p/10077132.htmljava8注解新特性 增加二个注解类型（ElementType.TYPE_USE 和 ElementType.TYPE_PARAMETER） 意思是可以声明在任何类型声明的地方">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java系列之零碎笔记">
+<meta property="og:url" content="http://yoursite.com/2019/11/30/Java系列之零碎笔记/index.html">
+<meta property="og:site_name" content="Feng&#39;s Blog">
+<meta property="og:description" content="Java8 新特性Java8新特性参考 https://www.cnblogs.com/onetwo/p/8526374.html https://www.cnblogs.com/dzy521/p/10077132.htmljava8注解新特性 增加二个注解类型（ElementType.TYPE_USE 和 ElementType.TYPE_PARAMETER） 意思是可以声明在任何类型声明的地方">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://feng-blog.oss-cn-shenzhen.aliyuncs.com/blog_images/xLpjyO.png">
+<meta property="og:updated_time" content="2020-03-29T03:40:56.902Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java系列之零碎笔记">
+<meta name="twitter:description" content="Java8 新特性Java8新特性参考 https://www.cnblogs.com/onetwo/p/8526374.html https://www.cnblogs.com/dzy521/p/10077132.htmljava8注解新特性 增加二个注解类型（ElementType.TYPE_USE 和 ElementType.TYPE_PARAMETER） 意思是可以声明在任何类型声明的地方">
+<meta name="twitter:image" content="https://feng-blog.oss-cn-shenzhen.aliyuncs.com/blog_images/xLpjyO.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '10000',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/11/30/Java系列之零碎笔记/">
+
+
+
+
+
+  <title> Java系列之零碎笔记 | Feng's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?1bc877799c79c2fb2806df9b1c09c678";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Feng's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/30/Java系列之零碎笔记/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="James Feng">
+    <meta itemprop="description" content>
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Feng's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Feng's Blog" src>
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Java系列之零碎笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-30T21:12:21+08:00">
+                2019-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Java8-新特性"><a href="#Java8-新特性" class="headerlink" title="Java8 新特性"></a>Java8 新特性</h1><h2 id="Java8新特性参考"><a href="#Java8新特性参考" class="headerlink" title="Java8新特性参考"></a>Java8新特性参考</h2><ol>
+<li><a href="https://www.cnblogs.com/onetwo/p/8526374.html" target="_blank" rel="noopener">https://www.cnblogs.com/onetwo/p/8526374.html</a></li>
+<li><a href="https://www.cnblogs.com/dzy521/p/10077132.html" target="_blank" rel="noopener">https://www.cnblogs.com/dzy521/p/10077132.html</a><h2 id="java8注解新特性"><a href="#java8注解新特性" class="headerlink" title="java8注解新特性"></a>java8注解新特性</h2></li>
+<li>增加二个注解类型（ElementType.TYPE_USE 和 ElementType.TYPE_PARAMETER）<br> 意思是可以声明在任何类型声明的地方，比如lombok的@NonNull的几个用例：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@NonNull String str;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@NonNull List&lt;String&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 非负数</span><br><span class="line">Arrays&lt;@NonNegative Integer&gt; sort</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@Encrypted File file</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void divideInteger(int a, int b) throws @ZeroDivisor ArithmeticException</span><br></pre></td></tr></table></figure>
+<ol>
+<li>允许重复注解</li>
+</ol>
+<h2 id="参数名称的反射获取"><a href="#参数名称的反射获取" class="headerlink" title="参数名称的反射获取"></a>参数名称的反射获取</h2><p>Java 8终于将这个特性规范化，在语言层面（使用反射API和Parameter.getName()方法）和字节码层面（使用新的javac编译器以及-parameters参数）提供支持.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">&#125;</span><br><span class="line">@Test</span><br><span class="line">@SneakyThrows</span><br><span class="line">public void test1() &#123;</span><br><span class="line">    Method method = GeneratorTest.class.getMethod(&quot;main&quot;, String[].class);</span><br><span class="line">    for (Parameter parameter : method.getParameters()) &#123;</span><br><span class="line">        System.out.println(parameter.getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>打印结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">args</span><br></pre></td></tr></table></figure></p>
+<h2 id="Iterable-forEach"><a href="#Iterable-forEach" class="headerlink" title="Iterable.forEach"></a>Iterable.forEach</h2><p>在逻辑稍微复杂一旦的循环体里面不建议使用，至少要在外部方法声明处抛出个异常都不行，建单的循环可以使用。</p>
+<h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public &lt;T&gt; T readObjectData(ByteBuffer buffer, Class&lt;T&gt; type) &#123;</span><br><span class="line">...</span><br><span class="line">T retVal = (T) summaries;</span><br><span class="line">return retVal;</span><br></pre></td></tr></table></figure>
+<p>我在stackoverflow发现一个很好的解析：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public &lt;T&gt; T readObjectData(...</span><br><span class="line">        ^  ^</span><br><span class="line">        |  + Return type</span><br><span class="line">        + Generic type argument</span><br></pre></td></tr></table></figure></p>
+<h1 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void.class // 罕见又骚气的用法</span><br></pre></td></tr></table></figure>
+<h1 id="框架抛出的莫名其妙的异常处理套路"><a href="#框架抛出的莫名其妙的异常处理套路" class="headerlink" title="框架抛出的莫名其妙的异常处理套路"></a>框架抛出的莫名其妙的异常处理套路</h1><p>百度和谷歌快速找不到答案的话，只能阅读报错的源代码，在框架源代码去打断点跟进。</p>
+<h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 一个集合并入到另一个集合的安全写法</span><br><span class="line">Collections.addAll(Collection&lt;? super T&gt; c, T... elements);</span><br></pre></td></tr></table></figure>
+<h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><h2 id="一些自定义常用异常可以抽成公用的静态final异常，如："><a href="#一些自定义常用异常可以抽成公用的静态final异常，如：" class="headerlink" title="一些自定义常用异常可以抽成公用的静态final异常，如："></a>一些自定义常用异常可以抽成公用的静态final异常，如：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public final class PrematureCloseException extends IOException &#123;</span><br><span class="line"></span><br><span class="line">	public static final PrematureCloseException BEFORE_RESPONSE_SENDING_REQUEST =</span><br><span class="line">			new PrematureCloseException(&quot;Connection has been closed BEFORE response, while sending request body&quot;);</span><br><span class="line"></span><br><span class="line">	public static final PrematureCloseException BEFORE_RESPONSE =</span><br><span class="line">			new PrematureCloseException(&quot;Connection prematurely closed BEFORE response&quot;);</span><br><span class="line"></span><br><span class="line">	public static final PrematureCloseException DURING_RESPONSE =</span><br><span class="line">			new PrematureCloseException(&quot;Connection prematurely closed DURING response&quot;);</span><br><span class="line"></span><br><span class="line">	PrematureCloseException(String message) &#123;</span><br><span class="line">		super(message);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public synchronized Throwable fillInStackTrace() &#123;</span><br><span class="line">		// omit stacktrace for this exception</span><br><span class="line">		return this;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="一些运行时异常可以用Spring内置的断言API比较高逼格"><a href="#一些运行时异常可以用Spring内置的断言API比较高逼格" class="headerlink" title="一些运行时异常可以用Spring内置的断言API比较高逼格"></a>一些运行时异常可以用Spring内置的断言API比较高逼格</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Assert.notNull etc.</span><br></pre></td></tr></table></figure>
+<h1 id="jar运行之后窗口无法粘贴"><a href="#jar运行之后窗口无法粘贴" class="headerlink" title="jar运行之后窗口无法粘贴"></a>jar运行之后窗口无法粘贴</h1><p>有些情况下需要使用windows的复制粘贴快捷键才能生效</p>
+<h1 id="Jackson-Convert-Error-Cannot-construct-instance-of-java-time-LocalDateTime"><a href="#Jackson-Convert-Error-Cannot-construct-instance-of-java-time-LocalDateTime" class="headerlink" title="Jackson Convert Error: Cannot construct instance of java.time.LocalDateTime"></a>Jackson Convert Error: Cannot construct instance of <code>java.time.LocalDateTime</code></h1><p>LocalDateTime属性加上注解<br>@JsonDeserialize(using = LocalDateTimeDeserializer.class)<br>@JsonSerialize(using = LocalDateTimeSerializer.class)</p>
+<h1 id="减少箭头型代码"><a href="#减少箭头型代码" class="headerlink" title="减少箭头型代码"></a>减少箭头型代码</h1><p><a href="https://blog.csdn.net/weixin_33858485/article/details/88768985" target="_blank" rel="noopener">https://blog.csdn.net/weixin_33858485/article/details/88768985</a><br>但是个人认为，一味的追求箭头代码也会有弊端，比如这样:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Task task = monTask.getTask();</span><br><span class="line">if (task == null) &#123;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">MonAssignTaskExample monAssignTaskExample = new MonAssignTaskExample();</span><br><span class="line">monAssignTaskExample.createCriteria().andTaskIdEqualTo(task.getTaskId()).andDealObjectIdEqualTo(task.getDealObjectId())</span><br><span class="line">        .andIsFinishEqualTo(&quot;N&quot;);</span><br><span class="line">List&lt;MonAssignTask&gt; monAssignTasks = this.baseMonAssignTaskBO.selectByExample(monAssignTaskExample);</span><br><span class="line">if (ObjectUtils.isEmpty(monAssignTasks)) &#123;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">for (MonAssignTask monAssignTask : monAssignTasks) &#123;</span><br><span class="line">    // do something</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样写固然是可以减少箭头代码，但是如若这段代码下面今后要添加一些额外的业务逻辑，这些业务逻辑与task是否为null没有必要的联系，<br>那么可能会因为task==null退出了整个函数，导致额外的业务逻辑不被执行。</p>
+<h1 id="Service与Controller的交互"><a href="#Service与Controller的交互" class="headerlink" title="Service与Controller的交互"></a>Service与Controller的交互</h1><p>Service最终返回给Controller层的数据如果比较复杂，尽量不要用Map，可以封装成DTO，而且这样一来还可以结合JSR303或者其各种扩展，对DTO进行优雅的数据校验。</p>
+<h1 id="非null判断的优雅写法"><a href="#非null判断的优雅写法" class="headerlink" title="非null判断的优雅写法"></a>非null判断的优雅写法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Objects.requireNonNull(obj);</span><br></pre></td></tr></table></figure>
+<h1 id="Utils-工具类的命名"><a href="#Utils-工具类的命名" class="headerlink" title="Utils 工具类的命名"></a>Utils 工具类的命名</h1><p>每次在使用工具类的时候，总是会出现一个类名出现N个工具类比如：<br><img src="https://feng-blog.oss-cn-shenzhen.aliyuncs.com/blog_images/xLpjyO.png" alt="image"><br>而且自己也会有自定义的Utils类，为了更好地区分，我喜欢在Utils类价格前缀Enhanced，这样找自己的工具类就方便多了，比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EnhancedBeanUtils</span><br></pre></td></tr></table></figure></p>
+<h1 id="Deprecated"><a href="#Deprecated" class="headerlink" title="@Deprecated"></a>@Deprecated</h1><p>有些被封装的业务方法或者工具类方法如果有做修改，增加了方法的升级版，老旧的方法可以用@Deprecated标记为过时，防止新业务逻辑用到废弃的API。</p>
+<h1 id="this"><a href="#this" class="headerlink" title="this"></a>this</h1><p>方法体中，调用到类成员变量的时候，我喜欢用this.开头，这样可读性好，写代码自动提醒也方便。</p>
+<h1 id="魔法值应该尽量避免"><a href="#魔法值应该尽量避免" class="headerlink" title="魔法值应该尽量避免"></a>魔法值应该尽量避免</h1><p>阿里巴巴说java规范里面说杜绝一切魔法值，但是我觉得也不用可以完全追求零魔法值，我认为需要用常量代替魔法值的有以下这些：</p>
+<ol>
+<li>使用频率高的，或者被频繁调用的逻辑块中的魔法值。</li>
+<li>可读性很差的魔法值和表达式，应该禁止，最好都声明成可读性较好的常量或者变量。</li>
+</ol>
+<h1 id="多余的super"><a href="#多余的super" class="headerlink" title="多余的super();"></a>多余的super();</h1><p>在看公司的上古代码发现这种写法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public CreateRepairBillThread(SaInterfaceAccept accept) &#123;</span><br><span class="line">	super();</span><br><span class="line">	this.accept = accept;</span><br><span class="line">	this.timeout = timeout * 60L * 1000L;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里面super();是一句多余的代码，因为子类的构造器会默认先调用父类无参构造器。</p>
+<h1 id="try资源句式"><a href="#try资源句式" class="headerlink" title="try资源句式"></a>try资源句式</h1><p>如果代码调用的类是实现java.lang.AutoCloseable的，用try资源句式来释放关闭资源这样代码就优雅多了。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/30/English/" rel="next" title="English">
+                <i class="fa fa-chevron-left"></i> English
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/01/Idea汇总/" rel="prev" title="Idea汇总">
+                Idea汇总 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="James Feng">
+          <p class="site-author-name" itemprop="name">James Feng</p>
+          <p class="site-description motion-element" itemprop="description">The wind blew, only to survive!</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">85</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/coding-by-feng" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3219972752?is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java8-新特性"><span class="nav-number">1.</span> <span class="nav-text">Java8 新特性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java8新特性参考"><span class="nav-number">1.1.</span> <span class="nav-text">Java8新特性参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java8注解新特性"><span class="nav-number">1.2.</span> <span class="nav-text">java8注解新特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数名称的反射获取"><span class="nav-number">1.3.</span> <span class="nav-text">参数名称的反射获取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Iterable-forEach"><span class="nav-number">1.4.</span> <span class="nav-text">Iterable.forEach</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#泛型"><span class="nav-number">2.</span> <span class="nav-text">泛型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Class"><span class="nav-number">3.</span> <span class="nav-text">Class</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#框架抛出的莫名其妙的异常处理套路"><span class="nav-number">4.</span> <span class="nav-text">框架抛出的莫名其妙的异常处理套路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集合"><span class="nav-number">5.</span> <span class="nav-text">集合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常"><span class="nav-number">6.</span> <span class="nav-text">异常</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一些自定义常用异常可以抽成公用的静态final异常，如："><span class="nav-number">6.1.</span> <span class="nav-text">一些自定义常用异常可以抽成公用的静态final异常，如：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些运行时异常可以用Spring内置的断言API比较高逼格"><span class="nav-number">6.2.</span> <span class="nav-text">一些运行时异常可以用Spring内置的断言API比较高逼格</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jar运行之后窗口无法粘贴"><span class="nav-number">7.</span> <span class="nav-text">jar运行之后窗口无法粘贴</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Jackson-Convert-Error-Cannot-construct-instance-of-java-time-LocalDateTime"><span class="nav-number">8.</span> <span class="nav-text">Jackson Convert Error: Cannot construct instance of java.time.LocalDateTime</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#减少箭头型代码"><span class="nav-number">9.</span> <span class="nav-text">减少箭头型代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Service与Controller的交互"><span class="nav-number">10.</span> <span class="nav-text">Service与Controller的交互</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#非null判断的优雅写法"><span class="nav-number">11.</span> <span class="nav-text">非null判断的优雅写法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Utils-工具类的命名"><span class="nav-number">12.</span> <span class="nav-text">Utils 工具类的命名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Deprecated"><span class="nav-number">13.</span> <span class="nav-text">@Deprecated</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#this"><span class="nav-number">14.</span> <span class="nav-text">this</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#魔法值应该尽量避免"><span class="nav-number">15.</span> <span class="nav-text">魔法值应该尽量避免</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多余的super"><span class="nav-number">16.</span> <span class="nav-text">多余的super();</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#try资源句式"><span class="nav-number">17.</span> <span class="nav-text">try资源句式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">James Feng</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+  <span>&nbsp; &nbsp;|&nbsp; &nbsp;</span>
+  Total <span id="busuanzi_value_site_uv"></span> views.
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":100,"height":200},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

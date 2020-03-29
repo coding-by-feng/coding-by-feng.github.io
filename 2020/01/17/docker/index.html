@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="参考1参考2 常用命令 begin列出所有容器1docker container ls 查看所有容易，包括关闭的12docker container ls --alldocker ps -a 删除具体的容易，根据container id1docker container rm c8faeffaaa62 列出docker name1sudo docker inspect -f=&amp;apos;&amp;#123">
+<meta name="description" content="参考1参考2 常用命令列出所有容器1docker container ls 查看所有容易，包括关闭的12docker container ls --alldocker ps -a 删除具体的容易，根据container id1docker container rm c8faeffaaa62 列出docker name1sudo docker inspect -f=&amp;apos;&amp;#123;&amp;#123">
 <meta name="keywords" content="docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker">
 <meta property="og:url" content="http://yoursite.com/2020/01/17/docker/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="参考1参考2 常用命令 begin列出所有容器1docker container ls 查看所有容易，包括关闭的12docker container ls --alldocker ps -a 删除具体的容易，根据container id1docker container rm c8faeffaaa62 列出docker name1sudo docker inspect -f=&amp;apos;&amp;#123">
+<meta property="og:description" content="参考1参考2 常用命令列出所有容器1docker container ls 查看所有容易，包括关闭的12docker container ls --alldocker ps -a 删除具体的容易，根据container id1docker container rm c8faeffaaa62 列出docker name1sudo docker inspect -f=&amp;apos;&amp;#123;&amp;#123">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-19T07:49:14.012Z">
+<meta property="og:updated_time" content="2020-03-29T03:12:50.512Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker">
-<meta name="twitter:description" content="参考1参考2 常用命令 begin列出所有容器1docker container ls 查看所有容易，包括关闭的12docker container ls --alldocker ps -a 删除具体的容易，根据container id1docker container rm c8faeffaaa62 列出docker name1sudo docker inspect -f=&amp;apos;&amp;#123">
+<meta name="twitter:description" content="参考1参考2 常用命令列出所有容器1docker container ls 查看所有容易，包括关闭的12docker container ls --alldocker ps -a 删除具体的容易，根据container id1docker container rm c8faeffaaa62 列出docker name1sudo docker inspect -f=&amp;apos;&amp;#123;&amp;#123">
 
 
 
@@ -385,7 +385,7 @@
 
       
         <p><a href="http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html" target="_blank" rel="noopener">参考1</a><br><a href="https://www.jianshu.com/p/ca1623ac7723" target="_blank" rel="noopener">参考2</a></p>
-<h1 id="常用命令-begin"><a href="#常用命令-begin" class="headerlink" title="常用命令 begin"></a>常用命令 begin</h1><p>列出所有容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container ls</span><br></pre></td></tr></table></figure></p>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><p>列出所有容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container ls</span><br></pre></td></tr></table></figure></p>
 <p>查看所有容易，包括关闭的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker container ls --all</span><br><span class="line">docker ps -a</span><br></pre></td></tr></table></figure></p>
 <p>删除具体的容易，根据container id<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container rm c8faeffaaa62</span><br></pre></td></tr></table></figure></p>
 <p>列出docker name<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker inspect -f=&apos;&#123;&#123;.Name&#125;&#125;&apos; $(sudo docker ps -a -q)</span><br></pre></td></tr></table></figure></p>
@@ -394,8 +394,8 @@
 <p>列出所有容器对应的名称，端口，及ip<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect -f=&apos;&#123;&#123;.Name&#125;&#125; &#123;&#123;.NetworkSettings.IPAddress&#125;&#125; &#123;&#123;.HostConfig.PortBindings&#125;&#125;&apos; $(docker ps -aq)</span><br></pre></td></tr></table></figure></p>
 <h1 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h1><p><a href="https://www.cnblogs.com/sablier/p/11605606.html" target="_blank" rel="noopener">参考</a><br>目录映射时，容器里面的目录会在容器启动的时候自动创建。</p>
 <p>进入docker本地连接mysql客户端<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo docker exec -it mysql bash</span><br><span class="line">mysql -uroot -p123456</span><br></pre></td></tr></table></figure></p>
-<h2 id="Fastdfs"><a href="#Fastdfs" class="headerlink" title="Fastdfs"></a>Fastdfs</h2><p><a href="http://www.zuidaima.com/blog/4653383732808704.htm" target="_blank" rel="noopener">参考1</a><br><a href="https://blog.502.li/archives/docker-deploy-fastdfs.html" target="_blank" rel="noopener">参考2</a><br><a href="https://v3u.cn/a_id_78" target="_blank" rel="noopener">参考3</a></p>
-<h2 id="docker跑SpringCloud微服务"><a href="#docker跑SpringCloud微服务" class="headerlink" title="docker跑SpringCloud微服务"></a>docker跑SpringCloud微服务</h2><h2 id="dockerfile-maven"><a href="#dockerfile-maven" class="headerlink" title="dockerfile-maven"></a>dockerfile-maven</h2><h2 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker-compose"></a>docker-compose</h2><p><a href="https://www.cnblogs.com/williamjie/p/9103327.html" target="_blank" rel="noopener">参考1</a></p>
+<h1 id="Fastdfs"><a href="#Fastdfs" class="headerlink" title="Fastdfs"></a>Fastdfs</h1><p><a href="http://www.zuidaima.com/blog/4653383732808704.htm" target="_blank" rel="noopener">参考1</a><br><a href="https://blog.502.li/archives/docker-deploy-fastdfs.html" target="_blank" rel="noopener">参考2</a><br><a href="https://v3u.cn/a_id_78" target="_blank" rel="noopener">参考3</a></p>
+<h1 id="docker跑SpringCloud微服务"><a href="#docker跑SpringCloud微服务" class="headerlink" title="docker跑SpringCloud微服务"></a>docker跑SpringCloud微服务</h1><h1 id="dockerfile-maven"><a href="#dockerfile-maven" class="headerlink" title="dockerfile-maven"></a>dockerfile-maven</h1><h1 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker-compose"></a>docker-compose</h1><p><a href="https://www.cnblogs.com/williamjie/p/9103327.html" target="_blank" rel="noopener">参考1</a></p>
 
       
     </div>
@@ -428,8 +428,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/07/all-notes-of-arthas/" rel="next" title="All notes of arthas">
-                <i class="fa fa-chevron-left"></i> All notes of arthas
+              <a href="/2020/01/07/arthas汇总/" rel="next" title="arthas汇总">
+                <i class="fa fa-chevron-left"></i> arthas汇总
               </a>
             
           </div>
@@ -506,7 +506,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">89</span>
+              <span class="site-state-item-count">85</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -514,7 +514,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">61</span>
+                <span class="site-state-item-count">66</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -523,7 +523,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">69</span>
+                <span class="site-state-item-count">74</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -578,7 +578,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常用命令-begin"><span class="nav-number">1.</span> <span class="nav-text">常用命令 begin</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mysql"><span class="nav-number">2.</span> <span class="nav-text">Mysql</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Fastdfs"><span class="nav-number">2.1.</span> <span class="nav-text">Fastdfs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker跑SpringCloud微服务"><span class="nav-number">2.2.</span> <span class="nav-text">docker跑SpringCloud微服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dockerfile-maven"><span class="nav-number">2.3.</span> <span class="nav-text">dockerfile-maven</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker-compose"><span class="nav-number">2.4.</span> <span class="nav-text">docker-compose</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常用命令"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mysql"><span class="nav-number">2.</span> <span class="nav-text">Mysql</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fastdfs"><span class="nav-number">3.</span> <span class="nav-text">Fastdfs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#docker跑SpringCloud微服务"><span class="nav-number">4.</span> <span class="nav-text">docker跑SpringCloud微服务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dockerfile-maven"><span class="nav-number">5.</span> <span class="nav-text">dockerfile-maven</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#docker-compose"><span class="nav-number">6.</span> <span class="nav-text">docker-compose</span></a></li></ol></div>
             
 
           </div>

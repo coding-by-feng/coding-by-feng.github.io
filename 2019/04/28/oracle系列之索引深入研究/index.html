@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="问题与答案 为什么加索引后会使写入、修改、删除变慢？  事物都是有两面的， 索引能让数据库查询数据的速度上升， 而使写入数据的速度下降，原因很简单的， 因为平衡树这个结构必须一直维持在一个正确的状态， 增删改数据都会改变平衡树各节点中的索引数据内容，破坏树结构， 因此，在每次数据改变时， DBMS必须去重新梳理树（索引）的结构以确保它的正确，这会带来不小的性能开销，也就是为什么索引会给查询以外的操">
+<meta name="description" content="为什么加索引后会使写入、修改、删除变慢？事物都是有两面的， 索引能让数据库查询数据的速度上升， 而使写入数据的速度下降，原因很简单的， 因为平衡树这个结构必须一直维持在一个正确的状态， 增删改数据都会改变平衡树各节点中的索引数据内容，破坏树结构， 因此，在每次数据改变时， DBMS必须去重新梳理树（索引）的结构以确保它的正确，这会带来不小的性能开销，也就是为什么索引会给查询以外的操作带来副作用的原">
 <meta name="keywords" content="oracle">
 <meta property="og:type" content="article">
-<meta property="og:title" content="oracle系列之索引深入研究">
+<meta property="og:title" content="oracle系列之索引">
 <meta property="og:url" content="http://yoursite.com/2019/04/28/oracle系列之索引深入研究/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="问题与答案 为什么加索引后会使写入、修改、删除变慢？  事物都是有两面的， 索引能让数据库查询数据的速度上升， 而使写入数据的速度下降，原因很简单的， 因为平衡树这个结构必须一直维持在一个正确的状态， 增删改数据都会改变平衡树各节点中的索引数据内容，破坏树结构， 因此，在每次数据改变时， DBMS必须去重新梳理树（索引）的结构以确保它的正确，这会带来不小的性能开销，也就是为什么索引会给查询以外的操">
+<meta property="og:description" content="为什么加索引后会使写入、修改、删除变慢？事物都是有两面的， 索引能让数据库查询数据的速度上升， 而使写入数据的速度下降，原因很简单的， 因为平衡树这个结构必须一直维持在一个正确的状态， 增删改数据都会改变平衡树各节点中的索引数据内容，破坏树结构， 因此，在每次数据改变时， DBMS必须去重新梳理树（索引）的结构以确保它的正确，这会带来不小的性能开销，也就是为什么索引会给查询以外的操作带来副作用的原">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-15T12:10:34.003Z">
+<meta property="og:updated_time" content="2020-03-29T06:48:53.890Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="oracle系列之索引深入研究">
-<meta name="twitter:description" content="问题与答案 为什么加索引后会使写入、修改、删除变慢？  事物都是有两面的， 索引能让数据库查询数据的速度上升， 而使写入数据的速度下降，原因很简单的， 因为平衡树这个结构必须一直维持在一个正确的状态， 增删改数据都会改变平衡树各节点中的索引数据内容，破坏树结构， 因此，在每次数据改变时， DBMS必须去重新梳理树（索引）的结构以确保它的正确，这会带来不小的性能开销，也就是为什么索引会给查询以外的操">
+<meta name="twitter:title" content="oracle系列之索引">
+<meta name="twitter:description" content="为什么加索引后会使写入、修改、删除变慢？事物都是有两面的， 索引能让数据库查询数据的速度上升， 而使写入数据的速度下降，原因很简单的， 因为平衡树这个结构必须一直维持在一个正确的状态， 增删改数据都会改变平衡树各节点中的索引数据内容，破坏树结构， 因此，在每次数据改变时， DBMS必须去重新梳理树（索引）的结构以确保它的正确，这会带来不小的性能开销，也就是为什么索引会给查询以外的操作带来副作用的原">
 
 
 
@@ -129,7 +129,7 @@
 
 
 
-  <title> oracle系列之索引深入研究 | Feng's Blog </title>
+  <title> oracle系列之索引 | Feng's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -317,7 +317,7 @@
             
             
               
-                oracle系列之索引深入研究
+                oracle系列之索引
               
             
           </h1>
@@ -384,29 +384,23 @@
       
 
       
-        <h2 id="问题与答案"><a href="#问题与答案" class="headerlink" title="问题与答案"></a>问题与答案</h2><blockquote>
-<p>为什么加索引后会使写入、修改、删除变慢？</p>
-</blockquote>
-<p>事物都是有两面的， 索引能让数据库查询数据的速度上升， 而使写入数据的速度下降，原因很简单的， 因为平衡树这个结构必须一直维持在一个正确的状态， 增删改数据都会改变平衡树各节点中的索引数据内容，破坏树结构， 因此，在每次数据改变时， DBMS必须去重新梳理树（索引）的结构以确保它的正确，这会带来不小的性能开销，也就是为什么索引会给查询以外的操作带来副作用的原因。</p>
-<blockquote>
-<p>什么情况下要同时在两个字段上建索引？</p>
-</blockquote>
-<p>有一种例外可以不使用聚集索引就能查询出所需要的数据， 这种非主流的方法 称之为「覆盖索引」查询， 也就是平时所说的复合索引或者多字段索引查询。 文章上面的内容已经指出， 当为字段建立索引以后， 字段中的内容会被同步到索引之中， 如果为一个索引指定两个字段， 那么这个两个字段的内容都会被同步至索引之中。</p>
-<p>先看下面这个SQL语句</p>
-<p>//建立索引</p>
-<p>create index index_birthday on user_info(birthday);</p>
-<p>//查询生日在1991年11月1日出生用户的用户名</p>
-<p>select user_name from user_info where birthday = ‘1991-11-1’</p>
+        <h2 id="为什么加索引后会使写入、修改、删除变慢？"><a href="#为什么加索引后会使写入、修改、删除变慢？" class="headerlink" title="为什么加索引后会使写入、修改、删除变慢？"></a>为什么加索引后会使写入、修改、删除变慢？</h2><p>事物都是有两面的， 索引能让数据库查询数据的速度上升， 而使写入数据的速度下降，原因很简单的， 因为平衡树这个结构必须一直维持在一个正确的状态， 增删改数据都会改变平衡树各节点中的索引数据内容，破坏树结构， 因此，在每次数据改变时， DBMS必须去重新梳理树（索引）的结构以确保它的正确，这会带来不小的性能开销，也就是为什么索引会给查询以外的操作带来副作用的原因。</p>
+<h2 id="什么情况下要同时在两个字段上建索引？"><a href="#什么情况下要同时在两个字段上建索引？" class="headerlink" title="什么情况下要同时在两个字段上建索引？"></a>什么情况下要同时在两个字段上建索引？</h2><p>有一种例外可以不使用聚集索引就能查询出所需要的数据， 这种非主流的方法 称之为「覆盖索引」查询， 也就是平时所说的复合索引或者多字段索引查询。 文章上面的内容已经指出， 当为字段建立索引以后， 字段中的内容会被同步到索引之中， 如果为一个索引指定两个字段， 那么这个两个字段的内容都会被同步至索引之中。</p>
+<p>先看下面这个SQL语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//建立索引</span><br><span class="line">create index index_birthday on user_info(birthday);</span><br><span class="line">//查询生日在1991年11月1日出生用户的用户名</span><br><span class="line">select user_name from user_info where birthday = &apos;1991-11-1&apos;</span><br></pre></td></tr></table></figure></p>
 <p>这句SQL语句的执行过程如下</p>
-<p>首先，通过非聚集索引index_birthday查找birthday等于1991-11-1的所有记录的主键ID值</p>
-<p>然后，通过得到的主键ID值执行聚集索引查找，找到主键ID值对就的真实数据（数据行）存储的位置</p>
-<p>最后， 从得到的真实数据中取得user_name字段的值返回， 也就是取得最终的结果</p>
-<p>我们把birthday字段上的索引改成双字段的覆盖索引</p>
-<p>create index index_birthday_and_user_name on user_info(birthday, user_name);</p>
-<p>这句SQL语句的执行过程就会变为</p>
-<p>通过非聚集索引index_birthday_and_user_name查找birthday等于1991-11-1的叶节点的内容，然而， 叶节点中除了有user_name表主键ID的值以外， user_name字段的值也在里面， 因此不需要通过主键ID值的查找数据行的真实所在， 直接取得叶节点中user_name的值返回即可。 通过这种覆盖索引直接查找的方式， 可以省略不使用覆盖索引查找的后面两个步骤， 大大的提高了查询性能.</p>
+<ul>
+<li><p>首先，通过非聚集索引index_birthday查找birthday等于1991-11-1的所有记录的主键ID值</p>
+</li>
+<li><p>然后，通过得到的主键ID值执行聚集索引查找，找到主键ID值对就的真实数据（数据行）存储的位置</p>
+</li>
+<li><p>最后， 从得到的真实数据中取得user_name字段的值返回， 也就是取得最终的结果</p>
+</li>
+</ul>
+<p>我们把birthday字段上的索引改成双字段的覆盖索引<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create index index_birthday_and_user_name on user_info(birthday, user_name);</span><br></pre></td></tr></table></figure></p>
+<p>这句SQL语句的执行过程就会变为:</p>
 <blockquote>
-<p>参考 <a href="https://www.cnblogs.com/aspwebchh/p/6652855.html" target="_blank" rel="noopener">https://www.cnblogs.com/aspwebchh/p/6652855.html</a></p>
+<p>通过非聚集索引index_birthday_and_user_name查找birthday等于1991-11-1的叶节点的内容，然而， 叶节点中除了有user_name表主键ID的值以外， user_name字段的值也在里面， 因此不需要通过主键ID值的查找数据行的真实所在， 直接取得叶节点中user_name的值返回即可。 通过这种覆盖索引直接查找的方式， 可以省略不使用覆盖索引查找的后面两个步骤， 大大的提高了查询性能.</p>
+<p><a href="https://www.cnblogs.com/aspwebchh/p/6652855.html" target="_blank" rel="noopener">https://www.cnblogs.com/aspwebchh/p/6652855.html</a></p>
 </blockquote>
 <h2 id="B树索引-B-Tree"><a href="#B树索引-B-Tree" class="headerlink" title="B树索引(B-Tree)"></a>B树索引(B-Tree)</h2><h2 id="位图索引"><a href="#位图索引" class="headerlink" title="位图索引"></a>位图索引</h2><p>位图索引的应用场景:</p>
 <ol>
@@ -539,7 +533,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">89</span>
+              <span class="site-state-item-count">85</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -547,7 +541,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">61</span>
+                <span class="site-state-item-count">66</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -556,7 +550,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">69</span>
+                <span class="site-state-item-count">74</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -611,7 +605,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题与答案"><span class="nav-number">1.</span> <span class="nav-text">问题与答案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B树索引-B-Tree"><span class="nav-number">2.</span> <span class="nav-text">B树索引(B-Tree)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位图索引"><span class="nav-number">3.</span> <span class="nav-text">位图索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#反向键索引"><span class="nav-number">4.</span> <span class="nav-text">反向键索引</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么加索引后会使写入、修改、删除变慢？"><span class="nav-number">1.</span> <span class="nav-text">为什么加索引后会使写入、修改、删除变慢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么情况下要同时在两个字段上建索引？"><span class="nav-number">2.</span> <span class="nav-text">什么情况下要同时在两个字段上建索引？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B树索引-B-Tree"><span class="nav-number">3.</span> <span class="nav-text">B树索引(B-Tree)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位图索引"><span class="nav-number">4.</span> <span class="nav-text">位图索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#反向键索引"><span class="nav-number">5.</span> <span class="nav-text">反向键索引</span></a></li></ol></div>
             
 
           </div>

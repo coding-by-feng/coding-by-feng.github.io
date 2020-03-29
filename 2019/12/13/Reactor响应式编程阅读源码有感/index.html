@@ -93,7 +93,7 @@
 <meta property="og:description" content="官方参考文档baeldung参考文章 Fluxan Asynchronous Sequence of 0-N Items（是一个异步的处理序列，它有0或者多个条目）官方对Flux的原理解析图解： Spring Gateway的源码中重度依赖Reactor Project，比如：1return responseFlux.then(chain.filter(exchange)); 这句代码的逻辑会这么">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://feng-blog.oss-cn-shenzhen.aliyuncs.com/blog_images/2zMdgN.png">
-<meta property="og:updated_time" content="2020-03-28T13:09:44.276Z">
+<meta property="og:updated_time" content="2020-03-29T03:32:16.725Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Reactor响应式编程阅读源码有感">
 <meta name="twitter:description" content="官方参考文档baeldung参考文章 Fluxan Asynchronous Sequence of 0-N Items（是一个异步的处理序列，它有0或者多个条目）官方对Flux的原理解析图解： Spring Gateway的源码中重度依赖Reactor Project，比如：1return responseFlux.then(chain.filter(exchange)); 这句代码的逻辑会这么">
@@ -390,7 +390,7 @@
 <h1 id="Flux"><a href="#Flux" class="headerlink" title="Flux"></a>Flux</h1><p>an Asynchronous Sequence of 0-N Items（是一个异步的处理序列，它有0或者多个条目）<br>官方对Flux的原理解析图解：<br><img src="https://feng-blog.oss-cn-shenzhen.aliyuncs.com/blog_images/2zMdgN.png" alt></p>
 <p>Spring Gateway的源码中重度依赖Reactor Project，比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return responseFlux.then(chain.filter(exchange));</span><br></pre></td></tr></table></figure></p>
 <p>这句代码的逻辑会这么走：要等到responseFlux被subscribe了之后，chain.filter(exchange)（这是一个Mono），才会被继续流转运行。</p>
-<h2 id="Mono-just"><a href="#Mono-just" class="headerlink" title="Mono.just"></a>Mono.just</h2><p>I mean that calling Mono.just(System.currentTimeMillis()) will immediately invoke the currentTimeMillis() method and capture the result</p>
+<h1 id="Mono"><a href="#Mono" class="headerlink" title="Mono"></a>Mono</h1><h2 id="Mono-just"><a href="#Mono-just" class="headerlink" title="Mono.just"></a>Mono.just</h2><p>I mean that calling Mono.just(System.currentTimeMillis()) will immediately invoke the currentTimeMillis() method and capture the result</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Mono&lt;Long&gt; clock = Mono.just(System.currentTimeMillis());</span><br><span class="line">//time == t0</span><br><span class="line"></span><br><span class="line">Thread.sleep(10_000);</span><br><span class="line">//time == t10</span><br><span class="line">clock.block(); //we use block for demonstration purposes, returns t0（代表这个时候获取clock的实际时间依然还是上面第一次调用System.currentTimeMillis()拿到的时间，下面雷同）</span><br><span class="line"></span><br><span class="line">Thread.sleep(7_000);</span><br><span class="line">//time == t17</span><br><span class="line">clock.block(); //we re-subscribe to clock, still returns t0</span><br></pre></td></tr></table></figure>
 <h2 id="Mono-defer"><a href="#Mono-defer" class="headerlink" title="Mono.defer"></a>Mono.defer</h2><p>The defer operator is there to make this source lazy, re-evaluating the content of the lambda each time there is a new subscriber:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Mono&lt;Long&gt; clock = Mono.defer(() -&gt; Mono.just(System.currentTimeMillis()));</span><br><span class="line">//time == t0</span><br><span class="line"></span><br><span class="line">Thread.sleep(10_000);</span><br><span class="line">//time == t10</span><br><span class="line">clock.block(); //invoked currentTimeMillis() here and returns t10（这里标识获取到的时间是线程等待了10秒之后的时间，表明defer()这个方法会延时参数里面声明的lambda表达式，在需要的时候再去实际调用计算结果，下面雷同）</span><br><span class="line"></span><br><span class="line">Thread.sleep(7_000);</span><br><span class="line">//time == t17</span><br><span class="line">clock.block(); //invoke currentTimeMillis() once again here and returns t17</span><br></pre></td></tr></table></figure></p>
 
@@ -425,8 +425,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/13/记录一次SpringGateway转发请求失败的问题定位过程/" rel="next" title="记录一次SpringGateway转发请求失败的问题定位过程">
-                <i class="fa fa-chevron-left"></i> 记录一次SpringGateway转发请求失败的问题定位过程
+              <a href="/2019/12/13/SpringGateway汇总/" rel="next" title="SpringGateway汇总">
+                <i class="fa fa-chevron-left"></i> SpringGateway汇总
               </a>
             
           </div>
@@ -435,8 +435,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/12/16/公司项目策略引擎代码分析/" rel="prev" title="公司项目策略引擎代码分析">
-                公司项目策略引擎代码分析 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/12/19/Logback/" rel="prev" title="logback">
+                logback <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -503,7 +503,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">89</span>
+              <span class="site-state-item-count">85</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -511,7 +511,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">61</span>
+                <span class="site-state-item-count">66</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -520,7 +520,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">69</span>
+                <span class="site-state-item-count">74</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -575,7 +575,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Flux"><span class="nav-number">1.</span> <span class="nav-text">Flux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mono-just"><span class="nav-number">1.1.</span> <span class="nav-text">Mono.just</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mono-defer"><span class="nav-number">1.2.</span> <span class="nav-text">Mono.defer</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Flux"><span class="nav-number">1.</span> <span class="nav-text">Flux</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mono"><span class="nav-number">2.</span> <span class="nav-text">Mono</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mono-just"><span class="nav-number">2.1.</span> <span class="nav-text">Mono.just</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mono-defer"><span class="nav-number">2.2.</span> <span class="nav-text">Mono.defer</span></a></li></ol></li></ol></div>
             
 
           </div>
