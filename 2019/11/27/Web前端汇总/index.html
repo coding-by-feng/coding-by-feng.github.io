@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="npmnpm 安装命令1npm install moduleName 安装模块到项目node_modules目录下。不会将模块依赖写入devDependencies或dependencies 节点。运行 npm install 初始化项目时不会下载模块。1npm install -g moduleName 安装模块到全局，不会在项目node_modules目录中保存模块包。不会将模块依赖写入dev">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-29T04:42:17.048Z">
+<meta property="og:updated_time" content="2020-04-02T02:17:57.040Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Web前端汇总">
 <meta name="twitter:description" content="npmnpm 安装命令1npm install moduleName 安装模块到项目node_modules目录下。不会将模块依赖写入devDependencies或dependencies 节点。运行 npm install 初始化项目时不会下载模块。1npm install -g moduleName 安装模块到全局，不会在项目node_modules目录中保存模块包。不会将模块依赖写入dev">
@@ -397,6 +397,7 @@
 <p>我是在项目pig-ui下面执行的npm install dev命令，报了esutils找不到，但是实际上目录上有esutils这个文件or目录，可以删除原来的esutils，切换到esutils的上级模块highlight执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  highlight git:(master) ✗ npm install esutils</span><br><span class="line">npm notice created a lockfile as package-lock.json. You should commit this file.</span><br><span class="line">+ esutils@2.0.3</span><br><span class="line">added 1 package and removed 1 package in 1.418s</span><br></pre></td></tr></table></figure></p>
 <p>但是有很多子模块都会报这种莫名其妙的错，可以直接将所有依赖模块删除，重新安装依赖。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rm -rf node_modules</span><br><span class="line">rm package-lock.json</span><br><span class="line">npm cache clear --force</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
 <h2 id="npm-–save-dev-–save-的区别"><a href="#npm-–save-dev-–save-的区别" class="headerlink" title="npm –save-dev –save 的区别"></a>npm –save-dev –save 的区别</h2><p><a href="https://blog.csdn.net/star0311/article/details/90899013" target="_blank" rel="noopener">https://blog.csdn.net/star0311/article/details/90899013</a></p>
+<h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><h2 id="style-vs-class"><a href="#style-vs-class" class="headerlink" title="style vs class"></a>style vs class</h2><p>style是html元素的一个属性，在这里可以直接设置元素的样式，class也是一个属性，但它是通过预定义的样式使元素应用样式的。比如：div .box {width:80%;} 那么只要div的class引用了这个box那它的宽度就是父级容器的80%宽。<br>也就是style的优先级高于class。也就是说在style和class同时定义一种样式时，页面选择展示的是style中的样式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;.a1&#123;backgroung:#ccc;&#125;&lt;/style&gt;</span><br><span class="line">&lt;div class=&quot;a1&quot; style=&quot;background:#f00&quot;&gt;&lt;/div&gt;</span><br><span class="line">// 此时，div的背景颜色应该是#f00的红色。</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -579,7 +580,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#npm"><span class="nav-number">1.</span> <span class="nav-text">npm</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#npm-安装命令"><span class="nav-number">1.1.</span> <span class="nav-text">npm 安装命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm-安装报错的解决方案"><span class="nav-number">1.2.</span> <span class="nav-text">npm 安装报错的解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm-–save-dev-–save-的区别"><span class="nav-number">1.3.</span> <span class="nav-text">npm –save-dev –save 的区别</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#npm"><span class="nav-number">1.</span> <span class="nav-text">npm</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#npm-安装命令"><span class="nav-number">1.1.</span> <span class="nav-text">npm 安装命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm-安装报错的解决方案"><span class="nav-number">1.2.</span> <span class="nav-text">npm 安装报错的解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm-–save-dev-–save-的区别"><span class="nav-number">1.3.</span> <span class="nav-text">npm –save-dev –save 的区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML"><span class="nav-number">2.</span> <span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#style-vs-class"><span class="nav-number">2.1.</span> <span class="nav-text">style vs class</span></a></li></ol></li></ol></div>
             
 
           </div>
