@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="考虑来自www.baeldung.com的多篇文章 Java Bean Validation的历史演变 原本以为JSR303就已经是够了，后面才发现这只是initial version，也就是Bean Validation 1.0； 后面又推出了JSR349（Bean Validation 1.1） 而最新版本是JSR380（Bean Validation 2.0）   依赖包在不使用第三方的框">
+<meta name="description" content="参考来自www.baeldung.com的多篇文章  Java Bean Validation的历史演变 原本以为JSR303就已经是够了，后面才发现这只是initial version，也就是Bean Validation 1.0； 后面又推出了JSR349（Bean Validation 1.1） 而最新版本是JSR380（Bean Validation 2.0）  依赖包在不使用第三方的框">
 <meta name="keywords" content="Java,JSR303,JSR349,JSR380,Java Bean Validation">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java Bean Validation Basics">
 <meta property="og:url" content="http://yoursite.com/2020/04/04/Java-Bean-Validation-Basics/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="考虑来自www.baeldung.com的多篇文章 Java Bean Validation的历史演变 原本以为JSR303就已经是够了，后面才发现这只是initial version，也就是Bean Validation 1.0； 后面又推出了JSR349（Bean Validation 1.1） 而最新版本是JSR380（Bean Validation 2.0）   依赖包在不使用第三方的框">
+<meta property="og:description" content="参考来自www.baeldung.com的多篇文章  Java Bean Validation的历史演变 原本以为JSR303就已经是够了，后面才发现这只是initial version，也就是Bean Validation 1.0； 后面又推出了JSR349（Bean Validation 1.1） 而最新版本是JSR380（Bean Validation 2.0）  依赖包在不使用第三方的框">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://feng-blog.oss-cn-shenzhen.aliyuncs.com/blog_images/0e8YJB.png">
-<meta property="og:updated_time" content="2020-04-05T03:21:20.809Z">
+<meta property="og:updated_time" content="2020-04-06T07:47:09.581Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java Bean Validation Basics">
-<meta name="twitter:description" content="考虑来自www.baeldung.com的多篇文章 Java Bean Validation的历史演变 原本以为JSR303就已经是够了，后面才发现这只是initial version，也就是Bean Validation 1.0； 后面又推出了JSR349（Bean Validation 1.1） 而最新版本是JSR380（Bean Validation 2.0）   依赖包在不使用第三方的框">
+<meta name="twitter:description" content="参考来自www.baeldung.com的多篇文章  Java Bean Validation的历史演变 原本以为JSR303就已经是够了，后面才发现这只是initial version，也就是Bean Validation 1.0； 后面又推出了JSR349（Bean Validation 1.1） 而最新版本是JSR380（Bean Validation 2.0）  依赖包在不使用第三方的框">
 <meta name="twitter:image" content="https://feng-blog.oss-cn-shenzhen.aliyuncs.com/blog_images/0e8YJB.png">
 
 
@@ -387,13 +387,13 @@
 
       
         <blockquote>
-<p>考虑来自www.baeldung.com的多篇文章</p>
+<p>参考来自www.baeldung.com的多篇文章</p>
+</blockquote>
 <h1 id="Java-Bean-Validation的历史演变"><a href="#Java-Bean-Validation的历史演变" class="headerlink" title="Java Bean Validation的历史演变"></a>Java Bean Validation的历史演变</h1><ul>
 <li>原本以为JSR303就已经是够了，后面才发现这只是initial version，也就是Bean Validation 1.0；</li>
 <li>后面又推出了JSR349（Bean Validation 1.1）</li>
 <li>而最新版本是<a href="https://jcp.org/en/jsr/detail?id=380" target="_blank" rel="noopener">JSR380</a>（<a href="https://beanvalidation.org/2.0/" target="_blank" rel="noopener">Bean Validation 2.0</a>）</li>
 </ul>
-</blockquote>
 <h1 id="依赖包"><a href="#依赖包" class="headerlink" title="依赖包"></a>依赖包</h1><p>在不使用第三方的框架提供的校验功能（比如Spring，Spring默认会引入依赖并对标准做了一些具体的实现）的情况下，想要使用Java Bean Validation的功能需要先引入标准API依赖(这里以2.0版本为准)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;javax.validation&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;validation-api&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.0.Final&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
 <p>除了引入标准之外，还要引入标准的实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.hibernate.validator&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;hibernate-validator&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;6.0.2.Final&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.hibernate.validator&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;hibernate-validator-annotation-processor&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;6.0.2.Final&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
 <p>这里只是引入的hibernate的validator部分，没有引入持久化的那部分。<br>再引入el表达式的依赖：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;javax.el&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;javax.el-api&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.0.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"> </span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.glassfish.web&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;javax.el&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.2.6&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
