@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="npmnpm 安装命令1npm install moduleName 安装模块到项目node_modules目录下。不会将模块依赖写入devDependencies或dependencies 节点。运行 npm install 初始化项目时不会下载模块。1npm install -g moduleName 安装模块到全局，不会在项目node_modules目录中保存模块包。不会将模块依赖写入dev">
+<meta name="description" content="w3c参考手册w3c参考手册详情 npmnpm 安装命令1npm install moduleName 安装模块到项目node_modules目录下。不会将模块依赖写入devDependencies或dependencies 节点。运行 npm install 初始化项目时不会下载模块。1npm install -g moduleName 安装模块到全局，不会在项目node_modules目录中保">
 <meta name="keywords" content="Web前端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Web前端汇总">
 <meta property="og:url" content="http://yoursite.com/2019/11/27/Web前端汇总/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="npmnpm 安装命令1npm install moduleName 安装模块到项目node_modules目录下。不会将模块依赖写入devDependencies或dependencies 节点。运行 npm install 初始化项目时不会下载模块。1npm install -g moduleName 安装模块到全局，不会在项目node_modules目录中保存模块包。不会将模块依赖写入dev">
+<meta property="og:description" content="w3c参考手册w3c参考手册详情 npmnpm 安装命令1npm install moduleName 安装模块到项目node_modules目录下。不会将模块依赖写入devDependencies或dependencies 节点。运行 npm install 初始化项目时不会下载模块。1npm install -g moduleName 安装模块到全局，不会在项目node_modules目录中保">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-06T05:09:14.071Z">
+<meta property="og:updated_time" content="2020-04-06T08:53:28.262Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Web前端汇总">
-<meta name="twitter:description" content="npmnpm 安装命令1npm install moduleName 安装模块到项目node_modules目录下。不会将模块依赖写入devDependencies或dependencies 节点。运行 npm install 初始化项目时不会下载模块。1npm install -g moduleName 安装模块到全局，不会在项目node_modules目录中保存模块包。不会将模块依赖写入dev">
+<meta name="twitter:description" content="w3c参考手册w3c参考手册详情 npmnpm 安装命令1npm install moduleName 安装模块到项目node_modules目录下。不会将模块依赖写入devDependencies或dependencies 节点。运行 npm install 初始化项目时不会下载模块。1npm install -g moduleName 安装模块到全局，不会在项目node_modules目录中保">
 
 
 
@@ -384,7 +384,8 @@
       
 
       
-        <h1 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h1><h2 id="npm-安装命令"><a href="#npm-安装命令" class="headerlink" title="npm 安装命令"></a>npm 安装命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install moduleName</span><br></pre></td></tr></table></figure>
+        <h1 id="w3c参考手册"><a href="#w3c参考手册" class="headerlink" title="w3c参考手册"></a>w3c参考手册</h1><p><a href="https://www.w3school.com.cn/jsref/index.asp" target="_blank" rel="noopener">w3c参考手册详情</a></p>
+<h1 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h1><h2 id="npm-安装命令"><a href="#npm-安装命令" class="headerlink" title="npm 安装命令"></a>npm 安装命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install moduleName</span><br></pre></td></tr></table></figure>
 <p>安装模块到项目node_modules目录下。<br>不会将模块依赖写入devDependencies或dependencies 节点。<br>运行 npm install 初始化项目时不会下载模块。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g moduleName</span><br></pre></td></tr></table></figure></p>
 <p>安装模块到全局，不会在项目node_modules目录中保存模块包。<br>不会将模块依赖写入devDependencies或dependencies 节点。<br>运行 npm install 初始化项目时不会下载模块。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -save moduleName</span><br></pre></td></tr></table></figure></p>
 <p>安装模块到项目node_modules目录下。<br>会将模块依赖写入dependencies 节点。<br>运行 npm install 初始化项目时，会将模块下载到项目目录下。<br>运行npm install –production或者注明NODE_ENV变量值为production时，会自动下载模块到node_modules目录中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -save-dev moduleName</span><br></pre></td></tr></table></figure></p>
@@ -397,7 +398,25 @@
 <p>我是在项目pig-ui下面执行的npm install dev命令，报了esutils找不到，但是实际上目录上有esutils这个文件or目录，可以删除原来的esutils，切换到esutils的上级模块highlight执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  highlight git:(master) ✗ npm install esutils</span><br><span class="line">npm notice created a lockfile as package-lock.json. You should commit this file.</span><br><span class="line">+ esutils@2.0.3</span><br><span class="line">added 1 package and removed 1 package in 1.418s</span><br></pre></td></tr></table></figure></p>
 <p>但是有很多子模块都会报这种莫名其妙的错，可以直接将所有依赖模块删除，重新安装依赖。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rm -rf node_modules</span><br><span class="line">rm package-lock.json</span><br><span class="line">npm cache clear --force</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
 <h2 id="npm-–save-dev-–save-的区别"><a href="#npm-–save-dev-–save-的区别" class="headerlink" title="npm –save-dev –save 的区别"></a>npm –save-dev –save 的区别</h2><p><a href="https://blog.csdn.net/star0311/article/details/90899013" target="_blank" rel="noopener">https://blog.csdn.net/star0311/article/details/90899013</a></p>
-<h1 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h1><p><a href="https://blog.csdn.net/qq877507054/article/details/51395830" target="_blank" rel="noopener">Javascript之BOM与DOM讲解</a></p>
+<h1 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h1><h2 id="Javascript之BOM与DOM"><a href="#Javascript之BOM与DOM" class="headerlink" title="Javascript之BOM与DOM"></a>Javascript之BOM与DOM</h2><p>引用自<a href="https://blog.csdn.net/qq877507054/article/details/51395830" target="_blank" rel="noopener">Javascript之BOM与DOM讲解</a></p>
+<ul>
+<li>ECMAScript(核心) ： 描述了JS的语法和基本对象。</li>
+<li>文档对象模型 （DOM） ： 处理网页内容的方法和接口</li>
+<li>浏览器对象模型（BOM） ： 与浏览器交互的方法和接口</li>
+</ul>
+<hr>
+<ul>
+<li>DOM 是 W3C 的标准； [所有浏览器公共遵守的标准]</li>
+<li>BOM 是 各个浏览器厂商根据 DOM在各自浏览器上的实现;[表现为不同浏览器定义有差别,实现方式不同]</li>
+<li>window 是 BOM 对象，而非 js 对象；javascript是通过访问BOM（Browser Object Model）对象来访问、控制、修改客户端(浏览器)<h2 id="DOM-DOCUMENT-BOM-WINDOW-区别"><a href="#DOM-DOCUMENT-BOM-WINDOW-区别" class="headerlink" title="DOM, DOCUMENT, BOM, WINDOW 区别"></a>DOM, DOCUMENT, BOM, WINDOW 区别</h2></li>
+<li>DOM 是为了操作文档出现的 API，document 是其的一个对象；</li>
+<li>BOM 是为了操作浏览器出现的 API，window 是其的一个对象。<h4 id="DOM和BOM的操作对象区别"><a href="#DOM和BOM的操作对象区别" class="headerlink" title="DOM和BOM的操作对象区别"></a>DOM和BOM的操作对象区别</h4></li>
+<li>BOM是浏览器对象模型，是对浏览器本身进行操作;</li>
+<li>DOM是文档对象模型，是对浏览器（可看成容器）内的内容进行操作；<blockquote>
+<p>可以说BOM包含了DOM(对象)，window.document</p>
+</blockquote>
+</li>
+</ul>
 <h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><h2 id="style-vs-class"><a href="#style-vs-class" class="headerlink" title="style vs class"></a>style vs class</h2><p>style是html元素的一个属性，在这里可以直接设置元素的样式，class也是一个属性，但它是通过预定义的样式使元素应用样式的。比如：div .box {width:80%;} 那么只要div的class引用了这个box那它的宽度就是父级容器的80%宽。<br>也就是style的优先级高于class。也就是说在style和class同时定义一种样式时，页面选择展示的是style中的样式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;.a1&#123;backgroung:#ccc;&#125;&lt;/style&gt;</span><br><span class="line">&lt;div class=&quot;a1&quot; style=&quot;background:#f00&quot;&gt;&lt;/div&gt;</span><br><span class="line">// 此时，div的背景颜色应该是#f00的红色。</span><br></pre></td></tr></table></figure></p>
 
       
@@ -581,7 +600,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#npm"><span class="nav-number">1.</span> <span class="nav-text">npm</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#npm-安装命令"><span class="nav-number">1.1.</span> <span class="nav-text">npm 安装命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm-安装报错的解决方案"><span class="nav-number">1.2.</span> <span class="nav-text">npm 安装报错的解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm-–save-dev-–save-的区别"><span class="nav-number">1.3.</span> <span class="nav-text">npm –save-dev –save 的区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Javascript"><span class="nav-number">2.</span> <span class="nav-text">Javascript</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML"><span class="nav-number">3.</span> <span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#style-vs-class"><span class="nav-number">3.1.</span> <span class="nav-text">style vs class</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#w3c参考手册"><span class="nav-number">1.</span> <span class="nav-text">w3c参考手册</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#npm"><span class="nav-number">2.</span> <span class="nav-text">npm</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#npm-安装命令"><span class="nav-number">2.1.</span> <span class="nav-text">npm 安装命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm-安装报错的解决方案"><span class="nav-number">2.2.</span> <span class="nav-text">npm 安装报错的解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm-–save-dev-–save-的区别"><span class="nav-number">2.3.</span> <span class="nav-text">npm –save-dev –save 的区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Javascript"><span class="nav-number">3.</span> <span class="nav-text">Javascript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Javascript之BOM与DOM"><span class="nav-number">3.1.</span> <span class="nav-text">Javascript之BOM与DOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM-DOCUMENT-BOM-WINDOW-区别"><span class="nav-number">3.2.</span> <span class="nav-text">DOM, DOCUMENT, BOM, WINDOW 区别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DOM和BOM的操作对象区别"><span class="nav-number">3.2.0.1.</span> <span class="nav-text">DOM和BOM的操作对象区别</span></a></li></ol></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML"><span class="nav-number">4.</span> <span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#style-vs-class"><span class="nav-number">4.1.</span> <span class="nav-text">style vs class</span></a></li></ol></li></div>
             
 
           </div>
