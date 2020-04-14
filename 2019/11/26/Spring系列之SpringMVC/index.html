@@ -92,13 +92,13 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="处理过的问题Required request body is missing一般都是@RequestBody注解的参数，而请求数据空；或者用postman的话，注意要这样选择参数： What is difference between @RequestBody and @RequestParam? postman请求时，如果Controller的方法出现参数接收不到为null这个时候考虑是否Pos">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://feng-blog.oss-cn-shenzhen.aliyuncs.com/blog_images/BiF57m.png">
-<meta property="og:image" content="https://feng-blog.oss-cn-shenzhen.aliyuncs.com/blog_images/KCfLZy.png">
-<meta property="og:updated_time" content="2020-04-02T12:34:29.411Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/BiF57m.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/KCfLZy.png">
+<meta property="og:updated_time" content="2020-04-13T06:32:03.616Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring系列之SpringMVC">
 <meta name="twitter:description" content="处理过的问题Required request body is missing一般都是@RequestBody注解的参数，而请求数据空；或者用postman的话，注意要这样选择参数： What is difference between @RequestBody and @RequestParam? postman请求时，如果Controller的方法出现参数接收不到为null这个时候考虑是否Pos">
-<meta name="twitter:image" content="https://feng-blog.oss-cn-shenzhen.aliyuncs.com/blog_images/BiF57m.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/BiF57m.png">
 
 
 
@@ -398,8 +398,8 @@
       
 
       
-        <h1 id="处理过的问题"><a href="#处理过的问题" class="headerlink" title="处理过的问题"></a>处理过的问题</h1><h4 id="Required-request-body-is-missing"><a href="#Required-request-body-is-missing" class="headerlink" title="Required request body is missing"></a>Required request body is missing</h4><p>一般都是@RequestBody注解的参数，而请求数据空；或者用postman的话，注意要这样选择参数：<br><img src="https://feng-blog.oss-cn-shenzhen.aliyuncs.com/blog_images/BiF57m.png" alt="image"></p>
-<h4 id="What-is-difference-between-RequestBody-and-RequestParam"><a href="#What-is-difference-between-RequestBody-and-RequestParam" class="headerlink" title="What is difference between @RequestBody and @RequestParam?"></a>What is difference between @RequestBody and @RequestParam?</h4><p><img src="https://feng-blog.oss-cn-shenzhen.aliyuncs.com/blog_images/KCfLZy.png" alt="image"></p>
+        <h1 id="处理过的问题"><a href="#处理过的问题" class="headerlink" title="处理过的问题"></a>处理过的问题</h1><h4 id="Required-request-body-is-missing"><a href="#Required-request-body-is-missing" class="headerlink" title="Required request body is missing"></a>Required request body is missing</h4><p>一般都是@RequestBody注解的参数，而请求数据空；或者用postman的话，注意要这样选择参数：<br><img src="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/BiF57m.png" alt="image"></p>
+<h4 id="What-is-difference-between-RequestBody-and-RequestParam"><a href="#What-is-difference-between-RequestBody-and-RequestParam" class="headerlink" title="What is difference between @RequestBody and @RequestParam?"></a>What is difference between @RequestBody and @RequestParam?</h4><p><img src="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/KCfLZy.png" alt="image"></p>
 <h4 id="postman请求时，如果Controller的方法出现参数接收不到为null"><a href="#postman请求时，如果Controller的方法出现参数接收不到为null" class="headerlink" title="postman请求时，如果Controller的方法出现参数接收不到为null"></a>postman请求时，如果Controller的方法出现参数接收不到为null</h4><p>这个时候考虑是否PostMapping注解的方法参数是否为多个，如果多个的话用postman请求记得不要在Body选择为raw和json类型，可以选择form-data或者x-www-form-urlencoded。</p>
 <h4 id="ResponseBody注解之后是在哪里将对象自动转成Json响应的"><a href="#ResponseBody注解之后是在哪里将对象自动转成Json响应的" class="headerlink" title="@ResponseBody注解之后是在哪里将对象自动转成Json响应的"></a>@ResponseBody注解之后是在哪里将对象自动转成Json响应的</h4><p>0 = {ManagedFilter@12664} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.web.servlet.filter.OrderedCharacterEncodingFilter, name=’characterEncodingFilter’}}”<br>1 = {ManagedFilter@12662} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter, name=’webMvcMetricsFilter’}}”<br>2 = {ManagedFilter@12658} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.web.servlet.filter.OrderedHiddenHttpMethodFilter, name=’hiddenHttpMethodFilter’}}”<br>3 = {ManagedFilter@12656} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.web.servlet.filter.OrderedFormContentFilter, name=’formContentFilter’}}”<br>4 = {ManagedFilter@12654} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.web.servlet.filter.OrderedRequestContextFilter, name=’requestContextFilter’}}”<br>5 = {ManagedFilter@12652} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.web.servlet.DelegatingFilterProxyRegistrationBean$1, name=’springSecurityFilterChain’}}”<br>6 = {ManagedFilter@12637} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter, name=’httpTraceFilter’}}”</p>
 <p><a href="https://www.baeldung.com/spring-httpmessageconverter-rest" target="_blank" rel="noopener">how to Configure HttpMessageConverters in Spring.</a><br><a href="https://chenzhihao.cc/2019/06/13/Springmvc%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E7%9A%84%E4%BC%98%E9%9B%85%E5%A4%84%E6%96%B9%E5%BC%8F/" target="_blank" rel="noopener">参考1</a></p>
@@ -523,7 +523,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">87</span>
+              <span class="site-state-item-count">89</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

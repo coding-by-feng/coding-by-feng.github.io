@@ -92,15 +92,15 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="规范alibabaMysql开发规范和常见问题处理参考1 TodoItemSHOW ENGINE INNODB STATUS; todo建模工具PDMan todo还是可视化视图清晰点，还可以导出自动生成sql。 Basic Knowledge常用命令1234567891011121314151617181920212223242526# 修改表名alter table sys_user_role">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://feng-blog.oss-cn-shenzhen.aliyuncs.com/blog_images/43t5XR.png">
-<meta property="og:image" content="https://feng-blog.oss-cn-shenzhen.aliyuncs.com/blog_images/l55Uqw.png">
-<meta property="og:image" content="https://feng-blog.oss-cn-shenzhen.aliyuncs.com/blog_images/l55Uqw.png">
-<meta property="og:image" content="https://feng-blog.oss-cn-shenzhen.aliyuncs.com/blog_images/otmOCJ.png">
-<meta property="og:updated_time" content="2020-03-29T06:57:10.815Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/43t5XR.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/l55Uqw.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/l55Uqw.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/otmOCJ.png">
+<meta property="og:updated_time" content="2020-04-13T06:32:03.627Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql系列之重要知识点">
 <meta name="twitter:description" content="规范alibabaMysql开发规范和常见问题处理参考1 TodoItemSHOW ENGINE INNODB STATUS; todo建模工具PDMan todo还是可视化视图清晰点，还可以导出自动生成sql。 Basic Knowledge常用命令1234567891011121314151617181920212223242526# 修改表名alter table sys_user_role">
-<meta name="twitter:image" content="https://feng-blog.oss-cn-shenzhen.aliyuncs.com/blog_images/43t5XR.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/43t5XR.png">
 
 
 
@@ -417,7 +417,7 @@
 <h2 id="创建和更新时间"><a href="#创建和更新时间" class="headerlink" title="创建和更新时间"></a>创建和更新时间</h2><p>必要时，尽量在表里面添加创建时间（create_time）和更新事件（update_time）</p>
 <h2 id="表的DDL维护成本高，必要时可以考虑多留几个扩展字段备用"><a href="#表的DDL维护成本高，必要时可以考虑多留几个扩展字段备用" class="headerlink" title="表的DDL维护成本高，必要时可以考虑多留几个扩展字段备用"></a>表的DDL维护成本高，必要时可以考虑多留几个扩展字段备用</h2><p><a href="https://www.jianshu.com/p/47a1d7998fe0" target="_blank" rel="noopener">https://www.jianshu.com/p/47a1d7998fe0</a></p>
 <h2 id="Mysql-的表尽量设置成-K-V-Key-Value-结构，什么情况下适合设计成K-V结构？"><a href="#Mysql-的表尽量设置成-K-V-Key-Value-结构，什么情况下适合设计成K-V结构？" class="headerlink" title="Mysql 的表尽量设置成 K-V (Key-Value) 结构，什么情况下适合设计成K-V结构？"></a>Mysql 的表尽量设置成 K-V (Key-Value) 结构，什么情况下适合设计成K-V结构？</h2><p><a href="https://blog.csdn.net/zcl_love_wx/article/details/81178339" target="_blank" rel="noopener">表Key-value结构介绍</a><br>在存储一些数据结构经常变动的数据适合采用K-V结构。</p>
-<h2 id="为什么要尽量避免表字段为NULL值"><a href="#为什么要尽量避免表字段为NULL值" class="headerlink" title="为什么要尽量避免表字段为NULL值"></a>为什么要尽量避免表字段为NULL值</h2><p>表字段避免 null 值出现，null 值很难查询优化且占用额外的索引空间，推荐默认数字 0 代替 null。<br><img src="https://feng-blog.oss-cn-shenzhen.aliyuncs.com/blog_images/43t5XR.png" alt></p>
+<h2 id="为什么要尽量避免表字段为NULL值"><a href="#为什么要尽量避免表字段为NULL值" class="headerlink" title="为什么要尽量避免表字段为NULL值"></a>为什么要尽量避免表字段为NULL值</h2><p>表字段避免 null 值出现，null 值很难查询优化且占用额外的索引空间，推荐默认数字 0 代替 null。<br><img src="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/43t5XR.png" alt></p>
 <h2 id="字段类型的选择"><a href="#字段类型的选择" class="headerlink" title="字段类型的选择"></a>字段类型的选择</h2><ul>
 <li>尽量使用 INT 而非 BIGINT，如果非负则加上 UNSIGNED（这样数值容量会扩大一倍），当然能使用 TINYINT、SMALLINT、MEDIUM_INT 更好。</li>
 <li>使用整数代替字符串类型</li>
@@ -444,15 +444,15 @@
 <li>字符字段太长的话，考虑用前缀索引</li>
 <li>字符字段最好不要做主键 - 超过三个表禁止 join。需要 join 的字段，数据类型必须绝对一致;多表关联查询时， 保证被关联的字段需要有索引。(即使双表 join 也要注意表索引、SQL 性能)</li>
 </ul>
-<h2 id="前缀索引"><a href="#前缀索引" class="headerlink" title="前缀索引"></a>前缀索引</h2><p><a href="https://blog.csdn.net/ma2595162349/article/details/79449493" target="_blank" rel="noopener">前缀索引解释</a><br>如果是对已经存在的表建前缀索引，要先去比较重复率再择优创建索引：<br><img src="https://feng-blog.oss-cn-shenzhen.aliyuncs.com/blog_images/l55Uqw.png" alt></p>
+<h2 id="前缀索引"><a href="#前缀索引" class="headerlink" title="前缀索引"></a>前缀索引</h2><p><a href="https://blog.csdn.net/ma2595162349/article/details/79449493" target="_blank" rel="noopener">前缀索引解释</a><br>如果是对已经存在的表建前缀索引，要先去比较重复率再择优创建索引：<br><img src="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/l55Uqw.png" alt></p>
 <h2 id="联合索引之最左原则（左前缀原则）"><a href="#联合索引之最左原则（左前缀原则）" class="headerlink" title="联合索引之最左原则（左前缀原则）"></a>联合索引之最左原则（左前缀原则）</h2><p><a href="https://blog.csdn.net/wdjxxl/article/details/79790421" target="_blank" rel="noopener">https://blog.csdn.net/wdjxxl/article/details/79790421</a><br><a href="https://blog.csdn.net/Wuhaotian1996/article/details/80469353" target="_blank" rel="noopener">https://blog.csdn.net/Wuhaotian1996/article/details/80469353</a></p>
 <h2 id="多对多的关联表索引"><a href="#多对多的关联表索引" class="headerlink" title="多对多的关联表索引"></a>多对多的关联表索引</h2><p>一般是在二个关联的主键字典建唯一联合索引，避免重复数据，提升查询效率。</p>
 <h2 id="覆盖索引"><a href="#覆盖索引" class="headerlink" title="覆盖索引"></a>覆盖索引</h2><p>Order by的时候，如果一个索引包含(或覆盖)所有需要查询的字段的值，称为‘覆盖索引’。即只需扫描索引而无须扫表。</p>
 <h2 id="order-by出现file-sort"><a href="#order-by出现file-sort" class="headerlink" title="order by出现file_sort"></a>order by出现file_sort</h2><p><a href="https://dev.mysql.com/doc/refman/8.0/en/order-by-optimization.html" target="_blank" rel="noopener">order by 官方的优化文档</a><br><a href="https://www.cnblogs.com/developer_chan/p/9225638.html" target="_blank" rel="noopener">Order by 优化</a><br>没有使用到索引来排序是，执行计划会显示file_sort。<br>需要重点注意的是，索引创建是也是有排序的，默认是ASC，如果Order by的排序和索引创建的时候指定的不一致，也会导致file_sort。  </p>
 <p>非联合索引不受order by后面的升序和降序影响到是否使用索引排序，联合索引的情况下应该考虑order  by的升序降序是否和索引创建时一致。</p>
 <h2 id="时间类字段是否应该建索引"><a href="#时间类字段是否应该建索引" class="headerlink" title="时间类字段是否应该建索引"></a>时间类字段是否应该建索引</h2><p>我自己测试了一下建索引确实是性能上有明显提升的，<br>没加索引：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2019-12-25 15:13:59] 1 row retrieved starting from 1 in 592 ms (execution: 576 ms, fetching: 16 ms)</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://feng-blog.oss-cn-shenzhen.aliyuncs.com/blog_images/l55Uqw.png" alt><br>加上索引之后：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2019-12-25 15:19:28] 1 row retrieved starting from 1 in 258 ms (execution: 239 ms, fetching: 19 ms)</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://feng-blog.oss-cn-shenzhen.aliyuncs.com/blog_images/otmOCJ.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/l55Uqw.png" alt><br>加上索引之后：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2019-12-25 15:19:28] 1 row retrieved starting from 1 in 258 ms (execution: 239 ms, fetching: 19 ms)</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/otmOCJ.png" alt></p>
 <h2 id="什么情况下SQL不会使用到索引"><a href="#什么情况下SQL不会使用到索引" class="headerlink" title="什么情况下SQL不会使用到索引"></a>什么情况下SQL不会使用到索引</h2><ul>
 <li>like出现左匹配：’%XXX’</li>
 <li>where语句中使用&lt;&gt;, !=, not in</li>
@@ -577,7 +577,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">87</span>
+              <span class="site-state-item-count">89</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
