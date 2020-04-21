@@ -84,21 +84,18 @@
 
 
 
-<meta name="description" content="好久没用mysql，早上试了一下发现报了下面这个经典的错误，表示有点恶心。 C:\Program Files\MySQL\MySQL Server 5.7\bin&amp;gt;mysql -u root -p 12345678 Enter password: ******** ERROR 1045 (28000): Access denied for user &amp;apos;root&amp;apos;@&amp;apo">
+<meta name="description" content="好久没用mysql，早上试了一下发现报了下面这个经典的错误，表示有点恶心。123C:\Program Files\MySQL\MySQL Server 5.7\bin&amp;gt;mysql -u root -p 12345678Enter password: ********ERROR 1045 (28000): Access denied for user &amp;apos;root&amp;apos;@&amp;apo">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="windows环境下mysql提示ERROR 1045 (28000): Access denied for user &#39;root&#39;@&#39;localhost&#39; (using passwor: YES)的解决办法">
 <meta property="og:url" content="http://yoursite.com/2016/11/23/windows环境下mysql提示ERROR-1045-28000-Access-denied-for-user-root-localhost-using-passwor-YES-的解决办法/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="好久没用mysql，早上试了一下发现报了下面这个经典的错误，表示有点恶心。 C:\Program Files\MySQL\MySQL Server 5.7\bin&amp;gt;mysql -u root -p 12345678 Enter password: ******** ERROR 1045 (28000): Access denied for user &amp;apos;root&amp;apos;@&amp;apo">
+<meta property="og:description" content="好久没用mysql，早上试了一下发现报了下面这个经典的错误，表示有点恶心。123C:\Program Files\MySQL\MySQL Server 5.7\bin&amp;gt;mysql -u root -p 12345678Enter password: ********ERROR 1045 (28000): Access denied for user &amp;apos;root&amp;apos;@&amp;apo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/post/img8.png">
-<meta property="og:image" content="http://yoursite.com/images/post/img9.png">
-<meta property="og:updated_time" content="2016-11-23T02:33:21.773Z">
+<meta property="og:updated_time" content="2020-04-21T09:01:00.932Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="windows环境下mysql提示ERROR 1045 (28000): Access denied for user &#39;root&#39;@&#39;localhost&#39; (using passwor: YES)的解决办法">
-<meta name="twitter:description" content="好久没用mysql，早上试了一下发现报了下面这个经典的错误，表示有点恶心。 C:\Program Files\MySQL\MySQL Server 5.7\bin&amp;gt;mysql -u root -p 12345678 Enter password: ******** ERROR 1045 (28000): Access denied for user &amp;apos;root&amp;apos;@&amp;apo">
-<meta name="twitter:image" content="http://yoursite.com/images/post/img8.png">
+<meta name="twitter:description" content="好久没用mysql，早上试了一下发现报了下面这个经典的错误，表示有点恶心。123C:\Program Files\MySQL\MySQL Server 5.7\bin&amp;gt;mysql -u root -p 12345678Enter password: ********ERROR 1045 (28000): Access denied for user &amp;apos;root&amp;apos;@&amp;apo">
 
 
 
@@ -387,20 +384,16 @@
       
 
       
-        <p>好久没用mysql，早上试了一下发现报了下面这个经典的错误，表示有点恶心。</p>
-<pre><code>C:\Program Files\MySQL\MySQL Server 5.7\bin&gt;mysql -u root -p 12345678
-Enter password: ********
-ERROR 1045 (28000): Access denied for user &apos;root&apos;@&apos;localhost&apos; (using password: YES)
-</code></pre><p>解决方法很简单，首先进入mysql的安装目录找到my.ini<br><img src="/images/post/img8.png" alt><br>打开后，搜索mysqld关键字<br>找到后，在mysqld下面添加skip-grant-tables，保存退出。<br><img src="/images/post/img9.png" alt><br>如果提醒没有权限右键文件my.ini-&gt;安全-&gt;编辑-&gt;添加-&gt;高级-&gt;立即查找，把你当前账号添加进去，权限改成完全控制。<br>然后运行cmd，cd进入你mysql安装目录的bin目录下，<br>输入mysql -u root -p就可以不用密码登录了，出现password：的时候直接回车可以进入。<br>如果没有输入密码还是报错的话可以再Enter password的时候输入你上一次的密码。</p>
-<pre><code>C:\Program Files\MySQL\MySQL Server 5.7\bin&gt;mysql -u root -p
-Enter password: **********
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 11
-Server version: 5.7.9-log
-</code></pre><p>之后执行修改密码命令</p>
-<pre><code>mysql&gt; alter user &apos;root&apos;@&apos;localhost&apos; identified by &apos;123456789&apos;;
-Query OK, 0 rows affected (0.01 sec)
-</code></pre><p>大告功成！！</p>
+        <p>好久没用mysql，早上试了一下发现报了下面这个经典的错误，表示有点恶心。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\MySQL\MySQL Server 5.7\bin&gt;mysql -u root -p 12345678</span><br><span class="line">Enter password: ********</span><br><span class="line">ERROR 1045 (28000): Access denied for user &apos;root&apos;@&apos;localhost&apos; (using password: YES)</span><br></pre></td></tr></table></figure></p>
+<p>解决方法很简单，首先进入mysql的安装目录找到my.ini</p>
+<p>打开后，搜索mysqld关键字</p>
+<p>找到后，在mysqld下面添加skip-grant-tables，保存退出。</p>
+<p>如果提醒没有权限右键文件my.ini-&gt;安全-&gt;编辑-&gt;添加-&gt;高级-&gt;立即查找，把你当前账号添加进去，权限改成完全控制。</p>
+<p>然后运行cmd，cd进入你mysql安装目录的bin目录下，</p>
+<p>输入mysql -u root -p就可以不用密码登录了，出现password：的时候直接回车可以进入。</p>
+<p>如果没有输入密码还是报错的话可以再Enter password的时候输入你上一次的密码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\MySQL\MySQL Server 5.7\bin&gt;mysql -u root -p</span><br><span class="line">Enter password: **********</span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is 11</span><br><span class="line">Server version: 5.7.9-log</span><br></pre></td></tr></table></figure></p>
+<p>之后执行修改密码命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; alter user &apos;root&apos;@&apos;localhost&apos; identified by &apos;123456789&apos;;</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br></pre></td></tr></table></figure></p>
+<p>大告功成！！</p>
 
       
     </div>
