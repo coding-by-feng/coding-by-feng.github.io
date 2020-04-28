@@ -94,7 +94,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/BiF57m.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/KCfLZy.png">
-<meta property="og:updated_time" content="2020-04-13T06:32:03.616Z">
+<meta property="og:updated_time" content="2020-04-25T13:20:56.676Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring系列之SpringMVC">
 <meta name="twitter:description" content="处理过的问题Required request body is missing一般都是@RequestBody注解的参数，而请求数据空；或者用postman的话，注意要这样选择参数： What is difference between @RequestBody and @RequestParam? postman请求时，如果Controller的方法出现参数接收不到为null这个时候考虑是否Pos">
@@ -404,13 +404,9 @@
 <h4 id="ResponseBody注解之后是在哪里将对象自动转成Json响应的"><a href="#ResponseBody注解之后是在哪里将对象自动转成Json响应的" class="headerlink" title="@ResponseBody注解之后是在哪里将对象自动转成Json响应的"></a>@ResponseBody注解之后是在哪里将对象自动转成Json响应的</h4><p>0 = {ManagedFilter@12664} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.web.servlet.filter.OrderedCharacterEncodingFilter, name=’characterEncodingFilter’}}”<br>1 = {ManagedFilter@12662} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter, name=’webMvcMetricsFilter’}}”<br>2 = {ManagedFilter@12658} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.web.servlet.filter.OrderedHiddenHttpMethodFilter, name=’hiddenHttpMethodFilter’}}”<br>3 = {ManagedFilter@12656} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.web.servlet.filter.OrderedFormContentFilter, name=’formContentFilter’}}”<br>4 = {ManagedFilter@12654} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.web.servlet.filter.OrderedRequestContextFilter, name=’requestContextFilter’}}”<br>5 = {ManagedFilter@12652} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.web.servlet.DelegatingFilterProxyRegistrationBean$1, name=’springSecurityFilterChain’}}”<br>6 = {ManagedFilter@12637} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter, name=’httpTraceFilter’}}”</p>
 <p><a href="https://www.baeldung.com/spring-httpmessageconverter-rest" target="_blank" rel="noopener">how to Configure HttpMessageConverters in Spring.</a><br><a href="https://chenzhihao.cc/2019/06/13/Springmvc%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E7%9A%84%E4%BC%98%E9%9B%85%E5%A4%84%E6%96%B9%E5%BC%8F/" target="_blank" rel="noopener">参考1</a></p>
 <p>因为底层AbstractJackson2HttpMessageConverter调用了writeInternal方法默认通过jackson来做json解析，所以可以使用jackson的各种强大的注解，如：<br><a href="https://www.jianshu.com/p/201943f8d579" target="_blank" rel="noopener">Jackson注解翻译</a></p>
-<h1 id="Spring-WebFlux"><a href="#Spring-WebFlux" class="headerlink" title="Spring WebFlux"></a>Spring WebFlux</h1><p>参考自：<a href="https://www.baeldung.com/spring-5-functional-web" target="_blank" rel="noopener">https://www.baeldung.com/spring-5-functional-web</a></p>
-<h4 id="HandlerFunction"><a href="#HandlerFunction" class="headerlink" title="HandlerFunction"></a>HandlerFunction</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">public interface HandlerFunction&lt;T extends ServerResponse&gt; &#123;</span><br><span class="line">    Mono&lt;T&gt; handle(ServerRequest request);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个接口的实现其实类似servlet，如果和标准的Servlet.service(ServletRequest req, ServletResponse res)比对的话，HandlerFunction返回的是一个响应，而不是将和Servlet一样，将ServerResponse作为参数，这样子几乎没有副作用，而且更方便测试和重用。</p>
-<h4 id="RouterFunction"><a href="#RouterFunction" class="headerlink" title="RouterFunction"></a>RouterFunction</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">public interface RouterFunction&lt;T extends ServerResponse&gt; &#123;</span><br><span class="line">    Mono&lt;HandlerFunction&lt;T&gt;&gt; route(ServerRequest request);</span><br><span class="line">    // ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static &lt;T extends ServerResponse&gt; RouterFunction&lt;T&gt; route(</span><br><span class="line">  RequestPredicate predicate,</span><br><span class="line">  HandlerFunction&lt;T&gt; handlerFunction)</span><br></pre></td></tr></table></figure>
-<p>通常使用RouterFunctions.route()来绑定路由和HandlerFunction的实现，可以结合WebTestClient来做测试。</p>
-<h1 id="前端传进来的入参是转换为Controller方法的入参过程"><a href="#前端传进来的入参是转换为Controller方法的入参过程" class="headerlink" title="前端传进来的入参是转换为Controller方法的入参过程"></a>前端传进来的入参是转换为Controller方法的入参过程</h1><p>InvocableHandlerMethod.invokeForRequest方法</p>
-<h1 id="InitBinder的使用"><a href="#InitBinder的使用" class="headerlink" title="@InitBinder的使用"></a>@InitBinder的使用</h1><p><a href="https://medium.com/stackavenue/how-to-use-initbinder-in-spring-mvc-ecb974a6884" target="_blank" rel="noopener">https://medium.com/stackavenue/how-to-use-initbinder-in-spring-mvc-ecb974a6884</a></p>
+<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="前端接口调用的入口"><a href="#前端接口调用的入口" class="headerlink" title="前端接口调用的入口"></a>前端接口调用的入口</h2><p>HttpServlet（无论tomcat还是undertow容器，都是继承了HttpServlet抽象类，通过service方法分发前端的Http请求的）<br>所以如果某个http请求出现了莫名其妙的问题，如果实在找不到原因，就可以从最原始的这个入口debug跟踪，一步步深入，最终肯定能解决问题的。</p>
+<h2 id="前端传进来的入参转换为Controller方法的入参过程"><a href="#前端传进来的入参转换为Controller方法的入参过程" class="headerlink" title="前端传进来的入参转换为Controller方法的入参过程"></a>前端传进来的入参转换为Controller方法的入参过程</h2><p>InvocableHandlerMethod.invokeForRequest方法</p>
+<h2 id="InitBinder的使用"><a href="#InitBinder的使用" class="headerlink" title="@InitBinder的使用"></a>@InitBinder的使用</h2><p><a href="https://medium.com/stackavenue/how-to-use-initbinder-in-spring-mvc-ecb974a6884" target="_blank" rel="noopener">https://medium.com/stackavenue/how-to-use-initbinder-in-spring-mvc-ecb974a6884</a></p>
 
       
     </div>
@@ -523,7 +519,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">89</span>
+              <span class="site-state-item-count">92</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -531,7 +527,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-count">67</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -540,7 +536,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">77</span>
+                <span class="site-state-item-count">78</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -595,7 +591,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#处理过的问题"><span class="nav-number">1.</span> <span class="nav-text">处理过的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Required-request-body-is-missing"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">Required request body is missing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#What-is-difference-between-RequestBody-and-RequestParam"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">What is difference between @RequestBody and @RequestParam?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#postman请求时，如果Controller的方法出现参数接收不到为null"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">postman请求时，如果Controller的方法出现参数接收不到为null</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ResponseBody注解之后是在哪里将对象自动转成Json响应的"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">@ResponseBody注解之后是在哪里将对象自动转成Json响应的</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-WebFlux"><span class="nav-number">2.</span> <span class="nav-text">Spring WebFlux</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HandlerFunction"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">HandlerFunction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RouterFunction"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">RouterFunction</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前端传进来的入参是转换为Controller方法的入参过程"><span class="nav-number">3.</span> <span class="nav-text">前端传进来的入参是转换为Controller方法的入参过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#InitBinder的使用"><span class="nav-number">4.</span> <span class="nav-text">@InitBinder的使用</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#处理过的问题"><span class="nav-number">1.</span> <span class="nav-text">处理过的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Required-request-body-is-missing"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">Required request body is missing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#What-is-difference-between-RequestBody-and-RequestParam"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">What is difference between @RequestBody and @RequestParam?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#postman请求时，如果Controller的方法出现参数接收不到为null"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">postman请求时，如果Controller的方法出现参数接收不到为null</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ResponseBody注解之后是在哪里将对象自动转成Json响应的"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">@ResponseBody注解之后是在哪里将对象自动转成Json响应的</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Knowledge"><span class="nav-number">2.</span> <span class="nav-text">Basic Knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前端接口调用的入口"><span class="nav-number">2.1.</span> <span class="nav-text">前端接口调用的入口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端传进来的入参转换为Controller方法的入参过程"><span class="nav-number">2.2.</span> <span class="nav-text">前端传进来的入参转换为Controller方法的入参过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InitBinder的使用"><span class="nav-number">2.3.</span> <span class="nav-text">@InitBinder的使用</span></a></li></ol></li></div>
             
 
           </div>

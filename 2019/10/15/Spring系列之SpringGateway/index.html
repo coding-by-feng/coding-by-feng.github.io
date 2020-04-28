@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="TodoItem如果统一通过网关来控制请求的话，其他业务服务提供者要怎么关闭外部请求权限？ todoBasic Knowledge两种实现过滤器方式的区别 通过继承AbstractGatewayFilterFactory工厂类 通过实现GlobalFilter和Ordered  简单来说就是：前者需要通过spring.cloud.routes.filters配置作用在指定的路由上，或者通过spri">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-02T12:34:29.426Z">
+<meta property="og:updated_time" content="2020-04-23T03:57:10.313Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring系列之SpringGateway">
 <meta name="twitter:description" content="TodoItem如果统一通过网关来控制请求的话，其他业务服务提供者要怎么关闭外部请求权限？ todoBasic Knowledge两种实现过滤器方式的区别 通过继承AbstractGatewayFilterFactory工厂类 通过实现GlobalFilter和Ordered  简单来说就是：前者需要通过spring.cloud.routes.filters配置作用在指定的路由上，或者通过spri">
@@ -406,6 +406,8 @@
 <h2 id="记录一次SpringGateway转发请求失败的问题定位过程"><a href="#记录一次SpringGateway转发请求失败的问题定位过程" class="headerlink" title="记录一次SpringGateway转发请求失败的问题定位过程"></a>记录一次SpringGateway转发请求失败的问题定位过程</h2><p>HookRegisteringBeanDefinitionRegistryPostProcessor.setupHooks(BeanFactory)  (org.springframework.cloud.sleuth.instrument.reactor)</p>
 <p>springGateway集成feign、hystrix和SpringSecurity之后，底层通过ReactorProject再到netty的NioEventLoop，实现微服务之间的内部调用NioEventLoop的run，run方法会一直循环做一些调用逻辑？？？</p>
 <p>跟了几天代码，最后发现和postman的tab删除，完了将另外一个微服务可以调通的duplicate一份就ok了。。。</p>
+<h2 id="org-springframework-beans-factory-annotation-Qualifier-value-webFluxConversionService"><a href="#org-springframework-beans-factory-annotation-Qualifier-value-webFluxConversionService" class="headerlink" title="{@org.springframework.beans.factory.annotation.Qualifier(value=webFluxConversionService)}"></a>{@org.springframework.beans.factory.annotation.Qualifier(value=webFluxConversionService)}</h2><p>某次重构代码之后报这个错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">No qualifying bean of type &apos;org.springframework.core.convert.ConversionService&apos; available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: &#123;@org.springframework.beans.factory.annotation.Qualifier(value=webFluxConversionService)&#125;</span><br></pre></td></tr></table></figure></p>
+<p>谷歌了一番，发现是因为pom同时引入了spring-cloud-starter-gateway 和 spring-boot-starter-web，把spring-boot-starter-web去掉即可。</p>
 
       
     </div>
@@ -518,7 +520,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">89</span>
+              <span class="site-state-item-count">92</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -526,7 +528,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-count">67</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -535,7 +537,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">77</span>
+                <span class="site-state-item-count">78</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -590,7 +592,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TodoItem"><span class="nav-number">1.</span> <span class="nav-text">TodoItem</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#如果统一通过网关来控制请求的话，其他业务服务提供者要怎么关闭外部请求权限？-todo"><span class="nav-number">1.1.</span> <span class="nav-text">如果统一通过网关来控制请求的话，其他业务服务提供者要怎么关闭外部请求权限？ todo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Knowledge"><span class="nav-number">2.</span> <span class="nav-text">Basic Knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#两种实现过滤器方式的区别"><span class="nav-number">2.1.</span> <span class="nav-text">两种实现过滤器方式的区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Problem-Solution"><span class="nav-number">3.</span> <span class="nav-text">Problem Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#No-operations-allowed-after-connection-closed-Possibly-consider-using-a-shorter-maxLifetime-value"><span class="nav-number">3.1.</span> <span class="nav-text">(No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dependency-annotations-org-springframework-beans-factory-annotation-Qualifier-value-webFluxConversionService"><span class="nav-number">3.2.</span> <span class="nav-text">Dependency annotations: {@org.springframework.beans.factory.annotation.Qualifier(value=webFluxConversionService)}</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#记录一次SpringGateway转发请求失败的问题定位过程"><span class="nav-number">3.3.</span> <span class="nav-text">记录一次SpringGateway转发请求失败的问题定位过程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TodoItem"><span class="nav-number">1.</span> <span class="nav-text">TodoItem</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#如果统一通过网关来控制请求的话，其他业务服务提供者要怎么关闭外部请求权限？-todo"><span class="nav-number">1.1.</span> <span class="nav-text">如果统一通过网关来控制请求的话，其他业务服务提供者要怎么关闭外部请求权限？ todo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Knowledge"><span class="nav-number">2.</span> <span class="nav-text">Basic Knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#两种实现过滤器方式的区别"><span class="nav-number">2.1.</span> <span class="nav-text">两种实现过滤器方式的区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Problem-Solution"><span class="nav-number">3.</span> <span class="nav-text">Problem Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#No-operations-allowed-after-connection-closed-Possibly-consider-using-a-shorter-maxLifetime-value"><span class="nav-number">3.1.</span> <span class="nav-text">(No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dependency-annotations-org-springframework-beans-factory-annotation-Qualifier-value-webFluxConversionService"><span class="nav-number">3.2.</span> <span class="nav-text">Dependency annotations: {@org.springframework.beans.factory.annotation.Qualifier(value=webFluxConversionService)}</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#记录一次SpringGateway转发请求失败的问题定位过程"><span class="nav-number">3.3.</span> <span class="nav-text">记录一次SpringGateway转发请求失败的问题定位过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org-springframework-beans-factory-annotation-Qualifier-value-webFluxConversionService"><span class="nav-number">3.4.</span> <span class="nav-text">{@org.springframework.beans.factory.annotation.Qualifier(value=webFluxConversionService)}</span></a></li></ol></li></ol></div>
             
 
           </div>
