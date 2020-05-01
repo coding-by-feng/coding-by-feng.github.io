@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="基础判断true和false如果逻辑对象无初始值或者其值为 0、-0、null、””、false、undefined 或者 NaN，那么对象的值为 false。否则，其值为 true（即使当自变量为字符串 “false” 时）！但是不要想当然的理解为 0 == null（结果为false） ，1 == “abc”（结果是false）， null == undefined （结果为false）不过">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-29T04:39:19.342Z">
+<meta property="og:updated_time" content="2020-05-01T15:12:01.936Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript">
 <meta name="twitter:description" content="基础判断true和false如果逻辑对象无初始值或者其值为 0、-0、null、””、false、undefined 或者 NaN，那么对象的值为 false。否则，其值为 true（即使当自变量为字符串 “false” 时）！但是不要想当然的理解为 0 == null（结果为false） ，1 == “abc”（结果是false）， null == undefined （结果为false）不过">
@@ -418,7 +418,14 @@
 </tr>
 </tbody>
 </table>
-
+<h2 id="es6之扩展运算符…"><a href="#es6之扩展运算符…" class="headerlink" title="es6之扩展运算符…"></a>es6之扩展运算符…</h2><blockquote>
+<p>对象中的扩展运算符(…)用于取出参数对象中的所有可遍历属性，拷贝到当前对象之中</p>
+</blockquote>
+<h3 id="变量的扩展"><a href="#变量的扩展" class="headerlink" title="变量的扩展"></a>变量的扩展</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let bar = &#123; a: 1, b: 2 &#125;;</span><br><span class="line">let baz = &#123; ...bar &#125;; // &#123; a: 1, b: 2 &#125;</span><br></pre></td></tr></table></figure>
+<p>等同于：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let bar = &#123; a: 1, b: 2 &#125;;</span><br><span class="line">let baz = Object.assign(&#123;&#125;, bar); // &#123; a: 1, b: 2 &#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果用户自定义的属性，放在扩展运算符后面，则扩展运算符内部的同名属性会被覆盖掉。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let bar = &#123;a: 1, b: 2&#125;;</span><br><span class="line">let baz = &#123;...bar, ...&#123;a:2, b: 4&#125;&#125;;  // &#123;a: 2, b: 4&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong><em>引用数据类型时，修改拷贝后的对象会影响到被拷贝的对象：</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let obj1 = &#123; a: 1, b: 2, c: &#123;nickName: &apos;d&apos;&#125;&#125;;</span><br><span class="line">let obj2 = &#123; ...obj1&#125;;</span><br><span class="line">obj2.c.nickName = &apos;d-edited&apos;;</span><br><span class="line">console.log(obj1); // &#123;a: 1, b: 2, c: &#123;nickName: &apos;d&apos;&#125;&#125;</span><br><span class="line">console.log(obj2); // &#123;a: 1, b: 2, c: &#123;nickName: &apos;d-edited&apos;&#125;&#125;</span><br><span class="line">————————————————</span><br><span class="line">版权声明：本文为CSDN博主「astonishqft」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</span><br><span class="line">原文链接：https://blog.csdn.net/astonishqft/java/article/details/82899965</span><br></pre></td></tr></table></figure></p>
+<h3 id="数组的扩展"><a href="#数组的扩展" class="headerlink" title="数组的扩展"></a>数组的扩展</h3>
       
     </div>
 
@@ -528,7 +535,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">92</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -536,7 +543,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">67</span>
+                <span class="site-state-item-count">68</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -545,7 +552,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">78</span>
+                <span class="site-state-item-count">79</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -600,7 +607,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基础"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#判断true和false"><span class="nav-number">1.1.</span> <span class="nav-text">判断true和false</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ES6"><span class="nav-number">2.</span> <span class="nav-text">ES6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6教程"><span class="nav-number">2.1.</span> <span class="nav-text">ES6教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6解构赋值"><span class="nav-number">2.2.</span> <span class="nav-text">ES6解构赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Google-JavaScript-Style-Guide"><span class="nav-number">2.3.</span> <span class="nav-text">Google JavaScript Style Guide</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#let-vs-var"><span class="nav-number">2.4.</span> <span class="nav-text">let vs var</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const-vs-var-vs-let"><span class="nav-number">2.5.</span> <span class="nav-text">const vs var vs let</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#export"><span class="nav-number">2.6.</span> <span class="nav-text">export</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#export-vs-export-default"><span class="nav-number">2.6.0.1.</span> <span class="nav-text">export vs export default</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#export-const"><span class="nav-number">2.6.0.2.</span> <span class="nav-text">export const</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#let"><span class="nav-number">2.7.</span> <span class="nav-text">let</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#let-obj-content-todo"><span class="nav-number">2.7.0.1.</span> <span class="nav-text">let obj = {}, content; todo</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6中import-as-xxx-from-‘xxx’的作用"><span class="nav-number">2.8.</span> <span class="nav-text">ES6中import * as xxx from ‘xxx’的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BOM（浏览器窗口对象模型）"><span class="nav-number">2.9.</span> <span class="nav-text">BOM（浏览器窗口对象模型）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-specification"><span class="nav-number">2.10.</span> <span class="nav-text">Code specification</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基础"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#判断true和false"><span class="nav-number">1.1.</span> <span class="nav-text">判断true和false</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ES6"><span class="nav-number">2.</span> <span class="nav-text">ES6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6教程"><span class="nav-number">2.1.</span> <span class="nav-text">ES6教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6解构赋值"><span class="nav-number">2.2.</span> <span class="nav-text">ES6解构赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Google-JavaScript-Style-Guide"><span class="nav-number">2.3.</span> <span class="nav-text">Google JavaScript Style Guide</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#let-vs-var"><span class="nav-number">2.4.</span> <span class="nav-text">let vs var</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const-vs-var-vs-let"><span class="nav-number">2.5.</span> <span class="nav-text">const vs var vs let</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#export"><span class="nav-number">2.6.</span> <span class="nav-text">export</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#export-vs-export-default"><span class="nav-number">2.6.0.1.</span> <span class="nav-text">export vs export default</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#export-const"><span class="nav-number">2.6.0.2.</span> <span class="nav-text">export const</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#let"><span class="nav-number">2.7.</span> <span class="nav-text">let</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#let-obj-content-todo"><span class="nav-number">2.7.0.1.</span> <span class="nav-text">let obj = {}, content; todo</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6中import-as-xxx-from-‘xxx’的作用"><span class="nav-number">2.8.</span> <span class="nav-text">ES6中import * as xxx from ‘xxx’的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BOM（浏览器窗口对象模型）"><span class="nav-number">2.9.</span> <span class="nav-text">BOM（浏览器窗口对象模型）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-specification"><span class="nav-number">2.10.</span> <span class="nav-text">Code specification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#es6之扩展运算符…"><span class="nav-number">2.11.</span> <span class="nav-text">es6之扩展运算符…</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量的扩展"><span class="nav-number">2.11.1.</span> <span class="nav-text">变量的扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组的扩展"><span class="nav-number">2.11.2.</span> <span class="nav-text">数组的扩展</span></a></li></ol></li></div>
             
 
           </div>

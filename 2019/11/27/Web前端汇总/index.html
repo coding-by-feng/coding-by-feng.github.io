@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="w3c参考手册w3c参考手册详情 npmnpm 安装命令1npm install moduleName 安装模块到项目node_modules目录下。不会将模块依赖写入devDependencies或dependencies 节点。运行 npm install 初始化项目时不会下载模块。1npm install -g moduleName 安装模块到全局，不会在项目node_modules目录中保">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-06T08:53:28.262Z">
+<meta property="og:updated_time" content="2020-05-01T15:27:39.763Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Web前端汇总">
 <meta name="twitter:description" content="w3c参考手册w3c参考手册详情 npmnpm 安装命令1npm install moduleName 安装模块到项目node_modules目录下。不会将模块依赖写入devDependencies或dependencies 节点。运行 npm install 初始化项目时不会下载模块。1npm install -g moduleName 安装模块到全局，不会在项目node_modules目录中保">
@@ -408,15 +408,19 @@
 <ul>
 <li>DOM 是 W3C 的标准； [所有浏览器公共遵守的标准]</li>
 <li>BOM 是 各个浏览器厂商根据 DOM在各自浏览器上的实现;[表现为不同浏览器定义有差别,实现方式不同]</li>
-<li>window 是 BOM 对象，而非 js 对象；javascript是通过访问BOM（Browser Object Model）对象来访问、控制、修改客户端(浏览器)<h2 id="DOM-DOCUMENT-BOM-WINDOW-区别"><a href="#DOM-DOCUMENT-BOM-WINDOW-区别" class="headerlink" title="DOM, DOCUMENT, BOM, WINDOW 区别"></a>DOM, DOCUMENT, BOM, WINDOW 区别</h2></li>
+<li>window 是 BOM 对象，而非 js 对象；javascript是通过访问BOM（Browser Object Model）对象来访问、控制、修改客户端(浏览器)</li>
+</ul>
+<h2 id="DOM-DOCUMENT-BOM-WINDOW-区别"><a href="#DOM-DOCUMENT-BOM-WINDOW-区别" class="headerlink" title="DOM, DOCUMENT, BOM, WINDOW 区别"></a>DOM, DOCUMENT, BOM, WINDOW 区别</h2><ul>
 <li>DOM 是为了操作文档出现的 API，document 是其的一个对象；</li>
-<li>BOM 是为了操作浏览器出现的 API，window 是其的一个对象。<h4 id="DOM和BOM的操作对象区别"><a href="#DOM和BOM的操作对象区别" class="headerlink" title="DOM和BOM的操作对象区别"></a>DOM和BOM的操作对象区别</h4></li>
+<li>BOM 是为了操作浏览器出现的 API，window 是其的一个对象。</li>
+</ul>
+<h4 id="DOM和BOM的操作对象区别"><a href="#DOM和BOM的操作对象区别" class="headerlink" title="DOM和BOM的操作对象区别"></a>DOM和BOM的操作对象区别</h4><ul>
 <li>BOM是浏览器对象模型，是对浏览器本身进行操作;</li>
-<li>DOM是文档对象模型，是对浏览器（可看成容器）内的内容进行操作；<blockquote>
+<li>DOM是文档对象模型，是对浏览器（可看成容器）内的内容进行操作；</li>
+</ul>
+<blockquote>
 <p>可以说BOM包含了DOM(对象)，window.document</p>
 </blockquote>
-</li>
-</ul>
 <h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><h2 id="style-vs-class"><a href="#style-vs-class" class="headerlink" title="style vs class"></a>style vs class</h2><p>style是html元素的一个属性，在这里可以直接设置元素的样式，class也是一个属性，但它是通过预定义的样式使元素应用样式的。比如：div .box {width:80%;} 那么只要div的class引用了这个box那它的宽度就是父级容器的80%宽。<br>也就是style的优先级高于class。也就是说在style和class同时定义一种样式时，页面选择展示的是style中的样式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;.a1&#123;backgroung:#ccc;&#125;&lt;/style&gt;</span><br><span class="line">&lt;div class=&quot;a1&quot; style=&quot;background:#f00&quot;&gt;&lt;/div&gt;</span><br><span class="line">// 此时，div的背景颜色应该是#f00的红色。</span><br></pre></td></tr></table></figure></p>
 
       
@@ -528,7 +532,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">92</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -536,7 +540,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">67</span>
+                <span class="site-state-item-count">68</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -545,7 +549,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">78</span>
+                <span class="site-state-item-count">79</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

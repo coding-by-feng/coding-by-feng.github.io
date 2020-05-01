@@ -93,7 +93,7 @@
 <meta property="og:description" content="参考来自www.baeldung.com的多篇文章  Java Bean Validation的历史演变 原本以为JSR303就已经是够了，后面才发现这只是initial version，也就是Bean Validation 1.0； 后面又推出了JSR349（Bean Validation 1.1） 而最新版本是JSR380（Bean Validation 2.0）  依赖包在不使用第三方的框">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/0e8YJB.png">
-<meta property="og:updated_time" content="2020-04-13T06:32:03.576Z">
+<meta property="og:updated_time" content="2020-05-01T15:27:39.772Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java Bean Validation Basics">
 <meta name="twitter:description" content="参考来自www.baeldung.com的多篇文章  Java Bean Validation的历史演变 原本以为JSR303就已经是够了，后面才发现这只是initial version，也就是Bean Validation 1.0； 后面又推出了JSR349（Bean Validation 1.1） 而最新版本是JSR380（Bean Validation 2.0）  依赖包在不使用第三方的框">
@@ -421,9 +421,9 @@
 <ul>
 <li>Single-parameter Constraints</li>
 <li>Cross-Parameter Constraints</li>
-<li>return constraints<h4 id="自定义校验注解实现Cross-Parameter-Constraints"><a href="#自定义校验注解实现Cross-Parameter-Constraints" class="headerlink" title="自定义校验注解实现Cross-Parameter Constraints"></a>自定义校验注解实现Cross-Parameter Constraints</h4>比如以下Demo：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@ConsistentDateParameters</span><br><span class="line">public void createReservation(LocalDate begin, </span><br><span class="line">  LocalDate end, Customer customer) &#123;</span><br><span class="line">    // ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li>return constraints</li>
 </ul>
+<h4 id="自定义校验注解实现Cross-Parameter-Constraints"><a href="#自定义校验注解实现Cross-Parameter-Constraints" class="headerlink" title="自定义校验注解实现Cross-Parameter Constraints"></a>自定义校验注解实现Cross-Parameter Constraints</h4><p>比如以下Demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@ConsistentDateParameters</span><br><span class="line">public void createReservation(LocalDate begin, </span><br><span class="line">  LocalDate end, Customer customer) &#123;</span><br><span class="line">    // ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>如要有个业务场景是要求：begin必须比当前时间大，而且end必须比begin大的情况，那么使用JSR380的内置注解就无法实现了，所以要自定义校验注解和注解校验器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@Constraint(validatedBy = ConsistentDateParameterValidator.class)</span><br><span class="line">@Target(&#123; METHOD, CONSTRUCTOR &#125;)</span><br><span class="line">@Retention(RUNTIME)</span><br><span class="line">@Documented</span><br><span class="line">public @interface ConsistentDateParameters &#123;</span><br><span class="line"> </span><br><span class="line">    String message() default</span><br><span class="line">      &quot;End date must be after begin date and both must be in the future&quot;;</span><br><span class="line"> </span><br><span class="line">    Class&lt;?&gt;[] groups() default &#123;&#125;;</span><br><span class="line"> </span><br><span class="line">    Class&lt;? extends Payload&gt;[] payload() default &#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">@SupportedValidationTarget(ValidationTarget.PARAMETERS)</span><br><span class="line">public class ConsistentDateParameterValidator </span><br><span class="line">  implements ConstraintValidator&lt;ConsistentDateParameters, Object[]&gt; &#123;</span><br><span class="line"> </span><br><span class="line">    @Override</span><br><span class="line">    public boolean isValid(</span><br><span class="line">      Object[] value, </span><br><span class="line">      ConstraintValidatorContext context) &#123;</span><br><span class="line">         </span><br><span class="line">        if (value[0] == null || value[1] == null) &#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        if (!(value[0] instanceof LocalDate) </span><br><span class="line">          || !(value[1] instanceof LocalDate)) &#123;</span><br><span class="line">            throw new IllegalArgumentException(</span><br><span class="line">              &quot;Illegal method signature, expected two parameters of type LocalDate.&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        return ((LocalDate) value[0]).isAfter(LocalDate.now()) </span><br><span class="line">          &amp;&amp; ((LocalDate) value[0]).isBefore((LocalDate) value[1]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="自定义返回值的校验注解"><a href="#自定义返回值的校验注解" class="headerlink" title="自定义返回值的校验注解"></a>自定义返回值的校验注解</h4><p>比如要校验某个复杂的对象Reservation：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class ReservationManagement &#123;</span><br><span class="line"> </span><br><span class="line">    @ValidReservation</span><br><span class="line">    public Reservation getReservationsById(int id) &#123;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -554,7 +554,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">92</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -562,7 +562,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">67</span>
+                <span class="site-state-item-count">68</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -571,7 +571,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">78</span>
+                <span class="site-state-item-count">79</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
