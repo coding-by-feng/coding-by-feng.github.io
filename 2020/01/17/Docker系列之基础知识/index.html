@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Java,idea,eclipse,maven,jboss,">
+  <meta name="keywords" content="docker,">
 
 
 
@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="这篇文章会比较乱，因为我不想做太多系列细分，就是单纯地把我从eclipse转到idea的经过写出来而已，公司的项目一直采用的&amp;gt;是eclipse+maven+jboss的环境开发的，版本控制通过svn控制，这年代还用svn做控制确实有点更不上时代了，转的过程有点麻烦，但是最终我还是顺利用上idea，只是目前还不太习惯。想入坑idea很早之前就有这个想法了，eclipse我们公司一直都在用很古">
-<meta name="keywords" content="Java,idea,eclipse,maven,jboss">
+<meta name="description" content="参考1参考2 常用命令命令大全 列出所有容器1docker container ls 查看所有容易，包括关闭的12docker container ls --alldocker ps -a 删除具体的容易，根据container id1docker container rm c8faeffaaa62 列出docker name1sudo docker inspect -f=&amp;apos;&amp;#123;">
+<meta name="keywords" content="docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从eclipse转到idea的过程">
-<meta property="og:url" content="http://yoursite.com/2019/02/24/从eclipse转到idea的过程/index.html">
+<meta property="og:title" content="Docker系列之基础知识">
+<meta property="og:url" content="http://yoursite.com/2020/01/17/Docker系列之基础知识/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="这篇文章会比较乱，因为我不想做太多系列细分，就是单纯地把我从eclipse转到idea的经过写出来而已，公司的项目一直采用的&amp;gt;是eclipse+maven+jboss的环境开发的，版本控制通过svn控制，这年代还用svn做控制确实有点更不上时代了，转的过程有点麻烦，但是最终我还是顺利用上idea，只是目前还不太习惯。想入坑idea很早之前就有这个想法了，eclipse我们公司一直都在用很古">
+<meta property="og:description" content="参考1参考2 常用命令命令大全 列出所有容器1docker container ls 查看所有容易，包括关闭的12docker container ls --alldocker ps -a 删除具体的容易，根据container id1docker container rm c8faeffaaa62 列出docker name1sudo docker inspect -f=&amp;apos;&amp;#123;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-29T07:22:29.041Z">
+<meta property="og:updated_time" content="2020-05-02T10:42:53.946Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从eclipse转到idea的过程">
-<meta name="twitter:description" content="这篇文章会比较乱，因为我不想做太多系列细分，就是单纯地把我从eclipse转到idea的经过写出来而已，公司的项目一直采用的&amp;gt;是eclipse+maven+jboss的环境开发的，版本控制通过svn控制，这年代还用svn做控制确实有点更不上时代了，转的过程有点麻烦，但是最终我还是顺利用上idea，只是目前还不太习惯。想入坑idea很早之前就有这个想法了，eclipse我们公司一直都在用很古">
+<meta name="twitter:title" content="Docker系列之基础知识">
+<meta name="twitter:description" content="参考1参考2 常用命令命令大全 列出所有容器1docker container ls 查看所有容易，包括关闭的12docker container ls --alldocker ps -a 删除具体的容易，根据container id1docker container rm c8faeffaaa62 列出docker name1sudo docker inspect -f=&amp;apos;&amp;#123;">
 
 
 
@@ -123,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/24/从eclipse转到idea的过程/">
+  <link rel="canonical" href="http://yoursite.com/2020/01/17/Docker系列之基础知识/">
 
 
 
 
 
-  <title> 从eclipse转到idea的过程 | Feng's Blog </title>
+  <title> Docker系列之基础知识 | Feng's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -293,7 +293,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/24/从eclipse转到idea的过程/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/17/Docker系列之基础知识/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="James Feng">
@@ -317,7 +317,7 @@
             
             
               
-                从eclipse转到idea的过程
+                Docker系列之基础知识
               
             
           </h1>
@@ -330,8 +330,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-24T22:51:27+08:00">
-                2019-02-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-17T09:38:28+08:00">
+                2020-01-17
               </time>
             
 
@@ -349,19 +349,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/idea/" itemprop="url" rel="index">
-                    <span itemprop="name">idea</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/idea/eclipse/" itemprop="url" rel="index">
-                    <span itemprop="name">eclipse</span>
+                  <a href="/categories/docker/" itemprop="url" rel="index">
+                    <span itemprop="name">docker</span>
                   </a>
                 </span>
 
@@ -395,20 +384,34 @@
       
 
       
-        <blockquote>
-<p>这篇文章会比较乱，因为我不想做太多系列细分，就是单纯地把我从eclipse转到idea的经过写出来而已，公司的项目一直采用的&gt;是eclipse+maven+jboss的环境开发的，版本控制通过svn控制，这年代还用svn做控制确实有点更不上时代了，转的过程有点麻烦，但是最终我还是顺利用上idea，只是目前还不太习惯。想入坑idea很早之前就有这个想法了，eclipse我们公司一直都在用很古老的一个版本，隐藏的bug且不说，时不时的卡顿就够影响效率的了。</p>
-</blockquote>
-<h2 id="idea的subversion巨坑"><a href="#idea的subversion巨坑" class="headerlink" title="idea的subversion巨坑"></a>idea的subversion巨坑</h2><p>转idea遇到第一个大难题就是svn版本控制的转换，我司采用svn+ssh协议，还是秘钥文件+密码验证的。以前使用的一直是入职就分给我的一个ssh的秘钥文件eclipse专用的，还附带了一个ppk后缀的秘钥文件，但是ppk那个一直没有派上用途。idea的svn用户认证可能存在bug，我和在elipse上做了类似的svn地址和用户+秘钥文件的配置之后一直无法脸上代码仓库，一直无限弹出让我输入密码。搞得我一度想放弃。<br>后来在查了下，ssh+svn协议原则上是先通过ssh登录svn服务端的机器，等于先打通一条数据流通的渠道，然后svn的交互依赖于这条ssh的通道上面。一直依赖我都是直接在eclipse做svn的操作，没有考虑太多，于是我好奇用我的svn账号密码+ppk秘钥文件去登录svn指向ip的服务器，果然成功了，既然能不能登上去，说明idea只是没有正确通过ssh登录到svn服务器上而已，<strong><em>通过搜索我才知道，原来的ppk文件是putty的专用格式秘钥文件，而openssh一般采用pem，于是刻不容缓，我又查了下ppk转pem的方法，然后顺利转换到pem文件，在idea的preferences-&gt;Version Control-&gt;Subversion-&gt;SSH上面的Private key指向到新的pem秘钥文件，then connect svn server success，注意其他关于svn的设置先还原，保持默认即可。</em></strong></p>
-<h2 id="不复存在的workspace"><a href="#不复存在的workspace" class="headerlink" title="不复存在的workspace"></a>不复存在的workspace</h2><p>使用eclipse的开发者转到idea最不习惯的地方之一就是idea没有eclipse对应的workspace，我们公司是采用maven来控制jar依赖的,<br>通过maven实现多个子工程（project-anything）继承一个父工程(project-parent)，父工程的依赖jar可以被子工程共用。我直接粗暴得将所有模块的根目录直接check out到新的目录（idea-all-project），然后选择idea的import project，因为eclipse不存在workspace的概念，所以我直接import idea-all-project这个跟目录，因为根目录也有一个pom.xml指向了project-parent，project-parent会因为子模块继承了它，它回去自动匹配到所哟偶子模块，只要在引入的时候勾选了项目是由maven做jar管控。<br>其实，很多时候如果存在子模块，或者其他模块不在所引入的目录之下可以通过project structure里面的modules去增减想要的模块。从这种角度上来讲，其实任何一个目录都是一个workspace，也可以说任何一个module都是workspace。</p>
-<h2 id="maven管控的企业级j2ee应用架构"><a href="#maven管控的企业级j2ee应用架构" class="headerlink" title="maven管控的企业级j2ee应用架构"></a>maven管控的企业级j2ee应用架构</h2><p>我们的整个应用架构可以这样分级。架构类似采用金字塔三角形管控。工程application-all的pom.xml中引入apache的maven-ear-plugin插件，这个EAR插件主要用于生成Java EE Enterprise Archive (EAR)文件，即将各种组件打包到一起生成一个ear文件。此外，EAR插件也用于生成EAR的部署描述符文件application.xml。<br>application-all通过maven-ear-plugin指向了子模块console-web-all，console-web-all采用了maven-war-plugin插件,maven-war-plugin顾名思义，是将底下所有依赖的资源打包成一个war包，war被ear包含。</p>
-<h2 id="在idea中将ear部署到jboss中"><a href="#在idea中将ear部署到jboss中" class="headerlink" title="在idea中将ear部署到jboss中"></a>在idea中将ear部署到jboss中</h2><p>一直依赖我都以为，jboss是启动的时候自动加载他对应的部署目录下面的应用，使用了idea之后，才发现，idea中maven项目是默认将资源部署到maven目录架构对应的target中的。。idea会去先启动jboss，jboss只有启动成功之后，才通过它的EARDeployer，传给部署器一个资源目录，然后jboss加载部署资源还是部署。<br><strong><em>部署ear到jboss的时候有一点要特别注意的。由于我们项目采用ear管控war，所以需要一些额外的配置操作，开发过程中建议部署Artifacts中的exploded，exploded是被分解的意思，翻译成中文我也不知道叫什么合适，总之开发模式采用这个比较好。我还在Project Structure的Artifacts对ear exploded的资源输出目录手动加了个ear后缀，不加应该也没关系，还是我又强迫症，然后在war exploded的资源输出目录手动加了war后缀，还有对资源输出做了一些配置调整，最后成功部署到jboss。</em></strong></p>
-<h2 id="不习惯的subservion操作模式"><a href="#不习惯的subservion操作模式" class="headerlink" title="不习惯的subservion操作模式"></a>不习惯的subservion操作模式</h2><p>用惯eclipse的svn插件就知道，eclipse的资源同步功能非常实用，然后idea乍眼一看貌似是没有这个类似的功能的，这让我很抓狂，后来通过摸索找到了可以基本代替之的办法。<br><strong><em>idea底部有个Version Control栏，其tool bar上有个Local Changes，打开这个刷新，可以看到本地改了那些代码，Local Changes旁边的Incoming可以看到别人新提交我没有更新下来的代码，Repository可以看到所有人的操作记录，还可以在Local Changes左边的tool bar对一些文件做一些辅助性的操作，比如搁置，忽略版本控制，还原等操作，实用性可以说五五开吧，虽然还是很不习惯。其他的基本操作基本会无师自通的。</em></strong></p>
-<h2 id="强大无比的各种快捷键"><a href="#强大无比的各种快捷键" class="headerlink" title="强大无比的各种快捷键"></a>强大无比的各种快捷键</h2><p>几个自动生成代码的快剪辑区别：</p>
-<h2 id="Bookmarks的排序功能"><a href="#Bookmarks的排序功能" class="headerlink" title="Bookmarks的排序功能"></a>Bookmarks的排序功能</h2><p>shift+F11，可以对书签进行上下移动排序，大赞！</p>
-<h2 id="输出控制台乱码解决"><a href="#输出控制台乱码解决" class="headerlink" title="输出控制台乱码解决"></a>输出控制台乱码解决</h2><p>在Server的VM options参数中加入以下配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-Dfile.encoding=UTF-8</span><br></pre></td></tr></table></figure></p>
-<h2 id="代码审计，代码分析，FindBugs-Plugin"><a href="#代码审计，代码分析，FindBugs-Plugin" class="headerlink" title="代码审计，代码分析，FindBugs Plugin"></a>代码审计，代码分析，FindBugs Plugin</h2><h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><blockquote>
-<p>shift+方向怎么改成选中？<br>在vim命令行模式下按v+方向，用这种方式更好。</p>
-</blockquote>
+        <p><a href="http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html" target="_blank" rel="noopener">参考1</a><br><a href="https://www.jianshu.com/p/ca1623ac7723" target="_blank" rel="noopener">参考2</a></p>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><p><a href="https://www.runoob.com/docker/docker-command-manual.html" target="_blank" rel="noopener">命令大全</a></p>
+<h2 id="列出所有容器"><a href="#列出所有容器" class="headerlink" title="列出所有容器"></a>列出所有容器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container ls</span><br></pre></td></tr></table></figure>
+<h2 id="查看所有容易，包括关闭的"><a href="#查看所有容易，包括关闭的" class="headerlink" title="查看所有容易，包括关闭的"></a>查看所有容易，包括关闭的</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker container ls --all</span><br><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+<h2 id="删除具体的容易，根据container-id"><a href="#删除具体的容易，根据container-id" class="headerlink" title="删除具体的容易，根据container id"></a>删除具体的容易，根据container id</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container rm c8faeffaaa62</span><br></pre></td></tr></table></figure>
+<h2 id="列出docker-name"><a href="#列出docker-name" class="headerlink" title="列出docker name"></a>列出docker name</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker inspect -f=&apos;&#123;&#123;.Name&#125;&#125;&apos; $(sudo docker ps -a -q)</span><br></pre></td></tr></table></figure>
+<h2 id="查看容器IP"><a href="#查看容器IP" class="headerlink" title="查看容器IP"></a>查看容器IP</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect 容器ID | grep IPAddress</span><br></pre></td></tr></table></figure>
+<h2 id="列出docker-ip"><a href="#列出docker-ip" class="headerlink" title="列出docker ip"></a>列出docker ip</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker inspect -f=&apos;&#123;&#123;.NetworkSettings.IPAddress&#125;&#125;&apos; $(sudo docker ps -a -q)</span><br></pre></td></tr></table></figure>
+<h2 id="列出所有容器对应的名称，端口，及ip"><a href="#列出所有容器对应的名称，端口，及ip" class="headerlink" title="列出所有容器对应的名称，端口，及ip"></a>列出所有容器对应的名称，端口，及ip</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect -f=&apos;&#123;&#123;.Name&#125;&#125; &#123;&#123;.NetworkSettings.IPAddress&#125;&#125; &#123;&#123;.HostConfig.PortBindings&#125;&#125;&apos; $(docker ps -aq)</span><br></pre></td></tr></table></figure>
+<h2 id="启动某个容器"><a href="#启动某个容器" class="headerlink" title="启动某个容器"></a>启动某个容器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart 1b4671904bfa</span><br></pre></td></tr></table></figure>
+<h2 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status docker</span><br></pre></td></tr></table></figure>
+<h1 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h1><p><a href="https://www.cnblogs.com/sablier/p/11605606.html" target="_blank" rel="noopener">参考</a><br>目录映射时，容器里面的目录会在容器启动的时候自动创建。</p>
+<p>进入docker本地连接mysql客户端<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo docker exec -it mysql bash</span><br><span class="line">mysql -uroot -p123456</span><br></pre></td></tr></table></figure></p>
+<h1 id="Fastdfs"><a href="#Fastdfs" class="headerlink" title="Fastdfs"></a>Fastdfs</h1><p><a href="http://www.zuidaima.com/blog/4653383732808704.htm" target="_blank" rel="noopener">参考1</a><br><a href="https://blog.502.li/archives/docker-deploy-fastdfs.html" target="_blank" rel="noopener">参考2</a><br><a href="https://v3u.cn/a_id_78" target="_blank" rel="noopener">参考3</a></p>
+<h1 id="rabbitmq"><a href="#rabbitmq" class="headerlink" title="rabbitmq"></a>rabbitmq</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull rabbitmq:management</span><br></pre></td></tr></table></figure>
+<h1 id="docker跑SpringCloud微服务"><a href="#docker跑SpringCloud微服务" class="headerlink" title="docker跑SpringCloud微服务"></a>docker跑SpringCloud微服务</h1><h1 id="dockerfile-maven"><a href="#dockerfile-maven" class="headerlink" title="dockerfile-maven"></a>dockerfile-maven</h1><h1 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h1><p>在Docker中创建镜像最常用的方式，就是使用Dockerfile。Dockerfile是一个Docker镜像的描述文件，我们可以理解成火箭发射的A、B、C、D…的步骤。Dockerfile其内部包含了一条条的指令，每一条指令构建一层，因此每一条指令的内容，就是描述该层应当如何构建。<br><a href="https://www.cnblogs.com/edisonchou/p/dockerfile_inside_introduction.html" target="_blank" rel="noopener">Dockerfile基础知识</a><br><a href="https://www.cnblogs.com/lingfengblogs/p/11093246.html" target="_blank" rel="noopener">Dockerfile命令大全</a></p>
+<h1 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker-compose"></a>docker-compose</h1><p><a href="https://www.cnblogs.com/williamjie/p/9103327.html" target="_blank" rel="noopener">参考1</a></p>
+<h1 id="Mac上跑docker"><a href="#Mac上跑docker" class="headerlink" title="Mac上跑docker"></a>Mac上跑docker</h1><p><a href="https://www.runoob.com/docker/macos-docker-install.html" target="_blank" rel="noopener">https://www.runoob.com/docker/macos-docker-install.html</a></p>
+<h1 id="docker-service的配置"><a href="#docker-service的配置" class="headerlink" title="docker.service的配置"></a>docker.service的配置</h1><p><a href="https://www.cnblogs.com/nihaorz/p/12131873.html" target="_blank" rel="noopener">https://www.cnblogs.com/nihaorz/p/12131873.html</a></p>
+<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="bash-vi-command-not-found"><a href="#bash-vi-command-not-found" class="headerlink" title="bash: vi: command not found"></a>bash: vi: command not found</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it &lt;container&gt; bash</span><br><span class="line">apt-get update</span><br><span class="line">apt-get install vim</span><br></pre></td></tr></table></figure>
+<h2 id="Error-response-from-daemon-Get-https-registry-1-docker-io-v2-net-http-TLS-handshake-timeout"><a href="#Error-response-from-daemon-Get-https-registry-1-docker-io-v2-net-http-TLS-handshake-timeout" class="headerlink" title="Error response from daemon: Get https://registry-1.docker.io/v2/: net/http: TLS handshake timeout"></a>Error response from daemon: Get <a href="https://registry-1.docker.io/v2/" target="_blank" rel="noopener">https://registry-1.docker.io/v2/</a>: net/http: TLS handshake timeout</h2><p><a href="https://blog.csdn.net/BigData_Mining/article/details/87869147" target="_blank" rel="noopener">网上的解决方案</a></p>
+<h2 id="Current-command-vanished-from-the-unit-file-execution-of-the-command-list-won’t-be-resumed"><a href="#Current-command-vanished-from-the-unit-file-execution-of-the-command-list-won’t-be-resumed" class="headerlink" title="Current command vanished from the unit file, execution of the command list won’t be resumed."></a>Current command vanished from the unit file, execution of the command list won’t be resumed.</h2><p>可能是有docker的相关进程没有杀干净。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef|grep docker</span><br><span class="line">kill -9 pid</span><br></pre></td></tr></table></figure></p>
+<h2 id="远程2375连接不上"><a href="#远程2375连接不上" class="headerlink" title="远程2375连接不上"></a>远程2375连接不上</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/lib/systemd/system/docker.service</span><br></pre></td></tr></table></figure>
+<p>vim进入命令行模式输入?ExecStart，找到如下一行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ExecStart=/usr/bin/dockerd -H unix://var/run/docker.sock \</span><br></pre></td></tr></table></figure></p>
+<p>在后面加上-H tcp://0.0.0.0:2375<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock -H tcp://0.0.0.0:2375</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service docker restart</span><br></pre></td></tr></table></figure>
+<p>之后要注意重启之前的容器。</p>
 
       
     </div>
@@ -432,15 +435,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag"># Java</a>
-          
-            <a href="/tags/idea/" rel="tag"># idea</a>
-          
-            <a href="/tags/eclipse/" rel="tag"># eclipse</a>
-          
-            <a href="/tags/maven/" rel="tag"># maven</a>
-          
-            <a href="/tags/jboss/" rel="tag"># jboss</a>
+            <a href="/tags/docker/" rel="tag"># docker</a>
           
         </div>
       
@@ -449,8 +444,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/22/游侵华日军南京大屠杀遇难同胞纪念馆有感/" rel="next" title="游侵华日军南京大屠杀遇难同胞纪念馆有感">
-                <i class="fa fa-chevron-left"></i> 游侵华日军南京大屠杀遇难同胞纪念馆有感
+              <a href="/2020/01/07/arthas汇总/" rel="next" title="arthas汇总">
+                <i class="fa fa-chevron-left"></i> arthas汇总
               </a>
             
           </div>
@@ -459,8 +454,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/26/linux常用命令/" rel="prev" title="linux常用用命令">
-                linux常用用命令 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/02/18/jenkins定时自动发布/" rel="prev" title="jenkins定时自动发布">
+                jenkins定时自动发布 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -599,7 +594,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#idea的subversion巨坑"><span class="nav-number">1.</span> <span class="nav-text">idea的subversion巨坑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不复存在的workspace"><span class="nav-number">2.</span> <span class="nav-text">不复存在的workspace</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven管控的企业级j2ee应用架构"><span class="nav-number">3.</span> <span class="nav-text">maven管控的企业级j2ee应用架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在idea中将ear部署到jboss中"><span class="nav-number">4.</span> <span class="nav-text">在idea中将ear部署到jboss中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不习惯的subservion操作模式"><span class="nav-number">5.</span> <span class="nav-text">不习惯的subservion操作模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强大无比的各种快捷键"><span class="nav-number">6.</span> <span class="nav-text">强大无比的各种快捷键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bookmarks的排序功能"><span class="nav-number">7.</span> <span class="nav-text">Bookmarks的排序功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出控制台乱码解决"><span class="nav-number">8.</span> <span class="nav-text">输出控制台乱码解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码审计，代码分析，FindBugs-Plugin"><span class="nav-number">9.</span> <span class="nav-text">代码审计，代码分析，FindBugs Plugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Q-amp-A"><span class="nav-number">10.</span> <span class="nav-text">Q&amp;A</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常用命令"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#列出所有容器"><span class="nav-number">1.1.</span> <span class="nav-text">列出所有容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看所有容易，包括关闭的"><span class="nav-number">1.2.</span> <span class="nav-text">查看所有容易，包括关闭的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除具体的容易，根据container-id"><span class="nav-number">1.3.</span> <span class="nav-text">删除具体的容易，根据container id</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列出docker-name"><span class="nav-number">1.4.</span> <span class="nav-text">列出docker name</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看容器IP"><span class="nav-number">1.5.</span> <span class="nav-text">查看容器IP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列出docker-ip"><span class="nav-number">1.6.</span> <span class="nav-text">列出docker ip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列出所有容器对应的名称，端口，及ip"><span class="nav-number">1.7.</span> <span class="nav-text">列出所有容器对应的名称，端口，及ip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动某个容器"><span class="nav-number">1.8.</span> <span class="nav-text">启动某个容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看状态"><span class="nav-number">1.9.</span> <span class="nav-text">查看状态</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mysql"><span class="nav-number">2.</span> <span class="nav-text">Mysql</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fastdfs"><span class="nav-number">3.</span> <span class="nav-text">Fastdfs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#rabbitmq"><span class="nav-number">4.</span> <span class="nav-text">rabbitmq</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#docker跑SpringCloud微服务"><span class="nav-number">5.</span> <span class="nav-text">docker跑SpringCloud微服务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dockerfile-maven"><span class="nav-number">6.</span> <span class="nav-text">dockerfile-maven</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dockerfile"><span class="nav-number">7.</span> <span class="nav-text">Dockerfile</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#docker-compose"><span class="nav-number">8.</span> <span class="nav-text">docker-compose</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mac上跑docker"><span class="nav-number">9.</span> <span class="nav-text">Mac上跑docker</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#docker-service的配置"><span class="nav-number">10.</span> <span class="nav-text">docker.service的配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Problem-Solution"><span class="nav-number">11.</span> <span class="nav-text">Problem Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bash-vi-command-not-found"><span class="nav-number">11.1.</span> <span class="nav-text">bash: vi: command not found</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Error-response-from-daemon-Get-https-registry-1-docker-io-v2-net-http-TLS-handshake-timeout"><span class="nav-number">11.2.</span> <span class="nav-text">Error response from daemon: Get https://registry-1.docker.io/v2/: net/http: TLS handshake timeout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Current-command-vanished-from-the-unit-file-execution-of-the-command-list-won’t-be-resumed"><span class="nav-number">11.3.</span> <span class="nav-text">Current command vanished from the unit file, execution of the command list won’t be resumed.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程2375连接不上"><span class="nav-number">11.4.</span> <span class="nav-text">远程2375连接不上</span></a></li></ol></li></ol></div>
             
 
           </div>
