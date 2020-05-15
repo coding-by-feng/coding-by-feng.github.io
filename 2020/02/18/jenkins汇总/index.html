@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="Basic Knowledge密码保存地方1This may also be found at: /var/jenkins_home/secrets/initialAdminPassword 插件安装加速https://www.cnblogs.com/yoyoketang/p/12115432.htmlhttps://www.cnblogs.com/yoyoketang/p/12115569.ht">
+<meta name="description" content="Basic Knowledge密码保存地方1This may also be found at: /var/jenkins_home/secrets/initialAdminPassword 插件安装加速修改update-center.json地址在/home/jenkins目录找到文件 hudson.model.UpdateCenter.xml（如果没找到就搜索一下文件名） 将原来的https:">
 <meta name="keywords" content="jenkins">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jenkins汇总">
 <meta property="og:url" content="http://yoursite.com/2020/02/18/jenkins汇总/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="Basic Knowledge密码保存地方1This may also be found at: /var/jenkins_home/secrets/initialAdminPassword 插件安装加速https://www.cnblogs.com/yoyoketang/p/12115432.htmlhttps://www.cnblogs.com/yoyoketang/p/12115569.ht">
+<meta property="og:description" content="Basic Knowledge密码保存地方1This may also be found at: /var/jenkins_home/secrets/initialAdminPassword 插件安装加速修改update-center.json地址在/home/jenkins目录找到文件 hudson.model.UpdateCenter.xml（如果没找到就搜索一下文件名） 将原来的https:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-13T14:59:51.941Z">
+<meta property="og:updated_time" content="2020-05-14T11:58:44.967Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jenkins汇总">
-<meta name="twitter:description" content="Basic Knowledge密码保存地方1This may also be found at: /var/jenkins_home/secrets/initialAdminPassword 插件安装加速https://www.cnblogs.com/yoyoketang/p/12115432.htmlhttps://www.cnblogs.com/yoyoketang/p/12115569.ht">
+<meta name="twitter:description" content="Basic Knowledge密码保存地方1This may also be found at: /var/jenkins_home/secrets/initialAdminPassword 插件安装加速修改update-center.json地址在/home/jenkins目录找到文件 hudson.model.UpdateCenter.xml（如果没找到就搜索一下文件名） 将原来的https:">
 
 
 
@@ -385,11 +385,19 @@
 
       
         <h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="密码保存地方"><a href="#密码保存地方" class="headerlink" title="密码保存地方"></a>密码保存地方</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This may also be found at: /var/jenkins_home/secrets/initialAdminPassword</span><br></pre></td></tr></table></figure>
-<h2 id="插件安装加速"><a href="#插件安装加速" class="headerlink" title="插件安装加速"></a>插件安装加速</h2><p><a href="https://www.cnblogs.com/yoyoketang/p/12115432.html" target="_blank" rel="noopener">https://www.cnblogs.com/yoyoketang/p/12115432.html</a><br><a href="https://www.cnblogs.com/yoyoketang/p/12115569.html" target="_blank" rel="noopener">https://www.cnblogs.com/yoyoketang/p/12115569.html</a></p>
+<h2 id="插件安装加速"><a href="#插件安装加速" class="headerlink" title="插件安装加速"></a>插件安装加速</h2><h3 id="修改update-center-json地址"><a href="#修改update-center-json地址" class="headerlink" title="修改update-center.json地址"></a>修改update-center.json地址</h3><p>在/home/jenkins目录找到文件 hudson.model.UpdateCenter.xml（如果没找到就搜索一下文件名）</p>
+<p>将原来的<br><code>https://updates.jenkins.io/update-center.json</code><br>改成<br><code>http://mirror.xmission.com/jenkins/updates/update-center.json</code></p>
+<p>重启jenkins</p>
+<p><a href="http://ip:9090/restart" target="_blank" rel="noopener">http://ip:9090/restart</a></p>
+<h3 id="修改default-json"><a href="#修改default-json" class="headerlink" title="修改default.json"></a>修改default.json</h3><p>在jenkins安装目录的updates/下，先按英文冒号进入命令行模式输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1,$s/http:\/\/updates.jenkins-ci.org\/download/https:\/\/mirrors.tuna.tsinghua.edu.cn\/jenkins/g</span><br></pre></td></tr></table></figure></p>
+<p>回车之后再次进入命令行模式输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1,$s/http:\/\/www.google.com/https:\/\/www.baidu.com/g</span><br></pre></td></tr></table></figure></p>
+<p>再回车，保存重启即可。</p>
+<p><a href="https://www.cnblogs.com/yoyoketang/p/12115569.html" target="_blank" rel="noopener">https://www.cnblogs.com/yoyoketang/p/12115569.html</a></p>
 <h2 id="从界面安装插件"><a href="#从界面安装插件" class="headerlink" title="从界面安装插件"></a>从界面安装插件</h2><p><a href="https://www.jianshu.com/p/3b5ebe85c034" target="_blank" rel="noopener">https://www.jianshu.com/p/3b5ebe85c034</a></p>
 <h2 id="重启Jenkies"><a href="#重启Jenkies" class="headerlink" title="重启Jenkies"></a>重启Jenkies</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/restart</span><br></pre></td></tr></table></figure>
 <h2 id="重新加载配置信息"><a href="#重新加载配置信息" class="headerlink" title="重新加载配置信息"></a>重新加载配置信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/reload</span><br></pre></td></tr></table></figure>
 <h2 id="关闭Jenkins"><a href="#关闭Jenkins" class="headerlink" title="关闭Jenkins"></a>关闭Jenkins</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/exit</span><br></pre></td></tr></table></figure>
+<h1 id="jenkins自动部署SpringCloud微服务"><a href="#jenkins自动部署SpringCloud微服务" class="headerlink" title="jenkins自动部署SpringCloud微服务"></a>jenkins自动部署SpringCloud微服务</h1><p><a href="https://blog.csdn.net/sunhuansheng/article/details/100719021" target="_blank" rel="noopener">https://blog.csdn.net/sunhuansheng/article/details/100719021</a><br>-更改插件加速<br>-安装maven intergration plugin</p>
 
       
     </div>
@@ -500,7 +508,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">97</span>
+              <span class="site-state-item-count">98</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -572,7 +580,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Knowledge"><span class="nav-number">1.</span> <span class="nav-text">Basic Knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#密码保存地方"><span class="nav-number">1.1.</span> <span class="nav-text">密码保存地方</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件安装加速"><span class="nav-number">1.2.</span> <span class="nav-text">插件安装加速</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从界面安装插件"><span class="nav-number">1.3.</span> <span class="nav-text">从界面安装插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重启Jenkies"><span class="nav-number">1.4.</span> <span class="nav-text">重启Jenkies</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重新加载配置信息"><span class="nav-number">1.5.</span> <span class="nav-text">重新加载配置信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭Jenkins"><span class="nav-number">1.6.</span> <span class="nav-text">关闭Jenkins</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Knowledge"><span class="nav-number">1.</span> <span class="nav-text">Basic Knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#密码保存地方"><span class="nav-number">1.1.</span> <span class="nav-text">密码保存地方</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件安装加速"><span class="nav-number">1.2.</span> <span class="nav-text">插件安装加速</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改update-center-json地址"><span class="nav-number">1.2.1.</span> <span class="nav-text">修改update-center.json地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改default-json"><span class="nav-number">1.2.2.</span> <span class="nav-text">修改default.json</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从界面安装插件"><span class="nav-number">1.3.</span> <span class="nav-text">从界面安装插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重启Jenkies"><span class="nav-number">1.4.</span> <span class="nav-text">重启Jenkies</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重新加载配置信息"><span class="nav-number">1.5.</span> <span class="nav-text">重新加载配置信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭Jenkins"><span class="nav-number">1.6.</span> <span class="nav-text">关闭Jenkins</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jenkins自动部署SpringCloud微服务"><span class="nav-number">2.</span> <span class="nav-text">jenkins自动部署SpringCloud微服务</span></a></li></ol></div>
             
 
           </div>
