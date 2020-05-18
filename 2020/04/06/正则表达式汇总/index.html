@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="有时候需要通过正则表达式来快速匹配某些字符串筛选结果，但是规则老是忘了，所以记录一下，以便日后使用。  Basic Knowledge行首和行尾1234^cat : 验证该行以c开头紧接着是a，然后是tcat$ : 验证该行以t结尾倒数第二个字符为a倒数第三个字符为c^cat$: 以c开头接着是a-&amp;gt;t然后是行结束：只有cat三个字母的数据行^$  : 开头之后马上结束：空白行，不包括任何">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-01T15:27:39.748Z">
+<meta property="og:updated_time" content="2020-05-18T06:21:27.276Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式汇总">
 <meta name="twitter:description" content="有时候需要通过正则表达式来快速匹配某些字符串筛选结果，但是规则老是忘了，所以记录一下，以便日后使用。  Basic Knowledge行首和行尾1234^cat : 验证该行以c开头紧接着是a，然后是tcat$ : 验证该行以t结尾倒数第二个字符为a倒数第三个字符为c^cat$: 以c开头接着是a-&amp;gt;t然后是行结束：只有cat三个字母的数据行^$  : 开头之后马上结束：空白行，不包括任何">
@@ -389,6 +389,8 @@
 </blockquote>
 <h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="行首和行尾"><a href="#行首和行尾" class="headerlink" title="行首和行尾"></a>行首和行尾</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">^cat : 验证该行以c开头紧接着是a，然后是t</span><br><span class="line">cat$ : 验证该行以t结尾倒数第二个字符为a倒数第三个字符为c</span><br><span class="line">^cat$: 以c开头接着是a-&gt;t然后是行结束：只有cat三个字母的数据行</span><br><span class="line">^$  : 开头之后马上结束：空白行，不包括任何字符</span><br></pre></td></tr></table></figure>
 <p>匹配以- 开头的任何字符串，到以#开头的行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">^- .*$</span><br><span class="line">^#.*</span><br></pre></td></tr></table></figure></p>
+<h2 id="匹配包含某个字符串的行"><a href="#匹配包含某个字符串的行" class="headerlink" title="匹配包含某个字符串的行"></a>匹配包含某个字符串的行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^(.*)string(.*)\n</span><br></pre></td></tr></table></figure>
+<p>string为指定的字符串</p>
 
       
     </div>
@@ -571,7 +573,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Knowledge"><span class="nav-number">1.</span> <span class="nav-text">Basic Knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#行首和行尾"><span class="nav-number">1.1.</span> <span class="nav-text">行首和行尾</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Knowledge"><span class="nav-number">1.</span> <span class="nav-text">Basic Knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#行首和行尾"><span class="nav-number">1.1.</span> <span class="nav-text">行首和行尾</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匹配包含某个字符串的行"><span class="nav-number">1.2.</span> <span class="nav-text">匹配包含某个字符串的行</span></a></li></ol></li></ol></div>
             
 
           </div>
