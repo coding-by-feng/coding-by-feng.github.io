@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="https://www.cnblogs.com/chiangchou/p/fastdfs.html  查看Storage和Tracker是否在通信1fdfs_monitor /etc/fdfs/storage.conf 查看Storage和Tracker是否状态都正常1netstat -unltp|grep fdfs 正常的话结果如下：只要没有二个都出现那么可能是其中一个down掉了。 Stor">
+<meta name="description" content="https://www.cnblogs.com/chiangchou/p/fastdfs.html  常用命令https://www.bbsmax.com/A/MAzAr2jRJ9/ 查看Storage和Tracker是否在通信1fdfs_monitor /etc/fdfs/storage.conf 查看Storage和Tracker是否状态都正常1netstat -unltp|grep fdf">
 <meta name="keywords" content="fastdfs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="fastdfs">
 <meta property="og:url" content="http://yoursite.com/2019/11/06/fastdfs/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="https://www.cnblogs.com/chiangchou/p/fastdfs.html  查看Storage和Tracker是否在通信1fdfs_monitor /etc/fdfs/storage.conf 查看Storage和Tracker是否状态都正常1netstat -unltp|grep fdfs 正常的话结果如下：只要没有二个都出现那么可能是其中一个down掉了。 Stor">
+<meta property="og:description" content="https://www.cnblogs.com/chiangchou/p/fastdfs.html  常用命令https://www.bbsmax.com/A/MAzAr2jRJ9/ 查看Storage和Tracker是否在通信1fdfs_monitor /etc/fdfs/storage.conf 查看Storage和Tracker是否状态都正常1netstat -unltp|grep fdf">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/Q53RzT.png">
-<meta property="og:updated_time" content="2020-05-19T15:29:41.160Z">
+<meta property="og:updated_time" content="2020-05-19T17:49:18.839Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="fastdfs">
-<meta name="twitter:description" content="https://www.cnblogs.com/chiangchou/p/fastdfs.html  查看Storage和Tracker是否在通信1fdfs_monitor /etc/fdfs/storage.conf 查看Storage和Tracker是否状态都正常1netstat -unltp|grep fdfs 正常的话结果如下：只要没有二个都出现那么可能是其中一个down掉了。 Stor">
+<meta name="twitter:description" content="https://www.cnblogs.com/chiangchou/p/fastdfs.html  常用命令https://www.bbsmax.com/A/MAzAr2jRJ9/ 查看Storage和Tracker是否在通信1fdfs_monitor /etc/fdfs/storage.conf 查看Storage和Tracker是否状态都正常1netstat -unltp|grep fdf">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/Q53RzT.png">
 
 
@@ -389,12 +389,14 @@
         <blockquote>
 <p><a href="https://www.cnblogs.com/chiangchou/p/fastdfs.html" target="_blank" rel="noopener">https://www.cnblogs.com/chiangchou/p/fastdfs.html</a></p>
 </blockquote>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p><a href="https://www.bbsmax.com/A/MAzAr2jRJ9/" target="_blank" rel="noopener">https://www.bbsmax.com/A/MAzAr2jRJ9/</a></p>
 <h2 id="查看Storage和Tracker是否在通信"><a href="#查看Storage和Tracker是否在通信" class="headerlink" title="查看Storage和Tracker是否在通信"></a>查看Storage和Tracker是否在通信</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdfs_monitor /etc/fdfs/storage.conf</span><br></pre></td></tr></table></figure>
 <h2 id="查看Storage和Tracker是否状态都正常"><a href="#查看Storage和Tracker是否状态都正常" class="headerlink" title="查看Storage和Tracker是否状态都正常"></a>查看Storage和Tracker是否状态都正常</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -unltp|grep fdfs</span><br></pre></td></tr></table></figure>
 <p>正常的话结果如下：<br><img src="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/Q53RzT.png" alt="image"><br>只要没有二个都出现那么可能是其中一个down掉了。</p>
 <h2 id="Storage两种启动方式"><a href="#Storage两种启动方式" class="headerlink" title="Storage两种启动方式"></a>Storage两种启动方式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/fdfs_storaged start</span><br><span class="line"></span><br><span class="line">service fdfs_storaged start</span><br></pre></td></tr></table></figure>
 <h2 id="com-github-tobato-fastdfs-exception-FdfsConnectException-无法获取服务端连接资源：can’t-create-connection-to-172-26-64-218-23000"><a href="#com-github-tobato-fastdfs-exception-FdfsConnectException-无法获取服务端连接资源：can’t-create-connection-to-172-26-64-218-23000" class="headerlink" title="com.github.tobato.fastdfs.exception.FdfsConnectException: 无法获取服务端连接资源：can’t create connection to/172.26.64.218:23000"></a>com.github.tobato.fastdfs.exception.FdfsConnectException: 无法获取服务端连接资源：can’t create connection to/172.26.64.218:23000</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">查看启动日志，看看是否启动成功</span><br><span class="line">tail -n10 /home/xxx/xxx/logs/xxx.log</span><br></pre></td></tr></table></figure>
 <h2 id="错误码：2，错误信息：找不到节点或文件"><a href="#错误码：2，错误信息：找不到节点或文件" class="headerlink" title="错误码：2，错误信息：找不到节点或文件"></a>错误码：2，错误信息：找不到节点或文件</h2><p><a href="https://blog.csdn.net/csp_6666/article/details/97912732" target="_blank" rel="noopener">https://blog.csdn.net/csp_6666/article/details/97912732</a></p>
+<h2 id="season-fastdfs"><a href="#season-fastdfs" class="headerlink" title="season/fastdfs"></a>season/fastdfs</h2><p>配置文件在/fdfs_conf/下面，重新拉去至少要更改storage节点的/fdfs_conf/storage.conf文件里面的tracker_server的ip<br><strong><em>特别要注意IP地址要改成外网配置的地址</em></strong></p>
 
       
     </div>
@@ -577,7 +579,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看Storage和Tracker是否在通信"><span class="nav-number">1.</span> <span class="nav-text">查看Storage和Tracker是否在通信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看Storage和Tracker是否状态都正常"><span class="nav-number">2.</span> <span class="nav-text">查看Storage和Tracker是否状态都正常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Storage两种启动方式"><span class="nav-number">3.</span> <span class="nav-text">Storage两种启动方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#com-github-tobato-fastdfs-exception-FdfsConnectException-无法获取服务端连接资源：can’t-create-connection-to-172-26-64-218-23000"><span class="nav-number">4.</span> <span class="nav-text">com.github.tobato.fastdfs.exception.FdfsConnectException: 无法获取服务端连接资源：can’t create connection to/172.26.64.218:23000</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误码：2，错误信息：找不到节点或文件"><span class="nav-number">5.</span> <span class="nav-text">错误码：2，错误信息：找不到节点或文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看Storage和Tracker是否在通信"><span class="nav-number">2.</span> <span class="nav-text">查看Storage和Tracker是否在通信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看Storage和Tracker是否状态都正常"><span class="nav-number">3.</span> <span class="nav-text">查看Storage和Tracker是否状态都正常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Storage两种启动方式"><span class="nav-number">4.</span> <span class="nav-text">Storage两种启动方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#com-github-tobato-fastdfs-exception-FdfsConnectException-无法获取服务端连接资源：can’t-create-connection-to-172-26-64-218-23000"><span class="nav-number">5.</span> <span class="nav-text">com.github.tobato.fastdfs.exception.FdfsConnectException: 无法获取服务端连接资源：can’t create connection to/172.26.64.218:23000</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误码：2，错误信息：找不到节点或文件"><span class="nav-number">6.</span> <span class="nav-text">错误码：2，错误信息：找不到节点或文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#season-fastdfs"><span class="nav-number">7.</span> <span class="nav-text">season/fastdfs</span></a></li></ol></div>
             
 
           </div>
