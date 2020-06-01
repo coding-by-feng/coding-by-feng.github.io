@@ -100,7 +100,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/7vAT8L.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/Qtfqng.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/RVmJT6.png">
-<meta property="og:updated_time" content="2020-05-24T07:11:57.349Z">
+<meta property="og:updated_time" content="2020-06-01T06:01:42.750Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Idea汇总">
 <meta name="twitter:description" content="有部分内容来自网络，一般都有注明出处，如若侵权，请联系我删除，谢谢！文章的图片来自github的图床，图片链接存在github图床（https://raw.githubusercontent.com），该地址可能需要翻墙才能访问，所以图片可能存在加载不成功的情况。  HOTKEYUsage Search（使用查询）   key desc     cmd+opt+F7 搜索文件中用法，以弹窗方式显">
@@ -704,7 +704,7 @@
 <p>但是这个时候idea移动将ngbip-flow的几个模块的依赖强制指向了上面提到的单独的文件夹下面的ngbip-flow几个子模块的代码文件，不走maven去依赖了，我TM是不同的文件夹（不同的工作区间啊，打开的是不同的idea窗口）；</p>
 <p>最后的硬核解决方法是，将原来的单独文件夹重命名个名字，这个时候另外的项目一下子就自动重新引入ngbip-flow的maven依赖，不会强制走开发机的其他文件夹下面的依赖，然后我再把文件夹名字改回来即可。</p>
 <h2 id="Maven代码不能指向本地工程module代码"><a href="#Maven代码不能指向本地工程module代码" class="headerlink" title="Maven代码不能指向本地工程module代码"></a>Maven代码不能指向本地工程module代码</h2><p>如果出现idea的Modules已经存在，但是代码不能通过Maven依赖到已经引入的module时（此时Maven管理界面可能会出现已经引入的model的maven可视化没有出现），这个时候在工程的Modules删除重新引入应该就可以了。</p>
-<h2 id="Idea出现所有引导到的类报错，连jdk的基础类也报错的情况"><a href="#Idea出现所有引导到的类报错，连jdk的基础类也报错的情况" class="headerlink" title="Idea出现所有引导到的类报错，连jdk的基础类也报错的情况"></a>Idea出现所有引导到的类报错，连jdk的基础类也报错的情况</h2><p>可能是不了心设置了Editor-&gt;File Type中忽略了*.class导致的。</p>
+<h2 id="Idea出现所有引导到的类报错，连jdk的基础类也报错的情况"><a href="#Idea出现所有引导到的类报错，连jdk的基础类也报错的情况" class="headerlink" title="Idea出现所有引导到的类报错，连jdk的基础类也报错的情况"></a>Idea出现所有引导到的类报错，连jdk的基础类也报错的情况</h2><p>可能是不了心设置了Editor-&gt;File Type中忽略了*.class导致的。<br>如果是项目引入自己项目的代码也报错，可以删掉模块重新import。</p>
 <h2 id="Idea关闭写代码形参提示（会导致变卡）"><a href="#Idea关闭写代码形参提示（会导致变卡）" class="headerlink" title="Idea关闭写代码形参提示（会导致变卡）"></a>Idea关闭写代码形参提示（会导致变卡）</h2><p><img src="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/RVmJT6.png" alt="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/RVmJT6.png"></p>
 
       
