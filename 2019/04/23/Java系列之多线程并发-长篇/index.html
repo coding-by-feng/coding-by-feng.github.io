@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="http://note.youdao.com/noteshare?id=5a758a5214a793176ed9c543a2011217 Basic Knowledgehttps://www.baeldung.com/java-concurrent-locks">
+<meta name="description" content="http://note.youdao.com/noteshare?id=5a758a5214a793176ed9c543a2011217 Basic Knowledgehttps://www.baeldung.com/java-concurrent-locks ThreadPoolExecutor 四种处理策略ThreadPoolExecutor.AbortPolicy()  抛出java.uti">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java系列之多线程并发-长篇">
 <meta property="og:url" content="http://yoursite.com/2019/04/23/Java系列之多线程并发-长篇/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="http://note.youdao.com/noteshare?id=5a758a5214a793176ed9c543a2011217 Basic Knowledgehttps://www.baeldung.com/java-concurrent-locks">
+<meta property="og:description" content="http://note.youdao.com/noteshare?id=5a758a5214a793176ed9c543a2011217 Basic Knowledgehttps://www.baeldung.com/java-concurrent-locks ThreadPoolExecutor 四种处理策略ThreadPoolExecutor.AbortPolicy()  抛出java.uti">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-28T14:25:44.558Z">
+<meta property="og:updated_time" content="2020-06-03T02:46:29.371Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java系列之多线程并发-长篇">
-<meta name="twitter:description" content="http://note.youdao.com/noteshare?id=5a758a5214a793176ed9c543a2011217 Basic Knowledgehttps://www.baeldung.com/java-concurrent-locks">
+<meta name="twitter:description" content="http://note.youdao.com/noteshare?id=5a758a5214a793176ed9c543a2011217 Basic Knowledgehttps://www.baeldung.com/java-concurrent-locks ThreadPoolExecutor 四种处理策略ThreadPoolExecutor.AbortPolicy()  抛出java.uti">
 
 
 
@@ -386,6 +386,8 @@
       
         <p><a href="http://note.youdao.com/noteshare?id=5a758a5214a793176ed9c543a2011217" target="_blank" rel="noopener">http://note.youdao.com/noteshare?id=5a758a5214a793176ed9c543a2011217</a></p>
 <h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><p><a href="https://www.baeldung.com/java-concurrent-locks" target="_blank" rel="noopener">https://www.baeldung.com/java-concurrent-locks</a></p>
+<h2 id="ThreadPoolExecutor-四种处理策略"><a href="#ThreadPoolExecutor-四种处理策略" class="headerlink" title="ThreadPoolExecutor 四种处理策略"></a>ThreadPoolExecutor 四种处理策略</h2><p>ThreadPoolExecutor.AbortPolicy()  抛出java.util.concurrent.RejectedExecutionException异常<br>ThreadPoolExecutor.CallerRunsPolicy() 重试添加当前的任务，他会自动重复调用execute()方法<br>ThreadPoolExecutor.DiscardOldestPolicy() 抛弃旧的任务<br>ThreadPoolExecutor.DiscardPolicy() 抛弃当前的任务 </p>
+<h2 id="锁对象的声明"><a href="#锁对象的声明" class="headerlink" title="锁对象的声明"></a>锁对象的声明</h2><p>如果只是简单的一个锁对象，没有类额外的对象状态变更的话，可以将锁声明为final：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 来自org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter</span><br><span class="line">// Spring Security token校验机制</span><br><span class="line">private final Object delegateMonitor = new Object();</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -568,7 +570,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Knowledge"><span class="nav-number">1.</span> <span class="nav-text">Basic Knowledge</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Knowledge"><span class="nav-number">1.</span> <span class="nav-text">Basic Knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ThreadPoolExecutor-四种处理策略"><span class="nav-number">1.1.</span> <span class="nav-text">ThreadPoolExecutor 四种处理策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁对象的声明"><span class="nav-number">1.2.</span> <span class="nav-text">锁对象的声明</span></a></li></ol></li></ol></div>
             
 
           </div>
