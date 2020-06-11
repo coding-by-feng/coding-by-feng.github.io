@@ -84,18 +84,21 @@
 
 
 
-<meta name="description" content="The wind blew, only to survive!">
+<meta name="description" content="Basic KnowledgeJVM的官方规范《Java Virtual Machine Specification》 美团Java面试7连问马士兵老师的讲解 对象的定位方式句柄方式 直接指针 句柄方式 vs 直接指针后者的效率更高，但是当GC挪动对象的时候，前者效率更高。（上图中，前者GC挪动存活对象和清理垃圾对象的时候，t的指针不需要变） 对象怎么分配OOP-KLASS模型Java三种编译方式">
 <meta name="keywords" content="Java,JVM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java系列之JVM">
 <meta property="og:url" content="http://yoursite.com/2020/03/31/Java系列之JVM/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="The wind blew, only to survive!">
+<meta property="og:description" content="Basic KnowledgeJVM的官方规范《Java Virtual Machine Specification》 美团Java面试7连问马士兵老师的讲解 对象的定位方式句柄方式 直接指针 句柄方式 vs 直接指针后者的效率更高，但是当GC挪动对象的时候，前者效率更高。（上图中，前者GC挪动存活对象和清理垃圾对象的时候，t的指针不需要变） 对象怎么分配OOP-KLASS模型Java三种编译方式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-31T12:59:34.874Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/QUtvd4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/7BWN68.png">
+<meta property="og:updated_time" content="2020-06-11T15:04:44.192Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java系列之JVM">
-<meta name="twitter:description" content="The wind blew, only to survive!">
+<meta name="twitter:description" content="Basic KnowledgeJVM的官方规范《Java Virtual Machine Specification》 美团Java面试7连问马士兵老师的讲解 对象的定位方式句柄方式 直接指针 句柄方式 vs 直接指针后者的效率更高，但是当GC挪动对象的时候，前者效率更高。（上图中，前者GC挪动存活对象和清理垃圾对象的时候，t的指针不需要变） 对象怎么分配OOP-KLASS模型Java三种编译方式">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/QUtvd4.png">
 
 
 
@@ -395,7 +398,17 @@
       
 
       
-        
+        <h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="JVM的官方规范"><a href="#JVM的官方规范" class="headerlink" title="JVM的官方规范"></a>JVM的官方规范</h2><p>《Java Virtual Machine Specification》</p>
+<h2 id="美团Java面试7连问"><a href="#美团Java面试7连问" class="headerlink" title="美团Java面试7连问"></a>美团Java面试7连问</h2><p><a href="https://zhuanlan.zhihu.com/p/114157783" target="_blank" rel="noopener">马士兵老师的讲解</a></p>
+<h3 id="对象的定位方式"><a href="#对象的定位方式" class="headerlink" title="对象的定位方式"></a>对象的定位方式</h3><h4 id="句柄方式"><a href="#句柄方式" class="headerlink" title="句柄方式"></a>句柄方式</h4><p><img src="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/QUtvd4.png" alt></p>
+<h4 id="直接指针"><a href="#直接指针" class="headerlink" title="直接指针"></a>直接指针</h4><p><img src="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/7BWN68.png" alt></p>
+<h3 id="句柄方式-vs-直接指针"><a href="#句柄方式-vs-直接指针" class="headerlink" title="句柄方式 vs 直接指针"></a>句柄方式 vs 直接指针</h3><p>后者的效率更高，但是当GC挪动对象的时候，前者效率更高。（上图中，前者GC挪动存活对象和清理垃圾对象的时候，t的指针不需要变）</p>
+<h3 id="对象怎么分配"><a href="#对象怎么分配" class="headerlink" title="对象怎么分配"></a>对象怎么分配</h3><h3 id="OOP-KLASS模型"><a href="#OOP-KLASS模型" class="headerlink" title="OOP-KLASS模型"></a>OOP-KLASS模型</h3><h2 id="Java三种编译方式：前端编译-JIT编译-AOT编译"><a href="#Java三种编译方式：前端编译-JIT编译-AOT编译" class="headerlink" title="Java三种编译方式：前端编译 JIT编译 AOT编译"></a>Java三种编译方式：前端编译 JIT编译 AOT编译</h2><p><a href="https://blog.csdn.net/tjiyu/article/details/53748965" target="_blank" rel="noopener">https://blog.csdn.net/tjiyu/article/details/53748965</a></p>
+<h2 id="JVM各种实现"><a href="#JVM各种实现" class="headerlink" title="JVM各种实现"></a>JVM各种实现</h2><p>实现JVM规范的各种虚拟机：</p>
+<ul>
+<li>Oracle的HotSpot</li>
+</ul>
+<h2 id="java的nio"><a href="#java的nio" class="headerlink" title="java的nio"></a>java的nio</h2>
       
     </div>
 
@@ -488,8 +501,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="James Feng">
           <p class="site-author-name" itemprop="name">James Feng</p>
@@ -498,7 +520,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">105</span>
+              <span class="site-state-item-count">106</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -560,6 +582,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Knowledge"><span class="nav-number">1.</span> <span class="nav-text">Basic Knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM的官方规范"><span class="nav-number">1.1.</span> <span class="nav-text">JVM的官方规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#美团Java面试7连问"><span class="nav-number">1.2.</span> <span class="nav-text">美团Java面试7连问</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的定位方式"><span class="nav-number">1.2.1.</span> <span class="nav-text">对象的定位方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#句柄方式"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">句柄方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#直接指针"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">直接指针</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#句柄方式-vs-直接指针"><span class="nav-number">1.2.2.</span> <span class="nav-text">句柄方式 vs 直接指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象怎么分配"><span class="nav-number">1.2.3.</span> <span class="nav-text">对象怎么分配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OOP-KLASS模型"><span class="nav-number">1.2.4.</span> <span class="nav-text">OOP-KLASS模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java三种编译方式：前端编译-JIT编译-AOT编译"><span class="nav-number">1.3.</span> <span class="nav-text">Java三种编译方式：前端编译 JIT编译 AOT编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM各种实现"><span class="nav-number">1.4.</span> <span class="nav-text">JVM各种实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java的nio"><span class="nav-number">1.5.</span> <span class="nav-text">java的nio</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
