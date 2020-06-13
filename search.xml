@@ -3,9 +3,9 @@
   
     
     <entry>
-      <title><![CDATA[ajc和lombok整合一起]]></title>
-      <url>%2F2020%2F06%2F09%2Fajc%E5%92%8Clombok%E6%95%B4%E5%90%88%E4%B8%80%E8%B5%B7%2F</url>
-      <content type="text"><![CDATA[使用javac和ajc的区别IDE自己变意思和将编译委托给maven的区别maven单独install子模块的时候无法识别从父模块继承的properties？spring-boot-maven-plugin具体作用1234567&lt;plugin&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt; &lt;configuration&gt; &lt;skip&gt;true&lt;/skip&gt; &lt;/configuration&gt;&lt;/plugin&gt; maven-surefire-plugin]]></content>
+      <title><![CDATA[算法汇总]]></title>
+      <url>%2F2020%2F06%2F12%2F%E7%AE%97%E6%B3%95%E6%B1%87%E6%80%BB%2F</url>
+      <content type="text"><![CDATA[round-robin（随机轮询算法）]]></content>
     </entry>
 
     
