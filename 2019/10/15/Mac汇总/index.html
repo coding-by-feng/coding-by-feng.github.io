@@ -92,18 +92,18 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="Mac Native FunctionMac hotkey   key desc     cmd + opt + esc 强制退出某个软件。通常在软件无响应时使用   cmd + shift+ 3 对整个屏幕进行截图   cmd + shift + 4 对自行选择的区域进行截图   cmd + shift + 5 更多方式截图和录屏（新版本系统）   cmd + ` 切换同个软件的不同窗口   c">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/TmZg0s.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/yAU7qe.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/PXiZrB.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/3Do9ZM.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/zpzWvn.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/ToYZBP.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/Vym2hq.png">
-<meta property="og:updated_time" content="2020-05-18T10:56:33.066Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/TmZg0s.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/yAU7qe.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/PXiZrB.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/3Do9ZM.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/zpzWvn.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/ToYZBP.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/Vym2hq.png">
+<meta property="og:updated_time" content="2020-07-16T12:58:54.980Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac汇总">
 <meta name="twitter:description" content="Mac Native FunctionMac hotkey   key desc     cmd + opt + esc 强制退出某个软件。通常在软件无响应时使用   cmd + shift+ 3 对整个屏幕进行截图   cmd + shift + 4 对自行选择的区域进行截图   cmd + shift + 5 更多方式截图和录屏（新版本系统）   cmd + ` 切换同个软件的不同窗口   c">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/TmZg0s.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/TmZg0s.png">
 
 
 
@@ -446,14 +446,14 @@
 </tr>
 </tbody>
 </table>
-<h2 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h2><p>非必要更新软件一定要在空闲时间更新，比如这个：<br><img src="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/TmZg0s.png" alt="macOS_img"><br><img src="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/yAU7qe.png" alt="macOS_img"></p>
+<h2 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h2><p>非必要更新软件一定要在空闲时间更新，比如这个：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/TmZg0s.png" alt="macOS_img"><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/yAU7qe.png" alt="macOS_img"></p>
 <p>Dock的最佳位置是放在右边，并且隐藏起来，这样既有较大的屏幕可视区间，也不会经常因为移动鼠标到左边而误触，毕竟MacOS的窗口控制习惯是在左边。</p>
 <h2 id="通过命令和粘贴文件"><a href="#通过命令和粘贴文件" class="headerlink" title="通过命令和粘贴文件"></a>通过命令和粘贴文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 将a.txt文件类容写入剪切板，相当于 cmd + C</span><br><span class="line">pbcopy &lt; blogpost.txt</span><br><span class="line">cat a.txt | pbcopy      </span><br><span class="line"># 将主目录的文件列表复制到剪贴板</span><br><span class="line">ls ~ | pbcopy      </span><br><span class="line"># 复制终端当前目录</span><br><span class="line">pwd | pbcopy</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 将刚刚存入剪切板的a.txt内容复制到终端，相当于 cmd + v</span><br><span class="line">pbpaste              </span><br><span class="line"># 追加内容到对应的文件</span><br><span class="line">pbpaste &gt;&gt; tasklist.txt</span><br></pre></td></tr></table></figure>
 <h1 id="Alfred"><a href="#Alfred" class="headerlink" title="Alfred"></a>Alfred</h1><h2 id="Powerful-command"><a href="#Powerful-command" class="headerlink" title="Powerful command"></a>Powerful command</h2><p>command of close any app：quit<br>command of search anything in file: in<br>快速用类vim软件打开选中文件</p>
 <h2 id="不搜索Parallels-Desktop的内容"><a href="#不搜索Parallels-Desktop的内容" class="headerlink" title="不搜索Parallels Desktop的内容"></a>不搜索Parallels Desktop的内容</h2><p>打开spotlight-&gt;private，将Applications(Parallels)添加进来</p>
 <h2 id="有道词典的插件"><a href="#有道词典的插件" class="headerlink" title="有道词典的插件"></a>有道词典的插件</h2><p>通过yd 快捷翻译和查询，enter快捷复制结</p>
-<h2 id="按右键有很多快捷操作"><a href="#按右键有很多快捷操作" class="headerlink" title="按右键有很多快捷操作"></a>按右键有很多快捷操作</h2><p>比如搜索某个目录<br><img src="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/PXiZrB.png" alt><br>然后按右键可以有很多快捷操作<br><img src="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/3Do9ZM.png" alt><br>然后可以选择open with，选择不同的软件打开，我喜欢用iterm打开，快捷操作。<br><img src="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/zpzWvn.png" alt></p>
+<h2 id="按右键有很多快捷操作"><a href="#按右键有很多快捷操作" class="headerlink" title="按右键有很多快捷操作"></a>按右键有很多快捷操作</h2><p>比如搜索某个目录<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/PXiZrB.png" alt><br>然后按右键可以有很多快捷操作<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/3Do9ZM.png" alt><br>然后可以选择open with，选择不同的软件打开，我喜欢用iterm打开，快捷操作。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/zpzWvn.png" alt></p>
 <h1 id="brew"><a href="#brew" class="headerlink" title="brew"></a>brew</h1><h4 id="安装卸载"><a href="#安装卸载" class="headerlink" title="安装卸载"></a>安装卸载</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">brew --version 或者 brew -v 显示brew版本信息</span><br><span class="line">brew install &lt;formula&gt; 安装指定软件</span><br><span class="line">brew unistall &lt;formula 卸载指定软件</span><br><span class="line">brew list  显示所有的已安装的软件</span><br><span class="line">brew search text 搜索本地远程仓库的软件，已安装会显示绿色的勾</span><br><span class="line">brew search /text/ 使用正则表达式搜软件</span><br></pre></td></tr></table></figure>
 <h4 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">brew update 自动升级homebrew（从github下载最新版本）</span><br><span class="line">brew outdated 检测已经过时的软件</span><br><span class="line">brew upgrade  升级所有已过时的软件，即列出的以过时软件</span><br><span class="line">brew upgrade &lt;formula&gt;升级指定的软件</span><br><span class="line">brew pin &lt;formula&gt; 禁止指定软件升级</span><br><span class="line">brew unpin &lt;formula&gt; 解锁禁止升级</span><br><span class="line">brew upgrade --all 升级所有的软件包，包括未清理干净的旧版本的包</span><br></pre></td></tr></table></figure>
 <h4 id="查询搜索"><a href="#查询搜索" class="headerlink" title="查询搜索"></a>查询搜索</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew search name</span><br></pre></td></tr></table></figure>
@@ -464,7 +464,7 @@
 <h2 id="SlowQuitApps"><a href="#SlowQuitApps" class="headerlink" title="SlowQuitApps"></a>SlowQuitApps</h2><p>有时候会误按到cmd+Q，安装这个软件之后可以在误按的时候有个确认的操作，防止误触退出。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew tap dteoh/sqa</span><br><span class="line">brew cask install slowquitapps</span><br></pre></td></tr></table></figure></p>
 <p>安装之后要在system setting给上权限，然后可以开启开机自动启动。</p>
 <h2 id="安装sshpass"><a href="#安装sshpass" class="headerlink" title="安装sshpass"></a>安装sshpass</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">curl -O -L https://fossies.org/linux/privat/sshpass-1.06.tar.gz &amp;&amp; tar xvzf sshpass-1.06.tar.gz</span><br><span class="line"></span><br><span class="line">cd sshpass-1.06</span><br><span class="line"></span><br><span class="line">./configure</span><br><span class="line"></span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
-<h2 id="uPic"><a href="#uPic" class="headerlink" title="uPic"></a>uPic</h2><p><a href="https://blog.svend.cc/upic/tutorials/github/" target="_blank" rel="noopener">uPic结合github做图床</a><br>github token如果忘记了，可以在github设置里面重新生成：<br><img src="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/ToYZBP.png" alt><br><img src="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/Vym2hq.png" alt></p>
+<h2 id="uPic"><a href="#uPic" class="headerlink" title="uPic"></a>uPic</h2><p><a href="https://blog.svend.cc/upic/tutorials/github/" target="_blank" rel="noopener">uPic结合github做图床</a><br>github token如果忘记了，可以在github设置里面重新生成：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/ToYZBP.png" alt><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/Vym2hq.png" alt></p>
 
       
     </div>

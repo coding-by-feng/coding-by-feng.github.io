@@ -92,12 +92,12 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="TodoItemBasic KnowledgeService层的代码相互调用，可能会导致依赖死循环可以在二个需要相互依赖的Service之间抽出一层OperateService，通过OperateService解耦。 @Transactional引发的思考加入有这样的场景：AService.doA()方法调用到BService.doB()方法，而且二者都是注解了事务，抛出异常时会回滚。1@Tran">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/jvGK5D.png">
-<meta property="og:updated_time" content="2020-06-14T09:41:24.426Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/jvGK5D.png">
+<meta property="og:updated_time" content="2020-07-16T12:58:54.904Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring系列之核心Feature">
 <meta name="twitter:description" content="TodoItemBasic KnowledgeService层的代码相互调用，可能会导致依赖死循环可以在二个需要相互依赖的Service之间抽出一层OperateService，通过OperateService解耦。 @Transactional引发的思考加入有这样的场景：AService.doA()方法调用到BService.doB()方法，而且二者都是注解了事务，抛出异常时会回滚。1@Tran">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/jvGK5D.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/jvGK5D.png">
 
 
 
@@ -409,7 +409,7 @@
 <li>在execute方法中, 发现runState!=RUNNING || poolSize == 0,即已经shutdown,就调用ensureQueuedTaskHandled(Runnable command)，在该方法中有可能调用reject。 </li>
 </ul>
 <h2 id="Async注解其背后的原理"><a href="#Async注解其背后的原理" class="headerlink" title="@Async注解其背后的原理"></a>@Async注解其背后的原理</h2><p>Spring默认的线程执行器defaultExecutor为什么要用SingletonSupplier封装起来？<br>ConcurrentHashMap</p>
-<p>Spring线程池debug跟到最底层如下，用到的也是Java的ExecutorService。<br><img src="https://raw.githubusercontent.com/coding-by-feng/oss/master/uPic/jvGK5D.png" alt="image"></p>
+<p>Spring线程池debug跟到最底层如下，用到的也是Java的ExecutorService。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/jvGK5D.png" alt="image"></p>
 <h2 id="ResourceLoader和ResourceLoaderAware"><a href="#ResourceLoader和ResourceLoaderAware" class="headerlink" title="ResourceLoader和ResourceLoaderAware"></a>ResourceLoader和ResourceLoaderAware</h2><p><a href="https://www.cnblogs.com/achengmu/p/8430961.html" target="_blank" rel="noopener">参考文章</a></p>
 <h2 id="为什么Spring5注入推荐用final去声明？"><a href="#为什么Spring5注入推荐用final去声明？" class="headerlink" title="为什么Spring5注入推荐用final去声明？"></a>为什么Spring5注入推荐用final去声明？</h2><p><a href="https://www.cnblogs.com/joemsu/p/7688307.html" target="_blank" rel="noopener">浅谈spring为什么推荐使用构造器注入</a></p>
 <h4 id="总结来说有这几个优点"><a href="#总结来说有这几个优点" class="headerlink" title="总结来说有这几个优点"></a>总结来说有这几个优点</h4><ol>
