@@ -1,0 +1,871 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Java,JVM,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="虚拟机概述中间语言翻译（从Java翻译到机器码） 从中间语言翻译到机器码  通过C语言翻译（初JVM）通过将字节码class翻译成C语言，比如定义iadd这个字节码是相加的助记符，然后通过c语言来解析字节码中的iadd就是相加，并指向对应的c语言相加的c程序来做实际运算，这样子的话，这个解析字节码的C程序就是所谓的JVM，最简陋效率最低的初代JVM 直接翻译为机器码CS:IPCS与IPO这是物理C">
+<meta name="keywords" content="Java,JVM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《深入理解Java虚拟机第三版》阅读笔记">
+<meta property="og:url" content="http://yoursite.com/2020/07/09/《深入理解Java虚拟机第三版》阅读笔记/index.html">
+<meta property="og:site_name" content="Feng&#39;s Blog">
+<meta property="og:description" content="虚拟机概述中间语言翻译（从Java翻译到机器码） 从中间语言翻译到机器码  通过C语言翻译（初JVM）通过将字节码class翻译成C语言，比如定义iadd这个字节码是相加的助记符，然后通过c语言来解析字节码中的iadd就是相加，并指向对应的c语言相加的c程序来做实际运算，这样子的话，这个解析字节码的C程序就是所谓的JVM，最简陋效率最低的初代JVM 直接翻译为机器码CS:IPCS与IPO这是物理C">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/eoIO68.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/yutz7e.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/BzIIY0.png">
+<meta property="og:updated_time" content="2020-07-17T08:31:31.145Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《深入理解Java虚拟机第三版》阅读笔记">
+<meta name="twitter:description" content="虚拟机概述中间语言翻译（从Java翻译到机器码） 从中间语言翻译到机器码  通过C语言翻译（初JVM）通过将字节码class翻译成C语言，比如定义iadd这个字节码是相加的助记符，然后通过c语言来解析字节码中的iadd就是相加，并指向对应的c语言相加的c程序来做实际运算，这样子的话，这个解析字节码的C程序就是所谓的JVM，最简陋效率最低的初代JVM 直接翻译为机器码CS:IPCS与IPO这是物理C">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/eoIO68.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '10000',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/07/09/《深入理解Java虚拟机第三版》阅读笔记/">
+
+
+
+
+
+  <title> 《深入理解Java虚拟机第三版》阅读笔记 | Feng's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?1bc877799c79c2fb2806df9b1c09c678";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Feng's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/09/《深入理解Java虚拟机第三版》阅读笔记/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="James Feng">
+    <meta itemprop="description" content>
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Feng's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Feng's Blog" src>
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                《深入理解Java虚拟机第三版》阅读笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-09T09:55:12+08:00">
+                2020-07-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/JVM/" itemprop="url" rel="index">
+                    <span itemprop="name">JVM</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="虚拟机概述"><a href="#虚拟机概述" class="headerlink" title="虚拟机概述"></a>虚拟机概述</h1><h2 id="中间语言翻译（从Java翻译到机器码）"><a href="#中间语言翻译（从Java翻译到机器码）" class="headerlink" title="中间语言翻译（从Java翻译到机器码）"></a>中间语言翻译（从Java翻译到机器码）</h2><blockquote>
+<p>从中间语言翻译到机器码</p>
+</blockquote>
+<h3 id="通过C语言翻译（初JVM）"><a href="#通过C语言翻译（初JVM）" class="headerlink" title="通过C语言翻译（初JVM）"></a>通过C语言翻译（初JVM）</h3><p>通过将字节码class翻译成C语言，比如定义iadd这个字节码是相加的助记符，然后通过c语言来解析字节码中的iadd就是相加，并指向对应的c语言相加的c程序来做实际运算，这样子的话，这个解析字节码的C程序就是所谓的JVM，最简陋效率最低的初代JVM</p>
+<h3 id="直接翻译为机器码"><a href="#直接翻译为机器码" class="headerlink" title="直接翻译为机器码"></a>直接翻译为机器码</h3><h4 id="CS-IP"><a href="#CS-IP" class="headerlink" title="CS:IP"></a>CS:IP</h4><p>CS与IPO这是物理CPU内部的两个寄存器。对于一台物理机器而言，这两个寄存器是最重要的寄存器，因为CPU在取指令时便完全依靠这两个寄存器。CS寄存器保存段地址，IP保存偏移地址。CS和IP这两个寄存器的值能够唯一确定内存中的一个地址，CPU在执行机器指令之前，便通过这两个寄存器定位到目标内存位置，并将该位置处的机器指令取出来进行运算。函数跳转的本质其实便是修改CS和IP这两个寄存器的内容，使其指向到目标函数所在内存的首地址，这样CPU便能执行目标函数了。Java虚拟机要想让物理CPU直接执行Java程序所对应的目标机器码，也得修改这两个寄存器才能实现。</p>
+<p>在C语言中，能够使用语法糖来修改CS:IP段寄存器，这样C程序就能直接动态执行机器码。<br>既然都能在C语言中直接动态执行机器码了（可以简单理解为：C语言的变量里面可以复制解析出来的机器码，然后直接执行），我们只要将中间语言指令直接翻译为机器码，然后让CS:IP直接指向这段机器码执行，这也是现代JVM最重要的的基本原理之一。</p>
+<h3 id="本地编译"><a href="#本地编译" class="headerlink" title="本地编译"></a>本地编译</h3><p>中间语言（Java）与同样属于高级语言的C语言相比，它们实现相同的功能，C语言编译后所生成的机器码，也比中间语言直接翻译成的机器码，在数量上要精简很多，所以单从这个角度来讲，C语言的执行效率当然是要更高一些。<br>中间语言由于其本身不能直接被CPU执行，为了能够被CPU执行，中间语言在完成同样一个功能时，需要准备更多便于自我管理的上下文环境，最后才能执行目标机器指令。准备上下文环境最终也是依靠机器码去实现，因此中间语言最终便生成了更多机器码，当然执行效率就降低了。<br>为了提高性能，JVM提供了一种机制能够将中间语言(字节码)直接编译为本地机器指令。例如安卓和部分JVM所实现的AOT ( ahead of time )特性便是这方面的尝试，但是这种方式并没有减少机器指令的数量级问题。<br>除此之外，JVM的大牛们在JIT (即时编译)、内存分配也进行了大量的优化，使JVM能够对热点代码进行大幅度指令优化，正是由于JVM可以在运行期基于上下文链路进行各种优化，因此优化后的指令质量甚至比C/C++编译岀的指令质量更高，以及部分Java程序性能甚至反超C/C++程序。如果离开了这些动态优化，Java程序的执行效率是无论如何也提不上去的。</p>
+<h2 id="神奇的指令"><a href="#神奇的指令" class="headerlink" title="神奇的指令"></a>神奇的指令</h2><p>Java虚拟机其实是”读不懂”Java代码的，不过也并非所有的虚拟机都不懂得面向对象的语言，JavaScript执行引擎就是个例外一JS脚本不需要编译就能被JS引擎直接执行。<br>Java所谓的中间语言就是Java字节码指令集，指令集一般是计算机硬件才有的东西，而作者却在软件层面定义了一套同样的东西。但是，软件本身不具备执行程序的能力，软件最终还得依靠硬件指令才能完成逻辑计算。因此，一套好的软件指令必须不能超出硬件指令所能表达的计算能力，同时又要对硬件指令进行高度抽象与概括。换言之，如果你定义了一套与硬件指令集完全一模一样的软件指令集，那大家还用你干嘛呀，不如直接用硬件指令得了。</p>
+<h3 id="JVM指令"><a href="#JVM指令" class="headerlink" title="JVM指令"></a>JVM指令</h3><h4 id="数据交换指令"><a href="#数据交换指令" class="headerlink" title="数据交换指令"></a>数据交换指令</h4><h4 id="函数调用指令"><a href="#函数调用指令" class="headerlink" title="函数调用指令"></a>函数调用指令</h4><h4 id="运算指令集"><a href="#运算指令集" class="headerlink" title="运算指令集"></a>运算指令集</h4><h4 id="控制转义指令"><a href="#控制转义指令" class="headerlink" title="控制转义指令"></a>控制转义指令</h4><h4 id="对象创建与类型转换指令"><a href="#对象创建与类型转换指令" class="headerlink" title="对象创建与类型转换指令"></a>对象创建与类型转换指令</h4><h2 id="Java执行引擎工作原理"><a href="#Java执行引擎工作原理" class="headerlink" title="Java执行引擎工作原理"></a>Java执行引擎工作原理</h2><h3 id="方法调用"><a href="#方法调用" class="headerlink" title="方法调用"></a>方法调用</h3><h4 id="真实的机器调用"><a href="#真实的机器调用" class="headerlink" title="真实的机器调用"></a>真实的机器调用</h4><h2 id="Java数据结构与面向对象"><a href="#Java数据结构与面向对象" class="headerlink" title="Java数据结构与面向对象"></a>Java数据结构与面向对象</h2><h2 id="Java字节码实战"><a href="#Java字节码实战" class="headerlink" title="Java字节码实战"></a>Java字节码实战</h2><h3 id="字节码格式初探"><a href="#字节码格式初探" class="headerlink" title="字节码格式初探"></a>字节码格式初探</h3><h3 id="模数与版本"><a href="#模数与版本" class="headerlink" title="模数与版本"></a>模数与版本</h3><h3 id="常量池"><a href="#常量池" class="headerlink" title="常量池"></a>常量池</h3><hr>
+<h1 id="Java技术的未来"><a href="#Java技术的未来" class="headerlink" title="Java技术的未来"></a>Java技术的未来</h1><h2 id="无语言倾向"><a href="#无语言倾向" class="headerlink" title="无语言倾向"></a>无语言倾向</h2><h3 id="GraalJVM"><a href="#GraalJVM" class="headerlink" title="GraalJVM"></a>GraalJVM</h3><h3 id="新一代即时编译器"><a href="#新一代即时编译器" class="headerlink" title="新一代即时编译器"></a>新一代即时编译器</h3><p>JDK10之后，HotSpot加入了一个全新的即时编译器，Graal编译器。(可以通过相应的JVM参数配置启动)</p>
+<h4 id="Substrate-VM"><a href="#Substrate-VM" class="headerlink" title="Substrate VM"></a>Substrate VM</h4><p>Substrate VM在内存占用和启动时间比HotSpot强5到50倍：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/eoIO68.png" alt><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/yutz7e.png" alt></p>
+<h2 id="实战：自己编译JDK"><a href="#实战：自己编译JDK" class="headerlink" title="实战：自己编译JDK"></a>实战：自己编译JDK</h2><h3 id="OpenJDK-vs-OracleJDK"><a href="#OpenJDK-vs-OracleJDK" class="headerlink" title="OpenJDK vs OracleJDK"></a>OpenJDK vs OracleJDK</h3><p>实际上，JDK11之后，两者的公用源码已经占比很高了：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/BzIIY0.png" alt></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/JVM/" rel="tag"># JVM</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/15/English之时态系列-完成时态/" rel="next" title="English之时态系列（完成时态）">
+                <i class="fa fa-chevron-left"></i> English之时态系列（完成时态）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/11/English之时态系列-过去完成时/" rel="prev" title="English之时态系列-过去完成时">
+                English之时态系列-过去完成时 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="James Feng">
+          <p class="site-author-name" itemprop="name">James Feng</p>
+          <p class="site-description motion-element" itemprop="description">The wind blew, only to survive!</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">111</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">70</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">82</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/coding-by-feng" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3219972752?is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#虚拟机概述"><span class="nav-number">1.</span> <span class="nav-text">虚拟机概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#中间语言翻译（从Java翻译到机器码）"><span class="nav-number">1.1.</span> <span class="nav-text">中间语言翻译（从Java翻译到机器码）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过C语言翻译（初JVM）"><span class="nav-number">1.1.1.</span> <span class="nav-text">通过C语言翻译（初JVM）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直接翻译为机器码"><span class="nav-number">1.1.2.</span> <span class="nav-text">直接翻译为机器码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CS-IP"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">CS:IP</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地编译"><span class="nav-number">1.1.3.</span> <span class="nav-text">本地编译</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神奇的指令"><span class="nav-number">1.2.</span> <span class="nav-text">神奇的指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM指令"><span class="nav-number">1.2.1.</span> <span class="nav-text">JVM指令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据交换指令"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">数据交换指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数调用指令"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">函数调用指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运算指令集"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">运算指令集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#控制转义指令"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">控制转义指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象创建与类型转换指令"><span class="nav-number">1.2.1.5.</span> <span class="nav-text">对象创建与类型转换指令</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java执行引擎工作原理"><span class="nav-number">1.3.</span> <span class="nav-text">Java执行引擎工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法调用"><span class="nav-number">1.3.1.</span> <span class="nav-text">方法调用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#真实的机器调用"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">真实的机器调用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java数据结构与面向对象"><span class="nav-number">1.4.</span> <span class="nav-text">Java数据结构与面向对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java字节码实战"><span class="nav-number">1.5.</span> <span class="nav-text">Java字节码实战</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字节码格式初探"><span class="nav-number">1.5.1.</span> <span class="nav-text">字节码格式初探</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模数与版本"><span class="nav-number">1.5.2.</span> <span class="nav-text">模数与版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常量池"><span class="nav-number">1.5.3.</span> <span class="nav-text">常量池</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java技术的未来"><span class="nav-number">2.</span> <span class="nav-text">Java技术的未来</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#无语言倾向"><span class="nav-number">2.1.</span> <span class="nav-text">无语言倾向</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GraalJVM"><span class="nav-number">2.1.1.</span> <span class="nav-text">GraalJVM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新一代即时编译器"><span class="nav-number">2.1.2.</span> <span class="nav-text">新一代即时编译器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Substrate-VM"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">Substrate VM</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实战：自己编译JDK"><span class="nav-number">2.2.</span> <span class="nav-text">实战：自己编译JDK</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#OpenJDK-vs-OracleJDK"><span class="nav-number">2.2.1.</span> <span class="nav-text">OpenJDK vs OracleJDK</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">James Feng</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+  <span>&nbsp; &nbsp;|&nbsp; &nbsp;</span>
+  Total <span id="busuanzi_value_site_uv"></span> views.
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":100,"height":200},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
