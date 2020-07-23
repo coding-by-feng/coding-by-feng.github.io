@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="TodoItem深入理解IOC和DI之间的关系 todo公司的新版微服务架构用到的技术栈Java2020年2月面试题100+大全（合适各级Java人员） 多线程 注意回顾自己总结的《Java系列之多线程并发-长篇》  多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？数据结构B+树和二叉树的区别红黑树和跳表Spring一个接口太多事务操作是否要使用批量事务数据库OLA">
+<meta name="description" content="TodoItem深入理解IOC和DI之间的关系 todo公司的新版微服务架构用到的技术栈CS32位和64位系统底层的本质区别是什么？Java2020年2月面试题100+大全（合适各级Java人员） 多线程 注意回顾自己总结的《Java系列之多线程并发-长篇》  多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？数据结构B+树和二叉树的区别红黑树和跳表Spring一个接">
 <meta name="keywords" content="interview">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Interview汇总">
 <meta property="og:url" content="http://yoursite.com/2019/10/15/Interview汇总/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="TodoItem深入理解IOC和DI之间的关系 todo公司的新版微服务架构用到的技术栈Java2020年2月面试题100+大全（合适各级Java人员） 多线程 注意回顾自己总结的《Java系列之多线程并发-长篇》  多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？数据结构B+树和二叉树的区别红黑树和跳表Spring一个接口太多事务操作是否要使用批量事务数据库OLA">
+<meta property="og:description" content="TodoItem深入理解IOC和DI之间的关系 todo公司的新版微服务架构用到的技术栈CS32位和64位系统底层的本质区别是什么？Java2020年2月面试题100+大全（合适各级Java人员） 多线程 注意回顾自己总结的《Java系列之多线程并发-长篇》  多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？数据结构B+树和二叉树的区别红黑树和跳表Spring一个接">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-14T08:28:45.399Z">
+<meta property="og:updated_time" content="2020-07-23T09:05:34.379Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Interview汇总">
-<meta name="twitter:description" content="TodoItem深入理解IOC和DI之间的关系 todo公司的新版微服务架构用到的技术栈Java2020年2月面试题100+大全（合适各级Java人员） 多线程 注意回顾自己总结的《Java系列之多线程并发-长篇》  多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？数据结构B+树和二叉树的区别红黑树和跳表Spring一个接口太多事务操作是否要使用批量事务数据库OLA">
+<meta name="twitter:description" content="TodoItem深入理解IOC和DI之间的关系 todo公司的新版微服务架构用到的技术栈CS32位和64位系统底层的本质区别是什么？Java2020年2月面试题100+大全（合适各级Java人员） 多线程 注意回顾自己总结的《Java系列之多线程并发-长篇》  多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？数据结构B+树和二叉树的区别红黑树和跳表Spring一个接">
 
 
 
@@ -260,12 +260,27 @@
   
     <div class="site-search">
       
-  <div class="popup">
- <span class="search-icon fa fa-search"></span>
- <input type="text" id="local-search-input">
- <div id="local-search-result"></div>
- <span class="popup-btn-close">close</span>
-</div>
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
 
 
     </div>
@@ -384,11 +399,12 @@
       
 
       
-        <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="深入理解IOC和DI之间的关系-todo"><a href="#深入理解IOC和DI之间的关系-todo" class="headerlink" title="深入理解IOC和DI之间的关系 todo"></a>深入理解IOC和DI之间的关系 todo</h2><h2 id="公司的新版微服务架构用到的技术栈"><a href="#公司的新版微服务架构用到的技术栈" class="headerlink" title="公司的新版微服务架构用到的技术栈"></a>公司的新版微服务架构用到的技术栈</h2><h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><p><a href="https://juejin.im/post/5e37b8ea6fb9a030080ca2df" target="_blank" rel="noopener">2020年2月面试题100+大全（合适各级Java人员）</a></p>
+        <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="深入理解IOC和DI之间的关系-todo"><a href="#深入理解IOC和DI之间的关系-todo" class="headerlink" title="深入理解IOC和DI之间的关系 todo"></a>深入理解IOC和DI之间的关系 todo</h2><h2 id="公司的新版微服务架构用到的技术栈"><a href="#公司的新版微服务架构用到的技术栈" class="headerlink" title="公司的新版微服务架构用到的技术栈"></a>公司的新版微服务架构用到的技术栈</h2><h1 id="CS"><a href="#CS" class="headerlink" title="CS"></a>CS</h1><h2 id="32位和64位系统底层的本质区别是什么？"><a href="#32位和64位系统底层的本质区别是什么？" class="headerlink" title="32位和64位系统底层的本质区别是什么？"></a>32位和64位系统底层的本质区别是什么？</h2><h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><p><a href="https://juejin.im/post/5e37b8ea6fb9a030080ca2df" target="_blank" rel="noopener">2020年2月面试题100+大全（合适各级Java人员）</a></p>
 <h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><blockquote>
 <p>注意回顾自己总结的《Java系列之多线程并发-长篇》</p>
 </blockquote>
-<h2 id="多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？"><a href="#多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？" class="headerlink" title="多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？"></a>多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？</h2><h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="B-树和二叉树的区别"><a href="#B-树和二叉树的区别" class="headerlink" title="B+树和二叉树的区别"></a>B+树和二叉树的区别</h2><h2 id="红黑树和跳表"><a href="#红黑树和跳表" class="headerlink" title="红黑树和跳表"></a>红黑树和跳表</h2><h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="一个接口太多事务操作是否要使用批量事务"><a href="#一个接口太多事务操作是否要使用批量事务" class="headerlink" title="一个接口太多事务操作是否要使用批量事务"></a>一个接口太多事务操作是否要使用批量事务</h2><h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="OLAP和OLTP"><a href="#OLAP和OLTP" class="headerlink" title="OLAP和OLTP"></a>OLAP和OLTP</h2>
+<h2 id="多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？"><a href="#多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？" class="headerlink" title="多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？"></a>多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？</h2><h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="B-树和二叉树的区别"><a href="#B-树和二叉树的区别" class="headerlink" title="B+树和二叉树的区别"></a>B+树和二叉树的区别</h2><h2 id="红黑树和跳表"><a href="#红黑树和跳表" class="headerlink" title="红黑树和跳表"></a>红黑树和跳表</h2><h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="一个接口太多事务操作是否要使用批量事务"><a href="#一个接口太多事务操作是否要使用批量事务" class="headerlink" title="一个接口太多事务操作是否要使用批量事务"></a>一个接口太多事务操作是否要使用批量事务</h2><h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="OLAP和OLTP"><a href="#OLAP和OLTP" class="headerlink" title="OLAP和OLTP"></a>OLAP和OLTP</h2><h2 id="冗余字段"><a href="#冗余字段" class="headerlink" title="冗余字段"></a>冗余字段</h2><p>微服务架构加上前后端分离的情况下。后端接口很多时候会出现太多联表查询的情况。其实可以数据库存储空间大小允许的情况下，留出一些关键字段的冗余字段来代替联表查询。甚至可以将一些数据拆分出来查询封装成比较合适的数据JSON结构，然后可以将需要连表查询的逻辑放到前端去计算拼接，这样一来可以减少服务器和数据库的压力，同时前端做这部分的计算能力其实也是绰绰有余了，毕竟目前相对来说这是一个用户端性能过剩的时代。</p>
+<h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><h2 id="redis如何清理过期key"><a href="#redis如何清理过期key" class="headerlink" title="redis如何清理过期key"></a>redis如何清理过期key</h2><h2 id="redis内存不足时的策略"><a href="#redis内存不足时的策略" class="headerlink" title="redis内存不足时的策略"></a>redis内存不足时的策略</h2>
       
     </div>
 
@@ -493,7 +509,7 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="James Feng">
           <p class="site-author-name" itemprop="name">James Feng</p>
-          <p class="site-description motion-element" itemprop="description">The wind blew, only to survive!</p>
+          <p class="site-description motion-element" itemprop="description">Don't dream when the sun is setting, try to work hard when the sun is rising.</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
@@ -515,7 +531,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">82</span>
+                <span class="site-state-item-count">81</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -570,7 +586,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TodoItem"><span class="nav-number">1.</span> <span class="nav-text">TodoItem</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#深入理解IOC和DI之间的关系-todo"><span class="nav-number">1.1.</span> <span class="nav-text">深入理解IOC和DI之间的关系 todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公司的新版微服务架构用到的技术栈"><span class="nav-number">1.2.</span> <span class="nav-text">公司的新版微服务架构用到的技术栈</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java"><span class="nav-number">2.</span> <span class="nav-text">Java</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多线程"><span class="nav-number">3.</span> <span class="nav-text">多线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？"><span class="nav-number">3.1.</span> <span class="nav-text">多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据结构"><span class="nav-number">4.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#B-树和二叉树的区别"><span class="nav-number">4.1.</span> <span class="nav-text">B+树和二叉树的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#红黑树和跳表"><span class="nav-number">4.2.</span> <span class="nav-text">红黑树和跳表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring"><span class="nav-number">5.</span> <span class="nav-text">Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一个接口太多事务操作是否要使用批量事务"><span class="nav-number">5.1.</span> <span class="nav-text">一个接口太多事务操作是否要使用批量事务</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库"><span class="nav-number">6.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OLAP和OLTP"><span class="nav-number">6.1.</span> <span class="nav-text">OLAP和OLTP</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TodoItem"><span class="nav-number">1.</span> <span class="nav-text">TodoItem</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#深入理解IOC和DI之间的关系-todo"><span class="nav-number">1.1.</span> <span class="nav-text">深入理解IOC和DI之间的关系 todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公司的新版微服务架构用到的技术栈"><span class="nav-number">1.2.</span> <span class="nav-text">公司的新版微服务架构用到的技术栈</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CS"><span class="nav-number">2.</span> <span class="nav-text">CS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#32位和64位系统底层的本质区别是什么？"><span class="nav-number">2.1.</span> <span class="nav-text">32位和64位系统底层的本质区别是什么？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java"><span class="nav-number">3.</span> <span class="nav-text">Java</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多线程"><span class="nav-number">4.</span> <span class="nav-text">多线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？"><span class="nav-number">4.1.</span> <span class="nav-text">多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据结构"><span class="nav-number">5.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#B-树和二叉树的区别"><span class="nav-number">5.1.</span> <span class="nav-text">B+树和二叉树的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#红黑树和跳表"><span class="nav-number">5.2.</span> <span class="nav-text">红黑树和跳表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring"><span class="nav-number">6.</span> <span class="nav-text">Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一个接口太多事务操作是否要使用批量事务"><span class="nav-number">6.1.</span> <span class="nav-text">一个接口太多事务操作是否要使用批量事务</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库"><span class="nav-number">7.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OLAP和OLTP"><span class="nav-number">7.1.</span> <span class="nav-text">OLAP和OLTP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#冗余字段"><span class="nav-number">7.2.</span> <span class="nav-text">冗余字段</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#redis"><span class="nav-number">8.</span> <span class="nav-text">redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#redis如何清理过期key"><span class="nav-number">8.1.</span> <span class="nav-text">redis如何清理过期key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis内存不足时的策略"><span class="nav-number">8.2.</span> <span class="nav-text">redis内存不足时的策略</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -841,6 +857,19 @@
 
   
 
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":100,"height":200},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"live2d-widget-model-hijiki"},"display":{"position":"left","width":100,"height":200},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

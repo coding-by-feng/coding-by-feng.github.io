@@ -93,7 +93,7 @@
 <meta property="og:description" content="完成进行时态的构成以动词work为例，三种完成进行时态的构成形式如下：  现在完成进行时：have been working 过去完成进行时：had been working 将来完成进行时：will have been working  完成进行时态的意义从结构（structurally）的角度来看，完成进行时态是由完成时态与进行时态复合而成的，这种结构上的复合也必然会反映到意义上，因此完成进行">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/bxlo6A.png">
-<meta property="og:updated_time" content="2020-07-18T13:44:12.563Z">
+<meta property="og:updated_time" content="2020-07-21T11:26:01.402Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="English之时态系列-完成进行时">
 <meta name="twitter:description" content="完成进行时态的构成以动词work为例，三种完成进行时态的构成形式如下：  现在完成进行时：have been working 过去完成进行时：had been working 将来完成进行时：will have been working  完成进行时态的意义从结构（structurally）的角度来看，完成进行时态是由完成时态与进行时态复合而成的，这种结构上的复合也必然会反映到意义上，因此完成进行">
@@ -262,12 +262,27 @@
   
     <div class="site-search">
       
-  <div class="popup">
- <span class="search-icon fa fa-search"></span>
- <input type="text" id="local-search-input">
- <div id="local-search-result"></div>
- <span class="popup-btn-close">close</span>
-</div>
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
 
 
     </div>
@@ -423,7 +438,11 @@
 <h4 id="与持续的时间状语连用"><a href="#与持续的时间状语连用" class="headerlink" title="与持续的时间状语连用"></a>与持续的时间状语连用</h4><p>在带有持续的时间状语时，用两种时态几乎没有多大区别，都表示一个开始于过去的动作一直延续到现在。<br>我教书有25年了。 可以用两种时态来表达如下：<br>1） I have been teaching for 25 years.<br>2） I have taught for 25 years.<br>不过也有这样一种观点，认为此时二者的细微区别在于：现在完成进行时一般强烈暗示动作会继续持续下去；而现在完成时则往往表示动作有可能会持续下去。<br>1） I have been teaching for 25 years, and I can’t imagine doing anything else.<br>我教书有25年了，我真想象不出还能干什么别的事情。<br>2） I have taught for 25 years, so now it’s time to think about doing something else.<br>我教书有25年了，现在是该考虑改行做别的事情的时候了。</p>
 <h4 id="不与持续的时间状语连用"><a href="#不与持续的时间状语连用" class="headerlink" title="不与持续的时间状语连用"></a>不与持续的时间状语连用</h4><p>表示“延续事件”的现在完成时必须具备两个条件，其中之一就是必须与持续的时间状语连用，如果没有持续的时间状语，则不表示延续至今的事件，而是表示一个在过去完成了的事件，即表示“单一事件”中的过去的经历。而现在完成进行时在没有持续的时间状语的情况下，依然可以表示延续至今的事件。<br>1） I have worked in this company.<br>2） I have been working in this company.<br>在例句1）中，现在完成时have worked表示曾经的经历，即现在不在这家公司工作了。<br>在例句2）中，现在完成进行时have been working表示一直在延续的事件，即现在还在这家公司工作。<br>1）我在这家公司工作过。<br>2）我一直就在这家公司工作。</p>
 <p>在不带有时间状语时，现在完成时指的是在过去某一时间完成了的动作（refer to a singular occurrence at an<br>indefinite time in the past），现在完成进行时则表示一个正在持续的活动（refer to an ongoing activity），活动还没有结束。下面的例句也可以证明这一区别。请比较：<br>1） I’ve been cleaning the house, but I still haven’t finished.<br>2） I’ve cleaned the house, but I still haven’t finished. *<br>在例句1）中，因为现在完成进行时have been cleaning 表示一个一直在持续的活动，活动并没有结束，相当于汉语中说的“我一直在打扫房间”，所以接下去可以说but I still haven’t finished，表示“但是还没有打扫完”，这样来明确表示活动还没有结束。在例句2） 中，因为现在完成时have cleaned表示一个过去完成了的活动，相当于汉语中说的“我把房间打扫完了”，所以接下去无法说but I still haven’t finished（但是还没有扫完），这样前后语义矛盾，故例句2）是错误的。</p>
-<h2 id="重复事件"><a href="#重复事件" class="headerlink" title="重复事件"></a>重复事件</h2>
+<h2 id="重复事件"><a href="#重复事件" class="headerlink" title="重复事件"></a>重复事件</h2><p>现在完成进行时可表示重复事件，具体来说，就是表示到目前为止的一段时间内重复发生的活动。<br>现在完成进行时表示“重复事件”的用法主要分为两种情况：一种是“短暂动词”用于现在完成进行时可以表示一个重复事件，这是最典型的重复事件的用法；另一种是“有限延续动词”用于现在完成进行时可以表示一个重复事件。</p>
+<h3 id="重复事件（一）：短暂动词"><a href="#重复事件（一）：短暂动词" class="headerlink" title="重复事件（一）：短暂动词"></a>重复事件（一）：短暂动词</h3><p>I have been coming to Beijing for 14 years.<br>这里的have been coming表示的是一个重复的活动，所以这句话正确的意思应该是：<br>在过去的14年中，我常常来北京。<br>从这个例子，可以看到现在完成进行时的另一种思维表达——用短暂动词（如come）的完成进行时（如have been coming）来表示到目前为止的一段时间内重复发生的动作。<br>I’ve been coming to see him for 10 years.<br>这里的have been coming同样是表示一个在10年当中不断重复的活动。<br>10年来，我常常过来看望他。</p>
+<p>再来看下面这个句子：<br>They have been going there for 10 years.<br>虽然这句话译成汉语可以是：他们去那里已经有10年了。<br>但这并不是表示他们一直生活在那里，而是表示“10年期间，他们屡次去那里”，即表示一个重复活动。可以把这个句子放在一个更完整的语境中：<br>Every Sunday they meet in the bar. They have been going there for 10 years.<br>这里的have been going表示一个在10年当中不断重复的活动，即在10年期间，每周日他们都去那家酒吧。所以，“他们去那里已经有10年了”并不是表示他们一直生活在那里。<br>他们每周日都会在那家酒吧会面，他们去那里已经有10年了。</p>
+<p>“结婚”的英文是marry，它是一个短暂动词，所以，如果要表示“我结婚有一年了”，要用“状态表达”说 成“I’ve been married for a year.”，而不是“I’ve married for a year. *”。因 此，如果把marry用于现在完成进行时，则是表示一个重复的活动。比如：</p>
+
       
     </div>
 
@@ -464,6 +483,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/22/English之自然拼读/" rel="prev" title="English之自然拼读">
+                English之自然拼读 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -524,7 +547,7 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="James Feng">
           <p class="site-author-name" itemprop="name">James Feng</p>
-          <p class="site-description motion-element" itemprop="description">The wind blew, only to survive!</p>
+          <p class="site-description motion-element" itemprop="description">Don't dream when the sun is setting, try to work hard when the sun is rising.</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
@@ -546,7 +569,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">82</span>
+                <span class="site-state-item-count">81</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -601,7 +624,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#完成进行时态的构成"><span class="nav-number">1.</span> <span class="nav-text">完成进行时态的构成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完成进行时态的意义"><span class="nav-number">2.</span> <span class="nav-text">完成进行时态的意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#延续事件"><span class="nav-number">3.</span> <span class="nav-text">延续事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#长期在延续的事件"><span class="nav-number">3.1.</span> <span class="nav-text">长期在延续的事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#近期在延续的事件"><span class="nav-number">3.2.</span> <span class="nav-text">近期在延续的事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在说话时刻仍在延续的事件"><span class="nav-number">3.3.</span> <span class="nav-text">在说话时刻仍在延续的事件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#现在完成进行时-vs-现在进行时"><span class="nav-number">3.3.1.</span> <span class="nav-text">现在完成进行时 vs 现在进行时</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#现在完成进行时动作持续到现在，之后是否继续可由上下文给出"><span class="nav-number">3.3.2.</span> <span class="nav-text">现在完成进行时动作持续到现在，之后是否继续可由上下文给出</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在说话时刻之前在延续的事件（即刚刚在延续的事件）"><span class="nav-number">3.4.</span> <span class="nav-text">在说话时刻之前在延续的事件（即刚刚在延续的事件）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#延续事件比较：完成进行时与完成时"><span class="nav-number">4.</span> <span class="nav-text">延续事件比较：完成进行时与完成时</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#比较（一）：完成进行时“刚刚在延续的事件”与完成时“单一事件”"><span class="nav-number">4.1.</span> <span class="nav-text">比较（一）：完成进行时“刚刚在延续的事件”与完成时“单一事件”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比较（二）：完成进行时的“延续”与完成时的“延续”"><span class="nav-number">4.2.</span> <span class="nav-text">比较（二）：完成进行时的“延续”与完成时的“延续”</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#与持续的时间状语连用"><span class="nav-number">4.2.1.</span> <span class="nav-text">与持续的时间状语连用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不与持续的时间状语连用"><span class="nav-number">4.2.2.</span> <span class="nav-text">不与持续的时间状语连用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重复事件"><span class="nav-number">5.</span> <span class="nav-text">重复事件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#完成进行时态的构成"><span class="nav-number">1.</span> <span class="nav-text">完成进行时态的构成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完成进行时态的意义"><span class="nav-number">2.</span> <span class="nav-text">完成进行时态的意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#延续事件"><span class="nav-number">3.</span> <span class="nav-text">延续事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#长期在延续的事件"><span class="nav-number">3.1.</span> <span class="nav-text">长期在延续的事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#近期在延续的事件"><span class="nav-number">3.2.</span> <span class="nav-text">近期在延续的事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在说话时刻仍在延续的事件"><span class="nav-number">3.3.</span> <span class="nav-text">在说话时刻仍在延续的事件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#现在完成进行时-vs-现在进行时"><span class="nav-number">3.3.1.</span> <span class="nav-text">现在完成进行时 vs 现在进行时</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#现在完成进行时动作持续到现在，之后是否继续可由上下文给出"><span class="nav-number">3.3.2.</span> <span class="nav-text">现在完成进行时动作持续到现在，之后是否继续可由上下文给出</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在说话时刻之前在延续的事件（即刚刚在延续的事件）"><span class="nav-number">3.4.</span> <span class="nav-text">在说话时刻之前在延续的事件（即刚刚在延续的事件）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#延续事件比较：完成进行时与完成时"><span class="nav-number">4.</span> <span class="nav-text">延续事件比较：完成进行时与完成时</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#比较（一）：完成进行时“刚刚在延续的事件”与完成时“单一事件”"><span class="nav-number">4.1.</span> <span class="nav-text">比较（一）：完成进行时“刚刚在延续的事件”与完成时“单一事件”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比较（二）：完成进行时的“延续”与完成时的“延续”"><span class="nav-number">4.2.</span> <span class="nav-text">比较（二）：完成进行时的“延续”与完成时的“延续”</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#与持续的时间状语连用"><span class="nav-number">4.2.1.</span> <span class="nav-text">与持续的时间状语连用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不与持续的时间状语连用"><span class="nav-number">4.2.2.</span> <span class="nav-text">不与持续的时间状语连用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重复事件"><span class="nav-number">5.</span> <span class="nav-text">重复事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重复事件（一）：短暂动词"><span class="nav-number">5.1.</span> <span class="nav-text">重复事件（一）：短暂动词</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -872,6 +895,19 @@
 
   
 
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":100,"height":200},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"live2d-widget-model-hijiki"},"display":{"position":"left","width":100,"height":200},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

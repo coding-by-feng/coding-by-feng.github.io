@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="hexo,github,next,">
+  <meta name="keywords" content="hexo,github,">
 
 
 
@@ -85,14 +85,14 @@
 
 
 <meta name="description" content="本教程针对windows用户，苦逼实习生用不起mac  环境搭建安装git for windows《下载安装入口》关于github与本地git客户端的关联这里不做阐述，百度一大把。 安装node.js《node.js下载安装入口》官网下载速度可能会很慢，安装完毕之后可以再cmd窗口测试一下是否安装成功。键入以下命令，你会看到对应的版本号。 $ node -v 除此之外还要检测一下npm是否安装成">
-<meta name="keywords" content="hexo,github,next">
+<meta name="keywords" content="hexo,github">
 <meta property="og:type" content="article">
 <meta property="og:title" content="github+hexo+next 快速搭建漂亮的个人博客">
 <meta property="og:url" content="http://yoursite.com/2016/11/18/github-hexo-next-快速搭建偏亮的个人博客/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="本教程针对windows用户，苦逼实习生用不起mac  环境搭建安装git for windows《下载安装入口》关于github与本地git客户端的关联这里不做阐述，百度一大把。 安装node.js《node.js下载安装入口》官网下载速度可能会很慢，安装完毕之后可以再cmd窗口测试一下是否安装成功。键入以下命令，你会看到对应的版本号。 $ node -v 除此之外还要检测一下npm是否安装成">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-15T13:06:15.720Z">
+<meta property="og:updated_time" content="2020-07-21T06:08:24.614Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github+hexo+next 快速搭建漂亮的个人博客">
 <meta name="twitter:description" content="本教程针对windows用户，苦逼实习生用不起mac  环境搭建安装git for windows《下载安装入口》关于github与本地git客户端的关联这里不做阐述，百度一大把。 安装node.js《node.js下载安装入口》官网下载速度可能会很慢，安装完毕之后可以再cmd窗口测试一下是否安装成功。键入以下命令，你会看到对应的版本号。 $ node -v 除此之外还要检测一下npm是否安装成">
@@ -260,12 +260,27 @@
   
     <div class="site-search">
       
-  <div class="popup">
- <span class="search-icon fa fa-search"></span>
- <input type="text" id="local-search-input">
- <div id="local-search-result"></div>
- <span class="popup-btn-close">close</span>
-</div>
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
 
 
     </div>
@@ -446,8 +461,6 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
           
             <a href="/tags/github/" rel="tag"># github</a>
           
-            <a href="/tags/next/" rel="tag"># next</a>
-          
         </div>
       
 
@@ -461,8 +474,8 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/20/hexo在github搭建的博客绑定阿里云域名解析到github-io/" rel="prev" title="hexo在github搭建的博客绑定阿里云域名解析到github.io">
-                hexo在github搭建的博客绑定阿里云域名解析到github.io <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/21/超详细Maven总结/" rel="prev" title="超详细Maven总结">
+                超详细Maven总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -524,7 +537,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="James Feng">
           <p class="site-author-name" itemprop="name">James Feng</p>
-          <p class="site-description motion-element" itemprop="description">The wind blew, only to survive!</p>
+          <p class="site-description motion-element" itemprop="description">Don't dream when the sun is setting, try to work hard when the sun is rising.</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
@@ -546,7 +559,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">82</span>
+                <span class="site-state-item-count">81</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -872,6 +885,19 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 
   
 
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":100,"height":200},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"live2d-widget-model-hijiki"},"display":{"position":"left","width":100,"height":200},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

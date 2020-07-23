@@ -95,7 +95,8 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/eoIO68.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/yutz7e.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/BzIIY0.png">
-<meta property="og:updated_time" content="2020-07-17T08:31:31.145Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/LxyOJy.png">
+<meta property="og:updated_time" content="2020-07-22T09:03:09.484Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《深入理解Java虚拟机第三版》阅读笔记">
 <meta name="twitter:description" content="虚拟机概述中间语言翻译（从Java翻译到机器码） 从中间语言翻译到机器码  通过C语言翻译（初JVM）通过将字节码class翻译成C语言，比如定义iadd这个字节码是相加的助记符，然后通过c语言来解析字节码中的iadd就是相加，并指向对应的c语言相加的c程序来做实际运算，这样子的话，这个解析字节码的C程序就是所谓的JVM，最简陋效率最低的初代JVM 直接翻译为机器码CS:IPCS与IPO这是物理C">
@@ -264,12 +265,27 @@
   
     <div class="site-search">
       
-  <div class="popup">
- <span class="search-icon fa fa-search"></span>
- <input type="text" id="local-search-input">
- <div id="local-search-result"></div>
- <span class="popup-btn-close">close</span>
-</div>
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
 
 
     </div>
@@ -411,7 +427,20 @@
 <h1 id="Java技术的未来"><a href="#Java技术的未来" class="headerlink" title="Java技术的未来"></a>Java技术的未来</h1><h2 id="无语言倾向"><a href="#无语言倾向" class="headerlink" title="无语言倾向"></a>无语言倾向</h2><h3 id="GraalJVM"><a href="#GraalJVM" class="headerlink" title="GraalJVM"></a>GraalJVM</h3><h3 id="新一代即时编译器"><a href="#新一代即时编译器" class="headerlink" title="新一代即时编译器"></a>新一代即时编译器</h3><p>JDK10之后，HotSpot加入了一个全新的即时编译器，Graal编译器。(可以通过相应的JVM参数配置启动)</p>
 <h4 id="Substrate-VM"><a href="#Substrate-VM" class="headerlink" title="Substrate VM"></a>Substrate VM</h4><p>Substrate VM在内存占用和启动时间比HotSpot强5到50倍：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/eoIO68.png" alt><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/yutz7e.png" alt></p>
 <h2 id="实战：自己编译JDK"><a href="#实战：自己编译JDK" class="headerlink" title="实战：自己编译JDK"></a>实战：自己编译JDK</h2><h3 id="OpenJDK-vs-OracleJDK"><a href="#OpenJDK-vs-OracleJDK" class="headerlink" title="OpenJDK vs OracleJDK"></a>OpenJDK vs OracleJDK</h3><p>实际上，JDK11之后，两者的公用源码已经占比很高了：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/BzIIY0.png" alt></p>
-
+<h1 id="自动内存管理"><a href="#自动内存管理" class="headerlink" title="自动内存管理"></a>自动内存管理</h1><h2 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/LxyOJy.png" alt></p>
+<h3 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h3><p>程序计数器(Program Counter Register)是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。在Java虚拟机的概念模型里，字节解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。</p>
+<h3 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a>Java虚拟机栈</h3><h3 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h3><h3 id="Java堆（Heap）"><a href="#Java堆（Heap）" class="headerlink" title="Java堆（Heap）"></a>Java堆（Heap）</h3><h3 id="方法区【别名：”非堆”（Non-Heap）】"><a href="#方法区【别名：”非堆”（Non-Heap）】" class="headerlink" title="方法区【别名：”非堆”（Non-Heap）】"></a>方法区【别名：”非堆”（Non-Heap）】</h3><h4 id="JDK8以前”永久代”的落寞"><a href="#JDK8以前”永久代”的落寞" class="headerlink" title="JDK8以前”永久代”的落寞"></a>JDK8以前”永久代”的落寞</h4><p>JDK8之后”永久代”终于被全面废弃，换来了元空间（Meta-space）的登场。</p>
+<h4 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h4><h4 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h4><blockquote>
+<p>Java堆和Native堆</p>
+</blockquote>
+<h2 id="HotSpot虚拟机对象探秘"><a href="#HotSpot虚拟机对象探秘" class="headerlink" title="HotSpot虚拟机对象探秘"></a>HotSpot虚拟机对象探秘</h2><h3 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h3><h3 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h3><h3 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h3><h4 id="句柄和直接指针两种方式"><a href="#句柄和直接指针两种方式" class="headerlink" title="句柄和直接指针两种方式"></a>句柄和直接指针两种方式</h4><h3 id="实战：OutOfMemoryError异常"><a href="#实战：OutOfMemoryError异常" class="headerlink" title="实战：OutOfMemoryError异常"></a>实战：OutOfMemoryError异常</h3><h4 id="Java堆溢出"><a href="#Java堆溢出" class="headerlink" title="Java堆溢出"></a>Java堆溢出</h4><blockquote>
+<p>JVM堆转储快照文件（hprof文件）查看分析</p>
+</blockquote>
+<p>可以指定heapDumpPath：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/export/Domains/rcsv-fm.wd.local/server1/logs</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>kill -3 or -9 都不会打heap dump，kill -9 java_pid来不及做任何事情就被干掉了，-3会打印thread dump 但是不是heap dump。</p>
+</blockquote>
+<h5 id="Java内存分析工具（hprof文件分析工具）"><a href="#Java内存分析工具（hprof文件分析工具）" class="headerlink" title="Java内存分析工具（hprof文件分析工具）"></a>Java内存分析工具（hprof文件分析工具）</h5><h5 id="GC-Roots"><a href="#GC-Roots" class="headerlink" title="GC Roots"></a>GC Roots</h5><h4 id="虚拟机栈和本地方法栈溢出"><a href="#虚拟机栈和本地方法栈溢出" class="headerlink" title="虚拟机栈和本地方法栈溢出"></a>虚拟机栈和本地方法栈溢出</h4><h4 id="方法区和运行时常量池溢出"><a href="#方法区和运行时常量池溢出" class="headerlink" title="方法区和运行时常量池溢出"></a>方法区和运行时常量池溢出</h4><h4 id="本机直接内存溢出"><a href="#本机直接内存溢出" class="headerlink" title="本机直接内存溢出"></a>本机直接内存溢出</h4><h1 id="垃圾收集器与内存分配策略"><a href="#垃圾收集器与内存分配策略" class="headerlink" title="垃圾收集器与内存分配策略"></a>垃圾收集器与内存分配策略</h1><h2 id="对象已死？"><a href="#对象已死？" class="headerlink" title="对象已死？"></a>对象已死？</h2><h3 id="引用计数算法"><a href="#引用计数算法" class="headerlink" title="引用计数算法"></a>引用计数算法</h3>
       
     </div>
 
@@ -518,7 +547,7 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="James Feng">
           <p class="site-author-name" itemprop="name">James Feng</p>
-          <p class="site-description motion-element" itemprop="description">The wind blew, only to survive!</p>
+          <p class="site-description motion-element" itemprop="description">Don't dream when the sun is setting, try to work hard when the sun is rising.</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
@@ -540,7 +569,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">82</span>
+                <span class="site-state-item-count">81</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -595,7 +624,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#虚拟机概述"><span class="nav-number">1.</span> <span class="nav-text">虚拟机概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#中间语言翻译（从Java翻译到机器码）"><span class="nav-number">1.1.</span> <span class="nav-text">中间语言翻译（从Java翻译到机器码）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过C语言翻译（初JVM）"><span class="nav-number">1.1.1.</span> <span class="nav-text">通过C语言翻译（初JVM）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直接翻译为机器码"><span class="nav-number">1.1.2.</span> <span class="nav-text">直接翻译为机器码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CS-IP"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">CS:IP</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地编译"><span class="nav-number">1.1.3.</span> <span class="nav-text">本地编译</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神奇的指令"><span class="nav-number">1.2.</span> <span class="nav-text">神奇的指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM指令"><span class="nav-number">1.2.1.</span> <span class="nav-text">JVM指令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据交换指令"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">数据交换指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数调用指令"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">函数调用指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运算指令集"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">运算指令集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#控制转义指令"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">控制转义指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象创建与类型转换指令"><span class="nav-number">1.2.1.5.</span> <span class="nav-text">对象创建与类型转换指令</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java执行引擎工作原理"><span class="nav-number">1.3.</span> <span class="nav-text">Java执行引擎工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法调用"><span class="nav-number">1.3.1.</span> <span class="nav-text">方法调用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#真实的机器调用"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">真实的机器调用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java数据结构与面向对象"><span class="nav-number">1.4.</span> <span class="nav-text">Java数据结构与面向对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java字节码实战"><span class="nav-number">1.5.</span> <span class="nav-text">Java字节码实战</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字节码格式初探"><span class="nav-number">1.5.1.</span> <span class="nav-text">字节码格式初探</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模数与版本"><span class="nav-number">1.5.2.</span> <span class="nav-text">模数与版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常量池"><span class="nav-number">1.5.3.</span> <span class="nav-text">常量池</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java技术的未来"><span class="nav-number">2.</span> <span class="nav-text">Java技术的未来</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#无语言倾向"><span class="nav-number">2.1.</span> <span class="nav-text">无语言倾向</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GraalJVM"><span class="nav-number">2.1.1.</span> <span class="nav-text">GraalJVM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新一代即时编译器"><span class="nav-number">2.1.2.</span> <span class="nav-text">新一代即时编译器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Substrate-VM"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">Substrate VM</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实战：自己编译JDK"><span class="nav-number">2.2.</span> <span class="nav-text">实战：自己编译JDK</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#OpenJDK-vs-OracleJDK"><span class="nav-number">2.2.1.</span> <span class="nav-text">OpenJDK vs OracleJDK</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#虚拟机概述"><span class="nav-number">1.</span> <span class="nav-text">虚拟机概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#中间语言翻译（从Java翻译到机器码）"><span class="nav-number">1.1.</span> <span class="nav-text">中间语言翻译（从Java翻译到机器码）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过C语言翻译（初JVM）"><span class="nav-number">1.1.1.</span> <span class="nav-text">通过C语言翻译（初JVM）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直接翻译为机器码"><span class="nav-number">1.1.2.</span> <span class="nav-text">直接翻译为机器码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CS-IP"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">CS:IP</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地编译"><span class="nav-number">1.1.3.</span> <span class="nav-text">本地编译</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神奇的指令"><span class="nav-number">1.2.</span> <span class="nav-text">神奇的指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM指令"><span class="nav-number">1.2.1.</span> <span class="nav-text">JVM指令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据交换指令"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">数据交换指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数调用指令"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">函数调用指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运算指令集"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">运算指令集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#控制转义指令"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">控制转义指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象创建与类型转换指令"><span class="nav-number">1.2.1.5.</span> <span class="nav-text">对象创建与类型转换指令</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java执行引擎工作原理"><span class="nav-number">1.3.</span> <span class="nav-text">Java执行引擎工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法调用"><span class="nav-number">1.3.1.</span> <span class="nav-text">方法调用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#真实的机器调用"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">真实的机器调用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java数据结构与面向对象"><span class="nav-number">1.4.</span> <span class="nav-text">Java数据结构与面向对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java字节码实战"><span class="nav-number">1.5.</span> <span class="nav-text">Java字节码实战</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字节码格式初探"><span class="nav-number">1.5.1.</span> <span class="nav-text">字节码格式初探</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模数与版本"><span class="nav-number">1.5.2.</span> <span class="nav-text">模数与版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常量池"><span class="nav-number">1.5.3.</span> <span class="nav-text">常量池</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java技术的未来"><span class="nav-number">2.</span> <span class="nav-text">Java技术的未来</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#无语言倾向"><span class="nav-number">2.1.</span> <span class="nav-text">无语言倾向</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GraalJVM"><span class="nav-number">2.1.1.</span> <span class="nav-text">GraalJVM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新一代即时编译器"><span class="nav-number">2.1.2.</span> <span class="nav-text">新一代即时编译器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Substrate-VM"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">Substrate VM</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实战：自己编译JDK"><span class="nav-number">2.2.</span> <span class="nav-text">实战：自己编译JDK</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#OpenJDK-vs-OracleJDK"><span class="nav-number">2.2.1.</span> <span class="nav-text">OpenJDK vs OracleJDK</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自动内存管理"><span class="nav-number">3.</span> <span class="nav-text">自动内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#运行时数据区域"><span class="nav-number">3.1.</span> <span class="nav-text">运行时数据区域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#程序计数器"><span class="nav-number">3.1.1.</span> <span class="nav-text">程序计数器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java虚拟机栈"><span class="nav-number">3.1.2.</span> <span class="nav-text">Java虚拟机栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地方法栈"><span class="nav-number">3.1.3.</span> <span class="nav-text">本地方法栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java堆（Heap）"><span class="nav-number">3.1.4.</span> <span class="nav-text">Java堆（Heap）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法区【别名：”非堆”（Non-Heap）】"><span class="nav-number">3.1.5.</span> <span class="nav-text">方法区【别名：”非堆”（Non-Heap）】</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JDK8以前”永久代”的落寞"><span class="nav-number">3.1.5.1.</span> <span class="nav-text">JDK8以前”永久代”的落寞</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行时常量池"><span class="nav-number">3.1.5.2.</span> <span class="nav-text">运行时常量池</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#直接内存"><span class="nav-number">3.1.5.3.</span> <span class="nav-text">直接内存</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HotSpot虚拟机对象探秘"><span class="nav-number">3.2.</span> <span class="nav-text">HotSpot虚拟机对象探秘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的创建"><span class="nav-number">3.2.1.</span> <span class="nav-text">对象的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的内存布局"><span class="nav-number">3.2.2.</span> <span class="nav-text">对象的内存布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的访问定位"><span class="nav-number">3.2.3.</span> <span class="nav-text">对象的访问定位</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#句柄和直接指针两种方式"><span class="nav-number">3.2.3.1.</span> <span class="nav-text">句柄和直接指针两种方式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实战：OutOfMemoryError异常"><span class="nav-number">3.2.4.</span> <span class="nav-text">实战：OutOfMemoryError异常</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Java堆溢出"><span class="nav-number">3.2.4.1.</span> <span class="nav-text">Java堆溢出</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Java内存分析工具（hprof文件分析工具）"><span class="nav-number">3.2.4.1.1.</span> <span class="nav-text">Java内存分析工具（hprof文件分析工具）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#GC-Roots"><span class="nav-number">3.2.4.1.2.</span> <span class="nav-text">GC Roots</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#虚拟机栈和本地方法栈溢出"><span class="nav-number">3.2.4.2.</span> <span class="nav-text">虚拟机栈和本地方法栈溢出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法区和运行时常量池溢出"><span class="nav-number">3.2.4.3.</span> <span class="nav-text">方法区和运行时常量池溢出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#本机直接内存溢出"><span class="nav-number">3.2.4.4.</span> <span class="nav-text">本机直接内存溢出</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#垃圾收集器与内存分配策略"><span class="nav-number">4.</span> <span class="nav-text">垃圾收集器与内存分配策略</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对象已死？"><span class="nav-number">4.1.</span> <span class="nav-text">对象已死？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引用计数算法"><span class="nav-number">4.1.1.</span> <span class="nav-text">引用计数算法</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -866,6 +895,19 @@
 
   
 
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":100,"height":200},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"live2d-widget-model-hijiki"},"display":{"position":"left","width":100,"height":200},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

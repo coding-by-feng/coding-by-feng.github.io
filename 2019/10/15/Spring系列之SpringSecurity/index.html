@@ -94,7 +94,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/wH4Lai.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/cTim2v.png">
-<meta property="og:updated_time" content="2020-07-16T12:58:54.911Z">
+<meta property="og:updated_time" content="2020-07-21T08:49:58.558Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring系列之SpringSecurity">
 <meta name="twitter:description" content="TodoItemOAuth2标准研究 todoAuthorizationServerConfigurerAdapter vsWebSecurityConfigurerAdapter todo判断是否超时的逻辑 todoCORS todoJSR-250 todoBasic Knowledge很好的基础教程Security with Spring token值在哪里生成？怎么生成？默认鉴权生成toke">
@@ -263,12 +263,27 @@
   
     <div class="site-search">
       
-  <div class="popup">
- <span class="search-icon fa fa-search"></span>
- <input type="text" id="local-search-input">
- <div id="local-search-result"></div>
- <span class="popup-btn-close">close</span>
-</div>
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
 
 
     </div>
@@ -400,6 +415,7 @@
       
         <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="OAuth2标准研究-todo"><a href="#OAuth2标准研究-todo" class="headerlink" title="OAuth2标准研究 todo"></a>OAuth2标准研究 todo</h2><h2 id="AuthorizationServerConfigurerAdapter-vsWebSecurityConfigurerAdapter-todo"><a href="#AuthorizationServerConfigurerAdapter-vsWebSecurityConfigurerAdapter-todo" class="headerlink" title="AuthorizationServerConfigurerAdapter vsWebSecurityConfigurerAdapter todo"></a>AuthorizationServerConfigurerAdapter vsWebSecurityConfigurerAdapter todo</h2><h2 id="判断是否超时的逻辑-todo"><a href="#判断是否超时的逻辑-todo" class="headerlink" title="判断是否超时的逻辑 todo"></a>判断是否超时的逻辑 todo</h2><h2 id="CORS-todo"><a href="#CORS-todo" class="headerlink" title="CORS todo"></a>CORS todo</h2><h2 id="JSR-250-todo"><a href="#JSR-250-todo" class="headerlink" title="JSR-250 todo"></a>JSR-250 todo</h2><h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="很好的基础教程"><a href="#很好的基础教程" class="headerlink" title="很好的基础教程"></a>很好的基础教程</h2><p><a href="https://www.baeldung.com/security-spring" target="_blank" rel="noopener">Security with Spring</a></p>
 <h2 id="token值在哪里生成？怎么生成？"><a href="#token值在哪里生成？怎么生成？" class="headerlink" title="token值在哪里生成？怎么生成？"></a>token值在哪里生成？怎么生成？</h2><p>默认鉴权生成token的url是”/oauth/token”，在TokenEndpoint里面生成。<br>SpringSecurity默认的token生成url是：<a href="http://hostname:port/oauth/token" target="_blank" rel="noopener">http://hostname:port/oauth/token</a><br>但是要进入到真正的TokenEndpoint里面还需要经过一道道关卡：<br>0 = {WebAsyncManagerIntegrationFilter@13114}<br>1 = {SecurityContextPersistenceFilter@13113}<br>2 = {HeaderWriterFilter@13112}<br>3 = {LogoutFilter@13111}<br>4 = {ClientCredentialsTokenEndpointFilter@13110}<br>5 = {BasicAuthenticationFilter@13108}<br>6 = {RequestCacheAwareFilter@13248}<br>7 = {SecurityContextHolderAwareRequestFilter@13247}<br>8 = {AnonymousAuthenticationFilter@13246}<br>9 = {SessionManagementFilter@13245}<br>10 = {ExceptionTranslationFilter@13244}<br>11 = {FilterSecurityInterceptor@13243} </p>
+<p>0 = {OrderedGatewayFilter@13342} “OrderedGatewayFilter{delegate=GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RemoveCachedBodyFilter@25a2c4dc}, order=-2147483648}”<br>1 = {OrderedGatewayFilter@13343} “OrderedGatewayFilter{delegate=GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.AdaptCachedBodyGlobalFilter@62dfe152}, order=-2147482648}”<br>2 = {OrderedGatewayFilter@13344} “OrderedGatewayFilter{delegate=GatewayFilterAdapter{delegate=me.fengorz.kiwi.gateway.filter.GenericRequestGlobalFilter@430f0c63}, order=-1000}”<br>3 = {OrderedGatewayFilter@13345} “OrderedGatewayFilter{delegate=GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyWriteResponseFilter@1e75af65}, order=-1}”<br>4 = {OrderedGatewayFilter@13346} “OrderedGatewayFilter{delegate=GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardPathFilter@2bee1c13}, order=0}”<br>5 = {OrderedGatewayFilter@13347} “OrderedGatewayFilter{delegate=GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.GatewayMetricsFilter@71098fb3}, order=0}”<br>6 = {OrderedGatewayFilter@13936} “OrderedGatewayFilter{delegate=me.fengorz.kiwi.gateway.filter.ValidateCodeGatewayFilter$$Lambda$854/120561697@1f06c463, order=1}”<br>7 = {OrderedGatewayFilter@14156} “OrderedGatewayFilter{delegate=me.fengorz.kiwi.gateway.filter.PasswordDecoderGatewayFilter$$Lambda$855/473170143@13f576a8, order=2}”<br>8 = {OrderedGatewayFilter@13349} “OrderedGatewayFilter{delegate=GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter@29d81c22}, order=10000}”<br>9 = {OrderedGatewayFilter@13350} “OrderedGatewayFilter{delegate=GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.LoadBalancerClientFilter@25a52a60}, order=10100}”<br>10 = {OrderedGatewayFilter@13351} “OrderedGatewayFilter{delegate=GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.WebsocketRoutingFilter@1859b996}, order=2147483646}”<br>11 = {OrderedGatewayFilter@13352} “OrderedGatewayFilter{delegate=GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyRoutingFilter@15549dd7}, order=2147483647}”<br>12 = {OrderedGatewayFilter@13353} “OrderedGatewayFilter{delegate=GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardRoutingFilter@18d396eb}, order=2147483647}”</p>
 <p>最终默认情况下是通过DefaultTokenServices里面的createAccessToken方法调用到RedisTokenStore的storeAccessToken方法对token一系列的详细信息存储到redis里面。</p>
 <h2 id="Spring-Security默认的过滤器栈"><a href="#Spring-Security默认的过滤器栈" class="headerlink" title="Spring Security默认的过滤器栈"></a>Spring Security默认的过滤器栈</h2><p>0 = {WebAsyncManagerIntegrationFilter@12983}<br>1 = {SecurityContextPersistenceFilter@12982}<br>2 = {HeaderWriterFilter@12981}<br>3 = {LogoutFilter@12980}<br>4 = {ClientCredentialsTokenEndpointFilter@12979}<br>5 = {BasicAuthenticationFilter@12977}<br>6 = {RequestCacheAwareFilter@13387}<br>7 = {SecurityContextHolderAwareRequestFilter@13386}<br>8 = {AnonymousAuthenticationFilter@13385}<br>9 = {SessionManagementFilter@13384}<br>10 = {ExceptionTranslationFilter@13383}<br>11 = {FilterSecurityInterceptor@13382} </p>
 <h2 id="AuthorizationServerSecurityConfigurer"><a href="#AuthorizationServerSecurityConfigurer" class="headerlink" title="AuthorizationServerSecurityConfigurer"></a>AuthorizationServerSecurityConfigurer</h2><p>allowFormAuthenticationForClients()：<br>在BasicAuthenticationFilter之前添加clientCredentialsTokenEndpointFilter。</p>
@@ -525,7 +541,7 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="James Feng">
           <p class="site-author-name" itemprop="name">James Feng</p>
-          <p class="site-description motion-element" itemprop="description">The wind blew, only to survive!</p>
+          <p class="site-description motion-element" itemprop="description">Don't dream when the sun is setting, try to work hard when the sun is rising.</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
@@ -547,7 +563,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">82</span>
+                <span class="site-state-item-count">81</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -873,6 +889,19 @@
 
   
 
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":100,"height":200},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"live2d-widget-model-hijiki"},"display":{"position":"left","width":100,"height":200},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

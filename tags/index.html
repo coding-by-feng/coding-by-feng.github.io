@@ -84,17 +84,17 @@
 
 
 
-<meta name="description" content="The wind blew, only to survive!">
+<meta name="description" content="Don&apos;t dream when the sun is setting, try to work hard when the sun is rising.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="tags">
 <meta property="og:url" content="http://yoursite.com/tags/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="The wind blew, only to survive!">
+<meta property="og:description" content="Don&apos;t dream when the sun is setting, try to work hard when the sun is rising.">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-11-18T02:01:55.910Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="The wind blew, only to survive!">
+<meta name="twitter:description" content="Don&apos;t dream when the sun is setting, try to work hard when the sun is rising.">
 
 
 
@@ -265,12 +265,27 @@
   
     <div class="site-search">
       
-  <div class="popup">
- <span class="search-icon fa fa-search"></span>
- <input type="text" id="local-search-input">
- <div id="local-search-result"></div>
- <span class="popup-btn-close">close</span>
-</div>
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
 
 
     </div>
@@ -301,10 +316,10 @@
     
       <div class="tag-cloud">
         <div class="tag-cloud-title">
-            目前共计 82 个标签
+            目前共计 81 个标签
         </div>
         <div class="tag-cloud-tags">
-          <a href="/tags/CSS/" style="font-size: 12px; color: #ccc">CSS</a> <a href="/tags/DataGrip/" style="font-size: 12px; color: #ccc">DataGrip</a> <a href="/tags/Elasticsearch/" style="font-size: 12px; color: #ccc">Elasticsearch</a> <a href="/tags/English/" style="font-size: 30px; color: #111">English</a> <a href="/tags/Flowable/" style="font-size: 12px; color: #ccc">Flowable</a> <a href="/tags/Hystrix/" style="font-size: 12px; color: #ccc">Hystrix</a> <a href="/tags/Idea/" style="font-size: 12px; color: #ccc">Idea</a> <a href="/tags/JSR303/" style="font-size: 12px; color: #ccc">JSR303</a> <a href="/tags/JSR349/" style="font-size: 12px; color: #ccc">JSR349</a> <a href="/tags/JSR380/" style="font-size: 12px; color: #ccc">JSR380</a> <a href="/tags/JUnit/" style="font-size: 12px; color: #ccc">JUnit</a> <a href="/tags/JVM/" style="font-size: 14.57px; color: #b1b1b1">JVM</a> <a href="/tags/JWT/" style="font-size: 12px; color: #ccc">JWT</a> <a href="/tags/Java/" style="font-size: 27.43px; color: #2c2c2c">Java</a> <a href="/tags/Java-Bean-Validation/" style="font-size: 12px; color: #ccc">Java Bean Validation</a> <a href="/tags/JavaEE/" style="font-size: 12px; color: #ccc">JavaEE</a> <a href="/tags/JavaScript/" style="font-size: 12px; color: #ccc">JavaScript</a> <a href="/tags/JavaWeb/" style="font-size: 12px; color: #ccc">JavaWeb</a> <a href="/tags/Mac/" style="font-size: 14.57px; color: #b1b1b1">Mac</a> <a href="/tags/Markdown/" style="font-size: 12px; color: #ccc">Markdown</a> <a href="/tags/Math/" style="font-size: 12px; color: #ccc">Math</a> <a href="/tags/MybatisPlus/" style="font-size: 12px; color: #ccc">MybatisPlus</a> <a href="/tags/Mysql/" style="font-size: 17.14px; color: #979797">Mysql</a> <a href="/tags/PTE/" style="font-size: 12px; color: #ccc">PTE</a> <a href="/tags/Reactor/" style="font-size: 12px; color: #ccc">Reactor</a> <a href="/tags/Spring/" style="font-size: 24.86px; color: #464646">Spring</a> <a href="/tags/Spring-Cache/" style="font-size: 12px; color: #ccc">Spring Cache</a> <a href="/tags/Spring-WebFlux/" style="font-size: 12px; color: #ccc">Spring WebFlux</a> <a href="/tags/SpringBoot/" style="font-size: 12px; color: #ccc">SpringBoot</a> <a href="/tags/SpringCloud/" style="font-size: 12px; color: #ccc">SpringCloud</a> <a href="/tags/SpringCloudConfig/" style="font-size: 12px; color: #ccc">SpringCloudConfig</a> <a href="/tags/SpringGateway/" style="font-size: 12px; color: #ccc">SpringGateway</a> <a href="/tags/SpringMVC/" style="font-size: 12px; color: #ccc">SpringMVC</a> <a href="/tags/SpringSecurity/" style="font-size: 12px; color: #ccc">SpringSecurity</a> <a href="/tags/V2Ray/" style="font-size: 12px; color: #ccc">V2Ray</a> <a href="/tags/Vue/" style="font-size: 14.57px; color: #b1b1b1">Vue</a> <a href="/tags/WebStorm/" style="font-size: 12px; color: #ccc">WebStorm</a> <a href="/tags/Web前端/" style="font-size: 14.57px; color: #b1b1b1">Web前端</a> <a href="/tags/arthas/" style="font-size: 12px; color: #ccc">arthas</a> <a href="/tags/docker/" style="font-size: 12px; color: #ccc">docker</a> <a href="/tags/eclipse/" style="font-size: 12px; color: #ccc">eclipse</a> <a href="/tags/element-ui/" style="font-size: 12px; color: #ccc">element-ui</a> <a href="/tags/fastdfs/" style="font-size: 12px; color: #ccc">fastdfs</a> <a href="/tags/feign/" style="font-size: 12px; color: #ccc">feign</a> <a href="/tags/git/" style="font-size: 12px; color: #ccc">git</a> <a href="/tags/github/" style="font-size: 14.57px; color: #b1b1b1">github</a> <a href="/tags/hexo/" style="font-size: 14.57px; color: #b1b1b1">hexo</a> <a href="/tags/iTerm2/" style="font-size: 12px; color: #ccc">iTerm2</a> <a href="/tags/idea/" style="font-size: 12px; color: #ccc">idea</a> <a href="/tags/interview/" style="font-size: 12px; color: #ccc">interview</a> <a href="/tags/jboss/" style="font-size: 14.57px; color: #b1b1b1">jboss</a> <a href="/tags/jenkins/" style="font-size: 12px; color: #ccc">jenkins</a> <a href="/tags/kiwi/" style="font-size: 12px; color: #ccc">kiwi</a> <a href="/tags/linux/" style="font-size: 19.71px; color: #7c7c7c">linux</a> <a href="/tags/logback/" style="font-size: 12px; color: #ccc">logback</a> <a href="/tags/lombok/" style="font-size: 12px; color: #ccc">lombok</a> <a href="/tags/mac/" style="font-size: 12px; color: #ccc">mac</a> <a href="/tags/maven/" style="font-size: 17.14px; color: #979797">maven</a> <a href="/tags/mysql/" style="font-size: 12px; color: #ccc">mysql</a> <a href="/tags/next/" style="font-size: 12px; color: #ccc">next</a> <a href="/tags/oracle/" style="font-size: 22.29px; color: #616161">oracle</a> <a href="/tags/rabbitmq/" style="font-size: 12px; color: #ccc">rabbitmq</a> <a href="/tags/redis/" style="font-size: 12px; color: #ccc">redis</a> <a href="/tags/shadowsocks/" style="font-size: 12px; color: #ccc">shadowsocks</a> <a href="/tags/sql/" style="font-size: 12px; color: #ccc">sql</a> <a href="/tags/vim/" style="font-size: 12px; color: #ccc">vim</a> <a href="/tags/vsCode/" style="font-size: 12px; color: #ccc">vsCode</a> <a href="/tags/vue/" style="font-size: 12px; color: #ccc">vue</a> <a href="/tags/工作流/" style="font-size: 12px; color: #ccc">工作流</a> <a href="/tags/数据库/" style="font-size: 14.57px; color: #b1b1b1">数据库</a> <a href="/tags/数据结构/" style="font-size: 12px; color: #ccc">数据结构</a> <a href="/tags/显示器/" style="font-size: 12px; color: #ccc">显示器</a> <a href="/tags/标准/" style="font-size: 12px; color: #ccc">标准</a> <a href="/tags/正则表达式/" style="font-size: 12px; color: #ccc">正则表达式</a> <a href="/tags/理想/" style="font-size: 12px; color: #ccc">理想</a> <a href="/tags/理财/" style="font-size: 14.57px; color: #b1b1b1">理财</a> <a href="/tags/生活/" style="font-size: 12px; color: #ccc">生活</a> <a href="/tags/笔记/" style="font-size: 12px; color: #ccc">笔记</a> <a href="/tags/网络/" style="font-size: 12px; color: #ccc">网络</a> <a href="/tags/网络安全/" style="font-size: 12px; color: #ccc">网络安全</a> <a href="/tags/股票/" style="font-size: 12px; color: #ccc">股票</a> <a href="/tags/设计模式/" style="font-size: 14.57px; color: #b1b1b1">设计模式</a>
+          <a href="/tags/CSS/" style="font-size: 12px; color: #ccc">CSS</a> <a href="/tags/DataGrip/" style="font-size: 12px; color: #ccc">DataGrip</a> <a href="/tags/Elasticsearch/" style="font-size: 12px; color: #ccc">Elasticsearch</a> <a href="/tags/English/" style="font-size: 30px; color: #111">English</a> <a href="/tags/Flowable/" style="font-size: 12px; color: #ccc">Flowable</a> <a href="/tags/Hystrix/" style="font-size: 12px; color: #ccc">Hystrix</a> <a href="/tags/Idea/" style="font-size: 12px; color: #ccc">Idea</a> <a href="/tags/JSR303/" style="font-size: 12px; color: #ccc">JSR303</a> <a href="/tags/JSR349/" style="font-size: 12px; color: #ccc">JSR349</a> <a href="/tags/JSR380/" style="font-size: 12px; color: #ccc">JSR380</a> <a href="/tags/JUnit/" style="font-size: 12px; color: #ccc">JUnit</a> <a href="/tags/JVM/" style="font-size: 14.57px; color: #b1b1b1">JVM</a> <a href="/tags/JWT/" style="font-size: 12px; color: #ccc">JWT</a> <a href="/tags/Java/" style="font-size: 27.43px; color: #2c2c2c">Java</a> <a href="/tags/Java-Bean-Validation/" style="font-size: 12px; color: #ccc">Java Bean Validation</a> <a href="/tags/JavaEE/" style="font-size: 12px; color: #ccc">JavaEE</a> <a href="/tags/JavaScript/" style="font-size: 12px; color: #ccc">JavaScript</a> <a href="/tags/JavaWeb/" style="font-size: 12px; color: #ccc">JavaWeb</a> <a href="/tags/Mac/" style="font-size: 14.57px; color: #b1b1b1">Mac</a> <a href="/tags/Markdown/" style="font-size: 12px; color: #ccc">Markdown</a> <a href="/tags/Math/" style="font-size: 12px; color: #ccc">Math</a> <a href="/tags/MybatisPlus/" style="font-size: 12px; color: #ccc">MybatisPlus</a> <a href="/tags/Mysql/" style="font-size: 17.14px; color: #979797">Mysql</a> <a href="/tags/PTE/" style="font-size: 12px; color: #ccc">PTE</a> <a href="/tags/Reactor/" style="font-size: 12px; color: #ccc">Reactor</a> <a href="/tags/Spring/" style="font-size: 24.86px; color: #464646">Spring</a> <a href="/tags/Spring-Cache/" style="font-size: 12px; color: #ccc">Spring Cache</a> <a href="/tags/Spring-WebFlux/" style="font-size: 12px; color: #ccc">Spring WebFlux</a> <a href="/tags/SpringBoot/" style="font-size: 12px; color: #ccc">SpringBoot</a> <a href="/tags/SpringCloud/" style="font-size: 12px; color: #ccc">SpringCloud</a> <a href="/tags/SpringCloudConfig/" style="font-size: 12px; color: #ccc">SpringCloudConfig</a> <a href="/tags/SpringGateway/" style="font-size: 12px; color: #ccc">SpringGateway</a> <a href="/tags/SpringMVC/" style="font-size: 12px; color: #ccc">SpringMVC</a> <a href="/tags/SpringSecurity/" style="font-size: 12px; color: #ccc">SpringSecurity</a> <a href="/tags/V2Ray/" style="font-size: 12px; color: #ccc">V2Ray</a> <a href="/tags/Vue/" style="font-size: 14.57px; color: #b1b1b1">Vue</a> <a href="/tags/WebStorm/" style="font-size: 12px; color: #ccc">WebStorm</a> <a href="/tags/Web前端/" style="font-size: 14.57px; color: #b1b1b1">Web前端</a> <a href="/tags/arthas/" style="font-size: 12px; color: #ccc">arthas</a> <a href="/tags/docker/" style="font-size: 12px; color: #ccc">docker</a> <a href="/tags/eclipse/" style="font-size: 12px; color: #ccc">eclipse</a> <a href="/tags/element-ui/" style="font-size: 12px; color: #ccc">element-ui</a> <a href="/tags/fastdfs/" style="font-size: 12px; color: #ccc">fastdfs</a> <a href="/tags/feign/" style="font-size: 12px; color: #ccc">feign</a> <a href="/tags/git/" style="font-size: 12px; color: #ccc">git</a> <a href="/tags/github/" style="font-size: 12px; color: #ccc">github</a> <a href="/tags/hexo/" style="font-size: 12px; color: #ccc">hexo</a> <a href="/tags/iTerm2/" style="font-size: 12px; color: #ccc">iTerm2</a> <a href="/tags/idea/" style="font-size: 12px; color: #ccc">idea</a> <a href="/tags/interview/" style="font-size: 12px; color: #ccc">interview</a> <a href="/tags/jboss/" style="font-size: 14.57px; color: #b1b1b1">jboss</a> <a href="/tags/jenkins/" style="font-size: 12px; color: #ccc">jenkins</a> <a href="/tags/kiwi/" style="font-size: 12px; color: #ccc">kiwi</a> <a href="/tags/linux/" style="font-size: 19.71px; color: #7c7c7c">linux</a> <a href="/tags/logback/" style="font-size: 12px; color: #ccc">logback</a> <a href="/tags/lombok/" style="font-size: 12px; color: #ccc">lombok</a> <a href="/tags/mac/" style="font-size: 12px; color: #ccc">mac</a> <a href="/tags/maven/" style="font-size: 17.14px; color: #979797">maven</a> <a href="/tags/mysql/" style="font-size: 12px; color: #ccc">mysql</a> <a href="/tags/oracle/" style="font-size: 22.29px; color: #616161">oracle</a> <a href="/tags/rabbitmq/" style="font-size: 12px; color: #ccc">rabbitmq</a> <a href="/tags/redis/" style="font-size: 12px; color: #ccc">redis</a> <a href="/tags/shadowsocks/" style="font-size: 12px; color: #ccc">shadowsocks</a> <a href="/tags/sql/" style="font-size: 12px; color: #ccc">sql</a> <a href="/tags/vim/" style="font-size: 12px; color: #ccc">vim</a> <a href="/tags/vsCode/" style="font-size: 12px; color: #ccc">vsCode</a> <a href="/tags/vue/" style="font-size: 12px; color: #ccc">vue</a> <a href="/tags/工作流/" style="font-size: 12px; color: #ccc">工作流</a> <a href="/tags/数据库/" style="font-size: 14.57px; color: #b1b1b1">数据库</a> <a href="/tags/数据结构/" style="font-size: 12px; color: #ccc">数据结构</a> <a href="/tags/显示器/" style="font-size: 12px; color: #ccc">显示器</a> <a href="/tags/标准/" style="font-size: 12px; color: #ccc">标准</a> <a href="/tags/正则表达式/" style="font-size: 12px; color: #ccc">正则表达式</a> <a href="/tags/理想/" style="font-size: 12px; color: #ccc">理想</a> <a href="/tags/理财/" style="font-size: 14.57px; color: #b1b1b1">理财</a> <a href="/tags/生活/" style="font-size: 12px; color: #ccc">生活</a> <a href="/tags/笔记/" style="font-size: 12px; color: #ccc">笔记</a> <a href="/tags/网络/" style="font-size: 12px; color: #ccc">网络</a> <a href="/tags/网络安全/" style="font-size: 12px; color: #ccc">网络安全</a> <a href="/tags/股票/" style="font-size: 12px; color: #ccc">股票</a> <a href="/tags/设计模式/" style="font-size: 14.57px; color: #b1b1b1">设计模式</a>
         </div>
       </div>
     
@@ -340,7 +355,7 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="James Feng">
           <p class="site-author-name" itemprop="name">James Feng</p>
-          <p class="site-description motion-element" itemprop="description">The wind blew, only to survive!</p>
+          <p class="site-description motion-element" itemprop="description">Don't dream when the sun is setting, try to work hard when the sun is rising.</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
@@ -362,7 +377,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">82</span>
+                <span class="site-state-item-count">81</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -668,6 +683,19 @@
 
   
 
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":100,"height":200},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"live2d-widget-model-hijiki"},"display":{"position":"left","width":100,"height":200},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
