@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="TodoItem深入理解IOC和DI之间的关系 todo公司的新版微服务架构用到的技术栈CS32位和64位系统底层的本质区别是什么？Java2020年2月面试题100+大全（合适各级Java人员） 多线程 注意回顾自己总结的《Java系列之多线程并发-长篇》  多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？数据结构B+树和二叉树的区别红黑树和跳表Spring一个接">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-23T09:05:34.379Z">
+<meta property="og:updated_time" content="2020-07-30T15:38:36.706Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Interview汇总">
 <meta name="twitter:description" content="TodoItem深入理解IOC和DI之间的关系 todo公司的新版微服务架构用到的技术栈CS32位和64位系统底层的本质区别是什么？Java2020年2月面试题100+大全（合适各级Java人员） 多线程 注意回顾自己总结的《Java系列之多线程并发-长篇》  多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？数据结构B+树和二叉树的区别红黑树和跳表Spring一个接">
@@ -404,6 +404,7 @@
 <p>注意回顾自己总结的《Java系列之多线程并发-长篇》</p>
 </blockquote>
 <h2 id="多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？"><a href="#多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？" class="headerlink" title="多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？"></a>多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？</h2><h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="B-树和二叉树的区别"><a href="#B-树和二叉树的区别" class="headerlink" title="B+树和二叉树的区别"></a>B+树和二叉树的区别</h2><h2 id="红黑树和跳表"><a href="#红黑树和跳表" class="headerlink" title="红黑树和跳表"></a>红黑树和跳表</h2><h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="一个接口太多事务操作是否要使用批量事务"><a href="#一个接口太多事务操作是否要使用批量事务" class="headerlink" title="一个接口太多事务操作是否要使用批量事务"></a>一个接口太多事务操作是否要使用批量事务</h2><h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="OLAP和OLTP"><a href="#OLAP和OLTP" class="headerlink" title="OLAP和OLTP"></a>OLAP和OLTP</h2><h2 id="冗余字段"><a href="#冗余字段" class="headerlink" title="冗余字段"></a>冗余字段</h2><p>微服务架构加上前后端分离的情况下。后端接口很多时候会出现太多联表查询的情况。其实可以数据库存储空间大小允许的情况下，留出一些关键字段的冗余字段来代替联表查询。甚至可以将一些数据拆分出来查询封装成比较合适的数据JSON结构，然后可以将需要连表查询的逻辑放到前端去计算拼接，这样一来可以减少服务器和数据库的压力，同时前端做这部分的计算能力其实也是绰绰有余了，毕竟目前相对来说这是一个用户端性能过剩的时代。</p>
+<p>尽可能多的冗余字段也可以为一定业务场景带来便捷的查询，没必要一味得遵循数据库三方式。</p>
 <h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><h2 id="redis如何清理过期key"><a href="#redis如何清理过期key" class="headerlink" title="redis如何清理过期key"></a>redis如何清理过期key</h2><h2 id="redis内存不足时的策略"><a href="#redis内存不足时的策略" class="headerlink" title="redis内存不足时的策略"></a>redis内存不足时的策略</h2>
       
     </div>
@@ -514,7 +515,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">113</span>
+              <span class="site-state-item-count">114</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -522,7 +523,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">70</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -531,7 +532,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">81</span>
+                <span class="site-state-item-count">80</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
