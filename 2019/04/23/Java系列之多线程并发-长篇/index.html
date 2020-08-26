@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="http://note.youdao.com/noteshare?id=5a758a5214a793176ed9c543a2011217 Basic Knowledgehttps://www.baeldung.com/tag/java-concurrency/https://www.baeldung.com/java-concurrent-locks Semaphores in Java APIh">
+<meta name="description" content="http://note.youdao.com/noteshare?id=5a758a5214a793176ed9c543a2011217 Basic Knowledgehttps://www.baeldung.com/tag/java-concurrency/https://www.baeldung.com/java-concurrent-locks Overview of the java.ut">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java系列之多线程并发-长篇">
 <meta property="og:url" content="http://yoursite.com/2019/04/23/Java系列之多线程并发-长篇/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="http://note.youdao.com/noteshare?id=5a758a5214a793176ed9c543a2011217 Basic Knowledgehttps://www.baeldung.com/tag/java-concurrency/https://www.baeldung.com/java-concurrent-locks Semaphores in Java APIh">
+<meta property="og:description" content="http://note.youdao.com/noteshare?id=5a758a5214a793176ed9c543a2011217 Basic Knowledgehttps://www.baeldung.com/tag/java-concurrency/https://www.baeldung.com/java-concurrent-locks Overview of the java.ut">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-12T15:21:18.264Z">
+<meta property="og:updated_time" content="2020-08-19T13:37:48.185Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java系列之多线程并发-长篇">
-<meta name="twitter:description" content="http://note.youdao.com/noteshare?id=5a758a5214a793176ed9c543a2011217 Basic Knowledgehttps://www.baeldung.com/tag/java-concurrency/https://www.baeldung.com/java-concurrent-locks Semaphores in Java APIh">
+<meta name="twitter:description" content="http://note.youdao.com/noteshare?id=5a758a5214a793176ed9c543a2011217 Basic Knowledgehttps://www.baeldung.com/tag/java-concurrency/https://www.baeldung.com/java-concurrent-locks Overview of the java.ut">
 
 
 
@@ -401,6 +401,21 @@
       
         <p><a href="http://note.youdao.com/noteshare?id=5a758a5214a793176ed9c543a2011217" target="_blank" rel="noopener">http://note.youdao.com/noteshare?id=5a758a5214a793176ed9c543a2011217</a></p>
 <h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><p><a href="https://www.baeldung.com/tag/java-concurrency/" target="_blank" rel="noopener">https://www.baeldung.com/tag/java-concurrency/</a><br><a href="https://www.baeldung.com/java-concurrent-locks" target="_blank" rel="noopener">https://www.baeldung.com/java-concurrent-locks</a></p>
+<h2 id="Overview-of-the-java-util-concurrent"><a href="#Overview-of-the-java-util-concurrent" class="headerlink" title="Overview of the java.util.concurrent"></a>Overview of the java.util.concurrent</h2><p><a href="https://www.baeldung.com/java-util-concurrent" target="_blank" rel="noopener">https://www.baeldung.com/java-util-concurrent</a></p>
+<ul>
+<li>Executor</li>
+<li>ExecutorService</li>
+<li>ScheduledExecutorService</li>
+<li>Future</li>
+<li>CountDownLatch</li>
+<li>CyclicBarrier</li>
+<li>Semaphore</li>
+<li>ThreadFactory</li>
+<li>BlockingQueue</li>
+<li>DelayQueue</li>
+<li>Locks</li>
+<li>Phaser</li>
+</ul>
 <h2 id="Semaphores-in-Java-API"><a href="#Semaphores-in-Java-API" class="headerlink" title="Semaphores in Java API"></a>Semaphores in Java API</h2><p><a href="https://www.baeldung.com/java-semaphore" target="_blank" rel="noopener">https://www.baeldung.com/java-semaphore</a></p>
 <h2 id="多线程知识的要点"><a href="#多线程知识的要点" class="headerlink" title="多线程知识的要点"></a>多线程知识的要点</h2><p><a href="https://zhuanlan.zhihu.com/p/29881777" target="_blank" rel="noopener">参考自知乎这篇文章</a></p>
 <h3 id="硬件内存架构"><a href="#硬件内存架构" class="headerlink" title="硬件内存架构"></a>硬件内存架构</h3><ul>
@@ -605,7 +620,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Knowledge"><span class="nav-number">1.</span> <span class="nav-text">Basic Knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Semaphores-in-Java-API"><span class="nav-number">1.1.</span> <span class="nav-text">Semaphores in Java API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多线程知识的要点"><span class="nav-number">1.2.</span> <span class="nav-text">多线程知识的要点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#硬件内存架构"><span class="nav-number">1.2.1.</span> <span class="nav-text">硬件内存架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java内存模型（JMM）"><span class="nav-number">1.2.2.</span> <span class="nav-text">Java内存模型（JMM）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ThreadPoolExecutor-四种处理策略"><span class="nav-number">1.3.</span> <span class="nav-text">ThreadPoolExecutor 四种处理策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁对象的声明"><span class="nav-number">1.4.</span> <span class="nav-text">锁对象的声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#乐观锁-vs-悲观锁（PCC）"><span class="nav-number">1.5.</span> <span class="nav-text">乐观锁 vs 悲观锁（PCC）</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Knowledge"><span class="nav-number">1.</span> <span class="nav-text">Basic Knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview-of-the-java-util-concurrent"><span class="nav-number">1.1.</span> <span class="nav-text">Overview of the java.util.concurrent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Semaphores-in-Java-API"><span class="nav-number">1.2.</span> <span class="nav-text">Semaphores in Java API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多线程知识的要点"><span class="nav-number">1.3.</span> <span class="nav-text">多线程知识的要点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#硬件内存架构"><span class="nav-number">1.3.1.</span> <span class="nav-text">硬件内存架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java内存模型（JMM）"><span class="nav-number">1.3.2.</span> <span class="nav-text">Java内存模型（JMM）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ThreadPoolExecutor-四种处理策略"><span class="nav-number">1.4.</span> <span class="nav-text">ThreadPoolExecutor 四种处理策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁对象的声明"><span class="nav-number">1.5.</span> <span class="nav-text">锁对象的声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#乐观锁-vs-悲观锁（PCC）"><span class="nav-number">1.6.</span> <span class="nav-text">乐观锁 vs 悲观锁（PCC）</span></a></li></ol></li></ol></div>
             
 
           </div>
