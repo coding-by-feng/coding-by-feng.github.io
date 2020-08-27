@@ -1,1004 +1,774 @@
-<!doctype html>
-
-
-
-  
-
-
-<html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.8.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Hexo, NexT">
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
-
-
-
-
-
-
-<meta name="description" content="Don&apos;t dream when the sun is setting, try to work hard when the sun is rising.">
+  <meta name="description" content="A Quiet Departure.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Feng&#39;s Blog">
 <meta property="og:url" content="http://yoursite.com/page/5/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="Don&apos;t dream when the sun is setting, try to work hard when the sun is rising.">
+<meta property="og:description" content="A Quiet Departure.">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Feng&#39;s Blog">
-<meta name="twitter:description" content="Don&apos;t dream when the sun is setting, try to work hard when the sun is rising.">
+<meta name="twitter:description" content="A Quiet Departure.">
+
+<link rel="canonical" href="http://yoursite.com/page/5/">
 
 
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"hide"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '10000',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-Hans'
   };
 </script>
 
-
-
-  <link rel="canonical" href="http://yoursite.com/page/5/">
-
-
+  <title>Feng's Blog</title>
+  
 
 
 
-  <title> Feng's Blog </title>
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-
-
-
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?1bc877799c79c2fb2806df9b1c09c678";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
 
-  <div class="custom-logo-site-title">
+  <div class="site-meta">
+
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Feng's Blog</span>
+      <h1 class="site-title">Feng's Blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle"></p>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
 </div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+
+
 
 <nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            分类
-          </a>
-        </li>
-      
-        
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
         <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            归档
-          </a>
-        </li>
-      
-        
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
-          </a>
-        </li>
-      
 
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
-            
-            搜索
-          </a>
-        </li>
-      
-    </ul>
-  
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
 
-  
-    <div class="site-search">
-      
-  
-  <div class="algolia-popup popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
+  </li>
+        <li class="menu-item menu-item-categories">
 
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
 
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-  </div>
+  </li>
+        <li class="menu-item menu-item-archives">
 
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
-
-
-    </div>
-  
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
 </nav>
 
 
 
- </div>
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
     </header>
 
-    <main id="main" class="main">
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content">
+          
+
+          <div class="content index posts-expand">
             
-  <section id="posts" class="posts-expand">
-    
       
-
-  
-
   
   
-  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/11/English之时态系列-完成时态-过去完成时/">
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/30/English之限定词系列-数量限定词与个体限定词/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="James Feng">
-    <meta itemprop="description" content>
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Feng's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Feng's Blog" src>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
     </span>
-  </span>
 
-    
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/05/30/English之限定词系列-数量限定词与个体限定词/" itemprop="url">
-                  English之限定词系列（数量限定词与个体限定词）
-                </a>
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/11/English之时态系列-完成时态-过去完成时/" class="post-title-link" itemprop="url">English之时态系列-完成时态（过去完成时）</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-30T21:05:35+08:00">
-                2020-05-30
-              </time>
-            
+              <span class="post-meta-item-text">Posted on</span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/English/" itemprop="url" rel="index">
-                    <span itemprop="name">English</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2020-07-11 10:18:55" itemprop="dateCreated datePublished" datetime="2020-07-11T10:18:55+08:00">2020-07-11</time>
             </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-          
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2020/05/30/English之限定词系列-数量限定词与个体限定词/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/28/Elasticsearch汇总/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="James Feng">
-    <meta itemprop="description" content>
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Feng's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Feng's Blog" src>
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/05/28/Elasticsearch汇总/" itemprop="url">
-                  Elasticsearch汇总
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-28T15:36:09+08:00">
-                2020-05-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Basic Knowledgespring-data-elasticsearch官方文档
-查询类型termterm：代表完全匹配，即不进行分词器分析，文档中必须包含整个搜索的词汇
-术语1PB是数据存储容量的单位，它等于2的50次方个字节，或者在数值上大约等于1000个TB。
-Problem Solu
-          ...
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2020/05/28/Elasticsearch汇总/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/14/linux系列之问题汇总/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="James Feng">
-    <meta itemprop="description" content>
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Feng's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Feng's Blog" src>
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/05/14/linux系列之问题汇总/" itemprop="url">
-                  linux系列之问题汇总
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-14T18:11:33+08:00">
-                2020-05-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
-                  </a>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
                 </span>
-
-                
-                
-              
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-05 18:41:25" itemprop="dateModified" datetime="2020-08-05T18:41:25+08:00">2020-08-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
+                </span>
             </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
 
           
 
         </div>
       </header>
+
     
-
-
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <p>过去完成时就是站在“过去时间”的角度回顾更远的另一个过去，表示一个事件从这个更远的过去持续到离现在较近的过去。</p>
+<h2 id="在“过去”回顾“更远的过去”"><a href="#在“过去”回顾“更远的过去”" class="headerlink" title="在“过去”回顾“更远的过去”"></a>在“过去”回顾“更远的过去”</h2><p>现在完成时态的参照时间“现在”往往潜含在语境中，并不需要明确地表达出来。但是，<strong><em>对于过去完成时态，其参照时间“过去”则一般是要明确地在上下文中给出</em></strong>。<br>说得更具体点，就是必须先有一个过去时，然后以这个过去时作为参照的时间点，来谈论更远的过去，此时这个更远的过去才能用过去完成时态。因此，<strong><em>过去完成时态可以说是一个不能独立使用的时态</em></strong>，它必须依附于一个在上下文中出现的一般过去时。</p>
+<p>At the hotel she asked immediately for Dr. Barrett, of St. Louis. He had left for home that morning and would not be back, she was told.<br>这里的had left是发生在过去的动作asked之前的，所以用了过去完成时。<br>另外值得注意的是，这里还有一个具体的过去时间that morning。对于这样一个具体的过去时间，句子若采用一般过去时态是没有问题的， 而这里用了过去完成时态。由此可见，过去完成时态可以与具体的过去时间状语连用。这不同于现在完成时态，因为<strong><em>现在完成时态是绝对不可以与具体的过去时间连用的</em></strong>。<br>一到酒店，她就立即打听从圣路易斯市来的巴雷特医生的消息。但被告知他在那天一早就动身回家了，将不会再回来了。</p>
+<p>另外，<strong><em>by the time常常可以与过去完成时搭配使用，具体结构是：“过去完成时+by the time+一般过去时”</em></strong>。<br>A: It was my grandmother’s birthday yesterday.<br>B: Is she old?<br>A: Well, by the time we lit up the last candle on her birthday cake, the first one had gone out!<br>因为<strong><em>by the time本身的意思是“在……之前”</em></strong>，所以过去的动作lit之前发生了had gone out的动作，故用过去完成时态。</p>
+<h2 id="延续事件、重复事件和单一事件的过去完成时"><a href="#延续事件、重复事件和单一事件的过去完成时" class="headerlink" title="延续事件、重复事件和单一事件的过去完成时"></a>延续事件、重复事件和单一事件的过去完成时</h2><p>过去完成时里同样涉及两个时间点：一个事件从更远的过去开始发生，然后“延续”到另一个较近的过去，或者“重复”到另一个较近的过去，或者在过去的某一时刻已经结束，这就分别构成了延续事件、重复事件和单一事件，类似于现在完成时，区别只是“坐标时间”由“现在”移至“过去”。</p>
+<ul>
+<li>在该过去时刻仍然在继续，或在该过去时刻刚刚停止（延续事件）；</li>
+<li>在该过去时刻之前的一段时间内重复的动作（重复事件）；</li>
+<li>在该过去时刻之前的某一时刻停止的动作（单一事件）。</li>
+</ul>
+<h3 id="过去完成时表示“延续事件”"><a href="#过去完成时表示“延续事件”" class="headerlink" title="过去完成时表示“延续事件”"></a>过去完成时表示“延续事件”</h3><p>如同现在完成时，过去完成时可以表示开始于过去之前（即过去的过去）的动作或状态在过去这一时刻仍在持续。具体来说，就是表示一个动作或状态在过去的某一时间之前已经开始，这一动作或状态一直持续到这一过去时间，并且到这一过去时间还未结束并仍有可能继续持续下去。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/9EeA6s.png" alt></p>
+<p>I had stayed in America for two years when he moved here.<br>moved是过去的动作，stayed发生在moved之前，即过去的过去，并且在moved之后还将会继续下去，因此用过去完成时had stayed。</p>
+<p>I had learned 1,000 words by the end of last year.<br>learned在过去的时间the end of last year之前已开始发生，到“去年年底”之后还将可能持续下去，因此用过去完成时had learned。<br>到去年末，我已经学会了1,000个单词。</p>
+<p>A: It’s already 10 o’clock. I guess Bob and Amy won’t be coming to the party.<br>B: They called at nine to say that they’d been held up.<br>现在的时间是10点，在9点钟这一过去的时间打电话时，Bob和Amy已经“有事被耽误了”，所以“被耽误”应该用过去完成时 had been held up。<br>A：现在已经10点了。我猜想鲍勃和埃米不会来参加聚会了。<br>B：他们9点钟来过电话说他们有事被耽误了，不来了。</p>
+<h3 id="过去完成时表示“重复事件”"><a href="#过去完成时表示“重复事件”" class="headerlink" title="过去完成时表示“重复事件”"></a>过去完成时表示“重复事件”</h3><p>如同现在完成时，过去完成时可以表示在过去之前开始的动作，在过去之前的一段时间内重复发生。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/j6mic0.png" alt><br>I had proposed to her five times, but she still refused to marry me. 我已经向她求婚五次了，但还是被拒绝。<br>I had written her 100 letters when she finally promised to marry me. 我给她写了100封信，她最后终于答应嫁给我了。</p>
+<h3 id="过去完成时表示“单一事件”"><a href="#过去完成时表示“单一事件”" class="headerlink" title="过去完成时表示“单一事件”"></a>过去完成时表示“单一事件”</h3><p>如同现在完成时，过去完成时可以表示开始于过去之前的动作到过去这一时刻之前即已停止。具体来说，就是表示一个动作或状态在过去的某一时间之前已经开始，并在这一过去的时间之前即告结束，而没有持续到这一过去的时刻。这时过去完成时的动作通常是短暂动作。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/535prN.png" alt></p>
+<p>She had made everything ready before I came.<br>在我来之前，她已经把一切都准备好了。</p>
+<p>I had just sat down in the recliner to watch TV when I heard a knock on the door. When I opened the front door I saw a young man standing there staring at me.<br>在过去的动作“听(heard)”之前“坐(sit)”的动作已经完成，故用过去完成时had sat。</p>
+<h2 id="过去完成时的其他意义和用法"><a href="#过去完成时的其他意义和用法" class="headerlink" title="过去完成时的其他意义和用法"></a>过去完成时的其他意义和用法</h2><h3 id="表示“非真实”的过去"><a href="#表示“非真实”的过去" class="headerlink" title="表示“非真实”的过去"></a>表示“非真实”的过去</h3><p>主要是指intend，mean，hope，want，plan，suppose，expect， think，propose和wish等动词用于过去完成时，可表示过去未能实现的计划、设想、意图或希望等。</p>
+<p>I had intended to watch just one program, but somehow I couldn’t make myself switch off the TV.<br>我本来打算只看一个电视节目，可不知怎的，电视打开之后我就不想关。</p>
+<p>She had hoped that he would come to date her, but he didn’t show up.<br>她本来希望他能来约会她，但是他没露面。</p>
+<h2 id="过去完成时与一般过去时的比较"><a href="#过去完成时与一般过去时的比较" class="headerlink" title="过去完成时与一般过去时的比较"></a>过去完成时与一般过去时的比较</h2><blockquote>
+<p>两个或两个以上相继发生的动作，用and或but按动作发生的先后顺序连接，此时要用一般过去时，而不用过去完成时。过去完成时则强调主语在过去的某一时刻“回顾”更早的动作。具体来说，如果在谈论过去某一事件时，又想到在这之前已发生的某事，就要用过去完成时态。</p>
+</blockquote>
+<p>He opened the door and entered, but found nobody.<br>他打开门进去了，但一个人都没看见。</p>
+<p>I heard voices and realized that there were several people in the next room.<br>我听见说话的声音，知道隔壁房间里有好几个人。</p>
+<p>I realized that we had met before. 我意识到我们以前见过面。<br>这里不说“I realized that we met before.*”。</p>
+<blockquote>
+<p>在表示两个相继发生的动作时，用过去完成时可以表示一个动作完成以后，另一个动作才开始发生，从而使得两个动作相互独立，彼此脱离开来。用一般过去时，则可能表示一个动作“导致”另一个动作的发生，或两个动作之间有因果关系。</p>
+</blockquote>
+<p>When I had opened all the windows, I sat down and had a cup of tea. 我把所有的窗子都打开后，就坐下来喝了杯茶。<br>不宜说“When I opened all the windows, I sat down and had a cup of tea.*”。<br>When I opened the window the cat jumped in. （比说When I had opened…更自然。） 我刚把窗子一打开，就有只猫跳了进来。<br>When I wrote him a letter, he came at once. 我给他去了封信后，他立即就来了。<br>When the singer had sung her song, she sat down. 这名歌手唱完歌以后，就坐下了。<br>上面这句话若说成“When the singer sang her song, she sat down.”，则可能给人造成这种印象：这位歌手喜欢坐着唱歌。</p>
 
-      
-        
-          
-          apt-get国内太慢ubuntu和debian的镜像源都要换12sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.listsed -i &apos;s/deb.debian.org/mirrors.ustc.
-          ...
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2020/05/14/linux系列之问题汇总/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
+    
+    
+    
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/07/English之时态系列-进行时态-现在进行时/">
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/13/kiwi-microservice项目架构技术记录/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="James Feng">
-    <meta itemprop="description" content>
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Feng's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Feng's Blog" src>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
     </span>
-  </span>
 
-    
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/05/13/kiwi-microservice项目架构技术记录/" itemprop="url">
-                  kiwi-microservice项目架构技术记录
-                </a>
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/07/English之时态系列-进行时态-现在进行时/" class="post-title-link" itemprop="url">English之时态系列-进行时态（现在进行时）</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-13T22:52:48+08:00">
-                2020-05-13
-              </time>
-            
+              <span class="post-meta-item-text">Posted on</span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/kiwi/" itemprop="url" rel="index">
-                    <span itemprop="name">kiwi</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2020-06-07 07:25:49" itemprop="dateCreated datePublished" datetime="2020-06-07T07:25:49+08:00">2020-06-07</time>
             </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-05 18:37:24" itemprop="dateModified" datetime="2020-08-05T18:37:24+08:00">2020-08-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
+                </span>
+            </span>
 
           
 
         </div>
       </header>
+
     
-
-
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <h1 id="现在进行时"><a href="#现在进行时" class="headerlink" title="现在进行时"></a>现在进行时</h1><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><h3 id="进行时态的构成"><a href="#进行时态的构成" class="headerlink" title="进行时态的构成"></a>进行时态的构成</h3><p>进行时态（continuous tense）的构成是be+doing。注意这里的be动词不是系动词，而是助动词，因而没有“是”的意思。我们可以通过对助动词be的变形来反映人称和时间的变化。<br>就时间的角度而言，有三种不同时间下的进行时态，即现在进行时 （the present continuous tense）、过去进行时（the past continuous tense）和将来进行时（the future continuous tense）。它们的构成分别是：am/is/are doing, was/were doing和will be doing。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/xdr6Ji.png" alt><br>将来进行时will be doing没有人称和数的变化。这里的助动词be的具体变形，既反映了时间（如动作是发生在现在、过去还是将来），同时也反映了主语人称和数的变化，但表示进行动作的doing始终不变</p>
+<h3 id="进行时态的意义"><a href="#进行时态的意义" class="headerlink" title="进行时态的意义"></a>进行时态的意义</h3><p>汉语通常采用语气助词“着”或词组“正在”等来表达。比如“他吃着饭”与“他吃了饭”，我们很容易理解前者是表示正在进行，而后者是表示完成的动作。我们还可以进一步添加具体的时间，如“他正在吃着饭”表示现在进行的动作， 而“他当时在吃着饭”表示过去进行的动作。这很像英文里的进行时态的构成和意义，比如“正在”相当于英文里表示现在时间的is，“着”相当于doing，然后结合具体动词“吃（have）”，于是便有了“He is having dinner.”这样的句子。同理，“当时在”相当于英文里表示过去时间的was，于是便有了“He was having dinner.”。<br>具体来说，进行时是强调在某个特定的（现在、过去或将来）时间点，某项活动正在发生。<br>I am watching CCTV news right now. 我现在正在看中央电视台的新闻。<br>I was watching CCTV news when he arrived yesterday. 他昨天到的时候，我正在看中央电视台的新闻。<br>I will be watching CCTV news at 7:15 pm tomorrow. 明天晚上7点15分，我将会正在看中央电视台的新闻。</p>
+<h4 id="直接给出具体的时间"><a href="#直接给出具体的时间" class="headerlink" title="直接给出具体的时间"></a>直接给出具体的时间</h4><p>I am listening to the English program right now. 我现在正在收听英文节目。</p>
+<h4 id="通过另一活动表达这一特定时刻"><a href="#通过另一活动表达这一特定时刻" class="headerlink" title="通过另一活动表达这一特定时刻"></a>通过另一活动表达这一特定时刻</h4><p>I will be studying English when you come tomorrow. 你明天来的时候，我将正在学习英语。<br>英文的进行时态be doing表达的意义远不止于“正在发生的活动”这一个意思，要比汉语的“着”所表达的意义多很多。</p>
+<h3 id="进行时态的使用语境"><a href="#进行时态的使用语境" class="headerlink" title="进行时态的使用语境"></a>进行时态的使用语境</h3><p>进行时态因为往往强调在说话的时刻某活动正在发生，所以常用进行时态表达生动、具体的场景。而进行时态因为其表现生动，所以在口语中出现的频率远远高于书面语。</p>
+<h2 id="现在进行时（不一定正在进行）"><a href="#现在进行时（不一定正在进行）" class="headerlink" title="现在进行时（不一定正在进行）"></a>现在进行时（不一定正在进行）</h2><h3 id="用法一：说话时刻正在进行的动作（action-happening-exactly-now）"><a href="#用法一：说话时刻正在进行的动作（action-happening-exactly-now）" class="headerlink" title="用法一：说话时刻正在进行的动作（action happening exactly now）"></a>用法一：说话时刻正在进行的动作（action happening exactly now）</h3><p>A: May I speak to Clint?<br>B: No, sorry. He is not available now. He is talking on another phone.</p>
+<h3 id="用法二：在目前一段时期内持续的一种暂时的情况（action-happening-around-now）"><a href="#用法二：在目前一段时期内持续的一种暂时的情况（action-happening-around-now）" class="headerlink" title="用法二：在目前一段时期内持续的一种暂时的情况（action happening around now）"></a>用法二：在目前一段时期内持续的一种暂时的情况（action happening around now）</h3><p>除了上述表示的action happening exactly now外，现在进行时还常常用来表示action happening around now，也就是说表示现阶段正在持续的活动。这时进行时态表示的是一个一般性的活动，在说话时刻这个动作并不一定正在发生（通常都不在发生），而是在目前一段时期内持续的一种暂时的情况。<br>Jenny: Hello?<br>Frank: Hi, Jenny. What are you doing?<br>Jenny: Oh, hi, Frank. I’m doing my laundry. You?<br>Frank: I’m going to go look for an apartment downtown.<br>Jenny: Really? You aren’t content in the suburbs?<br>Frank: Well, this neighborhood is really booming. It’s not really a suburb any more.<br>Jenny: Yeah, it is getting crowded. Where are you looking for an apartment?<br>Frank: Probably near the train station. I’d like to use public transportation to get around.<br>Jenny: Hmm. I think you’ll be hard pressed to find an affordable place there.<br>Frank: Really? Is the area expensive?<br>Jenny: Yes. And I know while you’re not living in poverty, a college student still can’t afford an apartment by the train station.<br>Frank: Well, OK, thanks for the advice!<br>Jenny: You’re welcome.<br>上面关于“租房”的对话中：<br>Jenny: Yes. And I know while you’re not living in poverty, a college student still can’t afford an apartment by the train station.<br>这里的进行动作are not living并不是强调在说话的时刻正在做什么，而是表示目前短暂的生活情况。<br>朋友知道你正在找工作，关心地问你是否已经找到了：<br>A: Have you found a position yet?<br>B: I’m still checking the papers.<br>比如你为了赶时髦而留长发：<br>Long hair is really in right now. So I’m letting my hair grow.<br>Florence is putting away half her pay each month. Soon, she’ll be able to buy a new car.<br>这里的putting away显然是表示一个现阶段在持续的一般活动。<br>弗洛伦斯现在每月把一半的薪水存起来。我想不久她就能买辆新车了。</p>
+<p>因为进行时态的这种用法表示目前的一种短暂的情况，所以它有时含有一种“今昔对比”之意。<br>I am taking the bus to work this week, because my car is in the garage.<br>这里的am taking the bus to work表示“坐公共汽车上班”是暂时的，只是在这个星期内的短暂活动，并且与过去“开车上班”形成了一个今昔对比。</p>
+<h3 id="用法三：用于表示“改变”的动词，强调“逐渐变化”的过程"><a href="#用法三：用于表示“改变”的动词，强调“逐渐变化”的过程" class="headerlink" title="用法三：用于表示“改变”的动词，强调“逐渐变化”的过程"></a>用法三：用于表示“改变”的动词，强调“逐渐变化”的过程</h3><p>这种表示action happening around now的进行时态的用法，若是用于表示“改变”的动词，则强调“逐渐变化”的过程。常见的表示“改变”的动词有：change, come, get, become, grow和deteriorate（恶化）等。<br>在上面租房的例子中：<br>Frank: Well, this neighborhood is really booming. It’s not really a suburb any more.<br>Jenny: Yeah, it is getting crowded.<br>这里的booming和getting用于进行时态显然都是表示“逐渐改变”的意思，所以分别译成“越来越繁荣”和“越来越拥挤”。</p>
+<p>It’s getting dark. 天渐渐黑了下来。<br>Mom is getting old. 妈妈越来越老了。<br>His health is deteriorating. 他的健康状况日益恶化。<br>My dream is coming true. 我的梦想正一点点地成为现实。</p>
+<h3 id="用法四：用于强烈的感情色彩的表达"><a href="#用法四：用于强烈的感情色彩的表达" class="headerlink" title="用法四：用于强烈的感情色彩的表达"></a>用法四：用于强烈的感情色彩的表达</h3><p>Harry: Fine. Fine, but let’s just get one thing straight. I did not go over there that night to make love to you, that is not why I went there. But you looked up at me with these big weepy eyes, “Don’t go home tonight, Harry, hold me a little longer, Harry.” What was I supposed to do?<br>Sally: What are you saying? You took pity on me?<br>Harry: No, I was… （Sally slaps Harry whole-heartedly, then storms out of the kitchen.）<br>这里的进行时态are…saying也并不是强调正在进行的动作，而是为了表达萨莉强烈的愤怒的感情——萨莉觉得自己被侮辱了，以至于第一次把哈里扇去了“五指山”！</p>
+<p>Marie: He was shaving and there it was in his briefcase.<br>Sally: What if he came out and saw you looking through his briefcase?<br>Marie: You’re missing the point, I’m telling you what I found. He just spent a hundred and twenty dollars on a new night gown for his wife. I don’t think he’s ever going to leave her.<br>Sally: No one thinks he’s ever going to leave her.<br>Marie: You’re right, you’re right, I know you’re right.<br>这里的进行时态are missing和am telling同样不是为了说明 正在发生的动作，而是为了表达感情色彩。因为前面萨莉说：“他当时要是出来了看到你在翻他的公文包可怎么办啊？”这显然不是玛丽所关心的，所以她用进行时态强调说“You’re missing the point, I’m telling you what I found.”。<br>我们生气时可以这么说：<br>I’m not having this conversation with you.<br>这句话相当于说“I don’t want to talk to you about this.”。<br>我不跟你说了。</p>
+<p>You are asking too much! 你的要求太过分了！</p>
+<h3 id="用法五：表示将来确定的安排"><a href="#用法五：表示将来确定的安排" class="headerlink" title="用法五：表示将来确定的安排"></a>用法五：表示将来确定的安排</h3><p>现在进行时在口语中还经常用来表示将来的动作（action in the future），此时现在进行时是表示在说话之前就确定的、计划好的将来的安排。<br>在我们用现在进行时态来谈将来确定的安排的时候，如果没有明确的上下文语境来表明将来时间的话，我们往往需要加上明确的表示将来时间的状语，如tomorrow, next year, in June和at Christmas等，以避免与正在进行的动作混淆。<br>We’re eating in a restaurant.<br>这句话往往会被理解成正在发生的动作——“我们现在正在餐馆吃饭”。如果我们给出将来的时间状语，比如tonight，说成“We’re eating in a restaurant tonight. We’ve already booked the table.”（我们今晚要在餐馆吃饭，我们已经订了位置。）<br>A: What are you doing on Saturday night?<br>B: I’m doing some shopping with Jane.</p>
+<h4 id="be-going-to表示将来打算的用法。be-doing和be-going-to-do都可以表示将来的计划，它们有何区别呢？"><a href="#be-going-to表示将来打算的用法。be-doing和be-going-to-do都可以表示将来的计划，它们有何区别呢？" class="headerlink" title="be going to表示将来打算的用法。be doing和be going to do都可以表示将来的计划，它们有何区别呢？"></a>be going to表示将来打算的用法。be doing和be going to do都可以表示将来的计划，它们有何区别呢？</h4><p>主要的区别是：<br>现在进行时强调事先已经做好的安排，是比较确定要发生的；而be going to着重表现说话者的计划和意图，并不是确定的安排。<br>Frank and Jenny are getting married? I didn’t even know they were going together.<br>弗兰克和珍妮要结婚了？我连他们俩在谈恋爱都不知道。 这里的进行时态are getting married表明结婚日期已确定。如果说： Frank and Jenny are going to get married. 则表示他们两人打算结婚，并没有确定将来具体的日期。</p>
+<p>1） I’m staying at Beijing. 2） I’m going to stay at Beijing.<br>1） 我会待在北京。 2） 我打算待在北京。</p>
+<p>再者，对于静态的动词和无生命的主语，不可能使用现在进行时来表示将来。但可以用于be going to，这时表示预测。如不能把belong to 用于进行时态，说成：<br>The red car is belonging to me tomorrow. *<br>但belong to可以用于be going to结构，说成：<br>The red car is going to belong to me tomorrow.<br>这里是表示预测。 明天这辆红色的汽车就将属于我了。</p>
+<p>不能说：The tree is falling tomorrow. * 但可以用be going to表示将来的预测，说成：<br>The tree is going to fall tomorrow. 这棵树明天就会倒下了。</p>
+<p>当然，若是没有计划或安排可以保证相应的结果会出现，也不能使用现在进行时：<br>We are winning the tennis match next weekend. *<br>因为能否赢得比赛事先无法确定。但我们可以用be going to来表示预测，因而可以说成：<br>We are going to win the tennis match next weekend.<br>这里的be going to表示推测，该句的意思是：我们下周会赢得那场网球比赛的。 这句话还可以解释成：be going to表达“决心”，因此可以理解成： 我们下周一定要赢得那场网球比赛。</p>
+<h3 id="用法六：与always等连用，表示多次重复，且含有感情色彩"><a href="#用法六：与always等连用，表示多次重复，且含有感情色彩" class="headerlink" title="用法六：与always等连用，表示多次重复，且含有感情色彩"></a>用法六：与always等连用，表示多次重复，且含有感情色彩</h3><p>现在进行时的感情色彩的表达，还有另外一种用法，就是常与 always, forever, continually和constantly等连用，表示多次重复的行为。 这种反复的行为可以是积极的、让人喜欢的事情。<br>Scott is very generous. He’s always giving his friends gifts and inviting them out for meals. 斯科特为人十分慷慨大方，他总是会送朋友礼物，并请他们吃饭。<br>但也往往表示让说话者厌烦、感觉不合情理或使人不愉快的事，即通常具有负面的、消极的含义。<br>He’s always pulling my leg. 他总是开我的玩笑。<br>He’s continually asking me for money. 他总是向我要钱。</p>
 
-      
-        
-          
-          运行启动Maven
-项目的maven打包要先去掉根目录（父模块）的pom.xml的modules标签，然后先install根模块(kiwi-microservice)
-然后再单独install kiwi-cloud-service模块
-最后如果想要一次性用maven命令操作其他所有模块再把modul
-          ...
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2020/05/13/kiwi-microservice项目架构技术记录/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
+    
+    
+    
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/07/English之时态系列-进行时态-过去进行时/">
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/04/网上各种讲师技术笔记整合收集/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="James Feng">
-    <meta itemprop="description" content>
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Feng's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Feng's Blog" src>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
     </span>
-  </span>
 
-    
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/05/04/网上各种讲师技术笔记整合收集/" itemprop="url">
-                  网上各种讲师技术笔记整合收集
-                </a>
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/07/English之时态系列-进行时态-过去进行时/" class="post-title-link" itemprop="url">English之时态系列-进行时态（过去进行时）</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-04T15:52:10+08:00">
-                2020-05-04
-              </time>
-            
+              <span class="post-meta-item-text">Posted on</span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2020-06-07 16:45:20" itemprop="dateCreated datePublished" datetime="2020-06-07T16:45:20+08:00">2020-06-07</time>
             </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-05 18:37:24" itemprop="dateModified" datetime="2020-08-05T18:37:24+08:00">2020-08-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
+                </span>
+            </span>
 
           
 
         </div>
       </header>
+
     
-
-
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <h1 id="过去进行时"><a href="#过去进行时" class="headerlink" title="过去进行时"></a>过去进行时</h1><h2 id="常见用法：用来设置故事的背景"><a href="#常见用法：用来设置故事的背景" class="headerlink" title="常见用法：用来设置故事的背景"></a>常见用法：用来设置故事的背景</h2><p><strong><em>在讲故事时，我们往往会用到过去进行时态（the past continuous tense） was/were doing来设置故事发生的过去背景（We often use the past continuous tense to “set the scene” in stories.）这是因为进行时态往往表示一个持续的活动场景，所以用它来铺垫故事的背景，往往会给读者一种身临其境的感觉。</em></strong></p>
+<p>It was getting darker. The rain was beating on the windows. The wind was rising. A wood fire was burning on the hearth, and a cat was sleeping in front of it. A girl was playing the piano and was singing softly to herself. Suddenly, there was a knock on the door…<br>上文中就是用了一系列过去进行时（was getting, was beating, was rising, was burning, was sleeping, was playing和 was singing）来进行故事背景的铺垫——屋外是风雨交加的恶劣天气， 而屋内是温馨、舒适和祥和的气氛，这两者形成了鲜明的对比. 然后“传来了敲门声”——这一切都烘托出了一种略带恐怖的氛围。</p>
+<p>James Bond was driving through town. It was raining. The wind was blowing hard. Nobody was walking in the streets. Suddenly, Bond saw the killer in a telephone box…<br>上面这种通过描写一系列过去进行的动作来渲染故事背景的过去进行时用法，多见于文学作品中。在日常生活的叙事中，我们更多的是把“过去进行时”和“一般过去时”配合使用（past continuous tense+simple past tense）。此时，过去进行时通常表示一个历时较长的体现“背景”的动作或状态；而一般过去时则表示在此“背景”下发生的一个短暂的动作或状态。简言之，长动作用过去进行时，短动作用一般过去时，以此表示在过去进行时的动作的持续期间，发生了另一个短暂动作。这两个动作之间用when或while连接。</p>
+<p>比如我们这样告诉别人自己曾经的“恐怖”经历：<br>I was walking along the street late last night when suddenly I heard footsteps behind me. Somebody was following me. I was frightened and I started to run.<br>这句中的walk表示“一直在走”，显然是长动作，所以要用过去进行时；hear表示“听到了”，显然是短动作，所以用了一般过去时。这里表示在was walking这个持续动作的背景下发生了短暂动作heard。</p>
+<h3 id="动作长短的相对性及其与时态的关系"><a href="#动作长短的相对性及其与时态的关系" class="headerlink" title="动作长短的相对性及其与时态的关系"></a>动作长短的相对性及其与时态的关系</h3><p>I was watching TV when the telephone rang.<br>我当时正在看电视， 突然电话铃响了。 在这个句子里，“看电视（watching TV）”可能持续几个小时， 而“电话铃响”可能就持续几秒钟（a few seconds）。但在下面这个句子里：<br>I was walking past the car when it exploded.<br>汽车爆炸时我正好刚走过。在这里，walking past the car可能只持续了几秒钟（a few seconds），而exploded则更短，可能也就几毫秒（a few milliseconds）。<br><strong><em>总之，动作的长短是指具体句子里的两个动作的相对长短。相对短的动作用一般过去时，相对长的动作用过去进行时</em></strong>。若时态用错，句意可能就要发生改变。比如：<br>I was cooking dinner last night when I cut my finger. 我昨晚做晚饭的时候，不小心把手指给切了。<br>I was telephoning Harry when she arrived. 她到的时候，我正在给哈里打电话。<br>若是违反了这一英语思维规律，比如在下面的句子中，我们把短动作cut也用过去进行时，说成：<br>…when I was cutting my finger.<br>那意思就变成“当我在砍手指的时候……”，此时cutting就变成一个长动作了。相信一个正常人是不会说出这样的话的，更不会做出cutting fingers这样的行为。<br>再比如，我们把长动作telephone改用一般过去时，请比较：<br>1） I was telephoning Harry when she arrived.<br>2） I telephoned Harry when she arrived.<br>在例句1）中，telephone是一个延续动作，arrive是短暂 动作。用进行时telephoning是表明在“我”打电话的过程中，她到了，即先telephone，后arrive。在例句2）中，telephone和arrive都用一般过去时，都变成了短暂动作。此时，是表明“我”打电话是发生在她来了之后，即先arrive，后telephone。<br>1） 她到的时候我正在给哈里打电话。<br>2） 她到了之后，我再给哈里打电话。</p>
+<h3 id="when和while的区别"><a href="#when和while的区别" class="headerlink" title="when和while的区别"></a>when和while的区别</h3><p><strong><em>我们还看到，过去进行时与一般过去时的这种搭配使用主要由when或while连接，但两者有以下区别：<br>when的后面接短动作，用一般过去时（when+short action, simple past tense），或者接长动作，用过去进行时（when+long action, past continuous tense）； while的后面只能接长动作，用过去进行时（while+long action, past continuous tense）。</em></strong><br>I was walking past the car when it exploded.<br>The car exploded when I was walking past it.<br>The car exploded while I was walking past it.<br>不能说： I was walking past the car while it exploded. *<br>因为这里的exploded是一个短暂动词，不能和while搭配。</p>
+<h2 id="少见用法：两个过去同时在持续的动作"><a href="#少见用法：两个过去同时在持续的动作" class="headerlink" title="少见用法：两个过去同时在持续的动作"></a>少见用法：两个过去同时在持续的动作</h2><p>如果句中有两个相对长短的动作，那么长动作用过去进行时，短动作用一般过去时。但是，若句中的两个动作都是较长的动作，则两个动作都用过去进行时，表示两个过去同时在持续的动作。<br>While I was studying in my dorm, my roommates were talking loudly with their friends. 我在宿舍里学习的时候，我的室友在大声地和他们的朋友们说话。<br>While I was studying last night, my wife was watchingTV. 我昨晚学习的时候，我的妻子在看电视。</p>
+<h2 id="典型用法：描述一件过去特定时刻正在发生的事情"><a href="#典型用法：描述一件过去特定时刻正在发生的事情" class="headerlink" title="典型用法：描述一件过去特定时刻正在发生的事情"></a>典型用法：描述一件过去特定时刻正在发生的事情</h2><p>过去进行时还可以用来描述一件在过去的特定时刻正在发生的事情，这是各种进行时的典型用法。<br>I was discussing my thesis with my director at this time last night. （特定时刻）</p>
+<p>A: What were you doing at 10 o’clock last night?<br>B: I was having dinner with my friends.</p>
+<h2 id="口语用法：表示委婉的请求或建议"><a href="#口语用法：表示委婉的请求或建议" class="headerlink" title="口语用法：表示委婉的请求或建议"></a>口语用法：表示委婉的请求或建议</h2><p>在口语表达中，我们还常常用过去进行时来表示委婉的请求或建议，这时并不表示过去时间的动作。这尤其适用于表示态度的动词，如 wonder, hope和think等，这些动词用过去进行时（was wondering）或现在进行时（is wondering），均表示现在的一种愿望或态度，给人一种探询式的、犹豫不决的印象，因而显得很礼貌。</p>
+<p>I was wondering if you’d like to lend me your car.<br>I was wondering if you could lend me your car.<br>I was hoping that you’d like to lend me your car.<br>I was thinking that you’d like to lend me your car.<br>我希望你能把车借给我。<br>I hope to borrow your car.<br>I wonder if you can lend me your car.<br>则由于比较直截了当地表达了自己的态度，因而显得欠礼貌。</p>
 
-      
-        
-          
-          Docker尚硅谷Docker基础笔记
-Docker入门与微服务部署-诸葛老师
-
-          
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2020/05/04/网上各种讲师技术笔记整合收集/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
 
     
-  </section>
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/15/English之时态系列-完成时态-现在完成时/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/15/English之时态系列-完成时态-现在完成时/" class="post-title-link" itemprop="url">English之时态系列-完成时态（现在完成时）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-06-15 20:05:55" itemprop="dateCreated datePublished" datetime="2020-06-15T20:05:55+08:00">2020-06-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-05 18:37:24" itemprop="dateModified" datetime="2020-08-05T18:37:24+08:00">2020-08-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="完成时态"><a href="#完成时态" class="headerlink" title="完成时态"></a>完成时态</h1><h2 id="完成时态的构成"><a href="#完成时态的构成" class="headerlink" title="完成时态的构成"></a>完成时态的构成</h2><p>完成时态（perfect tense）的构成分为两部分：一是助动词have，二是实义动词的过去分词-ed。具体来说，用助动词have表示“时 （tense）”，以表明动作发生的时间是在过去、现在还是将来；用过去分词来表示动作的“体态（aspect）”，以表明该动作已经完成。用-ed来代替过去分词，于是完成时态的构成是“have+-ed”。<br>以动词work为例，三种完成时态的构成形式如下：<br>现在完成时：have worked<br>过去完成时：had worked<br>将来完成时：will have worked</p>
+<h2 id="完成时态的意义"><a href="#完成时态的意义" class="headerlink" title="完成时态的意义"></a>完成时态的意义</h2><p>完成时态的本质思维或者说其核心意义就是用来表示“回顾 （retrospect）”，既然是“回顾”，就必然要涉及两个时间点，即从一个时间点回顾到另外一个时间点，因此完成时态必定涉及前后两个时间。<br>现在完成时就是站在“现在 （present）”的时间角度回顾一个“过去”的事件，是把“过去”和“现在”这两个时间点联系在一起，来表达一个事件。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/mMpFDN.png" alt><br>过去完成时（past perfect tense）就是站在“过去（past）”的时间角度回顾“更远的过去”的事件，是把“更远的过去”和“过去”联系在一起来表达一个事件。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/NsvuM4.png?token=AFPEEZGDJOY3BIOXWYTR47K645W2W" alt><br>将来完成时（future perfect tense）则是站在未来的时间角度回顾在此之前发生的事件。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/N4ETrk.png?token=AFPEEZELV4GVMUBSYJQSIOC645XFE" alt></p>
+<hr>
+<p>现在完成时态就是站在“现在”回顾“过去”；<br>过去完成时态就是站在“过去”回顾“更远的过去”；<br>将来完成时就是站在未来的时间角度回顾在此之前发生的事件。<br>所以，完成时态表示的就是一个横跨前后两个时间点的事件。</p>
+<blockquote>
+<p>这个事件是如何把两个时间点联系起来的呢？</p>
+</blockquote>
+<ol>
+<li>一个事件从一个时间点“延续（continue）”到另外一个时间点； </li>
+<li>一个事件从一个时间点“重复（repeat）”到另外一个时间点； </li>
+<li>一个事件在前一个时间点已经结束，但它的影响“延续”到另外一个时间点。</li>
+</ol>
+<h1 id="现在完成时"><a href="#现在完成时" class="headerlink" title="现在完成时"></a>现在完成时</h1><blockquote>
+<p>一个过去的事件与现在发生联系的方式有上述三种，对应于三种事件：</p>
+</blockquote>
+<ol>
+<li>延续事件（continuous event）：一个过去发生的事件“延续”到现在；</li>
+<li>重复事件（repeated event）：一个过去发生的事件“重复”到现在；</li>
+<li>单一事件（single event）：一个过去发生的短暂事件没有“延续”或“重复”到现在，但它的影响“延续”到了现在，或者说一个过去发生并结束了的事件对现在仍然有影响。</li>
+</ol>
+<blockquote>
+<p>这三种联系的方式图示如下：</p>
+</blockquote>
+<ol>
+<li>一个事件从过去“延续”到现在：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/gjxp85.png" alt></li>
+<li>一个事件从过去“重复”到现在：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/zFrur5.png?token=AFPEEZEDXWV7D3KSLT5GOHK646ESA" alt></li>
+<li>过去某一短暂动作对现在的影响：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/vU5wum.png?token=AFPEEZGKYNW3UNRE62K4KEK646EVO" alt></li>
+</ol>
+<h2 id="回顾性思维"><a href="#回顾性思维" class="headerlink" title="回顾性思维"></a>回顾性思维</h2><p>This has been my life. I have found it worth living, and would gladly live it again if the chance were offered me.<br>罗素用现在完成时总结说：“This has been my life.”。因为他是在回顾自己的一生经历，所以必然要用“现在完成时”这样一个横贯过去与现在的时态来作出“这就是我的一生”这样的结语。若单纯地用一般现在时说成“This is my life.”，那只表明他目前的生活状态——“这就是我现在的生活”，而失去了“回顾过去、纵观一生”的思想内涵。<br>2002年2月21日是美国前总统尼克松秘密访华30周年的纪念日，次日，美国时任总统小布什在中国著名高等学府清华大学发表了演说。<br>小布什作完演讲后，接受了清华大学学生的提问。当有位学生问到有关台湾问题时，小布什作了如下表态：<br>We’ve had many discussions with your leaders, and I’ve reiterated<br>support for the“One China”policy. It’s been my government’s policy for a long period of time, and I haven’t changed it.<br>这里短短的几句话，小布什全部用了现在完成时态，强调自从尼克松总统首次访华及后来的中美建交以来，中美两国之间在不断地交流、交往、增加接触、加强了解，以及美国政府 对“一个中国”政策的一贯支持。<br>我们可以想象，如果小布什用了一般过去时态，说成： The“One China”policy was my government’s policy for a long period of time. （我们美国政府曾经在很长一段时间内坚持了“一个中国”的政策。）<br>这句话的言外之意是，现在美国政府不再坚持这个重要政策了，那么接下来的一句话他就不会说“I haven’t changed it.”，而是要说“I have changed it. （但我现在已经改变了这个政策。）”。</p>
+<h2 id="延续事件"><a href="#延续事件" class="headerlink" title="延续事件"></a>延续事件</h2><h3 id="过去的事件“延续”到现在"><a href="#过去的事件“延续”到现在" class="headerlink" title="过去的事件“延续”到现在"></a>过去的事件“延续”到现在</h3><p>所谓“延续事件”，是指“一个开始于过去的动作或状态（action or state）一直延续到现在”，这是现在完成时态最基本、也是最容易理解的意义和用法。<br>An old woman walked out into the middle of the street. The policeman yelled to her,“Don’t you know what it means when I hold up my hand?”The lady said,“Sure I do. I have been a school teacher for 28 years now.”<br>在这个笑话中，那位old woman对警察说的这句话：<br>I have been a school teacher for 28 years now.<br>表示她从事“老师”这个职业是从过去，即28年前开始并且一直延续到了现在，她现在仍然是老师，所以她说28 years now。<br>具体来说就是，如果要表示某一动作或状态 （action or state）从过去开始，并且一直持续（continue）到说话时，而且还可能持续下去，就要采用完成时态形式。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/DYsYK4.png?token=AFPEEZBZDOGFQWJNC2MYE62646N6U" alt><br>We have been in love for eight years and we are getting married next month. 我们恋爱有八年了，下个月就要结婚了。<br>I have learned English for over ten years now, but I still can’t speak it well.<br>在这句话里，“我”是在10年前开始学习英语的，但这个过去的动作一直延续到了现在，所以用了现在完成时态have learned。</p>
+<h3 id="“延续事件”与时间状语的关系"><a href="#“延续事件”与时间状语的关系" class="headerlink" title="“延续事件”与时间状语的关系"></a>“延续事件”与时间状语的关系</h3><h4 id="谓语要表示“延续”"><a href="#谓语要表示“延续”" class="headerlink" title="谓语要表示“延续”"></a>谓语要表示“延续”</h4><p>既然是表示延续思维，句子的谓语动词就要给予配合，即要能够表示延续。具体来说，谓语必须是延续动词，如：learn/live，或者是能够表示延续状态的词，如be动词。如果是短暂动 词，则不能表示这种延续思维。比如这些都是错误的：<br>I have fallen in love for eight years. <em><br>I have married for over a year. </em><br>因为这里的fall in love和marry都是短暂动词，无法与延续性的时间状语（如for eight years, for over a year）连用。要改用表达状态的词，如be in love和be married。注意，这里的married是形容词，所以be married并不是一个被动语态。<br>之所以说“I have fallen in love for eight years. *”这样的句子是错误的，是因为这里的fall in love是一个短暂动作，而短暂动词不能与延续性的时间状语（如for eight years）连用。但这并不是说像fall in love这样的短暂动词不能用于现在完成时态。换句话说，句子错误的原因是fall in love这样的短暂动作与for eight years这样的延续性时间状语有语义上的冲突，而不是fall in love这样的短暂动作与现在完成时态有冲突。<br>“I have fallen in love.”这类句子是完全正确的，短暂动词完全可以用于现在完成时态，只是此时不能和延续性的时间状语连用。</p>
+<h4 id="要与“延续性时间状语”连用"><a href="#要与“延续性时间状语”连用" class="headerlink" title="要与“延续性时间状语”连用"></a>要与“延续性时间状语”连用</h4><p>表示延续思维的完成时态除了要有延续性的谓语之外，还必须有延续性的时间状语（durational adverbials），这种表示延续性动作或状态的完成时态一般必须接一个表示“一段时间”的延续性时间状语，以说明某个动作或状态持续到现在有多久了。</p>
+<blockquote>
+<p> since+时间点或从句</p>
+</blockquote>
+<p>Since time began, man has lived in fear of fire. 自古以来，人们就生活在对火的恐惧中。</p>
+<blockquote>
+<p> for+时间段</p>
+</blockquote>
+<p>Great changes have taken place in Beijing for the past few years. 近几年来，北京发生了巨大的变化。</p>
+<blockquote>
+<p>“到目前为止”“迄今为止”</p>
+</blockquote>
+<p>这样的时间短语有：until now，up until now，up to now，up till now 和so far等。请看例句：</p>
+<blockquote>
+<p>“在最近几个世纪/几年/几个月以来”</p>
+</blockquote>
+<p>这样的时间短语有：in the past few years，over the past few years， during the last three months，for the last few centuries，through centuries和 throughout history等。</p>
+<p>1） I have lived in China for 3 years.<br>2） I lived in China for 3 years.<br>例句1）表示现在“我”还在中国居住。既然到目前为止已经生活三年了，因此我们可以明确计算出“我”是三年前开始居住在中国的。例句2）则只是说明“我”曾经在中国生活过三年，而且现在已经不住在中国了。这里三年的起止时间，即何时开始在中国居住，何时离开中国，我们都无从知晓。</p>
+<h4 id="没有延续性的时间状语，则表示一个“完成了（complete）”的动作"><a href="#没有延续性的时间状语，则表示一个“完成了（complete）”的动作" class="headerlink" title="没有延续性的时间状语，则表示一个“完成了（complete）”的动作"></a>没有延续性的时间状语，则表示一个“完成了（complete）”的动作</h4><p>完成时态要表示延续思维所必须具有的两个条件：<br>（一） 谓语要表示延续；<br>（二） 要有延续性的时间状语。<br>但是如果没有这个延续性的时间状语，句子用完成时态还正确吗？ 若正确，那又是什么意思呢？回答是：若没有延续性的时间状语，可以用完成时态，但表示的是一个在过去已经完成的动作，而没有延续到现在。</p>
+<p>John has lived in Paris for ten years.<br>这句话用了现在完成时态，表示John现在还在巴黎生活 （John is still living in Paris now.）。但是如果没有延续性的时间状语而 说成“John has lived in Paris.”，则要理解成“约翰在巴黎生活过”，但现在 他已不住在巴黎了。<br>只有在特殊的上下文语境中，“John has lived in Paris.”这句话才有可能当“延续”讲。比如：<br> A: Where has John lived since he left Beijing?<br> B: He has lived in Paris.<br>这里，B的回答相当于“He has lived in Paris ever since he left Beijing.”。<br> A：约翰离开北京后一直在哪里生活？<br> B：他一直生活在巴黎。</p>
+<p>Dr. Findlay was passing one of his patients in the street.“Hello, Mrs. Merton. You haven’t visited me for ages.”“I know, doctor. I’ve been ill.”<br>在这个语境中，虽然没有延续性的时间状语，但这里的完成时have been ill表示“一直在生病”，即表示延续事件。</p>
+<p>I have been married for a year. 我结婚已经有一年了。<br>如果将这个句子稍做如下改变：“I have been married.”。<br>即把句末的时间状语for a year去掉，这时这个句子的意思不是“我已经结婚了”，而是“我曾经结过婚”。<br>这句话的言外之意是：“我”现在要么离婚了，要么丧偶了，总之是单身（single）。所以可以说，没有延续性的状语，延续状态顿时变成一个在过去完成的事件，而没有持续到现在。<br>比如当你向外国朋友 介绍自己时说“我已经结婚了”，很多人以为这里有“已经”，那当然得用完成时态，于是就把这句话说成“I have been married. （我结过婚，后来 离婚了。）”。听完这句话，你的外国朋友很可能是对你报以同情地说“I’m sorry to hear it.”。听他这么说，你可能会糊涂了，或者还以为他对你有什么企图呢！其实，要表达“我已经结婚了”，就是I am married. 这一简单的句子。</p>
+<h2 id="重复事件"><a href="#重复事件" class="headerlink" title="重复事件"></a>重复事件</h2><h3 id="过去的事件“重复”到现在"><a href="#过去的事件“重复”到现在" class="headerlink" title="过去的事件“重复”到现在"></a>过去的事件“重复”到现在</h3><p>克林顿在2001年1月18日所作的卸任演说：<br>In all the work I have done as president, every decision I have made, every executive action I have taken, every bill I have proposed and signed, I’ve tried to give all Americans the tools and conditions to build the future of our dreams, in a good society, with a strong economy, a cleaner environment, and a freer, safer, more prosperous world. （Selection of President Bill Clinton’s farewell address to the nation on Jan. 18, 2001.）<br>在这里，克林顿不厌其烦地使用完成时态，正是表示在他的八年总统任职期间，他“重复不断”地在have done, have made decisions, have taken action, have proposed and signed bills。比如说“签署法案”，克林顿不可能是一直毫不间断“持续”地（continuously）在签署，这一签就持续了八年，而是表示在八年的总统任职期间，他“多次 重复”签署各种不同的法案。</p>
+<p>I’ve been in Canada for six months. I’ve met many new friends.<br>这里的have been是完成时的延续性思维；而我们“结识 （met）”新朋友不是一刻不停地在延续，而是不断重复的一个过程，属于典型的重复性思维。</p>
+<p>完成时态表示重复性思维时，句中往往都会有较明显的表示重复概念的词语或语言标示（如复数-s）。比如：<br>I have had so many teachers in my life.<br>…every decision I have made, every executive action I have taken, every bill I have proposed and signed,…<br>I’ve met many new friends. </p>
+<p>有时候，句中并没有出现上述这样明确表示重复活动的“语言 标示”，但重复性思维隐含在说话的语境中。这时就要细心体会其中的重复意味，从而正确理解句子的内涵。<br>For us this has been the most perfect way to remember her, and this is how she would want to be remembered.<br>这句话是英国 的威廉王子在纪念母亲戴安娜的音乐会上说的。1997年8月31日，戴安 娜在巴黎出车祸，香消玉殒。2007年7月1日是戴安娜诞辰46周年纪念 日，威廉王子与哈里王子希望用戴安娜喜爱的音乐来纪念她。于是，由 两位王子发起，7月1日当天在英国伦敦温布利体育场（Wembley Stadium）举办“献给戴安娜的音乐会”，借音乐会的形式纪念戴安娜王 妃去世10周年（They organized the event to mark the 10th anniversary of their mother’s death.）。国内媒体在报道这则新闻时是这么翻译的：<br>对我们来说，这是纪念她的最佳方式，这也是她所希望的纪念方式。<br>虽然说这么翻译也未尝不可，但它并没有很好地传达英语原句的意思。这里关键是要理解威廉王子为什么要用完成时态has been，而不是直接说is。<br>自从戴安娜王妃去世后，英国举办过各种活动来纪念她。也就是说，到目前为止，纪念戴安娜的活动已经多次举办过，可以说是从过去到目前为止的重复发生的活动。威廉王子在音乐会现场说的话，显然是在“回顾”过去10年的各种活动，然后得出结论说，这次音乐会“是纪念她的最佳方式”，这正是完成时态“回顾”性思维的体现，并且是表示一个重复到现在的活动，因而他要用完成时态说“For us this has been…”，他用完成时态的另外一个意义还在于，完成时态还表明活动依然可以重复到将来，换句话说，以后一定还会有其他纪念戴安娜王妃的活动，因而也就可能出现比这次音乐会更好的其他纪念方式。<br>因此， 确切地说，这次音乐会是“迄今为止（up until now）”纪念她的最佳方 式，这正是威廉王子用has been所要传达的意义。如果威廉王子用一般现在时态说成“For us this is the most perfect way to remember her,…”，根据一般现在时态的思维特征——表示从过去到现在直至将来的一个永恒 的状态，则意味着这次音乐会作为纪念戴安娜的方式是“前无古人，后无来者”的，是永远无法被超越的了。相信这不是威廉王子所期望的， 所以他要用has been来给这次音乐会精确定位——这是迄今为止纪念她的最佳方式。<br>所以正确的翻译应该是：<br>对我们来说，这是迄今为止纪念她的最佳方式。如果她在天有灵的话，我想这也是她所希望的纪念方式。</p>
+<p>2007年10月，卡特在接受英国BBC采访时对时任（2007年10月时）美国副总统切尼（Cheney）也提出了批评。他说切尼是一个好战分子，自己逃避兵役，在过去的10年中却一直强硬地通过军事手段在世界其他地方谋求美国霸权。他说切尼在很多问题上都是错误的，并说他对于美国来说是一场灾难：<br>You know he’s been a disaster for our country. I think he’s been overly persuasive on President George Bush and quite often he’s prevailed.<br>这里的has been并不是表示“重复”意义，而是表示“延续”意义——从切尼担任美国副总统一直到目前说话时为止，所以，我们采用“一直”来对应翻译。同样道理，如果切尼不再担任美国副总统，那么要对他作出如此评论，则应该用一般过去时was了。<br>你们知道，他一直是我们国家的灾难，我想他一直对总统乔治·布什过度诱导，并且经常取得成功。</p>
+<p>“重复意义”的完成时态可以看作是“延续事件”完成时态的一个特例，所以，这两种完成时的思维方式是如此密切相关，以至于有时我们很难对二者进行严格的界定区分。 比如：<br>For more than eighty years, scientists have argued over whether life exists on the planet Mars.<br>如果把have argued当作延续性思维来理解，则可译为“80多年以来，科学家们一直在争论火星上是否有生命存在”。强调争论一直在持续，已经持续了80多年。 如果把have argued当作重复性思维来理解，则可译为“80多年以来，就火星上是否有生命存在这一问题，科学家们不断地挑起争论”。 表示争论了一段时间告一段落，若干年后，争论又被再次挑起或被多次挑起。强调80多年当中，“争论”多次被挑起，每一次争论只持续若干年。<br>延续思维：80多年以来，科学家们一直在争论火星上是否有生命存在。<br>重复思维：80多年以来，就火星上是否有生命存在这一问题，科学家们不断地挑起争论。<br>比较模糊的翻译：80多年以来，科学家们一直就火星上是否有生命存在这一问题不断地进行争论。</p>
+<p>I have lived in Beijing for 10 years.<br>这句话可以表示“我”一直生活在北京，一刻也没有离开过北京；也可能是表示在北京前后断断续续地生活了10年，中间也离开过北京。此时相当于：<br>I have lived in Beijing on and off for 10 years.<br>我们还可以说：<br>I have lived in Beijing every winter for 10 years.<br>表示“我”每年冬天都回到北京生活，前后已经持续了10年了。这同样是重复与延续兼而有之的活动，相当于这样一条虚线。</p>
+<h3 id="“重复事件”与时间状语的关系"><a href="#“重复事件”与时间状语的关系" class="headerlink" title="“重复事件”与时间状语的关系"></a>“重复事件”与时间状语的关系</h3><p> 1） I have called him three times this morning.<br> 2） I called him three times this morning.<br>在例句1）中，既然采用了现在完成时态，而且是表示重复的活动（因为有three times这样的“重复标示”），所以该句强调的是到目前为止的一个时间段内重复的活动，或者说过去的动作called重复到了现在，这里的“现在”显然就是this morning。也就是说，例句1）的说话时间是“今天上午”。而例句1）要表达的意思其实相当于：<br>I have called him three times so far this morning.<br>即表示“我今天上午到目前为止已经给他打过三次电话了”。言外之意是，随着现在的说话时间this morning往将来推移，“我”还可能继续给他打电话，可能打第四次、第五次……。由此可见，这里的“打电话（have called）”具有“将来可重复性（repeatable）”这个特点。<br>相比之下，例句2）与例句1）有很大的不同。既然采用了一般过去时态，则表明事情发生在过去，与现在没有什么联系，因此例句2）的说话时间可能是在“今天下午”或“今天晚上”。进而也就决定了“我”“今天上午”给他打电话的次数仅为三次，没有继续重复的可能性（“我”当然可以继续给他打电话，但已经不属于“今天上午”的活动次数了）。由此可见，这里的“打电话（called）”不具有“将来可重复性（repeatable）”这个特点。<br>1）我今天上午到目前为止已经给他打过三次电话了。<br>2）我今天上午给他打了三次电话。<br>由这个例句所揭示的have called与called在“可重复性”方面的差别可以推而广之，即现在完成时态具有“将来可重复性”，而一般过去时态 不具有“将来可重复性”。这是判断用现在完成时态还是用一般过去时态的重要原则，我称这个原则为“可重复性”原则（Principle of Repeatability）。</p>
+<h4 id="可重复原则是现在完成时态的一条根本原则"><a href="#可重复原则是现在完成时态的一条根本原则" class="headerlink" title="可重复原则是现在完成时态的一条根本原则"></a>可重复原则是现在完成时态的一条根本原则</h4><p>His father has been dead for three years.<br>他爸爸去世已经有三年了。<br>但是，对这个句子稍做如下改变： His father has been dead. *<br>这句英文真正的意思是：他爸爸曾经死过。在英文里，这个句子一般被认为是错误的，因为没有使用它的场合——人是不能死而复生的。</p>
+<blockquote>
+<p>那么“他爸爸已经死了”用英 文该怎么说？</p>
+</blockquote>
+<p>这句话要看上下文的语境。比如，说到你某位朋友的爸爸，如果你只是要说明他爸爸已经过世了这一事实，只需说“His father is dead.”。<br>但若是你这位朋友的爸爸刚刚去世，你的朋友当然很悲痛伤心、精神恍惚，当别人问你他怎么了，你就可以说是因为“His father has died.”，这里的现在完成时态就是过去发生的事件（比如朋友的父亲去世）对现在有影响（比如你朋友现在悲痛的表现）。<br>所以，对于像“死亡”这样天然不具有重复性的事件，即不能表示来回往复的发生，就不能用现在完成时来表示“过去经历”。同样，人不能返老还童，所以我们不能说： I have been old. *<br>这句话的意思是“我曾经老过”，言外之意是我现在又年轻了。显然，人是不能返老还童的。只能说自己曾经年轻过（I have been young.）。</p>
+<h4 id="可重复原则与将来的时间有关"><a href="#可重复原则与将来的时间有关" class="headerlink" title="可重复原则与将来的时间有关"></a>可重复原则与将来的时间有关</h4><p>现在完成时态所表达的动作或状态往往都含有持续或重复到将来某一个时间点的意味，即现在完成时与将来的时间有关，也就是我这里说的“将来可重复性”原则。 现在完成时态可以说是以现在的时间为参照来谈一个可以持续或重复 到将来的事件。<br>1） How many people have entered for the race?<br>2） How many people entered for the race?<br>虽然这两个句子都可以译成“有多少人报名参加这个比赛”，但在英文中，两个句子所使用的语境以及要表达的时间是不同的。<br>在例句1）中，完成时态表达了一个重复活动，真正的含义是“到目前为止有多少人报名参加这个比赛”，相当于“How many people have entered for the race so far?”。其言外之意是，这个比赛还没有开始举行， 是一个将来的活动。说话人关心的是到现在为止报名参加的人数。所以，这正是上面提到的“现在完成时是以现在的时间为参照来谈一个可以持续或重复到将来的事件”。这里是重复到将来的事件——不断有人报名参加，即具有“将来可重复性”。如果比赛已经结束了，成了一个过去的事件，则“（报名enter for）”就已没有“将来可重复性”了，此时我们就不能用现在完成时态，而只能用一般过去时态，这正是例句2）要表达的意思。<br>在例句2）中，用一般过去时态表明这个比赛已经结束了， 而不是一个将来事件。该句真正的意思是“有多少人报名参加了那次比赛”。<br>1）到目前为止，有多少人报名参加这个比赛？<br>2）有多少人报名参加了那次比赛？</p>
+<p>Many athletes have entered for the Olympic Games this year.<br>这里用了现在完成时态，表明奥运会还没有举行，这里的“报名”是一个可以重复到将来的活动。</p>
+<blockquote>
+<p>其实，即使是一个单一的事件而不是一个重复活动，如果使用了现在完成时态，同样与将来时间有关系。</p>
+</blockquote>
+<p>I have entered for the examination but I don’t want to take it.<br>这个句子用了现在完成时态，表明是将来的事件——考试是在将来举行。<br>这次考试我已经报名了，但我不想考。</p>
+<p>A: Have you visited the new exhibit?<br>B: Not yet, but it will be at the student center until June.<br>从B的回答中我们知道这个“展览会（exhibit）”还没有结束，是一个可以持续到将来的事件，因而具备了将来可持续性，所以用了现在完成时态。如果说话人问的是“Did you visit the new exhibit?”， 则表明这个展览会已经撤展结束了，已是一个过去的事件。<br>A：这次新的展览会你去参观了吗？<br>B：还没有去，不是一直在学生中心展览到6月份才结束嘛。</p>
+<p>A: I’ve been invited to a dinner party at Janet’s. Do you think I should bring something?<br>B: You could pick up a cake. Chocolate is her favorite.<br>从这个对话的语境中我们知道，这个dinner party还没有举行，是一个将来的事件。不过，“邀请（invite）”现在已经发生了，它的影响会一直持续到现在及未来直到dinner party结束，所以用了现在完成时态。如果用一般过去时说“I was invited to a dinner party at Janet’s.”， 则只表示一个过去的事件，即dinner party已经结束了。<br>A：我受到邀请去珍妮特家参加晚宴，你认为我该带点什么东西去吗？<br>B：你可以买一份蛋糕嘛，巧克力口味的她最喜欢。</p>
+<h4 id="可重复性原则与过去时间"><a href="#可重复性原则与过去时间" class="headerlink" title="可重复性原则与过去时间"></a>可重复性原则与过去时间</h4><p>在英文中，确定的过去时间状语（如yesterday和last night）不能用于现在完成时态，这可以用可重复原则来解释。因为过去时间状语表明事件在过去已经完成而无法延续或重复到现在及未来，这就违背了完成时态的将来可重复性原则，故现在完成时不能使用确定的过去时间状语。<br>1） I was absent four times last semester.<br>2） I have been absent twice this semester.<br>在例句1）中，过去时间状语last semester表明“缺课 （absent）”这个事件已经结束，即上学期只有确定的四次缺课。该事件不具有可重复性，所以不能用完成时态。<br>在例句2）中，这学期还没有结束，随着时间的推移还可能有更多次数的“缺课（absent）”。该事件具有未来可重复性，所以要用现在完成时态。<br>1）我上学期逃课四次。<br>2）这学期到目前为止我逃过两次课。</p>
+<h4 id="可重复性原则与现在时间"><a href="#可重复性原则与现在时间" class="headerlink" title="可重复性原则与现在时间"></a>可重复性原则与现在时间</h4><p>所谓现在时间，是指诸如today，this week和this year等这样的时间状语。这样的时间状语一般都会用于现在完成时态，如果有特殊的语境信息表明某个事件无法继续延续或重复到现在及将来，就用一般过去时。现在时间可以用于现在完成时态或一般过去时态。<br>1） I haven’t seen him this morning.<br>2） I didn’t see him this morning.<br>例句1）用了现在完成时，而完成时是要与“现在”发生联系的，故例句1）说话的时间是this morning。该事件具有可重复性，随着时间的推移，“我”有可能会见到他。例句2）用的是一般过去时，说明this morning已经成为过去的时间，故例句2）说话的时间是在“今天下午”或“今天晚上”。该事件不具有可重复性，“我今天上午没有见到他”已是确定无疑的事件，不可改变了。</p>
+<p>1） I have made five phone calls today.<br>2） I made five phone calls today.<br>这里的例句1）用现在完成时态，则表明“打电话”这个活动还会重复到未来，今天很可能会继续打第六个、第七个电话。而例句2）用一般过去时态，则表明“打电话”这个活动在今天不会再重复了，今天总共就只打了五个电话。<br>想象一下这两个句子不同的使用语境：比如你在一家公司做电话销售员，你的工作就是每天不断地打电话联系你的客户，推销产品。在今天上午10点钟的时候，你和同事交流时说“我今天打了五个电话了”，此时显然你就得用现在完成时态说“I have made five phone calls today.”。而如果你在下午下班后和同事交流时说“我今天打了五个电话”，此时显然你不会再打电话了，所以要说“I made five phone calls today.”。</p>
+<h4 id="可重复性原则与一般时间"><a href="#可重复性原则与一般时间" class="headerlink" title="可重复性原则与一般时间"></a>可重复性原则与一般时间</h4><p>一个句子如果出现了具体的过去时间状语，那就不能使用现在完成时态。比如我们不能说：<br>I have gotten up at five o’clock this morning. <em><br>但不是只要出现了表示某一时刻的时间状语， 句子就一定不能使用现在完成时态。比如：<br>I have gotten up at five o’clock in the morning.<br>仔细比较以上两句就会发现二者的不同：前一句用了this morning（今天早晨），而在说话的时候，“今天早晨”一定已经成了过去，所以有了这样具体的过去时间状语，就不能用现在完成时态。 但是后一句是用了in the morning（在早晨），而“在早晨”并不是指“今天早晨”。因此，at five o’clock this morning是一个具体的过去时间，但 at five o’clock in the morning并不是指一个具体的过去时间；前者只有一次，但后者可以无数次地重复。所以，具备了这样的“可重复性 （repeatable）”，完全可以用现在完成时态来表达。<br>后一句就是表示到目前为止的一个“重复活动”，是一个典型的现在完成时用法，翻译成“我曾经在早晨五点钟起过床”，说话人这样表达的言外之意是要强调“五点钟”是一个很早的时间，而自己曾经这么早就起床，即表明自己具有早起这样的“过去经历”。类似的我们还可以说：<br> I have gone swimming at 12 at midnight.<br>这句话的意思就是“我曾经在夜里12点去游过泳”，同样表示自己的“重复经历”。当然，我们不能说：<br> I have gone swimming at 12 last night. </em></p>
+<h4 id="可重复性原则与地点表达"><a href="#可重复性原则与地点表达" class="headerlink" title="可重复性原则与地点表达"></a>可重复性原则与地点表达</h4><p>有时，地点状语起着表明说话时间的作用，因为地点的转化总是伴随着时间的变化。<br>1） In my hometown, I had five jobs.<br>2） In this city, I have had two jobs.<br>在例句1）中，地点状语in my hometown表明“我”现在人不在老家，这个地点状语暗含了过去的时间，所以该句要用一般过去时态，该事件不具有可重复性。在例句2）中，地点状语in this city表明“我”现在人在这个城市，这个地点状语暗含了现在的时间，该句的意思是“到目前为止我做过两份工作”，该事件具有可重复性，所以用现在完成时态。<br>1）我在老家的时候，做过五份不同的工作。<br>2）在这个城市，我到目前为止做过两份不同的工作。</p>
+<h4 id="可重复性原则与去世的人的情况"><a href="#可重复性原则与去世的人的情况" class="headerlink" title="可重复性原则与去世的人的情况"></a>可重复性原则与去世的人的情况</h4><p>一般来说，谈到有关去世的人的情况，往往都是无法持续和重复的，即不具有将来可重复性，所以，涉及去世的人的句子通常要用一般过去时态，而不能用现在完成时态。<br>这里举一个关于电影明星的例句。我们知道，美国著名影星玛丽莲·梦露（Marilyn Monroe）已不在人世，所以谈到关于她的情况时，往往要用一般过去时态。而美国人<br>称“大嘴美人”的茱莉亚·罗伯茨（Julia Roberts）现在还活着，所以谈到关于她的情况时，就会用到现在完成时态。比如：<br>1） Marilyn Monroe starred in many movies. She died in 1962.<br>2） Julia Roberts has starred in many American movies.<br>1）玛丽莲·梦露于1962年去世，她生前出演过多部电影。<br>2）茱莉亚·罗伯茨出演过很多美国电影。<br>如果将对茱莉亚·罗伯茨的介绍改为一般过去时态，说成：<br>Julia Roberts starred in many American movies.<br>则会有两种情况：一是等她去世之后这么说，二是她明确宣布退出影坛了。但这两个条件现在都不满足，所以上面这个句子在native speaker听来就显得有点奇怪（sounds odd）。而后一种情况适合日本影星山口百惠（Momoe Yamaguchi），虽然她还活着，但已息影多年，所以要用一般过去时来谈她的从影经历。</p>
+<h4 id="可重复性原则与特定语境"><a href="#可重复性原则与特定语境" class="headerlink" title="可重复性原则与特定语境"></a>可重复性原则与特定语境</h4><p>有时，这种“超语言信息”的背景知识并不是一个众所周知的常识，而只是交际双方共有知识（shared knowledge）的一部分，此时到底用现在完成时态还是一般过去时态，则取决于具体语境。如果有语言外的信息决定了某一活动不再延续重复，就要用一般过去时态。比如：<br>1） Have you ever fallen off a horse?<br>2） Did you ever fall off a horse?<br>在例句1）中，用了现在完成时态，意味着“骑马”这个活动没有结束，将来还要骑马，因此fall off a horse这个事件可能重复发生。<br>在例句2）中，用了一般过去时态，意味着“骑马”这项活动不再持续，说话人不再骑马了，因此，fall off a horse这个事件不可能重复发生。<br>1）到目前为止，你骑马从马背上摔下来过吗？<br>2）你以前骑马的时候，从马背上摔下来过吗？</p>
+<p>A: Have you ever fallen off a horse?<br>B: Yes, I’ve fallen off quite often.<br>A：到目前为止，你骑马从马背上摔下来过吗？<br>B：是的，我经常从马背上摔下来。</p>
+<p>A: Did you ever fall off a horse?<br>B: Yes, I did occasionally.<br>A：你以前骑马的时候，从马背上摔下来过吗？<br>B：摔过，不过只是偶尔摔下来。</p>
+<p>由此可见，“可重复性（repeatability）”是现在完成时态的一个重要的思维特征。</p>
+<h2 id="单一事件"><a href="#单一事件" class="headerlink" title="单一事件"></a>单一事件</h2><h3 id="何谓“对现在有影响”？"><a href="#何谓“对现在有影响”？" class="headerlink" title="何谓“对现在有影响”？"></a>何谓“对现在有影响”？</h3><p>He’s Just Been to the Zoo<br>When I was waiting in line at the bank, I noticed a woman holding a small child at one of the windows. The boy was eating a roll, which he thrust at the teller. The teller smiled and shook his head.<br>“No, no, dear,”said the boy’s mother, and then, turning to the teller,“I beg your pardon, young man. Please forgive my son. He’s just been to the zoo.”<br>“去动物园”这个事件是发生在过去的，对现在的影响是：小男孩拿自己吃的面包卷去“喂”银行柜员（The little boy thrust the roll at the teller.），他还以为自己在喂一只动物呢！这一“对现在的影响”从完成时的句子“He’s just been to the zoo.”本身是看不出来的。<br>他刚去了动物园<br>那天我在银行排队办事时，看到一位妇女抱着一个小孩站在一个窗口前。小男孩正在吃一个面包卷，并把它往一个柜员面前送。这位营业员微笑着摇了摇头。 “宝贝，别这样，”孩子的母亲说道，然后转过脸对柜员说：“对不起，先生，请原谅这孩子，他刚刚去了动物园。”<br>由此可见，“单一事件”的完成时态是与说话的语境密切相关的，若单独拿出完成时态的句子，我们很难理解其所要表达的真正含义，因为它所要表达的言外之意或潜含在上下文的语境中，或通过上下文的其他句子反映出来。所以，在使用中绝不应死记规则，而要真正理解完成时态的这一用法特点，要融入自己的思维。因为语言表达本质上是一种思维表达，语言只是载体，它的背后是说话人的思维！</p>
+<p>She has been to the bank. （她去过那家银行了。）<br>这句话背后的“言外之意”或者说“对现在的影响”是什么？我们只要发挥想象就可以很容易地造出很多不同版本的“对现在的影响”，比如比较直接的影响有：1）为什么她现在有钱花了（She has some money.），因为她去银行取过钱了；2） 她已经把手里的支票存到银行了（The checks are deposited.）。 比较间接的影响有：1）她为什么知道那家银行的地点位置，因为她以前去过（即She has been to the bank.）；2）她为什么现在很高兴，因为她曾去这家银行应聘工作，她刚去过这家银行（即She has been to the bank.）。现在知道自己被录用了，等等。<br>所以，一个完成时的句子若是用在真实的语境中，可能产生多少种“对现在的影响”。</p>
+<h3 id="何谓“过去事件”？"><a href="#何谓“过去事件”？" class="headerlink" title="何谓“过去事件”？"></a>何谓“过去事件”？</h3><p>“过去事件”中的这个“过去”应该有离现在较近和较远之分。“单一事件”的完成时既可以表示发生在最近的动作，也可以表示发生在较远的过去的动作，具体情况要看上下文的语境。<br>David has fallen in love, and that’s why he’s becoming excited.<br>这个例句就应该理解为恋爱这个事件是发生在“近的过去（quite recently）”，而且对现在的影响是he’s becoming excited。<br>戴维恋爱了，所以他为什么那么兴奋。<br>有时对于同一个句子，按照“近的过去”与“远的过去”两种意义都可以理解，但两者表达的意思不一样。比如：<br>Have you asked your little brother to do the dishes?<br>首先，这个句子不能译成延续状态，因为我们强调过，表示延续状态的完成时一般必须同时满足两个条件：句子的谓语是延续性动作或状态（continuous action or state）；句子带有延续性的时间状语（durational adverbials）。这里， ask不是延续性动词且句中没有延续性的时间状语，因此这里的完成时态不是表示延续状态，所以不能把它翻译成“一直让你弟弟刷碗”。其实，这个英语句子是有歧义（ambiguous）的。产生歧义的原因是我们既可以把asked作为“近的过去”来理解，也可以作为“远的过去”来理解。歧义是：<br>1）你让你弟弟把碗刷了吗？（近的过去）<br>2）你有没有让你弟弟刷过碗？（远的过去）<br>在句1）中，问话的人一般应该是你的家人，比如说你妈妈。设想这样一个场景：因为正要开饭了，而她找不到干净的碗碟，所以她问你：“你让你弟弟把碗刷了吗？”她现在关心的是有没有干净的餐具可以 用——这就是用现在完成时所要表达的“对现在的影响（current influence）”。在句2）中，问话的人一般不可能是你的家人，应该是你的朋友。设想这样一个场景：你和朋友们正在聊兄弟之间的关系，你告诉你朋友说，你喜欢让你弟弟做各种各样的事情，比如让他为你洗衣服、替你做功课、给你做饭等等，这时候你的一个朋友问你：“那你有没有让你弟弟刷过碗呢？”<br>由此可知，对于“单一事件”的完成时态，虽然该事件发生的过去时间是不确定的，但我们可以大概地区分为“近的过去（near past）”事件和“远的过去（distant past）”事件，因而所表达的意思也不一样。这种时间上的远近是需要借助上下文的语境才能作出区分的，单从完成时态句子本身是无法区分的。因此可以说，“单一事件”的完成时态，若是离开语境，几乎无法理解它所要表达的真正含义。</p>
+<h3 id="新闻热点（hot-news）——近的过去"><a href="#新闻热点（hot-news）——近的过去" class="headerlink" title="新闻热点（hot news）——近的过去"></a>新闻热点（hot news）——近的过去</h3><h4 id="所造成的现在结果往往是直接具体或依然清晰可见的"><a href="#所造成的现在结果往往是直接具体或依然清晰可见的" class="headerlink" title="所造成的现在结果往往是直接具体或依然清晰可见的"></a>所造成的现在结果往往是直接具体或依然清晰可见的</h4><h4 id="具有最新热点新闻的效果"><a href="#具有最新热点新闻的效果" class="headerlink" title="具有最新热点新闻的效果"></a>具有最新热点新闻的效果</h4><p>在日常对话中，完成时态的这个用法常常用来提供最新消息。比如某个名人刚刚去世，这往往是个大新闻，这时就会用到现在完成时态。<br>比如：I hear that famous Chinese comedian has died. 我听说那位著名的中国喜剧明星去世了。<br>The President has been assassinated. 总统被暗杀了。<br>但是，如果某个名人的“死亡”不是刚刚发生的，而是离现在的时间比较远了，就要改用一般过去时态了。比如肯尼迪总统是被刺杀的，但因为是很久远的事情了，所以要用一般过去时态来表达：<br>John F. Kennedy was assassinated.</p>
+<h4 id="时态搭配：现在完成时-一般过去时"><a href="#时态搭配：现在完成时-一般过去时" class="headerlink" title="时态搭配：现在完成时+一般过去时"></a>时态搭配：现在完成时+一般过去时</h4><p>口语对话中常出现“现在完成时+一般过去 时”的时态搭配使用。此时，我们用“现在完成时”提起一个新闻话题， 用“一般过去时”继续详谈内容。<br>比如，若你要把萨达姆被捕这一新闻告诉你的朋友，你一开始应该用现在完成时，接下去的对话则应改为过去时：<br>A: The former Iraqi President Saddam has been captured.<br>B: Really? When did that happen?<br>A: He was captured Saturday at 8:30 p.m. in a cellar on an isolated farm near Tikrit.<br>A：伊拉克前总统萨达姆被抓了。<br>B：真的？什么时候？<br>A：他是周六晚8:30在提克里特附近一个偏僻的农场的地窖里被捕的。</p>
+<h3 id="过去的经历（past-experience）——远的过去"><a href="#过去的经历（past-experience）——远的过去" class="headerlink" title="过去的经历（past experience）——远的过去"></a>过去的经历（past experience）——远的过去</h3><h4 id="表示过去经历的现在完成时"><a href="#表示过去经历的现在完成时" class="headerlink" title="表示过去经历的现在完成时"></a>表示过去经历的现在完成时</h4><p>当谈论一个发生在离现在时间较远的过去的某个事件时，常常含有回顾自己曾经的经历的意味。所以，如果把现在完成时用于指较远的过去的事件，这时的完成时往往用来谈论人们过去的经历或经验（past experience）。<br>1） Have you ever called in sick at work when not ill?<br>2） Have you ever taken office supplies from your company?<br>3） Have you ever taken anything valuable from your company for personal use? 等等。<br>这些问题涉及的时间跨度很长，其中伴有时间副词ever（曾经）来强调这个时间跨度。正如有受访者所言：“‘曾经’是一个很长的时间范畴 （Ever is a long time.）”，它包括从出生以来到目前为止的任何一个过去的时间点，这正是现在完成时态的第三种思维——“单一事件”完成时。所以，上述句子都用了现在完成时态。另外，这里的完成时句子都是表示过去的经历，具有“远的过去”事件的意味。</p>
+<h4 id="时态搭配一：现在完成时-一般过去时"><a href="#时态搭配一：现在完成时-一般过去时" class="headerlink" title="时态搭配一：现在完成时+一般过去时"></a>时态搭配一：现在完成时+一般过去时</h4><p>这一时态搭配中的现在完成时也可以用来谈“远的过去”事件，此时用完成时询问对方过去的经历，然后用一般过去时继续详谈这个经历的具体情况。<br>A: Have you seen the film Forrest Gump?（询问对方过去的经历）<br>B: Yes, I have. （现在知道电影的内容）<br>A: When did you see it?（关心看电影的过去的具体时间）<br>B: I saw it last spring. （给出具体时间）<br>A: Did you see it alone?（询问当时的情况）<br>B: No, I saw it with my boyfriend. （提供过去的事实）</p>
+<h4 id="时态搭配二：一般过去时-现在完成时"><a href="#时态搭配二：一般过去时-现在完成时" class="headerlink" title="时态搭配二：一般过去时+现在完成时"></a>时态搭配二：一般过去时+现在完成时</h4><p>用一般过去时讲述自己过去的经历，然后用现在完成时探询对方是否有相似的经历，以期望获得更多的理解或共鸣。<br>John: We went down into Juarez and through El Paso, and oh, we had a ball.<br>Louise: Really?<br>John: Yeah. Have you ever been to—have you ever heard of Juarez? Louise: I’ve heard of both of them because my girlfriend’s old boyfriend was stationed in El Paso.<br>John: Well, we went to Juarez…<br>这里约翰在用一般过去时讲述自己在华雷斯的经历， 但在继续讲故事之前，他从过去时态的叙述转到一个现在完成时态的询 问（Have you ever been to—have you ever heard of Juarez?），以此来探询路易斯是否了解华雷斯这个地方。而路易斯在展示自己的有关知识时 也使用了现在完成时（I’ve heard of both of them…），表明自己对华雷斯有所了解。而这个“现在的了解”是因为过去听说过那个地方——即过去的事件对现在有影响。<br>约翰：我们南下去了华雷斯，穿过了整个埃尔帕索市，哦，我们玩得开心极了！<br>路易斯：真的？<br>约翰：是的。对了，你曾经去过——你听说过华雷斯吗？<br>路易斯：这两个地方我都听说过，因为我的女朋友的前男友就是驻扎在埃尔帕索的。<br>约翰：噢，我们去了华雷斯……</p>
+<h4 id="时态搭配三：一般现在时-现在完成时"><a href="#时态搭配三：一般现在时-现在完成时" class="headerlink" title="时态搭配三：一般现在时+现在完成时"></a>时态搭配三：一般现在时+现在完成时</h4><p>如果说话人谈到的过去经历是一般常见的经历，而不是指某一次具体的过去的经历，那么他会用一般现在时态，然后接一个现在完成时态，来探寻听话者/读者是否有过类似的经历。</p>
+<h3 id="“单一事件”与时间状语的关系"><a href="#“单一事件”与时间状语的关系" class="headerlink" title="“单一事件”与时间状语的关系"></a>“单一事件”与时间状语的关系</h3><h4 id="“单一事件”完成时的肯定句不与持续的时间状语连用"><a href="#“单一事件”完成时的肯定句不与持续的时间状语连用" class="headerlink" title="“单一事件”完成时的肯定句不与持续的时间状语连用"></a>“单一事件”完成时的肯定句不与持续的时间状语连用</h4><p>这种完成时态的谓语动词通常是短暂动词，即指动作在短时间或瞬间内就已终止，而不再延续。常见的这类动词有：come，go，leave， kill，die，lose，buy，start，give，marry，join和bring等。因为动作本身无法延续，因此与它连用的时间状语不能是指“一段时间”的，如for a year等。这恰好与“延续事件”的完成时相反——“延续事件”的完成时必须加持续的时间状语，而“单一事件”完成时态不能加持续性的时间状语，<br>I have bought this pair of shoes for a year.  <em><br>I have married for over a year.  </em><br>I have fallen in love for eight years.  <em><br>He has left his hometown for three years.  </em></p>
+<p>汉语里完全可以说“这部电影我看了有两年了”，但在英语里却不能用现在完成时态这样表达：<br>I have seen the movie for two years. *<br>因为这里句子的谓语动词是短暂性的，不能表示延续，因而不能与 since或for等引导的持续性的时间状语连用。只要把“动作（action）”转 化为“状态（state）”即可，因为状态是可以延续的。<br>比如上面几个错误的句子可以分别改为相应的“状态”：<br>I have had this pair of shoes for a year. 这双鞋我买了有一年了。<br>I have been married for over a year. 我结婚有一年多了。<br>I have been in love for eight years. 我恋爱有八年了。<br>He has been away from his hometown for three years. 他离开家乡有 三年了。<br>若句中的“动作”表达无法转化成“状态”表达，就不能用现在完成时态，而只能改为一般过去时态。比如see没有对应的状态表达，所以上面的例句5只能改成一般过去时：<br>I saw the movie two years ago.<br>这完全能够表达汉语的“这部电影我看了有两年了”这句话的意思。<br>其他句子也可以作同样的时态改变，比如说：<br>I bought this pair of shoes a year ago.<br>I got married over a year ago.<br>He left his hometown three years ago.</p>
+<h4 id="“单一事件”完成时的否定句表示状态意义，可与持续的时间状语连用"><a href="#“单一事件”完成时的否定句表示状态意义，可与持续的时间状语连用" class="headerlink" title="“单一事件”完成时的否定句表示状态意义，可与持续的时间状语连用"></a>“单一事件”完成时的否定句表示状态意义，可与持续的时间状语连用</h4><p>短暂性动词的完成时句子若用否定式，表示尚未发生的事情，则可作为一种状态（state），从而可以表示延续。所以，这种否定句就相当于前面介绍过的“延续事件”完成时态。<br>来看下面这个可怜的乞丐：<br>Beggar: Madam, I haven’t seen a piece of meat for weeks.<br>Lady: Mary, please show this poor man the ham we bought just now.<br>乞丐：夫人，我已经好几个星期都没见过一片肉了。 夫人：玛丽，把我们刚才买的那根火腿给他瞧瞧。<br>这位乞丐说“haven’t seen a piece of meat for weeks.”，显然其言外之意是“给我一些肉吃吧”，但那位妇人故意从字面上理解他的意思，所以让玛丽只是给他“看肉”。这里短暂动词see的否定式与延续的时间状语 for weeks连用了。</p>
+<h4 id="“单一事件”完成时常与不确定的时间状语连用"><a href="#“单一事件”完成时常与不确定的时间状语连用" class="headerlink" title="“单一事件”完成时常与不确定的时间状语连用"></a>“单一事件”完成时常与不确定的时间状语连用</h4><p>是现在完成时更多的是与过去的不确定的时间搭配使用，如：already （已经），yet （只用在疑问句或否定句中），lately （最近）, just （刚刚，方才），never （从不，从未发生过），ever （曾经）和before （以前）等，而且还可以按照前面讨论的“远近过去”把它们划分为：</p>
+<ul>
+<li>较远的过去：ever（英文意思是any time between the past and the present，表示“曾经”，一般指较远的过去时间）和before；</li>
+<li>较近的过去：yet，already，lately和recently；</li>
+<li>更近的过去：just，表示“刚刚”，常与完成时态连用。</li>
+</ul>
+<p>A: Have you ever been to the Great Wall?<br>B: Yes. I’ve been there many times.<br>或B: Yes. I went there last spring.</p>
+<p>Get a hold of yourself! I’ve never seen you so upset before!<br>你要控制一下情绪。我以前从未见你这么生气！</p>
+<p>A: Have you found a job yet? 你找到工作了吗？<br>B: No, not yet. 还没有。<br>He hasn’t arrived yet. 他还没到。</p>
+<p>在肯定句中，用already代替yet表示“已经”：<br>A: Have you found a job yet? 你找到工作了吗？<br>B: Yes. I’ve found a job already. 是的，我已经找到工作了。<br>He has already arrived. 他已经到了。</p>
+<p>A: Would you like something to eat? 你想吃点什么吗？<br>B: No, thanks. I’ve just had dinner. 不了，谢谢。我刚吃过饭。（现在不饿）</p>
+<h2 id="“延续事件”“重复事件”与“单一事件”之间的相互关系"><a href="#“延续事件”“重复事件”与“单一事件”之间的相互关系" class="headerlink" title="“延续事件”“重复事件”与“单一事件”之间的相互关系"></a>“延续事件”“重复事件”与“单一事件”之间的相互关系</h2><h3 id="延续事件与单一事件"><a href="#延续事件与单一事件" class="headerlink" title="延续事件与单一事件"></a>延续事件与单一事件</h3><p>这二者的区别和联系主要与能否带有持续的时间状语有关。<br>1） His father has been dead for three years.<br>2） His father has died for three years. *<br>这里例句1）正确，而例句2）错误，因为die表示短暂 动作，不能与持续的时间状语for three years连用。<br>他父亲去世三年了。<br>但要注意的是，短暂动词可以用于现在完成时态。比如：<br>He has married. 他已经结婚了。<br>His father has died. 他父亲已经去世了。<br>一般只能表示单一事件中的“近的过去”事件。<br>延续事件的完成时在没有持续时间状语时不能表示延续，只能表示过去曾经的经历，这正是单一事件中的“远的过去”事件。<br>1） I have been married for a year.<br>2） I have been married.<br>例句1）表示“我结婚已经有一年了”，现在是已婚状 态；例句2）则表示“我结过婚”，而现在是单身。<br>综上所述，延续事件与单一事件的联系是：不带有持续的时间状语的延续事件立即变成了单一事件中的“远的过去”事件——表示过去的经历。</p>
+<h3 id="延续事件与重复事件"><a href="#延续事件与重复事件" class="headerlink" title="延续事件与重复事件"></a>延续事件与重复事件</h3><p>1） He has been married for a year.<br>2） He has been married a couple of times.<br>这里的例句1）表示延续事件，而例句2）表示重复事件。<br>1）他结婚有一年了。<br>2）到目前为止他结过两次婚。</p>
+<h3 id="重复事件与单一事件"><a href="#重复事件与单一事件" class="headerlink" title="重复事件与单一事件"></a>重复事件与单一事件</h3><h4 id="重复事件与“远的过去”单一事件"><a href="#重复事件与“远的过去”单一事件" class="headerlink" title="重复事件与“远的过去”单一事件"></a>重复事件与“远的过去”单一事件</h4><p>I have been married. 我结过婚。<br>这句话的意思是“我结过婚”，是表示“过去曾经的经历（a past experience）”，是一个“远的过去”单一事件。但它并没有告诉我们“结婚”经历了几次，只是我们知道“结婚”这一事件到目前为止至少发生过 一次（at least one occurrence up to the present）。说“至少发生过一次”其实就潜含了重复的意味，也就是说“结婚”至少有一次，也可能是多次。 因此，我们很容易就能把上面这句变成一个重复事件，即在句末加一个“重复标示”——频度状语（比如three times）说成：<br>I have been married three times. 到目前为止我结过三次婚。<br>这是一个典型的表示重复事件的完成时句子。所以，从表示过去经 历的“单一事件”到“重复事件”，只需迈一小步，即加上一个表示具体次数的频度状语就可以了。<br>另一方面，用现在完成时来谈论过去的经历时，这个经历一定得是具有可重复性的。如果一个活动或状态天然不具有重复性，即不能表示来回往复的发生，就不能用现在完成时来表示“过去的经历”。比如 说“死”，因为人死不能复生，所以不能说： His father has been dead.<em> 同样，人不能返老还童，所以也不能说： I have been old.</em></p>
+<h4 id="重复事件与“近的过去”单一事件"><a href="#重复事件与“近的过去”单一事件" class="headerlink" title="重复事件与“近的过去”单一事件"></a>重复事件与“近的过去”单一事件</h4><p>He has been fired.<br>它既可以解释成“远的过去”事件，即表示“过去的经历”： 他被开除过。<br>也可以理解成“近的过去”单一事件： 他被开除了。<br>为了消除歧义和更明确地表达意思，我们可以添加相应的时间状语来加以区分。比如说：<br>He has been fired before. （他以前曾被开除过。）<br>He has just been fired. （他刚被开除了。）</p>
+<p>事实上，句子“He has been fired.”存在歧义，这本身就说明了重复事件、“远的过去”单一事件以及“近的过去”单一事件这三者之间是密切相关的。像上面论述的那样，这个句子稍做改变就可以更明确地传达出这三个不同事件的含义。比如通过添加不同的状语three times，before和 just说成：<br>He has been fired three times. （到目前为止，他已经被开除过三次了。——重复事件）<br>He has been fired before. （他以前被开除过。——“远的过去”单一事件）<br>He has just been fired. （他刚刚被开除了。——“近的过去”单一事件）</p>
+<h4 id="“动作表达”的完成时态与“状态表达”的一般现在时态"><a href="#“动作表达”的完成时态与“状态表达”的一般现在时态" class="headerlink" title="“动作表达”的完成时态与“状态表达”的一般现在时态"></a>“动作表达”的完成时态与“状态表达”的一般现在时态</h4><p>“动作表达”和“状态表达”的区别往往与现在完成时态有着密切的联系。比如上面关于“结婚”的例子，如果要表达“我结婚有一年了”这样的延续状态时，只能用“状态表达”即be married，而不能用“动作表达”即 married或get married，所以这句中文用英文表达就是：<br>I’ve been married for a year.<br>而不能说：<br>I’ve married for a year. <em><br>I’ve got married for a year. </em></p>
+<p>以“结婚”为例。看到“I have been married.”，要理解成“我结过婚。”但要表示“我已经结婚了”，英文里可以用“动作表达”的完成时态这样说：<br>I have married.<br>也可以用“状态表达”的一般现在时态这样说：<br>I am married.<br>这两句话的语境背景还是稍有不同的：“I am married.”只是很客观地、平静地说明“我已经结婚了”这个事实；而“I have married.”则带有感情色彩，只适用于新婚不久的情况，比如“我”表现出兴奋的样子，见到朋友，满脸幸福地向朋友们宣布“我已经结婚了（I have married.）”。<br>这即是完成时所要表达的“对现在的影响”。这种新婚时的兴奋劲一过，以后再向别人作自我介绍时说“我已经结婚了”，就只能说成“I’m married.”。<br>比如萨达姆刚刚被美军抓住时， 新闻报道就可以用现在完成时态说：<br>Saddam has been captured. 意思相当于“Saddam is captive.”。<br>肯尼迪刚刚被暗杀后，就可以说：<br>Kennedy has been assassinated. 意思相当于“Kennedy is dead.”。<br>但是，随着时间的改变，语境也就变了，“萨达姆被抓”“肯尼迪被杀”离现在都比较久远了，因此，现在就不便说“Saddam has been captured.”和“Kennedy has been assassinated.”，而只能用一般过去时并加上具体的过去时间状语说成“Saddam was captured on 14 Dec. 2003.”和“Kennedy was assassinated on 22 Nov. 1963.”。</p>
+<h4 id="“动作表达”的完成时态与“状态表达”的完成时态"><a href="#“动作表达”的完成时态与“状态表达”的完成时态" class="headerlink" title="“动作表达”的完成时态与“状态表达”的完成时态"></a>“动作表达”的完成时态与“状态表达”的完成时态</h4><p>在英语中，“动作表达”的完成时态强调最近发生的事件，而“状态表达”的完成时态强调“较远的过去”经历。<br>His father has died.<br>表示“他爸爸已经死了”，因为has died是“动作表达”，此时通常要理解成最近的事件。而<br>His father has been dead. *<br>这是“状态表达”，强调过去的经历，所以表示“他爸爸曾经死过 （但现在又活过来了）”，显然不通，因此被认为是错句。<br>be married是“状态表达”，所以它的现在完成时态一般表示“曾经的经历”，因此：<br>I have been married. 表示“我曾经结过婚”。<br>但是， 对于不能明确区分是动作还是状态的谓语，则会产生歧义。比如：<br>He has been fired.<br>因为be fired既可以是“动作表达”也可以作为“状态表达”，既可以理解成最近一次动作——“他被开除了”，也可以理解成曾经的经历——“他曾经被开除过”。<br>如果句子的谓语既可以作为动作，也可以作为状态，此时英文就有歧义，区分要靠语境。</p>
+<h3 id="完成时态用于最高级句型"><a href="#完成时态用于最高级句型" class="headerlink" title="完成时态用于最高级句型"></a>完成时态用于最高级句型</h3><p>英文常常把现在完成时态用于这样的结构中：<br>“最高级+名词+that从句+现在完成时谓语”<br>This is the most interesting novel that I’ve ever read. 这是我看过的 最有趣的小说。<br>This is the hardest job that I’ve ever done. 这是我做过的最难的工作。</p>
+<p>在这个句型结构中，除了用最高级外，还可以用序数词（如 second）来修饰名词。此时，从句的谓语同样要用现在完成时态。<br>This is the first time that I’ve come to Beijing. 这是我第一次来北京。<br>This is the third time that I’ve come to Paris. 这是我第三次来巴黎。</p>
+<p><strong><em>在上述句型中，主句的谓语若是一般过去时，比如was（如It was the second/best…），that后面的句子的谓语要用过去完成时态。</em></strong>例如：<br>That was the tenth cup of coffee that I had drunk that night. 那是我那天晚上喝的第10杯咖啡。</p>
+<h3 id="时间连词since的特殊用法"><a href="#时间连词since的特殊用法" class="headerlink" title="时间连词since的特殊用法"></a>时间连词since的特殊用法</h3><p>I have worked in this company since I left school. 自从毕业离校以来，我就一直在这家公司工作。<br>这个例句中的since作为时间连词，意思是“自从……以来”。与它有关的主句和从句的时态搭配关系是：since后面所接从句的谓语要用一般过去时态，与其搭配的主句谓语则用现在完成时态。<br>It has been three years since I worked in this company.<br>这个句子我们很容易错误地理解为：<br>我在这家公司工作已经有三年了。 *<br>也就是将这句话完全等同于： I have worked in this company for three years now.<br>其实，这句英文真正要表达的意思是：<br>It has been three years since I last worked here in this company. I have NOT worked in this company during the past three years.<br>这句话是要强调“我最后一次在这家公司工作是在三年前”，换句话说，“我过去三年间都没有在这家公司工作”，即“我离开这家公司已经有三年了”。<br>通过比较上述两个since引导的从句的谓语动词left和worked，会发现，left是典型的“短暂动词”，而worked则是“延续动词”。问题就出在动词动作的延续性上，因为since后面接延续性或短暂性动词，用于不同时态，所表达的意义是有区别的。</p>
+<h4 id="since-短暂动词"><a href="#since-短暂动词" class="headerlink" title="since+短暂动词"></a>since+短暂动词</h4><p>主句用现在完成时，since后面的从句用一般过去时。<br>I have worked in this company since I have left school.<br>自从毕业离校以来，我就一直在这家公司工作。<br>It has been three years since I have came to China.<br>我来中国已经有三年了。<br>以上这两个例句里的since引导的从句的谓语动词left和came都是典型的短暂动词，而且这些动作都是在过去发生的，所以自然要用一般过去时态。实际上，这里的谓语动词也可以采用现在完成时态，句子的意思不变。比如上面这两个句子也可以这样说：<br>I have worked in this company since I have left school.<br>It has been three years since I have come to China.<br>综上所述，since后面接短暂动词时，用一般过去时态或现在完成时态均可，而且意思一样，都表示从句动作“结束”以来，主句活动在持续。翻译成中文时，句子的意思就按英文字面去理解。比如leave是短暂动词，不论用于一般过去时态（left）还是用于现在完成时态（have left），都表示leave的动作结束后，主句活动work才开始并且一直在持续（即离开学校后就一直在这家公司工作）。</p>
+<h4 id="since-延续动词"><a href="#since-延续动词" class="headerlink" title="since+延续动词"></a>since+延续动词</h4><p>当since接延续动词时，用一般过去时态或现在完成时态均可，但意思不一样。若用一般过去时态，则表示从句动作“结束”以来，主句活动在持续；若用现在完成时态，则表示从句动作“开始”以来，主句活动在持续。<br>1） It’s been three years since I worked in this company.<br>2） It’s been three years since I have worked in this company.<br>在例句1）中，worked是延续动词用于一般过去时态，主句时间则是从work这个活动“结束”后开始算起到现在有三年了。<br>在例句2）中，have worked是延续动词用于现在完成时态，主句时间则是从work这个活动“开始”以来算起到现在有三年了。<br>1）我不在这家公司工作有三年了。<br>2）我在这家公司工作有三年了。</p>
+<p>It’s two years since I was in this university.<br>这里表示延续状态的动词be用了过去式was，应该是表示从was in this university的状态结束后开始计算时间，所以此句应翻译为：<br>我大学毕业已经有两年了。 而不能按照字面理解为：我上大学已经有两年了。*<br>“我上大学已经有两年了”应该说成“It’s two years since I have been in this university.”。<br>注意：since引导的主句如果单纯表示时间，可以说“It is或has been+时间段+since…”，所以这句话也可以说成“It’s been two years since I have been in this university.”。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/07/English之时态系列-进行时态-将来进行时/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/07/English之时态系列-进行时态-将来进行时/" class="post-title-link" itemprop="url">English之时态系列-进行时态（将来进行时）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-06-07 18:36:16" itemprop="dateCreated datePublished" datetime="2020-06-07T18:36:16+08:00">2020-06-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-05 18:37:24" itemprop="dateModified" datetime="2020-08-05T18:37:24+08:00">2020-08-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="将来进行时"><a href="#将来进行时" class="headerlink" title="将来进行时"></a>将来进行时</h1><h2 id="典型用法：将来某一特定时刻正在持续的事"><a href="#典型用法：将来某一特定时刻正在持续的事" class="headerlink" title="典型用法：将来某一特定时刻正在持续的事"></a>典型用法：将来某一特定时刻正在持续的事</h2><p><strong><em>将来进行时态的典型用法，就是想象自己或其他人在将来某一特定时刻（at a particular time in future）正在做某事。</em></strong>比如下面的两个朋友在谈论休假的事：<br>A: When do you leave for Hainan?<br>B: Tomorrow. Just think, two days from now I will be lying on the beach in the sun.<br>A: Sounds great!<br>在上文中，说话人B用了will be lying这一动词变化形式，表示想象自己后天就正躺在海滩上的情景，这样的表达很生动。</p>
+<p>Don’t telephone me after eight tomorrow—I’ll be having a meeting.<br>明天8点钟以后不要给我打电话，因为那时我正在开会。</p>
+<p>Wait until seven o’clock so that they won’t still be eating.<br>等到7点钟再过去吧，这样他们那时就不会还在吃饭了。</p>
+<h2 id="口语用法：将来计划好的事"><a href="#口语用法：将来计划好的事" class="headerlink" title="口语用法：将来计划好的事"></a>口语用法：将来计划好的事</h2><p><strong><em>在日常的口语中，我们常用will be doing来谈一个将来计划好的事情。</em></strong><br>Professor Smith will be giving a lecture on American literature tomorrow evening.<br>这里的将来进行时态表示确定好的安排。<br>明晚史密斯教授将会举行有关美国文学的讲座。<br>现在进行时态be doing也可以表示计划好的事。比如上面这个句子也可以说成：<br>Professor Smith is giving a lecture on American literature tomorrow evening. </p>
+<blockquote>
+<p>此时，两者的区别不是很大。因此，表示将来安排好的事情，两种时态可以换用。</p>
+</blockquote>
+<p>不过，二者还是有下列两点不同： </p>
+<blockquote>
+<p>现在进行时只表示最近的将来；而将来进行时既可以表示最近的将来，也可以表示较远的将来。</p>
+</blockquote>
+<p>I am meeting him tomorrow. 我明天要见他。<br>I will be meeting him tomorrow/next year. 我明天/明年要见他。</p>
+<blockquote>
+<p>现在进行时表示最近将来的动作时，必须有确定的表示将来的时间状语；而将来进行时则没有这种限制。</p>
+</blockquote>
+<p>1） He’s working in this room next Monday.<br>2） He’ll be working in this room.<br>在例句1）中，如果没有表示将来的时间状语next Monday，则该句一般理解成正在进行的活动，表示“他现正在这个房间里工作”。在例句2）中，虽然没有表示将来的时间状语，但依然可以表示将来的活动。</p>
+<h2 id="少见用法：表示背景动作——提供另外一个短动作发生的事件背景"><a href="#少见用法：表示背景动作——提供另外一个短动作发生的事件背景" class="headerlink" title="少见用法：表示背景动作——提供另外一个短动作发生的事件背景"></a>少见用法：表示背景动作——提供另外一个短动作发生的事件背景</h2><p>同过去进行时的用法类似，将来进行时可以表示一个背景动作，来描述在这个背景动作下，将会发生的另外一个短暂动作。<br>They probably will be watching TV when we get there.<br>用将来进行时表示一个长的背景动作，比如“看电视”， 而我们“到达”是在他们看电视的过程中的某一将来的时间点发生的动作。主句的进行时表示动作较长，从句的现在时表示将来的某一短动作。<br>等我们一会儿到那里时，他们可能正在看电视。<br>Will your friends be waiting for you at the airport when you arrive?<br>你一会到达机场时，你的朋友们会在那接你吗？</p>
+<h2 id="难点用法1：用在疑问句中，表示客气地询问"><a href="#难点用法1：用在疑问句中，表示客气地询问" class="headerlink" title="难点用法1：用在疑问句中，表示客气地询问"></a>难点用法1：用在疑问句中，表示客气地询问</h2><blockquote>
+<p>许多美国电影和美国人口语中好像爱用进行时态，但动作又似乎并不是正在进行着，这样的表达有什么特别的意义吗？如在电影 You’ve Got Mail［注：这是由汤姆·汉克斯（Tom Hanks）和梅格·瑞 安（Meg Ryan）主演的一部美国影片，中文译名为《网上情缘》］中， 书店营业员George问Joe付款方式，用的是“How will you be paying for this？”。Joe答Cash。为何不直接用“How will you pay for this？”。这是一种习惯还是一种思维？</p>
+</blockquote>
+<p>这一问题涉及将来进行时态（如will be paying）的意义及其与一般将来时态（如will pay）的区别。我们注意到，上面的营业员用的是将来进行时态will be paying来询问顾客的付款方式，而不是一般将来时态will pay。<br>这个问题其实引出了“将来进行时态（will be doing）”的一种很有用的用法，即我们用它来“礼貌地询问”，显得比一般将来时will do更委婉客气。这是因为will be doing常表示很客观地询问事实，并不想干涉对方的决定；而will do往往带有各种感情色彩，如请求、命令、指示、质问甚至威胁等等。<br>所以，上述的will be paying就是表示一种客气的询问。我们知道这是发生在书店营业员和顾客之间的对话，店员乔治（George）当然应该要很有礼貌地向顾客提出询问，所以在此场景中他选用了将来进行时“How will you be paying for this?”这一礼貌的询问句式。若他说“How will you pay for this?”则显得比较生硬，不够礼貌，会让顾客感觉对方是在质问自己。<br>will be doing都是出现在服务人员向顾客询问信息的场景中。当然，这种礼貌询问的表达方式不只是出现在公司与客户之间，它同样适用于人与人之间的询问与关心。<br>比如，一位演员在问及导演有关角色的分配时，他是这样礼貌地提问的：<br>Who will I be acting with?<br>这里他同样用了礼貌的提问形式will be acting，表示自己只是在客观地打听事实，而不是要干涉导演的安排，因而这样询问显得委婉礼貌。</p>
+<p><strong><em>will be doing用在疑问句中表示客气地询问。但我们也要注意，这并不是说以后我们就不用will do来提问了，而一律用 will be doing代替will do。will do往往带有各种感情色彩，比如表达“请求”，此时我们就得用will do，而一般不用will be doing。</em></strong><br>比如“你能借给我10美元吗？”这句话，一般不说：<br>Will you be lending me ten dollars?*<br>这里的will不是在客观地询问事实，而是表示一种请求，所以，我们要说：<br>Will you lend me ten dollars?<br>如果我们是要客观地询问事实，宜用will be doing来提问； 而若是其他语气，比如请求或命令等，我们则要用will do来提问。</p>
+<p>1） Will you be staying in this evening?<br>2） Will you stay in this evening?<br>在例句1）中，用will be doing是表示礼貌地、客观地询问，只是想了解你今晚的打算，并没有干涉的意思。所以我们可译成“今晚你不出去吧？”在例句2）中，用will do，含有感情色彩，如请求、指示或命令。所以这句话可以根据说话者的语气译成“今晚你别出去了，好吗？”（请求），或者“今晚你不要出去了行不行?!”（命令）。</p>
+<h2 id="难点用法2：用来表示客观的将来，以避免与表示“意愿”的will-do混淆"><a href="#难点用法2：用来表示客观的将来，以避免与表示“意愿”的will-do混淆" class="headerlink" title="难点用法2：用来表示客观的将来，以避免与表示“意愿”的will do混淆"></a>难点用法2：用来表示客观的将来，以避免与表示“意愿”的will do混淆</h2><p>A: It’s already 10 o’clock. I guess Bob and Amy won’t be coming to the party.<br>B: They called at nine to say that they’d been held up.<br>上面这个对话中的将来进行时态won’t be coming并非像我们通常理解的那样，表示“在将来某一特定的时刻正在做某事”，即并不是进行时态要表达的典型语义。<br>那为什么要用won’t be coming这种较为复杂的形式呢？句中为什么不用更为简单的谓语形式won’t come呢？可不可以用won’t come？两者有何区别？<br>这里涉及情态动词will的意义和用法问题。我们知道，will可以用来表示意愿（willingness）和意图 （intention）等情态语义，所以will do往往表示主观意愿，如will do 有“蓄意为之”的含义，而won’t do则有“不愿意为之”的含义。但将来进行时态will be doing则是表示客观的将来时间，侧重于对将来事件的客观陈述，表示在正常情况下预计要发生的事件，而不表达个人意图。总而言之，will be doing较客观，will do较主观，所以我们用will be doing 来表示客观的将来时间，以避免与表示主观意愿的will do混淆。<br>说话人用won’t be coming是想强调鲍勃和埃米可能是因为其他事情耽误了而“来不了”这一客观事实，而不是主观意愿上的“不愿来”。下文紧接着就说明了他们来不了的原因是they had been held up（他们有事耽误了）。如果说“Bob and Amy won’t come to the party.”。因为won’t do的意思往往相当于refuse to do，表示“拒绝做，不愿意做”。所以，对于这句话，人们一般会理解为“鲍勃和埃米不愿意来参加聚会”。而在原文中，说话人其实是在强调客观将来的时间——“来不了”，而不是“不愿来”。所以，我们看到，这里一个won’t be coming， 一个won’t come，两者的意思大相径庭。<br>A：现在已经10点了，我猜鲍勃和埃米不会来参加聚会了。<br>B：他们9点钟时打过电话，说有事耽误了。</p>
+<h2 id="will-be-doing的五种意思"><a href="#will-be-doing的五种意思" class="headerlink" title="will be doing的五种意思"></a>will be doing的五种意思</h2><ol>
+<li>想象自己或其他人在将来某一特定的时刻正在做某事； </li>
+<li>表示计划好的事； </li>
+<li>表示背景动作，提供另外一个短动作发生的事件背景； </li>
+<li>用在疑问句中，表示客气的询问。这一用法在口语中尤为常见； </li>
+<li>用will be doing来表示客观的将来，以避免与表示“意愿”的will do 混淆。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1006,113 +776,100 @@ Docker入门与微服务部署-诸葛老师
           </div>
           
 
-
-          
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
-        
           
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
   </div>
 
-  <aside id="sidebar" class="sidebar">
+  <aside class="sidebar">
     <div class="sidebar-inner">
 
-      
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
 
-      
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="James Feng">
-          <p class="site-author-name" itemprop="name">James Feng</p>
-          <p class="site-description motion-element" itemprop="description">Don't dream when the sun is setting, try to work hard when the sun is rising.</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">118</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-
-          
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">69</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">81</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
+  <p class="site-author-name" itemprop="name">Fengorz</p>
+  <div class="site-description" itemprop="description">A Quiet Departure.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
         
-
-        <div class="links-of-author motion-element">
+          <span class="site-state-item-count">118</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
           
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/coding-by-feng" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/u/3219972752?is_all=1" target="_blank" title="Weibo">
-                  
-                    <i class="fa fa-fw fa-weibo"></i>
-                  
-                  Weibo
-                </a>
-              </span>
-            
+        <span class="site-state-item-count">69</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
           
-        </div>
-
-        
-        
-
-        
-        
-
-        
+        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
 
 
-      </section>
 
-      
+      </div>
 
     </div>
   </aside>
+  <div id="sidebar-dimmer"></div>
 
 
-        
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+        
+
+        
 
 <div class="copyright">
   
@@ -1121,258 +878,117 @@ Docker入门与微服务部署-诸葛老师
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">James Feng</span>
+  <span class="author" itemprop="copyrightHolder">Fengorz</span>
 </div>
-
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-  <span>&nbsp; &nbsp;|&nbsp; &nbsp;</span>
-  Total <span id="busuanzi_value_site_uv"></span> views.
-</div>
-
-
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
 
         
 
-        
+
+
+
+
+
+
+
       </div>
     </footer>
-
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
   </div>
 
   
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
   }
+  NexT.utils.updateSidebarPosition();
+});
 </script>
 
 
 
 
-
-
-
-
-
-  
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
-
-
-  
-
-
-
   
 
 
 
 
-	
+  <script src="/js/local-search.js"></script>
 
 
 
 
-  
-  
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length == 0) {
-      search_path = "search.xml";
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    function proceedsearch() {
-      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
-      $('.popup').toggle();
-    }
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-      $.ajax({
-        url: path,
-        dataType: "xml",
-        async: true,
-        success: function( xmlResponse ) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = $( "entry", xmlResponse ).map(function() {
-            return {
-              title: $( "title", this ).text(),
-              content: $("content",this).text(),
-              url: $( "url" , this).text()
-            };
-          }).get();
-          var $input = document.getElementById(search_id);
-          var $resultContent = document.getElementById(content_id);
-          $input.addEventListener('input', function(){
-            var matchcounts = 0;
-            var str='<ul class=\"search-result-list\">';
-            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-            $resultContent.innerHTML = "";
-            if (this.value.trim().length > 1) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var content_index = [];
-                var data_title = data.title.trim().toLowerCase();
-                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                var data_url = decodeURIComponent(data.url);
-                var index_title = -1;
-                var index_content = -1;
-                var first_occur = -1;
-                // only match artiles with not empty titles and contents
-                if(data_title != '') {
-                  keywords.forEach(function(keyword, i) {
-                    index_title = data_title.indexOf(keyword);
-                    index_content = data_content.indexOf(keyword);
-                    if( index_title >= 0 || index_content >= 0 ){
-                      isMatch = true;
-                      if (i == 0) {
-                        first_occur = index_content;
-                      }
-                    }
-
-                  });
-                }
-                // show search results
-                if (isMatch) {
-                  matchcounts += 1;
-                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
-                  var content = data.content.trim().replace(/<[^>]+>/g,"");
-                  if (first_occur >= 0) {
-                    // cut out 100 characters
-                    var start = first_occur - 20;
-                    var end = first_occur + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if(start == 0){
-                      end = 50;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    var match_content = content.substring(start, end);
-                    // highlight all keywords
-                    keywords.forEach(function(keyword){
-                      var regS = new RegExp(keyword, "gi");
-                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
-                    });
-
-                    str += "<p class=\"search-result\">" + match_content +"...</p>"
-                  }
-                  str += "</li>";
-                }
-              })};
-            str += "</ul>";
-            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
-            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
-            $resultContent.innerHTML = str;
-          });
-          proceedsearch();
-        }
-      });}
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched == false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(function(e){
-      $('.popup').hide();
-      $(".popoverlay").remove();
-      $('body').css('overflow', '');
-    });
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-  </script>
 
 
+
+
+
+
+
+
+    <div id="pjax">
   
 
   
 
-  
-
-  
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
-
-
-
+    </div>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"live2d-widget-model-hijiki"},"display":{"position":"left","width":100,"height":200},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

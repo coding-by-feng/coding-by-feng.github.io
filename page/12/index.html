@@ -1,1030 +1,646 @@
-<!doctype html>
-
-
-
-  
-
-
-<html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.8.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Hexo, NexT">
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
-
-
-
-
-
-
-<meta name="description" content="Don&apos;t dream when the sun is setting, try to work hard when the sun is rising.">
+  <meta name="description" content="A Quiet Departure.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Feng&#39;s Blog">
 <meta property="og:url" content="http://yoursite.com/page/12/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="Don&apos;t dream when the sun is setting, try to work hard when the sun is rising.">
+<meta property="og:description" content="A Quiet Departure.">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Feng&#39;s Blog">
-<meta name="twitter:description" content="Don&apos;t dream when the sun is setting, try to work hard when the sun is rising.">
+<meta name="twitter:description" content="A Quiet Departure.">
+
+<link rel="canonical" href="http://yoursite.com/page/12/">
 
 
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"hide"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '10000',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-Hans'
   };
 </script>
 
-
-
-  <link rel="canonical" href="http://yoursite.com/page/12/">
-
-
+  <title>Feng's Blog</title>
+  
 
 
 
-  <title> Feng's Blog </title>
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-
-
-
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?1bc877799c79c2fb2806df9b1c09c678";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
 
-  <div class="custom-logo-site-title">
+  <div class="site-meta">
+
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Feng's Blog</span>
+      <h1 class="site-title">Feng's Blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle"></p>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
 </div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+
+
 
 <nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            分类
-          </a>
-        </li>
-      
-        
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
         <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            归档
-          </a>
-        </li>
-      
-        
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
-          </a>
-        </li>
-      
 
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
-            
-            搜索
-          </a>
-        </li>
-      
-    </ul>
-  
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
 
-  
-    <div class="site-search">
-      
-  
-  <div class="algolia-popup popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
+  </li>
+        <li class="menu-item menu-item-categories">
 
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
 
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-  </div>
+  </li>
+        <li class="menu-item menu-item-archives">
 
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
-
-
-    </div>
-  
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
 </nav>
 
 
 
- </div>
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
     </header>
 
-    <main id="main" class="main">
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content">
+          
+
+          <div class="content index posts-expand">
             
-  <section id="posts" class="posts-expand">
-    
       
-
-  
-
   
   
-  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Maven汇总/">
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/01/Idea汇总/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="James Feng">
-    <meta itemprop="description" content>
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Feng's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Feng's Blog" src>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
     </span>
-  </span>
 
-    
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/12/01/Idea汇总/" itemprop="url">
-                  Idea汇总
-                </a>
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/15/Maven汇总/" class="post-title-link" itemprop="url">Maven汇总</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-01T21:10:40+08:00">
-                2019-12-01
-              </time>
-            
+              <span class="post-meta-item-text">Posted on</span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Idea/" itemprop="url" rel="index">
-                    <span itemprop="name">Idea</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2019-10-15 21:29:45" itemprop="dateCreated datePublished" datetime="2019-10-15T21:29:45+08:00">2019-10-15</time>
             </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-10 11:17:22" itemprop="dateModified" datetime="2020-06-10T11:17:22+08:00">2020-06-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/maven/" itemprop="url" rel="index"><span itemprop="name">maven</span></a>
+                </span>
+            </span>
 
           
 
         </div>
       </header>
+
     
-
-
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><p><a href="https://www.cnblogs.com/shoshana-kong/p/11031388.html" target="_blank" rel="noopener">Maven常用命令</a></p>
+<h2 id="scope详解"><a href="#scope详解" class="headerlink" title="scope详解"></a>scope详解</h2><p><a href="https://www.cnblogs.com/hzzll/p/6738955.html" target="_blank" rel="noopener">https://www.cnblogs.com/hzzll/p/6738955.html</a></p>
+<h2 id="dependencies与dependencyManagement的区别"><a href="#dependencies与dependencyManagement的区别" class="headerlink" title="dependencies与dependencyManagement的区别"></a>dependencies与dependencyManagement的区别</h2><p>根据maven子模块继承父模块的特性，不难理解两者肯定都有继承父模块依赖的作用，但是要注意他们的区别是：</p>
+<p><strong><em>dependencies里面声明的依赖，子模块会默认全部继承，不用手动去引入依赖；而dependencyManagement里面声明的依赖，则不会再子模块中自动去隐式依赖，只有子模块中声明了依赖，并且没有指明依赖的版本这种情况才会到父模块中寻找dependencyManagement中的对应依赖，要注意的是，如果子模块声明了依赖版本号，那么在dependencyManagement中如果也有同一依赖库的不同版本共存的话，maven优先去依赖的是子模块自己的版本</em></strong></p>
+<h2 id="Maven仓库下载依赖太慢的解决方案"><a href="#Maven仓库下载依赖太慢的解决方案" class="headerlink" title="Maven仓库下载依赖太慢的解决方案"></a>Maven仓库下载依赖太慢的解决方案</h2><p>将仓库中心更改为阿里云的，修改setting.xml，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line"> &lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;</span><br><span class="line">  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">  xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd&quot;&gt;</span><br><span class="line">     &lt;mirrors&gt;</span><br><span class="line">         &lt;!-- 阿里云仓库 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://maven.aliyun.com/nexus/content/repositories/central/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line"></span><br><span class="line">         &lt;!-- 中央仓库1 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;repo1&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://repo1.maven.org/maven2/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line"></span><br><span class="line">         &lt;!-- 中央仓库2 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;repo2&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://repo2.maven.org/maven2/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line">     &lt;/mirrors&gt;</span><br><span class="line"> &lt;/settings&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Maven-BOM"><a href="#Maven-BOM" class="headerlink" title="Maven BOM"></a>Maven BOM</h2><p>BOM stands for Bill Of Materials. A BOM is a special kind of POM that is used to control the versions of a project’s dependencies and provide a central place to define and update those versions.<br>BOM字面理解是”材料清单”，它是一种特别的POM，可以用来控制项目的多个依赖，相当于某个依赖集群的中心控制处。</p>
+<h2 id="Transitive-Dependencies-依赖传递性"><a href="#Transitive-Dependencies-依赖传递性" class="headerlink" title="Transitive Dependencies 依赖传递性"></a>Transitive Dependencies 依赖传递性</h2><p>Maven can discover the libraries that are needed by our own dependencies in our pom.xml and includes them automatically. There’s no limit to the number of dependency levels that the libraries are gathered from.<br>Maven通过pom.xml的多层级依赖是没有限制的，也就是，父模块可以递归依赖子模块的任何依赖，所以可能会出现如下的矛盾：</p>
+<blockquote>
+<p>A -&gt; B -&gt; C -&gt; D 1.4  and  A -&gt; E -&gt; D 1.0</p>
+</blockquote>
+<p>那么Maven给出了两个解决方案：</p>
+<ol>
+<li>We can always guarantee a version by declaring it explicitly in our project’s POM. For instance, to guarantee that D 1.4 is used, we should add it explicitly as a dependency in the pom.xml file. 通过在A的pom.xml明确声明D的依赖版本，这样子就不会采用子模块传递过来的依赖了。</li>
+<li>We can use the Dependency Management section to control artifact versions. 可以通过依赖管理来控制依赖版本，也就是直接继承父模块，通过<parent>；或者通过import BOM。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;parent&gt;</span><br><span class="line">        &lt;groupId&gt;baeldung&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;Baeldung-BOM&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br><span class="line">    &lt;/parent&gt;</span><br></pre></td></tr></table></figure>
+</parent></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencyManagement&gt;</span><br><span class="line">        &lt;dependencies&gt;</span><br><span class="line">            &lt;dependency&gt;</span><br><span class="line">                &lt;groupId&gt;baeldung&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;Baeldung-BOM&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br><span class="line">                &lt;type&gt;pom&lt;/type&gt;</span><br><span class="line">                &lt;scope&gt;import&lt;/scope&gt;</span><br><span class="line">            &lt;/dependency&gt;</span><br><span class="line">        &lt;/dependencies&gt;</span><br><span class="line">    &lt;/dependencyManagement&gt;</span><br></pre></td></tr></table></figure>
+<p>maven依赖版本的优先权如下：<br>1、项目自己pom.xml里面直接声明的版本<br>2、从parent项目继承的版本<br>3、通过import形式的依赖版本，和import的顺序有关，先import进来的版本被优先采用。</p>
+<p>详情参考：<a href="https://www.baeldung.com/spring-maven-bom#2-what-is-maven-bom" target="_blank" rel="noopener">https://www.baeldung.com/spring-maven-bom#2-what-is-maven-bom</a></p>
+<h2 id="mvn-compile与mvn-install、mvn-deploy的区别"><a href="#mvn-compile与mvn-install、mvn-deploy的区别" class="headerlink" title="mvn compile与mvn install、mvn deploy的区别"></a>mvn compile与mvn install、mvn deploy的区别</h2><ul>
+<li>mvn compile，编译类文件</li>
+<li>mvn install，包含mvn compile，mvn package，然后上传到本地仓库</li>
+<li>mvn deploy,包含mvn install,然后，上传到私服</li>
+</ul>
+<h2 id="maven-compiler-plugin-插件"><a href="#maven-compiler-plugin-插件" class="headerlink" title="maven-compiler-plugin 插件"></a>maven-compiler-plugin 插件</h2><p>可以用于指定模块编译的jdk版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">    &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">    &lt;configuration&gt;</span><br><span class="line">        &lt;target&gt;$&#123;java.version&#125;&lt;/target&gt;</span><br><span class="line">        &lt;source&gt;$&#123;java.version&#125;&lt;/source&gt;</span><br><span class="line">        &lt;encoding&gt;UTF-8&lt;/encoding&gt;</span><br><span class="line">    &lt;/configuration&gt;</span><br><span class="line">&lt;/plugin&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Maven中-DskipTests和-Dmaven-test-skip-true的区别"><a href="#Maven中-DskipTests和-Dmaven-test-skip-true的区别" class="headerlink" title="Maven中-DskipTests和-Dmaven.test.skip=true的区别"></a>Maven中-DskipTests和-Dmaven.test.skip=true的区别</h2><p>在使用mvn package进行编译、打包时，Maven会执行src/test/java中的JUnit测试用例，有时为了跳过测试，会使用参数-DskipTests和-Dmaven.test.skip=true，这两个参数的主要区别是：<br>-DskipTests，不执行测试用例，但编译测试用例类生成相应的class文件至target/test-classes下。<br>-Dmaven.test.skip=true，不执行测试用例，也不编译测试用例类。</p>
+<h2 id="profile切换正式环境和测试环境"><a href="#profile切换正式环境和测试环境" class="headerlink" title="profile切换正式环境和测试环境"></a>profile切换正式环境和测试环境</h2><p>可以使用<profiles>的<profile>通过id标签来切换不同环境的依赖</profile></profiles></p>
+<h2 id="mvn-install执行要注意的地方-错误笔记"><a href="#mvn-install执行要注意的地方-错误笔记" class="headerlink" title="mvn install执行要注意的地方 (错误笔记*)"></a>mvn install执行要注意的地方 (错误笔记*)</h2><p>通过在父项目的pom.xml目录执行mvn install可以连同子模块也一起安装，然后假如有多层级的父子模块依赖的情况下，mvn install是不会递归去安装子模块的子模块的。<br>比如，parent模块（BOM）下有subParent（BOM），subParent下面的子模块（jar），这个时候再parent模块下执行mvn install，subParent的jar是不会安装的，需要到subParent执行一次</p>
+<h2 id="Maven整个声明周期"><a href="#Maven整个声明周期" class="headerlink" title="Maven整个声明周期"></a>Maven整个声明周期</h2><p>验证（validate） 验证项目是正确的，所有必要的信息可用。<br>初始化（initialize） 初始化构建状态，例如设置属性或创建目录。<br>产生来源（generate-sources） 生成包含在编译中的任何源代码。<br>流程源（process-sources） 处理源代码，例如过滤任何值。<br>生成资源（generate-resources） 生成包含在包中的资源。<br>流程资源（process-resources） 将资源复制并处理到目标目录中，准备打包。<br>编译（compile） 编译项目的源代码。<br>工艺类（process-classes） 从编译后处理生成的文件，例如对Java类进行字节码增强。<br>生成测试来源（generate-test-sources） 生成包含在编译中的任何测试源代码。<br>流程测试来源（process-test-sources） 处理测试源代码，例如过滤任何值。<br>生成测试资源（generate-test-resources） 创建测试资源。<br>流程测试资源（process-test-resources） 将资源复制并处理到测试目标目录中。<br>测试编译（test-compile） 将测试源代码编译到测试目标目录中<br>流程检验类（process-test-classes） 从测试编译中处理生成的文件，例如对Java类进行字节码增强。对于Maven 2.0.5及以上版本。<br>测试（test） 使用合适的单元测试框架运行测试。这些测试不应该要求代码被打包或部署。<br>制备包（prepare-package） 在实际包装之前，执行必要的准备包装的操作。这通常会导致打包的处理版本的包。（Maven 2.1及以上）<br>打包（package） 采取编译的代码，并以其可分发的格式（如JAR）进行打包。<br>预集成测试（pre-integration-test） 在执行集成测试之前执行所需的操作。这可能涉及诸如设置所需环境等。<br>集成测试（integration-test） 如果需要，可以将该包过程并部署到可以运行集成测试的环境中。<br>整合后的测试（post-integration-test） 执行集成测试后执行所需的操作。这可能包括清理环境。<br>校验（verify） 运行任何检查以验证包装是否有效并符合质量标准。<br>安装（install） 将软件包安装到本地存储库中，以作为本地其他项目的依赖关系。<br>部署（deploy） 在集成或发布环境中完成，将最终软件包复制到远程存储库，以与其他开发人员和项目共享。<br>————————————————<br>版权声明：本文为CSDN博主「zhangxitab」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/zhangxitab/article/details/91047445" target="_blank" rel="noopener">https://blog.csdn.net/zhangxitab/article/details/91047445</a></p>
+<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="记录一个Idea中Maven的奇葩错误"><a href="#记录一个Idea中Maven的奇葩错误" class="headerlink" title="记录一个Idea中Maven的奇葩错误"></a>记录一个Idea中Maven的奇葩错误</h2><p>因为我从SVN拉代码下来是将项目根目录的名字修改为其他，导致根目录的pom.xml里面的name标签的值和文件不匹配，idea就一直报红，无法依赖其他依赖。。</p>
+<h2 id="新增加properties的变量时，编译打包报错"><a href="#新增加properties的变量时，编译打包报错" class="headerlink" title="新增加properties的变量时，编译打包报错"></a>新增加properties的变量时，编译打包报错</h2><p>很有可能需要把子模块modules都注释掉，然后编译一个或者多个父模块之后再放开子模块的注释。</p>
+<h2 id="jar-original"><a href="#jar-original" class="headerlink" title="jar.original"></a>jar.original</h2><ul>
+<li>jar.original 是普通jar包，不包含依赖</li>
+<li>.jar 是可执行jar包，包含了pom中的所有依赖，可以直接用java -jar 命令执行</li>
+<li>如果是部署，就用.jar</li>
+<li>如果是给别的项目用，就要给.jar.original这个包</li>
+</ul>
 
-      
-        
-          
-          
-有部分内容来自网络，一般都有注明出处，如若侵权，请联系我删除，谢谢！文章的图片来自github的图床，图片链接存在github图床（https://raw.githubusercontent.com），该地址可能需要翻墙才能访问，所以图片可能存在加载不成功的情况。
-
-HOTKEYUsage Sea
-          ...
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2019/12/01/Idea汇总/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
+    
+    
+    
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/14/linux系列之问题汇总/">
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/30/Java系列之零碎笔记/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="James Feng">
-    <meta itemprop="description" content>
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Feng's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Feng's Blog" src>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
     </span>
-  </span>
 
-    
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/11/30/Java系列之零碎笔记/" itemprop="url">
-                  Java系列之零碎笔记
-                </a>
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/14/linux系列之问题汇总/" class="post-title-link" itemprop="url">linux系列之问题汇总</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-30T21:12:21+08:00">
-                2019-11-30
-              </time>
-            
+              <span class="post-meta-item-text">Posted on</span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2020-05-14 18:11:33" itemprop="dateCreated datePublished" datetime="2020-05-14T18:11:33+08:00">2020-05-14</time>
             </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-05 13:53:01" itemprop="dateModified" datetime="2020-06-05T13:53:01+08:00">2020-06-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
 
           
 
         </div>
       </header>
+
     
-
-
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <h1 id="apt-get国内太慢"><a href="#apt-get国内太慢" class="headerlink" title="apt-get国内太慢"></a>apt-get国内太慢</h1><p>ubuntu和debian的镜像源都要换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list</span><br><span class="line">sed -i &apos;s/deb.debian.org/mirrors.ustc.edu.cn/g&apos; /etc/apt/sources.list</span><br></pre></td></tr></table></figure></p>
+<p>还原：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i s@/mirrors.aliyun.com/@/deb.debian.org/@g /etc/apt/sources.list</span><br></pre></td></tr></table></figure></p>
+<h2 id="更换163的镜像"><a href="#更换163的镜像" class="headerlink" title="更换163的镜像"></a>更换163的镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#更新apt-get源 使用163的源</span><br><span class="line">mv /etc/apt/sources.list /etc/apt/sources.list.bak &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+<h2 id="apk命令更换源"><a href="#apk命令更换源" class="headerlink" title="apk命令更换源"></a>apk命令更换源</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;http://mirrors.aliyun.com/alpine/v3.8/main&quot; &gt; /etc/apk/repositories \</span><br><span class="line">    &amp;&amp; echo &quot;http://mirrors.aliyun.com/alpine/v3.8/community&quot; &gt;&gt; /etc/apk/repositories \</span><br><span class="line">    &amp;&amp; apk update upgrade \</span><br></pre></td></tr></table></figure>
+<h2 id="将命令的返回值赋值给变量（Shell命令）"><a href="#将命令的返回值赋值给变量（Shell命令）" class="headerlink" title="将命令的返回值赋值给变量（Shell命令）"></a>将命令的返回值赋值给变量（Shell命令）</h2><ul>
+<li>A=<code>ls -la</code> 反引号，运行里面的命令，并把结果返回给变量A</li>
+<li>A=$(ls -la)等价于反引号</li>
+</ul>
+<h2 id="linux-shell通过curl获取HTTP请求的状态码"><a href="#linux-shell通过curl获取HTTP请求的状态码" class="headerlink" title="linux shell通过curl获取HTTP请求的状态码"></a>linux shell通过curl获取HTTP请求的状态码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -I -m 10 -o /dev/null -s -w %&#123;http_code&#125; www.baidu.com</span><br></pre></td></tr></table></figure>
+<h2 id="shell获取系统当前时间并格式化"><a href="#shell获取系统当前时间并格式化" class="headerlink" title="shell获取系统当前时间并格式化"></a>shell获取系统当前时间并格式化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time=$(date &quot;+%Y-%m-%d %H:%M:%S&quot;)</span><br></pre></td></tr></table></figure>
+<h2 id="安装包打包命令"><a href="#安装包打包命令" class="headerlink" title="安装包打包命令"></a>安装包打包命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpmbuild / dpkg-deb 可以制作 rpm / deb package</span><br></pre></td></tr></table></figure>
 
-      
-        
-          
-          避坑代码格式一个团队你的代码格式一定要统一，不然代码冲突时，比对代码非常麻烦。
-Java8 新特性Java8新特性参考
-https://www.cnblogs.com/onetwo/p/8526374.html
-https://www.cnblogs.com/dzy521/p/10077132.ht
-          ...
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2019/11/30/Java系列之零碎笔记/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
+    
+    
+    
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/25/Spring系列之SpringCloud/">
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/30/English/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="James Feng">
-    <meta itemprop="description" content>
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Feng's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Feng's Blog" src>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
     </span>
-  </span>
 
-    
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/11/30/English/" itemprop="url">
-                  English
-                </a>
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/25/Spring系列之SpringCloud/" class="post-title-link" itemprop="url">Spring系列之SpringCloud</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-30T17:08:47+08:00">
-                2019-11-30
-              </time>
-            
+              <span class="post-meta-item-text">Posted on</span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/English/" itemprop="url" rel="index">
-                    <span itemprop="name">English</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2019-11-25 21:30:37" itemprop="dateCreated datePublished" datetime="2019-11-25T21:30:37+08:00">2019-11-25</time>
             </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-05 10:23:30" itemprop="dateModified" datetime="2020-06-05T10:23:30+08:00">2020-06-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/SpringCloud/" itemprop="url" rel="index"><span itemprop="name">SpringCloud</span></a>
+                </span>
+            </span>
 
           
 
         </div>
       </header>
+
     
-
-
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？-todo"><a href="#整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？-todo" class="headerlink" title="整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？ todo"></a>整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？ todo</h2><h2 id="Dubbo的生态在最近有没有经常颠覆性的完善？-todo"><a href="#Dubbo的生态在最近有没有经常颠覆性的完善？-todo" class="headerlink" title="Dubbo的生态在最近有没有经常颠覆性的完善？ todo"></a>Dubbo的生态在最近有没有经常颠覆性的完善？ todo</h2><h2 id="为什么本地配置文件还要有从git加载的模式？-todo"><a href="#为什么本地配置文件还要有从git加载的模式？-todo" class="headerlink" title="为什么本地配置文件还要有从git加载的模式？ todo"></a>为什么本地配置文件还要有从git加载的模式？ todo</h2><h2 id="RefreshScope用法和避坑-todo"><a href="#RefreshScope用法和避坑-todo" class="headerlink" title="@RefreshScope用法和避坑 todo"></a>@RefreshScope用法和避坑 todo</h2><p>Refresh Scope<br>A Spring @Bean that is marked as @RefreshScope will get special treatment when there is a configuration change. This addresses the problem of stateful beans that only get their configuration injected when they are initialized. For instance if a DataSource has open connections when the database URL is changed via the Environment, we probably want the holders of those connections to be able to complete what they are doing. Then the next time someone borrows a connection from the pool he gets one with the new URL.</p>
+<p>Refresh scope beans are lazy proxies that initialize when they are used (i.e. when a method is called), and the scope acts as a cache of initialized values. To force a bean to re-initialize on the next method call you just need to invalidate its cache entry.</p>
+<h2 id="spring-cloud-config-uri的默认值作用是什么？启动警告是否需要排除掉？todo"><a href="#spring-cloud-config-uri的默认值作用是什么？启动警告是否需要排除掉？todo" class="headerlink" title="spring.cloud.config.uri的默认值作用是什么？启动警告是否需要排除掉？todo"></a>spring.cloud.config.uri的默认值作用是什么？启动警告是否需要排除掉？todo</h2><h2 id="SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别-todo"><a href="#SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别-todo" class="headerlink" title="@SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别 todo"></a>@SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别 todo</h2><h1 id="spring-profiles-yml配置文件"><a href="#spring-profiles-yml配置文件" class="headerlink" title="spring.profiles || yml配置文件"></a>spring.profiles || yml配置文件</h1><p>关于spring boot profiles可以参考：<br><a href="https://dzone.com/articles/spring-boot-profiles-1" target="_blank" rel="noopener">https://dzone.com/articles/spring-boot-profiles-1</a><br>文中翻译的大概意思如下：<br>spring.profiles会以灵活切换的方式切换整个应用环境配置的各种相关属性，通过相关属性所在配置文件的文件名为条件做切换。</p>
+<h4 id="spring-profiles-active-native"><a href="#spring-profiles-active-native" class="headerlink" title="spring.profiles.active:native"></a>spring.profiles.active:native</h4><p>这个标记为配置文件从本地路径加载，但是有点奇怪，按道理这么危险的配置文件应该只能本地才对，即使从svn或者git上加载也只能从私服去取，在非开发模式下不应该存在去公网取配置文件才对。<br>网上说可以从native，svn和git加载，但是官方的最新文档其comma-separated list出现的有<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">active: dev,mysql,git,redis,awss3,credhub,composite,vault</span><br></pre></td></tr></table></figure></p>
+<p>在查阅官方文档之后发现这几段话：</p>
+<blockquote>
+<p>There is also a “native” profile in the Config Server that does not use Git but loads the config files from the local classpath or file system (any static URL you want to point to with spring.cloud.config.server.native.searchLocations). To use the native profile, launch the Config Server with spring.profiles.active=native.</p>
+</blockquote>
+<p>意思是，当spring.profiles.active=native，配置服务会从本地的类路径classpath读取配置文件，如果指定了spring.cloud.config.server.native.searchLocations的话，那么将从指定的路径去读取配置属性文件。</p>
+<blockquote>
+<p>Remember to use the file: prefix for file resources (the default without a prefix is usually the classpath). As with any Spring Boot configuration, you can embed ${}-style environment placeholders, but remember that absolute paths in Windows require an extra / (for example, file:///${user.home}/config-repo).</p>
+</blockquote>
+<p>意思是，spring.cloud.config.server.native.searchLocations可以用${}引用变量这种占位符的方式指定路径。</p>
+<blockquote>
+<p>The default value of the searchLocations is identical to a local Spring Boot application (that is, [classpath:/, classpath:/config, file:./, file:./config]). This does not expose the application.properties from the server to all clients, because any property sources present in the server are removed before being sent to the client.</p>
+</blockquote>
+<p>意思是，spring.cloud.config.server.native.searchLocations有四个默认值，在不配置它的时候可以默认生效,并且如果配置了native的话，路径下所有的配置文件都会被默认加载。</p>
+<h4 id="prefer-ip-address"><a href="#prefer-ip-address" class="headerlink" title="prefer-ip-address"></a>prefer-ip-address</h4><p>这个配置我在官方文档找到的解释是这样的：<br>In some cases, it is preferable for Eureka to advertise the IP addresses of services rather than the hostname. Set eureka.instance.preferIpAddress to true and, when the application registers with eureka, it uses its IP address rather than its hostname.<br>翻译：在某些情况下，Eureka显示服务列表用ip地址的形式来展示比用hostname的形式可能更加合适。把eureka.instance.preferIpAddress（低版本）设置为true，当服务被注册到eureka的时候，注册中心会使用它的ip地址而不是hostname。</p>
+<h4 id="lease-renewal-interval-in-seconds"><a href="#lease-renewal-interval-in-seconds" class="headerlink" title="lease-renewal-interval-in-seconds"></a>lease-renewal-interval-in-seconds</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">   /**</span><br><span class="line"> * Indicates how often (in seconds) the eureka client needs to send heartbeats to</span><br><span class="line"> * eureka server to indicate that it is still alive. If the heartbeats are not</span><br><span class="line"> * received for the period specified in leaseExpirationDurationInSeconds, eureka</span><br><span class="line"> * server will remove the instance from its view, there by disallowing traffic to this</span><br><span class="line"> * instance.</span><br><span class="line"> *</span><br><span class="line"> * Note that the instance could still not take traffic if it implements</span><br><span class="line"> * HealthCheckCallback and then decides to make itself unavailable.</span><br><span class="line"> */</span><br><span class="line">private int leaseRenewalIntervalInSeconds = 30;</span><br></pre></td></tr></table></figure>
+<p>翻译：指定一个eureka客户端发送心跳包给eureka服务的频率（以秒为单位），以此来确保服务是否还活着。如果心跳包在leaseExpirationDurationInSeconds指定的时间段之内没有收到回应，那么eureka的服务将从他们可用微服务列表中移除掉对应的微服务实例，不再允许向该实例发送流量。要注意的是，如果实例实现了HealthCheckCallback接口，并且决定让实例自己置为不可用的话，那么它任然是不能接受流量的。</p>
+<h4 id="lease-expiration-duration-in-seconds"><a href="#lease-expiration-duration-in-seconds" class="headerlink" title="lease-expiration-duration-in-seconds"></a>lease-expiration-duration-in-seconds</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">   /**</span><br><span class="line"> * Indicates the time in seconds that the eureka server waits since it received the</span><br><span class="line"> * last heartbeat before it can remove this instance from its view and there by</span><br><span class="line"> * disallowing traffic to this instance.</span><br><span class="line"> *</span><br><span class="line"> * Setting this value too long could mean that the traffic could be routed to the</span><br><span class="line"> * instance even though the instance is not alive. Setting this value too small could</span><br><span class="line"> * mean, the instance may be taken out of traffic because of temporary network</span><br><span class="line"> * glitches.This value to be set to atleast higher than the value specified in</span><br><span class="line"> * leaseRenewalIntervalInSeconds.</span><br><span class="line"> */</span><br><span class="line">private int leaseExpirationDurationInSeconds = 90;</span><br></pre></td></tr></table></figure>
+<p>翻译：指定一个从它最后一次接收某个服务实例的心跳包后等待的时间（以秒为单位），如果超过这个时间还不能接收到心跳包，那么eureka将会从他的服务列表中移除该实例，并不再允许向该实例发送流量。设置leaseExpirationDurationInSeconds的值太大的话，可能意味着某个实例不是活着的情况下，流量依然被发送到该实例中。设置的值太小的话，可能会由于临时网络故障导致实例抛弃了流量。这个值至少要比leaseRenewalIntervalInSeconds的值要高，也就是上面提到的lease-renewal-interval-in-seconds。</p>
+<h4 id="registry-fetch-interval-seconds"><a href="#registry-fetch-interval-seconds" class="headerlink" title="registry-fetch-interval-seconds"></a>registry-fetch-interval-seconds</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  /**</span><br><span class="line">* Indicates how often(in seconds) to fetch the registry information from the eureka</span><br><span class="line">* server.</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<p>翻译：指定从eureka抓取注册服务的信息的频率（以秒为单位）</p>
+<h4 id="spring-cloud-config-fail-fast"><a href="#spring-cloud-config-fail-fast" class="headerlink" title="spring.cloud.config.fail-fast"></a>spring.cloud.config.fail-fast</h4><p><a href="https://blog.csdn.net/liubenlong007/article/details/87885567" target="_blank" rel="noopener">https://blog.csdn.net/liubenlong007/article/details/87885567</a></p>
+<h1 id="处理过的问题"><a href="#处理过的问题" class="headerlink" title="处理过的问题"></a>处理过的问题</h1><h4 id="Request-execution-error-endpoint-DefaultEndpoint-serviceUrl-’XX’"><a href="#Request-execution-error-endpoint-DefaultEndpoint-serviceUrl-’XX’" class="headerlink" title="Request execution error. endpoint=DefaultEndpoint{ serviceUrl=’XX’}"></a>Request execution error. endpoint=DefaultEndpoint{ serviceUrl=’XX’}</h4><p>这个报错非常奇葩，我是从网上下的手脚架，运行起来直接报错，后来通过谷歌找到了解决方案，就是在eureka服务的配置文件中加入register-with-eureka和fetch-registry:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 注册中心配置</span><br><span class="line">eureka:</span><br><span class="line">  instance:</span><br><span class="line">    prefer-ip-address: true</span><br><span class="line">    hostname: pig-eureka</span><br><span class="line">  client:</span><br><span class="line">    register-with-eureka: false</span><br><span class="line">    fetch-registry: false</span><br><span class="line">    service-url:</span><br><span class="line">      defaultZone: http://pig:pig@pig-eureka:8761/eureka/</span><br></pre></td></tr></table></figure></p>
+<p>后来再仔细跟一下，发现我是忘记先把eureka注册中心的服务启动了。。。</p>
+<h4 id="Cannot-execute-request-on-any-known-server"><a href="#Cannot-execute-request-on-any-known-server" class="headerlink" title="Cannot execute request on any known server"></a>Cannot execute request on any known server</h4><p>确认yml配置文件地址和格式没有问题的话，那么可能是eureka注册中心的服务没有关闭csrf，在eureka注册中心增加WebSecurityConfigurerAdapter，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@EnableWebSecurity</span><br><span class="line">public class WebSecurityConfig extends WebSecurityConfigurerAdapter &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void configure(HttpSecurity http) throws Exception &#123;</span><br><span class="line">        http.csrf().disable();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="java-lang-NoClassDefFoundError-com-netflix-hystrix-contrib-javanica-aop-aspectj-HystrixCommandAspect"><a href="#java-lang-NoClassDefFoundError-com-netflix-hystrix-contrib-javanica-aop-aspectj-HystrixCommandAspect" class="headerlink" title="java.lang.NoClassDefFoundError: com/netflix/hystrix/contrib/javanica/aop/aspectj/HystrixCommandAspect"></a>java.lang.NoClassDefFoundError: com/netflix/hystrix/contrib/javanica/aop/aspectj/HystrixCommandAspect</h4><p>需要增加断容器依赖spring-cloud-starter-netflix-hystrix</p>
+<h4 id="org-springframework-beans-factory-annotation-Qualifier-value-webFluxConversionService"><a href="#org-springframework-beans-factory-annotation-Qualifier-value-webFluxConversionService" class="headerlink" title="@org.springframework.beans.factory.annotation.Qualifier(value=webFluxConversionService)}"></a>@org.springframework.beans.factory.annotation.Qualifier(value=webFluxConversionService)}</h4><p>如果引入一些第三方的Spring<br>抛出了这个依赖异常，原因是我同时引入依赖：spring-cloud-starter-gateway 和 spring-boot-starter-web。去除了父模块的spring-boot-starter-web依赖即可。</p>
+<h4 id="If-you-want-an-embedded-database-H2-HSQL-or-Derby-please-put-it-on-the-classpath"><a href="#If-you-want-an-embedded-database-H2-HSQL-or-Derby-please-put-it-on-the-classpath" class="headerlink" title="If you want an embedded database (H2, HSQL or Derby), please put it on the classpath."></a>If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.</h4><p>如果遇到新建的微服务报错如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">***************************</span><br><span class="line">APPLICATION FAILED TO START</span><br><span class="line">***************************</span><br><span class="line"></span><br><span class="line">Description:</span><br><span class="line"></span><br><span class="line">Failed to configure a DataSource: &apos;url&apos; attribute is not specified and no embedded datasource could be configured.</span><br><span class="line"></span><br><span class="line">Reason: Failed to determine a suitable driver class</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Action:</span><br><span class="line"></span><br><span class="line">Consider the following:</span><br><span class="line">	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.</span><br><span class="line">	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).</span><br></pre></td></tr></table></figure></p>
+<p>检查关于数据库的链接拼写，和驱动包依赖，如果都没问题，有可能是因为新的微服务使用了配置中心忘记引用配置中心的客户端pom依赖了，我就是忘记下面这个引用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-config&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
+<p>另外，可能性也会有如下几点：<br>1，yml，properties文件缺失、配置写错等；<br>2，没有在@SpringBootApplication注解的Application的同级包或者子级包下增加配置类也会报这个错;<br>3，也有可能是因为引入了不必要的spring-boot-starter-web模块，这个模块会强制要配置数据源；<br>4，引入了其他依赖到数据源配置的包比如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--mybatis-plus--&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;com.baomidou&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;mybatis-plus.version&#125;&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Feign-PathVariable-annotation-was-empty-on-param-0"><a href="#Feign-PathVariable-annotation-was-empty-on-param-0" class="headerlink" title="Feign PathVariable annotation was empty on param 0."></a>Feign PathVariable annotation was empty on param 0.</h4><p>使用Feign的时候,如果参数中带有@PathVariable形式的参数,则要用value=””标明对应的参数,否则会抛出IllegalStateException异常</p>
+<h4 id="The-bean-‘ngbip-baf-service-FeignClientSpecification’-could-not-be-registered-A-bean-with-that-name-has-already-been-defined-and-overriding-is-disabled"><a href="#The-bean-‘ngbip-baf-service-FeignClientSpecification’-could-not-be-registered-A-bean-with-that-name-has-already-been-defined-and-overriding-is-disabled" class="headerlink" title="The bean ‘ngbip-baf-service.FeignClientSpecification’ could not be registered. A bean with that name has already been defined and overriding is disabled."></a>The bean ‘ngbip-baf-service.FeignClientSpecification’ could not be registered. A bean with that name has already been defined and overriding is disabled.</h4><p>这个原因基本是因为注解了FeignClient的客户端类，同个id的要被重复注册进注册中心才报的错，可以检查一下是否有@FeignClient的id重复，或者pom的依赖重复了导致feign服务注册多次。</p>
 
-      
-        
-          
-          
-语法现在已经忘得七七八八了，虽然以前基本也没有怎么掌握语法，所以决定从头开始学，路漫漫其修远兮。笔记来源张满胜老师的书和喜马拉雅FM的《老薛侃英语语法》，之所以选择用音频是因为，音频可以在眼睛和手没空的时候听，比如：走路，吃饭等
-
-语言的构造级别（五个层次）
-词（word）
-短语（phrase）
-
-          ...
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2019/11/30/English/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
+    
+    
+    
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/02/Spring系列之Cache/">
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/27/Web前端汇总/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="James Feng">
-    <meta itemprop="description" content>
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Feng's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Feng's Blog" src>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
     </span>
-  </span>
 
-    
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/11/27/Web前端汇总/" itemprop="url">
-                  Web前端汇总
-                </a>
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/02/Spring系列之Cache/" class="post-title-link" itemprop="url">Spring系列之Cache</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-27T22:00:11+08:00">
-                2019-11-27
-              </time>
-            
+              <span class="post-meta-item-text">Posted on</span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web前端/" itemprop="url" rel="index">
-                    <span itemprop="name">Web前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2020-04-02 20:14:35" itemprop="dateCreated datePublished" datetime="2020-04-02T20:14:35+08:00">2020-04-02</time>
             </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-02 11:25:35" itemprop="dateModified" datetime="2020-06-02T11:25:35+08:00">2020-06-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/Spring-Cache/" itemprop="url" rel="index"><span itemprop="name">Spring Cache</span></a>
+                </span>
+            </span>
 
           
 
         </div>
       </header>
+
     
-
-
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <h1 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h1><p><a href="https://spring.io/guides" target="_blank" rel="noopener">Spring All Guides</a><br><a href="https://spring.io/guides/gs/caching/" target="_blank" rel="noopener">Caching Data with Spring</a></p>
+<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="SpringBoot中-Cacheable-CacheEvict-CachePut在同一个类中方法调用不起作用"><a href="#SpringBoot中-Cacheable-CacheEvict-CachePut在同一个类中方法调用不起作用" class="headerlink" title="SpringBoot中@Cacheable,@CacheEvict,@CachePut在同一个类中方法调用不起作用"></a>SpringBoot中@Cacheable,@CacheEvict,@CachePut在同一个类中方法调用不起作用</h2><p><a href="https://www.jianshu.com/p/c33ba070028e" target="_blank" rel="noopener">https://www.jianshu.com/p/c33ba070028e</a><br><a href="https://www.cnblogs.com/liubey/archive/2018/04/02/spring_cacheable.html" target="_blank" rel="noopener">https://www.cnblogs.com/liubey/archive/2018/04/02/spring_cacheable.html</a><br><a href="https://www.cnblogs.com/chanedi/p/4552555.html" target="_blank" rel="noopener">https://www.cnblogs.com/chanedi/p/4552555.html</a><br><a href="https://blog.csdn.net/dapinxiaohuo/article/details/52092447" target="_blank" rel="noopener">https://blog.csdn.net/dapinxiaohuo/article/details/52092447</a></p>
 
-      
-        
-          
-          图标库fontawesome
-w3c参考手册w3c参考手册详情
-npmnpm国内慢https://www.cnblogs.com/sddai/p/9388261.html1npm install cnpm -g --registry=https://registry.npm.taobao.org
-n
-          ...
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2019/11/27/Web前端汇总/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
+    
+    
+    
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/30/English之限定词系列-数量限定词与个体限定词/">
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/27/Hystrix汇总/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="James Feng">
-    <meta itemprop="description" content>
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Feng's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Feng's Blog" src>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
     </span>
-  </span>
 
-    
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/11/27/Hystrix汇总/" itemprop="url">
-                  Hystrix汇总
-                </a>
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/30/English之限定词系列-数量限定词与个体限定词/" class="post-title-link" itemprop="url">English之限定词系列（数量限定词与个体限定词）</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-27T21:11:25+08:00">
-                2019-11-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
+              <span class="post-meta-item-text">Posted on</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hystrix/" itemprop="url" rel="index">
-                    <span itemprop="name">Hystrix</span>
-                  </a>
-                </span>
 
-                
-                
-              
+              <time title="Created: 2020-05-30 21:05:35 / Modified: 21:06:41" itemprop="dateCreated datePublished" datetime="2020-05-30T21:05:35+08:00">2020-05-30</time>
             </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
+                </span>
+            </span>
 
           
 
         </div>
       </header>
+
     
-
-
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
           
-          各种配置属性文章https://github.com/Netflix/Hystrix/wiki/Configuration
-
-          
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2019/11/27/Hystrix汇总/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
 
     
-  </section>
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1032,113 +648,100 @@ n
           </div>
           
 
-
-          
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
-        
           
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
   </div>
 
-  <aside id="sidebar" class="sidebar">
+  <aside class="sidebar">
     <div class="sidebar-inner">
 
-      
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
 
-      
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="James Feng">
-          <p class="site-author-name" itemprop="name">James Feng</p>
-          <p class="site-description motion-element" itemprop="description">Don't dream when the sun is setting, try to work hard when the sun is rising.</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">118</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-
-          
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">69</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">81</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
+  <p class="site-author-name" itemprop="name">Fengorz</p>
+  <div class="site-description" itemprop="description">A Quiet Departure.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
         
-
-        <div class="links-of-author motion-element">
+          <span class="site-state-item-count">118</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
           
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/coding-by-feng" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/u/3219972752?is_all=1" target="_blank" title="Weibo">
-                  
-                    <i class="fa fa-fw fa-weibo"></i>
-                  
-                  Weibo
-                </a>
-              </span>
-            
+        <span class="site-state-item-count">69</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
           
-        </div>
-
-        
-        
-
-        
-        
-
-        
+        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
 
 
-      </section>
 
-      
+      </div>
 
     </div>
   </aside>
+  <div id="sidebar-dimmer"></div>
 
 
-        
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+        
+
+        
 
 <div class="copyright">
   
@@ -1147,258 +750,117 @@ n
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">James Feng</span>
+  <span class="author" itemprop="copyrightHolder">Fengorz</span>
 </div>
-
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-  <span>&nbsp; &nbsp;|&nbsp; &nbsp;</span>
-  Total <span id="busuanzi_value_site_uv"></span> views.
-</div>
-
-
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
 
         
 
-        
+
+
+
+
+
+
+
       </div>
     </footer>
-
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
   </div>
 
   
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
   }
+  NexT.utils.updateSidebarPosition();
+});
 </script>
 
 
 
 
-
-
-
-
-
-  
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
-
-
-  
-
-
-
   
 
 
 
 
-	
+  <script src="/js/local-search.js"></script>
 
 
 
 
-  
-  
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length == 0) {
-      search_path = "search.xml";
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    function proceedsearch() {
-      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
-      $('.popup').toggle();
-    }
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-      $.ajax({
-        url: path,
-        dataType: "xml",
-        async: true,
-        success: function( xmlResponse ) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = $( "entry", xmlResponse ).map(function() {
-            return {
-              title: $( "title", this ).text(),
-              content: $("content",this).text(),
-              url: $( "url" , this).text()
-            };
-          }).get();
-          var $input = document.getElementById(search_id);
-          var $resultContent = document.getElementById(content_id);
-          $input.addEventListener('input', function(){
-            var matchcounts = 0;
-            var str='<ul class=\"search-result-list\">';
-            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-            $resultContent.innerHTML = "";
-            if (this.value.trim().length > 1) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var content_index = [];
-                var data_title = data.title.trim().toLowerCase();
-                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                var data_url = decodeURIComponent(data.url);
-                var index_title = -1;
-                var index_content = -1;
-                var first_occur = -1;
-                // only match artiles with not empty titles and contents
-                if(data_title != '') {
-                  keywords.forEach(function(keyword, i) {
-                    index_title = data_title.indexOf(keyword);
-                    index_content = data_content.indexOf(keyword);
-                    if( index_title >= 0 || index_content >= 0 ){
-                      isMatch = true;
-                      if (i == 0) {
-                        first_occur = index_content;
-                      }
-                    }
-
-                  });
-                }
-                // show search results
-                if (isMatch) {
-                  matchcounts += 1;
-                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
-                  var content = data.content.trim().replace(/<[^>]+>/g,"");
-                  if (first_occur >= 0) {
-                    // cut out 100 characters
-                    var start = first_occur - 20;
-                    var end = first_occur + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if(start == 0){
-                      end = 50;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    var match_content = content.substring(start, end);
-                    // highlight all keywords
-                    keywords.forEach(function(keyword){
-                      var regS = new RegExp(keyword, "gi");
-                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
-                    });
-
-                    str += "<p class=\"search-result\">" + match_content +"...</p>"
-                  }
-                  str += "</li>";
-                }
-              })};
-            str += "</ul>";
-            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
-            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
-            $resultContent.innerHTML = str;
-          });
-          proceedsearch();
-        }
-      });}
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched == false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(function(e){
-      $('.popup').hide();
-      $(".popoverlay").remove();
-      $('body').css('overflow', '');
-    });
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-  </script>
 
 
+
+
+
+
+
+
+    <div id="pjax">
   
 
   
 
-  
-
-  
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
-
-
-
+    </div>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"live2d-widget-model-hijiki"},"display":{"position":"left","width":100,"height":200},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

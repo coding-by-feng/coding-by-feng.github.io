@@ -1,1018 +1,1083 @@
-<!doctype html>
-
-
-
-  
-
-
-<html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.8.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Hexo, NexT">
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
-
-
-
-
-
-
-<meta name="description" content="Don&apos;t dream when the sun is setting, try to work hard when the sun is rising.">
+  <meta name="description" content="A Quiet Departure.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Feng&#39;s Blog">
 <meta property="og:url" content="http://yoursite.com/page/10/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="Don&apos;t dream when the sun is setting, try to work hard when the sun is rising.">
+<meta property="og:description" content="A Quiet Departure.">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Feng&#39;s Blog">
-<meta name="twitter:description" content="Don&apos;t dream when the sun is setting, try to work hard when the sun is rising.">
+<meta name="twitter:description" content="A Quiet Departure.">
+
+<link rel="canonical" href="http://yoursite.com/page/10/">
 
 
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"hide"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '10000',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-Hans'
   };
 </script>
 
-
-
-  <link rel="canonical" href="http://yoursite.com/page/10/">
-
-
+  <title>Feng's Blog</title>
+  
 
 
 
-  <title> Feng's Blog </title>
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-
-
-
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?1bc877799c79c2fb2806df9b1c09c678";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
 
-  <div class="custom-logo-site-title">
+  <div class="site-meta">
+
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Feng's Blog</span>
+      <h1 class="site-title">Feng's Blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle"></p>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
 </div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+
+
 
 <nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            分类
-          </a>
-        </li>
-      
-        
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
         <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            归档
-          </a>
-        </li>
-      
-        
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
-          </a>
-        </li>
-      
 
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
-            
-            搜索
-          </a>
-        </li>
-      
-    </ul>
-  
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
 
-  
-    <div class="site-search">
-      
-  
-  <div class="algolia-popup popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
+  </li>
+        <li class="menu-item menu-item-categories">
 
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
 
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-  </div>
+  </li>
+        <li class="menu-item menu-item-archives">
 
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
-
-
-    </div>
-  
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
 </nav>
 
 
 
- </div>
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
     </header>
 
-    <main id="main" class="main">
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content">
+          
+
+          <div class="content index posts-expand">
             
-  <section id="posts" class="posts-expand">
-    
       
-
-  
-
   
   
-  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/02/Flowable汇总/">
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/07/arthas汇总/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="James Feng">
-    <meta itemprop="description" content>
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Feng's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Feng's Blog" src>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
     </span>
-  </span>
 
-    
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/01/07/arthas汇总/" itemprop="url">
-                  arthas汇总
-                </a>
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/02/Flowable汇总/" class="post-title-link" itemprop="url">Flowable汇总</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-07T15:42:03+08:00">
-                2020-01-07
-              </time>
-            
+              <span class="post-meta-item-text">Posted on</span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/arthas/" itemprop="url" rel="index">
-                    <span itemprop="name">arthas</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2019-12-02 09:23:07" itemprop="dateCreated datePublished" datetime="2019-12-02T09:23:07+08:00">2019-12-02</time>
             </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-16 20:58:54" itemprop="dateModified" datetime="2020-07-16T20:58:54+08:00">2020-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Flowable/" itemprop="url" rel="index"><span itemprop="name">Flowable</span></a>
+                </span>
+            </span>
 
           
 
         </div>
       </header>
+
     
-
-
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <h1 id="flowable涉及到的表"><a href="#flowable涉及到的表" class="headerlink" title="flowable涉及到的表"></a>flowable涉及到的表</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">ACT_GE_BYTEARRAY	通用的流程定义和流程资源</span><br><span class="line">ACT_GE_PROPERTY	系统相关属性</span><br><span class="line"># 流程历史记录</span><br><span class="line">ACT_HI_ACTINST	历史的流程实例</span><br><span class="line">ACT_HI_ATTACHMENT	历史的流程附件</span><br><span class="line">ACT_HI_COMMENT	历史的说明性信息</span><br><span class="line">ACT_HI_DETAIL	历史的流程运行中的细节信息</span><br><span class="line">ACT_HI_IDENTITYLINK	历史的流程运行过程中用户关系</span><br><span class="line">ACT_HI_PROCINST	历史的流程实例</span><br><span class="line">ACT_HI_TASKINST	历史的任务实例</span><br><span class="line">ACT_HI_VARINST	历史的流程运行中的变量信息</span><br><span class="line"># 用户用户组表</span><br><span class="line">ACT_ID_BYTEARRAY	二进制数据表</span><br><span class="line">ACT_ID_GROUP	用户组信息表</span><br><span class="line">ACT_ID_INFO	用户信息详情表</span><br><span class="line">ACT_ID_MEMBERSHIP	人与组关系表</span><br><span class="line">ACT_ID_PRIV	权限表</span><br><span class="line">ACT_ID_PRIV_MAPPING	用户或组权限关系表</span><br><span class="line">ACT_ID_PROPERTY	属性表</span><br><span class="line">ACT_ID_TOKEN	系统登录日志表</span><br><span class="line">ACT_ID_USER	用户表</span><br><span class="line"># 流程定义表</span><br><span class="line">ACT_RE_DEPLOYMENT	部署单元信息</span><br><span class="line">ACT_RE_MODEL	模型信息</span><br><span class="line">ACT_RE_PROCDEF	已部署的流程定义</span><br><span class="line"># 运行实例表</span><br><span class="line">ACT_RU_DEADLETTER_JOB	正在运行的任务表</span><br><span class="line">ACT_RU_EVENT_SUBSCR	运行时事件</span><br><span class="line">ACT_RU_EXECUTION	运行时流程执行实例</span><br><span class="line">ACT_RU_HISTORY_JOB	历史作业表</span><br><span class="line">ACT_RU_IDENTITYLINK	运行时用户关系信息</span><br><span class="line">ACT_RU_JOB	运行时作业表</span><br><span class="line">ACT_RU_SUSPENDED_JOB	暂停作业表</span><br><span class="line">ACT_RU_TASK	运行时任务表</span><br><span class="line">ACT_RU_TIMER_JOB	定时作业表</span><br><span class="line">ACT_RU_VARIABLE	运行时变量表</span><br><span class="line"># 其他表	</span><br><span class="line">ACT_EVT_LOG	事件日志表</span><br><span class="line">ACT_PROCDEF_INFO	流程定义信息</span><br></pre></td></tr></table></figure>
+<h1 id="整合启动flowable-modeler"><a href="#整合启动flowable-modeler" class="headerlink" title="整合启动flowable-modeler"></a>整合启动flowable-modeler</h1><p>官网下载的zip包中将wars里面的flowable-admin.war, flowable-idm.war, flowable-modeler.war and flowable-task.war放到tomcat的webapps目录，解压出来后修改每个war里面对应的properties里面的数据源，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  classes pwd</span><br><span class="line">/Users/zhanshifeng/Documents/ccssoftDocument/flowable/apache-tomcat-7.0.99/webapps/flowable-idm/WEB-INF/classes</span><br><span class="line">➜  classes vi flowable-default.properties</span><br></pre></td></tr></table></figure></p>
+<p>然后启动tomcat访问<a href="http://localhost:8080/flowable-modeler" target="_blank" rel="noopener">http://localhost:8080/flowable-modeler</a></p>
+<h1 id="Events（事件）"><a href="#Events（事件）" class="headerlink" title="Events（事件）"></a>Events（事件）</h1><p>Events are used to model something that happens during the lifetime of a process. Events are always visualized as a circle. In BPMN 2.0, there exist two main event categories: catching and throwing events.</p>
+<p>事件的类别主要有：捕捉事件和投掷事件。</p>
+<h2 id="Timer-Event-Definitions（定时器事件定义）"><a href="#Timer-Event-Definitions（定时器事件定义）" class="headerlink" title="Timer Event Definitions（定时器事件定义）"></a>Timer Event Definitions（定时器事件定义）</h2><p>Timer events are events that are triggered by a defined timer. They can be used as start event, intermediate event or boundary event.</p>
+<p>定时器事件由某个被预定义的定时器所触发，通常被用作于开始事件、中间事件或边界事件，定时器事件中所以和事件相关的定义或变量值，都必须遵循ISO 8601标准。</p>
+<ul>
+<li><strong>timeDate</strong> 具体的时间点，当时间点到达，将触发事件。</li>
+<li><strong>timeDuration</strong> 每隔一个自定义的时间周期，将触发事件。</li>
+<li><strong>timeCycle</strong> 每隔一个自定义的时间周期，将触发事件，触发次数可以差异化，此外，它还具有一个EndDate属性，这个属性代表，当endDate的时间已到达，事件将不被触发，EndDate属性有两种写法，如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;timerEventDefinition&gt;</span><br><span class="line">    &lt;timeCycle flowable:endDate=&quot;2015-02-25T16:42:11+00:00&quot;&gt;R3/PT10H&lt;/timeCycle&gt;</span><br><span class="line">&lt;/timerEventDefinition&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;timerEventDefinition&gt;</span><br><span class="line">    &lt;timeCycle&gt;R3/PT10H/$&#123;EndDate&#125;&lt;/timeCycle&gt;</span><br><span class="line">&lt;/timerEventDefinition&gt;</span><br></pre></td></tr></table></figure>
+<p>两种写法都存在同一个定时器事件的时候，Flowable默认采用第一种。</p>
+<h2 id="Signal-Event-Definitions（信号事件定义）"><a href="#Signal-Event-Definitions（信号事件定义）" class="headerlink" title="Signal Event Definitions（信号事件定义）"></a>Signal Event Definitions（信号事件定义）</h2><p>运行时通过代码抛出信号事件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RuntimeService.signalEventReceived(String signalName);</span><br><span class="line">RuntimeService.signalEventReceived(String signalName, String executionId);</span><br></pre></td></tr></table></figure></p>
+<h4 id="Querying-for-Signal-Event-subscriptions（信号事件订阅查询）"><a href="#Querying-for-Signal-Event-subscriptions（信号事件订阅查询）" class="headerlink" title="Querying for Signal Event subscriptions（信号事件订阅查询）"></a>Querying for Signal Event subscriptions（信号事件订阅查询）</h4><p>查询所有订阅的特定信号事件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Execution&gt; executions = runtimeService.createExecutionQuery()</span><br><span class="line">      .signalEventSubscriptionName(&quot;alert&quot;)</span><br><span class="line">      .list();</span><br></pre></td></tr></table></figure></p>
+<h4 id="Signal-event-scope（信号事件的作用域）"><a href="#Signal-event-scope（信号事件的作用域）" class="headerlink" title="Signal event scope（信号事件的作用域）"></a>Signal event scope（信号事件的作用域）</h4><p>By default, signals are broadcast process engine wide. This means that you can throw a signal event in a process instance, and other process instances with different process definitions can react on the occurrence of this event.<br>默认，信号事件的作用域是整个广播流程引擎的范围，如果要将作用域限制在某个特定的流程实例以内i，就需要将信号事件绑定在特定的流程定义上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;signal id=&quot;alertSignal&quot; name=&quot;alert&quot; flowable:scope=&quot;processInstance&quot;/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>scope属性值默认是”global”，全局。</p>
+<h2 id="Message-Event-Definitions（消息事件定义）"><a href="#Message-Event-Definitions（消息事件定义）" class="headerlink" title="Message Event Definitions（消息事件定义）"></a>Message Event Definitions（消息事件定义）</h2><p>消息事件的定义demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;definitions id=&quot;definitions&quot;</span><br><span class="line">  xmlns=&quot;http://www.omg.org/spec/BPMN/20100524/MODEL&quot;</span><br><span class="line">  xmlns:flowable=&quot;http://flowable.org/bpmn&quot;</span><br><span class="line">  targetNamespace=&quot;Examples&quot;</span><br><span class="line">  xmlns:tns=&quot;Examples&quot;&gt;</span><br><span class="line"></span><br><span class="line">  &lt;message id=&quot;newInvoice&quot; name=&quot;newInvoiceMessage&quot; /&gt;</span><br><span class="line">  &lt;message id=&quot;payment&quot; name=&quot;paymentMessage&quot; /&gt;</span><br><span class="line"></span><br><span class="line">  &lt;process id=&quot;invoiceProcess&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;startEvent id=&quot;messageStart&quot; &gt;</span><br><span class="line">    	&lt;messageEventDefinition messageRef=&quot;newInvoice&quot; /&gt;</span><br><span class="line">    &lt;/startEvent&gt;</span><br><span class="line">    ...</span><br><span class="line">    &lt;intermediateCatchEvent id=&quot;paymentEvt&quot; &gt;</span><br><span class="line">    	&lt;messageEventDefinition messageRef=&quot;payment&quot; /&gt;</span><br><span class="line">    &lt;/intermediateCatchEvent&gt;</span><br><span class="line">    ...</span><br><span class="line">  &lt;/process&gt;</span><br><span class="line"></span><br><span class="line">&lt;/definitions&gt;</span><br></pre></td></tr></table></figure></p>
+<p>As an embeddable process engine, Flowable is not concerned with actually receiving a message. This would be environment dependent and entail platform-specific activities, such as connecting to a JMS (Java Messaging Service) Queue/Topic or processing a Webservice or REST request. The reception of messages is therefore something you have to implement as part of the application or infrastructure into which the process engine is embedded.（大概意思是flowable没有局限消息接收的具体实现，这部分由开发者自定义，可以是JMS、消息队列、WebService或者是REST风格的请求）</p>
+<p>通过消息来触发启动流程实例可以有如下二个API可供选择：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ProcessInstance startProcessInstanceByMessage(String messageName);</span><br><span class="line">ProcessInstance startProcessInstanceByMessage(String messageName, Map&lt;String, Object&gt; processVariables);</span><br><span class="line">ProcessInstance startProcessInstanceByMessage(String messageName, String businessKey,</span><br><span class="line">    Map&lt;String, Object&gt; processVariables);</span><br></pre></td></tr></table></figure></p>
+<p>If the message needs to be received by an existing process instance, you first have to correlate the message to a specific process instance (see next section) and then trigger the continuation of the waiting execution. The runtime service offers the following methods for triggering an execution based on a message event subscription:(两个方法关联消息去触发继续某个正在等待状态的流程)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">void messageEventReceived(String messageName, String executionId);</span><br><span class="line">void messageEventReceived(String messageName, String executionId, HashMap&lt;String, Object&gt; processVariables);</span><br></pre></td></tr></table></figure></p>
+<p>使用ProcessDefinitionQuery来绑定消息订阅查询拿到流程定义ProcessDefinition：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery()</span><br><span class="line">      .messageEventSubscription(&quot;newCallCenterBooking&quot;)</span><br><span class="line">      .singleResult();</span><br></pre></td></tr></table></figure></p>
+<p>或者使用ExecutionQuery来绑定消息订阅查询特定的执行对象Execution。</p>
+<h2 id="Start-Events（开始事件）"><a href="#Start-Events（开始事件）" class="headerlink" title="Start Events（开始事件）"></a>Start Events（开始事件）</h2><p>概念上来说，开始事件总是在等待着捕捉一个触发的发生.<br>开始事件的定义demo：<br>initiator: 指向一个认证的用户id，应该是被纳入IDM范围内的一个用户对象的id。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;startEvent id=&quot;request&quot; flowable:initiator=&quot;initiator&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Timer-Start-Event（定时器开始事件）"><a href="#Timer-Start-Event（定时器开始事件）" class="headerlink" title="Timer Start Event（定时器开始事件）"></a>Timer Start Event（定时器开始事件）</h4><p>XML定义的demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;startEvent id=&quot;theStart&quot;&gt;</span><br><span class="line">  &lt;timerEventDefinition&gt;</span><br><span class="line">    &lt;timeCycle&gt;R4/2011-03-11T12:13/PT5M&lt;/timeCycle&gt;</span><br><span class="line">  &lt;/timerEventDefinition&gt;</span><br><span class="line">&lt;/startEvent&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Message-Start-Event（消息开始事件）"><a href="#Message-Start-Event（消息开始事件）" class="headerlink" title="Message Start Event（消息开始事件）"></a>Message Start Event（消息开始事件）</h4><p>流程定义引用到消息开始事件的时候：<br>The name of the message start event must be unique across a given process definition. A process definition must not have multiple message start events with the same name. Flowable throws an exception upon deployment of a process definition containing two or more message start events referencing the same message, or if two or more message start events reference messages with the same message name.（消息开始事件在流程定义中必须是唯一的，一个流程定义如果引用多个名字相同的消息开始事件的话，会抛出异常，或者多个消息开始事件被定义成相同的name也会抛出异常；如果流程部署了一个新的版本，那么老旧的版本中的消息订阅将会被移除）</p>
+<p>如上文所讲到的，消息事件通过这些API调用来触发：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ProcessInstance startProcessInstanceByMessage(String messageName);</span><br><span class="line">ProcessInstance startProcessInstanceByMessage(String messageName, Map&lt;String, Object&gt; processVariables);</span><br><span class="line">ProcessInstance startProcessInstanceByMessage(String messageName, String businessKey,</span><br><span class="line">    Map&lt;String, Object&lt; processVariables);</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>多个消息开始事件的流程通过runtimeService.startProcessInstanceByMessage(…​)启动</li>
+<li>拥有一个空的开始事件可以通过实例id启动流程实例</li>
+<li>没有空的开始事件的话通过实例id启动流程会抛异常</li>
+</ul>
+<p>xml定义demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;definitions id=&quot;definitions&quot;</span><br><span class="line">  xmlns=&quot;http://www.omg.org/spec/BPMN/20100524/MODEL&quot;</span><br><span class="line">  xmlns:flowable=&quot;http://flowable.org/bpmn&quot;</span><br><span class="line">  targetNamespace=&quot;Examples&quot;</span><br><span class="line">  xmlns:tns=&quot;Examples&quot;&gt;</span><br><span class="line"></span><br><span class="line">  &lt;message id=&quot;newInvoice&quot; name=&quot;newInvoiceMessage&quot; /&gt;</span><br><span class="line"></span><br><span class="line">  &lt;process id=&quot;invoiceProcess&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;startEvent id=&quot;messageStart&quot; &gt;</span><br><span class="line">    	&lt;messageEventDefinition messageRef=&quot;tns:newInvoice&quot; /&gt;</span><br><span class="line">    &lt;/startEvent&gt;</span><br><span class="line">    ...</span><br><span class="line">  &lt;/process&gt;</span><br><span class="line"></span><br><span class="line">&lt;/definitions&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Signal-Start-Event（信号开始事件）"><a href="#Signal-Start-Event（信号开始事件）" class="headerlink" title="Signal Start Event（信号开始事件）"></a>Signal Start Event（信号开始事件）</h4><p>xml定义的配置demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;signal id=&quot;theSignal&quot; name=&quot;The Signal&quot; /&gt;</span><br><span class="line"></span><br><span class="line">&lt;process id=&quot;processWithSignalStart1&quot;&gt;</span><br><span class="line">  &lt;startEvent id=&quot;theStart&quot;&gt;</span><br><span class="line">    &lt;signalEventDefinition id=&quot;theSignalEventDefinition&quot; signalRef=&quot;theSignal&quot;  /&gt;</span><br><span class="line">  &lt;/startEvent&gt;</span><br><span class="line">  &lt;sequenceFlow id=&quot;flow1&quot; sourceRef=&quot;theStart&quot; targetRef=&quot;theTask&quot; /&gt;</span><br><span class="line">  &lt;userTask id=&quot;theTask&quot; name=&quot;Task in process A&quot; /&gt;</span><br><span class="line">  &lt;sequenceFlow id=&quot;flow2&quot; sourceRef=&quot;theTask&quot; targetRef=&quot;theEnd&quot; /&gt;</span><br><span class="line">  &lt;endEvent id=&quot;theEnd&quot; /&gt;</span><br><span class="line">&lt;/process&gt;</span><br></pre></td></tr></table></figure></p>
+<p>可以通过runtimeService.signalEventReceivedXXX触发。</p>
+<h4 id="Error-Start-Even（错误开始事件）"><a href="#Error-Start-Even（错误开始事件）" class="headerlink" title="Error Start Even（错误开始事件）"></a>Error Start Even（错误开始事件）</h4><p>An error start event can be used to trigger an Event Sub-Process. An error start event cannot be used for starting a process instance.（错误开始事件只能用来发出子流程，不能触发整个的流程实例？？）</p>
+<h2 id="End-Events（结束事件）"><a href="#End-Events（结束事件）" class="headerlink" title="End Events（结束事件）"></a>End Events（结束事件）</h2><h4 id="None-End-Event（空结束事件）"><a href="#None-End-Event（空结束事件）" class="headerlink" title="None End Event（空结束事件）"></a>None End Event（空结束事件）</h4><p>xml定义demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;endEvent id=&quot;end&quot; name=&quot;my end event&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Error-End-Event（错误结束事件）"><a href="#Error-End-Event（错误结束事件）" class="headerlink" title="Error End Event（错误结束事件）"></a>Error End Event（错误结束事件）</h4><p>xml定义demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;endEvent id=&quot;myErrorEndEvent&quot;&gt;</span><br><span class="line">  &lt;errorEventDefinition errorRef=&quot;myError&quot; /&gt;</span><br><span class="line">&lt;/endEvent&gt;</span><br></pre></td></tr></table></figure></p>
+<p>具体的错误能够被定义在流程之外，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;error id=&quot;myError&quot; errorCode=&quot;123&quot; /&gt;</span><br><span class="line">...</span><br><span class="line">&lt;process id=&quot;myProcess&quot;&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>errorCode会被用来匹配一个等待被捕捉的边界错误事件，如果匹配不到，那么errorCode会被等同于id来使用，比如下面的二个代码片段作用一样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;error id=&quot;myError&quot; errorCode=&quot;error123&quot; /&gt;</span><br><span class="line">...</span><br><span class="line">&lt;process id=&quot;myProcess&quot;&gt;</span><br><span class="line">...</span><br><span class="line">  &lt;endEvent id=&quot;myErrorEndEvent&quot;&gt;</span><br><span class="line">    &lt;errorEventDefinition errorRef=&quot;myError&quot; /&gt;</span><br><span class="line">  &lt;/endEvent&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;endEvent id=&quot;myErrorEndEvent&quot;&gt;</span><br><span class="line">  &lt;errorEventDefinition errorRef=&quot;error123&quot; /&gt;</span><br><span class="line">&lt;/endEvent&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="Terminate-End-Event（终止结束事件）"><a href="#Terminate-End-Event（终止结束事件）" class="headerlink" title="Terminate End Event（终止结束事件）"></a>Terminate End Event（终止结束事件）</h4><p>xml定义demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;endEvent id=&quot;myEndEvent &gt;</span><br><span class="line">  &lt;terminateEventDefinition flowable:terminateAll=&quot;true&quot;&gt;&lt;/terminateEventDefinition&gt;</span><br><span class="line">&lt;/endEvent&gt;</span><br></pre></td></tr></table></figure></p>
+<p>如果terminateAll为true，会总之所有整个流程以及相关子流程。</p>
+<h4 id="Cancel-End-Event（取消结束事件）"><a href="#Cancel-End-Event（取消结束事件）" class="headerlink" title="Cancel End Event（取消结束事件）"></a>Cancel End Event（取消结束事件）</h4><p>xm定义demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;endEvent id=&quot;myCancelEndEvent&quot;&gt;</span><br><span class="line">  &lt;cancelEventDefinition /&gt;</span><br><span class="line">&lt;/endEvent&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Boundary-Events（边界事件）"><a href="#Boundary-Events（边界事件）" class="headerlink" title="Boundary Events（边界事件）"></a>Boundary Events（边界事件）</h2><p>边界事件的定义规则如下：</p>
+<ul>
+<li>在流程范围内是唯一的</li>
+<li>通过attachedToRef属性附加到一个引用的Activity，但是边界事件和它附着的活动是同一等级的，不是上下级关系？？<br>xml定义demo：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;boundaryEvent id=&quot;myBoundaryEvent&quot; attachedToRef=&quot;theActivity&quot;&gt;</span><br><span class="line">      &lt;XXXEventDefinition/&gt;</span><br><span class="line">&lt;/boundaryEvent&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Timer-Boundary-Event（定时器边界事件）"><a href="#Timer-Boundary-Event（定时器边界事件）" class="headerlink" title="Timer Boundary Event（定时器边界事件）"></a>Timer Boundary Event（定时器边界事件）</h4><p>xml定义demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;boundaryEvent id=&quot;escalationTimer&quot; cancelActivity=&quot;true&quot; attachedToRef=&quot;firstLineSupport&quot;&gt;</span><br><span class="line">  &lt;timerEventDefinition&gt;</span><br><span class="line">    &lt;timeDuration&gt;PT4H&lt;/timeDuration&gt;</span><br><span class="line">  &lt;/timerEventDefinition&gt;</span><br><span class="line">&lt;/boundaryEvent&gt;</span><br></pre></td></tr></table></figure></p>
+<p>有个关键的不同点是：Non-interrupting 和 Interrupting，前者是不会打断流程原来的活动，后者反之，边界事件默认是会打断的，可以通过cancelActivity属性自定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;boundaryEvent id=&quot;escalationTimer&quot; cancelActivity=&quot;false&quot; attachedToRef=&quot;firstLineSupport&quot;/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Note: boundary timer events are only fired when the async executor is enabled (asyncExecutorActivate needs to be set to true in the flowable.cfg.xml, since the async executor is disabled by default).<br>注意要开启异步执行器，flowable默认是关闭该配置的。<br>官方给出的demo（通过定时器边界事件来对Task额外的邮件通知做处理，同时不影响原来Task的继续执行）：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/g6DpP6.png" alt></p>
+<h4 id="Known-issue-with-boundary-events（边界事件已知问题）"><a href="#Known-issue-with-boundary-events（边界事件已知问题）" class="headerlink" title="Known issue with boundary events（边界事件已知问题）"></a>Known issue with boundary events（边界事件已知问题）</h4><p>无论是那种类型的边界事件，都不允许直接并发触发多个外部的序列流程，必须通过并行网关来处理：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/Sk9V5Z.png" alt></p>
+<h4 id="Error-Boundary-Event（错误边界事件）"><a href="#Error-Boundary-Event（错误边界事件）" class="headerlink" title="Error Boundary Event（错误边界事件）"></a>Error Boundary Event（错误边界事件）</h4><p>xml定义demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;boundaryEvent id=&quot;catchError&quot; attachedToRef=&quot;mySubProcess&quot;&gt;</span><br><span class="line">  &lt;errorEventDefinition errorRef=&quot;myError&quot;/&gt;</span><br><span class="line">&lt;/boundaryEvent&gt;</span><br><span class="line"></span><br><span class="line">&lt;error id=&quot;myError&quot; errorCode=&quot;123&quot; /&gt;</span><br><span class="line">...</span><br><span class="line">&lt;process id=&quot;myProcess&quot;&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>如果errorRef被省略，那么边界错误事件将捕获任何错误事件，如果errorRef指向的error存在，那么将只捕捉对应的error，如果error不存在，那么会将errorRef的值视为对应的error，就像错误结束事件一样。<br>官方给出的demo（）：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/NQoyiB.png" alt><br>还有官方根据上图demo做的测试类：<a href="https://github.com/flowable/flowable-engine/blob/master/modules/flowable-engine/src/test/java/org/flowable/examples/bpmn/event/error/BoundaryErrorEventTest.java" target="_blank" rel="noopener">BoundaryErrorEventTest.java</a><h4 id="Signal-Boundary-Event（信号边界事件）"><a href="#Signal-Boundary-Event（信号边界事件）" class="headerlink" title="Signal Boundary Event（信号边界事件）"></a>Signal Boundary Event（信号边界事件）</h4>信号边界事件是不可消耗的，意思是，如果一个信号事件被抛出，那么捕捉这个信号事件的所有流程实例的活动都会被触发，因为信号事件的作用域是全局的，它能够在任何地方被抛出，在任何地方被捕捉。<br>xml定义demo：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;boundaryEvent id=&quot;boundary&quot; attachedToRef=&quot;task&quot; cancelActivity=&quot;true&quot;&gt;</span><br><span class="line">    &lt;signalEventDefinition signalRef=&quot;alertSignal&quot;/&gt;</span><br><span class="line">&lt;/boundaryEvent&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Message-Boundary-Event（消息边界事件）"><a href="#Message-Boundary-Event（消息边界事件）" class="headerlink" title="Message Boundary Event（消息边界事件）"></a>Message Boundary Event（消息边界事件）</h4><p>xml定义demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;boundaryEvent id=&quot;boundary&quot; attachedToRef=&quot;task&quot; cancelActivity=&quot;true&quot;&gt;</span><br><span class="line">    &lt;messageEventDefinition messageRef=&quot;newCustomerMessage&quot;/&gt;</span><br><span class="line">&lt;/boundaryEvent&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Cancel-Boundary-Event（取消边界事件）"><a href="#Cancel-Boundary-Event（取消边界事件）" class="headerlink" title="Cancel Boundary Event（取消边界事件）"></a>Cancel Boundary Event（取消边界事件）</h4><h4 id="compensation-boundary-event（补偿边界事件）"><a href="#compensation-boundary-event（补偿边界事件）" class="headerlink" title="compensation boundary event（补偿边界事件）"></a>compensation boundary event（补偿边界事件）</h4><p>补偿边界事件被定义做一个典型的边界事件，xml定义demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;boundaryEvent id=&quot;compensateBookHotelEvt&quot; attachedToRef=&quot;bookHotel&quot; &gt;</span><br><span class="line">    &lt;compensateEventDefinition /&gt;</span><br><span class="line">&lt;/boundaryEvent&gt;</span><br><span class="line"></span><br><span class="line">&lt;association associationDirection=&quot;One&quot; id=&quot;a1&quot;</span><br><span class="line">    sourceRef=&quot;compensateBookHotelEvt&quot; targetRef=&quot;undoBookHotel&quot; /&gt;</span><br><span class="line"></span><br><span class="line">&lt;serviceTask id=&quot;undoBookHotel&quot; isForCompensation=&quot;true&quot; flowable:class=&quot;...&quot; /</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>When compensation is triggered, the compensation handler associated with the compensation boundary event is invoked the same number of times the activity it is attached to completed successfully.（当补偿被触发，补偿边界事件绑定的补偿处理器被调用的次数和事件依附在流程活动的次数是一样的）</li>
+<li>If a compensation boundary event is attached to an activity with multiple instance characteristics, a compensation event subscription is created for each instance.（如果补偿边界事件被绑定在多个不同的流程实例，那么每个流程实例都将创建一个事件订阅）</li>
+<li>If a compensation boundary event is attached to an activity that is contained inside a loop, a compensation event subscription is created each time the activity is executed.（如果事件的绑定逻辑在内部的循环里，那么事件订阅的创建也将跟随着每个循环都创建一次）</li>
+<li>If the process instance ends, the subscriptions to compensation events are canceled.（流程实例结束，补偿事件的订阅也将取消）</li>
+</ul>
+<h2 id="Intermediate-Catching-Events（中间捕捉事件）"><a href="#Intermediate-Catching-Events（中间捕捉事件）" class="headerlink" title="Intermediate Catching Events（中间捕捉事件）"></a>Intermediate Catching Events（中间捕捉事件）</h2><p>所有中间捕捉事件的定义方式，同个流程范围内必须唯一：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;intermediateCatchEvent id=&quot;myIntermediateCatchEvent&quot; &gt;</span><br><span class="line">    &lt;XXXEventDefinition/&gt;</span><br><span class="line">&lt;/intermediateCatchEvent&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Timer-Intermediate-Catching-Event（定时器中间捕捉事件）"><a href="#Timer-Intermediate-Catching-Event（定时器中间捕捉事件）" class="headerlink" title="Timer Intermediate Catching Event（定时器中间捕捉事件）"></a>Timer Intermediate Catching Event（定时器中间捕捉事件）</h4><h4 id="Signal-Intermediate-Catching-Event（信号中间捕捉事件）"><a href="#Signal-Intermediate-Catching-Event（信号中间捕捉事件）" class="headerlink" title="Signal Intermediate Catching Event（信号中间捕捉事件）"></a>Signal Intermediate Catching Event（信号中间捕捉事件）</h4><h4 id="Message-Intermediate-Catching-Event（消息中间捕捉事件）"><a href="#Message-Intermediate-Catching-Event（消息中间捕捉事件）" class="headerlink" title="Message Intermediate Catching Event（消息中间捕捉事件）"></a>Message Intermediate Catching Event（消息中间捕捉事件）</h4><h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="upgrading-flowable-engine-schema-from-6-4-1-1-to-6-5-0-1"><a href="#upgrading-flowable-engine-schema-from-6-4-1-1-to-6-5-0-1" class="headerlink" title="upgrading flowable engine schema from 6.4.1.1 to 6.5.0.1"></a>upgrading flowable engine schema from 6.4.1.1 to 6.5.0.1</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">performing upgrade on engine with resource org/flowable/db/upgrade/flowable.mysql.upgradestep.6411.to.6412.engine.sql</span><br></pre></td></tr></table></figure>
+<p>这个报错是因为默认配置的dbSchemaUpgrade是true，这个会在流程初始化的时候去对Flowable版本和数据库存的Flowable版本做比对并做一些初始化的处理，如果要快速启动忽略版本比对问题的话改成false，如果还有问题干脆改成”none”。</p>
 
-      
-        
-          
-          
-          
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2020/01/07/arthas汇总/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
+    
+    
+    
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/09/English之名词系列/">
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/07/Math/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="James Feng">
-    <meta itemprop="description" content>
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Feng's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Feng's Blog" src>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
     </span>
-  </span>
 
-    
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/01/07/Math/" itemprop="url">
-                  Math
-                </a>
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/09/English之名词系列/" class="post-title-link" itemprop="url">English之名词系列</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-07T15:27:19+08:00">
-                2020-01-07
-              </time>
-            
+              <span class="post-meta-item-text">Posted on</span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Math/" itemprop="url" rel="index">
-                    <span itemprop="name">Math</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2020-04-09 13:07:43" itemprop="dateCreated datePublished" datetime="2020-04-09T13:07:43+08:00">2020-04-09</time>
             </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-16 20:58:54" itemprop="dateModified" datetime="2020-07-16T20:58:54+08:00">2020-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
+                </span>
+            </span>
 
           
 
         </div>
       </header>
+
     
-
-
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          
-          分解质因数（质因式分解）参考
-
-          
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2020/01/07/Math/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+          <h1 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h1><h2 id="名词短语"><a href="#名词短语" class="headerlink" title="名词短语"></a>名词短语</h2><p>名词短语是由名词与它的修饰语一起构成的。名词的修饰语与名词的位置关系不外乎两种：一是放在被修饰名词的前面，我们称之为前置定语或定语；二是放在被修饰名词的后面，我们称之为后置定语。<br>一般来讲，名词前面有两种修饰语。其一是限定词，用来限定名词所指的范围，对名词起泛指或特指、定量或不定量等限定修饰作用。比如上文中的these, three, a, the, my和that。<br>其二是形容词，是用来表示名词的性质和特征的。</p>
+<h3 id="左二右六公式"><a href="#左二右六公式" class="headerlink" title="左二右六公式"></a>左二右六公式</h3><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/yCPZgM.png" alt></p>
+<h3 id="汉语和英语很大的基本差别"><a href="#汉语和英语很大的基本差别" class="headerlink" title="汉语和英语很大的基本差别"></a>汉语和英语很大的基本差别</h3><p>我们知道，英语和汉语的一个基本差别就是名词修饰语，即定语的位置差异。我们汉语的定语一律是在名词的前面，而英语的定语有在名词前面的，也有在名词后面的，更多的定语是置于被修饰名词的后面，构成后置定语。所以，在语言学上，汉语被称作是“中心词（head）在后”的语言（head-last language）；英语被称作是“中心词在前”的语言（head-first language）。因此，总体来说，英语和汉语的语序差不多是刚好反过来的。</p>
+<h2 id="名词的分类"><a href="#名词的分类" class="headerlink" title="名词的分类"></a>名词的分类</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/z9DC7y.png" alt></p>
+<h2 id="不可数名词的规律"><a href="#不可数名词的规律" class="headerlink" title="不可数名词的规律"></a>不可数名词的规律</h2><h3 id="第一组"><a href="#第一组" class="headerlink" title="第一组"></a>第一组</h3><p>对于一些无法分割的名词，我们将其看作一个整体，因而 作为不可数名词，没有复数变化（Nouns that have no distinct, separate parts, we look as the whole.）。这样的名词主要是一些物质名词，如：</p>
+<ul>
+<li>气体：air, fog, oxygen, smoke等。 </li>
+<li>液体：beer, blood, coffee, cream, gasoline, honey, juice, milk, oil, tea, water, wine等。</li>
+<li>固体：bread, butter, cheese, ice, ice cream, meat, beef （牛肉）, chicken （鸡肉）, fish （鱼肉）, chalk, copper, cotton, glass, gold, iron, paper等。</li>
+</ul>
+<h3 id="第二组"><a href="#第二组" class="headerlink" title="第二组"></a>第二组</h3><p>一些因其组成部分太小而不易数的名词（nouns that have parts that are too small or insignificant to count）用作不可数名词。也主要 是一些物质名词。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/KDwqsP.png" alt></p>
+<h3 id="第三组"><a href="#第三组" class="headerlink" title="第三组"></a>第三组</h3><p>表示总称的名词（nouns that are classes or categories of things）通常不可数。这些名词侧重于表示某类事物的总的概念，而不 是具体的事物。如果要具体指出该总称概念下的具体事物，则要用其他 不同的名词。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/bI6jfs.png" alt></p>
+<h3 id="第四组"><a href="#第四组" class="headerlink" title="第四组"></a>第四组</h3><p>抽象的名词（nouns that are abstractions）一般是不可数的。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/RrA2QT.png" alt></p>
+<h3 id="第五组"><a href="#第五组" class="headerlink" title="第五组"></a>第五组</h3><p>表示研究学科（subjects of study），一般作为不可数名词。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/XGLt37.png" alt></p>
+<h2 id="可数与不可数的“相对论”"><a href="#可数与不可数的“相对论”" class="headerlink" title="可数与不可数的“相对论”"></a>可数与不可数的“相对论”</h2><h3 id="规律一"><a href="#规律一" class="headerlink" title="规律一"></a>规律一</h3><p>对于物质名词或总称的名词，若是表示不同的种类，或者因为特定的意思，或者是液体表示“几杯”或“几瓶”这样的数量，则 转化为可数名词。</p>
+<h3 id="规律二"><a href="#规律二" class="headerlink" title="规律二"></a>规律二</h3><p>对于抽象名词，若是具体化了，则转化为可数名词。 并且，此时往往伴随着词义上或大或小的改变。比如art（艺术）/an art（一项技术，一门特定的艺术）；beauty（美丽）/a beauty（一个美 人）；youth（青春）/a youth（一个年轻人）。</p>
+<h3 id="规律三"><a href="#规律三" class="headerlink" title="规律三"></a>规律三</h3><ul>
+<li>从更广泛的意义上来说，当一个名词表示抽象的、总 称的概念（abstract or generic concept）时，一般作为不可数名词来用。</li>
+<li>而当它表示具体 的、特定的事物（concrete or particular things）时，则通常用作可数名 词。这就是为什么词典中对于某个单词的某一词义，后面标注的既是可 数，也是不可数。此时关键要看如何使用这个词义，如果是当作具体的 事物来看，则是可数；如果是当作一个概念来看，则是不可数。</li>
+</ul>
+<h3 id="规律四【自己总结的】"><a href="#规律四【自己总结的】" class="headerlink" title="规律四【自己总结的】"></a>规律四【自己总结的】</h3><p>一些抽象的名词之所以是不可数，那是因为其抽象的概念中包含的成分是不可以被分割出来基数的，好比如：<br>experience（经验），他人可以传授一些经验给我们，但是这些经验是无法去细分来数数说有多少条经验，这个无法数数不是从数字意义上去理解之。<br>而是要从经验要怎么被具体量化的问题，好比如他人给我们的经验中由几句话组成，我们从中抽取任何一句完整的话，这句话依然可以是经验，那么这就是英文思维中的不可数了。<br>同理，advice（建议）也是不可数。反之，比如说chair（椅子）为什么可数，是因为椅子很具体，你单独拆分一个椅子脚不能说它还是椅子，这是非常具体可以量化的事务。</p>
+<h2 id="名词的单数和复数"><a href="#名词的单数和复数" class="headerlink" title="名词的单数和复数"></a>名词的单数和复数</h2><h3 id="只用作复数的名词"><a href="#只用作复数的名词" class="headerlink" title="只用作复数的名词"></a>只用作复数的名词</h3><h4 id="“二合一”的复数名词"><a href="#“二合一”的复数名词" class="headerlink" title="“二合一”的复数名词"></a>“二合一”的复数名词</h4><ol>
+<li>工具和仪器<br>glasses、spectacles、binoculars、scales、clippers、forceps、pincers、tongs、tweezers、scissors、shears<br>2、服装<br>jeans、trousers、shorts、trunks、briefs、pants、slacks、pajamas<blockquote>
+<p>对于这些名词，要说明数量，我们往往要用pair（如a pair of）表示。</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="“单形复义”的名词"><a href="#“单形复义”的名词" class="headerlink" title="“单形复义”的名词"></a>“单形复义”的名词</h3><p>有些名词虽然没有复数的标记，但用作复数，即形式上是单数但是 表达复数的意义。比如：people、cattle、 police、 poultry、livestock。</p>
+<p>作为“人们，人民”的意思时，它相当于person的复数形式；但是，如果people用作别的意思，比如当“民族”或“部族”讲时，那就是一个普通名词，有单复数的变化。比如单数要用不定冠词a修饰，即a people（一个民族），复数要在词尾加-s，即peoples。</p>
+<ul>
+<li>The Chinese are an industrious people. 中华民族是一个勤劳的民族。</li>
+<li>the English-speaking peoples 说英语的民族。</li>
+</ul>
+<h3 id="“the-形容词”——表示一类人的复数名词"><a href="#“the-形容词”——表示一类人的复数名词" class="headerlink" title="“the+形容词”——表示一类人的复数名词"></a>“the+形容词”——表示一类人的复数名词</h3><h3 id="复数专有名词"><a href="#复数专有名词" class="headerlink" title="复数专有名词"></a>复数专有名词</h3><p>在英文中，有些专有名词只用作复数。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/BFHY7l.png" alt></p>
+<h3 id="自我总结"><a href="#自我总结" class="headerlink" title="自我总结"></a>自我总结</h3><p>一个不可数名词在句子中作为单数还是负数主要看的是名词在句子中具体的含义，某些含义要当成单数，某些含义要当成负数。</p>
+<h2 id="规则的复数名词"><a href="#规则的复数名词" class="headerlink" title="规则的复数名词"></a>规则的复数名词</h2><h3 id="一般在词尾加-s"><a href="#一般在词尾加-s" class="headerlink" title="一般在词尾加-s"></a>一般在词尾加-s</h3><h3 id="以-s-x-ch-sh结尾的名词加-es"><a href="#以-s-x-ch-sh结尾的名词加-es" class="headerlink" title="以-s, -x, -ch, -sh结尾的名词加-es"></a>以-s, -x, -ch, -sh结尾的名词加-es</h3><p>比如：class/classes, box/boxes, match/matches, bush/bushes等。 特别注意：以-ch结尾的名词，若-ch发/k/音，则加-s，例如： stomach/stomachs。</p>
+<h3 id="以“辅音字母-y”结尾的名词，变-y为-i，再加-es；而以“元音字母-y”结尾的名词，则加-s"><a href="#以“辅音字母-y”结尾的名词，变-y为-i，再加-es；而以“元音字母-y”结尾的名词，则加-s" class="headerlink" title="以“辅音字母+y”结尾的名词，变-y为-i，再加-es；而以“元音字母 +y”结尾的名词，则加-s"></a>以“辅音字母+y”结尾的名词，变-y为-i，再加-es；而以“元音字母 +y”结尾的名词，则加-s</h3><h3 id="有关以-o结尾的名词"><a href="#有关以-o结尾的名词" class="headerlink" title="有关以-o结尾的名词"></a>有关以-o结尾的名词</h3><p>这类名词的单数变复数稍微有些复杂，因为有的是加-es，有的是 加-s，而有的是加-es或-s均可。</p>
+<p>些一般是以“辅音字母+o”结尾的外来词或缩写词加-s。另外还有 以“元音字母+o”结尾的名词变复数也是加-s。</p>
+<p>少数名词后加-s或加-es均可：</p>
+<ul>
+<li>memento/memento(e)s（纪念品）</li>
+<li>motto/motto(e)s（座右铭）</li>
+<li>volcano/volcano(e)s（火山）</li>
+<li>manifesto/manifesto(e)s（宣言）</li>
+</ul>
+<h3 id="有关以-f或-fe结尾的名词"><a href="#有关以-f或-fe结尾的名词" class="headerlink" title="有关以-f或-fe结尾的名词"></a>有关以-f或-fe结尾的名词</h3><ul>
+<li>一般变f, fe为v，再加-es。</li>
+</ul>
+<h4 id="也有直接加-s的"><a href="#也有直接加-s的" class="headerlink" title="也有直接加-s的"></a>也有直接加-s的</h4><p>belief/beliefs（信仰） chief/chiefs（首领）</p>
+<p>cliff/cliffs（悬崖） proof/proofs（证据） </p>
+<p>reef/reefs（暗礁） roof/roofs（屋顶） </p>
+<p>safe/safes（保险箱）</p>
+<blockquote>
+<p>另外要注意：beef（牛肉）/beefs（牢骚，抱怨）/beeves（肉用牛， =beef cattle）</p>
+</blockquote>
+<h2 id="不规则的复数名词"><a href="#不规则的复数名词" class="headerlink" title="不规则的复数名词"></a>不规则的复数名词</h2><p>最熟悉的应该是man/men, woman/women以及child/children。</p>
+<h3 id="以-a结尾的拉丁语名词，词尾变为-ae或-as（少数词）"><a href="#以-a结尾的拉丁语名词，词尾变为-ae或-as（少数词）" class="headerlink" title="以-a结尾的拉丁语名词，词尾变为-ae或-as（少数词）"></a>以-a结尾的拉丁语名词，词尾变为-ae或-as（少数词）</h3><p>alga/algae（海藻） alumna/alumnae（女校友，女毕业生） antenna/antennae/antennas（天线） </p>
+<p>formula/formulae/formulas（公 式）larva/larvae/larvas（幼虫）</p>
+<h3 id="以-ex或-ix结尾的拉丁语名词，在词尾直接加-es，或把-ex和-ix变-为-ices"><a href="#以-ex或-ix结尾的拉丁语名词，在词尾直接加-es，或把-ex和-ix变-为-ices" class="headerlink" title="以-ex或-ix结尾的拉丁语名词，在词尾直接加-es，或把-ex和-ix变 为-ices"></a>以-ex或-ix结尾的拉丁语名词，在词尾直接加-es，或把-ex和-ix变 为-ices</h3><p>apex/apexes/apices（顶点，最高点） appendix/appendixes/appendices（附录；阑尾） </p>
+<p>index/indexes/indices（索引）</p>
+<h3 id="以-is结尾的希腊语名词，变-is为-es"><a href="#以-is结尾的希腊语名词，变-is为-es" class="headerlink" title="以-is结尾的希腊语名词，变-is为-es"></a>以-is结尾的希腊语名词，变-is为-es</h3><p>analysis/analyses（分析） basis/bases（基础）</p>
+<p>crisis/crises（危机） diagnosis/diagnoses（诊断） </p>
+<p>thesis/theses（论文）</p>
+<h3 id="以-on或-um结尾的名词，变-on或-um为-a，有的可在词尾直接加-s"><a href="#以-on或-um结尾的名词，变-on或-um为-a，有的可在词尾直接加-s" class="headerlink" title="以-on或-um结尾的名词，变-on或-um为-a，有的可在词尾直接加-s"></a>以-on或-um结尾的名词，变-on或-um为-a，有的可在词尾直接加-s</h3><p>bacterium/bacteria（细菌） criterion/criteria/criterions（标准） </p>
+<p>datum/data（数据） erratum/errata（错误，错字勘误表） </p>
+<p>medium/media/mediums（媒介，介质） memorandum/memoranda/memorandums（备忘录）</p>
+<p>phenomenon/phenomena（现象）</p>
+<h3 id="变-oo-为-ee"><a href="#变-oo-为-ee" class="headerlink" title="变-oo-为-ee-"></a>变-oo-为-ee-</h3><p>foot/feet（脚） tooth/teeth（牙齿） </p>
+<p>goose/geese（鹅）</p>
+<h3 id="变-ouse为-ice"><a href="#变-ouse为-ice" class="headerlink" title="变-ouse为-ice"></a>变-ouse为-ice</h3><p>mouse/mice（老鼠） louse/lice（虱子）</p>
+<h3 id="以-us结尾的拉丁语名词，变-us为-i，有的可在词尾直接加-es"><a href="#以-us结尾的拉丁语名词，变-us为-i，有的可在词尾直接加-es" class="headerlink" title="以-us结尾的拉丁语名词，变-us为-i，有的可在词尾直接加-es"></a>以-us结尾的拉丁语名词，变-us为-i，有的可在词尾直接加-es</h3><p>alumnus/alumni（男校友） bacillus/bacilli（杆菌） </p>
+<p>cactus/cacti/cactuses（仙人掌） fungus/fungi/funguses（真菌） </p>
+<p>genius/genii/geniuses（天才） nucleus/nuclei/nucleuses（原子核） </p>
+<p>stimulus/stimuli（刺激物）</p>
+<h2 id="复合名词变复数（compound-noun）"><a href="#复合名词变复数（compound-noun）" class="headerlink" title="复合名词变复数（compound noun）"></a>复合名词变复数（compound noun）</h2><h3 id="“man-woman-名词”构成的复合名词"><a href="#“man-woman-名词”构成的复合名词" class="headerlink" title="“man/woman+名词”构成的复合名词"></a>“man/woman+名词”构成的复合名词</h3><p>由“man/woman+名词”构成的复合名词，两个词均须变为复数。</p>
+<p>man teacher/men teachers（男老师） man doctor/men doctors（男医 生）</p>
+<p>man servant/men servants（男仆） woman pilot/women pilots（女飞 行员）</p>
+<p>woman journalist/women journalists（女记者）</p>
+<h3 id="以-man-woman-child结尾的复合名词"><a href="#以-man-woman-child结尾的复合名词" class="headerlink" title="以-man/-woman/-child结尾的复合名词"></a>以-man/-woman/-child结尾的复合名词</h3><p>以-man/-woman/-child结尾的复合名词变复数时，将-man/-woman/-child变为复数。</p>
+<p>fireman/firemen（消防员） chairwoman/chairwomen（女主席） </p>
+<p>horseman/horsemen（骑兵） grandchild/grandchildren（孙子，孙 女）</p>
+<p>policeman/policemen（警察） Englishman/Englishmen（英国人） </p>
+<p>Frenchman/Frenchmen（法国人）</p>
+<h3 id="“名词-介词或介词短语”构成的复合名词"><a href="#“名词-介词或介词短语”构成的复合名词" class="headerlink" title="“名词+介词或介词短语”构成的复合名词"></a>“名词+介词或介词短语”构成的复合名词</h3><p>“名词+介词或介词短语”构成的复合名词变复数时，将主体名词 （或者说中心名词）变为复数。</p>
+<p>comrade-in-arms/comrades-in-arms（战友）</p>
+<p>passer-by/passers-by（过路人） runner-up/runners-up（亚军） </p>
+<p>looker-on/lookers-on（旁观者） mother-in-law/mothers-in-law（岳 母，婆婆） </p>
+<p>editor-in-chief/editors-in-chief（总编辑） bride-to-be/brides-to-be（即 将成为新娘的人，准新娘）</p>
+<h3 id="由动词短语演变成的复合名词"><a href="#由动词短语演变成的复合名词" class="headerlink" title="由动词短语演变成的复合名词"></a>由动词短语演变成的复合名词</h3><p>由动词短语演变成的复合名词，一般没有主体名词，变复数时在词尾加-s。</p>
+<p>forget-me-not/forget-me-nots（勿忘我） go-between/go-betweens（中间人）</p>
+<p>grown-up/grown-ups（成年人） take-off/take-offs（起飞）</p>
+<p>assistant director/assistant directors（助理导演） babysitter/babysitters（保姆） </p>
+<p>breakdown/breakdowns（崩溃，衰落） close-up/close-ups（特写镜 头）</p>
+<p>takeover/takeovers（接管） sit-in/sit-ins（静坐抗议） </p>
+<p>stand-by/stand-bys（可以信任的人）</p>
+<h3 id="“名词-形容词”构成的复合名词"><a href="#“名词-形容词”构成的复合名词" class="headerlink" title="“名词+形容词”构成的复合名词"></a>“名词+形容词”构成的复合名词</h3><p>“名词+形容词”构成的复合名词变复数时，变名词为复数。</p>
+<p>notary public/notaries public（公证员） secretary general/secretaries general（秘书长） </p>
+<p>Attorney General/Attorneys General（［美］司法部长，大法官/ ［英］总检察长） </p>
+<p>consul general/consuls general（总领事）</p>
+<h3 id="单复数同形的名词（零复数名词）"><a href="#单复数同形的名词（零复数名词）" class="headerlink" title="单复数同形的名词（零复数名词）"></a>单复数同形的名词（零复数名词）</h3><p>这些名词没有词形的变化，但既可以用作单数，也可以用作复数。 或者说，这些名词用作单数或复数，词形完全一样，因此这样的名词也 常常被叫作零复数名词。最常见的词是sheep，如：a sheep, two sheep。</p>
+<h4 id="动物名称"><a href="#动物名称" class="headerlink" title="动物名称"></a>动物名称</h4><ul>
+<li>sheep（绵羊）从来没有sheeps*这个词形。 </li>
+<li>deer（鹿）从来没有deers*这个词形。</li>
+</ul>
+<h4 id="通常用作零复数"><a href="#通常用作零复数" class="headerlink" title="通常用作零复数"></a>通常用作零复数</h4><p>bison（北美野牛）：a bison/two bison </p>
+<p>grouse（松鸡）：a grouse/two grouse</p>
+<p>quail（鹌鹑）：a quail/two quail </p>
+<p>salmon（三文鱼，大马哈鱼）：a salmon/two salmon </p>
+<p>cod（鳕鱼，也叫作codfish。在英国，满大街的快餐Fish and Chips〈炸鱼和炸薯条〉就是常用这种鱼做的。大家有机会到英国不妨 尝尝就知道了，非常油腻，绝对是增肥食品）：a cod/two cod</p>
+<h4 id="零复数和规则复数均可"><a href="#零复数和规则复数均可" class="headerlink" title="零复数和规则复数均可"></a>零复数和规则复数均可</h4><p>antelope（羚羊）复数可以是antelope，或者是antelopes。 </p>
+<p>reindeer（驯鹿）复数可以是reindeer，或者是reindeers。圣诞节前 夜，帮圣诞老人拉雪橇的就是这种鹿。 </p>
+<p>fish（鱼）复数可以是fish，或者是fishes。 </p>
+<p>flounder（比目鱼）复数可以是flounder，或者是flounders。 </p>
+<p>herring（鲱鱼）复数可以是herring，或者是herrings。还要注意，有 一个常用的俚语red herring（遮眼法，转移注意力的东西），表示提出 不相干的事实或论点，以分散对主题的注意力。 </p>
+<p>shrimp（虾）复数可以是shrimp，或者是shrimps。 </p>
+<p>对于这些名词，用零复数往往是把那些动物当作整体来看，而采用 规则复数则表示不同的个体及种类。</p>
+<h4 id="国籍名称"><a href="#国籍名称" class="headerlink" title="国籍名称"></a>国籍名称</h4><p>以-ese结尾的国籍名词常用零复数。</p>
+<p>Chinese（中国人）这是每个中国的英语学习者都应该知道的。“一 个中国人”是one Chinese，“13亿中国人”是1.3 billion Chinese。这里的复 数还是用Chinese，而不是Chineses*。</p>
+<p>其他的词还有： Japanese（日本人）：one Japanese/ten Japanese Lebanese（黎巴嫩 人）：one Lebanese/ten Lebanese Portuguese（葡萄牙人）：one Portuguese/ten Portuguese Vietnamese（越南人）：one Vietnamese/ten Vietnamese </p>
+<p>此外还有： Swiss（瑞士人）：one Swiss/ten Swiss British（英国人）：one British/ten British</p>
+<h4 id="三种没有形式变化的名词"><a href="#三种没有形式变化的名词" class="headerlink" title="三种没有形式变化的名词"></a>三种没有形式变化的名词</h4><ul>
+<li>不可数名词，如music，它们没有词形的变化，只能用作单数。</li>
+<li>复数可数名词，如people，它们没有词形的变化，只能用作复数。</li>
+<li>单复数同形的名词，如sheep，它们没有词形的变化，但既可以用作单数，也可以用作复数。</li>
+</ul>
+<h3 id="有新词义的复数名词"><a href="#有新词义的复数名词" class="headerlink" title="有新词义的复数名词"></a>有新词义的复数名词</h3><p>在英文中，有些名词在变成复数的时候，词义会有所变化；或者说 当这些名词用于某个特定的意思时，通常用其复数形式。</p>
+<ul>
+<li>arm（手臂）arms（=weapons武器，军事）</li>
+<li>custom（风俗） customs（海关）</li>
+<li>damage（损坏，损失）damages（赔偿金）</li>
+<li>letter（信）letters（文学）</li>
+<li>minute（分钟）minutes（会议记录）</li>
+<li>spirit（精神）spirits（烈酒）</li>
+<li>premise（前提）premises（房屋，营业场所）</li>
+<li>security（安全）securities（证券）</li>
+<li>line（行）lines（台词）</li>
+</ul>
+<h2 id="名词的格"><a href="#名词的格" class="headerlink" title="名词的格"></a>名词的格</h2><h3 id="‘s所有格"><a href="#‘s所有格" class="headerlink" title="‘s所有格"></a>‘s所有格</h3><p>首先要明确的是，名词所有格“’s”主要用来表示有生命的名词的所属关系。所以它通常用在姓名、人称、不定代词、集体名词和高等动物等这样的名词后面。</p>
+<h3 id="‘s所有格的逻辑语义关系"><a href="#‘s所有格的逻辑语义关系" class="headerlink" title="‘s所有格的逻辑语义关系"></a>‘s所有格的逻辑语义关系</h3><h4 id="所属关系"><a href="#所属关系" class="headerlink" title="所属关系"></a>所属关系</h4><ul>
+<li>所谓“所属关系”，就是指某人所拥有的人或物。在以上讨论的例子 中，“’s”主要是用来表示所属关系。</li>
+<li>另外，所属关系有时是表示某物属于某一类人，而不是属于具体的 某个人。</li>
+</ul>
+<p>比如：</p>
+<p>the children’s books 儿童读物 women’s wear 女装</p>
+<p>Tom and John are men’s names. 汤姆和约翰都是男子名</p>
+<p>再比如“学生用书”是：student’s book</p>
+<h4 id="主谓关系"><a href="#主谓关系" class="headerlink" title="主谓关系"></a>主谓关系</h4><p>How will Bhutto’s death affect the world?（布托之死将会如何影响世界）</p>
+<p>名词短语Bhutto’s death相当于说Bhutto died，表示“布托 死了”，即相当于一个主谓关系。所谓“主谓关系”，是指所有格名词（如 Bhutto）相当于主语，而被修饰的名词（如death）相当于一个谓语。此 时，这个被修饰的名词通常都是由一个动词转化过来的，比如death对应 动词die。</p>
+<p>the visitor’s departure = the visitor departed 客人的离开</p>
+<p>the teacher’s request（此处的request是名词） = the teacher requests/requested…（此处的request是动词）</p>
+<h4 id="动宾关系"><a href="#动宾关系" class="headerlink" title="动宾关系"></a>动宾关系</h4><p>Bhutto’s assassination rocks Pakistan.（布托的遇刺事件震惊了整个巴基斯坦）</p>
+<p>所谓“动宾关系”，是指被修饰的名词（如 assassination）相当于一个谓语，且是及物动词（如assassinate）。而所 有格名词（如Bhutto）相当于这个及物动词的宾语。此时，这个被修饰 的名词通常都是由一个动词转化过来的，比如assassination是由动词 assassinate转化而来。</p>
+<p>the children’s education = (somebody) educated the children</p>
+<p>the boy’s punishment = (somebody) punished the boy</p>
+<h4 id="表示时间或距离"><a href="#表示时间或距离" class="headerlink" title="表示时间或距离"></a>表示时间或距离</h4><p>所有格“’s”用在表示时间的名词后面。</p>
+<p>today’s newspaper 今天的报纸      tomorrow’s weather 明天的天气</p>
+<p>Each morning, people swarm into the offices and factories of America, seeking a day’s work for a day’s pay. 每天早晨，人们涌进美国的 办公室和工厂，来寻找日薪工作。</p>
+<h4 id="表示重量或价值等度量"><a href="#表示重量或价值等度量" class="headerlink" title="表示重量或价值等度量"></a>表示重量或价值等度量</h4><p>two pounds’ weight 两磅重   a ton’s weight 一吨重</p>
+<p>two dollars’ worth of sugar 两美元的白糖   ten dollars’ worth of meat 10美元的肉</p>
+<h4 id="表示国家、城市、国际组织或地理名词等"><a href="#表示国家、城市、国际组织或地理名词等" class="headerlink" title="表示国家、城市、国际组织或地理名词等"></a>表示国家、城市、国际组织或地理名词等</h4><p>China’s population 中国的人口     China’s industrial development 中国的工业发展</p>
+<p>the world’s seven wonders 世界七大奇迹  the earth’s surface 地球的表面 </p>
+<p>the sea’s depth 海洋的深度  the moon’s shadow 月球的阴影</p>
+<h4 id="用于交通工具及其部件的所属关系"><a href="#用于交通工具及其部件的所属关系" class="headerlink" title="用于交通工具及其部件的所属关系"></a>用于交通工具及其部件的所属关系</h4><p>the car’s exhaust 汽车的排气管     the plane’s engine 飞机的发动机</p>
+<h4 id="名词所有格修饰的名词被省去"><a href="#名词所有格修饰的名词被省去" class="headerlink" title="名词所有格修饰的名词被省去"></a>名词所有格修饰的名词被省去</h4><h5 id="避免名词重复"><a href="#避免名词重复" class="headerlink" title="避免名词重复"></a>避免名词重复</h5><p>若名词所有格所修饰的名词已经出现过，则第二次出现 在所有格后面的名词可以省去，以避免重复。</p>
+<p>This bike is mine, not Michael’s（=Michael’s bike）. 这辆自行车是我的，不是迈克尔的。</p>
+<p>I don’t know her name, but I can tell you her husband’s（=her husband’s name）. 我不知道她的名字，但是我可以告诉你她丈夫的名字。</p>
+<h5 id="表示店铺或教堂"><a href="#表示店铺或教堂" class="headerlink" title="表示店铺或教堂"></a>表示店铺或教堂</h5><p>在一些表示店铺或教堂的名词的所有格后面可省去名词，此时所有格表示相应的场所，且一般要在所有格名词前加定冠词the。</p>
+<p>at the baker’s（=baker’s shop） 在面包店  at the butcher’s（=butcher’s shop） 在肉铺</p>
+<p>at the chemist’s（=chemist’s store） 在药店  at the florist’s（=florist’s shop） 在花店 </p>
+<p>at the dentist’s（=dentist’s clinic） 在牙医诊所  at the doctor’s（=doctor’s clinic） 在医生的诊所</p>
+<h5 id="表示某人的住宅"><a href="#表示某人的住宅" class="headerlink" title="表示某人的住宅"></a>表示某人的住宅</h5><p>在人名后的所有格省去名词时，表示某人的住宅。</p>
+<p>go to my sister’s（=my sister’s home） 去我姐姐家</p>
+<h3 id="名词所有格修饰的名词被省去-1"><a href="#名词所有格修饰的名词被省去-1" class="headerlink" title="名词所有格修饰的名词被省去"></a>名词所有格修饰的名词被省去</h3>
       
     </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
+    
+    
+    
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/26/English之限定词系列-冠词/">
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/02/JWT/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="James Feng">
-    <meta itemprop="description" content>
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Feng's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Feng's Blog" src>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
     </span>
-  </span>
 
-    
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/01/02/JWT/" itemprop="url">
-                  JWT
-                </a>
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/26/English之限定词系列-冠词/" class="post-title-link" itemprop="url">English之限定词系列（冠词）</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-02T11:22:58+08:00">
-                2020-01-02
-              </time>
-            
+              <span class="post-meta-item-text">Posted on</span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JWT/" itemprop="url" rel="index">
-                    <span itemprop="name">JWT</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2020-04-26 21:58:41" itemprop="dateCreated datePublished" datetime="2020-04-26T21:58:41+08:00">2020-04-26</time>
             </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-16 20:58:54" itemprop="dateModified" datetime="2020-07-16T20:58:54+08:00">2020-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
+                </span>
+            </span>
 
           
 
         </div>
       </header>
+
     
-
-
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <h1 id="冠词"><a href="#冠词" class="headerlink" title="冠词"></a>冠词</h1><p>限定词与名词的关系最为密切， 因为它必然是修饰某个名词，以限定名词所指的范围，对名词起泛指或特指、定量或不定量等限定修饰作用。从名词短语（noun phrase）的角度来看，限定词或者是直接放在一个名词的前面来修饰它，构成“限定 词+名词”这样的结构（如the teacher），或者是在“限定词+形容词+名词”（如the English teacher）这样的结构中来修饰名词。</p>
+<p>限定词包括：<br>冠词：the, an和a； </p>
+<p>基数词和序数词：one/first, two/second, three/third等； </p>
+<p>指示限定词：this, that, these和those； </p>
+<p>物主限定词：my, your, his, her, our和their； </p>
+<p>数量限定词：a few, a little, much, many, a lot of, some, any, enough, several, most和all等；</p>
+<p>个体限定词：each, every, either, neither和both等； </p>
+<p>名词属格：Mary’s, John’s和his father’s等。</p>
+<h2 id="特指-vs-泛指"><a href="#特指-vs-泛指" class="headerlink" title="特指 vs 泛指"></a>特指 vs 泛指</h2><ul>
+<li>所谓泛指，也叫类指，顾名思义，是表示一类事物，或某类事物的 总称。</li>
+<li>所谓特指，是表示某类事物中的具体的某一个或某一些。</li>
+</ul>
+<p>1)  The tiger is becoming almost extinct.</p>
+<p>2） The tiger is sleeping in the cage.</p>
+<p>在例句1）中，我们想到的是“老虎”这类动物，并不是想到特定的一只老虎。在例句2）中，我们心里想的是“老虎”这类动物中 特定的一只，比如就指眼前所看到的这只老虎。</p>
+<p>对于the来说，就是特指和泛指。定冠词主要是表示特指的用法，其次才是表示泛指的用法。但对于不定冠词a/an来说，不能表示特指， 主要是用来表示泛指。此外，对于不定冠词，其实还有一个定指/不定指的概念（specific or nonspecific reference）。</p>
+<h3 id="英语中四种泛指的表达模式"><a href="#英语中四种泛指的表达模式" class="headerlink" title="英语中四种泛指的表达模式"></a>英语中四种泛指的表达模式</h3><p>不可数名词、复数名词和单数名词，这三类名词与英语的冠词有四种不同的搭配使用规则， 从而衍生出四种不同的模式来表示泛指意义。</p>
+<p>具体来说就是：</p>
+<ul>
+<li>不可数名词不加冠词表示泛指；</li>
+<li>复数名词不加冠词表示泛指；</li>
+<li>单数名词与定冠词 the连用可以表示泛指；</li>
+<li>单数名词与不定冠词a/an连用可以表示泛指。</li>
+</ul>
+<h4 id="不可数名词不加冠词表示泛指"><a href="#不可数名词不加冠词表示泛指" class="headerlink" title="不可数名词不加冠词表示泛指"></a>不可数名词不加冠词表示泛指</h4><p>不可数名词在表示泛指时，不可与定冠词the连用。如果与the连 用，此时不可数名词是表示特指。</p>
+<p>1） I love music, poetry and art. </p>
+<p>2） I don’t like the film, but I like the music（of the film）.</p>
+<p>在例句1）中，music（以及poetry和art）是一个泛指的概 念，表示音乐这类艺术形式，因而不能说“I love the music, the poetry and the art.*”。在例句2）中，the music是特指这部电影的音乐。</p>
+<h4 id="复数名词不加冠词表示泛指"><a href="#复数名词不加冠词表示泛指" class="headerlink" title="复数名词不加冠词表示泛指"></a>复数名词不加冠词表示泛指</h4><p>复数名词同不可数名词一样，在表示泛指时，不可与定冠词 the 连用。如果与the连用，此时复数名词是表示特指。</p>
+<p>1 ） Books become more and more expensive.</p>
+<p>2 ） Books fill leisure time for many people.</p>
+<p>3 ） Put away the books on your desk. </p>
+<p>4 ） Move the books off that chair and sit down.</p>
+<p>在例句 1 ）中，该句的意思是泛指一切书都在涨价，即这里的 books 是表示泛指，所以不能说“The books become more and more expensive.*” 。</p>
+<p>在例句 2 ）中，这里的books是泛指一切书，而不是具体指某些书，即 books是表示泛指的，所以不能说“The books fill leisure time for many people.*” 。</p>
+<p>在例句 3 ）中，这里的books是专指“你桌上的那些书”，所以是特指，要说成 the books 。</p>
+<p>在例句 4 ）中，这里的books是专指“椅子上的那些书”，所以是特指，要说成 the books 。</p>
+<h5 id="两种the-复数名词也可以表示泛指"><a href="#两种the-复数名词也可以表示泛指" class="headerlink" title="两种the+复数名词也可以表示泛指"></a>两种the+复数名词也可以表示泛指</h5><h6 id="the-国籍名词"><a href="#the-国籍名词" class="headerlink" title="the+国籍名词"></a>the+国籍名词</h6><p>该结构是指一个国籍的、一个种族的人。</p>
+<p>The Chinese are a great people.</p>
+<p>Chinese 是单复数同形的名词，这里的 the Chinese 是表示复数的概念，这从谓语动词 are 可以看出来。但这里的 the Chinese 表示的是“整个中国人或中华民族”，即是一个泛指的概念。</p>
+<p>不是所有的国籍名词都可以这样用，比如我们不能说 the German are…* 。这样用的国籍名词只限于以 -ese, -sh 和 -ch 结尾的词。</p>
+<ul>
+<li>以 -ese 结尾的国籍名词： Chinese, Japanese</li>
+<li>以 -sh 结尾的国籍名词： British, Cornish, Danish, English, Irish, Spanish, Turkish, Welsh </li>
+<li>以 -ch 结尾的国籍名词： Dutch, French</li>
+</ul>
+<h6 id="the-形容词"><a href="#the-形容词" class="headerlink" title="the+形容词"></a>the+形容词</h6><p>“the+形容词”表示一类人，是泛指，相当于在形容词的后面省去了people，所以被看作是复数名词，作主语时，谓语要用复数。</p>
+<p>The poor are causing the nation’s leaders great concern. </p>
+<p>妙语点睛这里的the poor是复数的概念，表示“穷人们”这类人，即是一个泛指的概念，而不是专指某些穷人。</p>
+<h4 id="单数名词与定冠词-the-连用可以表示泛指"><a href="#单数名词与定冠词-the-连用可以表示泛指" class="headerlink" title="单数名词与定冠词 the 连用可以表示泛指"></a>单数名词与定冠词 the 连用可以表示泛指</h4><p>定冠词 the 与单数名词连用时，可以表示泛指。在语气上显得比较正式或文雅，表示一个由典型的样品所代表的那个类别。</p>
+<p>1 ） The tiger is becoming almost extinct. </p>
+<p>2 ） Tigers are becoming almost extinct.</p>
+<p>在例句 1 ）中，我们采用单数名词 tiger 与 the 连用表示泛指。所以，对于例句 1 ）和例句 2 ），我们想到的都是“老虎”这类动物，并不是特定的一只只老虎。因此，这两句的译文都一样，表示“老虎几乎要灭绝了”。精品译文老虎几乎要灭绝。</p>
+<p>正因为“the+单数名词”既可以表示泛指也可以表示特指，所以，在特指还是泛指的理解上有时会出现模棱两可的现象。比如：</p>
+<p>A: The president is too powerful. </p>
+<p>B: Which president? </p>
+<p>A: No, I mean presidents in general.</p>
+<h4 id="单数名词与不定冠词-a-an-连用可以表示泛指"><a href="#单数名词与不定冠词-a-an-连用可以表示泛指" class="headerlink" title="单数名词与不定冠词 a/an 连用可以表示泛指"></a>单数名词与不定冠词 a/an 连用可以表示泛指</h4><p>“a/an+单数可数名词”可以表示泛指，不定冠词 a/an 的泛指用法指的是某一类事物中任何一个具有代表性的成员，所以这里的 a/an 相当于 any 。</p>
+<p>1 ） A tiger is a dangerous animal. </p>
+<p>2 ） The tiger is a dangerous animal. </p>
+<p>3 ） Tigers are dangerous animals.</p>
+<p>在例句 1 ）中，我们采用单数名词 tiger 与不定冠词 a 连用也可以表示泛指。所以，对于这三个例句，我们想到的都是“老虎”这类动物，而不是特定的一只老虎。</p>
+<h5 id="关于-a-n-的泛指用法的深入讨论"><a href="#关于-a-n-的泛指用法的深入讨论" class="headerlink" title="关于 a(n) 的泛指用法的深入讨论"></a>关于 a(n) 的泛指用法的深入讨论</h5><p>A tiger is a dangerous animal.</p>
+<p>相当于说：</p>
+<p>Any tiger is a dangerous animal.</p>
+<p>说到这里，也许有人非得“抬杠”说：“你说任何老虎都是危险的，但是一只幼虎或者一只奄奄一息的老虎就没有什么危险。”但是，一只幼虎或奄奄一息的老虎并没有典型的代表性，不能代表“老虎”这种动物的一般特性。</p>
+<p>正是因为a/an的泛指用法的上述特点，所以它不能用来表示那些属于整个类别的特性。比如我们不能说：</p>
+<p>A tiger is becoming almost extinct. *</p>
+<p>因为这里的extinct只适于描写整个老虎种群的特性，强调的是“种群”的灭绝，而不适于表示“老虎”这类动物的一般特性。比如我们可以说“任何一只老虎都具有危险伤人的特性”： </p>
+<p>Any tiger is a dangerous animal.</p>
+<p>我们却不能说“任何一只老虎都具有灭绝的特性”： </p>
+<p>Any tiger is becoming almost extinct. *</p>
+<p>不过，对于这种“整个类别”的特性，我们可以用复数名词或 the 来泛指，如我们在前面举过例句，此时我们可以说： </p>
+<p>The tiger is becoming almost extinct. </p>
+<p>Tigers are becoming almost extinct.</p>
+<h3 id="定冠词-the-的特指用法"><a href="#定冠词-the-的特指用法" class="headerlink" title="定冠词 the 的特指用法"></a>定冠词 the 的特指用法</h3><h4 id="情景-文化特指（-situational-cultural-reference-）"><a href="#情景-文化特指（-situational-cultural-reference-）" class="headerlink" title="情景 / 文化特指（ situational/cultural reference ）"></a>情景 / 文化特指（ situational/cultural reference ）</h4><p>在英语中，定冠词 the 有一条用法，是可以表示“著名的”人或事物。比如说到大科学家“爱因斯坦”，我们就要用定冠词 the 这样说： </p>
+<p>Albert Einstein, the famous physicist </p>
+<p>阿尔伯特 · 爱因斯坦，著名的物理学家</p>
+<p>但是说到“刘德华”，我们则要区分读者对象了。如果是面向中国国内的读者，我们可以说： </p>
+<p>Andy Lau, the famous actor</p>
+<p>如果是面向世界的读者，我们可能要用不定冠词 a 来这样描述较为妥当： </p>
+<p>Andy Lau, a famous Chinese actor</p>
+<h5 id="一般常识（-general-knowledge-）-较大情景"><a href="#一般常识（-general-knowledge-）-较大情景" class="headerlink" title="一般常识（ general knowledge ）/较大情景"></a>一般常识（ general knowledge ）/较大情景</h5><p>the North Pole 北极 </p>
+<p>the Equator 赤道 </p>
+<p>the earth 地球 </p>
+<p>the moon 月亮  </p>
+<p>the sky 天空 </p>
+<p>the universe 宇宙 </p>
+<p>the Renaissance （欧洲14至16世纪的）文艺复兴</p>
+<h5 id="具体知识（-specific-knowledge-）-局部情景（-local-use-）"><a href="#具体知识（-specific-knowledge-）-局部情景（-local-use-）" class="headerlink" title="具体知识（ specific knowledge ） / 局部情景（ local use ）"></a>具体知识（ specific knowledge ） / 局部情景（ local use ）</h5><p>比如学校里就只有一个图书馆，我们就说： </p>
+<p>Let’s go to the library.</p>
+<h5 id="即时情景用法（-immediate-situation-）"><a href="#即时情景用法（-immediate-situation-）" class="headerlink" title="即时情景用法（ immediate situation ）"></a>即时情景用法（ immediate situation ）</h5><p>A: Where’s the dessert? </p>
+<p>B: What dessert? </p>
+<p>C: You were supposed to bring the dessert. </p>
+<p>B: I didn’t know that. Nobody told me about it.<br>对于这个对话，我们可以假设这样一个场景：大家计划了一个聚会，分派每个人带一样吃的过来， B 被分派要带甜点（ dessert ），但没有人告诉 B 这个决定，所以 B 并不知道这件事。这里 dessert 对于 A 和 C 来说，都是双方共享的信息，所以都会用 the 。</p>
+<h4 id="上下文共指（-textual-co-reference-）"><a href="#上下文共指（-textual-co-reference-）" class="headerlink" title="上下文共指（ textual co-reference ）"></a>上下文共指（ textual co-reference ）</h4><p>上下文共指，就是指听话者或读者可以根据上下文找到所指。它可分为前指（ anaphoric reference ）和后指（ cataphoric reference ）。前指又可分为直接前指（ direct anaphora ）和间接前指（ indirect anaphora ）。具体阐述如下：</p>
+<h5 id="直接前指"><a href="#直接前指" class="headerlink" title="直接前指"></a>直接前指</h5><p>直接前指是指前面提到的某个事物，在后文中再次提到，这样前后两个名词短语是一种共指关系（ co-reference ），指代同一个事物。由于第一次提到的事物通常是不定指的，所以常用不定冠词 a/an 来限定。可是一旦那个事物在话语中已经谈到过，就可以把它看作“从上文中已得知的东西”，此后再提到它时就要用定冠词。这就是传统语法书上所说的“第一次提到的单数可数名词前面用不定冠词 a 或 an ，这一名词再次出现时则要用定冠词 the” 。</p>
+<p>I had a banana and an apple. I ate the banana and gave the apple to Clint.</p>
+<h5 id="间接前指-话题与定冠词-the"><a href="#间接前指-话题与定冠词-the" class="headerlink" title="间接前指 / 话题与定冠词 the"></a>间接前指 / 话题与定冠词 the</h5><p>间接前指，表示所指的对象间接地成为听话者知识的一部分。这种知识不是通过上面讨论的那样的直接谈及而获得，而是从已经谈到的事物中推断得到的。</p>
+<p>John bought a bicycle, but when he rode it one of the wheels came off.</p>
+<p>约翰买了一辆自行车，可是当他骑上去的时候，有一个轮子掉了下来。</p>
+<h5 id="后指-结构特指"><a href="#后指-结构特指" class="headerlink" title="后指 / 结构特指"></a>后指 / 结构特指</h5><p>后指，也叫结构特指（ structural reference ），往往出现在带有后置定语的名词短语中。一般来说，被某个后置定语所修饰的名词的前面要用定冠词 the 。</p>
+<p>The brick house on the corner is mine.</p>
+<p>这里的名词短语 brick house 被介词短语 on the corner 修饰，所以有 the 来限定 brick house ，说成 the brick house 。</p>
+<p>不过，并非所有带有后置定语的名词的前面都得用 the 来限定，比如下面这个句子：</p>
+<p>What makes us different from women of past decades is our range of choices.</p>
+<p>这里的名词 women 被介词短语 of pastdecades 修饰，但并没有 the 来限定 women ，变成 the women 。</p>
+<p>所以，决定一个名词的前面是否要有 the 来限定，并不完全是看该名词的后面是否有后置定语修饰，主要还是看这个被后置定语修饰的名词是表达一个泛指概念还是特指概念。具体可分成两种情况：如果被后置定语修饰的名词是表达一个没有限制的、广泛的、不可预知的人或事物，此时名词的前面依然不用 the 来限定；如果被后置定语修饰的名词是表达某个被限定的、特殊的、听者或读者（ listener/reader ）很熟悉或与之有关的人或事物，此时名词的前面需要用 the 来限定。</p>
+<p>1 ） What makes us different from women of past decades is our range of choices. </p>
+<p>2 ） The women of the other team all came from London.</p>
+<p>在例句 1 ）中，这里的 women 说的是普遍的、广泛的“妇女”，是一个泛指概念，因此这里没有 the 来限定 women 。在例句 2 ）中，这里的 women 表达的是一个明确的、特殊的妇女群体，是一个特指概念，作为读者的你是熟悉这些 women 的，因此这里有 the 来限定 women 。</p>
+<h2 id="不定冠词-a-an-的用法"><a href="#不定冠词-a-an-的用法" class="headerlink" title="不定冠词 a/an 的用法"></a>不定冠词 a/an 的用法</h2><p>在三类名词（即单数名词、复数名词和不可数名词）当中，不定冠词仅用于限定单数可数名词。在用法上，当根据说话者和听话者的共有知识不能统一确认所指事物的时候，我们就会用 a/an 来修饰一个名词。所以， a/an 通常用于所指事物在前面未曾提及并假定说话者或听话者对它还不熟悉的时候。</p>
+<p>a/an 表示泛指的用法，此用法一般仅限于处在主语位置的“a/an+单数名词”。如果“a/an+单数名词”是用在表语位置以及宾语位置，则失去了泛指的功能，而表现为其他的意义。</p>
+<h3 id="用在补足语中，表示分类，具有描述功能"><a href="#用在补足语中，表示分类，具有描述功能" class="headerlink" title="用在补足语中，表示分类，具有描述功能"></a>用在补足语中，表示分类，具有描述功能</h3><p>单数可数名词在作表语时，通常需要一个冠词。如果用不定冠词 a/an ，则具有描述的功能，而没有所指功能。</p>
+<p>Bill is an engineer. </p>
+<p>不能说： Bill is engineer. *</p>
+<p>当然，这里若用 the ，则表示特指。如：</p>
+<p>Bill is the engineer who will design the bridge. 比尔是将要设计这座桥的工程师。</p>
+<p>这里的 the engineer 不是强调比尔的“工程师”身份，而是强调比尔是完成某项工作的工程师。</p>
+<h3 id="用在宾语中，具有所指功能"><a href="#用在宾语中，具有所指功能" class="headerlink" title="用在宾语中，具有所指功能"></a>用在宾语中，具有所指功能</h3><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/UcnS3R.png" alt></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
+<li><p>用于主语位置，表示泛指（ generic usage ）。比如： A tiger is a large cat. </p>
+</li>
+<li><p>用于补语位置，表示分类。比如： He is a teacher. </p>
+</li>
+<li><p>用于宾语位置，会产生歧义，即用于定指与不定指意义不同。比如“I read a great book last week.” 对于说话者来说是定指，但对于听话者来说是不定指。再比如“I don’t have a car.” 对说话者和听话者都是不定指。</p>
+</li>
+</ol>
+<h3 id="不定冠词-a-an-与不可数名词"><a href="#不定冠词-a-an-与不可数名词" class="headerlink" title="不定冠词 a/an 与不可数名词"></a>不定冠词 a/an 与不可数名词</h3><p>在三类名词（即单数名词、复数名词和不可数名词）当中，不定冠词仅用于限定单数可数名词，不可数名词的前面通常不用 a/an 。但是，出于特定的意义表达的需要，就要用 a/an 来限定不可数名词。</p>
+<h4 id="很多不可数名词与a-an连用，表示“一种”或“一类”"><a href="#很多不可数名词与a-an连用，表示“一种”或“一类”" class="headerlink" title="很多不可数名词与a/an连用，表示“一种”或“一类”"></a>很多不可数名词与a/an连用，表示“一种”或“一类”</h4><p>如果说话者或作者想以某种方式来特指所说的事物，比如通常以关系从句的方式加以限定，或当说话者的意思是“一类”或“一种”的时候，不可数名词前可以用 a/an 。</p>
+<p>A cheese that I like is Camembert. </p>
+<p>我很喜欢的一种奶酪就是法国卡芒贝尔村产的软质奶酪。</p>
+<h4 id="对于饮料类的不可数名词，与a-an连用时，表示“一杯”"><a href="#对于饮料类的不可数名词，与a-an连用时，表示“一杯”" class="headerlink" title="对于饮料类的不可数名词，与a/an连用时，表示“一杯”"></a>对于饮料类的不可数名词，与a/an连用时，表示“一杯”</h4><p>I’d like a beer, please. 我要一杯啤酒。</p>
+<h4 id="有些不可数名词，当它们与-a-an-连用时，会有特别的意思，或者说意思会发生改变"><a href="#有些不可数名词，当它们与-a-an-连用时，会有特别的意思，或者说意思会发生改变" class="headerlink" title="有些不可数名词，当它们与 a/an 连用时，会有特别的意思，或者说意思会发生改变"></a>有些不可数名词，当它们与 a/an 连用时，会有特别的意思，或者说意思会发生改变</h4><p>比如 glass 表示“玻璃”这种物质，但 a glass 则表示“一个玻璃杯”。同样， iron 表示“铁”这种物质，但 an iron 表示“一个电熨斗”等等。</p>
+<h3 id="不定冠词-a-an-与数词-one"><a href="#不定冠词-a-an-与数词-one" class="headerlink" title="不定冠词 a/an 与数词 one"></a>不定冠词 a/an 与数词 one</h3><p>不定冠词在历史上起源于非重读形式的 one ，在当代英语的许多语境中，不定冠词的这种数词功能仍是非常主要的。所以，在下列并列结构中， one 可作为 a 的强调形式的等同词而替代 a 。</p>
+<h4 id="强调数量“一”时用-one"><a href="#强调数量“一”时用-one" class="headerlink" title="强调数量“一”时用 one"></a>强调数量“一”时用 one</h4><p>当我们想加强口吻或引人注意的时候，我们用 one 强调“只有一个 / 不超过一个（ one only/not more than one ）”的意思，而 a/an 则没有这个意思，它显得比较平淡、中性。也就是说， one 比 a/an 更强调数量。</p>
+<p>Customer: When will they be ready?</p>
+<p>Assistant: They take a week.</p>
+<p>Customer: One week, right, thanks very much.</p>
+<h4 id="讲故事中用-one"><a href="#讲故事中用-one" class="headerlink" title="讲故事中用 one"></a>讲故事中用 one</h4><p>在讲故事或讲述某种经历时，我们常用 one 来强调人或事物，作为我们将要讲到的一个重要话题。<br>There is one place we go to which is a Mexican restaurant, and they have a happy hour between 5: 30 and 7: 30.</p>
+<p>有一个地方是我们常去的，那是一家墨西哥餐馆，那里下午 5: 30 至 7: 30 之间饮料特价。</p>
+<h4 id="表示类指意义的-a-an-不能换成-one"><a href="#表示类指意义的-a-an-不能换成-one" class="headerlink" title="表示类指意义的 a/an 不能换成 one"></a>表示类指意义的 a/an 不能换成 one</h4><p>我们可以用 a/an 表示一类事物，是不定冠词泛指意义的用法。此时，我们就不能用 one 来替换 a/an ，否则意思会发生改变。</p>
+<p>1 ） A shotgun is no good. </p>
+<p>2 ） One shotgun is no good.</p>
+<p>在例句 1 ）中， a shotgun 是表示类指意义，意思是说“猎枪这种武器”不合适，需要别的武器。在例句 2 ）中， one shotgun 是强调数量，意思是说“一支猎枪”不够，需要两支或更多的猎枪。</p>
+<h4 id="表示度量的-a-an-不能换成-one"><a href="#表示度量的-a-an-不能换成-one" class="headerlink" title="表示度量的 a/an 不能换成 one"></a>表示度量的 a/an 不能换成 one</h4><p>我们可以用 a/an 来表示度量，以表示价格、速度或比率等概念。这时的 a/an 相当于 per （每，每一），不能换成 one 。</p>
+<p>1 ） The rent is $100 a week.</p>
+<p>2 ） The rent is $100 one week. *</p>
+<p>再比如下列这些表示度量的短语（ measure phrases ）：</p>
+<p>ten dollars a day 每天 10 美元</p>
+<p>$5 a kilo 5 美元一千克 </p>
+<p>sixty kilometers an hour 每小时 60 千米  </p>
+<p>four times a day 每天四次</p>
+<h4 id="表示数量的固定搭配中的-a-不能换成-one"><a href="#表示数量的固定搭配中的-a-不能换成-one" class="headerlink" title="表示数量的固定搭配中的 a 不能换成 one"></a>表示数量的固定搭配中的 a 不能换成 one</h4><p>各种数量词中也含有不定冠词 a ，此时不能换成 one ，比如： a few, a little, a great many 以及 a large number of 等等。因为这些是固定短语，所以不能把其中的 a 替换成 one ，比如不能说： one few<em> 或 one little</em> 等。</p>
+<h3 id="不定冠词-a-an-与-this"><a href="#不定冠词-a-an-与-this" class="headerlink" title="不定冠词 a/an 与 this"></a>不定冠词 a/an 与 this</h3><p>在口头叙述中，当说话者想强调某个人、某个地方或某件事，并使他们变得更加生动时，就可以用 this 代替 a 。这个用法在讲笑话时尤为常见。</p>
+<h2 id="用-不用冠词的意义区别（-the-hospital-hospital-）"><a href="#用-不用冠词的意义区别（-the-hospital-hospital-）" class="headerlink" title="用 / 不用冠词的意义区别（ the hospital/hospital ）"></a>用 / 不用冠词的意义区别（ the hospital/hospital ）</h2><p>对于表示处所或社会事业机构类的名词（如 prison, church 和 college 等），使用冠词 the ，是强调处所，指的是实际的建筑物或地点；不用冠词 the ，是强调活动，不是指实际的建筑物或地点，而是指与它们相关的社会事业机构。</p>
+<h3 id="家居生活类名词"><a href="#家居生活类名词" class="headerlink" title="家居生活类名词"></a>家居生活类名词</h3><p>at table / at the table</p>
+<p>in bed / in the bed</p>
+<h3 id="处所、建筑物或社会事业机构"><a href="#处所、建筑物或社会事业机构" class="headerlink" title="处所、建筑物或社会事业机构"></a>处所、建筑物或社会事业机构</h3><p>go to hospital （ as patients ） / redecorate the hospital</p>
+<p>go to prison / walk around the prison（犯罪入狱/绕着这个监狱走）</p>
+<h3 id="关于上学（-class-school-college-和-university-等）"><a href="#关于上学（-class-school-college-和-university-等）" class="headerlink" title="关于上学（ class, school, college 和 university 等）"></a>关于上学（ class, school, college 和 university 等）</h3><p>go to school / go to the school</p>
+<p>in school / in the school （在校念书/在学校里）</p>
+<p>in class / in the class （在上课/在这个班级）</p>
+<h2 id="其他用冠词的场合"><a href="#其他用冠词的场合" class="headerlink" title="其他用冠词的场合"></a>其他用冠词的场合</h2><h3 id="形容词或副词的最高级、序数词，以及-only-用作形容词后接名词时，它们的前面一般要用-the-。"><a href="#形容词或副词的最高级、序数词，以及-only-用作形容词后接名词时，它们的前面一般要用-the-。" class="headerlink" title="形容词或副词的最高级、序数词，以及 only 用作形容词后接名词时，它们的前面一般要用 the 。"></a>形容词或副词的最高级、序数词，以及 only 用作形容词后接名词时，它们的前面一般要用 the 。</h3><p>the only/best way to cope with the problem 解决这个问题的唯一 / 最好的方法</p>
+<p>This is the first time I’ve come to Beijing. 这是我第一次来北京。</p>
+<h3 id="在乐器、乐团、合唱团及流行音乐团体前加-the"><a href="#在乐器、乐团、合唱团及流行音乐团体前加-the" class="headerlink" title="在乐器、乐团、合唱团及流行音乐团体前加 the"></a>在乐器、乐团、合唱团及流行音乐团体前加 the</h3><p>the Beatles “甲壳虫”乐队 </p>
+<p>the Philadelphia Orchestra 费城管弦乐队 </p>
+<p>play/learn the guitar 弹 / 学吉他 </p>
+<p>learn the piano 学钢琴</p>
+<h3 id="定冠词-the-与姓氏连用"><a href="#定冠词-the-与姓氏连用" class="headerlink" title="定冠词 the 与姓氏连用"></a>定冠词 the 与姓氏连用</h3><p>我们可以把定冠词 the 与姓氏连用，然后要在姓氏的后面添加复数 -s 。</p>
+<p>the Smiths</p>
+<p>这类短语要表达的意思主要有两种：一是表示夫妇两人（ husband and wife ），二是可以表示一家人，即包括孩子在内（ including children ）。所以， the Smiths 可以表示“史密斯夫妇”，也可以表示“史密斯一家人”。具体的意思可依据上下文而定。</p>
+<p>此外，如果是名门望族的姓氏，则除了表示上述两个意思之外，往往还表示整个家族。</p>
+<p>the Kennedys</p>
+<p>这个短语虽然可以表示“肯尼迪总统夫妇”或“肯尼迪总统全家人”，但实际上往往是表示“肯尼迪家族”。</p>
+<h3 id="表示强调时，会用-the"><a href="#表示强调时，会用-the" class="headerlink" title="表示强调时，会用 the"></a>表示强调时，会用 the</h3><p>（ at the airport check-in desk ） </p>
+<p>Airline official: How many bags are you checking in? </p>
+<p>Passenger: Just the one.</p>
+<hr>
+<p>Receptionist: So it’s just one person then? </p>
+<p>Customer: No, no, it’s for the two of us. </p>
+<p>Receptionist: Oh, I’m sorry. Right, two persons.</p>
+<h2 id="其他不用冠词的场合"><a href="#其他不用冠词的场合" class="headerlink" title="其他不用冠词的场合"></a>其他不用冠词的场合</h2><h3 id="关于职业、身份或头衔"><a href="#关于职业、身份或头衔" class="headerlink" title="关于职业、身份或头衔"></a>关于职业、身份或头衔</h3><p>表示某人的职业，一般是用不定冠词 a/an 。</p>
+<p>I am an English teacher.</p>
+<p>如果这个头衔是独一无二的，或者说这个职位在一个单位里是唯一的，此时常不用冠词。不过，也可以用 the （既然是独一无二的身份，所以不可能用 a/an ）。</p>
+<p>1 ） They appointed him Head Librarian.</p>
+<p>2 ） He’s a librarian.</p>
+<h3 id="关于球类、棋类运动"><a href="#关于球类、棋类运动" class="headerlink" title="关于球类、棋类运动"></a>关于球类、棋类运动</h3><p>play football 踢足球 </p>
+<p>play chess 下棋 </p>
+<p>play tennis 打网球</p>
+<h3 id="关于其他限定词与冠词"><a href="#关于其他限定词与冠词" class="headerlink" title="关于其他限定词与冠词"></a>关于其他限定词与冠词</h3><p>所以下面这些表达都是错误的： </p>
+<p>the my book* </p>
+<p>Tom’s the book* </p>
+<p>my the money* </p>
+<p>our the problems*</p>
+<p>但是可以这样：</p>
+<p>the boss’s wife</p>
+<p>my brother’s girlfriend</p>
+<h3 id="特殊名词"><a href="#特殊名词" class="headerlink" title="特殊名词"></a>特殊名词</h3><p>nature ：泛指自然界（动植物及无生命的物质的世界），不加冠词。比如“在大自然中”要说成 in nature ，而不是 in the nature* 。</p>
+<p>society ：泛指我们在其中生活的这个社会，一般不加冠词。比如“在社会中”要说成 in society ，而不是 in the society* 。</p>
+<p>Society turns people into criminals and then locks them up.</p>
+<p>man ：泛指整个人类时，不加冠词。</p>
+<h3 id="关于星期"><a href="#关于星期" class="headerlink" title="关于星期"></a>关于星期</h3><p>表示星期几的名词前面一般是不加冠词的，而是直接用介词 on 加上一个星期的名称，即“on+星期名称”。</p>
+<p>上述不加冠词的星期表达“on+星期名称”所指的具体时间是与真实的说话语境所暗示的某一个时间点有联系的。比如现在的说话时间是在“周三”，那么我们说 on Monday ，就是指刚刚过去的那个“周一”，即“前天”，表示的是一个过去的时间（ past time ）；而我们说 on Friday ，就是指即将到来的那个“周五”，即“后天”，表示的是一个将来的时间（ future time ）。</p>
+<p>除此以外，“on+星期名称”还可以表示周期性的“星期几”，表示一个规律性的日期，比如 on Monday 可以表示“每逢周一”。在英语中，表示“每逢周几”，我们还可以在星期名词的后面加 -s ，比如 on Mondays 。</p>
+<p>I have English class on Monday.</p>
+<p>这里的 on Monday 可以理解成“每周一”，此时也可以用复数，说成 on Mondays 。</p>
+<p>综上所述，“on+星期名称”这样的星期表达可以包含两个意思：一是表示一个规律性的日期，意思是“每逢周几”；二是表示过去或将来的某个具体日期（ a specific date ），此时是以说话时间为参照的。</p>
+<hr>
+<p>加了冠词说 on the Monday 和 on the Thursday ，此时的参照时间不是说话的时间，而是上下文里所确立的某一时间。</p>
+<p>以上所讨论的是两种定指的星期表达，一个是以说话的时间为参照，另一个是以上下文中特定的时间为参照。既然有定指的星期表达，那么也就有不定指的星期表达，此时用不定冠词 a 来修饰星期，说成“on a+ 星期名称”。</p>
+<p>1 ） She left on a Wednesday. </p>
+<p>2 ） She left on Wednesday.</p>
+<p>在例句 1 ）中， on a Wednesday 表示过去某一个不确定的星期三，与现在的说话时间没有任何联系。在例句 2 ）中， on Wednesday 是以现在的说话时间为参照，表示离说话时间最近的刚刚过去的那个周三，即与现在的说话时间有密切联系。</p>
+<h3 id="关于四季"><a href="#关于四季" class="headerlink" title="关于四季"></a>关于四季</h3><p>指一般的四季而不是具体指某年的某一段时间时，通常不加冠词。</p>
+<p>in spring （在春天） in summer （在夏天） in autumn （在秋天） in winter （在冬天）</p>
+<p>但是，如果指特定的某一年的某个季节时，就要加冠词。比如： </p>
+<p>The spring of last year was cold.（去年春天很冷。）</p>
+<h3 id="关于昼夜的各段时间"><a href="#关于昼夜的各段时间" class="headerlink" title="关于昼夜的各段时间"></a>关于昼夜的各段时间</h3><p>dawn/daybreak （黎明 / 破晓）</p>
+<p>sunrise （日出） sunset （日落）</p>
+<p>noon （正午） dusk/twilight （黄昏）</p>
+<p>night （夜晚） midnight （午夜）</p>
+<p>以上这些名词尤其是当它们出现在 at, by, after 和 before 之后时，往往不加冠词。</p>
+<p>at dawn （在黎明时） at daybreak （在破晓时） at sunrise （在日出时） at sunset （在日落时） at noon （在正午时） at dusk/twilight （在黄昏时） at night （在夜晚） at midnight （在午夜）</p>
+<p>如果是用在其他介词之后，或者是在其他场合，这些名词前则往往要加冠词。</p>
+<p>watch the dawn （看黎明到来） The sunrise was splendid. （日出很壮观。） We admired the sunset. （我们欣赏了日落。） see nothing in the dusk （在黄昏时什么也没看见） wake up in the night （在夜里醒来） all through the night （整整一夜）</p>
+<p>另外，要注意的是，若是表示特定的某一天的某个时间段，往往用不定冠词，并且用介词 on ，此时这些名词的前面通常都会有形容词修饰。</p>
+<p>on a frosty December night</p>
+<p>这里的 night 前面有修饰语 frosty 和 December ，表示的是具体的某一天的晚上。此时用了不定冠词 a ，并且用了介词 on 。</p>
+<h3 id="关于进餐"><a href="#关于进餐" class="headerlink" title="关于进餐"></a>关于进餐</h3><p>指一般日常惯例的用餐时，通常不加冠词。</p>
+<p>have rice for dinner 晚餐吃米饭</p>
+<p>for breakfast/lunch （早餐 / 午餐吃 …… ） stay for breakfast （留下来吃早餐） before lunch （午餐前） after dinner （晚餐后）</p>
+<p>但是如果指需要特别提出的某一次用餐，则常用 the 来强调。</p>
+<p>1 ） Where are we having dinner tonight? </p>
+<p>2 ） The dinner after his retirement party was quite lavish.</p>
+<p>若在三餐名词前有形容词时，则一般加不定冠词，来表示什么样的一餐。</p>
+<p>We often have a big lunch and a nice dinner.</p>
+<h3 id="关于交通工具的名词"><a href="#关于交通工具的名词" class="headerlink" title="关于交通工具的名词"></a>关于交通工具的名词</h3><p>接在 by 之后的交通工具名词，其前面不加冠词。但是这些名词在其他场合要加冠词。</p>
+<p>1 ） by bicycle </p>
+<p>2 ） take the bicycle</p>
+<p>1 ） by bus </p>
+<p>2 ） be on the bus</p>
+<h3 id="关于通讯工具的名词"><a href="#关于通讯工具的名词" class="headerlink" title="关于通讯工具的名词"></a>关于通讯工具的名词</h3><p>接在by之后的通讯工具名词，其前面不加冠词。但是这些名词在其 他场合要加冠词。</p>
+<p>1） by radio</p>
+<p>2） a talk on the radio</p>
+<p>1） 通过收音机 2） 收音机中的一个谈话节目</p>
+<h3 id="平行结构"><a href="#平行结构" class="headerlink" title="平行结构"></a>平行结构</h3><p>如果两个名词一起放在同一平行结构里，即使是单数可数名词，也通常不加冠词。</p>
+<p>face to face 面对面；当面 back to back 背对背</p>
+<p>arm in arm 手挽着手 hand in hand 手牵手</p>
+<p>eye to eye/eyeball to eyeball 面对面地，针锋相对地 </p>
+<p>toe to toe 脚尖挨脚尖，摩肩接踵 shoulder to shoulder/side by side 肩并肩地</p>
+<p>inch by inch 逐渐地，一步一步地 day after day（=day by day） 日复一日 </p>
+<p>from person to person 挨个地 from door to door 挨家挨户地 </p>
+<p>from top to toe 从头到脚，完完全全 from father to son 从父到子</p>
+<p>They talked face to face. 他们面对面地谈话。 </p>
+<p>They talked man to man. 他们坦率地交谈。</p>
+<p>这些名词没有冠词是因为它们基本上失去了名词的主要特性，比如 它们没有数的变化。不能说： They talked faces to faces. <em> 它们的前面也不能有修饰语。比如不能说： They talked old man to young man. </em> 因此，我们不妨把这些短语看成是英语的固定习语。</p>
+<h1 id="Other-notes"><a href="#Other-notes" class="headerlink" title="Other notes"></a>Other notes</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Home didn&apos;t have a flush toilet or refrigerator until Arnie was 14.</span><br></pre></td></tr></table></figure>
+<p>这里的refrigerator前面不用加a，是因为or组成的两个名词前面只需要在第一个名词加不定冠词即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Maria Shiver, is an anchor woman on U.S. TV news and niece of assassinated President John F. Kennedy.</span><br></pre></td></tr></table></figure></p>
+<p>同样的道理，这里and修饰的前后两个名词，也只有前者需要加不定冠词。</p>
 
-      
-        
-          
-          
-          
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2020/01/02/JWT/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
+    
+    
+    
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/17/WebStorm汇总/">
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/19/Logback/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="James Feng">
-    <meta itemprop="description" content>
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Feng's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Feng's Blog" src>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
     </span>
-  </span>
 
-    
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/12/19/Logback/" itemprop="url">
-                  logback
-                </a>
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/17/WebStorm汇总/" class="post-title-link" itemprop="url">WebStorm汇总</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-19T15:59:03+08:00">
-                2019-12-19
-              </time>
-            
+              <span class="post-meta-item-text">Posted on</span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/logback/" itemprop="url" rel="index">
-                    <span itemprop="name">logback</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2019-10-17 01:46:34" itemprop="dateCreated datePublished" datetime="2019-10-17T01:46:34+08:00">2019-10-17</time>
             </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-16 20:58:54" itemprop="dateModified" datetime="2020-07-16T20:58:54+08:00">2020-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WebStorm/" itemprop="url" rel="index"><span itemprop="name">WebStorm</span></a>
+                </span>
+            </span>
 
           
 
         </div>
       </header>
+
     
-
-
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <h1 id="shortcut"><a href="#shortcut" class="headerlink" title="shortcut"></a>shortcut</h1><p>新建文件的时候可以这样操作来脱离鼠标：<br>cmd+1跳到Project目录上下移动到目标目录，然后cmd+shift+A跳出Action，输入new+文件类型或者手动选择文件类型就可以了。</p>
+<h1 id="高效率编码"><a href="#高效率编码" class="headerlink" title="高效率编码"></a>高效率编码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">&gt;：下一个子标签</span><br><span class="line">*：多少个标签</span><br><span class="line">$：标签的名称序号</span><br><span class="line">&#123;&#125;:标签的内容</span><br><span class="line">--&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入：h1,按tab键--&gt;</span><br><span class="line">&lt;h1&gt;&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入：div#abc,按Tab键--&gt;</span><br><span class="line">&lt;div id=&quot;abc&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入：div.abc,按Tab键--&gt;</span><br><span class="line">&lt;div class=&quot;abc&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入: div&gt;p*6 ,按Tab键--&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;p&gt;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入 a[href=#] 按tab键--&gt;</span><br><span class="line">&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入：ul.menu&gt;li*6&gt;a[href=#]&#123;HTML&#125; 按tab键--&gt;</span><br><span class="line">&lt;ul class=&quot;menu&quot;&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;HTML&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;HTML&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;HTML&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;HTML&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;HTML&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;HTML&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入  ul&gt;li*5&gt;a[href=#]&#123;我是第$个&#125; 再按tab键--&gt;</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;我是第1个&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;我是第2个&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;我是第3个&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;我是第4个&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;我是第5个&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入 img[src=&apos;images/$.jpg&apos;]*3 再按tab键--&gt;</span><br><span class="line">&lt;img src=&quot;images/1.jpg&quot; alt=&quot;&quot;&gt;     </span><br><span class="line">&lt;img src=&quot;images/2.jpg&quot; alt=&quot;&quot;&gt;     </span><br><span class="line">&lt;img src=&quot;images/3.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入 li*3&gt;div.img&gt;img[src=&apos;images/$.jpg&apos;] 再按tab键--&gt;</span><br><span class="line">&lt;li&gt;</span><br><span class="line">    &lt;div class=&quot;img&quot;&gt;&lt;img src=&quot;images/1.jpg&quot; alt=&quot;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/li&gt;</span><br><span class="line">&lt;li&gt;</span><br><span class="line">    &lt;div class=&quot;img&quot;&gt;&lt;img src=&quot;images/2.jpg&quot; alt=&quot;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/li&gt;</span><br><span class="line">&lt;li&gt;</span><br><span class="line">    &lt;div class=&quot;img&quot;&gt;&lt;img src=&quot;images/3.jpg&quot; alt=&quot;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/li&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/* for循环：输入itar,再点击tab键*/</span><br><span class="line">        for (var i = 0; i &lt; array.length; i++) &#123;</span><br><span class="line">            var obj = array[i];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">+ : 并列的标签</span><br><span class="line">&lt;!--div#tab1+div#tab2--&gt;</span><br><span class="line"></span><br><span class="line">&lt;div id=&quot;tab1&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;tab2&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://blog.csdn.net/sinat_31057219/article/details/79158978" target="_blank" rel="noopener">https://blog.csdn.net/sinat_31057219/article/details/79158978</a></p>
+</blockquote>
+<h1 id="Plugins"><a href="#Plugins" class="headerlink" title="Plugins"></a>Plugins</h1><h2 id="ESLint"><a href="#ESLint" class="headerlink" title="ESLint"></a>ESLint</h2><p>指定项目的eslint配置文件：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/yI1T2Z.png" alt><br>然后再快捷键设置 Fix ESLint Problems，将原来的代码格式化快捷键去掉，就可以取代WebStorm的格式化了。</p>
 
-      
-        
-          
-          logback当前分成三个模块：logback-core,logback-classic和logback-access。logback-core是其它两个模块的基础模块。
-logback-classic是log4j的一个 改良版本。此外logback-classic完整实现SLF4J API使你可以
-          ...
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2019/12/19/Logback/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
+    
+    
+    
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/26/Spring系列之SpringMVC/">
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/13/Reactor响应式编程阅读源码有感/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="James Feng">
-    <meta itemprop="description" content>
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Feng's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Feng's Blog" src>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
     </span>
-  </span>
 
-    
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/12/13/Reactor响应式编程阅读源码有感/" itemprop="url">
-                  Reactor响应式编程阅读源码有感
-                </a>
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/26/Spring系列之SpringMVC/" class="post-title-link" itemprop="url">Spring系列之SpringMVC</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-13T20:57:04+08:00">
-                2019-12-13
-              </time>
-            
+              <span class="post-meta-item-text">Posted on</span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Reactor/" itemprop="url" rel="index">
-                    <span itemprop="name">Reactor</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2019-11-26 20:06:19" itemprop="dateCreated datePublished" datetime="2019-11-26T20:06:19+08:00">2019-11-26</time>
             </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-16 20:58:54" itemprop="dateModified" datetime="2020-07-16T20:58:54+08:00">2020-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/SpringMVC/" itemprop="url" rel="index"><span itemprop="name">SpringMVC</span></a>
+                </span>
+            </span>
 
           
 
         </div>
       </header>
+
     
-
-
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <h1 id="处理过的问题"><a href="#处理过的问题" class="headerlink" title="处理过的问题"></a>处理过的问题</h1><h4 id="Required-request-body-is-missing"><a href="#Required-request-body-is-missing" class="headerlink" title="Required request body is missing"></a>Required request body is missing</h4><p>一般都是@RequestBody注解的参数，而请求数据空；或者用postman的话，注意要这样选择参数：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/BiF57m.png" alt="image"></p>
+<h4 id="What-is-difference-between-RequestBody-and-RequestParam"><a href="#What-is-difference-between-RequestBody-and-RequestParam" class="headerlink" title="What is difference between @RequestBody and @RequestParam?"></a>What is difference between @RequestBody and @RequestParam?</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/KCfLZy.png" alt="image"></p>
+<h4 id="postman请求时，如果Controller的方法出现参数接收不到为null"><a href="#postman请求时，如果Controller的方法出现参数接收不到为null" class="headerlink" title="postman请求时，如果Controller的方法出现参数接收不到为null"></a>postman请求时，如果Controller的方法出现参数接收不到为null</h4><p>这个时候考虑是否PostMapping注解的方法参数是否为多个，如果多个的话用postman请求记得不要在Body选择为raw和json类型，可以选择form-data或者x-www-form-urlencoded。</p>
+<h4 id="ResponseBody注解之后是在哪里将对象自动转成Json响应的"><a href="#ResponseBody注解之后是在哪里将对象自动转成Json响应的" class="headerlink" title="@ResponseBody注解之后是在哪里将对象自动转成Json响应的"></a>@ResponseBody注解之后是在哪里将对象自动转成Json响应的</h4><p>0 = {ManagedFilter@12664} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.web.servlet.filter.OrderedCharacterEncodingFilter, name=’characterEncodingFilter’}}”<br>1 = {ManagedFilter@12662} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter, name=’webMvcMetricsFilter’}}”<br>2 = {ManagedFilter@12658} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.web.servlet.filter.OrderedHiddenHttpMethodFilter, name=’hiddenHttpMethodFilter’}}”<br>3 = {ManagedFilter@12656} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.web.servlet.filter.OrderedFormContentFilter, name=’formContentFilter’}}”<br>4 = {ManagedFilter@12654} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.web.servlet.filter.OrderedRequestContextFilter, name=’requestContextFilter’}}”<br>5 = {ManagedFilter@12652} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.web.servlet.DelegatingFilterProxyRegistrationBean$1, name=’springSecurityFilterChain’}}”<br>6 = {ManagedFilter@12637} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter, name=’httpTraceFilter’}}”</p>
+<p><a href="https://www.baeldung.com/spring-httpmessageconverter-rest" target="_blank" rel="noopener">how to Configure HttpMessageConverters in Spring.</a><br><a href="https://chenzhihao.cc/2019/06/13/Springmvc%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E7%9A%84%E4%BC%98%E9%9B%85%E5%A4%84%E6%96%B9%E5%BC%8F/" target="_blank" rel="noopener">参考1</a></p>
+<p>因为底层AbstractJackson2HttpMessageConverter调用了writeInternal方法默认通过jackson来做json解析，所以可以使用jackson的各种强大的注解，如：<br><a href="https://www.jianshu.com/p/201943f8d579" target="_blank" rel="noopener">Jackson注解翻译</a></p>
+<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="前端接口调用的入口"><a href="#前端接口调用的入口" class="headerlink" title="前端接口调用的入口"></a>前端接口调用的入口</h2><p>HttpServlet（无论tomcat还是undertow容器，都是继承了HttpServlet抽象类，通过service方法分发前端的Http请求的）<br>所以如果某个http请求出现了莫名其妙的问题，如果实在找不到原因，就可以从最原始的这个入口debug跟踪，一步步深入，最终肯定能解决问题的。</p>
+<h2 id="前端传进来的入参转换为Controller方法的入参过程"><a href="#前端传进来的入参转换为Controller方法的入参过程" class="headerlink" title="前端传进来的入参转换为Controller方法的入参过程"></a>前端传进来的入参转换为Controller方法的入参过程</h2><p>InvocableHandlerMethod.invokeForRequest方法</p>
+<h2 id="InitBinder的使用"><a href="#InitBinder的使用" class="headerlink" title="@InitBinder的使用"></a>@InitBinder的使用</h2><p><a href="https://medium.com/stackavenue/how-to-use-initbinder-in-spring-mvc-ecb974a6884" target="_blank" rel="noopener">https://medium.com/stackavenue/how-to-use-initbinder-in-spring-mvc-ecb974a6884</a></p>
 
-      
-        
-          
-          官方参考文档baeldung参考文章
-Fluxan Asynchronous Sequence of 0-N Items（是一个异步的处理序列，它有0或者多个条目）官方对Flux的原理解析图解：
-Spring Gateway的源码中重度依赖Reactor Project，比如：1return res
-          ...
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2019/12/13/Reactor响应式编程阅读源码有感/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
 
     
-  </section>
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1020,113 +1085,100 @@ Spring Gateway的源码中重度依赖Reactor Project，比如：1return res
           </div>
           
 
-
-          
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
-        
           
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
   </div>
 
-  <aside id="sidebar" class="sidebar">
+  <aside class="sidebar">
     <div class="sidebar-inner">
 
-      
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
 
-      
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="James Feng">
-          <p class="site-author-name" itemprop="name">James Feng</p>
-          <p class="site-description motion-element" itemprop="description">Don't dream when the sun is setting, try to work hard when the sun is rising.</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">118</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-
-          
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">69</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">81</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
+  <p class="site-author-name" itemprop="name">Fengorz</p>
+  <div class="site-description" itemprop="description">A Quiet Departure.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
         
-
-        <div class="links-of-author motion-element">
+          <span class="site-state-item-count">118</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
           
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/coding-by-feng" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/u/3219972752?is_all=1" target="_blank" title="Weibo">
-                  
-                    <i class="fa fa-fw fa-weibo"></i>
-                  
-                  Weibo
-                </a>
-              </span>
-            
+        <span class="site-state-item-count">69</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
           
-        </div>
-
-        
-        
-
-        
-        
-
-        
+        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
 
 
-      </section>
 
-      
+      </div>
 
     </div>
   </aside>
+  <div id="sidebar-dimmer"></div>
 
 
-        
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+        
+
+        
 
 <div class="copyright">
   
@@ -1135,258 +1187,117 @@ Spring Gateway的源码中重度依赖Reactor Project，比如：1return res
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">James Feng</span>
+  <span class="author" itemprop="copyrightHolder">Fengorz</span>
 </div>
-
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-  <span>&nbsp; &nbsp;|&nbsp; &nbsp;</span>
-  Total <span id="busuanzi_value_site_uv"></span> views.
-</div>
-
-
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
 
         
 
-        
+
+
+
+
+
+
+
       </div>
     </footer>
-
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
   </div>
 
   
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
   }
+  NexT.utils.updateSidebarPosition();
+});
 </script>
 
 
 
 
-
-
-
-
-
-  
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
-
-
-  
-
-
-
   
 
 
 
 
-	
+  <script src="/js/local-search.js"></script>
 
 
 
 
-  
-  
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length == 0) {
-      search_path = "search.xml";
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    function proceedsearch() {
-      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
-      $('.popup').toggle();
-    }
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-      $.ajax({
-        url: path,
-        dataType: "xml",
-        async: true,
-        success: function( xmlResponse ) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = $( "entry", xmlResponse ).map(function() {
-            return {
-              title: $( "title", this ).text(),
-              content: $("content",this).text(),
-              url: $( "url" , this).text()
-            };
-          }).get();
-          var $input = document.getElementById(search_id);
-          var $resultContent = document.getElementById(content_id);
-          $input.addEventListener('input', function(){
-            var matchcounts = 0;
-            var str='<ul class=\"search-result-list\">';
-            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-            $resultContent.innerHTML = "";
-            if (this.value.trim().length > 1) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var content_index = [];
-                var data_title = data.title.trim().toLowerCase();
-                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                var data_url = decodeURIComponent(data.url);
-                var index_title = -1;
-                var index_content = -1;
-                var first_occur = -1;
-                // only match artiles with not empty titles and contents
-                if(data_title != '') {
-                  keywords.forEach(function(keyword, i) {
-                    index_title = data_title.indexOf(keyword);
-                    index_content = data_content.indexOf(keyword);
-                    if( index_title >= 0 || index_content >= 0 ){
-                      isMatch = true;
-                      if (i == 0) {
-                        first_occur = index_content;
-                      }
-                    }
-
-                  });
-                }
-                // show search results
-                if (isMatch) {
-                  matchcounts += 1;
-                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
-                  var content = data.content.trim().replace(/<[^>]+>/g,"");
-                  if (first_occur >= 0) {
-                    // cut out 100 characters
-                    var start = first_occur - 20;
-                    var end = first_occur + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if(start == 0){
-                      end = 50;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    var match_content = content.substring(start, end);
-                    // highlight all keywords
-                    keywords.forEach(function(keyword){
-                      var regS = new RegExp(keyword, "gi");
-                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
-                    });
-
-                    str += "<p class=\"search-result\">" + match_content +"...</p>"
-                  }
-                  str += "</li>";
-                }
-              })};
-            str += "</ul>";
-            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
-            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
-            $resultContent.innerHTML = str;
-          });
-          proceedsearch();
-        }
-      });}
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched == false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(function(e){
-      $('.popup').hide();
-      $(".popoverlay").remove();
-      $('body').css('overflow', '');
-    });
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-  </script>
 
 
+
+
+
+
+
+
+    <div id="pjax">
   
 
   
 
-  
-
-  
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
-
-
-
+    </div>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"live2d-widget-model-hijiki"},"display":{"position":"left","width":100,"height":200},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

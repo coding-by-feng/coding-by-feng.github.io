@@ -1,1022 +1,683 @@
-<!doctype html>
-
-
-
-  
-
-
-<html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.8.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Hexo, NexT">
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
-
-
-
-
-
-
-<meta name="description" content="Don&apos;t dream when the sun is setting, try to work hard when the sun is rising.">
+  <meta name="description" content="A Quiet Departure.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Feng&#39;s Blog">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="Don&apos;t dream when the sun is setting, try to work hard when the sun is rising.">
+<meta property="og:description" content="A Quiet Departure.">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Feng&#39;s Blog">
-<meta name="twitter:description" content="Don&apos;t dream when the sun is setting, try to work hard when the sun is rising.">
+<meta name="twitter:description" content="A Quiet Departure.">
+
+<link rel="canonical" href="http://yoursite.com/">
 
 
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"hide"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '10000',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-Hans'
   };
 </script>
 
-
-
-  <link rel="canonical" href="http://yoursite.com/">
-
-
+  <title>Feng's Blog</title>
+  
 
 
 
-  <title> Feng's Blog </title>
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-
-
-
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?1bc877799c79c2fb2806df9b1c09c678";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
 
-  <div class="custom-logo-site-title">
+  <div class="site-meta">
+
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Feng's Blog</span>
+      <h1 class="site-title">Feng's Blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle"></p>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
 </div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+
+
 
 <nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            分类
-          </a>
-        </li>
-      
-        
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
         <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            归档
-          </a>
-        </li>
-      
-        
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
-          </a>
-        </li>
-      
 
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
-            
-            搜索
-          </a>
-        </li>
-      
-    </ul>
-  
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
 
-  
-    <div class="site-search">
-      
-  
-  <div class="algolia-popup popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
+  </li>
+        <li class="menu-item menu-item-categories">
 
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
 
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-  </div>
+  </li>
+        <li class="menu-item menu-item-archives">
 
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
-
-
-    </div>
-  
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
 </nav>
 
 
 
- </div>
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
     </header>
 
-    <main id="main" class="main">
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content">
+          
+
+          <div class="content index posts-expand">
             
-  <section id="posts" class="posts-expand">
-    
       
-
-  
-
   
   
-  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/27/Web前端汇总/">
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/12/虚拟币理财/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="James Feng">
-    <meta itemprop="description" content>
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Feng's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Feng's Blog" src>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
     </span>
-  </span>
 
-    
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/08/12/虚拟币理财/" itemprop="url">
-                  虚拟币理财
-                </a>
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/27/Web前端汇总/" class="post-title-link" itemprop="url">Web前端汇总</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-12T18:32:43+08:00">
-                2020-08-12
-              </time>
-            
+              <span class="post-meta-item-text">Posted on</span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/理财/" itemprop="url" rel="index">
-                    <span itemprop="name">理财</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2019-11-27 22:00:11" itemprop="dateCreated datePublished" datetime="2019-11-27T22:00:11+08:00">2019-11-27</time>
             </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-27 18:28:36" itemprop="dateModified" datetime="2020-08-27T18:28:36+08:00">2020-08-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web前端/" itemprop="url" rel="index"><span itemprop="name">Web前端</span></a>
+                </span>
+            </span>
 
           
 
         </div>
       </header>
+
     
-
-
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <h1 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a>Resource</h1><h2 id="图标库"><a href="#图标库" class="headerlink" title="图标库"></a>图标库</h2><p><a href="http://www.fontawesome.com.cn/faicons/" target="_blank" rel="noopener">fontawesome</a></p>
+<h2 id="w3c参考手册"><a href="#w3c参考手册" class="headerlink" title="w3c参考手册"></a>w3c参考手册</h2><p><a href="https://www.w3school.com.cn/jsref/index.asp" target="_blank" rel="noopener">w3c参考手册详情</a></p>
+<h1 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h1><h2 id="npm国内慢"><a href="#npm国内慢" class="headerlink" title="npm国内慢"></a>npm国内慢</h2><p><a href="https://www.cnblogs.com/sddai/p/9388261.html" target="_blank" rel="noopener">https://www.cnblogs.com/sddai/p/9388261.html</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install cnpm -g --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure></p>
+<h2 id="npm-安装命令"><a href="#npm-安装命令" class="headerlink" title="npm 安装命令"></a>npm 安装命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install moduleName</span><br></pre></td></tr></table></figure>
+<p>安装模块到项目node_modules目录下。<br>不会将模块依赖写入devDependencies或dependencies 节点。<br>运行 npm install 初始化项目时不会下载模块。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g moduleName</span><br></pre></td></tr></table></figure></p>
+<p>安装模块到全局，不会在项目node_modules目录中保存模块包。<br>不会将模块依赖写入devDependencies或dependencies 节点。<br>运行 npm install 初始化项目时不会下载模块。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -save moduleName</span><br></pre></td></tr></table></figure></p>
+<p>安装模块到项目node_modules目录下。<br>会将模块依赖写入dependencies 节点。<br>运行 npm install 初始化项目时，会将模块下载到项目目录下。<br>运行npm install –production或者注明NODE_ENV变量值为production时，会自动下载模块到node_modules目录中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -save-dev moduleName</span><br></pre></td></tr></table></figure></p>
+<p>安装模块到项目node_modules目录下。<br>会将模块依赖写入devDependencies 节点。<br>运行 npm install 初始化项目时，会将模块下载到项目目录下。<br>运行npm install –production或者注明NODE_ENV变量值为production时，不会自动下载模块到node_modules目录中。</p>
+<blockquote>
+<p>devDependencies 节点下的模块是我们在开发时需要用的，比如项目中使用的 gulp ，压缩css、js的模块。这些模块在我们的项目部署后是不需要的，所以我们可以使用 -save-dev 的形式安装。像 express 这些模块是项目运行必备的，应该安装在 dependencies 节点下，所以我们应该使用 -save 的形式安装。</p>
+</blockquote>
+<p>from <a href="https://www.jianshu.com/p/939aa816893c" target="_blank" rel="noopener">https://www.jianshu.com/p/939aa816893c</a></p>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>npm uninstall 模块：删除模块，但不删除模块留在package.json中的对应信息<br>npm uninstall 模块 –save 删除模块，同时删除模块留在package.json中dependencies下的对应信息<br>npm uninstall 模块 –save-dev删除模块，同时删除模块留在package.json中devDependencies下的对应信息</p>
+<h2 id="npm-安装报错的解决方案"><a href="#npm-安装报错的解决方案" class="headerlink" title="npm 安装报错的解决方案"></a>npm 安装报错的解决方案</h2><p>比如这个报错:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm ERR! enoent ENOENT: no such file or directory, access &apos;~/Documents/myDocument/idea-project/pig-ui/node_modules/_@babel_highlight@7.5.0@@babel/highlight/node_modules/esutils&apos;</span><br></pre></td></tr></table></figure></p>
+<p>我是在项目pig-ui下面执行的npm install dev命令，报了esutils找不到，但是实际上目录上有esutils这个文件or目录，可以删除原来的esutils，切换到esutils的上级模块highlight执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  highlight git:(master) ✗ npm install esutils</span><br><span class="line">npm notice created a lockfile as package-lock.json. You should commit this file.</span><br><span class="line">+ esutils@2.0.3</span><br><span class="line">added 1 package and removed 1 package in 1.418s</span><br></pre></td></tr></table></figure></p>
+<p>但是有很多子模块都会报这种莫名其妙的错，可以直接将所有依赖模块删除，重新安装依赖。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rm -rf node_modules</span><br><span class="line">rm package-lock.json</span><br><span class="line">npm cache clear --force</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
+<h2 id="npm-–save-dev-–save-的区别"><a href="#npm-–save-dev-–save-的区别" class="headerlink" title="npm –save-dev –save 的区别"></a>npm –save-dev –save 的区别</h2><p><a href="https://blog.csdn.net/star0311/article/details/90899013" target="_blank" rel="noopener">https://blog.csdn.net/star0311/article/details/90899013</a></p>
+<h2 id="npm-relocation-error-npm-symbol-SSL-set-cert-cb-version-libssl-so-10-not-defined-in-file-libssl-so-10-with-link-time-reference"><a href="#npm-relocation-error-npm-symbol-SSL-set-cert-cb-version-libssl-so-10-not-defined-in-file-libssl-so-10-with-link-time-reference" class="headerlink" title="npm: relocation error: npm: symbol SSL_set_cert_cb, version libssl.so.10 not defined in file libssl.so.10 with link time reference"></a>npm: relocation error: npm: symbol SSL_set_cert_cb, version libssl.so.10 not defined in file libssl.so.10 with link time reference</h2><p><a href="https://blog.csdn.net/test1280/article/details/102937023" target="_blank" rel="noopener">https://blog.csdn.net/test1280/article/details/102937023</a></p>
+<h1 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h1><h2 id="Javascript之BOM与DOM"><a href="#Javascript之BOM与DOM" class="headerlink" title="Javascript之BOM与DOM"></a>Javascript之BOM与DOM</h2><p>引用自<a href="https://blog.csdn.net/qq877507054/article/details/51395830" target="_blank" rel="noopener">Javascript之BOM与DOM讲解</a></p>
+<ul>
+<li>ECMAScript(核心) ： 描述了JS的语法和基本对象。</li>
+<li>文档对象模型 （DOM） ： 处理网页内容的方法和接口</li>
+<li>浏览器对象模型（BOM） ： 与浏览器交互的方法和接口</li>
+</ul>
+<hr>
+<ul>
+<li>DOM 是 W3C 的标准； [所有浏览器公共遵守的标准]</li>
+<li>BOM 是 各个浏览器厂商根据 DOM在各自浏览器上的实现;[表现为不同浏览器定义有差别,实现方式不同]</li>
+<li>window 是 BOM 对象，而非 js 对象；javascript是通过访问BOM（Browser Object Model）对象来访问、控制、修改客户端(浏览器)</li>
+</ul>
+<h2 id="DOM-DOCUMENT-BOM-WINDOW-区别"><a href="#DOM-DOCUMENT-BOM-WINDOW-区别" class="headerlink" title="DOM, DOCUMENT, BOM, WINDOW 区别"></a>DOM, DOCUMENT, BOM, WINDOW 区别</h2><ul>
+<li>DOM 是为了操作文档出现的 API，document 是其的一个对象；</li>
+<li>BOM 是为了操作浏览器出现的 API，window 是其的一个对象。</li>
+</ul>
+<h3 id="DOM和BOM的操作对象区别"><a href="#DOM和BOM的操作对象区别" class="headerlink" title="DOM和BOM的操作对象区别"></a>DOM和BOM的操作对象区别</h3><ul>
+<li>BOM是浏览器对象模型，是对浏览器本身进行操作;</li>
+<li>DOM是文档对象模型，是对浏览器（可看成容器）内的内容进行操作；</li>
+</ul>
+<p>可以说BOM包含了DOM(对象)，window.document</p>
+<h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><h2 id="style-vs-class"><a href="#style-vs-class" class="headerlink" title="style vs class"></a>style vs class</h2><p>style是html元素的一个属性，在这里可以直接设置元素的样式，class也是一个属性，但它是通过预定义的样式使元素应用样式的。比如：div .box {width:80%;} 那么只要div的class引用了这个box那它的宽度就是父级容器的80%宽。<br>也就是style的优先级高于class。也就是说在style和class同时定义一种样式时，页面选择展示的是style中的样式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;.a1&#123;backgroung:#ccc;&#125;&lt;/style&gt;</span><br><span class="line">&lt;div class=&quot;a1&quot; style=&quot;background:#f00&quot;&gt;&lt;/div&gt;</span><br><span class="line">// 此时，div的背景颜色应该是#f00的红色。</span><br></pre></td></tr></table></figure></p>
 
-      
-        
-          
-          
-          
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2020/08/12/虚拟币理财/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
+    
+    
+    
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/股票理财/">
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/11/可转债理财/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="James Feng">
-    <meta itemprop="description" content>
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Feng's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Feng's Blog" src>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
     </span>
-  </span>
 
-    
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/08/11/可转债理财/" itemprop="url">
-                  可转债理财
-                </a>
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/29/股票理财/" class="post-title-link" itemprop="url">股票理财</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-11T07:56:29+08:00">
-                2020-08-11
-              </time>
-            
+              <span class="post-meta-item-text">Posted on</span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/理财/" itemprop="url" rel="index">
-                    <span itemprop="name">理财</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2020-03-29 18:25:57" itemprop="dateCreated datePublished" datetime="2020-03-29T18:25:57+08:00">2020-03-29</time>
             </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-27 11:19:03" itemprop="dateModified" datetime="2020-08-27T11:19:03+08:00">2020-08-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/股票/" itemprop="url" rel="index"><span itemprop="name">股票</span></a>
+                </span>
+            </span>
 
           
 
         </div>
       </header>
+
     
-
-
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><p><a href="https://youtu.be/rFV7wdEX-Mo" target="_blank" rel="noopener">经济机器是怎样运行的</a></p>
+<h2 id="非农时间"><a href="#非农时间" class="headerlink" title="非农时间"></a>非农时间</h2><p>什么是非农bai，通常说的是美国每月公布的非农业du就业人口数据，在金融市场里非农会导致数据的波荡，这个波荡的数据会引起投资者的骚动。<br>非农数据，包括美国非农就业率，非农业就业人数与失业率这三个数值，反映了美国非农业部门的就业状况的数据指标。这三个数据每个月第一个周五北京时间（冬令时：11月–3月）21:30，（夏令时：4月–10月）20:30发布，这些数据来源于美国劳工部劳动统计局。<br>非农分为大非农和小非农之分，大非农一般是在每月第一周的周五，主要是大盘。小非农一般在每月的一周的周三，主要是微盘。大非农的数据波动比较大。<br>简单说来，这两个数据都是直接反应现实的失业和就业情况，我们需要这样理解，如果就业率高失业率低说明美国经济良好，美元走强;反之则美元走弱。所有与美元挂钩的投资，皆会因此而剧烈波动。当我们根据行情做单的时候，要看清楚数据，然后结合相关技术面顺势而为。<br>可以说小非农是非农前的一次预期行情美国非农数据对黄金交易的影响。两者是相互关系的，从小非农指数就可以推测大非农指数，但是想要看得准，那就需要一定的基本功和时间的累积，不是一朝一夕就可以熟练的。</p>
+<h3 id="非农数据与黄金的关系"><a href="#非农数据与黄金的关系" class="headerlink" title="非农数据与黄金的关系"></a>非农数据与黄金的关系</h3><blockquote>
+<p>非农是官方统计的数据对于一个市场的企业就业情况，从而就可以判断美国的美元经济趋势，大非农是每个月的一周的周五晚八点准时公布，主要是公布美国劳工部公布的一组民间调查的就业率和失业率，如同也是一样判断美国美元趋势的。贵金属，黄金，白银，铜，这些全部都是以美元为风向标，美元涨贵金属就跌，美元跌贵金属就涨。 所以能明白美国美元经济是利好利空就能判断黄金的方向了</p>
+</blockquote>
+<h2 id="股票代码"><a href="#股票代码" class="headerlink" title="股票代码"></a>股票代码</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/499PUR.png" alt></p>
+<h2 id="选股大法"><a href="#选股大法" class="headerlink" title="选股大法"></a>选股大法</h2><ul>
+<li>尽量选择ROE比较高，而PE比较低的。</li>
+</ul>
+<h2 id="最重要的两个指标"><a href="#最重要的两个指标" class="headerlink" title="最重要的两个指标"></a>最重要的两个指标</h2><p>股市价格常被看作宏观经济的晴雨表，影响股票价格的因素可以有：</p>
+<ul>
+<li>利率（宏观经济指标）<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/w2x3x5.png" alt><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/Sao6RB.png" alt></li>
+<li>通过膨胀（宏观经济指标），但是真正的牛市不应该是超发货币吹出来的一个虚胖的资金牛，应该伴随着实体经济的实质性增长，单纯撒钱可能股市也会涨，但是都是泡沫，一旦发钱速度慢了，不但股市崩盘，实体经济也会产生连锁危机。</li>
+</ul>
+<h3 id="PE（市盈率）"><a href="#PE（市盈率）" class="headerlink" title="PE（市盈率）"></a>PE（市盈率）</h3><p><strong><em>PE=每股市价/每股净收益，用来衡量股价是被高估还是低估了。</em></strong><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/gDif4M.png" alt><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/kTXEBi.png" alt><br><strong><em>PE的简单理解就是需要多少年才能收回我们的投资，10倍市盈率相当于投资的钱10年回本。</em></strong></p>
+<h3 id="ROE（净资产收益率）"><a href="#ROE（净资产收益率）" class="headerlink" title="ROE（净资产收益率）"></a>ROE（净资产收益率）</h3><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/NEId1x.png" alt><br>这也是巴菲特最看重的指标，判断一个公司运营的好坏取决于它的净资产收益率高不高。<br>计算公司为<code>净利润/净资产=净利润/(总资产-总负债)</code><br><strong><em>ROE越高说明一家企业的赚钱能力越强，如果一家公司如果常年的ROE保持在15%以上，就是非常不错的了。</em></strong></p>
+<blockquote>
+<p>贵州茅台近年来的ROE平均都很高</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/yzNpW3.png" alt><br><strong><em>ROE高的股票并不一定都涨的好，但是反之一般就会成立。</em></strong></p>
 
-      
-        
-          
-          
-          
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2020/08/11/可转债理财/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
+    
+    
+    
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/12/虚拟币理财/">
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/08/English系列-情态动词/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="James Feng">
-    <meta itemprop="description" content>
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Feng's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Feng's Blog" src>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
     </span>
-  </span>
 
-    
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/08/08/English系列-情态动词/" itemprop="url">
-                  English系列-情态动词
-                </a>
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/12/虚拟币理财/" class="post-title-link" itemprop="url">虚拟币理财</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-08T09:28:30+08:00">
-                2020-08-08
-              </time>
-            
+              <span class="post-meta-item-text">Posted on</span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/English/" itemprop="url" rel="index">
-                    <span itemprop="name">English</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2020-08-12 18:32:43" itemprop="dateCreated datePublished" datetime="2020-08-12T18:32:43+08:00">2020-08-12</time>
             </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-27 11:15:55" itemprop="dateModified" datetime="2020-08-27T11:15:55+08:00">2020-08-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/理财/" itemprop="url" rel="index"><span itemprop="name">理财</span></a>
+                </span>
+            </span>
 
           
 
         </div>
       </header>
+
     
-
-
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
           
-          
-这篇笔记摘选自《英语语法新思维中级教程通悟语法第2版》以及其他网上知识点收集，只是我自己的个人复习笔记，思维导图版本点击这里（Web版的XMind有一些问题）
-
-多情多义的情态动词情态动词的“全家福”需要注意的是，四个情态动词的过去式could，might，would和should只是在形式上是c
-          ...
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2020/08/08/English系列-情态动词/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
+    
+    
+    
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/12/算法汇总/">
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/05/English系列-思维练习错题笔记/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="James Feng">
-    <meta itemprop="description" content>
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Feng's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Feng's Blog" src>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
     </span>
-  </span>
 
-    
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/08/05/English系列-思维练习错题笔记/" itemprop="url">
-                  English系列-思维练习错题笔记
-                </a>
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/12/算法汇总/" class="post-title-link" itemprop="url">算法汇总</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-05T22:47:26+08:00">
-                2020-08-05
-              </time>
-            
+              <span class="post-meta-item-text">Posted on</span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/English/" itemprop="url" rel="index">
-                    <span itemprop="name">English</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2020-06-12 10:14:11" itemprop="dateCreated datePublished" datetime="2020-06-12T10:14:11+08:00">2020-06-12</time>
             </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-27 11:14:57" itemprop="dateModified" datetime="2020-08-27T11:14:57+08:00">2020-08-27</time>
+              </span>
 
           
 
         </div>
       </header>
+
     
-
-
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          
-          todo item完成时态综合训练）Yesterday I had a phone call from Clint. I was very surprised. I __ （write） to him many times but he __ （never, reply） to my letters
-          ...
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2020/08/05/English系列-思维练习错题笔记/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+          <h1 id="round-robin（随机轮询算法）"><a href="#round-robin（随机轮询算法）" class="headerlink" title="round-robin（随机轮询算法）"></a>round-robin（随机轮询算法）</h1><h1 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h1><h2 id="double-ended-queue"><a href="#double-ended-queue" class="headerlink" title="double-ended queue"></a>double-ended queue</h2><p><a href="https://en.wikipedia.org/wiki/Double-ended_queue" target="_blank" rel="noopener"></a></p>
+<h1 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h1><h1 id="Priority-Queue（优先队列）"><a href="#Priority-Queue（优先队列）" class="headerlink" title="Priority Queue（优先队列）"></a>Priority Queue（优先队列）</h1>
       
     </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
+    
+    
+    
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/06/English之时态系列-一般将来时/">
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/04/读万卷书/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="James Feng">
-    <meta itemprop="description" content>
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Feng's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Feng's Blog" src>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
     </span>
-  </span>
 
-    
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/08/04/读万卷书/" itemprop="url">
-                  读万卷书
-                </a>
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/06/English之时态系列-一般将来时/" class="post-title-link" itemprop="url">English之时态系列（一般将来时）</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-04T19:13:39+08:00">
-                2020-08-04
-              </time>
-            
+              <span class="post-meta-item-text">Posted on</span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Reading/" itemprop="url" rel="index">
-                    <span itemprop="name">Reading</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2020-06-06 10:53:47" itemprop="dateCreated datePublished" datetime="2020-06-06T10:53:47+08:00">2020-06-06</time>
             </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-27 11:13:20" itemprop="dateModified" datetime="2020-08-27T11:13:20+08:00">2020-08-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
+                </span>
+            </span>
 
           
 
         </div>
       </header>
+
     
-
-
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <blockquote>
+<p>这篇笔记摘选自《英语语法新思维中级教程通悟语法第2版》以及其他网上知识点收集，只是我自己的个人复习笔记，思维导图版本<a href="http://www.xmind.net/m/Am2KM2" target="_blank" rel="noopener">点击这里</a>（Web版的XMind有一些问题）</p>
+</blockquote>
+<h1 id="一般将来时"><a href="#一般将来时" class="headerlink" title="一般将来时"></a>一般将来时</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>  从严格意义上来说，英文里是没有“将来时态”的， 而只有现在时态和过去时态这两种时态。</p>
+</blockquote>
+<p>从时态形式（tense form）的构成上来看。现在时态（present tense）的构成是用动词原形（basic verb form），或遇到单数第三人称主语，谓语动词加-s。过去时态（past tense）的构成则是动词变为过去式（如加-ed或其他特殊变形），对于现在时态和过去时态，都是在谓语动词的词尾上进行变形。但对于将来时态，在动词的词尾却没有任何变形。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/iXKRRi.png" alt><br>表格中的Tense（时）只有Past（过去时）和Present（现在时），而没有Future（将来时）。通常我们引入一个情态动词will来表示将来时态，但will的引入并不是谓语动词本身的词形变化。正是因为在表示将来时间内发生的事情时，英语谓语动词的词干（stem word）不会发生任何形式的变化，因此“将来时”的说法被看作是不贴切的。<br>表达将来时态，即人们谈论将来要发生的事情时，事实上是采取动词形式变化以外的其他方式来达到这一目的的。具体的方式非常多，比如使用情态动词will和be going to，比如使用现在进行时（be doing）表示将来的动作，以及采用其他的句型结构，如be to do或者be about to do等。从是否成为事实的角度（factual or non-factual）来看。将来的事情与发生在过去或现在的事情是完全不同的，发生在过去或现在的事情都已是确定无疑的，是一个事实（fact）。但谈论将来要发生的事情，就不可能成为一个确定无疑的事实，而只能是表示一种可能性。</p>
+<p>It will rain later. 过一会会下雨。<br>我们传统上是把这里的will rain看作是一般将来时态，但实际上这里只是情态动词will表示“推测”或确切地说“预测（prediction）”的一种用法。另外，我们还可以用其他情态动词来表示这种预测，比如说：<br>It may rain later. 过会可能会下雨。<br>It might rain later. 过会或许会下雨。<br>这里的may和might同样可以表示对将来事情的预测，只不过肯定程度是递减的——will比may的把握性大，may比might的把握性大。<br>由此可见，典型的一般将来时will do，在本质上只是情态动词will 的一种用法而已。从这个意义上来说，英语里没有将来时态。</p>
+<h2 id="三个概念"><a href="#三个概念" class="headerlink" title="三个概念"></a>三个概念</h2><ul>
+<li>预测（prediction）：表示说话人认为将来会发生某件事；</li>
+<li>事先计划（future plan）：表示说话人在头脑里已经做出决定将来要做某件事；</li>
+<li>意愿（willingness）：表示说话人既不是预计某事将会发生，也不是预先经过考虑决定将做某事，而是在说话的时刻立即做出决断表明他将去做某事。</li>
+</ul>
+<h2 id="will表示将来——预测"><a href="#will表示将来——预测" class="headerlink" title="will表示将来——预测"></a>will表示将来——预测</h2><p>读者对will应该是非常熟悉的，因为它通常被作为一般将来时态的“代言人”，其最典型的用法就是对未来进行“预测”。<br>I wonder what it will be like in the 21st century. But from the great advances in these past years I assume that we will be entering a new golden age of miracles and wonders. Life will be fantastic in the 21st century.<br>不知道到了21世纪我们的生活会是什么样子。但从近几年巨大的发展来看，我猜想我们一定会进入一个全新的充满奇迹的黄金时代。21世纪的生活一定非常美好。</p>
+<h2 id="be-going-to表示将来——预测"><a href="#be-going-to表示将来——预测" class="headerlink" title="be going to表示将来——预测"></a>be going to表示将来——预测</h2><p>Look at those black clouds! It’s going to rain.<br>It’s not going to snow again tomorrow, is it? It was supposed to be warm all week.<br>以上两句话显然都是说话人在对天气情况做出预测，尤其是第一句，说话人是根据目前明显的迹象，即“黑云密布（black clouds）”来做出“要下雨”的预测的。</p>
+<h2 id="will和be-going-to的区别"><a href="#will和be-going-to的区别" class="headerlink" title="will和be going to的区别"></a>will和be going to的区别</h2><h3 id="表示“预测”，be-going-to比will有更多的证据支持，而且事件发生的时间更近"><a href="#表示“预测”，be-going-to比will有更多的证据支持，而且事件发生的时间更近" class="headerlink" title="表示“预测”，be going to比will有更多的证据支持，而且事件发生的时间更近"></a>表示“预测”，be going to比will有更多的证据支持，而且事件发生的时间更近</h3><p>由于be going to是一个现在时态的形式（如am/is/are going to），因此，它所表示的对将来行为的预测往往暗示与“现在”有联系，而且是在说话后不久就将发生的。<br>所以当有现在的证据可以支持预测时，或者说根据目前的明显迹象来推断某件事将要发生时，我们就要用be going to，而不宜用 will。<br>With all of these typos in this resumé, you are not going to make a very good impression.（这份简历上有这么多的打字错误，这样恐怕你不会给对方留下好印象的。）<br>这里的typo即type error的缩写，表示“打字错误”。说话人根据with all of these typos in this resumé这一证据，而预测“你”不会给别人留下好印象。<br>再看这样一幅图：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/DoizHQ.png" alt><br>这时我们说： She is going to dive into the water. 而不能说： She will dive into the water. <em><br>另外，be going to还往往表示当前已有迹象表明说话者无力控制的（uncontrollable）即将发生的行为。比如，如果你不小心失足要掉下去时，你会喊道：<br>Help! I’m going to fall! 不能说： Help! I’ll fall. </em></p>
+<h3 id="表示“预测”时，will的语气比be-going-to显得正式"><a href="#表示“预测”时，will的语气比be-going-to显得正式" class="headerlink" title="表示“预测”时，will的语气比be going to显得正式"></a>表示“预测”时，will的语气比be going to显得正式</h3><p>will比较正式，be going to更为不正式，常用于私人谈话中， 所以在口语中很常用，而且be going to在口语交流中常被读成be gonna。 比如两个朋友在餐馆里吃饭点菜，一个会对另一个说：I’m gonna have the chicken. 但一会儿侍者过来为他们点菜时，这个人可能会对侍者改口说道：I’ll have the chicken. 这样以保持一定程度的正式性。</p>
+<hr>
+<p>综上所述，在表示预测时，will 和 be going to有以下两点区别：</p>
+<ol>
+<li>用be going to特别意指根据目前的明显迹象来推断某件事将要发生（We can use “be going to” for a strong prediction based on present conditions.）；而will则只是表明说话人认为或相信某件事将要发生。 </li>
+<li>be going to 通常用来表示说话人预期所说的事件马上或在相当近的将来就要发生；而will所表示的动作发生的时间可近可远。 此外，be going to往往还表示当前已有迹象而且表明说话者无力控制的即将发生的行为</li>
+<li>在表示“预测”时，will的语气比be going to显得正式。</li>
+</ol>
+<h2 id="be-going-to表示“计划”与will表示“意愿”"><a href="#be-going-to表示“计划”与will表示“意愿”" class="headerlink" title="be going to表示“计划”与will表示“意愿”"></a>be going to表示“计划”与will表示“意愿”</h2><p>我们常用它来表示“计划或打算（a plan）”。此时，说话人在头脑里已经做出决定将来要做某件事，并且往往还含有已经为这一行动做了某些准备的意思。又因为只有人才能有主观的思维意识去对将来的行为做出“计划”，因此， be going to的这个用法主要是用于人称主语（person subject），而不可能用于非人称主语（non-person subject）。<br>Close your eyes. I’m going to give you a surprise.</p>
+<h3 id="be-going-to表示“计划”，需要用“人”作主语"><a href="#be-going-to表示“计划”，需要用“人”作主语" class="headerlink" title="be going to表示“计划”，需要用“人”作主语"></a>be going to表示“计划”，需要用“人”作主语</h3><p>be going to的这个用法主要是用于人称主语 （person subject），而不可能用于非人称主语（non-person subject）。 但在表示“预测”时，主语可能是人称，也可能是非人称。换句话说，如果是非人称主语，那be going to不会是表示“计划打算”，而是表示“推测”。<br>Look at those black clouds! It’s going to rain.（这里就不可能是说老天“打算”要下一场雨，而是说话人“预测”要下雨。）<br>另一方面，如果是人称主语，那么be going to可能是表示“计划打算”，也可能是表示“预测”。此时，上下文的语境可以帮助我们很容易地区分be going to是表示“计划打算”还是“预测”。比如：<br>A: Look at the time. I’m going to miss my bus.<br>B: Don’t worry. I’ll drive you to the stop. And if the bus has already left, I can get you to your apartment.<br>这里的be going to显然是表示“预测”，而不是表示“计划或打算”，因为不可能是“我打算赶不上公共汽车。”<br>With all of these typos in this resumé, you are not going to make a very good impression.<br>这句话尽管是人称主语，但从上下文来看，be going to在这里是表示“预测”，而不是“计划或打算”，因为原句的意思不是说“你不打算留下好印象”，而是“我认为你可能不会留下好印象”。</p>
+<h3 id="be-going-to可以表示“决心”，具有强烈的感情色彩"><a href="#be-going-to可以表示“决心”，具有强烈的感情色彩" class="headerlink" title="be going to可以表示“决心”，具有强烈的感情色彩"></a>be going to可以表示“决心”，具有强烈的感情色彩</h3><p>We’re going to become the world’s leading forwarding company.<br>这句话如果是出自一个公司领导之口，就是表明他要把公司发展壮大的决心，翻译时请注意体会，比如它相当于汉语说“我们一定要成为世界上最大的运输公司”。</p>
+<h3 id="will表示“意愿”，一个当机立断的决定"><a href="#will表示“意愿”，一个当机立断的决定" class="headerlink" title="will表示“意愿”，一个当机立断的决定"></a>will表示“意愿”，一个当机立断的决定</h3><p>will可以表示“意愿”的用法。所谓“意愿”，简言之，就是“当机立断（spontaneous decision）”，而不是事先计划好的（unplanned）。具体来说，说话人事先并不知道，而是在得知新的信息之后，在说话的时刻立即做出决断表明他将去做某事，这是一个当机立断的决定。此时，我们只能用will来表达。<br>A: I can’t go out there again.<br>B: You just weren’t ready. Go back out there! Your team needs you.<br>A: I am going to make my team lose if I keep playing.<br>B: No, that is not true. I trust you.<br>A: OK, I’ll give it one more shot, but I’m not sure how good it will be.<br>B: Now you are talking!<br>这里的be going to显然是表示“预测”，而不是“计划”，不是说“我早已计划好故意让我们队输掉比赛”。接下来的“I’ll give it one more shot.”，其中的’ll即是will的缩写，这里的will表示“意愿”，是一个当机立断的决定，因为A本来并不想继续打比赛了，但被B说服了之后而做出决定要再试一次。所以这里他并不是事先计划好的，因而不能说“I’m going to give it one more shot.”*最后一个 will（…but I’m not sure how good it will be.）是表示“预测”，这从主语it也可以看出来，因为表示“意愿”的主语往往都是人称。</p>
+<p>A: The telephone is ringing. B: I’ll get it.<br>B要去接电话，既不是他预测要有电话打进来，也不是事先计划好要接这个电话。B是在说话的此刻做出的“要去接电话”这个决定。</p>
+<p>A: Oh, no! I’ve spilled coffee on my shirt. B: Just a minute. I’ll get a damp cloth for you.<br>B不可能事先知道A会把衣服弄脏而“打算”给A拿湿布， 所以不能说“I am going to get a damp cloth for you.”* B也不是在“预测”将来的事。</p>
+<blockquote>
+<p>前面讲过，will表示“预测”时，句子的主语往往是无生命的事物（non-animate subject），与此不同的是，当will表示“意愿”时，句子的主语通常是有生命的“人（animate agent）”，若用“物”作主语则具有拟人的意味，此时说话人往往是在抱怨，而且通常用否定形式的won’t。</p>
+</blockquote>
+<p>The closet door won’t open. Will you try it?（这个储藏室的门就是打不开，你要试试看吗？）</p>
+<blockquote>
+<p>will这种表示“意愿”的意义，若用于第二人称（you）的一般 疑问句（Will you?）中，则可以用来提出“请求”</p>
+</blockquote>
+<p>A: Will you help me to mail these letters? B: I’ll do it.</p>
+<blockquote>
+<p>关于will的否定</p>
+</blockquote>
+<p>1） Paul won’t come, because he is too busy. 2） Paul won’t come, because he doesn’t want to.<br>在例句1）中，will作为“推测”的用法，否定词not是重点否定主要的谓语动词come，相当于predict NOT to come。因此，例句1） 我们可译成“我想保罗恐怕来不了，因为他太忙了”。在例句2）中，will 作为“意愿”的用法，否定词not是重点否定情态动词will，相当于NOT willing to come。因此，例句2）我们可译成“保罗不愿意来，因为他不想来。”</p>
+<h3 id="比较：will表示“意愿”和be-going-to表示“打算”"><a href="#比较：will表示“意愿”和be-going-to表示“打算”" class="headerlink" title="比较：will表示“意愿”和be going to表示“打算”"></a>比较：will表示“意愿”和be going to表示“打算”</h3><ol>
+<li>be going to表示说话人对未来行动的计划或打算，通常是经过事先考虑并含有已经为这一行动做了某些准备的意思。 </li>
+<li>will表示意愿，表示在说话的时刻立即做出决定将去做某事，事先并没有经过考虑，更没有为这一活动做出事先的准备。</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/wWYUg7.png" alt></p>
+<h2 id="现在进行时表示将来"><a href="#现在进行时表示将来" class="headerlink" title="现在进行时表示将来"></a>现在进行时表示将来</h2><p>现在进行时也可以表示对最近的将来做出计划或安排（definite future plans）。下面的例句都是表示将来确定的安排，所以都要用现在进行时：<br>A: The summer holidays are coming soon, Jack. What are your plans?B: Well, Mike, I am taking my girlfriend to Qingdao. She is a beach person, you know.<br>I am flying to Beijing next Monday.（表示机票已买好）我下周一要飞往北京。<br>I am taking a makeup test tomorrow.（表示学校已安排好明天的补考）我明天要参加一次补考。</p>
+<p>A: We’re advertising for a new cashier in next week’s Morning Post.<br>B: But you hired a new cashier last week!<br>A: I know, but he isn’t honest.<br>B: But you can’t judge people by their appearance.<br>A: I’m not. I’m judging him by his disappearance!<br>A：我们将在下周的《早报》上登广告，招聘一名新的出纳员。<br>B：可你上周才刚刚聘用了一个出纳员啊！<br>A：我知道，但是他不诚实。<br>B：你不能以一个人的外貌来判断他。<br>A：我没有，我只是根据他的外逃判断他的人品而已！</p>
+<h3 id="必须带有表示将来的时间状语"><a href="#必须带有表示将来的时间状语" class="headerlink" title="必须带有表示将来的时间状语"></a>必须带有表示将来的时间状语</h3><p>用现在进行时表示将来的动作，动作发生的时间必须指出或在前文中已经指出，否则就可能会造成现在进行动作与一般将来动作相混淆。<br>A: What are you doing next Sunday? B: I’m not going out. I’m staying at home.<br>B的回答中虽然没有出现具体的将来时间，但因为将来时间next Sunday在上文中已给出，所以B中的现在进行时态是表示将来。</p>
+<h3 id="必须是人称主语"><a href="#必须是人称主语" class="headerlink" title="必须是人称主语"></a>必须是人称主语</h3><p>现在进行时表将来的这种用法，通常是表示说话人已计划安排好的活动，如果不是，则不能这样用。例如不能说： It’s raining tomorrow. *<br>因为像rain, snow或storm等这样的活动是人们无法事先计划好的。</p>
+<h3 id="与一般现在时表示将来的区别"><a href="#与一般现在时表示将来的区别" class="headerlink" title="与一般现在时表示将来的区别"></a>与一般现在时表示将来的区别</h3><blockquote>
+<p>一般现在时要比现在进行时听起来更正式，个人主观色彩要淡些。</p>
+</blockquote>
+<p>1） I am leaving tonight.<br>2） I leave tonight.<br>在例句1）中，进行时态表达的个人主观色彩要浓些，一 般含有“我自己决定今晚走”的意味。在例句2）中，一般时态更加客 观，比如可能是“公司安排了我出差，给我安排的是今晚动身”。</p>
+<p>所以说“Our shop opens next week.”比“Our shop is opening next week.”要好，显得更正式。</p>
+<blockquote>
+<p>如果是一系列预定的将来的安排，比如旅游行程安排，用进行时 态显得较累赘，而用一般时态则较简洁。</p>
+</blockquote>
+<p>We leave Beijing at 9: 00 tomorrow morning, arrive in Kunming around 12: 00 and then we tour the World Horti-Expo Garden. 我们明天上 午9点离开北京，大约12点左右抵达昆明，然后就参观世博园。</p>
+<h3 id="用be-going-to表示计划与进行时态表示计划的区别"><a href="#用be-going-to表示计划与进行时态表示计划的区别" class="headerlink" title="用be going to表示计划与进行时态表示计划的区别"></a>用be going to表示计划与进行时态表示计划的区别</h3><p>总的来说，be doing表达的将来计划要比be going to的计划更确定 （more definite）。<br>1） I’m taking my holiday in April.<br>2） I’m going to take my holiday in April.<br>在这个场景中，am taking表示比am going to take更确定的 将来计划，可以这样来解释：<br>在例句1）中，说话人已经得到公司批准的假期了（Approval has already been given.）或已经和旅行社订好了行程。所以，我们可以把它 译成比较确定的汉语，比如“我四月份要休假了”。在例句2）中，说话 人只是表达自己的一个打算或想法意图（intention），但目前并没有得 到公司的准假，更没有和旅行社订好行程。这句话相当于汉语说“我打 算四月份休假”，这就没有“我四月份要休假了”听起来确定。<br>be going to do更多的是表达一种不确定的未来计 划，或者说是一种个人的意图或打算，不过这听起来要比hope to do和 would like to do要更为确定些（When we talk about things in the future that are not definite, we use “am going to+verb”. This is more certain than expressions like “hope to…”, “might…” or “would like to…”.）。综合上 述，用be doing谈将来的计划往往比be going to do更确定。</p>
+<h2 id="一般现在时表示将来"><a href="#一般现在时表示将来" class="headerlink" title="一般现在时表示将来"></a>一般现在时表示将来</h2><p>A boy was up an apple tree stealing apples. A policeman came along and caught him. He looked up at the boy in the tree and said, “When are you coming down, young man?” “When you go away!” replied the boy.<br>这里when are you coming down中的现在进行时态是表示将来的动作。第二个句子when you go away中的一般现在时态是表示将来的动作，即前面讲过的，在when引导的时间状语从句中，要用一般现在时态替将来时。<br>A: I begin to work at the Swan Laundry on Monday.<br>B: That’s wonderful! But tell me, how do you wash a swan?<br>这里的一般现在时begin表示将来的动作，句中的on Monday是表示将来的时间。<br>A: My daughter gets married at three o’clock in St. Mary’s Church on Saturday.<br>B: How do you feel about it?<br>A: Well, I’m losing a daughter but I am gaining a telephone!</p>
+<h2 id="其他表示将来的句型结构"><a href="#其他表示将来的句型结构" class="headerlink" title="其他表示将来的句型结构"></a>其他表示将来的句型结构</h2><h3 id="be-to-do"><a href="#be-to-do" class="headerlink" title="be to do"></a>be to do</h3><blockquote>
+<p>表示已安排好要在将来发生的事，是比较正式的用法</p>
+</blockquote>
+<p>They are to go on a strike on July 8th. 他们定于7月8日举行罢工。<br>She is to be married next month. 她预定在下个月结婚。<br>The Premier is to visit Australia next month. 总理将在下个月对澳 大利亚进行访问。</p>
+<blockquote>
+<p>表示强烈的命令，相当于must, should，如：父母对孩子、上级对下级或法律条文中的规定等</p>
+</blockquote>
+<p>You are to finish your homework before you go to play. 你出去玩之前一定要把作业完成了。<br>These tablets are not to be taken orally. 这些药片禁止口服。<br>If it doesn’t rain within the next few weeks, the crops will have to be watered if they are to survive. 以后的几个星期如果还不下雨，则须对庄稼进行灌溉，以便庄稼能够存活。</p>
+<h3 id="be-about-to-do"><a href="#be-about-to-do" class="headerlink" title="be about to do"></a>be about to do</h3><p>这一结构用来表示即将发生的动作（比如通常在5分钟之内就会发生），意思是“正要，马上就要”。<br>The train is about to leave. 火车马上就要开了。<br>Jack is holding a fly swatter and staring at a fly on the kitchen table. He is about to swat the fly. 杰克手里正拿着苍蝇拍，眼睛盯着厨房桌上的一只苍蝇。他正要拍 这只苍蝇。</p>
+<h3 id="be-on-the-point-verge-brink-eve-of-doing"><a href="#be-on-the-point-verge-brink-eve-of-doing" class="headerlink" title="be on the point/verge/brink/eve of doing"></a>be on the point/verge/brink/eve of doing</h3><p>这一结构与be about to do的意思差不多，但其动作发生的时间比be about to do还要快一些。<br>He was on the point of killing himself when she stepped into his room. 她走进房间时，看见他正要自杀。<br>The child was on the verge of laughing, but he held back. 这孩子差 一点笑出声来，但还是忍住了。</p>
 
-      
-        
-          
-          专业方法和技巧搜索引擎技巧更多搜索技巧查看
-准确搜索在关键词上加上双引号, 这样搜索引擎只会返回和关键词完全吻合的搜索结果。
-排除关键词比如想要搜索”暴走大事件”且排除百度百科：
-用 OR (或)逻辑进行搜索
-同义词搜索 ~在未能准确判断关键词的情况下，你可以通过 ~ 进行同义词搜索。
-站内搜索在输
-          ...
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2020/08/04/读万卷书/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
 
     
-  </section>
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1024,113 +685,100 @@
           </div>
           
 
-
-          
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
-        
           
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
   </div>
 
-  <aside id="sidebar" class="sidebar">
+  <aside class="sidebar">
     <div class="sidebar-inner">
 
-      
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
 
-      
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="James Feng">
-          <p class="site-author-name" itemprop="name">James Feng</p>
-          <p class="site-description motion-element" itemprop="description">Don't dream when the sun is setting, try to work hard when the sun is rising.</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">118</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-
-          
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">69</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">81</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
+  <p class="site-author-name" itemprop="name">Fengorz</p>
+  <div class="site-description" itemprop="description">A Quiet Departure.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
         
-
-        <div class="links-of-author motion-element">
+          <span class="site-state-item-count">118</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
           
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/coding-by-feng" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/u/3219972752?is_all=1" target="_blank" title="Weibo">
-                  
-                    <i class="fa fa-fw fa-weibo"></i>
-                  
-                  Weibo
-                </a>
-              </span>
-            
+        <span class="site-state-item-count">69</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
           
-        </div>
-
-        
-        
-
-        
-        
-
-        
+        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
 
 
-      </section>
 
-      
+      </div>
 
     </div>
   </aside>
+  <div id="sidebar-dimmer"></div>
 
 
-        
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+        
+
+        
 
 <div class="copyright">
   
@@ -1139,258 +787,117 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">James Feng</span>
+  <span class="author" itemprop="copyrightHolder">Fengorz</span>
 </div>
-
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-  <span>&nbsp; &nbsp;|&nbsp; &nbsp;</span>
-  Total <span id="busuanzi_value_site_uv"></span> views.
-</div>
-
-
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
 
         
 
-        
+
+
+
+
+
+
+
       </div>
     </footer>
-
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
   </div>
 
   
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
   }
+  NexT.utils.updateSidebarPosition();
+});
 </script>
 
 
 
 
-
-
-
-
-
-  
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
-
-
-  
-
-
-
   
 
 
 
 
-	
+  <script src="/js/local-search.js"></script>
 
 
 
 
-  
-  
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length == 0) {
-      search_path = "search.xml";
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    function proceedsearch() {
-      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
-      $('.popup').toggle();
-    }
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-      $.ajax({
-        url: path,
-        dataType: "xml",
-        async: true,
-        success: function( xmlResponse ) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = $( "entry", xmlResponse ).map(function() {
-            return {
-              title: $( "title", this ).text(),
-              content: $("content",this).text(),
-              url: $( "url" , this).text()
-            };
-          }).get();
-          var $input = document.getElementById(search_id);
-          var $resultContent = document.getElementById(content_id);
-          $input.addEventListener('input', function(){
-            var matchcounts = 0;
-            var str='<ul class=\"search-result-list\">';
-            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-            $resultContent.innerHTML = "";
-            if (this.value.trim().length > 1) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var content_index = [];
-                var data_title = data.title.trim().toLowerCase();
-                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                var data_url = decodeURIComponent(data.url);
-                var index_title = -1;
-                var index_content = -1;
-                var first_occur = -1;
-                // only match artiles with not empty titles and contents
-                if(data_title != '') {
-                  keywords.forEach(function(keyword, i) {
-                    index_title = data_title.indexOf(keyword);
-                    index_content = data_content.indexOf(keyword);
-                    if( index_title >= 0 || index_content >= 0 ){
-                      isMatch = true;
-                      if (i == 0) {
-                        first_occur = index_content;
-                      }
-                    }
-
-                  });
-                }
-                // show search results
-                if (isMatch) {
-                  matchcounts += 1;
-                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
-                  var content = data.content.trim().replace(/<[^>]+>/g,"");
-                  if (first_occur >= 0) {
-                    // cut out 100 characters
-                    var start = first_occur - 20;
-                    var end = first_occur + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if(start == 0){
-                      end = 50;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    var match_content = content.substring(start, end);
-                    // highlight all keywords
-                    keywords.forEach(function(keyword){
-                      var regS = new RegExp(keyword, "gi");
-                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
-                    });
-
-                    str += "<p class=\"search-result\">" + match_content +"...</p>"
-                  }
-                  str += "</li>";
-                }
-              })};
-            str += "</ul>";
-            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
-            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
-            $resultContent.innerHTML = str;
-          });
-          proceedsearch();
-        }
-      });}
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched == false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(function(e){
-      $('.popup').hide();
-      $(".popoverlay").remove();
-      $('body').css('overflow', '');
-    });
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-  </script>
 
 
+
+
+
+
+
+
+    <div id="pjax">
   
 
   
 
-  
-
-  
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
-
-
-
+    </div>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"live2d-widget-model-hijiki"},"display":{"position":"left","width":100,"height":200},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
