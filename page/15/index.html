@@ -163,167 +163,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/24/弃用主流ssr转战V2ray/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/09/24/弃用主流ssr转战V2ray/" class="post-title-link" itemprop="url">弃用主流ssr转战V2ray</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-09-24 15:28:09" itemprop="dateCreated datePublished" datetime="2019-09-24T15:28:09+08:00">2019-09-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-17 10:48:14" itemprop="dateModified" datetime="2020-05-17T10:48:14+08:00">2020-05-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/V2Ray/" itemprop="url" rel="index"><span itemprop="name">V2Ray</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="服务器搭建"><a href="#服务器搭建" class="headerlink" title="服务器搭建"></a>服务器搭建</h2><p>服务端安装要求及CentOS 7以上或者debain8及以上或者Ubuntu12以上<br>我使用的是vultr的CentOS 7服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"># 官方的一键安装脚本</span><br><span class="line">bash &lt;(curl -L -s https://install.direct/go.sh)</span><br><span class="line"># 如果没有zip和unzip命令需要先安装</span><br><span class="line">sudo yum install zip unzip</span><br><span class="line"># 执行安装 enter</span><br><span class="line">sudo bash go.sh</span><br><span class="line"># 安装结果</span><br><span class="line">Installing V2Ray v4.20.0 on x86_64</span><br><span class="line">Downloading V2Ray: https://github.com/v2ray/v2ray-core/releases/download/v4.20.0/v2ray-linux-64.zip</span><br><span class="line">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</span><br><span class="line">                                 Dload  Upload   Total   Spent    Left  Speed</span><br><span class="line">100   608    0   608    0     0   1379      0 --:--:-- --:--:-- --:--:--  1378</span><br><span class="line">100 11.3M  100 11.3M    0     0  2805k      0  0:00:04  0:00:04 --:--:-- 4582k</span><br><span class="line">Extracting V2Ray package to /tmp/v2ray.</span><br><span class="line">Archive:  /tmp/v2ray/v2ray.zip</span><br><span class="line">  inflating: /tmp/v2ray/config.json</span><br><span class="line">   creating: /tmp/v2ray/doc/</span><br><span class="line">  inflating: /tmp/v2ray/doc/readme.md</span><br><span class="line">  inflating: /tmp/v2ray/geoip.dat</span><br><span class="line">  inflating: /tmp/v2ray/geosite.dat</span><br><span class="line">   creating: /tmp/v2ray/systemd/</span><br><span class="line">  inflating: /tmp/v2ray/systemd/v2ray.service</span><br><span class="line">   creating: /tmp/v2ray/systemv/</span><br><span class="line">  inflating: /tmp/v2ray/systemv/v2ray</span><br><span class="line">  inflating: /tmp/v2ray/v2ctl</span><br><span class="line"> extracting: /tmp/v2ray/v2ctl.sig</span><br><span class="line">  inflating: /tmp/v2ray/v2ray</span><br><span class="line"> extracting: /tmp/v2ray/v2ray.sig</span><br><span class="line">  inflating: /tmp/v2ray/vpoint_socks_vmess.json</span><br><span class="line">  inflating: /tmp/v2ray/vpoint_vmess_freedom.json</span><br><span class="line">PORT:25386</span><br><span class="line">UUID:23f96613-697b-4383-bd21-6ea33xxxf47f</span><br><span class="line">Created symlink from /etc/systemd/system/multi-user.target.wants/v2ray.service to /etc/systemd/system/v2ray.service.</span><br><span class="line">V2Ray v4.20.0 is installed.</span><br></pre></td></tr></table></figure></p>
-<h2 id="编辑服务器配置文件"><a href="#编辑服务器配置文件" class="headerlink" title="编辑服务器配置文件"></a>编辑服务器配置文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/v2ray/config.json</span><br></pre></td></tr></table></figure>
-<p>配置文件如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;inbounds&quot;: [&#123;</span><br><span class="line">    &quot;port&quot;: 25386,// V2Ray代理的端口号</span><br><span class="line">    &quot;protocol&quot;: &quot;vmess&quot;,</span><br><span class="line">    &quot;settings&quot;: &#123;</span><br><span class="line">      &quot;clients&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">          &quot;id&quot;: &quot;23f96613-697b-4383-bd21-6exxx98bf47f&quot;,// 用户ID，用户client的配置，要和client保持一致</span><br><span class="line">          &quot;level&quot;: 1,</span><br><span class="line">          &quot;alterId&quot;: 64</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;],</span><br><span class="line">  &quot;outbounds&quot;: [&#123;</span><br><span class="line">    &quot;protocol&quot;: &quot;freedom&quot;,</span><br><span class="line">    &quot;settings&quot;: &#123;&#125;</span><br><span class="line">  &#125;,&#123;</span><br><span class="line">    &quot;protocol&quot;: &quot;blackhole&quot;,</span><br><span class="line">    &quot;settings&quot;: &#123;&#125;,</span><br><span class="line">    &quot;tag&quot;: &quot;blocked&quot;</span><br><span class="line">  &#125;],</span><br><span class="line">  &quot;routing&quot;: &#123;</span><br><span class="line">    &quot;rules&quot;: [</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;type&quot;: &quot;field&quot;,</span><br><span class="line">        &quot;ip&quot;: [&quot;geoip:private&quot;],</span><br><span class="line">        &quot;outboundTag&quot;: &quot;blocked&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="V2Ray安装之后需要手动启动"><a href="#V2Ray安装之后需要手动启动" class="headerlink" title="V2Ray安装之后需要手动启动"></a>V2Ray安装之后需要手动启动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 启动</span><br><span class="line">sudo systemctl start v2ray</span><br><span class="line"></span><br><span class="line"># 停止</span><br><span class="line">sudo systemctl stop v2ray</span><br><span class="line"></span><br><span class="line"># 重启</span><br><span class="line">sudo systemctl restart v2ray</span><br></pre></td></tr></table></figure>
-<h2 id="Mac客户端的安装"><a href="#Mac客户端的安装" class="headerlink" title="Mac客户端的安装"></a>Mac客户端的安装</h2><p>使用brew，没用过brew不是一个合格的Mac用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install v2rayx</span><br></pre></td></tr></table></figure></p>
-<h2 id="V2Ray客户端配置"><a href="#V2Ray客户端配置" class="headerlink" title="V2Ray客户端配置"></a>V2Ray客户端配置</h2><p>点击状态栏的图标，点击configure…，在VMess Servers下面点击+，增加一个服务器配置；<br>将ip地址，端口，用户ID等信息填进去，Security由于我都是默认的，所以我采用auto；<br>然后配置上面的DNS： 8.8.8.8,1.1.1.1<br>点击OK</p>
-<p><strong><em>完了，注意再次点击V2Ray图标，如果最上面的灰色不可选中的的一项是v2ray-core:loaded，代表当前已经启动客户端代理，如果是v2ray-core:unloaded说明客户端还没有启动，需要手动点击第二个选项：Load core</em></strong></p>
-<p>大功告成，愉快地上网了!</p>
-<blockquote>
-<p>用了一段时间如果抽风了，可以修改下端口，重启服务，telnet看下端口是否通。</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/01/Vue系列之公司前端项目架构/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/01/Vue系列之公司前端项目架构/" class="post-title-link" itemprop="url">Vue系列之公司前端项目架构</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-01 12:58:36" itemprop="dateCreated datePublished" datetime="2020-05-01T12:58:36+08:00">2020-05-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-16 16:09:11" itemprop="dateModified" datetime="2020-05-16T16:09:11+08:00">2020-05-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web前端/" itemprop="url" rel="index"><span itemprop="name">Web前端</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="babel"><a href="#babel" class="headerlink" title="babel"></a>babel</h2><p>可以在babeljs.cn网站查看es6语法编译前和编译后的区别</p>
-<h2 id="webcomponents-org"><a href="#webcomponents-org" class="headerlink" title="webcomponents.org"></a>webcomponents.org</h2><h2 id="vue、vue-router、vuex（全家桶）"><a href="#vue、vue-router、vuex（全家桶）" class="headerlink" title="vue、vue-router、vuex（全家桶）"></a>vue、vue-router、vuex（全家桶）</h2><h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p>图片在 youdao note</p>
-<h2 id="symbol"><a href="#symbol" class="headerlink" title="symbol()"></a>symbol()</h2><h2 id="element-ui"><a href="#element-ui" class="headerlink" title="element ui"></a>element ui</h2><h2 id="图标库"><a href="#图标库" class="headerlink" title="图标库"></a>图标库</h2><h2 id="mockjs"><a href="#mockjs" class="headerlink" title="mockjs"></a>mockjs</h2><h2 id="lodashjs"><a href="#lodashjs" class="headerlink" title="lodashjs"></a>lodashjs</h2><h2 id="es6"><a href="#es6" class="headerlink" title="es6"></a>es6</h2><p>###import<br>常规import<br>异步import<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const jquery = import ...</span><br></pre></td></tr></table></figure></p>
-<p>图片在 youdao note</p>
-<h2 id="scss"><a href="#scss" class="headerlink" title="scss"></a>scss</h2><h2 id="pug"><a href="#pug" class="headerlink" title="pug"></a>pug</h2><h2 id="unit测试"><a href="#unit测试" class="headerlink" title="unit测试"></a>unit测试</h2><h2 id="e2e端对端测试"><a href="#e2e端对端测试" class="headerlink" title="e2e端对端测试"></a>e2e端对端测试</h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/18/jenkins汇总/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -543,6 +382,151 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/04/网上各种讲师技术笔记整合收集/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/04/网上各种讲师技术笔记整合收集/" class="post-title-link" itemprop="url">网上各种讲师技术笔记整合收集</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-05-04 15:52:10 / Modified: 20:42:17" itemprop="dateCreated datePublished" datetime="2020-05-04T15:52:10+08:00">2020-05-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><p><a href="https://www.fengorz.me/html/Docker.html" target="_blank" rel="noopener">尚硅谷Docker基础笔记</a></p>
+<p><a href="https://github.com/coding-by-feng/coding-by-feng.github.io/blob/master/html/docker-in-microservice.pdf" target="_blank" rel="noopener">Docker入门与微服务部署-诸葛老师</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/01/Vue系列之Vue-Router/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/01/Vue系列之Vue-Router/" class="post-title-link" itemprop="url">Vue系列之Vue Router</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-05-01 13:14:14 / Modified: 16:07:07" itemprop="dateCreated datePublished" datetime="2020-05-01T13:14:14+08:00">2020-05-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="的基本使用"><a href="#的基本使用" class="headerlink" title="的基本使用"></a><router-view></router-view>的基本使用</h2><p>假如路由的配置如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">export default [&#123;</span><br><span class="line">  path: &apos;/index&apos;,</span><br><span class="line">  component: $ =&gt; import(&apos;@/page/index/Index&apos;),</span><br><span class="line">  children: [&#123;</span><br><span class="line">    path: &apos;vocabulary&apos;,</span><br><span class="line">    component: $ =&gt; import(&apos;@/page/word/Search&apos;),</span><br><span class="line">    children: [&#123;</span><br><span class="line">      path: &apos;detail&apos;,</span><br><span class="line">      component: $ =&gt; import(&apos;@/page/word/Detail&apos;)</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      path: &apos;starList&apos;,</span><br><span class="line">      component: $ =&gt; import(&apos;@/page/word/StarList&apos;)</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      path: &apos;starListDetail&apos;,</span><br><span class="line">      component: $ =&gt; import(&apos;@/page/word/StarListDetail&apos;)</span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure></p>
+<p>vue的依赖关系如下：</p>
+<blockquote>
+<p>App.vue -&gt; @/page/index/Index.vue -&gt; @/page/word/Search.vue</p>
+</blockquote>
+<p>App.vue：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">        &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></p>
+<p>@/page/index/Index.vue：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class=&quot;platform-header&quot;&gt;</span><br><span class="line">        &lt;div&gt;一些固定内容xxx，比如页头，导航栏之类的&lt;div&gt;</span><br><span class="line">        &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></p>
+<p>@/page/word/Search.vue：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        某个子组件的具体内容xxx</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这时候可以在浏览器访问<a href="http://localhost:8080/#/index/vocabulary，这个时候就可以同时访问到Index和Search组件的内容，此外，如果Search的组件内容有所变化，" target="_blank" rel="noopener">http://localhost:8080/#/index/vocabulary，这个时候就可以同时访问到Index和Search组件的内容，此外，如果Search的组件内容有所变化，</a><br>改变路径的节点即可实现浏览器页面不调整的变化，这样用户体验更好跟快。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -612,7 +596,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">118</span>
+          <span class="site-state-item-count">116</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -625,7 +609,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-count">82</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

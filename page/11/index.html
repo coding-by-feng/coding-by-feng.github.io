@@ -163,214 +163,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/13/Reactor响应式编程阅读源码有感/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/13/Reactor响应式编程阅读源码有感/" class="post-title-link" itemprop="url">Reactor响应式编程阅读源码有感</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-13 20:57:04" itemprop="dateCreated datePublished" datetime="2019-12-13T20:57:04+08:00">2019-12-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-16 20:58:54" itemprop="dateModified" datetime="2020-07-16T20:58:54+08:00">2020-07-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Reactor/" itemprop="url" rel="index"><span itemprop="name">Reactor</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://projectreactor.io/docs/core/release/reference/" target="_blank" rel="noopener">官方参考文档</a><br><a href="https://www.baeldung.com/reactor-core" target="_blank" rel="noopener">baeldung参考文章</a></p>
-<h1 id="Flux"><a href="#Flux" class="headerlink" title="Flux"></a>Flux</h1><p>an Asynchronous Sequence of 0-N Items（是一个异步的处理序列，它有0或者多个条目）<br>官方对Flux的原理解析图解：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/2zMdgN.png" alt></p>
-<p>Spring Gateway的源码中重度依赖Reactor Project，比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return responseFlux.then(chain.filter(exchange));</span><br></pre></td></tr></table></figure></p>
-<p>这句代码的逻辑会这么走：要等到responseFlux被subscribe了之后，chain.filter(exchange)（这是一个Mono），才会被继续流转运行。</p>
-<h1 id="Mono"><a href="#Mono" class="headerlink" title="Mono"></a>Mono</h1><h2 id="Mono-just"><a href="#Mono-just" class="headerlink" title="Mono.just"></a>Mono.just</h2><p>I mean that calling Mono.just(System.currentTimeMillis()) will immediately invoke the currentTimeMillis() method and capture the result</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Mono&lt;Long&gt; clock = Mono.just(System.currentTimeMillis());</span><br><span class="line">//time == t0</span><br><span class="line"></span><br><span class="line">Thread.sleep(10_000);</span><br><span class="line">//time == t10</span><br><span class="line">clock.block(); //we use block for demonstration purposes, returns t0（代表这个时候获取clock的实际时间依然还是上面第一次调用System.currentTimeMillis()拿到的时间，下面雷同）</span><br><span class="line"></span><br><span class="line">Thread.sleep(7_000);</span><br><span class="line">//time == t17</span><br><span class="line">clock.block(); //we re-subscribe to clock, still returns t0</span><br></pre></td></tr></table></figure>
-<h2 id="Mono-defer"><a href="#Mono-defer" class="headerlink" title="Mono.defer"></a>Mono.defer</h2><p>The defer operator is there to make this source lazy, re-evaluating the content of the lambda each time there is a new subscriber:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Mono&lt;Long&gt; clock = Mono.defer(() -&gt; Mono.just(System.currentTimeMillis()));</span><br><span class="line">//time == t0</span><br><span class="line"></span><br><span class="line">Thread.sleep(10_000);</span><br><span class="line">//time == t10</span><br><span class="line">clock.block(); //invoked currentTimeMillis() here and returns t10（这里标识获取到的时间是线程等待了10秒之后的时间，表明defer()这个方法会延时参数里面声明的lambda表达式，在需要的时候再去实际调用计算结果，下面雷同）</span><br><span class="line"></span><br><span class="line">Thread.sleep(7_000);</span><br><span class="line">//time == t17</span><br><span class="line">clock.block(); //invoke currentTimeMillis() once again here and returns t17</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Spring系列之核心Feature/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/15/Spring系列之核心Feature/" class="post-title-link" itemprop="url">Spring系列之核心Feature</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-10-15 21:31:20" itemprop="dateCreated datePublished" datetime="2019-10-15T21:31:20+08:00">2019-10-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-16 20:58:54" itemprop="dateModified" datetime="2020-07-16T20:58:54+08:00">2020-07-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="Service层的代码相互调用，可能会导致依赖死循环"><a href="#Service层的代码相互调用，可能会导致依赖死循环" class="headerlink" title="Service层的代码相互调用，可能会导致依赖死循环"></a>Service层的代码相互调用，可能会导致依赖死循环</h2><p>可以在二个需要相互依赖的Service之间抽出一层OperateService，通过OperateService解耦。</p>
-<h2 id="Transactional引发的思考"><a href="#Transactional引发的思考" class="headerlink" title="@Transactional引发的思考"></a>@Transactional引发的思考</h2><p>加入有这样的场景：<br>AService.doA()方法调用到BService.doB()方法，而且二者都是注解了事务，抛出异常时会回滚。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@Transactional(rollbackFor = Exception.class)</span><br></pre></td></tr></table></figure></p>
-<p>加入在doA()中调用了doB()之后才出现的异常，这个时候doB()的事务会不会回滚？<br>根据我自己的测试，doB()中正常执行完毕，这个时候事务依然还不会被提交，而doA()在doB()执行完了之后如果抛出异常，那么doA()和doB都会回滚。<br><strong><em>那么问题来了，如果有这样的业务场景，需要在doB执行之后必须提交事务，即使在其执行之后doA()后面的逻辑抛出异常，doB的事务也要提交到数据库的时候，要怎么处理?</em></strong><br>可以通过@Trancational注解去处理，注解在doB上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@Transactional(rollbackFor = Exception.class, noRollbackFor = ServiceDoAException.class)</span><br></pre></td></tr></table></figure></p>
-<h4 id="Transactional什么时候加，什么时候由Spring自动加"><a href="#Transactional什么时候加，什么时候由Spring自动加" class="headerlink" title="@Transactional什么时候加，什么时候由Spring自动加"></a>@Transactional什么时候加，什么时候由Spring自动加</h4><h2 id="Primary"><a href="#Primary" class="headerlink" title="@Primary"></a>@Primary</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Indicates that a bean should be given preference when multiple candidates are qualified to autowire a single-valued dependency. If exactly one &apos;primary&apos; bean exists among the candidates, it will be the autowired value.</span><br><span class="line">This annotation is semantically equivalent to the &lt;bean&gt; element&apos;s primary attribute in Spring XML.</span><br><span class="line">May be used on any class directly or indirectly annotated with @Component or on methods annotated with @Bean.</span><br></pre></td></tr></table></figure>
-<p>比如接口有多个候选依赖，指定一个具体的依赖实现用于自动注入。</p>
-<h2 id="Order"><a href="#Order" class="headerlink" title="@Order"></a>@Order</h2><p>自定义不指定其顺序的优先权值小一些，很多时候配置可能没有覆盖掉Spring默认的配置类。</p>
-<h2 id="ControllerAdvice-vs-RestControllerAdvice"><a href="#ControllerAdvice-vs-RestControllerAdvice" class="headerlink" title="@ControllerAdvice vs @RestControllerAdvice"></a>@ControllerAdvice vs @RestControllerAdvice</h2><p>@ControllerAdvice can be used even for REST web services as well, but you need to additionally use @ResponseBody.</p>
-<h2 id="Spring封装好的便捷线程池ThreadPoolTaskExecutor"><a href="#Spring封装好的便捷线程池ThreadPoolTaskExecutor" class="headerlink" title="Spring封装好的便捷线程池ThreadPoolTaskExecutor"></a>Spring封装好的便捷线程池ThreadPoolTaskExecutor</h2><p><a href="https://www.cnblogs.com/achengmu/p/8137276.html" target="_blank" rel="noopener">https://www.cnblogs.com/achengmu/p/8137276.html</a><br><a href="https://blog.csdn.net/lipc_/article/details/52786377" target="_blank" rel="noopener">https://blog.csdn.net/lipc_/article/details/52786377</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">corePoolSize： 线程池维护线程的最少数量 </span><br><span class="line">keepAliveSeconds  线程池维护线程所允许的空闲时间（TimeUnit unit: 时间单位,现有纳秒,微秒,毫秒,秒枚举值. ）</span><br><span class="line">maxPoolSize   线程池维护线程的最大数量 </span><br><span class="line">queueCapacity 线程池所使用的缓冲队列</span><br></pre></td></tr></table></figure>
-<p>当一个任务通过execute(Runnable)方法欲添加到线程池时，线程池的处理逻辑如下：</p>
-<ul>
-<li>如果此时线程池中的数量小于corePoolSize，即使线程池中的线程都处于空闲状态，也要创建新的线程来处理被添加的任务。</li>
-<li>如果此时线程池中的数量等于corePoolSize，但是缓冲队列workQueue未满，那么任务被放入缓冲队列。 </li>
-<li>如果此时线程池中的数量大于corePoolSize，缓冲队列workQueue满，并且线程池中的数量小于maximumPoolSize，建新的线程来处理被添加的任务。</li>
-<li>如果此时线程池中的数量大于corePoolSize，缓冲队列workQueue满，并且线程池中的数量等于maximumPoolSize，那么通过 handler所指定的策略来处理此任务。也就是：处理任务的优先级为：核心线程corePoolSize、任务队列workQueue、最大线程 maximumPoolSize，如果三者都满了，使用handler处理被拒绝的任务。<br>线程池自我维护的功能：</li>
-<li>当线程池中的线程数量大于corePoolSize时，如果某线程空闲时间超过keepAliveTime，线程将被终止。这样，线程池可以动态的调整池中的线程数。</li>
-</ul>
-<h3 id="RejectedExecutionHandler"><a href="#RejectedExecutionHandler" class="headerlink" title="RejectedExecutionHandler"></a>RejectedExecutionHandler</h3><p>RejectedExecutionHandler handler: 用来拒绝一个任务的执行，有两种情况会触发拒绝处理器：</p>
-<ul>
-<li>在execute方法中若addIfUnderMaximumPoolSize(command)为false，即线程池已经饱和。</li>
-<li>在execute方法中, 发现runState!=RUNNING || poolSize == 0,即已经shutdown,就调用ensureQueuedTaskHandled(Runnable command)，在该方法中有可能调用reject。 </li>
-</ul>
-<h2 id="Async注解其背后的原理"><a href="#Async注解其背后的原理" class="headerlink" title="@Async注解其背后的原理"></a>@Async注解其背后的原理</h2><p>Spring默认的线程执行器defaultExecutor为什么要用SingletonSupplier封装起来？<br>ConcurrentHashMap</p>
-<p>Spring线程池debug跟到最底层如下，用到的也是Java的ExecutorService。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/jvGK5D.png" alt="image"></p>
-<h2 id="ResourceLoader和ResourceLoaderAware"><a href="#ResourceLoader和ResourceLoaderAware" class="headerlink" title="ResourceLoader和ResourceLoaderAware"></a>ResourceLoader和ResourceLoaderAware</h2><p><a href="https://www.cnblogs.com/achengmu/p/8430961.html" target="_blank" rel="noopener">参考文章</a></p>
-<h2 id="为什么Spring5注入推荐用final去声明？"><a href="#为什么Spring5注入推荐用final去声明？" class="headerlink" title="为什么Spring5注入推荐用final去声明？"></a>为什么Spring5注入推荐用final去声明？</h2><p><a href="https://www.cnblogs.com/joemsu/p/7688307.html" target="_blank" rel="noopener">浅谈spring为什么推荐使用构造器注入</a></p>
-<h4 id="总结来说有这几个优点"><a href="#总结来说有这几个优点" class="headerlink" title="总结来说有这几个优点"></a>总结来说有这几个优点</h4><ol>
-<li>保证依赖不可变（final关键字）</li>
-<li>保证依赖不为空（省去了我们对其检查）</li>
-<li>保证返回客户端（调用）的代码的时候是完全初始化的状态</li>
-<li>避免了循环依赖</li>
-<li>提升了代码的可复用性<br><a href="https://spring.io/blog/2007/07/11/setter-injection-versus-constructor-injection-and-the-use-of-required/" target="_blank" rel="noopener">Setter injection versus constructor injection and the use of @Required</a></li>
-</ol>
-<h2 id="Spring中propagation的7种事务配置"><a href="#Spring中propagation的7种事务配置" class="headerlink" title="Spring中propagation的7种事务配置"></a>Spring中propagation的7种事务配置</h2><ul>
-<li><p>REQUIRED：支持当前事务，如果当前没有事务，就新建一个事务。这是最常见的选择。 </p>
-</li>
-<li><p>SUPPORTS：支持当前事务，如果当前没有事务，就以非事务方式执行。 </p>
-</li>
-<li><p>MANDATORY：支持当前事务，如果当前没有事务，就抛出异常。 </p>
-</li>
-<li><p>REQUIRES_NEW：新建事务，如果当前存在事务，把当前事务挂起。 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">标志REQUIRES_NEW会新开启事务，外层事务不会影响内部事务的提交/回滚</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>NOT_SUPPORTED：以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。 </p>
-</li>
-<li><p>NEVER：以非事务方式执行，如果当前存在事务，则抛出异常。 </p>
-</li>
-<li><p>NESTED：支持当前事务，如果当前事务存在，则执行一个嵌套事务，如果当前没有事务，就新建一个事务。<br>————————————————<br>版权声明：本文为CSDN博主「sayok_why」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/sayoko06/article/details/79164858" target="_blank" rel="noopener">https://blog.csdn.net/sayoko06/article/details/79164858</a></p>
-</li>
-</ul>
-<h2 id="org-springframework-core-io-Resource"><a href="#org-springframework-core-io-Resource" class="headerlink" title="org.springframework.core.io.Resource"></a>org.springframework.core.io.Resource</h2><h2 id="Spring-AOP-vs-Aspectj"><a href="#Spring-AOP-vs-Aspectj" class="headerlink" title="Spring AOP vs Aspectj"></a>Spring AOP vs Aspectj</h2><p><a href="https://www.baeldung.com/spring-aop-vs-aspectj" target="_blank" rel="noopener">https://www.baeldung.com/spring-aop-vs-aspectj</a></p>
-<h2 id="Implementing-a-Custom-Spring-AOP-Annotation"><a href="#Implementing-a-Custom-Spring-AOP-Annotation" class="headerlink" title="Implementing a Custom Spring AOP Annotation"></a>Implementing a Custom Spring AOP Annotation</h2><p><a href="https://www.baeldung.com/spring-aop-annotation" target="_blank" rel="noopener">https://www.baeldung.com/spring-aop-annotation</a></p>
-<h2 id="Spring-AOP系列文章"><a href="#Spring-AOP系列文章" class="headerlink" title="Spring AOP系列文章"></a>Spring AOP系列文章</h2><p><a href="https://www.baeldung.com/spring-aop" target="_blank" rel="noopener">https://www.baeldung.com/spring-aop</a></p>
-<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="Connection-will-not-be-managed-by-Spring"><a href="#Connection-will-not-be-managed-by-Spring" class="headerlink" title="Connection will not be managed by Spring"></a>Connection will not be managed by Spring</h2><p>原因是service 没有加@transactional 注解，未加注解的情况下，出现异常的时候spring将不会回滚事物 </p>
-<h2 id="Null-return-value-from-advice-does-not-match-primitive-return-type-for"><a href="#Null-return-value-from-advice-does-not-match-primitive-return-type-for" class="headerlink" title="Null return value from advice does not match primitive return type for"></a>Null return value from advice does not match primitive return type for</h2><p>如果是使用了Spring的异步处理注解@Async的方法，不要有返回，直接void</p>
-<h2 id="开启ajc编译的事务问题"><a href="#开启ajc编译的事务问题" class="headerlink" title="开启ajc编译的事务问题"></a>开启ajc编译的事务问题</h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Spring系列之SpringBoot/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -621,6 +413,200 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Maven汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/15/Maven汇总/" class="post-title-link" itemprop="url">Maven汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-15 21:29:45" itemprop="dateCreated datePublished" datetime="2019-10-15T21:29:45+08:00">2019-10-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-10 11:17:22" itemprop="dateModified" datetime="2020-06-10T11:17:22+08:00">2020-06-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/maven/" itemprop="url" rel="index"><span itemprop="name">maven</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><p><a href="https://www.cnblogs.com/shoshana-kong/p/11031388.html" target="_blank" rel="noopener">Maven常用命令</a></p>
+<h2 id="scope详解"><a href="#scope详解" class="headerlink" title="scope详解"></a>scope详解</h2><p><a href="https://www.cnblogs.com/hzzll/p/6738955.html" target="_blank" rel="noopener">https://www.cnblogs.com/hzzll/p/6738955.html</a></p>
+<h2 id="dependencies与dependencyManagement的区别"><a href="#dependencies与dependencyManagement的区别" class="headerlink" title="dependencies与dependencyManagement的区别"></a>dependencies与dependencyManagement的区别</h2><p>根据maven子模块继承父模块的特性，不难理解两者肯定都有继承父模块依赖的作用，但是要注意他们的区别是：</p>
+<p><strong><em>dependencies里面声明的依赖，子模块会默认全部继承，不用手动去引入依赖；而dependencyManagement里面声明的依赖，则不会再子模块中自动去隐式依赖，只有子模块中声明了依赖，并且没有指明依赖的版本这种情况才会到父模块中寻找dependencyManagement中的对应依赖，要注意的是，如果子模块声明了依赖版本号，那么在dependencyManagement中如果也有同一依赖库的不同版本共存的话，maven优先去依赖的是子模块自己的版本</em></strong></p>
+<h2 id="Maven仓库下载依赖太慢的解决方案"><a href="#Maven仓库下载依赖太慢的解决方案" class="headerlink" title="Maven仓库下载依赖太慢的解决方案"></a>Maven仓库下载依赖太慢的解决方案</h2><p>将仓库中心更改为阿里云的，修改setting.xml，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line"> &lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;</span><br><span class="line">  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">  xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd&quot;&gt;</span><br><span class="line">     &lt;mirrors&gt;</span><br><span class="line">         &lt;!-- 阿里云仓库 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://maven.aliyun.com/nexus/content/repositories/central/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line"></span><br><span class="line">         &lt;!-- 中央仓库1 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;repo1&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://repo1.maven.org/maven2/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line"></span><br><span class="line">         &lt;!-- 中央仓库2 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;repo2&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://repo2.maven.org/maven2/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line">     &lt;/mirrors&gt;</span><br><span class="line"> &lt;/settings&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Maven-BOM"><a href="#Maven-BOM" class="headerlink" title="Maven BOM"></a>Maven BOM</h2><p>BOM stands for Bill Of Materials. A BOM is a special kind of POM that is used to control the versions of a project’s dependencies and provide a central place to define and update those versions.<br>BOM字面理解是”材料清单”，它是一种特别的POM，可以用来控制项目的多个依赖，相当于某个依赖集群的中心控制处。</p>
+<h2 id="Transitive-Dependencies-依赖传递性"><a href="#Transitive-Dependencies-依赖传递性" class="headerlink" title="Transitive Dependencies 依赖传递性"></a>Transitive Dependencies 依赖传递性</h2><p>Maven can discover the libraries that are needed by our own dependencies in our pom.xml and includes them automatically. There’s no limit to the number of dependency levels that the libraries are gathered from.<br>Maven通过pom.xml的多层级依赖是没有限制的，也就是，父模块可以递归依赖子模块的任何依赖，所以可能会出现如下的矛盾：</p>
+<blockquote>
+<p>A -&gt; B -&gt; C -&gt; D 1.4  and  A -&gt; E -&gt; D 1.0</p>
+</blockquote>
+<p>那么Maven给出了两个解决方案：</p>
+<ol>
+<li>We can always guarantee a version by declaring it explicitly in our project’s POM. For instance, to guarantee that D 1.4 is used, we should add it explicitly as a dependency in the pom.xml file. 通过在A的pom.xml明确声明D的依赖版本，这样子就不会采用子模块传递过来的依赖了。</li>
+<li>We can use the Dependency Management section to control artifact versions. 可以通过依赖管理来控制依赖版本，也就是直接继承父模块，通过<parent>；或者通过import BOM。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;parent&gt;</span><br><span class="line">        &lt;groupId&gt;baeldung&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;Baeldung-BOM&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br><span class="line">    &lt;/parent&gt;</span><br></pre></td></tr></table></figure>
+</parent></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencyManagement&gt;</span><br><span class="line">        &lt;dependencies&gt;</span><br><span class="line">            &lt;dependency&gt;</span><br><span class="line">                &lt;groupId&gt;baeldung&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;Baeldung-BOM&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br><span class="line">                &lt;type&gt;pom&lt;/type&gt;</span><br><span class="line">                &lt;scope&gt;import&lt;/scope&gt;</span><br><span class="line">            &lt;/dependency&gt;</span><br><span class="line">        &lt;/dependencies&gt;</span><br><span class="line">    &lt;/dependencyManagement&gt;</span><br></pre></td></tr></table></figure>
+<p>maven依赖版本的优先权如下：<br>1、项目自己pom.xml里面直接声明的版本<br>2、从parent项目继承的版本<br>3、通过import形式的依赖版本，和import的顺序有关，先import进来的版本被优先采用。</p>
+<p>详情参考：<a href="https://www.baeldung.com/spring-maven-bom#2-what-is-maven-bom" target="_blank" rel="noopener">https://www.baeldung.com/spring-maven-bom#2-what-is-maven-bom</a></p>
+<h2 id="mvn-compile与mvn-install、mvn-deploy的区别"><a href="#mvn-compile与mvn-install、mvn-deploy的区别" class="headerlink" title="mvn compile与mvn install、mvn deploy的区别"></a>mvn compile与mvn install、mvn deploy的区别</h2><ul>
+<li>mvn compile，编译类文件</li>
+<li>mvn install，包含mvn compile，mvn package，然后上传到本地仓库</li>
+<li>mvn deploy,包含mvn install,然后，上传到私服</li>
+</ul>
+<h2 id="maven-compiler-plugin-插件"><a href="#maven-compiler-plugin-插件" class="headerlink" title="maven-compiler-plugin 插件"></a>maven-compiler-plugin 插件</h2><p>可以用于指定模块编译的jdk版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">    &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">    &lt;configuration&gt;</span><br><span class="line">        &lt;target&gt;$&#123;java.version&#125;&lt;/target&gt;</span><br><span class="line">        &lt;source&gt;$&#123;java.version&#125;&lt;/source&gt;</span><br><span class="line">        &lt;encoding&gt;UTF-8&lt;/encoding&gt;</span><br><span class="line">    &lt;/configuration&gt;</span><br><span class="line">&lt;/plugin&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Maven中-DskipTests和-Dmaven-test-skip-true的区别"><a href="#Maven中-DskipTests和-Dmaven-test-skip-true的区别" class="headerlink" title="Maven中-DskipTests和-Dmaven.test.skip=true的区别"></a>Maven中-DskipTests和-Dmaven.test.skip=true的区别</h2><p>在使用mvn package进行编译、打包时，Maven会执行src/test/java中的JUnit测试用例，有时为了跳过测试，会使用参数-DskipTests和-Dmaven.test.skip=true，这两个参数的主要区别是：<br>-DskipTests，不执行测试用例，但编译测试用例类生成相应的class文件至target/test-classes下。<br>-Dmaven.test.skip=true，不执行测试用例，也不编译测试用例类。</p>
+<h2 id="profile切换正式环境和测试环境"><a href="#profile切换正式环境和测试环境" class="headerlink" title="profile切换正式环境和测试环境"></a>profile切换正式环境和测试环境</h2><p>可以使用<profiles>的<profile>通过id标签来切换不同环境的依赖</profile></profiles></p>
+<h2 id="mvn-install执行要注意的地方-错误笔记"><a href="#mvn-install执行要注意的地方-错误笔记" class="headerlink" title="mvn install执行要注意的地方 (错误笔记*)"></a>mvn install执行要注意的地方 (错误笔记*)</h2><p>通过在父项目的pom.xml目录执行mvn install可以连同子模块也一起安装，然后假如有多层级的父子模块依赖的情况下，mvn install是不会递归去安装子模块的子模块的。<br>比如，parent模块（BOM）下有subParent（BOM），subParent下面的子模块（jar），这个时候再parent模块下执行mvn install，subParent的jar是不会安装的，需要到subParent执行一次</p>
+<h2 id="Maven整个声明周期"><a href="#Maven整个声明周期" class="headerlink" title="Maven整个声明周期"></a>Maven整个声明周期</h2><p>验证（validate） 验证项目是正确的，所有必要的信息可用。<br>初始化（initialize） 初始化构建状态，例如设置属性或创建目录。<br>产生来源（generate-sources） 生成包含在编译中的任何源代码。<br>流程源（process-sources） 处理源代码，例如过滤任何值。<br>生成资源（generate-resources） 生成包含在包中的资源。<br>流程资源（process-resources） 将资源复制并处理到目标目录中，准备打包。<br>编译（compile） 编译项目的源代码。<br>工艺类（process-classes） 从编译后处理生成的文件，例如对Java类进行字节码增强。<br>生成测试来源（generate-test-sources） 生成包含在编译中的任何测试源代码。<br>流程测试来源（process-test-sources） 处理测试源代码，例如过滤任何值。<br>生成测试资源（generate-test-resources） 创建测试资源。<br>流程测试资源（process-test-resources） 将资源复制并处理到测试目标目录中。<br>测试编译（test-compile） 将测试源代码编译到测试目标目录中<br>流程检验类（process-test-classes） 从测试编译中处理生成的文件，例如对Java类进行字节码增强。对于Maven 2.0.5及以上版本。<br>测试（test） 使用合适的单元测试框架运行测试。这些测试不应该要求代码被打包或部署。<br>制备包（prepare-package） 在实际包装之前，执行必要的准备包装的操作。这通常会导致打包的处理版本的包。（Maven 2.1及以上）<br>打包（package） 采取编译的代码，并以其可分发的格式（如JAR）进行打包。<br>预集成测试（pre-integration-test） 在执行集成测试之前执行所需的操作。这可能涉及诸如设置所需环境等。<br>集成测试（integration-test） 如果需要，可以将该包过程并部署到可以运行集成测试的环境中。<br>整合后的测试（post-integration-test） 执行集成测试后执行所需的操作。这可能包括清理环境。<br>校验（verify） 运行任何检查以验证包装是否有效并符合质量标准。<br>安装（install） 将软件包安装到本地存储库中，以作为本地其他项目的依赖关系。<br>部署（deploy） 在集成或发布环境中完成，将最终软件包复制到远程存储库，以与其他开发人员和项目共享。<br>————————————————<br>版权声明：本文为CSDN博主「zhangxitab」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/zhangxitab/article/details/91047445" target="_blank" rel="noopener">https://blog.csdn.net/zhangxitab/article/details/91047445</a></p>
+<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="记录一个Idea中Maven的奇葩错误"><a href="#记录一个Idea中Maven的奇葩错误" class="headerlink" title="记录一个Idea中Maven的奇葩错误"></a>记录一个Idea中Maven的奇葩错误</h2><p>因为我从SVN拉代码下来是将项目根目录的名字修改为其他，导致根目录的pom.xml里面的name标签的值和文件不匹配，idea就一直报红，无法依赖其他依赖。。</p>
+<h2 id="新增加properties的变量时，编译打包报错"><a href="#新增加properties的变量时，编译打包报错" class="headerlink" title="新增加properties的变量时，编译打包报错"></a>新增加properties的变量时，编译打包报错</h2><p>很有可能需要把子模块modules都注释掉，然后编译一个或者多个父模块之后再放开子模块的注释。</p>
+<h2 id="jar-original"><a href="#jar-original" class="headerlink" title="jar.original"></a>jar.original</h2><ul>
+<li>jar.original 是普通jar包，不包含依赖</li>
+<li>.jar 是可执行jar包，包含了pom中的所有依赖，可以直接用java -jar 命令执行</li>
+<li>如果是部署，就用.jar</li>
+<li>如果是给别的项目用，就要给.jar.original这个包</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/14/linux系列之问题汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/14/linux系列之问题汇总/" class="post-title-link" itemprop="url">linux系列之问题汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-14 18:11:33" itemprop="dateCreated datePublished" datetime="2020-05-14T18:11:33+08:00">2020-05-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-05 13:53:01" itemprop="dateModified" datetime="2020-06-05T13:53:01+08:00">2020-06-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="apt-get国内太慢"><a href="#apt-get国内太慢" class="headerlink" title="apt-get国内太慢"></a>apt-get国内太慢</h1><p>ubuntu和debian的镜像源都要换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list</span><br><span class="line">sed -i &apos;s/deb.debian.org/mirrors.ustc.edu.cn/g&apos; /etc/apt/sources.list</span><br></pre></td></tr></table></figure></p>
+<p>还原：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i s@/mirrors.aliyun.com/@/deb.debian.org/@g /etc/apt/sources.list</span><br></pre></td></tr></table></figure></p>
+<h2 id="更换163的镜像"><a href="#更换163的镜像" class="headerlink" title="更换163的镜像"></a>更换163的镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#更新apt-get源 使用163的源</span><br><span class="line">mv /etc/apt/sources.list /etc/apt/sources.list.bak &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+<h2 id="apk命令更换源"><a href="#apk命令更换源" class="headerlink" title="apk命令更换源"></a>apk命令更换源</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;http://mirrors.aliyun.com/alpine/v3.8/main&quot; &gt; /etc/apk/repositories \</span><br><span class="line">    &amp;&amp; echo &quot;http://mirrors.aliyun.com/alpine/v3.8/community&quot; &gt;&gt; /etc/apk/repositories \</span><br><span class="line">    &amp;&amp; apk update upgrade \</span><br></pre></td></tr></table></figure>
+<h2 id="将命令的返回值赋值给变量（Shell命令）"><a href="#将命令的返回值赋值给变量（Shell命令）" class="headerlink" title="将命令的返回值赋值给变量（Shell命令）"></a>将命令的返回值赋值给变量（Shell命令）</h2><ul>
+<li>A=<code>ls -la</code> 反引号，运行里面的命令，并把结果返回给变量A</li>
+<li>A=$(ls -la)等价于反引号</li>
+</ul>
+<h2 id="linux-shell通过curl获取HTTP请求的状态码"><a href="#linux-shell通过curl获取HTTP请求的状态码" class="headerlink" title="linux shell通过curl获取HTTP请求的状态码"></a>linux shell通过curl获取HTTP请求的状态码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -I -m 10 -o /dev/null -s -w %&#123;http_code&#125; www.baidu.com</span><br></pre></td></tr></table></figure>
+<h2 id="shell获取系统当前时间并格式化"><a href="#shell获取系统当前时间并格式化" class="headerlink" title="shell获取系统当前时间并格式化"></a>shell获取系统当前时间并格式化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time=$(date &quot;+%Y-%m-%d %H:%M:%S&quot;)</span><br></pre></td></tr></table></figure>
+<h2 id="安装包打包命令"><a href="#安装包打包命令" class="headerlink" title="安装包打包命令"></a>安装包打包命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpmbuild / dpkg-deb 可以制作 rpm / deb package</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -690,7 +676,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">118</span>
+          <span class="site-state-item-count">116</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -703,7 +689,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-count">82</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

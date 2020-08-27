@@ -163,192 +163,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/28/oracle系列之索引深入研究/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/28/oracle系列之索引深入研究/" class="post-title-link" itemprop="url">oracle系列之索引</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-04-28 18:20:48" itemprop="dateCreated datePublished" datetime="2019-04-28T18:20:48+08:00">2019-04-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-29 14:48:53" itemprop="dateModified" datetime="2020-03-29T14:48:53+08:00">2020-03-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/oracle/" itemprop="url" rel="index"><span itemprop="name">oracle</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="为什么加索引后会使写入、修改、删除变慢？"><a href="#为什么加索引后会使写入、修改、删除变慢？" class="headerlink" title="为什么加索引后会使写入、修改、删除变慢？"></a>为什么加索引后会使写入、修改、删除变慢？</h2><p>事物都是有两面的， 索引能让数据库查询数据的速度上升， 而使写入数据的速度下降，原因很简单的， 因为平衡树这个结构必须一直维持在一个正确的状态， 增删改数据都会改变平衡树各节点中的索引数据内容，破坏树结构， 因此，在每次数据改变时， DBMS必须去重新梳理树（索引）的结构以确保它的正确，这会带来不小的性能开销，也就是为什么索引会给查询以外的操作带来副作用的原因。</p>
-<h2 id="什么情况下要同时在两个字段上建索引？"><a href="#什么情况下要同时在两个字段上建索引？" class="headerlink" title="什么情况下要同时在两个字段上建索引？"></a>什么情况下要同时在两个字段上建索引？</h2><p>有一种例外可以不使用聚集索引就能查询出所需要的数据， 这种非主流的方法 称之为「覆盖索引」查询， 也就是平时所说的复合索引或者多字段索引查询。 文章上面的内容已经指出， 当为字段建立索引以后， 字段中的内容会被同步到索引之中， 如果为一个索引指定两个字段， 那么这个两个字段的内容都会被同步至索引之中。</p>
-<p>先看下面这个SQL语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//建立索引</span><br><span class="line">create index index_birthday on user_info(birthday);</span><br><span class="line">//查询生日在1991年11月1日出生用户的用户名</span><br><span class="line">select user_name from user_info where birthday = &apos;1991-11-1&apos;</span><br></pre></td></tr></table></figure></p>
-<p>这句SQL语句的执行过程如下</p>
-<ul>
-<li><p>首先，通过非聚集索引index_birthday查找birthday等于1991-11-1的所有记录的主键ID值</p>
-</li>
-<li><p>然后，通过得到的主键ID值执行聚集索引查找，找到主键ID值对就的真实数据（数据行）存储的位置</p>
-</li>
-<li><p>最后， 从得到的真实数据中取得user_name字段的值返回， 也就是取得最终的结果</p>
-</li>
-</ul>
-<p>我们把birthday字段上的索引改成双字段的覆盖索引<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create index index_birthday_and_user_name on user_info(birthday, user_name);</span><br></pre></td></tr></table></figure></p>
-<p>这句SQL语句的执行过程就会变为:</p>
-<blockquote>
-<p>通过非聚集索引index_birthday_and_user_name查找birthday等于1991-11-1的叶节点的内容，然而， 叶节点中除了有user_name表主键ID的值以外， user_name字段的值也在里面， 因此不需要通过主键ID值的查找数据行的真实所在， 直接取得叶节点中user_name的值返回即可。 通过这种覆盖索引直接查找的方式， 可以省略不使用覆盖索引查找的后面两个步骤， 大大的提高了查询性能.</p>
-<p><a href="https://www.cnblogs.com/aspwebchh/p/6652855.html" target="_blank" rel="noopener">https://www.cnblogs.com/aspwebchh/p/6652855.html</a></p>
-</blockquote>
-<h2 id="B树索引-B-Tree"><a href="#B树索引-B-Tree" class="headerlink" title="B树索引(B-Tree)"></a>B树索引(B-Tree)</h2><h2 id="位图索引"><a href="#位图索引" class="headerlink" title="位图索引"></a>位图索引</h2><p>位图索引的应用场景:</p>
-<ol>
-<li>适合只有几个固定值的列,比如性别,行政区,祖籍等,这种基数很低的情况.</li>
-<li>适合相对静态的数据,不适合值频繁更新的字段.</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># demo:</span><br><span class="line">create bitmap index random_empno_bmx on test_random(empno);</span><br><span class="line"></span><br><span class="line"># 这个时候有人会说使用位图索引，因为busy只有两个值。好，我们使用位图索引索引busy字段！假设用户A使用update更新某个机器的busy值，比如update table set table.busy=1 where rowid=100;，但还没有commit，而用户B也使用update更新另一个机器的busy值，update table set table.busy=1 where rowid=12; 这个时候用户B怎么也更新不了，需要等待用户A commit。</span><br><span class="line">　　原因：用户A更新了某个机器的busy值为1，会导致所有busy为1的机器的位图向量发生改变，因此数据库会将busy＝1的所有行锁定，只有commit之后才解锁。</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><a href="http://hongyitong.github.io/2016/08/22/%E4%BD%8D%E5%9B%BE%E7%B4%A2%E5%BC%95%E5%8E%9F%E7%90%86%EF%BC%88BitMap%20index%EF%BC%89/" target="_blank" rel="noopener">http://hongyitong.github.io/2016/08/22/%E4%BD%8D%E5%9B%BE%E7%B4%A2%E5%BC%95%E5%8E%9F%E7%90%86%EF%BC%88BitMap%20index%EF%BC%89/</a></p>
-</blockquote>
-<h2 id="反向键索引"><a href="#反向键索引" class="headerlink" title="反向键索引"></a>反向键索引</h2><ol>
-<li>反向键索引是特殊的B数索引</li>
-<li>适用于在表中严格排序的列上创建反向键索引</li>
-</ol>
-<p>在常规的B树索引中，如果主键列时递增的，那么往表中添加新的数据时，B树索引将直接访问最后一个数据，而不是一个节点一个节点的访问。这种情况造成的现象是：随着数据行的不断添加，已经原有数据行的删除，B树索引的很多空间会被浪费掉，如1012节点上方的几个数据行都是空的。而且B树索引将会变得越来越不均匀。如下图这般。</p>
-
-<p>反向键索引原理<br>如果用户使用序列编号在表中添加新的纪录，则反向键索引首先反向转换每个键值的字节，然后在反向后的新数据在进行索引.</p>
-<p>例如：用户输入的索引键是4201，那么反向键索引将其反向转换为1024，这样索引键就变成非递增了，也就意味着，如果将反向后的索引键添加到叶子节点中，可能在任意的叶子节点中进行，从而使新的数据在值得范围分布式比原来的均匀。</p>
-<blockquote>
-<p>原文：<a href="https://blog.csdn.net/zhou920786312/article/details/72792355" target="_blank" rel="noopener">https://blog.csdn.net/zhou920786312/article/details/72792355</a> </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 创建反向索引的demo</span><br><span class="line">create unique index re_emp2no_idx on emp2(empno) reverse;</span><br><span class="line">alter table emp2 add constraint pk_emp2 primary key (empno) USING INDEX re_emp2no_idx;</span><br><span class="line">SELECT TABLE_NAME, CONSTRAINT_NAME, CONSTRAINT_TYPE FROM all_constraints WHERE TABLE_NAME = &apos;EMP2&apos;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/27/Hystrix汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/27/Hystrix汇总/" class="post-title-link" itemprop="url">Hystrix汇总</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-11-27 21:11:25" itemprop="dateCreated datePublished" datetime="2019-11-27T21:11:25+08:00">2019-11-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-29 14:17:04" itemprop="dateModified" datetime="2020-03-29T14:17:04+08:00">2020-03-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hystrix/" itemprop="url" rel="index"><span itemprop="name">Hystrix</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="各种配置属性文章"><a href="#各种配置属性文章" class="headerlink" title="各种配置属性文章"></a>各种配置属性文章</h2><p><a href="https://github.com/Netflix/Hystrix/wiki/Configuration" target="_blank" rel="noopener">https://github.com/Netflix/Hystrix/wiki/Configuration</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/07/arthas汇总/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -565,6 +379,156 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/12/Mysql系列之官方文档总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/12/Mysql系列之官方文档总结/" class="post-title-link" itemprop="url">Mysql系列之官方文档总结</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-12 15:18:38" itemprop="dateCreated datePublished" datetime="2019-12-12T15:18:38+08:00">2019-12-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-29 11:12:50" itemprop="dateModified" datetime="2020-03-29T11:12:50+08:00">2020-03-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="常用命名"><a href="#常用命名" class="headerlink" title="常用命名"></a>常用命名</h1><h2 id="mysqladmin的用法"><a href="#mysqladmin的用法" class="headerlink" title="mysqladmin的用法"></a>mysqladmin的用法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -u root -p status</span><br></pre></td></tr></table></figure>
+<p>然后输入密码，<a href="https://dev.mysql.com/doc/refman/8.0/en/mysqladmin.html" target="_blank" rel="noopener">命令参考</a></p>
+<h2 id="Using-Options-on-the-Command-Line-在命令行使用可选项"><a href="#Using-Options-on-the-Command-Line-在命令行使用可选项" class="headerlink" title="Using Options on the Command Line(在命令行使用可选项)"></a>Using Options on the Command Line(在命令行使用可选项)</h2><p>横线和下划线在命令中是可以互换来使用的，比如 –skip-grant-tables and –skip_grant_tables效果相同，但是官方默认使用的是-，看起来也比较直观。<br><strong><em>但是要注意的是，前面的起引导作用的横线不能被替换，–skip不能替换为__skip</em></strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/07/Math/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/07/Math/" class="post-title-link" itemprop="url">Math</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-07 15:27:19" itemprop="dateCreated datePublished" datetime="2020-01-07T15:27:19+08:00">2020-01-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-29 11:12:50" itemprop="dateModified" datetime="2020-03-29T11:12:50+08:00">2020-03-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Math/" itemprop="url" rel="index"><span itemprop="name">Math</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="分解质因数（质因式分解）"><a href="#分解质因数（质因式分解）" class="headerlink" title="分解质因数（质因式分解）"></a>分解质因数（质因式分解）</h1><p><a href="https://baike.baidu.com/item/%E5%88%86%E8%A7%A3%E8%B4%A8%E5%9B%A0%E6%95%B0/2253749?fromtitle=%E8%B4%A8%E5%9B%A0%E6%95%B0%E5%88%86%E8%A7%A3&amp;fromid=10305400&amp;fr=aladdin" target="_blank" rel="noopener">参考</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -634,7 +598,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">118</span>
+          <span class="site-state-item-count">116</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -647,7 +611,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-count">82</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
