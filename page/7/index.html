@@ -163,7 +163,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/17/Docker汇总/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/05/业界内各种权威标准/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -177,7 +177,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/01/17/Docker汇总/" class="post-title-link" itemprop="url">Docker汇总</a>
+            <a href="/2019/12/05/业界内各种权威标准/" class="post-title-link" itemprop="url">业界内各种权威标准</a>
         </h2>
 
         <div class="post-meta">
@@ -187,14 +187,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-01-17 09:38:28" itemprop="dateCreated datePublished" datetime="2020-01-17T09:38:28+08:00">2020-01-17</time>
+              <time title="Created: 2019-12-05 15:44:13" itemprop="dateCreated datePublished" datetime="2019-12-05T15:44:13+08:00">2019-12-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-28 00:08:07" itemprop="dateModified" datetime="2020-07-28T00:08:07+08:00">2020-07-28</time>
+                <time title="Modified: 2020-08-05 16:14:22" itemprop="dateModified" datetime="2020-08-05T16:14:22+08:00">2020-08-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -202,7 +202,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
+                  <a href="/categories/标准/" itemprop="url" rel="index"><span itemprop="name">标准</span></a>
                 </span>
             </span>
 
@@ -217,73 +217,35 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><a href="http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html" target="_blank" rel="noopener">参考1</a><br><a href="https://www.jianshu.com/p/ca1623ac7723" target="_blank" rel="noopener">参考2</a></p>
-<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><p><a href="https://www.runoob.com/docker/docker-command-manual.html" target="_blank" rel="noopener">命令大全</a></p>
-<h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><h3 id="列出所有容器"><a href="#列出所有容器" class="headerlink" title="列出所有容器"></a>列出所有容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container ls</span><br></pre></td></tr></table></figure>
-<h3 id="查看所有容易，包括关闭的"><a href="#查看所有容易，包括关闭的" class="headerlink" title="查看所有容易，包括关闭的"></a>查看所有容易，包括关闭的</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker container ls --all</span><br><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
-<h3 id="删除具体的容器，根据container-id"><a href="#删除具体的容器，根据container-id" class="headerlink" title="删除具体的容器，根据container id"></a>删除具体的容器，根据container id</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container rm c8faeffaaa62</span><br></pre></td></tr></table></figure>
-<h3 id="查看容器IP"><a href="#查看容器IP" class="headerlink" title="查看容器IP"></a>查看容器IP</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect 容器ID | grep IPAddress</span><br></pre></td></tr></table></figure>
-<h3 id="启动某个容器"><a href="#启动某个容器" class="headerlink" title="启动某个容器"></a>启动某个容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart 1b4671904bfa</span><br></pre></td></tr></table></figure>
-<h3 id="查看容器内存使用情况（支持多个同时查）"><a href="#查看容器内存使用情况（支持多个同时查）" class="headerlink" title="查看容器内存使用情况（支持多个同时查）"></a>查看容器内存使用情况（支持多个同时查）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stats containerName1 containerName2</span><br></pre></td></tr></table></figure>
-<h3 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs -f 122482b4b37f</span><br></pre></td></tr></table></figure>
-<h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo docker exec -it containerName bash</span><br><span class="line">sudo docker attach 44fc0f0582d9</span><br></pre></td></tr></table></figure>
-<h3 id="docker限制容器的内存使用"><a href="#docker限制容器的内存使用" class="headerlink" title="docker限制容器的内存使用"></a>docker限制容器的内存使用</h3><p><a href="https://blog.csdn.net/qq_37611270/article/details/97243704" target="_blank" rel="noopener">https://blog.csdn.net/qq_37611270/article/details/97243704</a></p>
-<h2 id="状态信息"><a href="#状态信息" class="headerlink" title="状态信息"></a>状态信息</h2><h2 id="列出docker-name"><a href="#列出docker-name" class="headerlink" title="列出docker name"></a>列出docker name</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker inspect -f=&apos;&#123;&#123;.Name&#125;&#125;&apos; $(sudo docker ps -a -q)</span><br></pre></td></tr></table></figure>
-<h3 id="列出docker-ip"><a href="#列出docker-ip" class="headerlink" title="列出docker ip"></a>列出docker ip</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker inspect -f=&apos;&#123;&#123;.NetworkSettings.IPAddress&#125;&#125;&apos; $(sudo docker ps -a -q)</span><br></pre></td></tr></table></figure>
-<h3 id="列出所有容器对应的名称，端口，及ip"><a href="#列出所有容器对应的名称，端口，及ip" class="headerlink" title="列出所有容器对应的名称，端口，及ip"></a>列出所有容器对应的名称，端口，及ip</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect -f=&apos;&#123;&#123;.Name&#125;&#125; &#123;&#123;.NetworkSettings.IPAddress&#125;&#125; &#123;&#123;.HostConfig.PortBindings&#125;&#125;&apos; $(docker ps -aq)</span><br></pre></td></tr></table></figure>
-<h3 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status docker</span><br></pre></td></tr></table></figure>
-<h2 id="数据卷"><a href="#数据卷" class="headerlink" title="数据卷"></a>数据卷</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker inspect 容器id</span><br><span class="line"># 可以查看容器信息  “HostConfig下的Binds 可以看到数据卷绑定  Mounts下Souce和Destination也可以看到数据卷绑定信息”</span><br></pre></td></tr></table></figure>
-<h1 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h1><p><a href="https://www.cnblogs.com/sablier/p/11605606.html" target="_blank" rel="noopener">参考</a><br>目录映射时，容器里面的目录会在容器启动的时候自动创建。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 3306:3306 --name mysql \</span><br><span class="line">-v /usr/local/docker/mysql/conf:/etc/mysql \</span><br><span class="line">-v /usr/local/docker/mysql/logs:/var/log/mysql \</span><br><span class="line">-v /usr/local/docker/mysql/data:/var/lib/mysql \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=raubbhWy \</span><br><span class="line">-d mysql:5.7</span><br></pre></td></tr></table></figure></p>
-<p>进入docker本地连接mysql客户端<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo docker exec -it mysql bash</span><br><span class="line">mysql -uroot -p123456</span><br></pre></td></tr></table></figure></p>
-<h1 id="Fastdfs"><a href="#Fastdfs" class="headerlink" title="Fastdfs"></a>Fastdfs</h1><p><a href="https://hub.docker.com/r/season/fastdfs" target="_blank" rel="noopener">season/fastdfs</a><br><a href="http://www.zuidaima.com/blog/4653383732808704.htm" target="_blank" rel="noopener">参考1</a><br><a href="https://blog.502.li/archives/docker-deploy-fastdfs.html" target="_blank" rel="noopener">参考2</a><br><a href="https://v3u.cn/a_id_78" target="_blank" rel="noopener">参考3</a></p>
-<h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><p><a href="https://www.runoob.com/docker/docker-install-redis.html" target="_blank" rel="noopener">https://www.runoob.com/docker/docker-install-redis.html</a></p>
-<h1 id="rabbitmq"><a href="#rabbitmq" class="headerlink" title="rabbitmq"></a>rabbitmq</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull rabbitmq:management</span><br><span class="line">docker run -d --hostname my-rabbit --name some-rabbit -p 15555:15672 rabbitmq:management</span><br></pre></td></tr></table></figure>
-<p>默认账号密码：guest和guest</p>
-<h1 id="docker跑SpringCloud微服务"><a href="#docker跑SpringCloud微服务" class="headerlink" title="docker跑SpringCloud微服务"></a>docker跑SpringCloud微服务</h1><h1 id="dockerfile-maven"><a href="#dockerfile-maven" class="headerlink" title="dockerfile-maven"></a>dockerfile-maven</h1><h1 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h1><p>在Docker中创建镜像最常用的方式，就是使用Dockerfile。Dockerfile是一个Docker镜像的描述文件，我们可以理解成火箭发射的A、B、C、D…的步骤。Dockerfile其内部包含了一条条的指令，每一条指令构建一层，因此每一条指令的内容，就是描述该层应当如何构建。<br><a href="https://www.runoob.com/docker/docker-dockerfile.html" target="_blank" rel="noopener">Dockerfile基础知识</a><br><a href="https://www.cnblogs.com/lingfengblogs/p/11093246.html" target="_blank" rel="noopener">Dockerfile命令大全</a></p>
-<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="EXPOSE"><a href="#EXPOSE" class="headerlink" title="EXPOSE"></a>EXPOSE</h3><p><a href="https://blog.csdn.net/qq_17639365/article/details/86655177" target="_blank" rel="noopener">https://blog.csdn.net/qq_17639365/article/details/86655177</a></p>
-<h3 id="VOLUME"><a href="#VOLUME" class="headerlink" title="VOLUME"></a>VOLUME</h3><p><a href="https://www.cnblogs.com/ExMan/p/12017896.html" target="_blank" rel="noopener">https://www.cnblogs.com/ExMan/p/12017896.html</a></p>
-<ul>
-<li>通过docker run命令的-v标识创建的挂载点只能对创建的容器有效。</li>
-<li>通过dockerfile的 VOLUME 指令可以在镜像中创建挂载点，这样只要通过该镜像创建的容器都有了挂载点。</li>
-<li>还有一个区别是，通过 VOLUME 指令创建的挂载点，无法指定主机上对应的目录，是自动生成的。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#test</span><br><span class="line">FROM ubuntu</span><br><span class="line">MAINTAINER hello1</span><br><span class="line">VOLUME [&quot;/data1&quot;,&quot;/data2&quot;]</span><br></pre></td></tr></table></figure>
-</li>
+          <h1 id="ISO-8601"><a href="#ISO-8601" class="headerlink" title="ISO 8601"></a>ISO 8601</h1><p>国际标准化组织的时间和日期的表达方法。</p>
+<h1 id="cron-expressions"><a href="#cron-expressions" class="headerlink" title="cron expressions"></a>cron expressions</h1><p><a href="http://www.quartz-scheduler.org/documentation/quartz-2.x/tutorials/crontrigger.html" title="cron expressions教程参考" target="_blank" rel="noopener">cron expressions教程参考</a></p>
+<h1 id="GA-PRE-SNAPSHOT等各种版本含义"><a href="#GA-PRE-SNAPSHOT等各种版本含义" class="headerlink" title="GA/PRE/SNAPSHOT等各种版本含义"></a>GA/PRE/SNAPSHOT等各种版本含义</h1><ul>
+<li>GA General Availability,正式发布的版本，官方推荐使用该版本，国外很多项目都是使用GA来表示正式发布版本的</li>
+<li>PRE 预览版，主要是用来内部开发人员和测试人员测试使用，因此不建议使用</li>
+<li>SNAPSHOT 快照版，可以稳定使用，且该版本会一直进行小量的优化和改进</li>
+<li>RC (Release Candidate)：候选版本，几乎就是正式版了</li>
+<li>R (RELEASE) 正式版，等价于GA</li>
+<li>Alpha 内测版，BUG多，开发人员开发过程中使用，希腊字母α，第一，指最初版</li>
+<li>Beta 早期版本，有缺陷，无大BUG，可能加入新功能，进一步开发完善</li>
+<li>Gamma 经beta 版，完善修改，成为正式发布的候选版本（Release Candidate）</li>
+<li>Build 修正版</li>
+<li>Corporation或Enterprise：企业版</li>
+<li>Delux：豪华版</li>
+<li>DEMO：演示版，有功能限制</li>
+<li>Free：免费版</li>
+<li>Full：完全版</li>
+<li>Final：正式版</li>
+<li>Pro(professional)：专业版</li>
+<li>Plus：加强版\</li>
+<li>Retail：零售版</li>
+<li>Shareware：共享版，虽然不会要求注册但是一般也有功能限制</li>
+<li>SR：修正版</li>
+<li>Trial：试用版（一般有时间或者功能限制）</li>
+<li>M Milestone build probably not feature complete; should be vaguely stable (i.e. it’s more than just a nightly snapshot) but may still have problems.</li>
+<li>LTS（Long Term Support）：长期演进版，Ubuntu会对这一版本的支持时间更长。目前Java也在运用这种方式</li>
 </ul>
-<p>上面的dockfile文件通过VOLUME指令指定了两个挂载点 /data1 和 /data2.</p>
-<p>我们通过docker inspect 查看通过该dockerfile创建的镜像生成的容器，可以看到如下信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&quot;Mounts&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;Name&quot;: &quot;d411f6b8f17f4418629d4e5a1ab69679dee369b39e13bb68bed77aa4a0d12d21&quot;,</span><br><span class="line">            &quot;Source&quot;: &quot;/var/lib/docker/volumes/d411f6b8f17f4418629d4e5a1ab69679dee369b39e13bb68bed77aa4a0d12d21/_data&quot;,</span><br><span class="line">            &quot;Destination&quot;: &quot;/data1&quot;,</span><br><span class="line">            &quot;Driver&quot;: &quot;local&quot;,</span><br><span class="line">            &quot;Mode&quot;: &quot;&quot;,</span><br><span class="line">            &quot;RW&quot;: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;Name&quot;: &quot;6d3badcf47c4ac5955deda6f6ae56f4aaf1037a871275f46220c14ebd762fc36&quot;,</span><br><span class="line">            &quot;Source&quot;: &quot;/var/lib/docker/volumes/6d3badcf47c4ac5955deda6f6ae56f4aaf1037a871275f46220c14ebd762fc36/_data&quot;,</span><br><span class="line">            &quot;Destination&quot;: &quot;/data2&quot;,</span><br><span class="line">            &quot;Driver&quot;: &quot;local&quot;,</span><br><span class="line">            &quot;Mode&quot;: &quot;&quot;,</span><br><span class="line">            &quot;RW&quot;: true</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br></pre></td></tr></table></figure></p>
-<h2 id="apt-get更换国内源解决Dockerfile构建速度过慢"><a href="#apt-get更换国内源解决Dockerfile构建速度过慢" class="headerlink" title="apt-get更换国内源解决Dockerfile构建速度过慢"></a>apt-get更换国内源解决Dockerfile构建速度过慢</h2><p>ubuntu和debian的镜像源都要换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RUN  sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list</span><br><span class="line">RUN  sed -i &apos;s/deb.debian.org/mirrors.ustc.edu.cn/g&apos; /etc/apt/sources.list</span><br><span class="line">RUN  apt-get clean</span><br><span class="line">RUN  apt-get update</span><br></pre></td></tr></table></figure></p>
-<p>或者：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FROM ubuntu:20.04</span><br><span class="line">RUN sed -i &apos;s/ports.ubuntu.com/mirror.tuna.tsinghua.edu.cn/g&apos; /etc/apt/sources.list</span><br><span class="line">RUN apt-get install vim</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://www.cnblogs.com/dakewei/p/12783717.html" target="_blank" rel="noopener">https://www.cnblogs.com/dakewei/p/12783717.html</a></p>
-<h3 id="163的镜像"><a href="#163的镜像" class="headerlink" title="163的镜像"></a>163的镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#更新apt-get源 使用163的源</span><br><span class="line">RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-<h1 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker-compose"></a>docker-compose</h1><p><a href="https://www.jianshu.com/p/90bf0e231e5a" target="_blank" rel="noopener">docker-compose.yml文件详解</a><br><a href="https://www.runoob.com/docker/docker-compose.html" target="_blank" rel="noopener">基础</a><br><a href="https://www.cnblogs.com/williamjie/p/9103327.html" target="_blank" rel="noopener">参考1</a></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
-<p>如果从github拉下来安装之后无法执行docker-compose命令的话，可以采用本机电脑下载之后上传到服务器，在chmod修改可执行权限就可以了。</p>
-<h2 id="命令-1"><a href="#命令-1" class="headerlink" title="命令"></a>命令</h2><h3 id="后台执行"><a href="#后台执行" class="headerlink" title="后台执行"></a>后台执行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
-<h2 id="docker-compose中解决depends-on无效问题"><a href="#docker-compose中解决depends-on无效问题" class="headerlink" title="docker-compose中解决depends_on无效问题"></a>docker-compose中解决depends_on无效问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RUN apt-get -q update &amp;&amp; apt-get -qy install netcat</span><br><span class="line"># docker-compose.yml 加上下面</span><br><span class="line">command: sh -c &apos;./wait-for.sh kiwi-microservice-local:5001/actuator/info -- echo kiwi-word-biz already started&apos;</span><br></pre></td></tr></table></figure>
-<p><a href="http://www.zyiz.net/tech/detail-98533.html" target="_blank" rel="noopener">http://www.zyiz.net/tech/detail-98533.html</a><br><a href="https://github.com/Eficode/wait-for" target="_blank" rel="noopener">https://github.com/Eficode/wait-for</a></p>
-<h1 id="Mac上跑docker"><a href="#Mac上跑docker" class="headerlink" title="Mac上跑docker"></a>Mac上跑docker</h1><p><a href="https://www.runoob.com/docker/macos-docker-install.html" target="_blank" rel="noopener">https://www.runoob.com/docker/macos-docker-install.html</a></p>
-<h1 id="docker-service的配置"><a href="#docker-service的配置" class="headerlink" title="docker.service的配置"></a>docker.service的配置</h1><p><a href="https://www.cnblogs.com/nihaorz/p/12131873.html" target="_blank" rel="noopener">https://www.cnblogs.com/nihaorz/p/12131873.html</a></p>
-<h1 id="更换国内的镜像"><a href="#更换国内的镜像" class="headerlink" title="更换国内的镜像"></a>更换国内的镜像</h1><p><a href="https://blog.csdn.net/u012081441/article/details/104553145/" target="_blank" rel="noopener">https://blog.csdn.net/u012081441/article/details/104553145/</a><br><a href="https://blog.csdn.net/s_lisheng/article/details/79871086" target="_blank" rel="noopener">https://blog.csdn.net/s_lisheng/article/details/79871086</a></p>
-<h1 id="在docker跑nginx的vue项目"><a href="#在docker跑nginx的vue项目" class="headerlink" title="在docker跑nginx的vue项目"></a>在docker跑nginx的vue项目</h1><p><a href="https://www.jianshu.com/p/422b61100273" target="_blank" rel="noopener">https://www.jianshu.com/p/422b61100273</a></p>
-<h2 id="nginx80端口被占用修改"><a href="#nginx80端口被占用修改" class="headerlink" title="nginx80端口被占用修改"></a>nginx80端口被占用修改</h2><p><a href="https://jingyan.baidu.com/article/3aed632efb150a701080912f.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/3aed632efb150a701080912f.html</a></p>
-<h1 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker network ls</span><br><span class="line">docker network inspect bridge</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.cnblogs.com/chenpython123/p/10823879.html" target="_blank" rel="noopener">https://www.cnblogs.com/chenpython123/p/10823879.html</a></p>
-<h1 id="Docker根据名称查询容器ID镜像ID并停止删除"><a href="#Docker根据名称查询容器ID镜像ID并停止删除" class="headerlink" title="Docker根据名称查询容器ID镜像ID并停止删除"></a>Docker根据名称查询容器ID镜像ID并停止删除</h1><p><a href="https://blog.csdn.net/zimou5581/article/details/94012682" target="_blank" rel="noopener">https://blog.csdn.net/zimou5581/article/details/94012682</a></p>
-<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="bash-vi-command-not-found"><a href="#bash-vi-command-not-found" class="headerlink" title="bash: vi: command not found"></a>bash: vi: command not found</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it &lt;container&gt; bash</span><br><span class="line">apt-get update</span><br><span class="line">apt-get install vim</span><br></pre></td></tr></table></figure>
-<h2 id="Error-response-from-daemon-Get-https-registry-1-docker-io-v2-net-http-TLS-handshake-timeout"><a href="#Error-response-from-daemon-Get-https-registry-1-docker-io-v2-net-http-TLS-handshake-timeout" class="headerlink" title="Error response from daemon: Get https://registry-1.docker.io/v2/: net/http: TLS handshake timeout"></a>Error response from daemon: Get <a href="https://registry-1.docker.io/v2/" target="_blank" rel="noopener">https://registry-1.docker.io/v2/</a>: net/http: TLS handshake timeout</h2><p><a href="https://blog.csdn.net/BigData_Mining/article/details/87869147" target="_blank" rel="noopener">网上的解决方案</a></p>
-<h2 id="Current-command-vanished-from-the-unit-file-execution-of-the-command-list-won’t-be-resumed"><a href="#Current-command-vanished-from-the-unit-file-execution-of-the-command-list-won’t-be-resumed" class="headerlink" title="Current command vanished from the unit file, execution of the command list won’t be resumed."></a>Current command vanished from the unit file, execution of the command list won’t be resumed.</h2><p>可能是有docker的相关进程没有杀干净。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef|grep docker</span><br><span class="line">kill -9 pid</span><br></pre></td></tr></table></figure></p>
-<h2 id="远程2375连接不上"><a href="#远程2375连接不上" class="headerlink" title="远程2375连接不上"></a>远程2375连接不上</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/lib/systemd/system/docker.service</span><br></pre></td></tr></table></figure>
-<p>vim进入命令行模式输入?ExecStart，找到如下一行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ExecStart=/usr/bin/dockerd -H unix://var/run/docker.sock \</span><br></pre></td></tr></table></figure></p>
-<p>在后面加上-H tcp://0.0.0.0:2375<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock -H tcp://0.0.0.0:2375</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service docker restart</span><br></pre></td></tr></table></figure>
-<p>之后要注意重启之前的容器。</p>
-<h2 id="ERROR-Version-in-“-docker-compose-yml”-is-invalid-You-might-be-seeing-this-error-because-you’re-using-the-wrong-Compose-file-version-Either-specify-a-supported-version-e-g-“2-2”-or-“3-3”"><a href="#ERROR-Version-in-“-docker-compose-yml”-is-invalid-You-might-be-seeing-this-error-because-you’re-using-the-wrong-Compose-file-version-Either-specify-a-supported-version-e-g-“2-2”-or-“3-3”" class="headerlink" title="ERROR: Version in “./docker-compose.yml” is invalid. You might be seeing this error because you’re using the wrong Compose file version. Either specify a supported version (e.g “2.2” or “3.3”)"></a>ERROR: Version in “./docker-compose.yml” is invalid. You might be seeing this error because you’re using the wrong Compose file version. Either specify a supported version (e.g “2.2” or “3.3”)</h2><p>把docker-compose.yml里面的version改一下，改成2.2或3.3（根据提示改）</p>
-<h2 id="docker-启动-nginx-访问不了的问题"><a href="#docker-启动-nginx-访问不了的问题" class="headerlink" title="docker 启动 nginx 访问不了的问题"></a>docker 启动 nginx 访问不了的问题</h2><p>如果容器的nginx服务没有启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#  进入容器</span><br><span class="line">/usr/sbin/nginx</span><br><span class="line"># 看下报什么错</span><br></pre></td></tr></table></figure></p>
-<h2 id="vue-config-js设置代理之后，nginx反向代理-404"><a href="#vue-config-js设置代理之后，nginx反向代理-404" class="headerlink" title="vue.config.js设置代理之后，nginx反向代理 404"></a>vue.config.js设置代理之后，nginx反向代理 404</h2><p><a href="https://zhuanlan.zhihu.com/p/60833019" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/60833019</a><br>/etc/nginx/conf.d/default.conf</p>
-<p>nginx关键配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">root /usr/share/nginx/html;</span><br><span class="line">index index.html index.htm;</span><br><span class="line">    try_files $uri $uri/ /index.html;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /auth &#123;</span><br><span class="line">	proxy_pass http://kiwi-microservice:9991;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /wordBiz &#123;</span><br><span class="line">    proxy_pass http://kiwi-microservice:9991;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /code &#123;</span><br><span class="line">    proxy_pass http://kiwi-microservice:9991;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="Published-ports-are-discarded-when-using-host-network-mode"><a href="#Published-ports-are-discarded-when-using-host-network-mode" class="headerlink" title="Published ports are discarded when using host network mode"></a>Published ports are discarded when using host network mode</h2><p>host的网络模式不能-p映射端口</p>
-<h2 id="OCI-runtime-exec-failed-exec-failed-container-linux-go-349-starting-container-process-caused-“exec-”bash-”-executable-file-not-found-in-PATH”-unknown"><a href="#OCI-runtime-exec-failed-exec-failed-container-linux-go-349-starting-container-process-caused-“exec-”bash-”-executable-file-not-found-in-PATH”-unknown" class="headerlink" title="OCI runtime exec failed: exec failed: container_linux.go:349: starting container process caused “exec: \”bash\”: executable file not found in $PATH”: unknown"></a>OCI runtime exec failed: exec failed: container_linux.go:349: starting container process caused “exec: \”bash\”: executable file not found in $PATH”: unknown</h2><p>三种模式选择一种试试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it 1e33b26152e1 /bin/sh</span><br><span class="line">docker exec -it 1e33b26152e1 bash</span><br><span class="line">docker exec -it 1e33b26152e1 sh</span><br></pre></td></tr></table></figure></p>
-<h2 id="mkdir-can’t-create-directory-‘-tmp’-File-exists"><a href="#mkdir-can’t-create-directory-‘-tmp’-File-exists" class="headerlink" title="mkdir: can’t create directory ‘/tmp’: File exists"></a>mkdir: can’t create directory ‘/tmp’: File exists</h2><p>Dockerfile里面RUN命令创建文件夹的时候注意不要和系统同路径，不然会报错。</p>
+<h1 id="计算机内存存储数据原理"><a href="#计算机内存存储数据原理" class="headerlink" title="计算机内存存储数据原理"></a>计算机内存存储数据原理</h1><p><a href="https://www.iteye.com/blog/wwty-401713" target="_blank" rel="noopener">https://www.iteye.com/blog/wwty-401713</a></p>
+<h1 id="SaaS"><a href="#SaaS" class="headerlink" title="SaaS"></a>SaaS</h1><h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><h2 id="JEP-JDK-Enhancement-Proposals-JDK增强提案"><a href="#JEP-JDK-Enhancement-Proposals-JDK增强提案" class="headerlink" title="JEP(JDK Enhancement Proposals)(JDK增强提案)"></a>JEP(JDK Enhancement Proposals)(JDK增强提案)</h2><p><a href="http://openjdk.java.net/jeps/0" target="_blank" rel="noopener">http://openjdk.java.net/jeps/0</a></p>
 
       
     </div>
@@ -303,7 +265,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/Markdown汇总/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Mysql系列之备忘录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -317,7 +279,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/03/29/Markdown汇总/" class="post-title-link" itemprop="url">Markdown汇总</a>
+            <a href="/2019/10/15/Mysql系列之备忘录/" class="post-title-link" itemprop="url">Mysql系列之备忘录</a>
         </h2>
 
         <div class="post-meta">
@@ -327,14 +289,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-03-29 10:38:18" itemprop="dateCreated datePublished" datetime="2020-03-29T10:38:18+08:00">2020-03-29</time>
+              <time title="Created: 2019-10-15 21:36:49" itemprop="dateCreated datePublished" datetime="2019-10-15T21:36:49+08:00">2019-10-15</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-27 16:12:35" itemprop="dateModified" datetime="2020-07-27T16:12:35+08:00">2020-07-27</time>
+                <time title="Modified: 2020-07-30 23:42:46" itemprop="dateModified" datetime="2020-07-30T23:42:46+08:00">2020-07-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -342,7 +304,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Markdown/" itemprop="url" rel="index"><span itemprop="name">Markdown</span></a>
+                  <a href="/categories/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a>
                 </span>
             </span>
 
@@ -357,73 +319,92 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><a href="https://www.jianshu.com/p/ebe52d2d468f" target="_blank" rel="noopener">https://www.jianshu.com/p/ebe52d2d468f</a></p>
-<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><h2 id="标记"><a href="#标记" class="headerlink" title="标记"></a>标记</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">**这是加粗的文字**</span><br><span class="line">*这是倾斜的文字*`</span><br><span class="line">***这是斜体加粗的文字***</span><br><span class="line">~~这是加删除线的文字~~</span><br><span class="line">&gt;这是引用的内容</span><br><span class="line">==背景高亮==</span><br></pre></td></tr></table></figure>
-<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">----</span><br><span class="line">***</span><br><span class="line">*****</span><br></pre></td></tr></table></figure>
-<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![图片alt](图片地址 &apos;&apos;图片title&apos;&apos;)</span><br></pre></td></tr></table></figure>
-<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[超链接名](超链接地址 &quot;超链接title&quot;)</span><br></pre></td></tr></table></figure>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h4 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- 列表内容</span><br><span class="line">+ 列表内容</span><br><span class="line">* 列表内容</span><br><span class="line"></span><br><span class="line">注意：- + * 跟内容之间都要有一个空格</span><br></pre></td></tr></table></figure>
-<h4 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 列表内容</span><br><span class="line">2. 列表内容</span><br><span class="line">3. 列表内容</span><br><span class="line"></span><br><span class="line">注意：序号跟内容之间要有空格</span><br></pre></td></tr></table></figure>
-<h4 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h4><p>上一级和下一级之间敲三个空格即可</p>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><h4 id="极简方式"><a href="#极简方式" class="headerlink" title="极简方式"></a>极简方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">name | 价格 |  数量  </span><br><span class="line">-|-|-</span><br><span class="line">香蕉 | $1 | 5 </span><br><span class="line">苹果 | $1 | 6 </span><br><span class="line">草莓 | $1 | 7</span><br></pre></td></tr></table></figure>
-<p>表格效果：</p>
-<table>
-<thead>
-<tr>
-<th>name</th>
-<th>价格</th>
-<th>数量  </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>香蕉</td>
-<td>$1</td>
-<td>5 </td>
-</tr>
-<tr>
-<td>苹果</td>
-<td>$1</td>
-<td>6 </td>
-</tr>
-<tr>
-<td>草莓</td>
-<td>$1</td>
-<td>7 </td>
-</tr>
-</tbody>
-</table>
-<h4 id="原生居中写法"><a href="#原生居中写法" class="headerlink" title="原生居中写法"></a>原生居中写法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name | 111 | 222 | 333 | 444</span><br><span class="line">:-: | :-: | :-: | :-: | :-:</span><br><span class="line">aaa | bbb | ccc | ddd | eee</span><br><span class="line">fff | ggg| hhh | iii | 000</span><br></pre></td></tr></table></figure>
-<p>表格效果：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">name</th>
-<th style="text-align:center">111</th>
-<th style="text-align:center">222</th>
-<th style="text-align:center">333</th>
-<th style="text-align:center">444</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">aaa</td>
-<td style="text-align:center">bbb</td>
-<td style="text-align:center">ccc</td>
-<td style="text-align:center">ddd</td>
-<td style="text-align:center">eee</td>
-</tr>
-<tr>
-<td style="text-align:center">fff</td>
-<td style="text-align:center">ggg</td>
-<td style="text-align:center">hhh</td>
-<td style="text-align:center">iii</td>
-<td style="text-align:center">000</td>
-</tr>
-</tbody>
-</table>
-<h1 id="行内代码块"><a href="#行内代码块" class="headerlink" title="行内代码块"></a>行内代码块</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`XXX`</span><br></pre></td></tr></table></figure>
-<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><h2 id="markdown-here"><a href="#markdown-here" class="headerlink" title="markdown-here"></a>markdown-here</h2><p>谷歌插件，神器，将md一键转富文本！</p>
+          <h1 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h1><p><a href="https://help.aliyun.com/wordpower/2596091-1.html" target="_blank" rel="noopener">alibabaMysql开发规范和常见问题处理</a><br><a href="https://learnku.com/articles/25116" target="_blank" rel="noopener">参考1</a></p>
+<h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="SHOW-ENGINE-INNODB-STATUS-todo"><a href="#SHOW-ENGINE-INNODB-STATUS-todo" class="headerlink" title="SHOW ENGINE INNODB STATUS; todo"></a>SHOW ENGINE INNODB STATUS; todo</h2><h2 id="建模工具PDMan-todo"><a href="#建模工具PDMan-todo" class="headerlink" title="建模工具PDMan todo"></a>建模工具PDMan todo</h2><p>还是可视化视图清晰点，还可以导出自动生成sql。</p>
+<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"># 设置主键自增初始值</span><br><span class="line">alter table t_ins_sequence AUTO_INCREMENT = 100000;</span><br><span class="line"># 修改表名</span><br><span class="line">alter table sys_user_role rename to sys_user_role_rel;</span><br><span class="line"># 查询数据库里面各个表的大小</span><br><span class="line">SELECT CONCAT(table_schema,&apos;.&apos;,table_name) AS &apos;Table Name&apos;,</span><br><span class="line">    table_rows AS &apos;Number of Rows&apos;,</span><br><span class="line">    CONCAT(ROUND(data_length/(1024*1024*1024),6),&apos; G&apos;) AS &apos;Data Size&apos;,</span><br><span class="line">    CONCAT(ROUND(index_length/(1024*1024*1024),6),&apos; G&apos;) AS &apos;Index Size&apos; ,</span><br><span class="line">    CONCAT(ROUND((data_length+index_length)/(1024*1024*1024),6),&apos; G&apos;) AS&apos;Total&apos;</span><br><span class="line">FROM information_schema.TABLES</span><br><span class="line">WHERE table_schema LIKE &apos;inspect_db&apos;;</span><br><span class="line"># 修改主键自增</span><br><span class="line">alter table word_fetch_queue modify queue_id int auto_increment;</span><br><span class="line"># 修改主键被外键约束show create table table_name;</span><br><span class="line"></span><br><span class="line">SET FOREIGN_KEY_CHECKS = 0;</span><br><span class="line"># 约束解除，进行修改，完了还原</span><br><span class="line">SET FOREIGN_KEY_CHECKS = 1;</span><br><span class="line"># 查询表的建表DDL</span><br><span class="line">show create table table_name;</span><br><span class="line"># 查看表空间模式</span><br><span class="line">show variables like &apos;%innodb_file_per_table%&apos; ;</span><br><span class="line"># Mysql基本可以将schema当成database；下面二个命令都会创建对应数据库</span><br><span class="line">create schema xxxName;</span><br><span class="line">create databse xxxName;</span><br><span class="line"># 查询某个字符开头的所有表</span><br><span class="line">show tables like &apos;ACT_%&apos;;</span><br></pre></td></tr></table></figure>
+<h2 id="执行计划EXPLAIN"><a href="#执行计划EXPLAIN" class="headerlink" title="执行计划EXPLAIN"></a>执行计划EXPLAIN</h2><p><a href="https://www.cnblogs.com/tufujie/p/9413852.html" target="_blank" rel="noopener">Mysql执行计划教程</a></p>
+<h2 id="Mysql的级联更新"><a href="#Mysql的级联更新" class="headerlink" title="Mysql的级联更新"></a>Mysql的级联更新</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">update tb1,</span><br><span class="line">tb2</span><br><span class="line">set tb1.a=tb2.a,tb1.b=tb2.b</span><br><span class="line">where tb1.id=tb2.id;</span><br><span class="line"></span><br><span class="line">update tb1,</span><br><span class="line">(select * from tb2 where xxx) as tb2</span><br><span class="line">set tb1.a=tb2.a,tb1.b=tb2.b</span><br><span class="line">where tb1.id=tb2.id;</span><br><span class="line"></span><br><span class="line">update (select * from tb1 group by C) as temp,</span><br><span class="line">       tb2,</span><br><span class="line">       tb1</span><br><span class="line">set tb1.a = tb2.a,</span><br><span class="line">    tb1.b = tb2.b</span><br><span class="line">where tb1.id = tb2.id and</span><br><span class="line">      temp.id = tb2.id;</span><br><span class="line"></span><br><span class="line">update tb1 left join tb2 on tb1.id = tb2.id</span><br><span class="line">set tb1.a = tb2.a,</span><br><span class="line">    tb1.b = tb2.b</span><br><span class="line">where xxx;</span><br></pre></td></tr></table></figure>
+<h2 id="Mysql和Oracle的Sql的不同之处"><a href="#Mysql和Oracle的Sql的不同之处" class="headerlink" title="Mysql和Oracle的Sql的不同之处"></a>Mysql和Oracle的Sql的不同之处</h2><p>delete在oracle中是支持别名的，mysql不支持<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete from table_name tn;// mysql error</span><br></pre></td></tr></table></figure></p>
+<p>Oracle可以直接sequence，Mysql不能，如果非要在Mysql使用类似Oracle的sequence功能，可以通过一张表来模拟，参考：<br><a href="https://blog.csdn.net/u012373815/article/details/78179411" title="标题" target="_blank" rel="noopener">https://blog.csdn.net/u012373815/article/details/78179411</a></p>
+<p>Mysql没有类似Oracle一样的表空间概念，mysql的表空间分为两个文件一个是<em>.ibd文件存储数据索引…等数据信息，且只针对一张表，还有一个文件是</em>.frm这个文件是存储表的元数据。</p>
+<h2 id="time、timestamp、date、datetime"><a href="#time、timestamp、date、datetime" class="headerlink" title="time、timestamp、date、datetime"></a>time、timestamp、date、datetime</h2><p>DATE: It is used for values with a date part but no time part. MySQL retrieves and displays DATE values in YYYY-MM-DD format. The supported range is 1000-01-01 to 9999-12-31.</p>
+<p>DATETIME: It is used for values that contain both date and time parts. MySQL retrieves and displays DATETIME values in YYYY-MM-DD HH:MM:SS format. The supported range is 1000-01-01 00:00:00 to 9999-12-31 23:59:59.</p>
+<p>TIMESTAMP: It is used for values that contain both date and time parts. TIMESTAMP has a range of 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC.</p>
+<p>TIME: Its values are in HH:MM:SS format (or HHH:MM:SS format for large hours values). TIME values may range from -838:59:59 to 838:59:59. The hours part may be so large because the TIME type can be used not only to represent a time of day (which must be less than 24 hours), but also elapsed time or a time interval between two events (which may be much greater than 24 hours, or even negative).</p>
+<h2 id="char-vs-varchar"><a href="#char-vs-varchar" class="headerlink" title="char vs varchar"></a>char vs varchar</h2><p>MySQL - CHAR vs VARCHAR - What is the difference? CHAR is fixed length while VARCHAR is variable length. That means, a CHAR(x) string has exactly x characters in length, including spaces. A VARCHAR(x) string can have up to x characters and it cuts off trailing spaces, thus might be shorter than the declared length.</p>
+<h2 id="Mysql一对多数据显示成一行"><a href="#Mysql一对多数据显示成一行" class="headerlink" title="Mysql一对多数据显示成一行"></a>Mysql一对多数据显示成一行</h2><p><a href="https://www.cnblogs.com/lucky-girl/p/9482169.html" target="_blank" rel="noopener">使用GROUP_CONCAT</a></p>
+<h2 id="Mysql常用函数大全"><a href="#Mysql常用函数大全" class="headerlink" title="Mysql常用函数大全"></a>Mysql常用函数大全</h2><p><a href="https://www.cnblogs.com/panchanggui/p/10652322.html" target="_blank" rel="noopener">常用函数</a></p>
+<h2 id="数据库的导入导出（数据迁移、数据备份恢复）"><a href="#数据库的导入导出（数据迁移、数据备份恢复）" class="headerlink" title="数据库的导入导出（数据迁移、数据备份恢复）"></a>数据库的导入导出（数据迁移、数据备份恢复）</h2><h3 id="快速备份某个表"><a href="#快速备份某个表" class="headerlink" title="快速备份某个表"></a>快速备份某个表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE IF EXISTS B;</span><br><span class="line">CREATE TABLE B LIKE A;</span><br><span class="line">INSERT INTO B SELECT * FROM A;</span><br></pre></td></tr></table></figure>
+<h3 id="导出备份单个表"><a href="#导出备份单个表" class="headerlink" title="导出备份单个表"></a>导出备份单个表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p dbname tablename &gt; table.sql</span><br></pre></td></tr></table></figure>
+<h3 id="导出备份整个库"><a href="#导出备份整个库" class="headerlink" title="导出备份整个库"></a>导出备份整个库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p dbname &gt; db.sql</span><br></pre></td></tr></table></figure>
+<h3 id="导入通过mysql命令"><a href="#导入通过mysql命令" class="headerlink" title="导入通过mysql命令"></a>导入通过mysql命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p vocabulary_enhancer_db &lt; /mysql_sql_temp/old_bak.sql</span><br></pre></td></tr></table></figure>
+<h3 id="临时表备份"><a href="#临时表备份" class="headerlink" title="临时表备份"></a>临时表备份</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TEMPORARY TABLE tmp_table SELECT * FROM table_name;</span><br></pre></td></tr></table></figure>
+<h2 id="所有子查询都要用唯一别名"><a href="#所有子查询都要用唯一别名" class="headerlink" title="所有子查询都要用唯一别名"></a>所有子查询都要用唯一别名</h2><h2 id="主键插入返回"><a href="#主键插入返回" class="headerlink" title="主键插入返回"></a>主键插入返回</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;insert id=&quot;genSequence&quot; parameterType=&quot;com.ccssoft.ngbip.sdk.core.entity.Sequence&quot;&gt;</span><br><span class="line">    insert into $&#123;tableName&#125; (stub) values (&apos;b&apos;)</span><br><span class="line">    &lt;selectKey resultType=&quot;integer&quot; keyProperty=&quot;id&quot;&gt;</span><br><span class="line">        select last_insert_id() as id</span><br><span class="line">        &lt;!-- select &apos;NEXT VALUE FOR MYCATSEQ_$&#123;tableName&#125;&apos; as id --&gt;</span><br><span class="line">    &lt;/selectKey&gt;</span><br><span class="line">&lt;/insert&gt;</span><br></pre></td></tr></table></figure>
+<p><a href="https://blog.csdn.net/czd3355/article/details/71302441/" target="_blank" rel="noopener">https://blog.csdn.net/czd3355/article/details/71302441/</a></p>
+<h1 id="表设计"><a href="#表设计" class="headerlink" title="表设计"></a>表设计</h1><h2 id="外键设计"><a href="#外键设计" class="headerlink" title="外键设计"></a>外键设计</h2><p>尽量避免使用外键，如果一定要使用外键的情况下，必须要考虑是否要在主表加上ON DELETE CASCADE或者ON UPDATE CASCADE，大部分情况下是必须要加上这个级联约束的，但是要注意的是，关系表中的外键，一定要建索引，否则在删除主键时级联删除外键会很慢很慢。</p>
+<h2 id="主键使用uuid和自增int的区别"><a href="#主键使用uuid和自增int的区别" class="headerlink" title="主键使用uuid和自增int的区别"></a>主键使用uuid和自增int的区别</h2><p><a href="http://www.mysqltutorial.org/mysql-uuid/" target="_blank" rel="noopener">http://www.mysqltutorial.org/mysql-uuid/</a><br><a href="https://juejin.im/post/5c32a7a86fb9a049ad7734b3" target="_blank" rel="noopener">https://juejin.im/post/5c32a7a86fb9a049ad7734b3</a><br>最近在重构公司一个老的模块，重构当然要从数据库开始着手，关于数据表主键的实现方式选择，我想到的有二种方式，一种是uuid，一种是自增int，<br>先抛开是否分布式架构不说，选用uuid网上都会提到两个明显的弊端：<br>1、是数据暂用空间大.<br>2、数据无序性对索引这种树结构的存储有性能上的影响。</p>
+<p>第一点我倒是觉得没什么大的影响，现在的硬盘已经不是缺那点点存储的问题了。<br>选用自增int的话，也有两个明显的弊端：<br>1、存在安全性问题，将一个已知主键加减某个值就得到另外一个主键了。<br>2、如果多个表数据合并，可以自增主键存在冲突。</p>
+<p>真到了分布式的可以有第三方成熟的实现方案可供选择。<br>结论：尽量使用整型做主键，数据无序性的开销太大了，这点足以让整型的弊端再多，也必须竭力去解决弊端后选择整型做主键。</p>
+<h2 id="主键int还是bigint"><a href="#主键int还是bigint" class="headerlink" title="主键int还是bigint"></a>主键int还是bigint</h2><p>int的范围：从 -2^31 (-2,147,483,648) 到 2^31 - 1 (2,147,483,647) 的整型数据（所有数字）。存储大小为 4 个字节。int 的 SQL-92 同义字为 integer。<br>bigint的范围：从 -2^63 (-9223372036854775808) 到 2^63-1 (9223372036854775807) 的整型数据（所有数字）。存储大小为 8 个字节。</p>
+<p>int的上限已经很大了，一般的应用不会超出这个范围，所以主键一般使用int，也可以节省存储。</p>
+<h2 id="分布式主键自增实现方案"><a href="#分布式主键自增实现方案" class="headerlink" title="分布式主键自增实现方案"></a>分布式主键自增实现方案</h2><p><a href="https://tech.meituan.com/2017/04/21/mt-leaf.html" target="_blank" rel="noopener">美团Leaf</a><br><a href="https://www.cnblogs.com/relucent/p/4955340.html" target="_blank" rel="noopener">twitter的snowflake</a></p>
+<h2 id="创建和更新时间"><a href="#创建和更新时间" class="headerlink" title="创建和更新时间"></a>创建和更新时间</h2><p>必要时，尽量在表里面添加创建时间（create_time）和更新事件（update_time）</p>
+<h2 id="表的DDL维护成本高，必要时可以考虑多留几个扩展字段备用"><a href="#表的DDL维护成本高，必要时可以考虑多留几个扩展字段备用" class="headerlink" title="表的DDL维护成本高，必要时可以考虑多留几个扩展字段备用"></a>表的DDL维护成本高，必要时可以考虑多留几个扩展字段备用</h2><p><a href="https://www.jianshu.com/p/47a1d7998fe0" target="_blank" rel="noopener">https://www.jianshu.com/p/47a1d7998fe0</a></p>
+<h2 id="Mysql-的表尽量设置成-K-V-Key-Value-结构，什么情况下适合设计成K-V结构？"><a href="#Mysql-的表尽量设置成-K-V-Key-Value-结构，什么情况下适合设计成K-V结构？" class="headerlink" title="Mysql 的表尽量设置成 K-V (Key-Value) 结构，什么情况下适合设计成K-V结构？"></a>Mysql 的表尽量设置成 K-V (Key-Value) 结构，什么情况下适合设计成K-V结构？</h2><p><a href="https://blog.csdn.net/zcl_love_wx/article/details/81178339" target="_blank" rel="noopener">表Key-value结构介绍</a><br>在存储一些数据结构经常变动的数据适合采用K-V结构。</p>
+<h2 id="为什么要尽量避免表字段为NULL值"><a href="#为什么要尽量避免表字段为NULL值" class="headerlink" title="为什么要尽量避免表字段为NULL值"></a>为什么要尽量避免表字段为NULL值</h2><p>表字段避免 null 值出现，null 值很难查询优化且占用额外的索引空间，推荐默认数字 0 代替 null。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/43t5XR.png" alt></p>
+<h2 id="字段类型的选择"><a href="#字段类型的选择" class="headerlink" title="字段类型的选择"></a>字段类型的选择</h2><ul>
+<li>尽量使用 INT 而非 BIGINT，如果非负则加上 UNSIGNED（这样数值容量会扩大一倍），当然能使用 TINYINT、SMALLINT、MEDIUM_INT 更好。</li>
+<li>使用整数代替字符串类型</li>
+<li><a href="https://cloud.tencent.com/developer/news/155166" target="_blank" rel="noopener">枚举类型的弊端</a></li>
+</ul>
+<h2 id="IP使用整型来存储"><a href="#IP使用整型来存储" class="headerlink" title="IP使用整型来存储"></a>IP使用整型来存储</h2><p><a href="https://bafford.com/2009/03/09/mysql-performance-benefits-of-storing-integer-ip-addresses/" target="_blank" rel="noopener">为什么推荐使用</a><br>注意最后一段：<br>The load on MySQL when inserting integer IPs could likely be slightly reduced by doing that conversion in your application, rather than using MySQL’s INET_ATON() function.<br>ip的转换可以考虑放到应用程序来做，而不是通过Mysql的函数做转换。</p>
+<h2 id="Mysql的分库分表，水平拆分-垂直拆分-todo"><a href="#Mysql的分库分表，水平拆分-垂直拆分-todo" class="headerlink" title="Mysql的分库分表，水平拆分-垂直拆分 todo"></a>Mysql的分库分表，水平拆分-垂直拆分 todo</h2><h2 id="共享表空间和独享表空间的区别和优缺点"><a href="#共享表空间和独享表空间的区别和优缺点" class="headerlink" title="共享表空间和独享表空间的区别和优缺点"></a>共享表空间和独享表空间的区别和优缺点</h2><p><a href="http://blog.itpub.net/15498/viewspace-2124040/" target="_blank" rel="noopener">http://blog.itpub.net/15498/viewspace-2124040/</a></p>
+<h2 id="单表大小限制与表空间的关系"><a href="#单表大小限制与表空间的关系" class="headerlink" title="单表大小限制与表空间的关系"></a>单表大小限制与表空间的关系</h2><p><a href="https://blog.csdn.net/wsh900221/article/details/80242299" target="_blank" rel="noopener">https://blog.csdn.net/wsh900221/article/details/80242299</a></p>
+<h2 id="timestamp-默认当前时间不能同时是not-null"><a href="#timestamp-默认当前时间不能同时是not-null" class="headerlink" title="timestamp 默认当前时间不能同时是not null"></a>timestamp 默认当前时间不能同时是not null</h2><h1 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h1><ul>
+<li>索引使用_ind结尾，字段的多个单词取单词的首字母组合，例如：sample 表 member_id 上的索引:sample_mid_ind。</li>
+<li>主键约束: pk 结尾，_pk;</li>
+<li>unique 约束:_uk 结尾，uk;</li>
+<li>check 约束: _ck 结尾，ck;</li>
+<li>外键约束: _fk 结尾，以 pri 连接本表与主表，_pri_fk;</li>
+<li>数据库表示是与否的值，使用 tinyint 类型，坚持 is_xxx 的 命名方式是为了明确其取值含义与取值范围;</li>
+<li>表名、字段名必须使用小写字母或数字，禁止出现数字开头，禁止两个下划线中间只<br>出现数字。数据库字段名的修改代价很大，因为无法进行预发布，所以字段名称需要慎重考虑;</li>
+</ul>
+<h2 id="Mysql关键字大全"><a href="#Mysql关键字大全" class="headerlink" title="Mysql关键字大全"></a>Mysql关键字大全</h2><p><a href="https://blog.csdn.net/weixin_43201975/article/details/88953903" target="_blank" rel="noopener">https://blog.csdn.net/weixin_43201975/article/details/88953903</a></p>
+<h1 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h1><h2 id="为什么推荐外键约束放在应用层，不在数据库库"><a href="#为什么推荐外键约束放在应用层，不在数据库库" class="headerlink" title="为什么推荐外键约束放在应用层，不在数据库库?"></a>为什么推荐外键约束放在应用层，不在数据库库?</h2><p><a href="https://learnku.com/articles/25116" target="_blank" rel="noopener">https://learnku.com/articles/25116</a></p>
+<h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><ul>
+<li>索引并不是越多越好，要根据查询有针对性的创建，考虑在 WHERE 和 ORDER BY 命令上涉及的列建立索引，可根据 EXPLAIN 来查看是否用了索引还是全表扫描</li>
+<li>应尽量避免在 WHERE 子句中对字段进行 NULL 值判断，否则将导致引擎放弃使用索引而进行全表扫描</li>
+<li>值分布很稀少的字段不适合建索引，例如 “性别” 这种只有两三个值的字段</li>
+<li>字符字段太长的话，考虑用前缀索引</li>
+<li>字符字段最好不要做主键 - 超过三个表禁止 join。需要 join 的字段，数据类型必须绝对一致;多表关联查询时， 保证被关联的字段需要有索引。(即使双表 join 也要注意表索引、SQL 性能)</li>
+</ul>
+<h2 id="前缀索引"><a href="#前缀索引" class="headerlink" title="前缀索引"></a>前缀索引</h2><p><a href="https://blog.csdn.net/ma2595162349/article/details/79449493" target="_blank" rel="noopener">前缀索引解释</a><br>如果是对已经存在的表建前缀索引，要先去比较重复率再择优创建索引：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/l55Uqw.png" alt></p>
+<h2 id="联合索引之最左原则（左前缀原则）"><a href="#联合索引之最左原则（左前缀原则）" class="headerlink" title="联合索引之最左原则（左前缀原则）"></a>联合索引之最左原则（左前缀原则）</h2><p><a href="https://blog.csdn.net/wdjxxl/article/details/79790421" target="_blank" rel="noopener">https://blog.csdn.net/wdjxxl/article/details/79790421</a><br><a href="https://blog.csdn.net/Wuhaotian1996/article/details/80469353" target="_blank" rel="noopener">https://blog.csdn.net/Wuhaotian1996/article/details/80469353</a></p>
+<h2 id="多对多的关联表索引"><a href="#多对多的关联表索引" class="headerlink" title="多对多的关联表索引"></a>多对多的关联表索引</h2><p>一般是在二个关联的主键字典建唯一联合索引，避免重复数据，提升查询效率。</p>
+<h2 id="覆盖索引"><a href="#覆盖索引" class="headerlink" title="覆盖索引"></a>覆盖索引</h2><p>Order by的时候，如果一个索引包含(或覆盖)所有需要查询的字段的值，称为‘覆盖索引’。即只需扫描索引而无须扫表。</p>
+<h2 id="order-by出现file-sort"><a href="#order-by出现file-sort" class="headerlink" title="order by出现file_sort"></a>order by出现file_sort</h2><p><a href="https://dev.mysql.com/doc/refman/8.0/en/order-by-optimization.html" target="_blank" rel="noopener">order by 官方的优化文档</a><br><a href="https://www.cnblogs.com/developer_chan/p/9225638.html" target="_blank" rel="noopener">Order by 优化</a><br>没有使用到索引来排序是，执行计划会显示file_sort。<br>需要重点注意的是，索引创建是也是有排序的，默认是ASC，如果Order by的排序和索引创建的时候指定的不一致，也会导致file_sort。  </p>
+<p>非联合索引不受order by后面的升序和降序影响到是否使用索引排序，联合索引的情况下应该考虑order  by的升序降序是否和索引创建时一致。</p>
+<h2 id="时间类字段是否应该建索引"><a href="#时间类字段是否应该建索引" class="headerlink" title="时间类字段是否应该建索引"></a>时间类字段是否应该建索引</h2><p>我自己测试了一下建索引确实是性能上有明显提升的，<br>没加索引：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2019-12-25 15:13:59] 1 row retrieved starting from 1 in 592 ms (execution: 576 ms, fetching: 16 ms)</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/l55Uqw.png" alt><br>加上索引之后：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2019-12-25 15:19:28] 1 row retrieved starting from 1 in 258 ms (execution: 239 ms, fetching: 19 ms)</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/otmOCJ.png" alt></p>
+<h2 id="什么情况下SQL不会使用到索引"><a href="#什么情况下SQL不会使用到索引" class="headerlink" title="什么情况下SQL不会使用到索引"></a>什么情况下SQL不会使用到索引</h2><ul>
+<li>like出现左匹配：’%XXX’</li>
+<li>where语句中使用&lt;&gt;, !=, not in</li>
+<li>where语句中使用 or，但是没有把or中所有字段加上索引，这种情况，如果需要使用索引需要将or中所有的字段都加上索引。</li>
+<li>where语句中对字段表达式操作</li>
+<li>使用索引的时候没有遵从索引的左前缀原则</li>
+</ul>
+<h2 id="SQL编写优化"><a href="#SQL编写优化" class="headerlink" title="SQL编写优化"></a>SQL编写优化</h2><ul>
+<li>避免 select <em>，将需要查找的字段列出来，这里并不是因为select </em> 就一定是性能明显更差的原因，具体解释参考<a href="https://blog.csdn.net/qq_38836118/article/details/88708933" target="_blank" rel="noopener">https://blog.csdn.net/qq_38836118/article/details/88708933</a></li>
+</ul>
+<h2 id="SQL手工拼写的防止注入"><a href="#SQL手工拼写的防止注入" class="headerlink" title="SQL手工拼写的防止注入"></a>SQL手工拼写的防止注入</h2><p>varchar类型的字段，在拼写条件值得时候，外面用单引号包围起来，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ objId + &quot; and o.disp_object_type=&apos;&quot; + objType + &quot;&apos;&quot;);</span><br></pre></td></tr></table></figure></p>
+<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="The-last-packet-sent-successfully-to-the-server-was-0-milliseconds-ago-The-driver-has-not-received-any-packets-from-the-server"><a href="#The-last-packet-sent-successfully-to-the-server-was-0-milliseconds-ago-The-driver-has-not-received-any-packets-from-the-server" class="headerlink" title="The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server."></a>The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.</h2><p>自己出现这个问题是因为连公司内部库是用vpn，vpn连续开了2天，连接mysql就报了这个错，vpn重启一下就ok了。</p>
+<h2 id="required-a-bean-of-type-‘org-springframework-cache-CacheManager’-that-could-not-be-found"><a href="#required-a-bean-of-type-‘org-springframework-cache-CacheManager’-that-could-not-be-found" class="headerlink" title="required a bean of type ‘org.springframework.cache.CacheManager’ that could not be found."></a>required a bean of type ‘org.springframework.cache.CacheManager’ that could not be found.</h2><p>需要再spring.foctories添加org.springframework.boot.autoconfigure.EnableAutoConfiguration配置，<br>至少需要配置RedisTemplate</p>
+<h2 id="ERROR-2002-HY000-Can’t-connect-to-local-MySQL-server-through-socket-‘-tmp-mysql-sock’-111"><a href="#ERROR-2002-HY000-Can’t-connect-to-local-MySQL-server-through-socket-‘-tmp-mysql-sock’-111" class="headerlink" title="ERROR 2002 (HY000): Can’t connect to local MySQL server through socket ‘/tmp/mysql.sock’ (111)"></a>ERROR 2002 (HY000): Can’t connect to local MySQL server through socket ‘/tmp/mysql.sock’ (111)</h2><p>可能是数据库服务资源紧张挂掉了，mysqld进程我已查看都不在了，重启mysql就好了，当然也有其他原因也会导致这个报错。</p>
+<h2 id="delete语句子查询not-exists是不会生效的"><a href="#delete语句子查询not-exists是不会生效的" class="headerlink" title="delete语句子查询not exists是不会生效的"></a>delete语句子查询not exists是不会生效的</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">delete</span><br><span class="line">from word_paraphrase_star_rel</span><br><span class="line">where not exists(select * from word_paraphrase wp where wp.paraphrase_id = paraphrase_id);</span><br></pre></td></tr></table></figure>
+<p>需要改成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">delete</span><br><span class="line">from word_paraphrase_star_rel</span><br><span class="line">where paraphrase_id in (select tmp.paraphrase_id</span><br><span class="line">                        from (select wpsr.paraphrase_id</span><br><span class="line">                              from word_paraphrase_star_rel wpsr</span><br><span class="line">                              where not exists(</span><br><span class="line">                                      select *</span><br><span class="line">                                      from word_paraphrase wp</span><br><span class="line">                                      where wp.paraphrase_id = wpsr.paraphrase_id)) tmp)</span><br></pre></td></tr></table></figure></p>
+<h2 id="You-can’t-specify-target-table-‘word-paraphrase-star-rel’-for-update-in-FROM-clause"><a href="#You-can’t-specify-target-table-‘word-paraphrase-star-rel’-for-update-in-FROM-clause" class="headerlink" title="You can’t specify target table ‘word_paraphrase_star_rel’ for update in FROM clause"></a>You can’t specify target table ‘word_paraphrase_star_rel’ for update in FROM clause</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">delete</span><br><span class="line">from word_paraphrase_star_rel</span><br><span class="line">where paraphrase_id in (select wpsr.paraphrase_id</span><br><span class="line">                        from word_paraphrase_star_rel wpsr</span><br><span class="line">                        where not exists(</span><br><span class="line">                                select * from word_paraphrase wp where wp.paraphrase_id = wpsr.paraphrase_id))</span><br></pre></td></tr></table></figure>
+<p>改成下面即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">delete</span><br><span class="line">from word_paraphrase_star_rel</span><br><span class="line">where paraphrase_id in (select tmp.paraphrase_id</span><br><span class="line">                        from (select wpsr.paraphrase_id</span><br><span class="line">                              from word_paraphrase_star_rel wpsr</span><br><span class="line">                              where not exists(</span><br><span class="line">                                      select *</span><br><span class="line">                                      from word_paraphrase wp</span><br><span class="line">                                      where wp.paraphrase_id = wpsr.paraphrase_id)) tmp)</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -443,7 +424,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/24/从eclipse转到idea的过程/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/01/Idea汇总/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -457,7 +438,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/02/24/从eclipse转到idea的过程/" class="post-title-link" itemprop="url">从eclipse转到idea的过程</a>
+            <a href="/2019/12/01/Idea汇总/" class="post-title-link" itemprop="url">Idea汇总</a>
         </h2>
 
         <div class="post-meta">
@@ -467,14 +448,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2019-02-24 22:51:27" itemprop="dateCreated datePublished" datetime="2019-02-24T22:51:27+08:00">2019-02-24</time>
+              <time title="Created: 2019-12-01 21:10:40" itemprop="dateCreated datePublished" datetime="2019-12-01T21:10:40+08:00">2019-12-01</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-27 16:05:45" itemprop="dateModified" datetime="2020-07-27T16:05:45+08:00">2020-07-27</time>
+                <time title="Modified: 2020-07-30 10:48:35" itemprop="dateModified" datetime="2020-07-30T10:48:35+08:00">2020-07-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -483,10 +464,6 @@
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Idea/" itemprop="url" rel="index"><span itemprop="name">Idea</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Idea/eclipse/" itemprop="url" rel="index"><span itemprop="name">eclipse</span></a>
                 </span>
             </span>
 
@@ -502,322 +479,537 @@
 
       
           <blockquote>
-<p>这篇文章会比较乱，因为我不想做太多系列细分，就是单纯地把我从eclipse转到idea的经过写出来而已，公司的项目一直采用的&gt;是eclipse+maven+jboss的环境开发的，版本控制通过svn控制，这年代还用svn做控制确实有点更不上时代了，转的过程有点麻烦，但是最终我还是顺利用上idea，只是目前还不太习惯。想入坑idea很早之前就有这个想法了，eclipse我们公司一直都在用很古老的一个版本，隐藏的bug且不说，时不时的卡顿就够影响效率的了。</p>
+<p>有部分内容来自网络，一般都有注明出处，如若侵权，请联系我删除，谢谢！<br>文章的图片来自github的图床，图片链接存在github图床（<a href="https://raw.githubusercontent.com），该地址可能需要翻墙才能访问，所以图片可能存在加载不成功的情况。" target="_blank" rel="noopener">https://raw.githubusercontent.com），该地址可能需要翻墙才能访问，所以图片可能存在加载不成功的情况。</a></p>
 </blockquote>
-<h2 id="idea的subversion巨坑"><a href="#idea的subversion巨坑" class="headerlink" title="idea的subversion巨坑"></a>idea的subversion巨坑</h2><p>转idea遇到第一个大难题就是svn版本控制的转换，我司采用svn+ssh协议，还是秘钥文件+密码验证的。以前使用的一直是入职就分给我的一个ssh的秘钥文件eclipse专用的，还附带了一个ppk后缀的秘钥文件，但是ppk那个一直没有派上用途。idea的svn用户认证可能存在bug，我和在elipse上做了类似的svn地址和用户+秘钥文件的配置之后一直无法脸上代码仓库，一直无限弹出让我输入密码。搞得我一度想放弃。<br>后来在查了下，ssh+svn协议原则上是先通过ssh登录svn服务端的机器，等于先打通一条数据流通的渠道，然后svn的交互依赖于这条ssh的通道上面。一直依赖我都是直接在eclipse做svn的操作，没有考虑太多，于是我好奇用我的svn账号密码+ppk秘钥文件去登录svn指向ip的服务器，果然成功了，既然能登上去，说明idea只是没有正确通过ssh登录到svn服务器上而已，<strong><em>通过搜索我才知道，原来的ppk文件是putty的专用格式秘钥文件，而openssh一般采用pem，于是刻不容缓，我又查了下ppk转pem的方法，然后顺利转换到pem文件，在idea的preferences-&gt;Version Control-&gt;Subversion-&gt;SSH上面的Private key指向到新的pem秘钥文件，then connect svn server success，注意其他关于svn的设置先还原，保持默认即可。</em></strong></p>
-<h2 id="ssh-svn可以通过SSH-tunnel的方式连接"><a href="#ssh-svn可以通过SSH-tunnel的方式连接" class="headerlink" title="ssh+svn可以通过SSH tunnel的方式连接"></a>ssh+svn可以通过SSH tunnel的方式连接</h2><p>之前一定用pem秘钥的方式，有次突然抽风不能用了，于是改用SSH tunnel的方式。Subversion-&gt;SSH，勾选Subversion config，SSH tunnel用默认的：</p>
-<p>但是要先记住ssh的pem秘钥通过命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add -k /Users/zhanshifeng/Documents/ccssoftDocument/eclipse/zhanshifeng.pem</span><br></pre></td></tr></table></figure></p>
-<p>输入密码然后即可永久记住，测试是否可以登录成功：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh zhanshifeng@199.3.0.10</span><br></pre></td></tr></table></figure></p>
-<h2 id="不复存在的workspace"><a href="#不复存在的workspace" class="headerlink" title="不复存在的workspace"></a>不复存在的workspace</h2><p>使用eclipse的开发者转到idea最不习惯的地方之一就是idea没有eclipse对应的workspace，我们公司是采用maven来控制jar依赖的,<br>通过maven实现多个子工程（project-anything）继承一个父工程(project-parent)，父工程的依赖jar可以被子工程共用。我直接粗暴得将所有模块的根目录直接check out到新的目录（idea-all-project），然后选择idea的import project，因为eclipse不存在workspace的概念，所以我直接import idea-all-project这个跟目录，因为根目录也有一个pom.xml指向了project-parent，project-parent会因为子模块继承了它，它回去自动匹配到所哟偶子模块，只要在引入的时候勾选了项目是由maven做jar管控。<br>其实，很多时候如果存在子模块，或者其他模块不在所引入的目录之下可以通过project structure里面的modules去增减想要的模块。从这种角度上来讲，其实任何一个目录都是一个workspace，也可以说任何一个module都是workspace。</p>
-<h2 id="maven管控的企业级j2ee应用架构"><a href="#maven管控的企业级j2ee应用架构" class="headerlink" title="maven管控的企业级j2ee应用架构"></a>maven管控的企业级j2ee应用架构</h2><p>我们的整个应用架构可以这样分级。架构类似采用金字塔三角形管控。工程application-all的pom.xml中引入apache的maven-ear-plugin插件，这个EAR插件主要用于生成Java EE Enterprise Archive (EAR)文件，即将各种组件打包到一起生成一个ear文件。此外，EAR插件也用于生成EAR的部署描述符文件application.xml。<br>application-all通过maven-ear-plugin指向了子模块console-web-all，console-web-all采用了maven-war-plugin插件,maven-war-plugin顾名思义，是将底下所有依赖的资源打包成一个war包，war被ear包含。</p>
-<h2 id="在idea中将ear部署到jboss中"><a href="#在idea中将ear部署到jboss中" class="headerlink" title="在idea中将ear部署到jboss中"></a>在idea中将ear部署到jboss中</h2><p>一直依赖我都以为，jboss是启动的时候自动加载他对应的部署目录下面的应用，使用了idea之后，才发现，idea中maven项目是默认将资源部署到maven目录架构对应的target中的。。idea会去先启动jboss，jboss只有启动成功之后，才通过它的EARDeployer，传给部署器一个资源目录，然后jboss加载部署资源还是部署。<br><strong><em>部署ear到jboss的时候有一点要特别注意的。由于我们项目采用ear管控war，所以需要一些额外的配置操作，开发过程中建议部署Artifacts中的exploded，exploded是被分解的意思，翻译成中文我也不知道叫什么合适，总之开发模式采用这个比较好。我还在Project Structure的Artifacts对ear exploded的资源输出目录手动加了个ear后缀，不加应该也没关系，还是我又强迫症，然后在war exploded的资源输出目录手动加了war后缀，还有对资源输出做了一些配置调整，最后成功部署到jboss。</em></strong></p>
-<h2 id="不习惯的subservion操作模式"><a href="#不习惯的subservion操作模式" class="headerlink" title="不习惯的subservion操作模式"></a>不习惯的subservion操作模式</h2><p>用惯eclipse的svn插件就知道，eclipse的资源同步功能非常实用，然后idea乍眼一看貌似是没有这个类似的功能的，这让我很抓狂，后来通过摸索找到了可以基本代替之的办法。<br><strong><em>idea底部有个Version Control栏，其tool bar上有个Local Changes，打开这个刷新，可以看到本地改了那些代码，Local Changes旁边的Incoming可以看到别人新提交我没有更新下来的代码，Repository可以看到所有人的操作记录，还可以在Local Changes左边的tool bar对一些文件做一些辅助性的操作，比如搁置，忽略版本控制，还原等操作，实用性可以说五五开吧，虽然还是很不习惯。其他的基本操作基本会无师自通的。</em></strong></p>
-<h2 id="强大无比的各种快捷键"><a href="#强大无比的各种快捷键" class="headerlink" title="强大无比的各种快捷键"></a>强大无比的各种快捷键</h2><p>几个自动生成代码的快剪辑区别：</p>
-<h2 id="Bookmarks的排序功能"><a href="#Bookmarks的排序功能" class="headerlink" title="Bookmarks的排序功能"></a>Bookmarks的排序功能</h2><p>shift+F11，可以对书签进行上下移动排序，大赞！</p>
-<h2 id="输出控制台乱码解决"><a href="#输出控制台乱码解决" class="headerlink" title="输出控制台乱码解决"></a>输出控制台乱码解决</h2><p>在Server的VM options参数中加入以下配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-Dfile.encoding=UTF-8</span><br></pre></td></tr></table></figure></p>
-<h2 id="代码审计，代码分析，FindBugs-Plugin"><a href="#代码审计，代码分析，FindBugs-Plugin" class="headerlink" title="代码审计，代码分析，FindBugs Plugin"></a>代码审计，代码分析，FindBugs Plugin</h2><h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><blockquote>
-<p>shift+方向怎么改成选中？<br>在vim命令行模式下按v+方向，用这种方式更好。</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/17/English之时态系列-完成进行时-现在完成进行时/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/17/English之时态系列-完成进行时-现在完成进行时/" class="post-title-link" itemprop="url">English之时态系列-完成进行时（现在完成进行时）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-07-17 21:03:15" itemprop="dateCreated datePublished" datetime="2020-07-17T21:03:15+08:00">2020-07-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-26 21:03:28" itemprop="dateModified" datetime="2020-07-26T21:03:28+08:00">2020-07-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="完成进行时态的构成"><a href="#完成进行时态的构成" class="headerlink" title="完成进行时态的构成"></a>完成进行时态的构成</h2><p>以动词work为例，三种完成进行时态的构成形式如下：</p>
-<ol>
-<li>现在完成进行时：have been working</li>
-<li>过去完成进行时：had been working</li>
-<li>将来完成进行时：will have been working</li>
-</ol>
-<h2 id="完成进行时态的意义"><a href="#完成进行时态的意义" class="headerlink" title="完成进行时态的意义"></a>完成进行时态的意义</h2><p>从结构（structurally）的角度来看，完成进行时态是由完成时态与进行时态复合而成的，这种结构上的复合也必然会反映到意义上，因此完成进行时兼备“完成体”和“进行体”这两种时体的意义。<br>比如，对于现在完成进行时而言，一方面，完成体赋予了它“始于现在之前”的概念，即表示一个动作或状态是从过去持续或重复到现在；另一方面，进行体赋予它暂时的、不间断的延续性。所以，结合这两者的特点，现在完成进行时的核心意义是表示：被描述的事件开始于现在之前，而且是有限地（不会无限期地）持续下去。简言之，完成进行时的核心含义是表示“有限的延续性”。</p>
-<h2 id="延续事件"><a href="#延续事件" class="headerlink" title="延续事件"></a>延续事件</h2><p>现在完成进行时强调动作的持续性，表示一个到目前为止尚未完成的活动。具体来说，它表示开始于过去的活动持续到现在，并且活动往往还没有结束，将继续持续下去。此时的完成进行时常与“for+时间段”“since+时间点”，all morning，all day，all week 等这样的表示一段时间的时间状语连用，以强调在这一段期间内，某项活动正在持续。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/bxlo6A.png" alt></p>
-<p>I’ve been studying English for over ten years now, but I still can’t speak it well.<br>该句的谓语have been studying采用了现在完成进行时态，表示学习英语这一动作从10年前开始，一直持续到目前说话的时候，并且还将继续持续下去。</p>
-<p>你妈妈看到你正在看电视，不高兴地说：<br>A: Hey, you’re watching TV again.<br>B: I’ve been studying for the whole morning. I need to relax now.<br>该句的谓语have been studying采用了现在完成进行时态，但“学习”这个活动在说话时并没有在持续，而是在说话之前的一段时间内持续进行。</p>
-<p>延续事件根据延续时间长短的不同，可以区分四种不同的延续事件：长期在延续的一般性活动；近期在延续的活动；在说话时刻仍在延续的活动；在说话时刻之前在延续的活动，或者说刚刚在延续但现在已结束的活动。</p>
-<h3 id="长期在延续的事件"><a href="#长期在延续的事件" class="headerlink" title="长期在延续的事件"></a>长期在延续的事件</h3><p>现在完成进行时可以表示从过去到现在的一个相当长的时期内持续的一般性活动。<br>I’ve been learning English for over ten years now.<br>我学英语到现在有十多年了。<br>He has been working in the same job for 30 years.<br>他干同样的工作一干就是30年。<br>A: Winter is over at last. Time to pack up my gloves and boots.<br>B: I’ve been waiting for this for months.<br>A：冬天终于过去了，现在该把手套和长靴收拾起来了。<br>B：我等了好几个月了！<br>从以上例句可以看到，这些现在完成进行时表达的都是在相当长的一个时间段内（比如：for 30 years）持续的一般性活动。说它们是“一般性活动”，是因为这些活动并不具有很强的“正在进行”的动作的意味，或者说这些活动在说话的时刻一般并不正在持续。这些活动类似于一个持续的状态，更具有状态的意义，而没有多少动作的意义。<br>所以， 现在完成进行时的这一用法与“现在进行时态”的关系较远，而与“现在完成时态”的关系更近，完全类似于现在完成时所表达的“延续事件”的意义。比如，如果把上述句子的时态改成现在完成时态，也同样是正确的表达，而且意义上没有多大差别，所以可以这样说：<br>I’ve learned English for over ten years now.<br>He has worked in the same job for 30 years.<br>A: Winter is over at last. Time to pack up my gloves and boots.<br>B: I’ve waited for this for months.</p>
-<p>现在完成进行时往往表示有限的延续性，这是进行体赋予它的这个特点。而这里提到现在完成进行时表示长期在延续的事件，二者就有了语义上的冲突，这也就解释了为什么现在完成进行时的这一用法与现在进行时关系较远的原因。这一语义上的冲突其实也是在告诉我们：能够表示长期延续事件的现在完成进行时对谓语动词有特殊要求。换句话说，并不是所有的动词用于现在完成进行时都能表示一个长期在持续的事件。来看下面这个句子：<br>He has been repairing his car since 6:00 this morning.<br>这里的现在完成进行时has been repairing也是表示延续事件，但不是长期在延续的事件，而是一个“从早上6点到现在”短短几个小时的延续活动。整个句子的意思是“从早上6点到现在，他一直在修理他的车”，这个句子的言外之意就是，他现在仍然在修车，也就是说，在说话的时刻，repair的动作依然在进行。这完全不同于上述表达状态意义的wait等动词。<br>如果这种动作意味很强的动词与表达较长时间的状语连用，会产生何种语义效果。比如说：<br>He has been repairing cars for almost 20 years.<br>当我们说“他修理汽车有将近20年了”，显然不是表示repair这个动作一直不间断地持续了将近20年，也就是说，这里的has been repairing与表达较长时间的状语for almost 20 years连用时，就不能把它解释成一个长期延续的事件了，而只能把它解释成“重复事件”，即在将近20年当中，他不断“重复”地修理汽车，这就强烈地表明，他是专门从事汽车维修工作的，修车是他的职业。而如果说“从早上6点到现在，他一直在修理他的车”，则并不能说明修车是他的职业，只是表示他一直在做的一项活动而已。<br>从对以上两个例句的比较可以看出，像repair这样的表示单一具体动作的动词用作谓语时，若句子接有一个表示较短时间的状语，则表示延续的活动；但若句子接一个表示较长时间的状语，则表示一个重复的活动。也就是说，像repair这样的动词虽然具有一定的延续性，但持续的时间不能太长，所以这类动词被称为有限延续动词。英文中的大多数动词都是有限延续动词。<br>由此可见，能够表示长期延续事件的谓语动词不能是那些动作意味很强的动词。在英文中，像study, live, work, learn, teach和wait这样的动词并不能表达出某一具体的动作，它们近乎一种状态的延续，这样的动词被称为无限延续动词。这一部分动词在英文中比较少。因此，现在完成进行时在表示长期持续的事件时，其谓语动词必须是一些无限延续动词。<br>“Someday, when I have some time, I’d like to…”Heard that one lately? I think I use that phrase at least 10 times a week. But“someday”never seems to arrive. Now is the time for those little activities you’ve been saving for the future.<br>这里的save不是一个具体的动作，而是一个具有状态意义的动词。<br>“等我哪天有了时间，我一定就会去做……”经常听人这么说吧？我自己一星期至少要说10次这样的话。可是，“哪天”似乎从来就没有来过。对于那些你一直攒着想等将来做的事情，现在就应该去做。<br>对于无限延续动词来说，其所接的时间状语不论长短，都表示延续事件的意义。例如work是无限延续动词，表示一种状态，所以下面两句不论是与表达短时间的状语for two hours连用，还是与表达长时间的状语for 30 years连用，都是表示延续事件：<br>He has been working on the puzzles for two hours.<br>他玩这个拼图游戏有两个小时了。<br>He has been working in the same job for 30 years.<br>这个工作他做了有30年了。<br>对于wait是同样的道理，与表达长时间与短时间的状语连用都表示延续事件。</p>
-<h3 id="近期在延续的事件"><a href="#近期在延续的事件" class="headerlink" title="近期在延续的事件"></a>近期在延续的事件</h3><p>现在完成进行时除了可以表示一个长期持续的活动，还可用来表示最近一段时期内正在持续的一般性活动。<br>A: Has Cynthia been working hard on her term paper?<br>B: Day in and day out.<br>根据B的回答Day in and day out. （天天如此忙着。） 就可以知道，A的意思并不是在问Cynthia在说话的时刻是否一直在忙着写论文，而是问她近期是否在忙着写论文。<br>Cynthia is working hard on her term paper these days.<br>这里有时间状语these days，表明该句的语义重点不在于辛西娅在说话的时刻是否在写论文，而是表达她近期的一般性活动。<br>由此可见，现在完成进行时表示“近期在延续的事件”这一用法与现在进行时的关系更密切。</p>
-<p>I have been thinking about changing my job. 我最近一直在考虑换个工作。<br>I have been thinking it over. 我最近一直在考虑这件事。</p>
-<p>在口语中，如果想要表达“我一直想干什么”或“我早就想干什么”， 可以说“I have been wanting to do…”或“I have been meaning to do…”；如果要表达“一直想要什么”，可以说“I have been wanting…”。现在完成进行时的这一用法在大多数情况下是不带有持续时间状语的，不过也可以带有持续时间状语（如for the past couple days），都可以表示一个近期在持续的一般性活动。<br>Thank you so much for the binoculars. I’ve been wanting a pair for ages.非常感谢你送我这副望远镜，我一直想要一副。<br>I have been wanting to meet you for long. 我早就想见你了。<br>另外要注意，这里的“近期”是一个相对概念，可能是近几天，也可能是近几个星期，甚至是近几个月。所以，“近期”与“长期”并没有明确的界限，完全是根据实际生活经验来判断的。</p>
-<h3 id="在说话时刻仍在延续的事件"><a href="#在说话时刻仍在延续的事件" class="headerlink" title="在说话时刻仍在延续的事件"></a>在说话时刻仍在延续的事件</h3><p>现在完成进行时可以表示一个在说话时刻之前一段时间内延续的活动，并且这个活动在说话的时刻仍然在进行。<br>A: You’ve certainly been reading that one page for a long time now.<br>B: Well, I’m being tested on it tomorrow.<br>这里read的动作从过去开始并且持续到了现在说话的时刻，在说话的时刻A仍然在看书。<br>A：那一页内容你显然已经看了很长时间了。<br>B：噢，我明天就要考这页内容啊。</p>
-<h4 id="现在完成进行时-vs-现在进行时"><a href="#现在完成进行时-vs-现在进行时" class="headerlink" title="现在完成进行时 vs 现在进行时"></a>现在完成进行时 vs 现在进行时</h4><p>1） I’m staring at this computer.<br>2） I’ve been staring at this computer screen for hours and my eyes hurt.<br>一般不能说：I’m staring at this computer for hours. *<br>I’m trying to study. I’ve been trying to study for the last hour, but something always seems to interrupt me. I think I’d better go to the library.<br>可见，这里的现在完成进行时have been trying与持续的时间状语for the last hour搭配了，而现在进行时am trying却没有。</p>
-<h4 id="现在完成进行时动作持续到现在，之后是否继续可由上下文给出"><a href="#现在完成进行时动作持续到现在，之后是否继续可由上下文给出" class="headerlink" title="现在完成进行时动作持续到现在，之后是否继续可由上下文给出"></a>现在完成进行时动作持续到现在，之后是否继续可由上下文给出</h4><p>A: Come to the movies with us. Everybody needs to take a break every once in a while.<br>B: I guess I might as well. I’ve been studying so long I can hardly concentrate.<br>由上文“不妨休息（I guess I might as well.）”可以推断，study的动作持续到说话时为止，不再延续。<br>A：和我们一起去看电影吧，谁都需要偶尔休息休息的。<br>B：我想也是，我学了老半天了，现在都无法集中精力了。</p>
-<h3 id="在说话时刻之前在延续的事件（即刚刚在延续的事件）"><a href="#在说话时刻之前在延续的事件（即刚刚在延续的事件）" class="headerlink" title="在说话时刻之前在延续的事件（即刚刚在延续的事件）"></a>在说话时刻之前在延续的事件（即刚刚在延续的事件）</h3><p>一个事件在说话时刻之前一直在延续，换句话说，就是刚刚在延续但到说话时刻已经结束了（a recently finished activity）。从下面这个例句可以明确看出事件“刚刚在延续”：<br>He returned home yesterday. He has been traveling.<br>这里前一句话明确说“他昨天回家了”，这就表明他的旅行到现在说话时刻已经结束了，所以has been traveling就是表示一个“刚刚在延续的事件”——刚刚结束旅行。<br>他昨天回到家里了，在这之前他一直在外旅行来着。</p>
-<p>What have you been doing while I have been away?<br>这个句子表示“我刚才不在的时候，你们都一直在干什么了”，所以，这里的have been doing也由于从句while I have been away 的存在而明确表明一个刚刚在延续的事件。<br>我不在的时候，你们一直在干什么？</p>
-<p>但是，更多的时候，某个事件“刚刚在延续”并不会像上面这两个例句这样明确地表达出来，而是通过上下文来表明这个事件是“刚刚在延 续”。先来看下面这个例句：<br>A: You look hot.<br>B: Yes, I’ve been running.<br>对话中的have been running表示一个延续的动作，但这个动作并没有延续到现在（说话人现在不做running这个动作了），而是一直延续到离现在不远的过去时间结束的，即表示刚才一直在延续，但现在已结束的活动（a recently finished activity）。“刚才在延续”的活动所导致的“现在”结果往往清晰可见。<br>A：看你很热的样子。<br>B：是的，我刚刚一直在跑步来着。</p>
-<p>同样一个带有持续的时间状语的句子，在不同的语境中，既可以表示“刚刚在延续”，也可以表示“一直在延续”。<br>I’ve been running for half an hour.<br>这句话既可以理解成“一直在延续”： 到现在为止我跑了有半小时了。<br>也可以理解成“刚刚在延续”：<br>刚才我跑了半小时。（所以为什么我现在满头大汗的）<br>前者表明现在“我”还在跑步，这个活动并未结束；后者表明“我”现在没有在跑步，这个活动已经结束。<br>这种歧义在真实的口语交际中一般不会存在，因为具体的语境告诉听者该如何理解说话人的意思。比如你的朋友在正健身房的跑步机 （treadmill）上跑步时对你说“I’ve been running for half an hour.”，显然 你就要理解成“跑步的活动一直在持续”；而如果他现在满头大汗地站在你面前说“I’ve been running for half an hour.”，显然你就要理解成“跑步的活动刚刚在持续”。<br>不过，在没有上下文语境帮助排除的情况下，对于带有持续的时间状语的完成进行时的句子，我们一般会解释成“一直在延续”的事件。</p>
-<p>对于不带有持续的时间状语的句子同样会存在歧义。比如：<br>It’s been snowing.<br>这句话可以有两种意思。如果在说这句话时外面还在下着雪，则表示“一直在延续”而并未结束的动作：<br>一直在下雪。<br>或者，如果说这句话时外面的雪已经停了，则表示“刚刚在延续”——延续至不久前刚刚结束的动作：<br>刚刚下过雪。（瞧，地上是白的）<br>在没有上下文语境帮助排除的情况下，对于没有持续的时间状语的完成进行时的句子，我们一般会解释成“刚刚在延续”的事件。</p>
-<h2 id="延续事件比较：完成进行时与完成时"><a href="#延续事件比较：完成进行时与完成时" class="headerlink" title="延续事件比较：完成进行时与完成时"></a>延续事件比较：完成进行时与完成时</h2><h3 id="比较（一）：完成进行时“刚刚在延续的事件”与完成时“单一事件”"><a href="#比较（一）：完成进行时“刚刚在延续的事件”与完成时“单一事件”" class="headerlink" title="比较（一）：完成进行时“刚刚在延续的事件”与完成时“单一事件”"></a>比较（一）：完成进行时“刚刚在延续的事件”与完成时“单一事件”</h3><p>两者有三个共同点：</p>
-<ul>
-<li>两者都表示一个事件在说话的时刻已经结束；</li>
-<li>两者都伴随有现在清晰可见的后果；</li>
-<li>两者都不接持续性的时间状语。不过，需要注意的是，现在 完成进行时可以接持续的时间状语，但意思往往会不同；而现在完成 时“单一事件”的用法是不能接持续的时间状语的。</li>
-</ul>
-<p>1） My hands are dirty. I’ve been cleaning the car.<br>2） I’ve just cleaned the car.<br>在例句1）中，现在完成进行时强调活动本身的持续性 （emphasis on duration），然后推导出一个与这个持续的活动本身有关的结果——手很脏了。从动词的延续性角度来看，这里的clean是一个延续活动。在例句2）中，现在完成时强调活动的结果，或者说强调活动的成果（emphasis on achievement）——车子现在干净了。从动词的延续性角度来看，这里的clean是用作一个短暂动词，而不是表示延续活动。<br>1）我的手很脏，我刚刚一直在洗车。<br>2）我刚把车洗干净了。<br>从这个例句可以得出二者的两点区别：<br>第一，现在完成进行时强调活动本身的持续性（emphasis on duration）；现在完成时强调活动的结果，或者说强调活动的成果 （emphasis on achievement）。<br>第二，从谓语动词的延续性的角度来看，现在完成进行时的“刚刚在延续的事件”的用法所采用的动词一定都是延续性动词，以表示一个延续活动；现在完成时的“单一事件”的用法所采用的动词都是短暂动词，或者用作表达短暂性的动词，不表示一个延续活动。所以，现在完成进行时可以接持续的时间状语，但意思往往会不同；而现在完成时“单一事件”的用法是不能接持续的时间状语的。这就证明二者在谓语动词的延续性方面有差别。</p>
-<p>1） Be careful! I’ve been painting the door!<br>I’ve painted the door green.<br>在例句1）中，现在完成进行时强调活动本身的持续性——“我”刚刚一直在给门刷漆，由此推导出一个与这个持续活动本身有关的结果——门上的油漆现在还没有干，所以“你”要小心（be careful）。从动词的延续性的角度来看，这里paint是一个延续活动。在例句2）中，现在完成时强调活动的结果，或者说强调活动的成果——门现在变成绿色了（比如说原来是白色的）。从动词的延续性的角度来看，这里的paint是用作一个短暂动词而不是表示延续活动。<br>1）小心！这门我刚刚刷过油漆！<br>2）我把门漆成了绿色。 </p>
-<p>这里也可以看到，现在完成进行时的这一用法与现在完成时态的关系更接近，而与现在进行时的关系较远，因为现在进行时没有表示事件在说话时刻已经结束的用法。</p>
-<h3 id="比较（二）：完成进行时的“延续”与完成时的“延续”"><a href="#比较（二）：完成进行时的“延续”与完成时的“延续”" class="headerlink" title="比较（二）：完成进行时的“延续”与完成时的“延续”"></a>比较（二）：完成进行时的“延续”与完成时的“延续”</h3><p>现在完成时和现在完成进行时都可以表示“延续事件”。</p>
-<h4 id="与持续的时间状语连用"><a href="#与持续的时间状语连用" class="headerlink" title="与持续的时间状语连用"></a>与持续的时间状语连用</h4><p>在带有持续的时间状语时，用两种时态几乎没有多大区别，都表示一个开始于过去的动作一直延续到现在。<br>我教书有25年了。 可以用两种时态来表达如下：<br>1） I have been teaching for 25 years.<br>2） I have taught for 25 years.<br>不过也有这样一种观点，认为此时二者的细微区别在于：现在完成进行时一般强烈暗示动作会继续持续下去；而现在完成时则往往表示动作有可能会持续下去。<br>1） I have been teaching for 25 years, and I can’t imagine doing anything else.<br>我教书有25年了，我真想象不出还能干什么别的事情。<br>2） I have taught for 25 years, so now it’s time to think about doing something else.<br>我教书有25年了，现在是该考虑改行做别的事情的时候了。</p>
-<h4 id="不与持续的时间状语连用"><a href="#不与持续的时间状语连用" class="headerlink" title="不与持续的时间状语连用"></a>不与持续的时间状语连用</h4><p>表示“延续事件”的现在完成时必须具备两个条件，其中之一就是必须与持续的时间状语连用，如果没有持续的时间状语，则不表示延续至今的事件，而是表示一个在过去完成了的事件，即表示“单一事件”中的过去的经历。而现在完成进行时在没有持续的时间状语的情况下，依然可以表示延续至今的事件。<br>1） I have worked in this company.<br>2） I have been working in this company.<br>在例句1）中，现在完成时have worked表示曾经的经历，即现在不在这家公司工作了。<br>在例句2）中，现在完成进行时have been working表示一直在延续的事件，即现在还在这家公司工作。<br>1）我在这家公司工作过。<br>2）我一直就在这家公司工作。</p>
-<p>在不带有时间状语时，现在完成时指的是在过去某一时间完成了的动作（refer to a singular occurrence at an<br>indefinite time in the past），现在完成进行时则表示一个正在持续的活动（refer to an ongoing activity），活动还没有结束。下面的例句也可以证明这一区别。请比较：<br>1） I’ve been cleaning the house, but I still haven’t finished.<br>2） I’ve cleaned the house, but I still haven’t finished. *<br>在例句1）中，因为现在完成进行时have been cleaning 表示一个一直在持续的活动，活动并没有结束，相当于汉语中说的“我一直在打扫房间”，所以接下去可以说but I still haven’t finished，表示“但是还没有打扫完”，这样来明确表示活动还没有结束。在例句2） 中，因为现在完成时have cleaned表示一个过去完成了的活动，相当于汉语中说的“我把房间打扫完了”，所以接下去无法说but I still haven’t finished（但是还没有扫完），这样前后语义矛盾，故例句2）是错误的。</p>
-<h2 id="重复事件"><a href="#重复事件" class="headerlink" title="重复事件"></a>重复事件</h2><p>现在完成进行时可表示重复事件，具体来说，就是表示到目前为止的一段时间内重复发生的活动。<br>现在完成进行时表示“重复事件”的用法主要分为两种情况：一种是“短暂动词”用于现在完成进行时可以表示一个重复事件，这是最典型的重复事件的用法；另一种是“有限延续动词”用于现在完成进行时可以表示一个重复事件。</p>
-<h3 id="重复事件（一）：短暂动词"><a href="#重复事件（一）：短暂动词" class="headerlink" title="重复事件（一）：短暂动词"></a>重复事件（一）：短暂动词</h3><p>I have been coming to Beijing for 14 years.<br>这里的have been coming表示的是一个重复的活动，所以这句话正确的意思应该是：<br>在过去的14年中，我常常来北京。<br>从这个例子，可以看到现在完成进行时的另一种思维表达——用短暂动词（如come）的完成进行时（如have been coming）来表示到目前为止的一段时间内重复发生的动作。<br>I’ve been coming to see him for 10 years.<br>这里的have been coming同样是表示一个在10年当中不断重复的活动。<br>10年来，我常常过来看望他。</p>
-<p>再来看下面这个句子：<br>They have been going there for 10 years.<br>虽然这句话译成汉语可以是：他们去那里已经有10年了。<br>但这并不是表示他们一直生活在那里，而是表示“10年期间，他们屡次去那里”，即表示一个重复活动。可以把这个句子放在一个更完整的语境中：<br>Every Sunday they meet in the bar. They have been going there for 10 years.<br>这里的have been going表示一个在10年当中不断重复的活动，即在10年期间，每周日他们都去那家酒吧。所以，“他们去那里已经有10年了”并不是表示他们一直生活在那里。<br>他们每周日都会在那家酒吧会面，他们去那里已经有10年了。</p>
-<p>“结婚”的英文是marry，它是一个短暂动词，所以，如果要表示“我结婚有一年了”，要用“状态表达”说成“I’ve been married for a year.”，而不是“I’ve married for a year. *”。因此，如果把marry用于现在完成进行时，则是表示一个重复的活动。比如：<br>Koreans have been marrying U.S. soldiers stationed here since the 1950s. The peak years were during the 1970s, when more than 4,000 Koreans married U.S. soldiers each year.<br>这里的have been marrying表示一个不断重复发生的事件，即重复事件，所以翻译时要注意体会。<br>自20世纪50年代以来，就不断有韩国人嫁给在当地的美国驻军，70年代达到了高峰，每年有四千多人嫁给美国大兵。</p>
-<p>Over the past few years, many towns in the United States have been joining with neighboring communities to share the costs of government.<br>这里join的动作不是一次完成的，而是在近几年当中 （over the past few years）不断重复发生的，所以要用have been joining来表示这一重复活动。<br>在近几年中，美国的许多城镇不断与邻近社区合并， 以降低政府的费用开支。</p>
-<blockquote>
-<p>短暂动词用于完成进行时态（如have been coming）一般不宜接“短的时间状语”。</p>
-</blockquote>
-<p>比如：<br>Mike has been winning that race for two hours. *<br>这句话是没有太大的实际意义的，因为一个人一般不可能在两个小时内连续两次、甚至多次赢得某个比赛的胜利。所以，后面接的都应该是表达较长时间的状语，表示在一段相对较长的时间内重复的动作。比如这么说：<br>Mike has been winning that race for years.<br>这就表示“迈克多年以来多次赢得那个比赛”。这里的win同样是一个短暂动词，它用于现在完成进行时，可以被解释成一个重复发生的事件。</p>
-<h3 id="重复事件（二）：有限延续动词"><a href="#重复事件（二）：有限延续动词" class="headerlink" title="重复事件（二）：有限延续动词"></a>重复事件（二）：有限延续动词</h3><p>I’ve been chatting online for a little over three years.<br>这里的chat虽然是一个可以延续的动词，但它用在I have been chatting online for a little over three years这句话里面，显然就不能表示一个不间断的延续活动了，因为“聊天”不可能是一直不间断地“延续”了三年多。所以，根据日常的实际经验，只能把它解释为是在三年之中“重复”上网聊天，也即这里的have been chatting应该是表示一个重复事件，而不是延续事件。<br>我上网聊天已经有三年多了。<br>另一方面，也可以将上面这个例句中的“三年”的时间段缩短为“三小时”，而仍然保留完成进行时have been chatting：<br>I have been chatting online for three hours now.<br>在这一句里面，have been chatting则显然表示的是一个延续活动而不是重复活动，即“聊天”这一活动是一直不间断地持续了三个小时。<br>我上网聊天到现在已有三个小时了。<br>have been chatting如果接一个“较长的时间段”，则表示的是一个“重复活动”；如果接一个“较短的时间段”，则表示的是一个“延续活动”。</p>
-<p>像动词chat，listen， interview，ask和eat等，都是表示可以延续的动作，所以这些动词用于完成进行时都可以表示延续的活动。这不同于come这样的瞬间即结束的动词，因为它不能延续，所以它的完成进行时have been coming用于较长的时间段时，只好把它解释为重复的动作。但在另一方面，像动词chat，listen，interview，ask和eat等，虽然比瞬间动词come具有较强的延续性，但它们所表达的延续性也是有限的，因为它们都是表达某个单一具体的动作，而对于一个能体现出具体动作的动词，一般不可能持续太长的时间。因此，当它们用于表达较长时间的时间状语时，就不能说某一活动在“延续”，而只能解释成“重复”了。</p>
-<blockquote>
-<p>“有限延续动词”用于完成进行时态，若接表达较长时间的状语表示“重复活动”，若接表达较短时间的状语则表示“延续活动”。</p>
-</blockquote>
-<h2 id="重复事件比较：完成进行时与完成时"><a href="#重复事件比较：完成进行时与完成时" class="headerlink" title="重复事件比较：完成进行时与完成时"></a>重复事件比较：完成进行时与完成时</h2><ul>
-<li>重复动作的分割性：现在完成进行时表示重复活动时，不能被分割开来，即不能说出具体的次数。它的重复性是根据人们的实际经验而体会出来的。而完成时表示的重复活动，往往要说出具体的次数。因此，可以这样来看二者的差别：现在完成进行时的重复是“隐性”的，是模糊的；现在完成时的重复是“显性”的，是明确的。</li>
-<li>短暂动词的完成进行时表示重复活动。</li>
-<li>完成进行时的“重复事件”与一般现在时的“重复事件”。</li>
-</ul>
-<h3 id="比较（三）：重复动作的分割性"><a href="#比较（三）：重复动作的分割性" class="headerlink" title="比较（三）：重复动作的分割性"></a>比较（三）：重复动作的分割性</h3><p>比如这个错误的例句：<br>I have been drinking five cups of coffee this afternoon.<em><br>这里涉及完成时态和完成进行时态的区别问题。完成进行时具有进行时的特点，而进行时强调动作的持续性，因此这一活动必须是连续不断的。如果把动作分割开来看， 则违背了进行时态的核心意义——持续性，所以不能用进行时态。我们在下列两种情况下就会把动作分割开：<br>一是谈到在一段时间内一共做了 多少件事情（比如说喝了五杯咖啡）；<br>二是说明某件事发生的次数。<br>这两种情形下都不能使用各种进行时态，包括现在完成进行时。<br>结论：完成进行时态不能用来谈某个动作的具体次数或几件事情，而要用完成时态。<br>I have drunk five cups of coffee this afternoon.<br>今天下午我喝了五杯咖啡。<br>比如要说“去过三次洛杉矶”，就可以用完成时态这样说：<br>He has gone to Los Angeles three times this year.<br>或 He has been to Los Angeles three times this year.<br>但不能用完成进行时，说成“He has been going to Los Angeles three times this year. </em>”。</p>
-<p>Larry King has been interviewing important people for more than 40 years. King has been asking famous people questions throughout his career and has done more than 40,000 interviews. He has talked with every American president since Richard Nixon.<br>这里has been interviewing和has been asking都是表示重复的动作，但由于并没有说明具体的次数，所以用了完成进行时态，来强调他到目前为止还一直在从事采访活动。而接下来由于说出了具体的40000次采访以及采访过每一位美国总统（every American president），这都使得动作被分割开，强调一个结果或成就，而不是一个不间断的过程，所以改用了现在完成时has done和has talked来表达。<br>拉里·金从业40多年来，采访过众多名人，向他们提出各种问题，累计采访达四万多人次。自从尼克松总统以来，历届美国总统都接受过他的采访。</p>
-<blockquote>
-<p>它所表示的重复动作是不能被分割开来的，而只能看作是一个不间断的过程，这是进行体赋予它的特点。完成时态则常常表示间断的重复活动，可以标明具体几次或几件事，这也是完成时强调活动结果的体现。现在完成进行时表示的重复活动都是不能说出具体次数的，而只能从上下文体会出来，或者依据我们的实际经验体会出来。</p>
-</blockquote>
-<p>A: I’ve been calling David for the past half hour, but I keep getting a busy signal.<br>B: Well, if you don’t get him soon we’ll just have to go to the movies without him.<br>A：近半个小时，我一直在给戴维打电话，但总是忙音。<br>B：噢，如果你不能快点联系上他，我们只好不带他去看电影了。<br>从后文的but I keep getting a busy signal可知，这里“我”打电话给戴维是多次的活动，而且都是在过去近半小时内发生的。这里的重复活动的意味是从下文but引导的分句体会出来的，但句中并没有明确说出打电话的具体次数。如果要说出具体的次数，则必须改用现在完成时态。<br>I’ve called David four times for the past half hour, but I keep getting a busy signal.<br>近半个小时我给戴维打了四次电话，但每次都是忙音。<br>因此，可以这么来看待两种时态所表示的重复活动：现在完成进行时的重复是“隐性”的，是模糊的，它的重复性是根据人们的实际经验体会出来的；现在完成时的重复是“显性”的，是明确的。比如：<br>1） I’ve been writing letters this morning.<br>2） I’ve written three letters this morning.<br>在例句1）中，复数名词letters表明“我上午写了不止一封信”，也即这里的现在完成进行时表示一个重复活动。但并没有具体说出是几封信。在例句2）中，明确地说出了是三封信。<br>1）今天上午到目前为止我一直在写信。<br>2）今天上午到目前为止我写了三封信。</p>
-<h3 id="比较（四）：短暂动词用于完成进行时来表示重复活动"><a href="#比较（四）：短暂动词用于完成进行时来表示重复活动" class="headerlink" title="比较（四）：短暂动词用于完成进行时来表示重复活动"></a>比较（四）：短暂动词用于完成进行时来表示重复活动</h3><p>I have been coming to Beijing for 14 years.<br>I’ve been coming to see him for 10 years.<br>Every Sunday they meet in the bar. They have been going there for 10 years.<br>从上面这些例句可以看到，短暂动词的完成进行时可以与持续的时间状语连用，来表示一个重复活动。但是，短暂动词的完成时是不能与持续的时间状语连用的，因为短暂动作无法延续，这与持续的时间状语形成语义上的冲突。所以，上述句子都不可能改为现在完成时：<br>I have come to Beijing for 14 years. <em><br>I’ve come to see him for 10 years. </em><br>Every Sunday they meet in the same bar. They’ve gone there for years. *</p>
-<p>短暂动词的完成进行时可以与持续的时间状语连用，来表达一个在这个时段内的重复活动；而短暂动词的完成时不能与持续的时间状语连用，不能表示重复活动。如果短暂动词的完成时要表示重复活动，如上面讨论的那样，就只能加上具体的次数。</p>
-<h3 id="完成进行时的“重复事件”与一般现在时的“重复事件”"><a href="#完成进行时的“重复事件”与一般现在时的“重复事件”" class="headerlink" title="完成进行时的“重复事件”与一般现在时的“重复事件”"></a>完成进行时的“重复事件”与一般现在时的“重复事件”</h3><p>一般现在时也可以表示一个重复的习惯活动：<br>I run a mile every afternoon.<br>这句话表示“我每天下午都会跑一英里”，即已养成跑步的习惯了。现在把这个句子改为现在完成进行时：<br>I’ve been running a mile every afternoon.<br>可以把这个句子放在一个更完整的语境中：<br>A: I’ve been running a mile every afternoon for the past month, but I still haven’t been able to lose more than a pound or two. I wonder if it’s worth it.<br>B: Oh, don’t give up now. It always seems hard when you are just starting out.<br>这里添加了一个持续的时间状语for the past month，表示到目前为止的一个时间段内，重复发生“跑步”这个活动。<br>由此可见，当用现在完成进行时表达一个重复活动时，我们的头脑中就会有一个较明确的表示到目前为止的时间段，而一般现在时就不能这么用：<br>I run a mile every afternoon for the past month. <em><br>当用一般现在时来谈一个重复活动时，我们的头脑里没有这样的一个时间段的概念，而只表示一种泛泛的日常习惯。<br>所以，现在完成进行时表示“重复事件”的一个重要概念就是：到目前为止的一个时间段内重复的活动。有时，若上下文的语境中已暗示有一个时间段的概念，即使没有明确说出这个时间段，也要用have been doing来表示在这一未明示的时间段内重复的动作。<br>I have been running a mile every afternoon, but I think I’ll run two miles later.<br>这里的but I think I’ll run two miles later就告诉我们，说话人是强调现在和将来的对比，也就是说，他头脑里是强调“到目前为止的一个时间段内每天跑一英里”，所以才有下文说“不过我想以后改为两英里”。 此时就不能说：<br>I run a mile every afternoon, but I think I’ll run two miles later. </em></p>
-<p>因此，遇到现在完成进行时表示的重复活动，即使没有明确的时间段出现，也要理解成这一重复活动是在从过去到目前为止的一个时间段内发生的。</p>
-<p>1） I go to the gym every three days.<br>2） I’ve been going to the gym every three days, but I think I’ll make it every other day from now on.<br>1）我每三天去健身一次。<br>2）到目前为止，我每三天去健身一次，不过我想从今往后改为每隔一天去一次。</p>
-<h2 id="完成进行时与完成时对比总结"><a href="#完成进行时与完成时对比总结" class="headerlink" title="完成进行时与完成时对比总结"></a>完成进行时与完成时对比总结</h2><h3 id="比较（五）：完成进行时强调“延续过程”，-完成时强调“成果”"><a href="#比较（五）：完成进行时强调“延续过程”，-完成时强调“成果”" class="headerlink" title="比较（五）：完成进行时强调“延续过程”， 完成时强调“成果”"></a>比较（五）：完成进行时强调“延续过程”， 完成时强调“成果”</h3><blockquote>
-<p>完成进行时重在“进行（ongoing）”，即未完成（incomplete），强调动作持续的过程（emphasis on duration）；完成时重在“完成”，即已完成（completed），强调动作的结果或成就（emphasis on achievement）。具体来讲，现在完成进行时所强调的是在一段时期内某项活动的持续性，强调的是动作本身；现在完成时则是强调动作产生的结果或取得的成就，而不是动作本身。</p>
-</blockquote>
-<p>比如我们一般用现在完成进行时来谈论不断的变化和发展，这是现在进行时赋予它的意义，因为现在进行时可以谈不断变化的过程。例如：<br>Scientists believe that the universe has been expanding since the beginning of time.</p>
-<h4 id="未完成与已完成"><a href="#未完成与已完成" class="headerlink" title="未完成与已完成"></a>未完成与已完成</h4><p>先来比较现在完成进行时的“未完成”与现在完成时的“已完成”。<br>1） I have been reading your grammar book. After I finish it, I’ll discuss some problems with you.<br>2） I have read your grammar book and I have questions to ask you.<br>在例句1）中，现在完成进行时表示read的动作未完成。<br>在例句2）中，现在完成时表示read的动作已完成。<br>1）我一直在看你的语法书，看完以后我会有一些问题要和你讨论。<br>2）我看过你的语法书了，现在有问题要问你。</p>
-<h4 id="延续过程与结果或成果"><a href="#延续过程与结果或成果" class="headerlink" title="延续过程与结果或成果"></a>延续过程与结果或成果</h4><p>1） How long have you been learning English?<br>2） How many words have you learned?<br>在例句1）中，询问学英语的持续时间，强调活动的持续过程，所以用现在完成进行时have been learning。<br>在例句2）中，询问学会了多少单词，强调学习的成果，所以用现在完成时have learned。<br>1）你学习英语有多久了？<br>2）你已经学会了多少英语单词？</p>
-<p>1） It has been snowing all day. I wonder when it will stop.<br>2） We have had three major snowstorms so far this winter. I wonder how many more we will have.<br>1）下了一整天的雪，不知什么时候能停。<br>2）今年冬天已经下了三场大雪了，不知还会不会再下。</p>
-<h4 id="感情色彩的不同"><a href="#感情色彩的不同" class="headerlink" title="感情色彩的不同"></a>感情色彩的不同</h4><p>由于完成进行时更强调动作的延续性，因而往往带有强烈的感情色彩，较为口语化。所以，在口语中完成进行时使用得较为普遍。而现在完成时则只是说明一个事实，一种结果，较为平铺直叙，缺乏明显的感情色彩。例如：<br>A: Why are you so late? I’ve been waiting here for more than an hour!<br>B: Sorry to have kept you waiting. But it has been a hectic day today. I’ve got a million things to attend to.<br>这里说话人A用了have been waiting的形式，显得较为生气。如果他说have waited则显得很平铺直叙，只是简单地说明“等了一个多小时”这样的事实。<br>A：你怎么来得这么晚啊？我在这里一直等了有一个多小时了！<br>B：对不起让你久等了，因为我今天一直忙得不可开交，有一大堆事情要处理。</p>
-<h4 id="重复活动：完成进行时强调持续，不讲次数；完成时强调成果，讲次数"><a href="#重复活动：完成进行时强调持续，不讲次数；完成时强调成果，讲次数" class="headerlink" title="重复活动：完成进行时强调持续，不讲次数；完成时强调成果，讲次数"></a>重复活动：完成进行时强调持续，不讲次数；完成时强调成果，讲次数</h4><p>1） I’ve been ironing my shirts this morning.<br>2） I’ve ironed five shirts this morning.</p>
-<h4 id="现在完成进行时与现在完成时的思维差异总结"><a href="#现在完成进行时与现在完成时的思维差异总结" class="headerlink" title="现在完成进行时与现在完成时的思维差异总结"></a>现在完成进行时与现在完成时的思维差异总结</h4><h5 id="时（tense）与态（aspect）"><a href="#时（tense）与态（aspect）" class="headerlink" title="时（tense）与态（aspect）"></a>时（tense）与态（aspect）</h5><p>谈到“时（tense）”的时候，我们关心的是这个动作发生的时间，即是在现在、过去还是将来发生的。<br>谈到“态（aspect）”（也叫“体”）的时候，我们关心的则是:</p>
-<ul>
-<li>这个动作是固定不变的还是动态变化的（fixed or changing）；</li>
-<li>这个动作是完成了的还是在延续的（complete or ongoing）；</li>
-<li>这个动作持续的时间是很短还是很长（lasting for only a moment or for a long time）。</li>
-</ul>
-<h5 id="完成进行时的意义"><a href="#完成进行时的意义" class="headerlink" title="完成进行时的意义"></a>完成进行时的意义</h5><blockquote>
-<p>无限延续动词</p>
-</blockquote>
-<p>无限延续动词（如live）用于现在完成进行时的时候，只能表示一个延续事件。<br>I’ve been living in Beijing for 20 years now.<br>这就是“长期在延续的事件”。事实上，完成进行时的“有限延续性”这个核心意义与这里的长期延续事件是有语义上的冲突的。确切来说，这里的“长期延续性”并不是完成进行时所赋予的，而是无限延续动词本身所具有的特点。因此，这里即使不用现在完成进行时而用现在完成时，依然是表示一个长期在延续的事件。比如说：<br>I’ve lived in Beijing for 20 years now.<br>这也就解释了为什么现在完成进行时的这一用法与现在完成时的关系更近，而与现在进行时的关系较远。这一语义上的冲突其实也说明：能够表示长期延续事件的现在完成进行时对谓语动词有特殊要求。换句话说，并不是所有的动词用于现在完成进行时都能表示一个长期在持续的事件。</p>
-<blockquote>
-<p>有限延续动词</p>
-</blockquote>
-<p>这样的动词往往是一些表示单一具体活动的动词，比如repair这样的动词。这样的动词非常典型地反映出完成进行时的“有限延续性”的特点，因为这样的动词用于现在完成进行时，若要表示延续事件时，则只能接一个表达短暂时间的状语。比如：<br>He has been repairing his car since 6:00 this morning.<br>而不能接一个表达较长时间的状语。如果是表达较长时间的状语， 则只能解释为重复事件。比如：<br>He has been repairing cars for almost 20 years.<br>这说明完成进行时表示有限的延续性，除非是一些近似于状态的无限延续动词用于完成进行时，可以接表达较长时间的状语表示延续事件外，一般动词只能接表达较短时间的状语才能表示延续事件，否则会变成重复事件。<br>另一方面，这里的重复事件又是我们根据常识经验体会出来的。比如一个人若是修理一辆汽车，不可能是一直不间断地修了20年，这不符合常识，显得很荒唐。这时只能把这“修车”的活动理解为这20年来重复发生的一个活动，才能讲得通。</p>
-<blockquote>
-<p>短暂动词</p>
-</blockquote>
-<p>短暂动词与完成进行时“有限延续性”的含义发生作用后，产生了重复事件的解释。比如：<br>I have been coming to Beijing for 14 years.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/JavaScript/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/29/JavaScript/" class="post-title-link" itemprop="url">JavaScript</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-03-29 11:22:26" itemprop="dateCreated datePublished" datetime="2020-03-29T11:22:26+08:00">2020-03-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-26 15:07:10" itemprop="dateModified" datetime="2020-07-26T15:07:10+08:00">2020-07-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="判断true和false"><a href="#判断true和false" class="headerlink" title="判断true和false"></a>判断true和false</h2><ul>
-<li>如果逻辑对象无初始值或者其值为 0、-0、null、””、false、undefined 或者 NaN，那么对象的值为 false。否则，其值为 true（即使当自变量为字符串 “false” 时）！</li>
-<li>但是不要想当然的理解为 0 == null（结果为false） ，1 == “abc”（结果是false）， null == undefined （结果为false）</li>
-<li>不过 0 == false ， 1 == true（结果都为true）</li>
-</ul>
-<h2 id="任意类型的值转换为布尔类型的语法糖"><a href="#任意类型的值转换为布尔类型的语法糖" class="headerlink" title="任意类型的值转换为布尔类型的语法糖"></a>任意类型的值转换为布尔类型的语法糖</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!!val</span><br></pre></td></tr></table></figure>
-<p>一个！是取非 再一个！又取非 相当于把这个数据转换为boolean类型了</p>
-<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="Array-some"><a href="#Array-some" class="headerlink" title="Array.some()"></a>Array.some()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const array = [1, 2, 3, 4, 5];</span><br><span class="line"></span><br><span class="line">// checks whether an element is even</span><br><span class="line">const even = (element) =&gt; element % 2 === 0;</span><br><span class="line"></span><br><span class="line">console.log(array.some(even));</span><br><span class="line">// expected output: true</span><br></pre></td></tr></table></figure>
-<h2 id="沙箱"><a href="#沙箱" class="headerlink" title="沙箱"></a>沙箱</h2><p><a href="https://my.oschina.net/ivweb/blog/872949" target="_blank" rel="noopener">参考文章</a></p>
-<h2 id="JS判断两个对象内容是否相等"><a href="#JS判断两个对象内容是否相等" class="headerlink" title="JS判断两个对象内容是否相等"></a>JS判断两个对象内容是否相等</h2><p><a href="https://www.jianshu.com/p/7407bd65b15d" target="_blank" rel="noopener">https://www.jianshu.com/p/7407bd65b15d</a></p>
-<h2 id="自定义sleep"><a href="#自定义sleep" class="headerlink" title="自定义sleep"></a>自定义sleep</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const sleep = function (time) &#123;</span><br><span class="line">  let startTime = new Date().getTime() + time * 1000</span><br><span class="line">  while (new Date().getTime() &lt; startTime) &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="ES5"><a href="#ES5" class="headerlink" title="ES5"></a>ES5</h1><h2 id="ES5中bind-函数"><a href="#ES5中bind-函数" class="headerlink" title="ES5中bind()函数"></a>ES5中bind()函数</h2><h1 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h1><h2 id="ES6教程"><a href="#ES6教程" class="headerlink" title="ES6教程"></a>ES6教程</h2><p><a href="http://es6.ruanyifeng.com/?search=%E8%A7%A3%E6%9E%84&amp;x=0&amp;y=0" target="_blank" rel="noopener">http://es6.ruanyifeng.com/?search=%E8%A7%A3%E6%9E%84&amp;x=0&amp;y=0</a></p>
-<h2 id="ES6解构赋值"><a href="#ES6解构赋值" class="headerlink" title="ES6解构赋值"></a>ES6解构赋值</h2><p><a href="http://es6.ruanyifeng.com/?search=%E8%A7%A3%E6%9E%84&amp;x=0&amp;y=0#docs/destructuring#%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC" target="_blank" rel="noopener">http://es6.ruanyifeng.com/?search=%E8%A7%A3%E6%9E%84&amp;x=0&amp;y=0#docs/destructuring#%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC</a></p>
-<h2 id="Google-JavaScript-Style-Guide"><a href="#Google-JavaScript-Style-Guide" class="headerlink" title="Google JavaScript Style Guide"></a>Google JavaScript Style Guide</h2><p><a href="https://google.github.io/styleguide/jsguide.html" target="_blank" rel="noopener">https://google.github.io/styleguide/jsguide.html</a></p>
-<h2 id="let-vs-var"><a href="#let-vs-var" class="headerlink" title="let vs var"></a>let vs var</h2><p>在ES6之前，我们都是用var来声明变量，而且JS只有函数作用域和全局作用域，没有块级作用域，所以{}限定不了var声明变量的访问范围。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">  var i = 9;</span><br><span class="line">&#125; </span><br><span class="line">console.log(i);  // 9</span><br></pre></td></tr></table></figure></p>
-<p>ES6新增的let，可以声明块级作用域的变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">  let i = 9;     // i变量只在 花括号内有效！！！</span><br><span class="line">&#125; </span><br><span class="line">console.log(i);  // Uncaught ReferenceError: i is not defined</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://www.jianshu.com/p/bd7f6cf64e41" target="_blank" rel="noopener">https://www.jianshu.com/p/bd7f6cf64e41</a></p>
-<h2 id="const-vs-var-vs-let"><a href="#const-vs-var-vs-let" class="headerlink" title="const vs var vs let"></a>const vs var vs let</h2><p><a href="https://tylermcginnis.com/var-let-const/" target="_blank" rel="noopener">https://tylermcginnis.com/var-let-const/</a><br>简而言之：<br>1、var的作用域是函数级别，默认值是undefined；<br>2、let的作用域是代码块级别，未赋值就引用会抛出ReferenceError<br>3、const的作用域和let一样，但是const相当于是一个常量，赋值之后不能直接修改，不然会抛TypeError，但是如果是其指向的值是对象，那么可以修改对象的子属性，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const person = &#123;</span><br><span class="line">  name: &apos;Kim Kardashian&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">person.name = &apos;Kim Kardashian West&apos; // ✅</span><br><span class="line"></span><br><span class="line">person = &#123;&#125; // ❌ Assignment to constant variable.</span><br></pre></td></tr></table></figure></p>
-<h2 id="export"><a href="#export" class="headerlink" title="export"></a>export</h2><h4 id="export-vs-export-default"><a href="#export-vs-export-default" class="headerlink" title="export vs export default"></a>export vs export default</h4><p>其中export和export default最大的区别就是export不限变量数 可以一直写，而export default  只输出一次 而且 export出的变量想要使用必须使用{}来盛放，而export default 不需要 只要import任意一个名字来接收对象即可。</p>
-<h4 id="export-const"><a href="#export-const" class="headerlink" title="export const"></a>export const</h4><p>export const 可以导出多个对象，import的时候用{}承接。</p>
-<h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><h4 id="let-obj-content-todo"><a href="#let-obj-content-todo" class="headerlink" title="let obj = {}, content; todo"></a>let obj = {}, content; todo</h4><h2 id="ES6中import-as-xxx-from-‘xxx’的作用"><a href="#ES6中import-as-xxx-from-‘xxx’的作用" class="headerlink" title="ES6中import * as xxx from ‘xxx’的作用"></a>ES6中import * as xxx from ‘xxx’的作用</h2><p>import * as obj from ‘xx’  这种写法是把所有的输出包裹到obj对象里</p>
-<h2 id="BOM（浏览器窗口对象模型）"><a href="#BOM（浏览器窗口对象模型）" class="headerlink" title="BOM（浏览器窗口对象模型）"></a>BOM（浏览器窗口对象模型）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/*保存的数据用于浏览器的一次会话（session），当会话结束（通常是窗口关闭），数据被清空*/</span><br><span class="line">window.sessionStorage.setItem(name, JSON.stringify(obj));</span><br><span class="line">/*保存的数据用于浏览器的一次会话（session），当会话结束（通常是窗口关闭），数据被清空*/</span><br><span class="line">window.sessionStorage.setItem(name, JSON.stringify(obj));</span><br></pre></td></tr></table></figure>
-<h2 id="Code-specification"><a href="#Code-specification" class="headerlink" title="Code specification"></a>Code specification</h2><table>
+<h1 id="HOTKEY"><a href="#HOTKEY" class="headerlink" title="HOTKEY"></a>HOTKEY</h1><h2 id="Usage-Search（使用查询）"><a href="#Usage-Search（使用查询）" class="headerlink" title="Usage Search（使用查询）"></a>Usage Search（使用查询）</h2><table>
 <thead>
 <tr>
-<th>firm</th>
-<th>url </th>
+<th>key</th>
+<th>desc</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>aotu</td>
-<td><a href="https://guide.aotu.io/docs/js/code.html" target="_blank" rel="noopener">https://guide.aotu.io/docs/js/code.html</a></td>
+<td>cmd+opt+F7</td>
+<td>搜索文件中用法，以弹窗方式显示</td>
 </tr>
 <tr>
-<td>腾讯</td>
-<td><a href="https://www.kancloud.cn/digest/code-guide/42604" target="_blank" rel="noopener">https://www.kancloud.cn/digest/code-guide/42604</a></td>
+<td>opt+F7</td>
+<td>全局搜索引用</td>
 </tr>
 <tr>
-<td>alibaba</td>
-<td><a href="https://www.cnblogs.com/whitewolf/p/4491447.html?spm=a2c4e.10696291.0.0.5e2f19a4kuyhbl#types" target="_blank" rel="noopener">https://www.cnblogs.com/whitewolf/p/4491447.html?spm=a2c4e.10696291.0.0.5e2f19a4kuyhbl#types</a></td>
+<td>cmd+shift+F7</td>
+<td>高亮显示当前代码域使用到的地方</td>
+</tr>
+<tr>
+<td>F3 or shift+F3</td>
+<td>搜索当前文件的模式下，按向下 or F3跳到下一处，按向上 or shift+F3跳到上一处</td>
+</tr>
+<tr>
+<td>tab or tab+shift</td>
+<td>在ctrl+shift+f全局搜索的时候，可以通过tab和来移动输入聚焦，可以脱离鼠标来选择右上角的File mask</td>
 </tr>
 </tbody>
 </table>
-<h2 id="es6之扩展运算符…"><a href="#es6之扩展运算符…" class="headerlink" title="es6之扩展运算符…"></a>es6之扩展运算符…</h2><blockquote>
-<p>对象中的扩展运算符(…)用于取出参数对象中的所有可遍历属性，拷贝到当前对象之中</p>
+<h2 id="Editing（编辑）"><a href="#Editing（编辑）" class="headerlink" title="Editing（编辑）"></a>Editing（编辑）</h2><table>
+<thead>
+<tr>
+<th>key</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cmd+P</td>
+<td>显示方法的参数，这个方法的强大之处在于，展示了参数之后，在写入传参的时候，弹框会一直存在，让参数更加直观</td>
+</tr>
+<tr>
+<td>cmd++</td>
+<td>展开折叠的代码</td>
+</tr>
+<tr>
+<td>cmd+-</td>
+<td>折叠代码</td>
+</tr>
+<tr>
+<td>shift+上下方向键</td>
+<td>有时候用vim插件的jk上下移动太慢了，而且又不能明确知道要用emacsIdeas调整到哪里，可以用idea自带的shift+上下方向键来快速上下移动代码</td>
+</tr>
+</tbody>
+</table>
+<h2 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h2><table>
+<thead>
+<tr>
+<th>key</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cmd+shift+F8</td>
+<td>查看断点信息</td>
+</tr>
+<tr>
+<td>shift+F7</td>
+<td>智能步入，断点所在行上有多个方法调用，会弹出进入哪个方法</td>
+</tr>
+<tr>
+<td>^+F5</td>
+<td>重启debug服务</td>
+</tr>
+<tr>
+<td>cmd+F2</td>
+<td>终止debug服务</td>
+</tr>
+<tr>
+<td>^+cmd+W</td>
+<td>将Add to Watches绑定快捷键，可以快速查看变量或者表达式的值</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Spring-Boot-微服务"><a href="#Spring-Boot-微服务" class="headerlink" title="Spring Boot 微服务"></a>Spring Boot 微服务</h2><p>cmd+8 弹出多个微服务的启动控制窗口，可以通过上下左右移动快速定位到某个微服务，通过快捷键^+shiftF10 Runing,或者通过^+shift+F9 Debuging</p>
+<h2 id="General（通用）"><a href="#General（通用）" class="headerlink" title="General（通用）"></a>General（通用）</h2><table>
+<thead>
+<tr>
+<th>key</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^+cmd+F</td>
+<td>切换全屏模式</td>
+</tr>
+<tr>
+<td>^+cmd+C</td>
+<td>清理控制台的日志之类的，需要再keymap里面设置Other</td>
+<td>Clear All</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Refactoring（重构）"><a href="#Refactoring（重构）" class="headerlink" title="Refactoring（重构）"></a>Refactoring（重构）</h2><table>
+<thead>
+<tr>
+<th>key</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F5</td>
+<td>复制文件到指定包路径</td>
+</tr>
+<tr>
+<td>F6</td>
+<td>移动文件到指定包路径</td>
+</tr>
+<tr>
+<td>opt+cmd+t</td>
+<td>surround with 快捷得用各种模板语法包括代码（这个很强大`）</td>
+</tr>
+<tr>
+<td>opt+cmd+m</td>
+<td>提取代码为方法</td>
+</tr>
+<tr>
+<td>opt+cmd+c</td>
+<td>提出代码为常量</td>
+</tr>
+<tr>
+<td>opt+cmd+v</td>
+<td>提出代码为变量</td>
+</tr>
+<tr>
+<td>opt+cmd+f</td>
+<td>提出代码为成员变量</td>
+</tr>
+<tr>
+<td>opt+cmd+p</td>
+<td>提出代码为方法的形参</td>
+</tr>
+<tr>
+<td>opt+cmd+o</td>
+<td>快速去掉多余的import</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Navigation（导航）"><a href="#Navigation（导航）" class="headerlink" title="Navigation（导航）"></a>Navigation（导航）</h2><table>
+<thead>
+<tr>
+<th>key</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>alt+F1</td>
+<td>跳转到当前代码文件很多相关的功能（强大）</td>
+</tr>
+<tr>
+<td>cmd+u</td>
+<td>前往当前光标所在方法的父类的方法 / 接口定义</td>
+</tr>
+<tr>
+<td>cmd+b</td>
+<td>进入定义处</td>
+</tr>
+<tr>
+<td>cmd+opt+b</td>
+<td>进入实现处</td>
+</tr>
+<tr>
+<td>cmd+o</td>
+<td>查询当前类可以继承实现的所有方法</td>
+</tr>
+<tr>
+<td>cmd+F12</td>
+<td>展示当前文件的结果大纲（可用于查询变量、方法等）</td>
+</tr>
+<tr>
+<td>^+shift+B</td>
+<td>跳转到类型声明处，可以直接从类变量跳到对应的类里面</td>
+</tr>
+<tr>
+<td>F12</td>
+<td>返回前一个工具窗口</td>
+</tr>
+<tr>
+<td>shift+esc</td>
+<td>隐藏当前或最后一个活动的窗口，且光标进入代码文件窗口</td>
+</tr>
+<tr>
+<td>opt+F1</td>
+<td>显示当前文件选择目标弹出层，弹出层中有很多目标可以进行选择（如在代码编辑窗口可以选择显示该文件的 Finder）</td>
+</tr>
+<tr>
+<td>⌃H</td>
+<td>显示当前类的层次结构(在类的任何地方可以快速跳转到父类、父接口、子类)</td>
+</tr>
+<tr>
+<td>^+opt+H</td>
+<td>显示所有调用的层次结构</td>
+</tr>
+<tr>
+<td>^+h</td>
+<td>显示类的所有子类型的相关内容</td>
+</tr>
+<tr>
+<td>shift+F4</td>
+<td>在新窗口打开文件</td>
+</tr>
+<tr>
+<td>^+F2</td>
+<td>可以快速跳到idea的菜单栏，然后通过方向键和enter，可以快速进行一下菜单栏的操作，这个快捷键适合其他软件</td>
+</tr>
+<tr>
+<td>^+opt+cmd+N</td>
+<td>跳到next method，这个是我自定义的</td>
+</tr>
+<tr>
+<td>^+opt+cmd+P</td>
+<td>跳到previous method，这个是我自定义的</td>
+</tr>
+<tr>
+<td>跳到光标所在方法的方法名</td>
+<td>先^+opt+cmd+N再^+opt+cmd+P，如果是最后一个方法就反之</td>
+</tr>
+</tbody>
+</table>
+<h2 id="后缀补全"><a href="#后缀补全" class="headerlink" title="后缀补全"></a>后缀补全</h2><h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><p>声明变量或者调用方法之后输入<code>.var</code>，可以自动生成前面的变量声明</p>
+<h3 id="null"><a href="#null" class="headerlink" title="null"></a>null</h3><p>某个变量或者表达式之后输入<code>.null</code>，自动生成if空判断</p>
+<h3 id="nn"><a href="#nn" class="headerlink" title="nn"></a>nn</h3><p>某个变量或者表达式之后输入<code>.nn</code>，自动生成if不为空判断</p>
+<h3 id="not"><a href="#not" class="headerlink" title="not"></a>not</h3><p>某个变量或者表达式之后输入<code>.not</code>，自动生成取反</p>
+<h3 id="还有for、return、if、opt等等常用的"><a href="#还有for、return、if、opt等等常用的" class="headerlink" title="还有for、return、if、opt等等常用的"></a>还有for、return、if、opt等等常用的</h3><h1 id="PLUGIN-插件"><a href="#PLUGIN-插件" class="headerlink" title="PLUGIN(插件)"></a>PLUGIN(插件)</h1><h2 id="emacsIdeas-最强大没有之一"><a href="#emacsIdeas-最强大没有之一" class="headerlink" title="emacsIdeas 最强大没有之一"></a>emacsIdeas 最强大没有之一</h2><blockquote>
+<p>注意如果和IdeaVim一同使用的话，类似^+W的快捷键要更改，不然会和IdeaVim的屏幕分割快捷键冲突了</p>
 </blockquote>
-<h3 id="变量的扩展"><a href="#变量的扩展" class="headerlink" title="变量的扩展"></a>变量的扩展</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let bar = &#123; a: 1, b: 2 &#125;;</span><br><span class="line">let baz = &#123; ...bar &#125;; // &#123; a: 1, b: 2 &#125;</span><br></pre></td></tr></table></figure>
-<p>等同于：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let bar = &#123; a: 1, b: 2 &#125;;</span><br><span class="line">let baz = Object.assign(&#123;&#125;, bar); // &#123; a: 1, b: 2 &#125;</span><br></pre></td></tr></table></figure></p>
-<p>如果用户自定义的属性，放在扩展运算符后面，则扩展运算符内部的同名属性会被覆盖掉。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let bar = &#123;a: 1, b: 2&#125;;</span><br><span class="line">let baz = &#123;...bar, ...&#123;a:2, b: 4&#125;&#125;;  // &#123;a: 2, b: 4&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong><em>引用数据类型时，修改拷贝后的对象会影响到被拷贝的对象：</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let obj1 = &#123; a: 1, b: 2, c: &#123;nickName: &apos;d&apos;&#125;&#125;;</span><br><span class="line">let obj2 = &#123; ...obj1&#125;;</span><br><span class="line">obj2.c.nickName = &apos;d-edited&apos;;</span><br><span class="line">console.log(obj1); // &#123;a: 1, b: 2, c: &#123;nickName: &apos;d-edited&apos;&#125;&#125;</span><br><span class="line">console.log(obj2); // &#123;a: 1, b: 2, c: &#123;nickName: &apos;d-edited&apos;&#125;&#125;</span><br><span class="line">————————————————</span><br><span class="line">版权声明：本文为CSDN博主「astonishqft」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</span><br><span class="line">原文链接：https://blog.csdn.net/astonishqft/java/article/details/82899965</span><br></pre></td></tr></table></figure></p>
-<h3 id="数组的扩展"><a href="#数组的扩展" class="headerlink" title="数组的扩展"></a>数组的扩展</h3><h2 id="filter-数组过滤"><a href="#filter-数组过滤" class="headerlink" title="filter() 数组过滤"></a>filter() 数组过滤</h2><h3 id="判断数组的每个元素"><a href="#判断数组的每个元素" class="headerlink" title="判断数组的每个元素"></a>判断数组的每个元素</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 判断task.selected是在为true</span><br><span class="line">let newArr = this.list.filter(task =&gt; task.selected)</span><br></pre></td></tr></table></figure>
-<h3 id="去掉数组空字符串、undefined、null"><a href="#去掉数组空字符串、undefined、null" class="headerlink" title="去掉数组空字符串、undefined、null"></a>去掉数组空字符串、undefined、null</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let newArr = arr.filter(item =&gt; item)</span><br></pre></td></tr></table></figure>
-<h3 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let newArr = arr.filter((x, index,self)=&gt;self.indexOf(x)===index)</span><br></pre></td></tr></table></figure>
-<p>或者：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr  = [1,2,1,&apos;1&apos;,null,null,undefined,undefined,NaN,NaN]</span><br><span class="line">let res = Array.from(new Set(arr));</span><br><span class="line">//or</span><br><span class="line">let newArr = [...new Set(arr)]</span><br></pre></td></tr></table></figure></p>
-<h2 id="数组查询返回元素"><a href="#数组查询返回元素" class="headerlink" title="数组查询返回元素"></a>数组查询返回元素</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const result = arr.find(item=&gt;&#123;</span><br><span class="line">	return item.itemCode === itemCode</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h1 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h1><h2 id="Promise-all和Promise-race"><a href="#Promise-all和Promise-race" class="headerlink" title="Promise.all和Promise.race"></a>Promise.all和Promise.race</h2><p><a href="https://www.jianshu.com/p/7e60fc1be1b2" target="_blank" rel="noopener">https://www.jianshu.com/p/7e60fc1be1b2</a><br>还有最新的Promise.any，不过这个公司的架构中没有引进</p>
-<h1 id="babel"><a href="#babel" class="headerlink" title="babel"></a>babel</h1><p>可以增加了一个babel插件，现在支持<br>result = 0 ?? result 这种写法</p>
-<p>类似  0 || result,<br> || 左侧条件是undefined,null,0<br>?? 左侧条件是undefined,null</p>
+<h4 id="jump"><a href="#jump" class="headerlink" title="jump"></a>jump</h4><ul>
+<li>Plug-ins | emacsIDEAs | AceJumpSelect       选中当前位置到某个字符</li>
+<li>Plug-ins | emacsIDEAs | HighlightPrevSymbol 高亮跳到上一个一样的字符</li>
+<li>Plug-ins | emacsIDEAs | HighlightNextSymbol 高亮跳到下一个一样的字符</li>
+</ul>
+<h4 id="emacsIdeas-copy"><a href="#emacsIdeas-copy" class="headerlink" title="emacsIdeas copy"></a>emacsIdeas copy</h4><ul>
+<li>Plug-ins | emacsIDEAs | AceJumpCopy.Block       复制特定代码块到当前光标(可以是函数里面的整个形参定义)</li>
+<li>Plug-ins | emacsIDEAs | AceJumpCopy.Line        复制特定行到当前光标</li>
+<li>Plug-ins | emacsIDEAs | AceJumpCopy.Quote       复制特定的引用到当前光标，比如某个引号里面的内容</li>
+<li>Plug-ins | emacsIDEAs | AceJumpCopy.String      复制特定的代码到当前光标，一般是某块前后由空格隔开的代码</li>
+<li>Plug-ins | emacsIDEAs | AceJumpCopy.ToLineEnd   从当前位置复制到行尾</li>
+<li>Plug-ins | emacsIDEAs | AceJumpCopy.ToLineStart 从当前位置复制到行首</li>
+<li>Plug-ins | emacsIDEAs | AceJumpCopy.Paragraph   复制某个特定段落，比如类的某段注释</li>
+<li>Plug-ins | emacsIDEAs | AceJumpCopy.Group       复制某块代码，可以使某个判断的条件+整个花括号{}里面的内容 </li>
+</ul>
+<h4 id="emacsIdeas-delete"><a href="#emacsIdeas-delete" class="headerlink" title="emacsIdeas delete"></a>emacsIdeas delete</h4><ul>
+<li>Plug-ins | emacsIDEAs | AceJumpCut                  从当前位置剪切到某个位置</li>
+<li>Plug-ins | emacsIDEAs | AceJumpDelete.Block         删除特定的代码块 </li>
+<li>Plug-ins | emacsIDEAs | AceJumpDelete.Line          删除特定的代码行</li>
+<li>Plug-ins | emacsIDEAs | AceJumpDelete.Quote         删除特定的引用代码，比如某个引号里面的内容</li>
+<li>Plug-ins | emacsIDEAs | AceJumpDelete.String        删除特定的二个空格之间的字符 </li>
+<li>Plug-ins | emacsIDEAs | AceJumpDelete.Word          删除特定的某个变量方法名（紧挨在一起的代码标识）</li>
+<li>Plug-ins | emacsIDEAs | AceJumpDelete.ToLineEnd     从当前位置删除到行尾</li>
+<li>Plug-ins | emacsIDEAs | AceJumpDelete.ToLineStart   从当前位置删除到行首</li>
+<li>Plug-ins | emacsIDEAs | AceJumpDelete.Paragraph     删除某个特定段落，比如类的某段注释</li>
+</ul>
+<h4 id="emacsIdeas-cut"><a href="#emacsIdeas-cut" class="headerlink" title="emacsIdeas cut"></a>emacsIdeas cut</h4><ul>
+<li>Plug-ins | emacsIDEAs | AceJumpCut  从光标当前位置剪切到某个位置</li>
+</ul>
+<h4 id="emacsIdeas-more"><a href="#emacsIdeas-more" class="headerlink" title="emacsIdeas more"></a>emacsIdeas more</h4><p>AceJumpMove模式，各种快捷键的变种和上面的一样.etc.</p>
+<h2 id="ideaVim"><a href="#ideaVim" class="headerlink" title="ideaVim"></a>ideaVim</h2><p>yy 复制当值当前行，或者选中后y复制，然后输入数字n，再输入p，代表连续粘贴n次。<br>gg 快速移动到文件的开头<br>G  快速移动到文件的结尾</p>
+<h2 id="CamelCase"><a href="#CamelCase" class="headerlink" title="CamelCase"></a>CamelCase</h2><p>opt+shift+u 可以对字符进行驼峰式的不同格式变换，非常实用。</p>
+<h2 id="Grep-Console"><a href="#Grep-Console" class="headerlink" title="Grep Console"></a>Grep Console</h2><p>安装该日志插件，控制台的日志输出可以更加直观，还可以自定义颜色。</p>
+<h2 id="spring-assistant-yml或者properties文件编写提示"><a href="#spring-assistant-yml或者properties文件编写提示" class="headerlink" title="spring assistant(yml或者properties文件编写提示)"></a>spring assistant(yml或者properties文件编写提示)</h2><p>编写yml配置文件的时候，可以自动提示，但是这个自动提示貌似自会提示Spring Boot的基础配置，如果是在配置中心的话，其他的第三方依赖配置要在配置中心引入其spring-boot-starter的依赖才能自动提示对应的配置。</p>
+<p><strong><em>如果对应的依赖引入了之后还不会自动提示，那就需要再idea的模块配置里面将自定义的配置文件加入到配置文件的类别中，如下图:</em></strong><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/EpjOSE.png" alt><br>选择右边的第一个Configuration Files，因为通常配置中心新增的都不会是Bootstrap类别的配置文件，如下图，然后点击下面的绿色按钮，也就是最后一个按钮<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/RWKXhb.png" alt><br>再点击下面的+号，选择对一个的yml或者properties，然后确认就ok了。</p>
+<h2 id="RestfulToolkit"><a href="#RestfulToolkit" class="headerlink" title="RestfulToolkit"></a>RestfulToolkit</h2><p>这个插件可以自动收集项目的Restful风格的接口，还可以在idea里面直接填写参数调用接口</p>
+<h2 id="MyBatis-Log-Plugin"><a href="#MyBatis-Log-Plugin" class="headerlink" title="MyBatis Log Plugin"></a>MyBatis Log Plugin</h2><p>自动打印Mybatis的每一个SQL，有时候我们要抽取SQL不是很方便</p>
+<h2 id="Free-Mybatis-plugin"><a href="#Free-Mybatis-plugin" class="headerlink" title="Free Mybatis plugin"></a>Free Mybatis plugin</h2><p>Mapper与Mapper XML映射之间的调整，方便代码的跟踪查看。<br>而且还可以自动通过Mapper的方法矫正或者生成Mapper.xml的每个xml节点</p>
+<h2 id="ignore（版本控制忽略文件的好插件）支持各种文件忽略的配置"><a href="#ignore（版本控制忽略文件的好插件）支持各种文件忽略的配置" class="headerlink" title=".ignore（版本控制忽略文件的好插件）支持各种文件忽略的配置"></a>.ignore（版本控制忽略文件的好插件）支持各种文件忽略的配置</h2><p><a href="https://blog.csdn.net/byy8023/article/details/82259155" target="_blank" rel="noopener">https://blog.csdn.net/byy8023/article/details/82259155</a></p>
+<h3 id="可以根据项目的引用的构建工具能来针对性忽略"><a href="#可以根据项目的引用的构建工具能来针对性忽略" class="headerlink" title="可以根据项目的引用的构建工具能来针对性忽略"></a>可以根据项目的引用的构建工具能来针对性忽略</h3><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/A8xyJA.png" alt><br>比如我的项目选择了JetBrains、MacOS、Java、Maven、Example user template</p>
+<h3 id="如果出现-gitgnore忽略了某些要被纳入版本控制的文件或目录比如："><a href="#如果出现-gitgnore忽略了某些要被纳入版本控制的文件或目录比如：" class="headerlink" title="如果出现.gitgnore忽略了某些要被纳入版本控制的文件或目录比如："></a>如果出现.gitgnore忽略了某些要被纳入版本控制的文件或目录比如：</h3><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/rXGSPh.png" alt><br>直接删除掉想要重新纳入版本控制的目录或文件即可</p>
+<h3 id="maven的target反复被纳入版本控制"><a href="#maven的target反复被纳入版本控制" class="headerlink" title="maven的target反复被纳入版本控制"></a>maven的target反复被纳入版本控制</h3><p>这个是因为之前target目录已经被版本控制了，需要先关闭idea的自动编译，然后mvn clean一下，再提交所有删除的target文件，然后恢复自动编译配置。</p>
+<p>前提是.gitignore文件里面配置了Maven的忽略目录</p>
+<h2 id="JUnitGenerator-V2-0"><a href="#JUnitGenerator-V2-0" class="headerlink" title="JUnitGenerator V2.0"></a>JUnitGenerator V2.0</h2><p>选中代码中的类名，按cmd+shift+T，可以生成自定义测试类。<br><a href="https://blog.51cto.com/12066352/2134091" target="_blank" rel="noopener">https://blog.51cto.com/12066352/2134091</a></p>
+<h2 id="jclasslib-Bytecode-viewer"><a href="#jclasslib-Bytecode-viewer" class="headerlink" title="jclasslib Bytecode viewer"></a>jclasslib Bytecode viewer</h2><p>查看分析字节码的插件</p>
+<h1 id="Others-其他"><a href="#Others-其他" class="headerlink" title="Others(其他)"></a>Others(其他)</h1><h2 id="修改包名要注意的地方"><a href="#修改包名要注意的地方" class="headerlink" title="修改包名要注意的地方"></a>修改包名要注意的地方</h2><p>修改了包名之后注意在编译输出的目录要清空之前的老的class，不然可能会引起意想不到的冲突。</p>
+<h2 id="有没有更加智能化的API注释查看方法，比如鼠标-cmd的方式就完整地将注释都展示出来？"><a href="#有没有更加智能化的API注释查看方法，比如鼠标-cmd的方式就完整地将注释都展示出来？" class="headerlink" title="有没有更加智能化的API注释查看方法，比如鼠标+cmd的方式就完整地将注释都展示出来？"></a>有没有更加智能化的API注释查看方法，比如鼠标+cmd的方式就完整地将注释都展示出来？</h2><p>ctrl+J<br>可以搜索keymap需改热键，Quick Documentation</p>
+<h2 id="debug的时候变量的多种不同的View"><a href="#debug的时候变量的多种不同的View" class="headerlink" title="debug的时候变量的多种不同的View"></a>debug的时候变量的多种不同的View</h2><p>在Variables右键要跟踪的变量,可以view text，或者view as 其他类型.</p>
+<h2 id="Performance-enhancements（性能增加）"><a href="#Performance-enhancements（性能增加）" class="headerlink" title="Performance enhancements（性能增加）"></a>Performance enhancements（性能增加）</h2><p>idea吃内存确实是有点恐怖，对于调大内存，网上基本都是说调整idea.vmoptions里面的这三个参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-Xms1024m</span><br><span class="line">-Xmx3000m</span><br><span class="line">-XX:ReservedCodeCacheSize=1024m</span><br></pre></td></tr></table></figure></p>
+<p>但是我自己是基于2019.02的版本，发现即使调整了之后重启，idea右下角的内存显示还是原来的Max。<br>其实要这样调整才能真正生效：<br>Help-&gt;Edit Custom VM Options<br>打开这个会发现里面的配置还是原来的，在这里更改再重启，右下角的内存Max才会变大，才能生效。</p>
+<h2 id="cmd-shift-A按第二次的时候老是换出Terminal"><a href="#cmd-shift-A按第二次的时候老是换出Terminal" class="headerlink" title="cmd+shift+A按第二次的时候老是换出Terminal"></a>cmd+shift+A按第二次的时候老是换出Terminal</h2><p><a href="https://intellij-support.jetbrains.com/hc/en-us/articles/360005137400-Cmd-Shift-A-hotkey-opens-Terminal-with-apropos-search-instead-of-the-Find-Action-dialog" target="_blank" rel="noopener">https://intellij-support.jetbrains.com/hc/en-us/articles/360005137400-Cmd-Shift-A-hotkey-opens-Terminal-with-apropos-search-instead-of-the-Find-Action-dialog</a></p>
+<h2 id="Bug"><a href="#Bug" class="headerlink" title="Bug"></a>Bug</h2><p>有时候会出现复制进来的新文件编译之后没有被输出到target对应的目录，应该是idea潜在的bug，如果点击重新加载文件索引太慢了，一般重启一下重新编译可以解决。</p>
+<h2 id="search（搜索）"><a href="#search（搜索）" class="headerlink" title="search（搜索）"></a>search（搜索）</h2><p>全局搜索的时候记得利用好Scope，比如要搜索某个模块，某所最近更改的内容，搜索版本控制的所有更改等等。</p>
+<h2 id="Services"><a href="#Services" class="headerlink" title="Services"></a>Services</h2><p>cmd+8可以将多个SpringBoot的服务（微服务）整一个打开控制，可以结合其他快捷键进行启动、重启和停止，不过第一次使用需要再右下角的弹框中点击确认。<br>此外在Spring Cloud多个微服务的情况下，还可以将不同的微服务分组然后统一对某个组别进行run、debug或者静默断点等操作。</p>
+<h2 id="使用lombok跟踪bean属性调用栈"><a href="#使用lombok跟踪bean属性调用栈" class="headerlink" title="使用lombok跟踪bean属性调用栈"></a>使用lombok跟踪bean属性调用栈</h2><p>opt+F7依然可以看到getter和setter的调用栈。</p>
+<h2 id="SpringBoot-Application的热加载"><a href="#SpringBoot-Application的热加载" class="headerlink" title="SpringBoot Application的热加载"></a>SpringBoot Application的热加载</h2><p>要在debug模式下，设置Hot swap classes and update trigger file if failed，就可以自动热加载class了。</p>
+<h2 id="idea的svn的删除操作"><a href="#idea的svn的删除操作" class="headerlink" title="idea的svn的删除操作"></a>idea的svn的删除操作</h2><p>本地删除之后要在，Locally Deleted Files中点击Remove from VCS，然后再回来上面的Default Changelist去执行Commit删除。</p>
+<h2 id="折叠显示文件"><a href="#折叠显示文件" class="headerlink" title="折叠显示文件"></a>折叠显示文件</h2><p>可以在设置中搜索Soft-Wrap，根据文件格式配置是否折叠显示超过屏幕的行，也可以通过快捷键绑定折叠当前文件。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/dPTK3g.png" alt></p>
+<h2 id="提交代码前要先Optimize-Imports一下"><a href="#提交代码前要先Optimize-Imports一下" class="headerlink" title="提交代码前要先Optimize Imports一下"></a>提交代码前要先Optimize Imports一下</h2><p>可以cmd+9，在Default Changelist上Optimize Imports（opt+cmd+O）,这样就不会优化到其他没有修改到的代码，只操作自己改过的代码。</p>
+<h2 id="Run-Debug-Configurations中Build和Build-Project的区别"><a href="#Run-Debug-Configurations中Build和Build-Project的区别" class="headerlink" title="Run/Debug Configurations中Build和Build Project的区别"></a>Run/Debug Configurations中Build和Build Project的区别</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/sSnMvO.png" alt><br>Build只会编译配置依赖的模块，Build Project会编译模块依赖的所有项目，将编译器交给Maven代工的话注意要选择Build Project。</p>
+<h1 id="all-shortcut"><a href="#all-shortcut" class="headerlink" title="all shortcut"></a>all shortcut</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">新建文件的时候可以这样操作来脱离鼠标：</span><br><span class="line">cmd+1跳到Project目录上下移动到目标目录，然后cmd+shift+A跳出Action，输入new+文件类型或者手动选择文件类型就可以了。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">option+cmd+c 抽取局部字符串为静态变量</span><br><span class="line">cmd+shift+方向键  可以控制模态框的大小，和左右移动编辑区的内容</span><br><span class="line">ctrl+j  展示API文档</span><br><span class="line">ctrl+shift+F,[words 打钩可以搜索是否为单词]</span><br><span class="line">command+D,</span><br><span class="line">commond+F12(file structure)</span><br><span class="line">command+shift+N(search file&apos;s name and global)</span><br><span class="line">commond+option+shift+N(search method d variable global)</span><br><span class="line">shirt + option + (向上箭头)/（向下箭头）(move codes up or down)</span><br><span class="line">Command + Option + L(Format code)</span><br><span class="line">option+enter（add javadoc）</span><br><span class="line">option+command+b(jump into the class impl)</span><br><span class="line">command+e(recent file)</span><br><span class="line">command+shift+a(search action)</span><br><span class="line">command+number(window tab jump)</span><br><span class="line">shift(ctrl)+command+del(last(next) edit location)</span><br><span class="line">F11，command+F11，ctrl+number(alphabet)(bookmarks)</span><br><span class="line">option+shift+F(add to favorites)</span><br><span class="line">shift+option+U(toggle case)</span><br><span class="line">command+1,esc(switch between file navigate and edit area)</span><br><span class="line">option+F7(find usage)</span><br><span class="line">shift+option+方向(move caret to next word)</span><br><span class="line">command+方向(move to first or end of line)</span><br><span class="line">ctrl+command+G(sellect all occurrences) HOT</span><br><span class="line">F2(Quickly locate the wrong line)</span><br><span class="line">option+command+V(generate locate variable)</span><br><span class="line">shift+command+enter(generate some code)</span><br><span class="line">option+enter(generate some method)</span><br><span class="line">command+R(replace)</span><br><span class="line">shift+F6(rename)</span><br><span class="line">option+command+V(Extract Variable)</span><br><span class="line">option+command+C(Extract static Variable) HOT</span><br><span class="line">option+command+F(Extract field Variable)</span><br><span class="line">option+command+P(Extract field Variable into method)</span><br><span class="line">option+command+M(Extract some code to be a new method)HOT</span><br><span class="line">shift+command+F8(show all breakPoints)</span><br><span class="line">shift+command+V(copy history)</span><br><span class="line">shift+option+command+U(show maven dependencies)</span><br><span class="line">option+command+U(show class inherit) HOT</span><br><span class="line">ctrl+option+H(call method or be called history)</span><br><span class="line">ctrl+N(Generate anything)</span><br><span class="line">ctrl+w(select something)</span><br><span class="line">ctrl+&lt; or &gt; (move up or down next method) HOT</span><br><span class="line">cmd+option+T (surround) HOT</span><br></pre></td></tr></table></figure>
+<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="编译出现莫名其妙的找不到符号的Error"><a href="#编译出现莫名其妙的找不到符号的Error" class="headerlink" title="编译出现莫名其妙的找不到符号的Error"></a>编译出现莫名其妙的找不到符号的Error</h2><p>如果找不到符号的错误行数，刚好式同包下的某个类找不到符号报错，那么可能式idea的类编译顺序冲突了，找到报错行上引用到的类，先单独编译应用到的类，再编译报错的类，最后编译整个项目就可以了。</p>
+<h2 id="非静默模式下断点失效"><a href="#非静默模式下断点失效" class="headerlink" title="非静默模式下断点失效"></a>非静默模式下断点失效</h2><p>断点处提示：idea debug no executable code found<br>这个一般是class和idea的代码不一致导致的。<br>解决办法：<br>1、invalidate Caches/Restart<br>2、rebuild Project<br>3、class的输出路径正确<br>4、我自己是因为jboss的On ‘update’ action 被设置成了Restart Server，热部署应该改为：Update classes and resources</p>
+<h2 id="某个jar依赖冲突问题的解决"><a href="#某个jar依赖冲突问题的解决" class="headerlink" title="某个jar依赖冲突问题的解决"></a>某个jar依赖冲突问题的解决</h2><p>公司项目中cglib的包依赖了二个log4j的包，导致控制台启动会报错。 删除项目输出目录下的lib，设置依赖jar的scope为provided。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/7vAT8L.png" alt><br>然后重新部署启动就可以了。</p>
+<h2 id="debug启动微服务莫名其妙卡住的情况"><a href="#debug启动微服务莫名其妙卡住的情况" class="headerlink" title="debug启动微服务莫名其妙卡住的情况"></a>debug启动微服务莫名其妙卡住的情况</h2><p>竟然是因为我在某个方法的声明上打了断点，然后我静默断点时就可以debug启动微服务了：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/Qtfqng.png" alt><br>于是我果断把断点去掉，然后再检查一遍有没有打到方法声明上的断点，全都取消之后重启debug就可以了。</p>
+<h2 id="记录Idea关于Maven依赖的一个致命Bug"><a href="#记录Idea关于Maven依赖的一个致命Bug" class="headerlink" title="记录Idea关于Maven依赖的一个致命Bug"></a>记录Idea关于Maven依赖的一个致命Bug</h2><blockquote>
+<p>基于版本2019.3.4</p>
+</blockquote>
+<p>公司的微服务架构的用的Maven管理依赖，关于流程flowable的的模块ngbip-flow及其几个子模块我放在一个单独的文件夹下面；</p>
+<p>另外的一个项目也是基于微服务架构依赖ngbip-flow及其几个子模块，然后由于启动报了个莫名其妙的错误，于是我删掉了项目对公司自研的所有依赖，重新引入；</p>
+<p>但是这个时候idea移动将ngbip-flow的几个模块的依赖强制指向了上面提到的单独的文件夹下面的ngbip-flow几个子模块的代码文件，不走maven去依赖了，我TM是不同的文件夹（不同的工作区间啊，打开的是不同的idea窗口）；</p>
+<p>最后的硬核解决方法是，将原来的单独文件夹重命名个名字，这个时候另外的项目一下子就自动重新引入ngbip-flow的maven依赖，不会强制走开发机的其他文件夹下面的依赖，然后我再把文件夹名字改回来即可。</p>
+<h2 id="Maven代码不能指向本地工程module代码"><a href="#Maven代码不能指向本地工程module代码" class="headerlink" title="Maven代码不能指向本地工程module代码"></a>Maven代码不能指向本地工程module代码</h2><p>如果出现idea的Modules已经存在，但是代码不能通过Maven依赖到已经引入的module时（此时Maven管理界面可能会出现已经引入的model的maven可视化没有出现），这个时候在工程的Modules删除重新引入应该就可以了。</p>
+<h2 id="Idea出现所有引导到的类报错，连jdk的基础类也报错的情况"><a href="#Idea出现所有引导到的类报错，连jdk的基础类也报错的情况" class="headerlink" title="Idea出现所有引导到的类报错，连jdk的基础类也报错的情况"></a>Idea出现所有引导到的类报错，连jdk的基础类也报错的情况</h2><p>可能是不了心设置了Editor-&gt;File Type中忽略了*.class导致的。<br>如果是项目引入自己项目的代码也报错，可以删掉模块重新import。</p>
+<h2 id="Idea关闭写代码形参提示（会导致变卡）"><a href="#Idea关闭写代码形参提示（会导致变卡）" class="headerlink" title="Idea关闭写代码形参提示（会导致变卡）"></a>Idea关闭写代码形参提示（会导致变卡）</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/RVmJT6.png" alt="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/RVmJT6.png"></p>
 
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/04/Java-Bean-Validation-Basics/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/04/Java-Bean-Validation-Basics/" class="post-title-link" itemprop="url">Java Bean Validation Basics</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-04 10:20:12" itemprop="dateCreated datePublished" datetime="2020-04-04T10:20:12+08:00">2020-04-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-30 10:36:39" itemprop="dateModified" datetime="2020-07-30T10:36:39+08:00">2020-07-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>参考来自www.baeldung.com的多篇文章</p>
+</blockquote>
+<h1 id="Java-Bean-Validation的历史演变"><a href="#Java-Bean-Validation的历史演变" class="headerlink" title="Java Bean Validation的历史演变"></a>Java Bean Validation的历史演变</h1><ul>
+<li>原本以为JSR303就已经是够了，后面才发现这只是initial version，也就是Bean Validation 1.0；</li>
+<li>后面又推出了JSR349（Bean Validation 1.1）</li>
+<li>而最新版本是<a href="https://jcp.org/en/jsr/detail?id=380" target="_blank" rel="noopener">JSR380</a>（<a href="https://beanvalidation.org/2.0/" target="_blank" rel="noopener">Bean Validation 2.0</a>）</li>
+</ul>
+<h1 id="依赖包"><a href="#依赖包" class="headerlink" title="依赖包"></a>依赖包</h1><p>在不使用第三方的框架提供的校验功能（比如Spring，Spring默认会引入依赖并对标准做了一些具体的实现）的情况下，想要使用Java Bean Validation的功能需要先引入标准API依赖(这里以2.0版本为准)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;javax.validation&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;validation-api&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.0.Final&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
+<p>除了引入标准之外，还要引入标准的实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.hibernate.validator&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;hibernate-validator&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;6.0.2.Final&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.hibernate.validator&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;hibernate-validator-annotation-processor&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;6.0.2.Final&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这里只是引入的hibernate的validator部分，没有引入持久化的那部分。<br>再引入el表达式的依赖：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;javax.el&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;javax.el-api&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.0.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"> </span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.glassfish.web&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;javax.el&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.2.6&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
+<p>如果没有引入el表达式的依赖可能会报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HV000183: Unable to load ‘javax.el.ExpressionFactory&apos;. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead</span><br></pre></td></tr></table></figure></p>
+<h1 id="可以通过Validator对Bean进行数据校验"><a href="#可以通过Validator对Bean进行数据校验" class="headerlink" title="可以通过Validator对Bean进行数据校验"></a>可以通过Validator对Bean进行数据校验</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">public void test6() &#123;</span><br><span class="line">    FetchWordResultDTO fetchWordResultDTO = new FetchWordResultDTO();</span><br><span class="line">    ValidatorFactory factory = Validation.buildDefaultValidatorFactory();</span><br><span class="line">    Validator validator = factory.getValidator();</span><br><span class="line">    Set&lt;ConstraintViolation&lt;FetchWordResultDTO&gt;&gt; results = validator.validate(fetchWordResultDTO);</span><br><span class="line">    for (ConstraintViolation&lt;FetchWordResultDTO&gt; result : results) &#123;</span><br><span class="line">        System.out.println(result.getPropertyPath());</span><br><span class="line">        System.out.println(result.getMessage());</span><br><span class="line">        System.out.println(result.getInvalidValue());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="校验注解"><a href="#校验注解" class="headerlink" title="校验注解"></a>校验注解</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">空检查</span><br><span class="line">@Null       验证对象是否为null</span><br><span class="line">@NotNull    验证对象是否不为null, 无法查检长度为0的字符串</span><br><span class="line">@NotBlank 检查约束字符串是不是Null还有被Trim的长度是否大于0,只对字符串,且会去掉前后空格.</span><br><span class="line">@NotEmpty 检查约束元素是否为NULL或者是EMPTY.</span><br><span class="line"> </span><br><span class="line">Booelan检查</span><br><span class="line">@AssertTrue     验证 Boolean 对象是否为 true  </span><br><span class="line">@AssertFalse    验证 Boolean 对象是否为 false  </span><br><span class="line"> </span><br><span class="line">长度检查</span><br><span class="line">@Size(min=, max=) 验证对象（Array,Collection,Map,String）长度是否在给定的范围之内  </span><br><span class="line">@Length(min=, max=) Validates that the annotated string is between min and max included.</span><br><span class="line"> </span><br><span class="line">日期检查</span><br><span class="line">@Past           验证 Date 和 Calendar 对象是否在当前时间之前  </span><br><span class="line">@Future     验证 Date 和 Calendar 对象是否在当前时间之后  </span><br><span class="line">@Pattern    验证 String 对象是否符合正则表达式的规则</span><br><span class="line">@Past and @PastOrPresent – validate that a date value is in the past or the past including the present; can be applied to date types including those added in Java 8</span><br><span class="line">@Future and @FutureOrPresent – validates that a date value is in the future, or in the future including the present</span><br><span class="line"> </span><br><span class="line">数值检查，建议使用在Stirng,Integer类型，不建议使用在int类型上，因为表单值为“”时无法转换为int，但可以转换为Stirng为&quot;&quot;,Integer为null</span><br><span class="line">@Min            验证 Number 和 String 对象是否大等于指定的值  </span><br><span class="line">@Max            验证 Number 和 String 对象是否小等于指定的值  </span><br><span class="line">@DecimalMax 被标注的值必须不大于约束中指定的最大值. 这个约束的参数是一个通过BigDecimal定义的最大值的字符串表示.小数存在精度</span><br><span class="line">@DecimalMin 被标注的值必须不小于约束中指定的最小值. 这个约束的参数是一个通过BigDecimal定义的最小值的字符串表示.小数存在精度</span><br><span class="line">@Digits     验证 Number 和 String 的构成是否合法  </span><br><span class="line">@Digits(integer=,fraction=) 验证字符串是否是符合指定格式的数字，interger指定整数精度，fraction指定小数精度。</span><br><span class="line">@Positive and @PositiveOrZero – apply to numeric values and validate that they are strictly positive, or positive including 0</span><br><span class="line">@Negative and @NegativeOrZero – apply to numeric values and validate that they are strictly negative, or negative including 0</span><br><span class="line"> </span><br><span class="line">@Range(min=, max=) 检查数字是否介于min和max之间.</span><br><span class="line">@Range(min=10000,max=50000,message=&quot;range.bean.wage&quot;)</span><br><span class="line">private BigDecimal wage;</span><br><span class="line"> </span><br><span class="line">@Valid 递归的对关联对象进行校验, 如果关联对象是个集合或者数组,那么对其中的元素进行递归校验,如果是一个map,则对其中的值部分进行校验.(是否进行递归验证)</span><br><span class="line">@CreditCardNumber信用卡验证</span><br><span class="line">@Email  验证是否是邮件地址，如果为null,不进行验证，算通过验证。</span><br><span class="line">@ScriptAssert(lang= ,script=, alias=)</span><br><span class="line">@URL(protocol=,host=, port=,regexp=, flags=)</span><br><span class="line">// 参考 https://www.cnblogs.com/yangzhilong/p/3724967.html</span><br></pre></td></tr></table></figure>
+<h1 id="Validation-in-Spring-Boot"><a href="#Validation-in-Spring-Boot" class="headerlink" title="Validation in Spring Boot"></a>Validation in Spring Boot</h1><h2 id="利用-Valid对数据做优雅的校验"><a href="#利用-Valid对数据做优雅的校验" class="headerlink" title="利用@Valid对数据做优雅的校验"></a>利用@Valid对数据做优雅的校验</h2><p>校验异常会抛出MethodArgumentNotValidException，然后可以Spring的机制定义全局异常处理器。<br>Demo of Controller:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@PostMapping(&quot;/storeFetchWordResult&quot;)</span><br><span class="line">public R storeFetchWordResult(@RequestBody @Valid FetchWordResultDTO fetchWordResultDTO) &#123;</span><br><span class="line">    // do something</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>全局异常处理器:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">@Slf4j</span><br><span class="line">@ControllerAdvice</span><br><span class="line">public class GlobalValidExceptionHandler &#123;</span><br><span class="line"></span><br><span class="line">    @ResponseBody</span><br><span class="line">    @ExceptionHandler(&#123;MethodArgumentNotValidException.class&#125;)</span><br><span class="line">    public R handleValidException(MethodArgumentNotValidException e)&#123;</span><br><span class="line">        //日志记录错误信息</span><br><span class="line">        log.error(Objects.requireNonNull(e.getBindingResult().getFieldError()).getDefaultMessage());</span><br><span class="line">        //将错误信息返回给前台</span><br><span class="line">        return R.failed(CommonConstants.FAIL, Objects.requireNonNull(e.getBindingResult().getFieldError()).getDefaultMessage());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 优化之后的全局异常处理器</span><br><span class="line"></span><br><span class="line">@Slf4j</span><br><span class="line">@RestControllerAdvice</span><br><span class="line">public class GlobalExceptionHandler &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @ExceptionHandler(&#123;MethodArgumentNotValidException.class&#125;)</span><br><span class="line">    @ResponseStatus(HttpStatus.BAD_REQUEST)</span><br><span class="line">    public R handleValidException(MethodArgumentNotValidException e)&#123;</span><br><span class="line">        //日志记录错误信息</span><br><span class="line">        final String errorMessage = EnhancedExceptionUtils.getLogMessage(e);</span><br><span class="line">        log.error(errorMessage);</span><br><span class="line">        //将错误信息返回给前台</span><br><span class="line">        return R.failed(CommonConstants.FAIL, errorMessage);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>某知名博客文章的全局异常处理器demo（多个字段的错误校验可以更加直观地展示出来）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@ResponseStatus(HttpStatus.BAD_REQUEST)</span><br><span class="line">@ExceptionHandler(MethodArgumentNotValidException.class)</span><br><span class="line">public Map&lt;String, String&gt; handleValidationExceptions(</span><br><span class="line">  MethodArgumentNotValidException ex) &#123;</span><br><span class="line">    Map&lt;String, String&gt; errors = new HashMap&lt;&gt;();</span><br><span class="line">    ex.getBindingResult().getAllErrors().forEach((error) -&gt; &#123;</span><br><span class="line">        String fieldName = ((FieldError) error).getField();</span><br><span class="line">        String errorMessage = error.getDefaultMessage();</span><br><span class="line">        errors.put(fieldName, errorMessage);</span><br><span class="line">    &#125;);</span><br><span class="line">    return errors;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Validated-vs-Valid"><a href="#Validated-vs-Valid" class="headerlink" title="@Validated vs @Valid"></a>@Validated vs @Valid</h2><p><a href="https://blog.csdn.net/qq_27680317/article/details/79970590" target="_blank" rel="noopener">两者的区别</a><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/0e8YJB.png" alt></p>
+<h2 id="Validated应用在ctl方法的参数的好处"><a href="#Validated应用在ctl方法的参数的好处" class="headerlink" title="@Validated应用在ctl方法的参数的好处"></a>@Validated应用在ctl方法的参数的好处</h2><p>可以直接在形参上注解：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public ResponseMessage&lt;IPage&lt;PostPhoneInfo&gt;&gt; queryPage(@NotNull Long pageNum, @NotNull Long pageSize, PostPhoneInfo postPhoneInfo) &#123;</span><br><span class="line">    return ResponseMessage.success(postPhoneInfoService.queryPage(pageNum, pageSize, postPhoneInfo));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>之前我直接想直接采用注解校验入参，不想将校验逻辑带到业务中去，但是使用@Valid无法做到，而Spring封装好的@Validated可以做到。</p>
+<h4 id="要注意的地方"><a href="#要注意的地方" class="headerlink" title="要注意的地方"></a>要注意的地方</h4><ul>
+<li>校验注解是在方法入参上，则需要在该方法所在的类上添加 @org.springframework.validation.annotation.Validated 注解，在入参前或是在方法上添加启用校验注解都不生效。</li>
+<li>如果ctl方法的入参是一个Java Bean承载，那么无需使用@NotNull校验，Spring模式会给一个空实例，@NotNull注解没有意义</li>
+<li>使用@Validated分组的时候，比如只需要在某个ctl的方法上指定分组校验时，代码可以这样：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 新增 or 更新</span><br><span class="line"> */</span><br><span class="line">@ApiOperation(notes = &quot;保存单条记录&quot;, value = &quot;保存查询单条记录&quot;)</span><br><span class="line">@PostMapping(&quot;/saveOne&quot;)</span><br><span class="line">@Validated(Default.class)</span><br><span class="line">public ResponseMessage&lt;Void&gt; saveOne(@Valid PostPhoneInfoVO postPhoneInfoVO) &#123;</span><br><span class="line">    postPhoneInfoService.saveOne(postPhoneInfoVO);</span><br><span class="line">    return ResponseMessage.success();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Custom-Validation-MessageSource-in-Spring-Boot"><a href="#Custom-Validation-MessageSource-in-Spring-Boot" class="headerlink" title="Custom Validation MessageSource in Spring Boot"></a>Custom Validation MessageSource in Spring Boot</h2><p>MessageSource是Spring Boot很强大的一个特性，最为明显的是可以用于国际化处理。</p>
+<h4 id="一个登陆表单的demo"><a href="#一个登陆表单的demo" class="headerlink" title="一个登陆表单的demo"></a>一个登陆表单的demo</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class LoginForm &#123;</span><br><span class="line"> </span><br><span class="line">    @NotEmpty(message = &quot;&#123;email.notempty&#125;&quot;)</span><br><span class="line">    @Email</span><br><span class="line">    private String email;</span><br><span class="line"> </span><br><span class="line">    @NotNull</span><br><span class="line">    private String password;</span><br><span class="line"> </span><br><span class="line">    // standard getter and setters</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="定义MessageSource-Bean"><a href="#定义MessageSource-Bean" class="headerlink" title="定义MessageSource Bean"></a>定义MessageSource Bean</h4><p>ReloadableResourceBundleMessageSource是最常用的MessageSource实现类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Bean</span><br><span class="line">public MessageSource messageSource() &#123;</span><br><span class="line">    ReloadableResourceBundleMessageSource messageSource</span><br><span class="line">      = new ReloadableResourceBundleMessageSource();</span><br><span class="line">     </span><br><span class="line">    messageSource.setBasename(&quot;classpath:messages&quot;);</span><br><span class="line">    messageSource.setDefaultEncoding(&quot;UTF-8&quot;);</span><br><span class="line">    return messageSource;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="定义LocalValidatorFactoryBean来注册上面的MessageSource-Bean"><a href="#定义LocalValidatorFactoryBean来注册上面的MessageSource-Bean" class="headerlink" title="定义LocalValidatorFactoryBean来注册上面的MessageSource Bean"></a>定义LocalValidatorFactoryBean来注册上面的MessageSource Bean</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Bean</span><br><span class="line">public LocalValidatorFactoryBean getValidator() &#123;</span><br><span class="line">    LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();</span><br><span class="line">    bean.setValidationMessageSource(messageSource());</span><br><span class="line">    return bean;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="定义国际化配置文件"><a href="#定义国际化配置文件" class="headerlink" title="定义国际化配置文件"></a>定义国际化配置文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># messages.properties</span><br><span class="line">email.notempty=Please provide valid email id.</span><br><span class="line"># messages_fr.properties</span><br><span class="line">email.notempty=Veuillez fournir un identifiant de messagerie valide.</span><br></pre></td></tr></table></figure>
+<h2 id="Method-Constraints-with-Bean-Validation-2-0"><a href="#Method-Constraints-with-Bean-Validation-2-0" class="headerlink" title="Method Constraints with Bean Validation 2.0"></a>Method Constraints with Bean Validation 2.0</h2><p>这个特性可以用于哪些比较复杂又常用的数据校验，而且校验逻辑是JSR380的注解不能实现的，所以需要自定义校验。</p>
+<ul>
+<li>Single-parameter Constraints</li>
+<li>Cross-Parameter Constraints</li>
+<li>return constraints</li>
+</ul>
+<h4 id="自定义校验注解实现Cross-Parameter-Constraints"><a href="#自定义校验注解实现Cross-Parameter-Constraints" class="headerlink" title="自定义校验注解实现Cross-Parameter Constraints"></a>自定义校验注解实现Cross-Parameter Constraints</h4><p>比如以下Demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@ConsistentDateParameters</span><br><span class="line">public void createReservation(LocalDate begin, </span><br><span class="line">  LocalDate end, Customer customer) &#123;</span><br><span class="line">    // ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如要有个业务场景是要求：begin必须比当前时间大，而且end必须比begin大的情况，那么使用JSR380的内置注解就无法实现了，所以要自定义校验注解和注解校验器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@Constraint(validatedBy = ConsistentDateParameterValidator.class)</span><br><span class="line">@Target(&#123; METHOD, CONSTRUCTOR &#125;)</span><br><span class="line">@Retention(RUNTIME)</span><br><span class="line">@Documented</span><br><span class="line">public @interface ConsistentDateParameters &#123;</span><br><span class="line"> </span><br><span class="line">    String message() default</span><br><span class="line">      &quot;End date must be after begin date and both must be in the future&quot;;</span><br><span class="line"> </span><br><span class="line">    Class&lt;?&gt;[] groups() default &#123;&#125;;</span><br><span class="line"> </span><br><span class="line">    Class&lt;? extends Payload&gt;[] payload() default &#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">@SupportedValidationTarget(ValidationTarget.PARAMETERS)</span><br><span class="line">public class ConsistentDateParameterValidator </span><br><span class="line">  implements ConstraintValidator&lt;ConsistentDateParameters, Object[]&gt; &#123;</span><br><span class="line"> </span><br><span class="line">    @Override</span><br><span class="line">    public boolean isValid(</span><br><span class="line">      Object[] value, </span><br><span class="line">      ConstraintValidatorContext context) &#123;</span><br><span class="line">         </span><br><span class="line">        if (value[0] == null || value[1] == null) &#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        if (!(value[0] instanceof LocalDate) </span><br><span class="line">          || !(value[1] instanceof LocalDate)) &#123;</span><br><span class="line">            throw new IllegalArgumentException(</span><br><span class="line">              &quot;Illegal method signature, expected two parameters of type LocalDate.&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        return ((LocalDate) value[0]).isAfter(LocalDate.now()) </span><br><span class="line">          &amp;&amp; ((LocalDate) value[0]).isBefore((LocalDate) value[1]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="自定义返回值的校验注解"><a href="#自定义返回值的校验注解" class="headerlink" title="自定义返回值的校验注解"></a>自定义返回值的校验注解</h4><p>比如要校验某个复杂的对象Reservation：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class ReservationManagement &#123;</span><br><span class="line"> </span><br><span class="line">    @ValidReservation</span><br><span class="line">    public Reservation getReservationsById(int id) &#123;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>自定义注解，注意注解的范围可以是构造器CONSTRUCTOR：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@Constraint(validatedBy = ValidReservationValidator.class)</span><br><span class="line">@Target(&#123; METHOD, CONSTRUCTOR &#125;)</span><br><span class="line">@Retention(RUNTIME)</span><br><span class="line">@Documented</span><br><span class="line">public @interface ValidReservation &#123;</span><br><span class="line">    String message() default &quot;End date must be after begin date &quot;</span><br><span class="line">      + &quot;and both must be in the future, room number must be bigger than 0&quot;;</span><br><span class="line"> </span><br><span class="line">    Class&lt;?&gt;[] groups() default &#123;&#125;;</span><br><span class="line"> </span><br><span class="line">    Class&lt;? extends Payload&gt;[] payload() default &#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>校验器的具体实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public class ValidReservationValidator</span><br><span class="line">  implements ConstraintValidator&lt;ValidReservation, Reservation&gt; &#123;</span><br><span class="line"> </span><br><span class="line">    @Override</span><br><span class="line">    public boolean isValid(</span><br><span class="line">      Reservation reservation, ConstraintValidatorContext context) &#123;</span><br><span class="line"> </span><br><span class="line">        if (reservation == null) &#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        if (!(reservation instanceof Reservation)) &#123;</span><br><span class="line">            throw new IllegalArgumentException(&quot;Illegal method signature, &quot;</span><br><span class="line">            + &quot;expected parameter of type Reservation.&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        if (reservation.getBegin() == null</span><br><span class="line">          || reservation.getEnd() == null</span><br><span class="line">          || reservation.getCustomer() == null) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        return (reservation.getBegin().isAfter(LocalDate.now())</span><br><span class="line">          &amp;&amp; reservation.getBegin().isBefore(reservation.getEnd())</span><br><span class="line">          &amp;&amp; reservation.getRoom() &gt; 0);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后就可以在构造器方法上使用注解了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class Reservation &#123;</span><br><span class="line"> </span><br><span class="line">    @ValidReservation</span><br><span class="line">    public Reservation(</span><br><span class="line">      LocalDate begin, </span><br><span class="line">      LocalDate end, </span><br><span class="line">      Customer customer, </span><br><span class="line">      int room) &#123;</span><br><span class="line">        this.begin = begin;</span><br><span class="line">        this.end = end;</span><br><span class="line">        this.customer = customer;</span><br><span class="line">        this.room = room;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    // properties, getters, and setters</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="级联校验-嵌套校验（Cascaded-Validation）"><a href="#级联校验-嵌套校验（Cascaded-Validation）" class="headerlink" title="级联校验 || 嵌套校验（Cascaded Validation）"></a>级联校验 || 嵌套校验（Cascaded Validation）</h4><p>想要校验对象里面的成员属性内部的相关校验，需要再成员属性声明加上@Valid注解，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class Reservation &#123;</span><br><span class="line"> </span><br><span class="line">    @Valid</span><br><span class="line">    private Customer customer;</span><br><span class="line">     </span><br><span class="line">    @Positive</span><br><span class="line">    private int room;</span><br><span class="line">     </span><br><span class="line">    // further properties, constructor, getters and setters</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="Validating-Container-Elements-with-Bean-Validation-2-0"><a href="#Validating-Container-Elements-with-Bean-Validation-2-0" class="headerlink" title="Validating Container Elements with Bean Validation 2.0"></a>Validating Container Elements with Bean Validation 2.0</h1><h2 id="注意内置的校验还可以用于集合的泛型定义"><a href="#注意内置的校验还可以用于集合的泛型定义" class="headerlink" title="注意内置的校验还可以用于集合的泛型定义"></a>注意内置的校验还可以用于集合的泛型定义</h2><p>比如下面Customer前面的@NotNull：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class ReservationManagement &#123;</span><br><span class="line">    @NotNull</span><br><span class="line">    @Size(min = 1)</span><br><span class="line">    public List&lt;@NotNull Customer&gt; getAllCustomers() &#123;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>再比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class Customer &#123;    </span><br><span class="line">     List&lt;@NotBlank(message=&quot;Address must not be blank&quot;) String&gt; addresses;</span><br><span class="line">     </span><br><span class="line">    // standard getters, setters </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class CustomerMap &#123;</span><br><span class="line">     </span><br><span class="line">    private Map&lt;@Email String, @NotNull Customer&gt; customers;</span><br><span class="line">     </span><br><span class="line">    // standard getters, setters</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Optional-Values"><a href="#Optional-Values" class="headerlink" title="Optional Values"></a>Optional Values</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">private Integer age;</span><br><span class="line"> </span><br><span class="line">public Optional&lt;@Min(18) Integer&gt; getAge() &#123;</span><br><span class="line">    return Optional.ofNullable(age);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="非泛型容器的元素（Non-Generic-Container-Elements）"><a href="#非泛型容器的元素（Non-Generic-Container-Elements）" class="headerlink" title="非泛型容器的元素（Non-Generic Container Elements）"></a>非泛型容器的元素（Non-Generic Container Elements）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Min(1)</span><br><span class="line">private OptionalInt numberOfOrders;</span><br></pre></td></tr></table></figure>
+<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="HV000030-No-validator-could-be-found-for-type-java-lang-Integer"><a href="#HV000030-No-validator-could-be-found-for-type-java-lang-Integer" class="headerlink" title="HV000030: No validator could be found for type: java.lang.Integer."></a>HV000030: No validator could be found for type: java.lang.Integer.</h2><p><a href="https://blog.csdn.net/xiaobingtao/article/details/41866235" target="_blank" rel="noopener">https://blog.csdn.net/xiaobingtao/article/details/41866235</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/网络、密码与安全/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/15/网络、密码与安全/" class="post-title-link" itemprop="url">网络、密码与安全</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-15 21:13:59" itemprop="dateCreated datePublished" datetime="2019-10-15T21:13:59+08:00">2019-10-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-30 10:28:26" itemprop="dateModified" datetime="2020-07-30T10:28:26+08:00">2020-07-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络安全/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络安全/网络/" itemprop="url" rel="index"><span itemprop="name">网络</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="JWT-todo"><a href="#JWT-todo" class="headerlink" title="JWT todo"></a>JWT todo</h2><h2 id="互联网-20-大安全隐患-todo"><a href="#互联网-20-大安全隐患-todo" class="headerlink" title="互联网 20 大安全隐患 todo"></a>互联网 20 大安全隐患 todo</h2><h4 id="CSRF-攻击的应对之道-todo"><a href="#CSRF-攻击的应对之道-todo" class="headerlink" title="CSRF 攻击的应对之道 todo"></a>CSRF 攻击的应对之道 todo</h4><p><a href="https://www.ibm.com/developerworks/cn/web/1102_niugang_csrf/" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/web/1102_niugang_csrf/</a></p>
+<p><a href="https://segmentfault.com/a/1190000006944760?utm_source=tag-newest" target="_blank" rel="noopener">https://segmentfault.com/a/1190000006944760?utm_source=tag-newest</a></p>
+<p><a href="https://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html" target="_blank" rel="noopener">https://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html</a></p>
+<h2 id="RS256加密算法研究-todo"><a href="#RS256加密算法研究-todo" class="headerlink" title="RS256加密算法研究 todo"></a>RS256加密算法研究 todo</h2><h2 id="http-vs-https-todo"><a href="#http-vs-https-todo" class="headerlink" title="http vs https todo"></a>http vs https todo</h2><h2 id="SSL-vs-TLS-todo"><a href="#SSL-vs-TLS-todo" class="headerlink" title="SSL vs TLS todo"></a>SSL vs TLS todo</h2><h2 id="AES-是对称加密，不安全-todo"><a href="#AES-是对称加密，不安全-todo" class="headerlink" title="AES 是对称加密，不安全? todo"></a>AES 是对称加密，不安全? todo</h2><h2 id="TCP-vs-WebSocket-vs-KCP"><a href="#TCP-vs-WebSocket-vs-KCP" class="headerlink" title="TCP vs WebSocket vs KCP"></a>TCP vs WebSocket vs KCP</h2><h1 id="两种基本的加解密算法类型"><a href="#两种基本的加解密算法类型" class="headerlink" title="两种基本的加解密算法类型"></a>两种基本的加解密算法类型</h1><ol>
+<li><p>对称加密（symmetrcic encryption）：密钥只有一个，加密解密为同一个密码，且加解密速度快，典型的对称加密算法有DES、AES，RC5，3DES等；对称加密主要问题是共享秘钥，除你的计算机（客户端）知道另外一台计算机（服务器）的私钥秘钥，否则无法对通信流进行加密解密。解决这个问题的方案非对称秘钥。</p>
+</li>
+<li><p>非对称加密：使用两个秘钥：公共秘钥和私有秘钥。私有秘钥由一方密码保存（一般是服务器保存），另一方任何人都可以获得公共秘钥。<br>这种密钥成对出现（且根据公钥无法推知私钥，根据私钥也无法推知公钥），加密解密使用不同密钥（公钥加密需要私钥解密，私钥加密需要公钥解密），相对对称加密速度较慢，典型的非对称加密算法有RSA、DSA等。</p>
+</li>
+</ol>
+<h1 id="Http"><a href="#Http" class="headerlink" title="Http"></a>Http</h1><h2 id="Unsupported-Media-Type"><a href="#Unsupported-Media-Type" class="headerlink" title="Unsupported Media Type"></a>Unsupported Media Type</h2><p>在PostMan中调用后端微服务的Post接口，报了这个错，解决方法：<br>Headers增加Content-Type:application/json<br>Body采用raw和JSON(application/json)的方式发送，然后再下方填入json数据。</p>
+<h2 id="各种状态"><a href="#各种状态" class="headerlink" title="各种状态"></a>各种状态</h2>
       
     </div>
 
@@ -901,14 +1093,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">116</span>
+          <span class="site-state-item-count">119</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">69</span>
+        <span class="site-state-item-count">68</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -965,71 +1157,11 @@
 
   
   <script src="/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
 <script src="/js/schemes/pisces.js"></script>
 <script src="/js/next-boot.js"></script>
-  <script>
-var pjax = new Pjax({
-  selectors: [
-    'head title',
-    '#page-configurations',
-    '.content-wrap',
-    '.post-toc-wrap',
-    '.languages',
-    '#pjax'
-  ],
-  switches: {
-    '.post-toc-wrap': Pjax.switches.innerHTML
-  },
-  analytics: false,
-  cacheBust: false,
-  scrollTo : !CONFIG.bookmark.enable
-});
-
-window.addEventListener('pjax:success', () => {
-  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
-    var code = element.text || element.textContent || element.innerHTML || '';
-    var parent = element.parentNode;
-    parent.removeChild(element);
-    var script = document.createElement('script');
-    if (element.id) {
-      script.id = element.id;
-    }
-    if (element.className) {
-      script.className = element.className;
-    }
-    if (element.type) {
-      script.type = element.type;
-    }
-    if (element.src) {
-      script.src = element.src;
-      // Force synchronous loading of peripheral JS.
-      script.async = false;
-    }
-    if (element.dataset.pjax !== undefined) {
-      script.dataset.pjax = '';
-    }
-    if (code !== '') {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
-  });
-  NexT.boot.refresh();
-  // Define Motion Sequence & Bootstrap Motion.
-  if (CONFIG.motion.enable) {
-    NexT.motion.integrator
-      .init()
-      .add(NexT.motion.middleWares.subMenu)
-      .add(NexT.motion.middleWares.postList)
-      .bootstrap();
-  }
-  NexT.utils.updateSidebarPosition();
-});
-</script>
-
 
 
 
@@ -1049,11 +1181,9 @@ window.addEventListener('pjax:success', () => {
 
 
 
-    <div id="pjax">
   
 
   
 
-    </div>
 </body>
 </html>

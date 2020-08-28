@@ -163,7 +163,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/25/Spring系列之SpringCloud/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Spring系列之SpringBoot/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -177,7 +177,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/25/Spring系列之SpringCloud/" class="post-title-link" itemprop="url">Spring系列之SpringCloud</a>
+            <a href="/2019/10/15/Spring系列之SpringBoot/" class="post-title-link" itemprop="url">Spring系列之SpringBoot</a>
         </h2>
 
         <div class="post-meta">
@@ -187,14 +187,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2019-11-25 21:30:37" itemprop="dateCreated datePublished" datetime="2019-11-25T21:30:37+08:00">2019-11-25</time>
+              <time title="Created: 2019-10-15 21:32:15" itemprop="dateCreated datePublished" datetime="2019-10-15T21:32:15+08:00">2019-10-15</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-05 10:23:30" itemprop="dateModified" datetime="2020-06-05T10:23:30+08:00">2020-06-05</time>
+                <time title="Modified: 2020-06-22 15:19:29" itemprop="dateModified" datetime="2020-06-22T15:19:29+08:00">2020-06-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -206,7 +206,7 @@
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/SpringCloud/" itemprop="url" rel="index"><span itemprop="name">SpringCloud</span></a>
+                  <a href="/categories/Spring/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
                 </span>
             </span>
 
@@ -221,358 +221,377 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？-todo"><a href="#整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？-todo" class="headerlink" title="整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？ todo"></a>整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？ todo</h2><h2 id="Dubbo的生态在最近有没有经常颠覆性的完善？-todo"><a href="#Dubbo的生态在最近有没有经常颠覆性的完善？-todo" class="headerlink" title="Dubbo的生态在最近有没有经常颠覆性的完善？ todo"></a>Dubbo的生态在最近有没有经常颠覆性的完善？ todo</h2><h2 id="为什么本地配置文件还要有从git加载的模式？-todo"><a href="#为什么本地配置文件还要有从git加载的模式？-todo" class="headerlink" title="为什么本地配置文件还要有从git加载的模式？ todo"></a>为什么本地配置文件还要有从git加载的模式？ todo</h2><h2 id="RefreshScope用法和避坑-todo"><a href="#RefreshScope用法和避坑-todo" class="headerlink" title="@RefreshScope用法和避坑 todo"></a>@RefreshScope用法和避坑 todo</h2><p>Refresh Scope<br>A Spring @Bean that is marked as @RefreshScope will get special treatment when there is a configuration change. This addresses the problem of stateful beans that only get their configuration injected when they are initialized. For instance if a DataSource has open connections when the database URL is changed via the Environment, we probably want the holders of those connections to be able to complete what they are doing. Then the next time someone borrows a connection from the pool he gets one with the new URL.</p>
-<p>Refresh scope beans are lazy proxies that initialize when they are used (i.e. when a method is called), and the scope acts as a cache of initialized values. To force a bean to re-initialize on the next method call you just need to invalidate its cache entry.</p>
-<h2 id="spring-cloud-config-uri的默认值作用是什么？启动警告是否需要排除掉？todo"><a href="#spring-cloud-config-uri的默认值作用是什么？启动警告是否需要排除掉？todo" class="headerlink" title="spring.cloud.config.uri的默认值作用是什么？启动警告是否需要排除掉？todo"></a>spring.cloud.config.uri的默认值作用是什么？启动警告是否需要排除掉？todo</h2><h2 id="SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别-todo"><a href="#SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别-todo" class="headerlink" title="@SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别 todo"></a>@SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别 todo</h2><h1 id="spring-profiles-yml配置文件"><a href="#spring-profiles-yml配置文件" class="headerlink" title="spring.profiles || yml配置文件"></a>spring.profiles || yml配置文件</h1><p>关于spring boot profiles可以参考：<br><a href="https://dzone.com/articles/spring-boot-profiles-1" target="_blank" rel="noopener">https://dzone.com/articles/spring-boot-profiles-1</a><br>文中翻译的大概意思如下：<br>spring.profiles会以灵活切换的方式切换整个应用环境配置的各种相关属性，通过相关属性所在配置文件的文件名为条件做切换。</p>
-<h4 id="spring-profiles-active-native"><a href="#spring-profiles-active-native" class="headerlink" title="spring.profiles.active:native"></a>spring.profiles.active:native</h4><p>这个标记为配置文件从本地路径加载，但是有点奇怪，按道理这么危险的配置文件应该只能本地才对，即使从svn或者git上加载也只能从私服去取，在非开发模式下不应该存在去公网取配置文件才对。<br>网上说可以从native，svn和git加载，但是官方的最新文档其comma-separated list出现的有<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">active: dev,mysql,git,redis,awss3,credhub,composite,vault</span><br></pre></td></tr></table></figure></p>
-<p>在查阅官方文档之后发现这几段话：</p>
-<blockquote>
-<p>There is also a “native” profile in the Config Server that does not use Git but loads the config files from the local classpath or file system (any static URL you want to point to with spring.cloud.config.server.native.searchLocations). To use the native profile, launch the Config Server with spring.profiles.active=native.</p>
-</blockquote>
-<p>意思是，当spring.profiles.active=native，配置服务会从本地的类路径classpath读取配置文件，如果指定了spring.cloud.config.server.native.searchLocations的话，那么将从指定的路径去读取配置属性文件。</p>
-<blockquote>
-<p>Remember to use the file: prefix for file resources (the default without a prefix is usually the classpath). As with any Spring Boot configuration, you can embed ${}-style environment placeholders, but remember that absolute paths in Windows require an extra / (for example, file:///${user.home}/config-repo).</p>
-</blockquote>
-<p>意思是，spring.cloud.config.server.native.searchLocations可以用${}引用变量这种占位符的方式指定路径。</p>
-<blockquote>
-<p>The default value of the searchLocations is identical to a local Spring Boot application (that is, [classpath:/, classpath:/config, file:./, file:./config]). This does not expose the application.properties from the server to all clients, because any property sources present in the server are removed before being sent to the client.</p>
-</blockquote>
-<p>意思是，spring.cloud.config.server.native.searchLocations有四个默认值，在不配置它的时候可以默认生效,并且如果配置了native的话，路径下所有的配置文件都会被默认加载。</p>
-<h4 id="prefer-ip-address"><a href="#prefer-ip-address" class="headerlink" title="prefer-ip-address"></a>prefer-ip-address</h4><p>这个配置我在官方文档找到的解释是这样的：<br>In some cases, it is preferable for Eureka to advertise the IP addresses of services rather than the hostname. Set eureka.instance.preferIpAddress to true and, when the application registers with eureka, it uses its IP address rather than its hostname.<br>翻译：在某些情况下，Eureka显示服务列表用ip地址的形式来展示比用hostname的形式可能更加合适。把eureka.instance.preferIpAddress（低版本）设置为true，当服务被注册到eureka的时候，注册中心会使用它的ip地址而不是hostname。</p>
-<h4 id="lease-renewal-interval-in-seconds"><a href="#lease-renewal-interval-in-seconds" class="headerlink" title="lease-renewal-interval-in-seconds"></a>lease-renewal-interval-in-seconds</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">   /**</span><br><span class="line"> * Indicates how often (in seconds) the eureka client needs to send heartbeats to</span><br><span class="line"> * eureka server to indicate that it is still alive. If the heartbeats are not</span><br><span class="line"> * received for the period specified in leaseExpirationDurationInSeconds, eureka</span><br><span class="line"> * server will remove the instance from its view, there by disallowing traffic to this</span><br><span class="line"> * instance.</span><br><span class="line"> *</span><br><span class="line"> * Note that the instance could still not take traffic if it implements</span><br><span class="line"> * HealthCheckCallback and then decides to make itself unavailable.</span><br><span class="line"> */</span><br><span class="line">private int leaseRenewalIntervalInSeconds = 30;</span><br></pre></td></tr></table></figure>
-<p>翻译：指定一个eureka客户端发送心跳包给eureka服务的频率（以秒为单位），以此来确保服务是否还活着。如果心跳包在leaseExpirationDurationInSeconds指定的时间段之内没有收到回应，那么eureka的服务将从他们可用微服务列表中移除掉对应的微服务实例，不再允许向该实例发送流量。要注意的是，如果实例实现了HealthCheckCallback接口，并且决定让实例自己置为不可用的话，那么它任然是不能接受流量的。</p>
-<h4 id="lease-expiration-duration-in-seconds"><a href="#lease-expiration-duration-in-seconds" class="headerlink" title="lease-expiration-duration-in-seconds"></a>lease-expiration-duration-in-seconds</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">   /**</span><br><span class="line"> * Indicates the time in seconds that the eureka server waits since it received the</span><br><span class="line"> * last heartbeat before it can remove this instance from its view and there by</span><br><span class="line"> * disallowing traffic to this instance.</span><br><span class="line"> *</span><br><span class="line"> * Setting this value too long could mean that the traffic could be routed to the</span><br><span class="line"> * instance even though the instance is not alive. Setting this value too small could</span><br><span class="line"> * mean, the instance may be taken out of traffic because of temporary network</span><br><span class="line"> * glitches.This value to be set to atleast higher than the value specified in</span><br><span class="line"> * leaseRenewalIntervalInSeconds.</span><br><span class="line"> */</span><br><span class="line">private int leaseExpirationDurationInSeconds = 90;</span><br></pre></td></tr></table></figure>
-<p>翻译：指定一个从它最后一次接收某个服务实例的心跳包后等待的时间（以秒为单位），如果超过这个时间还不能接收到心跳包，那么eureka将会从他的服务列表中移除该实例，并不再允许向该实例发送流量。设置leaseExpirationDurationInSeconds的值太大的话，可能意味着某个实例不是活着的情况下，流量依然被发送到该实例中。设置的值太小的话，可能会由于临时网络故障导致实例抛弃了流量。这个值至少要比leaseRenewalIntervalInSeconds的值要高，也就是上面提到的lease-renewal-interval-in-seconds。</p>
-<h4 id="registry-fetch-interval-seconds"><a href="#registry-fetch-interval-seconds" class="headerlink" title="registry-fetch-interval-seconds"></a>registry-fetch-interval-seconds</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  /**</span><br><span class="line">* Indicates how often(in seconds) to fetch the registry information from the eureka</span><br><span class="line">* server.</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-<p>翻译：指定从eureka抓取注册服务的信息的频率（以秒为单位）</p>
-<h4 id="spring-cloud-config-fail-fast"><a href="#spring-cloud-config-fail-fast" class="headerlink" title="spring.cloud.config.fail-fast"></a>spring.cloud.config.fail-fast</h4><p><a href="https://blog.csdn.net/liubenlong007/article/details/87885567" target="_blank" rel="noopener">https://blog.csdn.net/liubenlong007/article/details/87885567</a></p>
-<h1 id="处理过的问题"><a href="#处理过的问题" class="headerlink" title="处理过的问题"></a>处理过的问题</h1><h4 id="Request-execution-error-endpoint-DefaultEndpoint-serviceUrl-’XX’"><a href="#Request-execution-error-endpoint-DefaultEndpoint-serviceUrl-’XX’" class="headerlink" title="Request execution error. endpoint=DefaultEndpoint{ serviceUrl=’XX’}"></a>Request execution error. endpoint=DefaultEndpoint{ serviceUrl=’XX’}</h4><p>这个报错非常奇葩，我是从网上下的手脚架，运行起来直接报错，后来通过谷歌找到了解决方案，就是在eureka服务的配置文件中加入register-with-eureka和fetch-registry:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 注册中心配置</span><br><span class="line">eureka:</span><br><span class="line">  instance:</span><br><span class="line">    prefer-ip-address: true</span><br><span class="line">    hostname: pig-eureka</span><br><span class="line">  client:</span><br><span class="line">    register-with-eureka: false</span><br><span class="line">    fetch-registry: false</span><br><span class="line">    service-url:</span><br><span class="line">      defaultZone: http://pig:pig@pig-eureka:8761/eureka/</span><br></pre></td></tr></table></figure></p>
-<p>后来再仔细跟一下，发现我是忘记先把eureka注册中心的服务启动了。。。</p>
-<h4 id="Cannot-execute-request-on-any-known-server"><a href="#Cannot-execute-request-on-any-known-server" class="headerlink" title="Cannot execute request on any known server"></a>Cannot execute request on any known server</h4><p>确认yml配置文件地址和格式没有问题的话，那么可能是eureka注册中心的服务没有关闭csrf，在eureka注册中心增加WebSecurityConfigurerAdapter，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@EnableWebSecurity</span><br><span class="line">public class WebSecurityConfig extends WebSecurityConfigurerAdapter &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void configure(HttpSecurity http) throws Exception &#123;</span><br><span class="line">        http.csrf().disable();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="java-lang-NoClassDefFoundError-com-netflix-hystrix-contrib-javanica-aop-aspectj-HystrixCommandAspect"><a href="#java-lang-NoClassDefFoundError-com-netflix-hystrix-contrib-javanica-aop-aspectj-HystrixCommandAspect" class="headerlink" title="java.lang.NoClassDefFoundError: com/netflix/hystrix/contrib/javanica/aop/aspectj/HystrixCommandAspect"></a>java.lang.NoClassDefFoundError: com/netflix/hystrix/contrib/javanica/aop/aspectj/HystrixCommandAspect</h4><p>需要增加断容器依赖spring-cloud-starter-netflix-hystrix</p>
-<h4 id="org-springframework-beans-factory-annotation-Qualifier-value-webFluxConversionService"><a href="#org-springframework-beans-factory-annotation-Qualifier-value-webFluxConversionService" class="headerlink" title="@org.springframework.beans.factory.annotation.Qualifier(value=webFluxConversionService)}"></a>@org.springframework.beans.factory.annotation.Qualifier(value=webFluxConversionService)}</h4><p>如果引入一些第三方的Spring<br>抛出了这个依赖异常，原因是我同时引入依赖：spring-cloud-starter-gateway 和 spring-boot-starter-web。去除了父模块的spring-boot-starter-web依赖即可。</p>
-<h4 id="If-you-want-an-embedded-database-H2-HSQL-or-Derby-please-put-it-on-the-classpath"><a href="#If-you-want-an-embedded-database-H2-HSQL-or-Derby-please-put-it-on-the-classpath" class="headerlink" title="If you want an embedded database (H2, HSQL or Derby), please put it on the classpath."></a>If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.</h4><p>如果遇到新建的微服务报错如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">***************************</span><br><span class="line">APPLICATION FAILED TO START</span><br><span class="line">***************************</span><br><span class="line"></span><br><span class="line">Description:</span><br><span class="line"></span><br><span class="line">Failed to configure a DataSource: &apos;url&apos; attribute is not specified and no embedded datasource could be configured.</span><br><span class="line"></span><br><span class="line">Reason: Failed to determine a suitable driver class</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Action:</span><br><span class="line"></span><br><span class="line">Consider the following:</span><br><span class="line">	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.</span><br><span class="line">	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).</span><br></pre></td></tr></table></figure></p>
-<p>检查关于数据库的链接拼写，和驱动包依赖，如果都没问题，有可能是因为新的微服务使用了配置中心忘记引用配置中心的客户端pom依赖了，我就是忘记下面这个引用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-config&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
-<p>另外，可能性也会有如下几点：<br>1，yml，properties文件缺失、配置写错等；<br>2，没有在@SpringBootApplication注解的Application的同级包或者子级包下增加配置类也会报这个错;<br>3，也有可能是因为引入了不必要的spring-boot-starter-web模块，这个模块会强制要配置数据源；<br>4，引入了其他依赖到数据源配置的包比如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--mybatis-plus--&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;com.baomidou&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;mybatis-plus.version&#125;&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
-<h4 id="Feign-PathVariable-annotation-was-empty-on-param-0"><a href="#Feign-PathVariable-annotation-was-empty-on-param-0" class="headerlink" title="Feign PathVariable annotation was empty on param 0."></a>Feign PathVariable annotation was empty on param 0.</h4><p>使用Feign的时候,如果参数中带有@PathVariable形式的参数,则要用value=””标明对应的参数,否则会抛出IllegalStateException异常</p>
-<h4 id="The-bean-‘ngbip-baf-service-FeignClientSpecification’-could-not-be-registered-A-bean-with-that-name-has-already-been-defined-and-overriding-is-disabled"><a href="#The-bean-‘ngbip-baf-service-FeignClientSpecification’-could-not-be-registered-A-bean-with-that-name-has-already-been-defined-and-overriding-is-disabled" class="headerlink" title="The bean ‘ngbip-baf-service.FeignClientSpecification’ could not be registered. A bean with that name has already been defined and overriding is disabled."></a>The bean ‘ngbip-baf-service.FeignClientSpecification’ could not be registered. A bean with that name has already been defined and overriding is disabled.</h4><p>这个原因基本是因为注解了FeignClient的客户端类，同个id的要被重复注册进注册中心才报的错，可以检查一下是否有@FeignClient的id重复，或者pom的依赖重复了导致feign服务注册多次。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/02/Spring系列之Cache/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/02/Spring系列之Cache/" class="post-title-link" itemprop="url">Spring系列之Cache</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-02 20:14:35" itemprop="dateCreated datePublished" datetime="2020-04-02T20:14:35+08:00">2020-04-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-02 11:25:35" itemprop="dateModified" datetime="2020-06-02T11:25:35+08:00">2020-06-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/Spring-Cache/" itemprop="url" rel="index"><span itemprop="name">Spring Cache</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h1><p><a href="https://spring.io/guides" target="_blank" rel="noopener">Spring All Guides</a><br><a href="https://spring.io/guides/gs/caching/" target="_blank" rel="noopener">Caching Data with Spring</a></p>
-<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="SpringBoot中-Cacheable-CacheEvict-CachePut在同一个类中方法调用不起作用"><a href="#SpringBoot中-Cacheable-CacheEvict-CachePut在同一个类中方法调用不起作用" class="headerlink" title="SpringBoot中@Cacheable,@CacheEvict,@CachePut在同一个类中方法调用不起作用"></a>SpringBoot中@Cacheable,@CacheEvict,@CachePut在同一个类中方法调用不起作用</h2><p><a href="https://www.jianshu.com/p/c33ba070028e" target="_blank" rel="noopener">https://www.jianshu.com/p/c33ba070028e</a><br><a href="https://www.cnblogs.com/liubey/archive/2018/04/02/spring_cacheable.html" target="_blank" rel="noopener">https://www.cnblogs.com/liubey/archive/2018/04/02/spring_cacheable.html</a><br><a href="https://www.cnblogs.com/chanedi/p/4552555.html" target="_blank" rel="noopener">https://www.cnblogs.com/chanedi/p/4552555.html</a><br><a href="https://blog.csdn.net/dapinxiaohuo/article/details/52092447" target="_blank" rel="noopener">https://blog.csdn.net/dapinxiaohuo/article/details/52092447</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/30/English之限定词系列-数量限定词与个体限定词/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/30/English之限定词系列-数量限定词与个体限定词/" class="post-title-link" itemprop="url">English之限定词系列（数量限定词与个体限定词）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-05-30 21:05:35 / Modified: 21:06:41" itemprop="dateCreated datePublished" datetime="2020-05-30T21:05:35+08:00">2020-05-30</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/09/feign汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/09/feign汇总/" class="post-title-link" itemprop="url">feign汇总</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-11-09 18:15:16" itemprop="dateCreated datePublished" datetime="2019-11-09T18:15:16+08:00">2019-11-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-24 14:57:17" itemprop="dateModified" datetime="2020-05-24T14:57:17+08:00">2020-05-24</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/feign/" itemprop="url" rel="index"><span itemprop="name">feign</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Method-has-too-many-Body-parameters"><a href="#Method-has-too-many-Body-parameters" class="headerlink" title="Method has too many Body parameters"></a>Method has too many Body parameters</h1><p><a href="https://www.cnblogs.com/chenkeyu/p/8482276.html" target="_blank" rel="noopener">https://www.cnblogs.com/chenkeyu/p/8482276.html</a><br><a href="https://stackoverflow.com/questions/43604734/springboot-feignclient-method-has-too-many-paramters" target="_blank" rel="noopener">https://stackoverflow.com/questions/43604734/springboot-feignclient-method-has-too-many-paramters</a></p>
-<p>比如可以改成这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@PostMapping(WORD_MAIN_VARIANT + &quot;/insertVariant&quot;)</span><br><span class="line">R&lt;Void&gt; insertVariant(@RequestParam String inputWordName, @RequestParam String fetchWordName);</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/12/Mysql系列之性能优化与问题定位/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/12/Mysql系列之性能优化与问题定位/" class="post-title-link" itemprop="url">Mysql系列之性能优化与问题定位</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-12 10:42:53" itemprop="dateCreated datePublished" datetime="2019-12-12T10:42:53+08:00">2019-12-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-23 14:55:58" itemprop="dateModified" datetime="2020-05-23T14:55:58+08:00">2020-05-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Server-Status-Variables"><a href="#Server-Status-Variables" class="headerlink" title="Server Status Variables"></a>Server Status Variables</h1><h2 id="设置事务自动提交"><a href="#设置事务自动提交" class="headerlink" title="设置事务自动提交"></a>设置事务自动提交</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 查看是否开启自动提交事务</span><br><span class="line">SHOW VARIABLES LIKE &apos;AUTOCOMMIT&apos;;</span><br><span class="line">select @@AUTOCOMMIT;</span><br></pre></td></tr></table></figure>
-<h1 id="设计优化"><a href="#设计优化" class="headerlink" title="设计优化"></a>设计优化</h1><h2 id="tinyint和char-1-性能对比"><a href="#tinyint和char-1-性能对比" class="headerlink" title="tinyint和char(1)性能对比"></a>tinyint和char(1)性能对比</h2><p><a href="https://blog.csdn.net/yzj5208/article/details/81214780?utm_source=blogxgwz6" target="_blank" rel="noopener">https://blog.csdn.net/yzj5208/article/details/81214780?utm_source=blogxgwz6</a></p>
-<h1 id="锁表、线程溢出常见处理方法"><a href="#锁表、线程溢出常见处理方法" class="headerlink" title="锁表、线程溢出常见处理方法"></a>锁表、线程溢出常见处理方法</h1><p>查询当前的线程信息，mysql会把当前正在运行的mysql线程信息实时更新到processlist表。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">show processlist; # 查询当前100条；等同于select * from information_schema.processlist;</span><br><span class="line">show full processlist; # 查询全部；</span><br><span class="line"># 查询非睡眠状态的连接</span><br><span class="line">select p.*</span><br><span class="line">from information_schema.processlist p</span><br><span class="line">where p.COMMAND != &apos;Sleep&apos;;</span><br><span class="line"># 查询并发最大连接数</span><br><span class="line">show variables like &apos;%max_connections%&apos;;</span><br><span class="line"># 查看当前线程连接数量信息 </span><br><span class="line">show status like &apos;Threads%&apos;;</span><br></pre></td></tr></table></figure></p>
-<h2 id="慢查询"><a href="#慢查询" class="headerlink" title="慢查询"></a>慢查询</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 查找当前正在执行超过1分钟的线程信息</span><br><span class="line">select * from information_schema.processlist where command != &apos;Sleep&apos; and time &gt; 60 order by time desc;</span><br><span class="line"># 不要轻易kill，注意看是否是system user或者是maxscale等代理监控的用户</span><br><span class="line"># 确定是慢查询的时候，可以执行kill id的操作</span><br><span class="line"># 命令行查看慢查询</span><br><span class="line">mysql -ureader -pread -e &apos;show full processlist&apos; | grep &quot;select &quot;</span><br></pre></td></tr></table></figure>
-<p>参考：<a href="https://www.jianshu.com/p/93cae0b3db3b" target="_blank" rel="noopener">https://www.jianshu.com/p/93cae0b3db3b</a></p>
-<h2 id="事务等待超时一般会抛出异常："><a href="#事务等待超时一般会抛出异常：" class="headerlink" title="事务等待超时一般会抛出异常："></a>事务等待超时一般会抛出异常：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error updating database.  Cause: com.mysql.cj.jdbc.exceptions.MySQLTransactionRollbackException: Lock wait timeout exceeded; try restarting transaction</span><br></pre></td></tr></table></figure>
-<h2 id="设置事务超时时间："><a href="#设置事务超时时间：" class="headerlink" title="设置事务超时时间："></a>设置事务超时时间：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 查询事务超时变量值</span><br><span class="line">SHOW GLOBAL VARIABLES LIKE &apos;innodb_lock_wait_timeout&apos;;</span><br><span class="line"># 设置事务超时时间</span><br><span class="line">SET GLOBAL innodb_lock_wait_timeout=120;</span><br></pre></td></tr></table></figure>
-<h2 id="设置线程等待时间"><a href="#设置线程等待时间" class="headerlink" title="设置线程等待时间"></a>设置线程等待时间</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SET wait_timeout = 10;</span><br><span class="line">SET global wait_timeout = 10;</span><br><span class="line">show global variables like &apos;wait_timeout&apos;;</span><br><span class="line">show variables like &apos;wait_timeout&apos;;</span><br></pre></td></tr></table></figure>
-<h2 id="事务锁、死锁处理方法"><a href="#事务锁、死锁处理方法" class="headerlink" title="事务锁、死锁处理方法"></a>事务锁、死锁处理方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select * from information_schema.innodb_trx; # 当前运行的所有事务</span><br><span class="line">select * from information_schema.innodb_locks; # 当前出现的锁</span><br><span class="line">select * from information_schema.innodb_lock_waits; # 锁等待的对应关系</span><br></pre></td></tr></table></figure>
-<h2 id="查找一直在锁等待的线程"><a href="#查找一直在锁等待的线程" class="headerlink" title="查找一直在锁等待的线程"></a>查找一直在锁等待的线程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select trx_mysql_thread_id from information_schema.innodb_trx it </span><br><span class="line">JOIN information_schema.INNODB_LOCK_WAITS ilw </span><br><span class="line">on ilw.blocking_trx_id = it.trx_id;</span><br><span class="line"></span><br><span class="line">kill tid;</span><br></pre></td></tr></table></figure>
-<h2 id="开启慢查询日志"><a href="#开启慢查询日志" class="headerlink" title="开启慢查询日志"></a>开启慢查询日志</h2><p>参考：<a href="https://www.cnblogs.com/saneri/p/6656161.html" title="标题" target="_blank" rel="noopener">https://www.cnblogs.com/saneri/p/6656161.html</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">slow_query_log 慢查询开启状态，ON开启，OFF关闭</span><br><span class="line">slow_query_log_file 慢查询日志存放的位置（这个目录需要MySQL的运行帐号的可写权限，一般设置为MySQL的数据存放目录）</span><br><span class="line">long_query_time 查询超过多少秒才记录</span><br><span class="line">log_queries_not_using_indexes：未使用索引的查询也被记录到慢查询日志中（可选项）</span><br><span class="line">log_output：日志存储方式。log_output=&apos;FILE&apos;表示将日志存入文件，默认值是&apos;FILE&apos;。log_output=&apos;TABLE&apos;表示将日志存入数据库，这样日志信息就会被写入到mysql.slow_log表中。MySQL数据&lt;br&gt;库支持同时两种日志存储方式，配置的时候以逗号隔开即可，如：log_output=&apos;FILE,TABLE&apos;。日志记录到系统的专用日志表中，要比记录到文件耗费更多的系统资源，因此对于需要启用慢查询日志，又需&lt;br&gt;要能够获得更高的系统性能，那么建议优先记录到文件。</span><br></pre></td></tr></table></figure></p>
-<h4 id="生产环境的慢查询日志分析命令mysqldumpslow"><a href="#生产环境的慢查询日志分析命令mysqldumpslow" class="headerlink" title="生产环境的慢查询日志分析命令mysqldumpslow"></a>生产环境的慢查询日志分析命令mysqldumpslow</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">比如:</span><br><span class="line">得到返回记录集最多的10个SQL。</span><br><span class="line">mysqldumpslow -s r -t 10 /database/mysql/mysql06_slow.log</span><br><span class="line"> </span><br><span class="line">得到访问次数最多的10个SQL</span><br><span class="line">mysqldumpslow -s c -t 10 /database/mysql/mysql06_slow.log</span><br><span class="line"> </span><br><span class="line">得到按照时间排序的前10条里面含有左连接的查询语句。</span><br><span class="line">mysqldumpslow -s t -t 10 -g “left join” /database/mysql/mysql06_slow.log</span><br><span class="line"> </span><br><span class="line">另外建议在使用这些命令时结合 | 和more 使用 ，否则有可能出现刷屏的情况。</span><br><span class="line">mysqldumpslow -s r -t 20 /mysqldata/mysql/mysql06-slow.log | more</span><br></pre></td></tr></table></figure>
-<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="Access-denied-for-user-‘root’-’localhost’-using-password-YES"><a href="#Access-denied-for-user-‘root’-’localhost’-using-password-YES" class="headerlink" title="Access denied for user ‘root’@’localhost’ (using password: YES)"></a>Access denied for user ‘root’@’localhost’ (using password: YES)</h2><ul>
-<li>Open &amp; Edit /etc/my.cnf or /etc/mysql/my.cnf, depending on your distro.</li>
-<li>Add skip-grant-tables under [mysqld]</li>
-<li>Restart Mysql</li>
-<li>You should be able to login to mysql now using the below command mysql -u root -p</li>
-<li>Run mysql&gt; flush privileges;</li>
-<li>Set new password by ALTER USER ‘root’@’localhost’ IDENTIFIED BY ‘NewPassword’;</li>
-<li>Go back to /etc/my.cnf and remove/comment skip-grant-tables</li>
-<li>Restart Mysql</li>
-<li>Now you will be able to login with the new password mysql -u root -p</li>
+          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="如果配置文件不再Application启动器的同目录或者子目录下，就需要采用-Import引入？-todo"><a href="#如果配置文件不再Application启动器的同目录或者子目录下，就需要采用-Import引入？-todo" class="headerlink" title="如果配置文件不再Application启动器的同目录或者子目录下，就需要采用@Import引入？ todo"></a>如果配置文件不再Application启动器的同目录或者子目录下，就需要采用@Import引入？ todo</h2><h2 id="有没有自动生成banner的工具？-todo"><a href="#有没有自动生成banner的工具？-todo" class="headerlink" title="有没有自动生成banner的工具？ todo"></a>有没有自动生成banner的工具？ todo</h2><h2 id="SpringBootConfiguration和-SpringBootApplication区别-todo"><a href="#SpringBootConfiguration和-SpringBootApplication区别-todo" class="headerlink" title="@SpringBootConfiguration和@SpringBootApplication区别 todo"></a>@SpringBootConfiguration和@SpringBootApplication区别 todo</h2><h2 id="bootstrap-yml非默认的情况下怎样才能被application-yml覆盖？todo"><a href="#bootstrap-yml非默认的情况下怎样才能被application-yml覆盖？todo" class="headerlink" title="bootstrap.yml非默认的情况下怎样才能被application.yml覆盖？todo"></a>bootstrap.yml非默认的情况下怎样才能被application.yml覆盖？todo</h2><h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="采用SpringBoot处理国际化问题"><a href="#采用SpringBoot处理国际化问题" class="headerlink" title="采用SpringBoot处理国际化问题"></a>采用SpringBoot处理国际化问题</h2><p><a href="https://www.baeldung.com/spring-boot-internationalization" target="_blank" rel="noopener">Guide to Internationalization in Spring Boot</a></p>
+<h2 id="SpringBoot基础教程"><a href="#SpringBoot基础教程" class="headerlink" title="SpringBoot基础教程"></a>SpringBoot基础教程</h2><ul>
+<li><a href="baeldung.com/spring-boot-start">Spring Boot Tutorial – Bootstrap a Simple Application</a></li>
+<li><a href="https://www.baeldung.com/spring-boot-annotations" target="_blank" rel="noopener">Spring Boot Annotations</a></li>
+<li><p><a href="https://www.baeldung.com/spring-boot-custom-auto-configuration" target="_blank" rel="noopener">Create a Custom Auto-Configuration with Spring Boot</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 标记自动配置类的优先权</span><br><span class="line">@AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://www.baeldung.com/spring-boot-starters" target="_blank" rel="noopener">Intro to Spring Boot Starters</a></p>
+</li>
+<li><a href="https://www.baeldung.com/spring-boot-actuators#1-endpoints" target="_blank" rel="noopener">Spring Boot Actuator</a></li>
 </ul>
+<h2 id="spring-boot-configuration-processor"><a href="#spring-boot-configuration-processor" class="headerlink" title="spring-boot-configuration-processor"></a>spring-boot-configuration-processor</h2><p>可以更加优雅地读取配置文件的值，参考<a href="https://blog.csdn.net/fzbbw/article/details/101175595" target="_blank" rel="noopener">https://blog.csdn.net/fzbbw/article/details/101175595</a></p>
+<h2 id="远程Debug（Remote-Debug）"><a href="#远程Debug（Remote-Debug）" class="headerlink" title="远程Debug（Remote Debug）"></a>远程Debug（Remote Debug）</h2><p><a href="https://blog.csdn.net/weixin_42740530/article/details/89524509" target="_blank" rel="noopener">https://blog.csdn.net/weixin_42740530/article/details/89524509</a></p>
+<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="required-a-bean-of-type-‘javax-sql-DataSource’-that-could-not-be-found"><a href="#required-a-bean-of-type-‘javax-sql-DataSource’-that-could-not-be-found" class="headerlink" title="required a bean of type ‘javax.sql.DataSource’ that could not be found."></a>required a bean of type ‘javax.sql.DataSource’ that could not be found.</h2><p>需要手动配置spring-boot-starter-jdbc的依赖jar</p>
+<h2 id="Consider-revisiting-the-entries-above-or-defining-a-bean-of-type-‘org-springframework-security-core-userdetails-UserDetailsService’-in-your-configuration"><a href="#Consider-revisiting-the-entries-above-or-defining-a-bean-of-type-‘org-springframework-security-core-userdetails-UserDetailsService’-in-your-configuration" class="headerlink" title="Consider revisiting the entries above or defining a bean of type ‘org.springframework.security.core.userdetails.UserDetailsService’ in your configuration."></a>Consider revisiting the entries above or defining a bean of type ‘org.springframework.security.core.userdetails.UserDetailsService’ in your configuration.</h2><p>需要自己实现UserDetailsService，并注入到Spring。</p>
+<h2 id="2019-12-19-14-24-44-064-WARN-2849-—-XNIO-1-task-7-com-zaxxer-hikari-pool-PoolBase-HikariPool-1-Failed-to-validate-connection-com-mysql-cj-jdbc-ConnectionImpl-6bee636d-No-operations-allowed-after-connection-closed-Possibly-consider-using-a-shorter-maxLifetime-value"><a href="#2019-12-19-14-24-44-064-WARN-2849-—-XNIO-1-task-7-com-zaxxer-hikari-pool-PoolBase-HikariPool-1-Failed-to-validate-connection-com-mysql-cj-jdbc-ConnectionImpl-6bee636d-No-operations-allowed-after-connection-closed-Possibly-consider-using-a-shorter-maxLifetime-value" class="headerlink" title="2019-12-19 14:24:44.064  WARN 2849 — [  XNIO-1 task-7] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6bee636d (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value."></a>2019-12-19 14:24:44.064  WARN 2849 — [  XNIO-1 task-7] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6bee636d (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.</h2><p>使用hikari需要配置加上max-lifetime: 27700000，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 数据源</span><br><span class="line">spring:</span><br><span class="line">  datasource:</span><br><span class="line">    type: com.zaxxer.hikari.HikariDataSource</span><br><span class="line">    driver-class-name: com.mysql.cj.jdbc.Driver</span><br><span class="line">    username: root</span><br><span class="line">    password: raubbhWy</span><br><span class="line">    url: jdbc:mysql://39.100.106.97:3306/inspect_db?characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=false&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Asia/Shanghai</span><br><span class="line">    hikari:</span><br><span class="line">      max-lifetime: 27700000</span><br></pre></td></tr></table></figure></p>
+<h2 id="Caused-by-java-lang-ClassNotFoundException-org-springframework-cloud-context-named-NamedContextFactory-Specification"><a href="#Caused-by-java-lang-ClassNotFoundException-org-springframework-cloud-context-named-NamedContextFactory-Specification" class="headerlink" title="Caused by: java.lang.ClassNotFoundException: org.springframework.cloud.context.named.NamedContextFactory$Specification"></a>Caused by: java.lang.ClassNotFoundException: org.springframework.cloud.context.named.NamedContextFactory$Specification</h2><p>原因：OpcApplication 中有注解@EnableFeignClients，但是在控制器或对外实现接口中，SpringBoot没有扫描到@FeignClient注解的程序</p>
+<p>解决：要么给程序加注解@FeignClient，要么把 OpcApplication 中有注解@EnableFeignClients 暂时去掉</p>
+<p>还有网上提到需要增加对应的依赖：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-cloud-context&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/27/MybatisPlus汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/27/MybatisPlus汇总/" class="post-title-link" itemprop="url">MybatisPlus汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-27 16:30:53" itemprop="dateCreated datePublished" datetime="2019-11-27T16:30:53+08:00">2019-11-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-19 09:58:07" itemprop="dateModified" datetime="2020-06-19T09:58:07+08:00">2020-06-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MybatisPlus/" itemprop="url" rel="index"><span itemprop="name">MybatisPlus</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="各种查询条件组装"><a href="#各种查询条件组装" class="headerlink" title="各种查询条件组装"></a>各种查询条件组装</h2><p>参考：<a href="https://mynews.likecoder.com/News/54208" target="_blank" rel="noopener">https://mynews.likecoder.com/News/54208</a></p>
+<h2 id="mybaties数据源配置类型（POOLED、JNDI、UNPOOLED）"><a href="#mybaties数据源配置类型（POOLED、JNDI、UNPOOLED）" class="headerlink" title="mybaties数据源配置类型（POOLED、JNDI、UNPOOLED）"></a>mybaties数据源配置类型（POOLED、JNDI、UNPOOLED）</h2><ul>
+<li>dataSource的类型可以配置成其内置类型之一，如UNPOOLED、POOLED、JNDI。<ul>
+<li>如果将类型设置成UNPOOLED，mybaties会为每一个数据库操作创建一个新的连接，并关闭它。该方式适用于只有小规模数量并发用户的简单应用程序上。</li>
+<li>如果将属性设置成POOLED，mybaties会创建一个数据库连接池，连接池的一个连接将会被用作数据库操作。一旦数据库操作完成，mybaties会将此连接返回给连接池。在开发或测试环境中经常用到此方式。</li>
+<li>如果将类型设置成JNDI。mybaties会从在应用服务器向配置好的JNDI数据源DataSource获取数据库连接。在生产环境中优先考虑这种方式。</li>
+</ul>
+</li>
+</ul>
+<h2 id="自动分页要开启PaginationInterceptor插件"><a href="#自动分页要开启PaginationInterceptor插件" class="headerlink" title="自动分页要开启PaginationInterceptor插件"></a>自动分页要开启PaginationInterceptor插件</h2><p><a href="https://mybatis.plus/guide/page.html" target="_blank" rel="noopener">https://mybatis.plus/guide/page.html</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Bean</span><br><span class="line">public PaginationInterceptor paginationInterceptor() &#123;</span><br><span class="line">    PaginationInterceptor paginationInterceptor = new PaginationInterceptor();</span><br><span class="line">    paginationInterceptor.setCountSqlParser(new JsqlParserCountOptimize(true));</span><br><span class="line">    return paginationInterceptor;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="vs"><a href="#vs" class="headerlink" title="${} vs #{}"></a>${} vs #{}</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#方式能够很大程度防止sql注入。</span><br><span class="line">#方式会在外面加一层字符串标识的包装：&quot;xxx&quot; or &apos;xxx&apos;</span><br><span class="line">$方式无法防止Sql注入。</span><br></pre></td></tr></table></figure>
+<h2 id="mybatis的二级缓存-vs-redis"><a href="#mybatis的二级缓存-vs-redis" class="headerlink" title="mybatis的二级缓存 vs redis"></a>mybatis的二级缓存 vs redis</h2><p>Mybatis一级缓存作用域是session，session commit之后缓存就失效了。</p>
+<p>Mybatis二级缓存作用域是sessionfactory，该缓存是以namespace为单位的（也就是一个Mapper.xml文件），不同namespace下的操作互不影响。所有对数据表的改变操作都会刷新缓存。但是一般不要用二级缓存，例如在UserMapper.xml中有大多数针对user表的操作。但是在另一个XXXMapper.xml中，还有针对user单表的操作。这会导致user在两个命名空间下的数据不一致。如果在UserMapper.xml中做了刷新缓存的操作，在XXXMapper.xml中缓存仍然有效，如果有针对user的单表查询，使用缓存的结果可能会不正确，读到脏数据。</p>
+<p>Redis比之一、二级缓存的好处很多，Redis可以搭建在其他服务器上，缓存容量可扩展。Redis可以灵活的使用在需要缓存的数据上，比如一些热点数据。<br><a href="http://www.imooc.com/qadetail/248957" target="_blank" rel="noopener">来源</a></p>
+<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="mapping-xml映射文件中order-by后面的参数如果是变量传进去的话"><a href="#mapping-xml映射文件中order-by后面的参数如果是变量传进去的话" class="headerlink" title="mapping xml映射文件中order by后面的参数如果是变量传进去的话"></a>mapping xml映射文件中order by后面的参数如果是变量传进去的话</h2><p>排序如果直接这样写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">order by #&#123;params.orderBy&#125; #&#123;params.order&#125;</span><br></pre></td></tr></table></figure></p>
+<p>会报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">order by ? ?; nested exception is java.sql.SQLException: sql injection violation, syntax error: syntax error, error in :&apos;rder by ? ?&apos;, expect QUES</span><br></pre></td></tr></table></figure></p>
+<p>升降序不能通过变量#{}传进去，因为这样会被底层解释为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">order by xxx &apos;desc&apos;</span><br><span class="line">order by xxx &apos;asc&apos;</span><br></pre></td></tr></table></figure></p>
+<p>　　</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/28/Elasticsearch汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/28/Elasticsearch汇总/" class="post-title-link" itemprop="url">Elasticsearch汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-28 15:36:09" itemprop="dateCreated datePublished" datetime="2020-05-28T15:36:09+08:00">2020-05-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-11 11:21:01" itemprop="dateModified" datetime="2020-06-11T11:21:01+08:00">2020-06-11</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><p><a href="https://spring.io/projects/spring-data-elasticsearch#learn" target="_blank" rel="noopener">spring-data-elasticsearch官方文档</a></p>
+<h2 id="查询类型"><a href="#查询类型" class="headerlink" title="查询类型"></a>查询类型</h2><h3 id="term"><a href="#term" class="headerlink" title="term"></a>term</h3><p>term：代表完全匹配，即不进行分词器分析，文档中必须包含整个搜索的词汇</p>
+<h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PB是数据存储容量的单位，它等于2的50次方个字节，或者在数值上大约等于1000个TB。</span><br></pre></td></tr></table></figure>
+<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Maven汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/15/Maven汇总/" class="post-title-link" itemprop="url">Maven汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-15 21:29:45" itemprop="dateCreated datePublished" datetime="2019-10-15T21:29:45+08:00">2019-10-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-10 11:17:22" itemprop="dateModified" datetime="2020-06-10T11:17:22+08:00">2020-06-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/maven/" itemprop="url" rel="index"><span itemprop="name">maven</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><p><a href="https://www.cnblogs.com/shoshana-kong/p/11031388.html" target="_blank" rel="noopener">Maven常用命令</a></p>
+<h2 id="scope详解"><a href="#scope详解" class="headerlink" title="scope详解"></a>scope详解</h2><p><a href="https://www.cnblogs.com/hzzll/p/6738955.html" target="_blank" rel="noopener">https://www.cnblogs.com/hzzll/p/6738955.html</a></p>
+<h2 id="dependencies与dependencyManagement的区别"><a href="#dependencies与dependencyManagement的区别" class="headerlink" title="dependencies与dependencyManagement的区别"></a>dependencies与dependencyManagement的区别</h2><p>根据maven子模块继承父模块的特性，不难理解两者肯定都有继承父模块依赖的作用，但是要注意他们的区别是：</p>
+<p><strong><em>dependencies里面声明的依赖，子模块会默认全部继承，不用手动去引入依赖；而dependencyManagement里面声明的依赖，则不会再子模块中自动去隐式依赖，只有子模块中声明了依赖，并且没有指明依赖的版本这种情况才会到父模块中寻找dependencyManagement中的对应依赖，要注意的是，如果子模块声明了依赖版本号，那么在dependencyManagement中如果也有同一依赖库的不同版本共存的话，maven优先去依赖的是子模块自己的版本</em></strong></p>
+<h2 id="Maven仓库下载依赖太慢的解决方案"><a href="#Maven仓库下载依赖太慢的解决方案" class="headerlink" title="Maven仓库下载依赖太慢的解决方案"></a>Maven仓库下载依赖太慢的解决方案</h2><p>将仓库中心更改为阿里云的，修改setting.xml，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line"> &lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;</span><br><span class="line">  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">  xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd&quot;&gt;</span><br><span class="line">     &lt;mirrors&gt;</span><br><span class="line">         &lt;!-- 阿里云仓库 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://maven.aliyun.com/nexus/content/repositories/central/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line"></span><br><span class="line">         &lt;!-- 中央仓库1 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;repo1&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://repo1.maven.org/maven2/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line"></span><br><span class="line">         &lt;!-- 中央仓库2 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;repo2&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://repo2.maven.org/maven2/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line">     &lt;/mirrors&gt;</span><br><span class="line"> &lt;/settings&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Maven-BOM"><a href="#Maven-BOM" class="headerlink" title="Maven BOM"></a>Maven BOM</h2><p>BOM stands for Bill Of Materials. A BOM is a special kind of POM that is used to control the versions of a project’s dependencies and provide a central place to define and update those versions.<br>BOM字面理解是”材料清单”，它是一种特别的POM，可以用来控制项目的多个依赖，相当于某个依赖集群的中心控制处。</p>
+<h2 id="Transitive-Dependencies-依赖传递性"><a href="#Transitive-Dependencies-依赖传递性" class="headerlink" title="Transitive Dependencies 依赖传递性"></a>Transitive Dependencies 依赖传递性</h2><p>Maven can discover the libraries that are needed by our own dependencies in our pom.xml and includes them automatically. There’s no limit to the number of dependency levels that the libraries are gathered from.<br>Maven通过pom.xml的多层级依赖是没有限制的，也就是，父模块可以递归依赖子模块的任何依赖，所以可能会出现如下的矛盾：</p>
+<blockquote>
+<p>A -&gt; B -&gt; C -&gt; D 1.4  and  A -&gt; E -&gt; D 1.0</p>
+</blockquote>
+<p>那么Maven给出了两个解决方案：</p>
+<ol>
+<li>We can always guarantee a version by declaring it explicitly in our project’s POM. For instance, to guarantee that D 1.4 is used, we should add it explicitly as a dependency in the pom.xml file. 通过在A的pom.xml明确声明D的依赖版本，这样子就不会采用子模块传递过来的依赖了。</li>
+<li>We can use the Dependency Management section to control artifact versions. 可以通过依赖管理来控制依赖版本，也就是直接继承父模块，通过<parent>；或者通过import BOM。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;parent&gt;</span><br><span class="line">        &lt;groupId&gt;baeldung&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;Baeldung-BOM&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br><span class="line">    &lt;/parent&gt;</span><br></pre></td></tr></table></figure>
+</parent></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencyManagement&gt;</span><br><span class="line">        &lt;dependencies&gt;</span><br><span class="line">            &lt;dependency&gt;</span><br><span class="line">                &lt;groupId&gt;baeldung&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;Baeldung-BOM&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br><span class="line">                &lt;type&gt;pom&lt;/type&gt;</span><br><span class="line">                &lt;scope&gt;import&lt;/scope&gt;</span><br><span class="line">            &lt;/dependency&gt;</span><br><span class="line">        &lt;/dependencies&gt;</span><br><span class="line">    &lt;/dependencyManagement&gt;</span><br></pre></td></tr></table></figure>
+<p>maven依赖版本的优先权如下：<br>1、项目自己pom.xml里面直接声明的版本<br>2、从parent项目继承的版本<br>3、通过import形式的依赖版本，和import的顺序有关，先import进来的版本被优先采用。</p>
+<p>详情参考：<a href="https://www.baeldung.com/spring-maven-bom#2-what-is-maven-bom" target="_blank" rel="noopener">https://www.baeldung.com/spring-maven-bom#2-what-is-maven-bom</a></p>
+<h2 id="mvn-compile与mvn-install、mvn-deploy的区别"><a href="#mvn-compile与mvn-install、mvn-deploy的区别" class="headerlink" title="mvn compile与mvn install、mvn deploy的区别"></a>mvn compile与mvn install、mvn deploy的区别</h2><ul>
+<li>mvn compile，编译类文件</li>
+<li>mvn install，包含mvn compile，mvn package，然后上传到本地仓库</li>
+<li>mvn deploy,包含mvn install,然后，上传到私服</li>
+</ul>
+<h2 id="maven-compiler-plugin-插件"><a href="#maven-compiler-plugin-插件" class="headerlink" title="maven-compiler-plugin 插件"></a>maven-compiler-plugin 插件</h2><p>可以用于指定模块编译的jdk版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">    &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">    &lt;configuration&gt;</span><br><span class="line">        &lt;target&gt;$&#123;java.version&#125;&lt;/target&gt;</span><br><span class="line">        &lt;source&gt;$&#123;java.version&#125;&lt;/source&gt;</span><br><span class="line">        &lt;encoding&gt;UTF-8&lt;/encoding&gt;</span><br><span class="line">    &lt;/configuration&gt;</span><br><span class="line">&lt;/plugin&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Maven中-DskipTests和-Dmaven-test-skip-true的区别"><a href="#Maven中-DskipTests和-Dmaven-test-skip-true的区别" class="headerlink" title="Maven中-DskipTests和-Dmaven.test.skip=true的区别"></a>Maven中-DskipTests和-Dmaven.test.skip=true的区别</h2><p>在使用mvn package进行编译、打包时，Maven会执行src/test/java中的JUnit测试用例，有时为了跳过测试，会使用参数-DskipTests和-Dmaven.test.skip=true，这两个参数的主要区别是：<br>-DskipTests，不执行测试用例，但编译测试用例类生成相应的class文件至target/test-classes下。<br>-Dmaven.test.skip=true，不执行测试用例，也不编译测试用例类。</p>
+<h2 id="profile切换正式环境和测试环境"><a href="#profile切换正式环境和测试环境" class="headerlink" title="profile切换正式环境和测试环境"></a>profile切换正式环境和测试环境</h2><p>可以使用<profiles>的<profile>通过id标签来切换不同环境的依赖</profile></profiles></p>
+<h2 id="mvn-install执行要注意的地方-错误笔记"><a href="#mvn-install执行要注意的地方-错误笔记" class="headerlink" title="mvn install执行要注意的地方 (错误笔记*)"></a>mvn install执行要注意的地方 (错误笔记*)</h2><p>通过在父项目的pom.xml目录执行mvn install可以连同子模块也一起安装，然后假如有多层级的父子模块依赖的情况下，mvn install是不会递归去安装子模块的子模块的。<br>比如，parent模块（BOM）下有subParent（BOM），subParent下面的子模块（jar），这个时候再parent模块下执行mvn install，subParent的jar是不会安装的，需要到subParent执行一次</p>
+<h2 id="Maven整个声明周期"><a href="#Maven整个声明周期" class="headerlink" title="Maven整个声明周期"></a>Maven整个声明周期</h2><p>验证（validate） 验证项目是正确的，所有必要的信息可用。<br>初始化（initialize） 初始化构建状态，例如设置属性或创建目录。<br>产生来源（generate-sources） 生成包含在编译中的任何源代码。<br>流程源（process-sources） 处理源代码，例如过滤任何值。<br>生成资源（generate-resources） 生成包含在包中的资源。<br>流程资源（process-resources） 将资源复制并处理到目标目录中，准备打包。<br>编译（compile） 编译项目的源代码。<br>工艺类（process-classes） 从编译后处理生成的文件，例如对Java类进行字节码增强。<br>生成测试来源（generate-test-sources） 生成包含在编译中的任何测试源代码。<br>流程测试来源（process-test-sources） 处理测试源代码，例如过滤任何值。<br>生成测试资源（generate-test-resources） 创建测试资源。<br>流程测试资源（process-test-resources） 将资源复制并处理到测试目标目录中。<br>测试编译（test-compile） 将测试源代码编译到测试目标目录中<br>流程检验类（process-test-classes） 从测试编译中处理生成的文件，例如对Java类进行字节码增强。对于Maven 2.0.5及以上版本。<br>测试（test） 使用合适的单元测试框架运行测试。这些测试不应该要求代码被打包或部署。<br>制备包（prepare-package） 在实际包装之前，执行必要的准备包装的操作。这通常会导致打包的处理版本的包。（Maven 2.1及以上）<br>打包（package） 采取编译的代码，并以其可分发的格式（如JAR）进行打包。<br>预集成测试（pre-integration-test） 在执行集成测试之前执行所需的操作。这可能涉及诸如设置所需环境等。<br>集成测试（integration-test） 如果需要，可以将该包过程并部署到可以运行集成测试的环境中。<br>整合后的测试（post-integration-test） 执行集成测试后执行所需的操作。这可能包括清理环境。<br>校验（verify） 运行任何检查以验证包装是否有效并符合质量标准。<br>安装（install） 将软件包安装到本地存储库中，以作为本地其他项目的依赖关系。<br>部署（deploy） 在集成或发布环境中完成，将最终软件包复制到远程存储库，以与其他开发人员和项目共享。<br>————————————————<br>版权声明：本文为CSDN博主「zhangxitab」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/zhangxitab/article/details/91047445" target="_blank" rel="noopener">https://blog.csdn.net/zhangxitab/article/details/91047445</a></p>
+<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="记录一个Idea中Maven的奇葩错误"><a href="#记录一个Idea中Maven的奇葩错误" class="headerlink" title="记录一个Idea中Maven的奇葩错误"></a>记录一个Idea中Maven的奇葩错误</h2><p>因为我从SVN拉代码下来是将项目根目录的名字修改为其他，导致根目录的pom.xml里面的name标签的值和文件不匹配，idea就一直报红，无法依赖其他依赖。。</p>
+<h2 id="新增加properties的变量时，编译打包报错"><a href="#新增加properties的变量时，编译打包报错" class="headerlink" title="新增加properties的变量时，编译打包报错"></a>新增加properties的变量时，编译打包报错</h2><p>很有可能需要把子模块modules都注释掉，然后编译一个或者多个父模块之后再放开子模块的注释。</p>
+<h2 id="jar-original"><a href="#jar-original" class="headerlink" title="jar.original"></a>jar.original</h2><ul>
+<li>jar.original 是普通jar包，不包含依赖</li>
+<li>.jar 是可执行jar包，包含了pom中的所有依赖，可以直接用java -jar 命令执行</li>
+<li>如果是部署，就用.jar</li>
+<li>如果是给别的项目用，就要给.jar.original这个包</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/14/linux系列之问题汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/14/linux系列之问题汇总/" class="post-title-link" itemprop="url">linux系列之问题汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-14 18:11:33" itemprop="dateCreated datePublished" datetime="2020-05-14T18:11:33+08:00">2020-05-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-05 13:53:01" itemprop="dateModified" datetime="2020-06-05T13:53:01+08:00">2020-06-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="apt-get国内太慢"><a href="#apt-get国内太慢" class="headerlink" title="apt-get国内太慢"></a>apt-get国内太慢</h1><p>ubuntu和debian的镜像源都要换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list</span><br><span class="line">sed -i &apos;s/deb.debian.org/mirrors.ustc.edu.cn/g&apos; /etc/apt/sources.list</span><br></pre></td></tr></table></figure></p>
+<p>还原：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i s@/mirrors.aliyun.com/@/deb.debian.org/@g /etc/apt/sources.list</span><br></pre></td></tr></table></figure></p>
+<h2 id="更换163的镜像"><a href="#更换163的镜像" class="headerlink" title="更换163的镜像"></a>更换163的镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#更新apt-get源 使用163的源</span><br><span class="line">mv /etc/apt/sources.list /etc/apt/sources.list.bak &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+<h2 id="apk命令更换源"><a href="#apk命令更换源" class="headerlink" title="apk命令更换源"></a>apk命令更换源</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;http://mirrors.aliyun.com/alpine/v3.8/main&quot; &gt; /etc/apk/repositories \</span><br><span class="line">    &amp;&amp; echo &quot;http://mirrors.aliyun.com/alpine/v3.8/community&quot; &gt;&gt; /etc/apk/repositories \</span><br><span class="line">    &amp;&amp; apk update upgrade \</span><br></pre></td></tr></table></figure>
+<h2 id="将命令的返回值赋值给变量（Shell命令）"><a href="#将命令的返回值赋值给变量（Shell命令）" class="headerlink" title="将命令的返回值赋值给变量（Shell命令）"></a>将命令的返回值赋值给变量（Shell命令）</h2><ul>
+<li>A=<code>ls -la</code> 反引号，运行里面的命令，并把结果返回给变量A</li>
+<li>A=$(ls -la)等价于反引号</li>
+</ul>
+<h2 id="linux-shell通过curl获取HTTP请求的状态码"><a href="#linux-shell通过curl获取HTTP请求的状态码" class="headerlink" title="linux shell通过curl获取HTTP请求的状态码"></a>linux shell通过curl获取HTTP请求的状态码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -I -m 10 -o /dev/null -s -w %&#123;http_code&#125; www.baidu.com</span><br></pre></td></tr></table></figure>
+<h2 id="shell获取系统当前时间并格式化"><a href="#shell获取系统当前时间并格式化" class="headerlink" title="shell获取系统当前时间并格式化"></a>shell获取系统当前时间并格式化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time=$(date &quot;+%Y-%m-%d %H:%M:%S&quot;)</span><br></pre></td></tr></table></figure>
+<h2 id="安装包打包命令"><a href="#安装包打包命令" class="headerlink" title="安装包打包命令"></a>安装包打包命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpmbuild / dpkg-deb 可以制作 rpm / deb package</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -657,14 +676,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">116</span>
+          <span class="site-state-item-count">119</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">69</span>
+        <span class="site-state-item-count">68</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -721,71 +740,11 @@
 
   
   <script src="/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
 <script src="/js/schemes/pisces.js"></script>
 <script src="/js/next-boot.js"></script>
-  <script>
-var pjax = new Pjax({
-  selectors: [
-    'head title',
-    '#page-configurations',
-    '.content-wrap',
-    '.post-toc-wrap',
-    '.languages',
-    '#pjax'
-  ],
-  switches: {
-    '.post-toc-wrap': Pjax.switches.innerHTML
-  },
-  analytics: false,
-  cacheBust: false,
-  scrollTo : !CONFIG.bookmark.enable
-});
-
-window.addEventListener('pjax:success', () => {
-  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
-    var code = element.text || element.textContent || element.innerHTML || '';
-    var parent = element.parentNode;
-    parent.removeChild(element);
-    var script = document.createElement('script');
-    if (element.id) {
-      script.id = element.id;
-    }
-    if (element.className) {
-      script.className = element.className;
-    }
-    if (element.type) {
-      script.type = element.type;
-    }
-    if (element.src) {
-      script.src = element.src;
-      // Force synchronous loading of peripheral JS.
-      script.async = false;
-    }
-    if (element.dataset.pjax !== undefined) {
-      script.dataset.pjax = '';
-    }
-    if (code !== '') {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
-  });
-  NexT.boot.refresh();
-  // Define Motion Sequence & Bootstrap Motion.
-  if (CONFIG.motion.enable) {
-    NexT.motion.integrator
-      .init()
-      .add(NexT.motion.middleWares.subMenu)
-      .add(NexT.motion.middleWares.postList)
-      .bootstrap();
-  }
-  NexT.utils.updateSidebarPosition();
-});
-</script>
-
 
 
 
@@ -805,11 +764,9 @@ window.addEventListener('pjax:success', () => {
 
 
 
-    <div id="pjax">
   
 
   
 
-    </div>
 </body>
 </html>

@@ -163,7 +163,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/31/Java系列之JVM/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/09/《深入理解Java虚拟机第3版》阅读笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -177,7 +177,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/03/31/Java系列之JVM/" class="post-title-link" itemprop="url">Java系列之JVM</a>
+            <a href="/2020/07/09/《深入理解Java虚拟机第3版》阅读笔记/" class="post-title-link" itemprop="url">《深入理解Java虚拟机第3版》阅读笔记</a>
         </h2>
 
         <div class="post-meta">
@@ -187,14 +187,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-03-31 20:57:37" itemprop="dateCreated datePublished" datetime="2020-03-31T20:57:37+08:00">2020-03-31</time>
+              <time title="Created: 2020-07-09 09:55:12" itemprop="dateCreated datePublished" datetime="2020-07-09T09:55:12+08:00">2020-07-09</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-21 11:08:12" itemprop="dateModified" datetime="2020-08-21T11:08:12+08:00">2020-08-21</time>
+                <time title="Modified: 2020-08-27 22:28:24" itemprop="dateModified" datetime="2020-08-27T22:28:24+08:00">2020-08-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,142 +221,42 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="JVM的官方规范"><a href="#JVM的官方规范" class="headerlink" title="JVM的官方规范"></a>JVM的官方规范</h2><p>《Java Virtual Machine Specification》</p>
-<h2 id="美团Java面试7连问"><a href="#美团Java面试7连问" class="headerlink" title="美团Java面试7连问"></a>美团Java面试7连问</h2><p><a href="https://zhuanlan.zhihu.com/p/114157783" target="_blank" rel="noopener">马士兵老师的讲解</a></p>
-<h3 id="对象的定位方式"><a href="#对象的定位方式" class="headerlink" title="对象的定位方式"></a>对象的定位方式</h3><h4 id="句柄方式"><a href="#句柄方式" class="headerlink" title="句柄方式"></a>句柄方式</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/QUtvd4.png" alt></p>
-<h4 id="直接指针"><a href="#直接指针" class="headerlink" title="直接指针"></a>直接指针</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/7BWN68.png" alt></p>
-<h3 id="句柄方式-vs-直接指针"><a href="#句柄方式-vs-直接指针" class="headerlink" title="句柄方式 vs 直接指针"></a>句柄方式 vs 直接指针</h3><p>后者的效率更高，但是当GC挪动对象的时候，前者效率更高。（上图中，前者GC挪动存活对象和清理垃圾对象的时候，t的指针不需要变）</p>
-<h3 id="对象怎么分配"><a href="#对象怎么分配" class="headerlink" title="对象怎么分配"></a>对象怎么分配</h3><h3 id="OOP-KLASS模型"><a href="#OOP-KLASS模型" class="headerlink" title="OOP-KLASS模型"></a>OOP-KLASS模型</h3><h2 id="Java内存模型（Java-Memory-Model-JMM）"><a href="#Java内存模型（Java-Memory-Model-JMM）" class="headerlink" title="Java内存模型（Java Memory Model/JMM）"></a>Java内存模型（Java Memory Model/JMM）</h2><p><a href="https://zhuanlan.zhihu.com/p/29881777" target="_blank" rel="noopener">Java内存模型（JMM）总结</a></p>
-<h2 id="Java三种编译方式：前端编译-JIT编译-AOT编译"><a href="#Java三种编译方式：前端编译-JIT编译-AOT编译" class="headerlink" title="Java三种编译方式：前端编译 JIT编译 AOT编译"></a>Java三种编译方式：前端编译 JIT编译 AOT编译</h2><p><a href="https://blog.csdn.net/tjiyu/article/details/53748965" target="_blank" rel="noopener">https://blog.csdn.net/tjiyu/article/details/53748965</a></p>
-<h2 id="JVM各种实现"><a href="#JVM各种实现" class="headerlink" title="JVM各种实现"></a>JVM各种实现</h2><p>实现JVM规范的各种虚拟机：</p>
-<ul>
-<li>Oracle的HotSpot</li>
-</ul>
-<h2 id="java的nio"><a href="#java的nio" class="headerlink" title="java的nio"></a>java的nio</h2><h2 id="Java的AOT、JIT（Just-in-time-即时编译）"><a href="#Java的AOT、JIT（Just-in-time-即时编译）" class="headerlink" title="Java的AOT、JIT（Just in time/即时编译）"></a>Java的AOT、JIT（Just in time/即时编译）</h2><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="jar"><a href="#jar" class="headerlink" title="jar"></a>jar</h3><p>list the files in the jar.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar -tf xxx.jar</span><br></pre></td></tr></table></figure></p>
-<h3 id="javap"><a href="#javap" class="headerlink" title="javap"></a>javap</h3><p>解压jar包，并反编译class输入到txt文件查看<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unzip Classes.jar</span><br><span class="line">find . -name &apos;*.class&apos; | xargs javap -p &gt; classes.txt</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/26/linux常用命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/02/26/linux常用命令/" class="post-title-link" itemprop="url">linux常用用命令</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-02-26 22:00:21" itemprop="dateCreated datePublished" datetime="2019-02-26T22:00:21+08:00">2019-02-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-20 12:04:55" itemprop="dateModified" datetime="2020-08-20T12:04:55+08:00">2020-08-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="返回上次所在目录"><a href="#返回上次所在目录" class="headerlink" title="返回上次所在目录"></a>返回上次所在目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd -</span><br><span class="line">cd $OLDPWD</span><br></pre></td></tr></table></figure>
-<h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 修改文件夹以及其子文件夹</span><br><span class="line">chmod -R 777 fileName</span><br></pre></td></tr></table></figure>
-<h2 id="find和grep"><a href="#find和grep" class="headerlink" title="find和grep"></a>find和grep</h2><p>find是在系统中搜索符合条件的文件名，grep是在文件中搜索符合条件的字符串。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">find ~/dir -name filename.txt</span><br><span class="line">grep &quot;someStr&quot; filename.txt</span><br><span class="line"># 查询某个文件夹下面大小大于某个值文件</span><br><span class="line">find ~/dir -type f -size +1G</span><br></pre></td></tr></table></figure></p>
-<h2 id="ls-查询目录具体file"><a href="#ls-查询目录具体file" class="headerlink" title="ls 查询目录具体file"></a>ls 查询目录具体file</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 按照时间升序</span><br><span class="line">ls -lrt</span><br><span class="line"># 按照时间降序</span><br><span class="line">ls -lt</span><br></pre></td></tr></table></figure>
-<h2 id="ll按时间排序"><a href="#ll按时间排序" class="headerlink" title="ll按时间排序"></a>ll按时间排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 升序</span><br><span class="line">ll -rt</span><br><span class="line"># 降序</span><br><span class="line">ll -t</span><br></pre></td></tr></table></figure>
-<h2 id="ll按大小排序"><a href="#ll按大小排序" class="headerlink" title="ll按大小排序"></a>ll按大小排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 大小单位按照human-readable</span><br><span class="line">ll -Sh</span><br></pre></td></tr></table></figure>
-<h2 id="ln链接命令"><a href="#ln链接命令" class="headerlink" title="ln链接命令"></a>ln链接命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ln -s [源文件] [目标文件]</span><br><span class="line"># -s软链接，不带-s是硬链接，硬链接等于是copy了一份文件，软链接相当于window的快捷方式。</span><br><span class="line"># 硬链接不能对目录使用，删除源文件，硬链接可以正常使用，软连接不可以。</span><br></pre></td></tr></table></figure>
-<h2 id="wget命令"><a href="#wget命令" class="headerlink" title="wget命令"></a>wget命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># 拉取文件</span><br></pre></td></tr></table></figure>
-<h2 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h2><p>tar -zxvf 用于解压  .tar.gz 后缀结尾的</p>
-<p>tar -xvf 用于解压   .tar后缀结尾的</p>
-<h2 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 创建空白文件</span><br><span class="line">touch filename</span><br></pre></td></tr></table></figure>
-<h2 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h2><p>后台不挂断执行，执行某个脚本，并将脚本的执行打印日志追加写入到某个文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup xxx.sh &gt;&gt; /usr/local/node/output.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure></p>
-<p>jboss:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 启动指定部署目录：</span><br><span class="line">nohup ./run.sh -c web38b -b 0.0.0.0  &gt;/dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure></p>
+          <blockquote>
+<p>这篇笔记总结自周志明老师的《深入理解Java虚拟机第3版》，以及其他网上知识点收集，只是我自己的个人复习笔记。</p>
+</blockquote>
+<h1 id="虚拟机概述"><a href="#虚拟机概述" class="headerlink" title="虚拟机概述"></a>虚拟机概述</h1><h2 id="中间语言翻译（从Java翻译到机器码）"><a href="#中间语言翻译（从Java翻译到机器码）" class="headerlink" title="中间语言翻译（从Java翻译到机器码）"></a>中间语言翻译（从Java翻译到机器码）</h2><blockquote>
+<p>从中间语言翻译到机器码</p>
+</blockquote>
+<h3 id="通过C语言翻译（初JVM）"><a href="#通过C语言翻译（初JVM）" class="headerlink" title="通过C语言翻译（初JVM）"></a>通过C语言翻译（初JVM）</h3><p>通过将字节码class翻译成C语言，比如定义iadd这个字节码是相加的助记符，然后通过c语言来解析字节码中的iadd就是相加，并指向对应的c语言相加的c程序来做实际运算，这样子的话，这个解析字节码的C程序就是所谓的JVM，最简陋效率最低的初代JVM</p>
+<h3 id="直接翻译为机器码"><a href="#直接翻译为机器码" class="headerlink" title="直接翻译为机器码"></a>直接翻译为机器码</h3><h4 id="CS-IP"><a href="#CS-IP" class="headerlink" title="CS:IP"></a>CS:IP</h4><p>CS与IPO这是物理CPU内部的两个寄存器。对于一台物理机器而言，这两个寄存器是最重要的寄存器，因为CPU在取指令时便完全依靠这两个寄存器。CS寄存器保存段地址，IP保存偏移地址。CS和IP这两个寄存器的值能够唯一确定内存中的一个地址，CPU在执行机器指令之前，便通过这两个寄存器定位到目标内存位置，并将该位置处的机器指令取出来进行运算。函数跳转的本质其实便是修改CS和IP这两个寄存器的内容，使其指向到目标函数所在内存的首地址，这样CPU便能执行目标函数了。Java虚拟机要想让物理CPU直接执行Java程序所对应的目标机器码，也得修改这两个寄存器才能实现。</p>
+<p>在C语言中，能够使用语法糖来修改CS:IP段寄存器，这样C程序就能直接动态执行机器码。<br>既然都能在C语言中直接动态执行机器码了（可以简单理解为：C语言的变量里面可以复制解析出来的机器码，然后直接执行），我们只要将中间语言指令直接翻译为机器码，然后让CS:IP直接指向这段机器码执行，这也是现代JVM最重要的的基本原理之一。</p>
+<h3 id="本地编译"><a href="#本地编译" class="headerlink" title="本地编译"></a>本地编译</h3><p>中间语言（Java）与同样属于高级语言的C语言相比，它们实现相同的功能，C语言编译后所生成的机器码，也比中间语言直接翻译成的机器码，在数量上要精简很多，所以单从这个角度来讲，C语言的执行效率当然是要更高一些。<br>中间语言由于其本身不能直接被CPU执行，为了能够被CPU执行，中间语言在完成同样一个功能时，需要准备更多便于自我管理的上下文环境，最后才能执行目标机器指令。准备上下文环境最终也是依靠机器码去实现，因此中间语言最终便生成了更多机器码，当然执行效率就降低了。<br>为了提高性能，JVM提供了一种机制能够将中间语言(字节码)直接编译为本地机器指令。例如安卓和部分JVM所实现的AOT ( ahead of time )特性便是这方面的尝试，但是这种方式并没有减少机器指令的数量级问题。<br>除此之外，JVM的大牛们在JIT (即时编译)、内存分配也进行了大量的优化，使JVM能够对热点代码进行大幅度指令优化，正是由于JVM可以在运行期基于上下文链路进行各种优化，因此优化后的指令质量甚至比C/C++编译岀的指令质量更高，以及部分Java程序性能甚至反超C/C++程序。如果离开了这些动态优化，Java程序的执行效率是无论如何也提不上去的。</p>
+<h2 id="神奇的指令"><a href="#神奇的指令" class="headerlink" title="神奇的指令"></a>神奇的指令</h2><p>Java虚拟机其实是”读不懂”Java代码的，不过也并非所有的虚拟机都不懂得面向对象的语言，JavaScript执行引擎就是个例外一JS脚本不需要编译就能被JS引擎直接执行。<br>Java所谓的中间语言就是Java字节码指令集，指令集一般是计算机硬件才有的东西，而作者却在软件层面定义了一套同样的东西。但是，软件本身不具备执行程序的能力，软件最终还得依靠硬件指令才能完成逻辑计算。因此，一套好的软件指令必须不能超出硬件指令所能表达的计算能力，同时又要对硬件指令进行高度抽象与概括。换言之，如果你定义了一套与硬件指令集完全一模一样的软件指令集，那大家还用你干嘛呀，不如直接用硬件指令得了。</p>
+<hr>
+<h1 id="Java技术的未来"><a href="#Java技术的未来" class="headerlink" title="Java技术的未来"></a>Java技术的未来</h1><h2 id="无语言倾向"><a href="#无语言倾向" class="headerlink" title="无语言倾向"></a>无语言倾向</h2><h3 id="GraalJVM"><a href="#GraalJVM" class="headerlink" title="GraalJVM"></a>GraalJVM</h3><h3 id="新一代即时编译器"><a href="#新一代即时编译器" class="headerlink" title="新一代即时编译器"></a>新一代即时编译器</h3><p>JDK10之后，HotSpot加入了一个全新的即时编译器，Graal编译器。(可以通过相应的JVM参数配置启动)</p>
+<h4 id="Substrate-VM"><a href="#Substrate-VM" class="headerlink" title="Substrate VM"></a>Substrate VM</h4><p>Substrate VM在内存占用和启动时间比HotSpot强5到50倍：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/eoIO68.png" alt><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/yutz7e.png" alt></p>
+<h2 id="实战：自己编译JDK"><a href="#实战：自己编译JDK" class="headerlink" title="实战：自己编译JDK"></a>实战：自己编译JDK</h2><h3 id="OpenJDK-vs-OracleJDK"><a href="#OpenJDK-vs-OracleJDK" class="headerlink" title="OpenJDK vs OracleJDK"></a>OpenJDK vs OracleJDK</h3><p>实际上，JDK11之后，两者的公用源码已经占比很高了：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/BzIIY0.png" alt></p>
+<h1 id="自动内存管理"><a href="#自动内存管理" class="headerlink" title="自动内存管理"></a>自动内存管理</h1><h2 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/LxyOJy.png" alt></p>
+<h3 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h3><p>程序计数器(Program Counter Register)是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。在Java虚拟机的概念模型里，字节解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。</p>
+<h3 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a>Java虚拟机栈</h3><h3 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h3><h3 id="Java堆（Heap）"><a href="#Java堆（Heap）" class="headerlink" title="Java堆（Heap）"></a>Java堆（Heap）</h3><h3 id="方法区【别名：”非堆”（Non-Heap）】"><a href="#方法区【别名：”非堆”（Non-Heap）】" class="headerlink" title="方法区【别名：”非堆”（Non-Heap）】"></a>方法区【别名：”非堆”（Non-Heap）】</h3><h4 id="JDK8以前”永久代”的落寞"><a href="#JDK8以前”永久代”的落寞" class="headerlink" title="JDK8以前”永久代”的落寞"></a>JDK8以前”永久代”的落寞</h4><p>JDK8之后”永久代”终于被全面废弃，换来了元空间（Meta-space）的登场。</p>
+<h4 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h4><h4 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h4><blockquote>
+<p>Java堆和Native堆</p>
+</blockquote>
+<h2 id="垃圾收集器与内存分配策略"><a href="#垃圾收集器与内存分配策略" class="headerlink" title="垃圾收集器与内存分配策略"></a>垃圾收集器与内存分配策略</h2><h3 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h3><h3 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h3><h3 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h3><h4 id="句柄和直接指针两种方式"><a href="#句柄和直接指针两种方式" class="headerlink" title="句柄和直接指针两种方式"></a>句柄和直接指针两种方式</h4><h3 id="实战：OutOfMemoryError异常"><a href="#实战：OutOfMemoryError异常" class="headerlink" title="实战：OutOfMemoryError异常"></a>实战：OutOfMemoryError异常</h3><h4 id="Java堆溢出"><a href="#Java堆溢出" class="headerlink" title="Java堆溢出"></a>Java堆溢出</h4><blockquote>
+<p>JVM堆转储快照文件（hprof文件）查看分析</p>
+</blockquote>
+<p>可以指定heapDumpPath：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/export/Domains/rcsv-fm.wd.local/server1/logs</span><br></pre></td></tr></table></figure></p>
 <blockquote>
-<blockquote>
-<p>/dev/null redirects standard output (stdout) to /dev/null, which discards it.<br>(The &gt;&gt; seems sort of superfluous, since &gt;&gt; means append while &gt; means truncate and write, and either appending to or writing to /dev/null has the same net effect. I usually just use &gt; for that reason.)<br>2&gt;&amp;1 redirects standard error (2) to standard output (1), which then discards it as well since standard output has already been redirected.</p>
+<p>kill -3 or -9 都不会打heap dump，kill -9 java_pid来不及做任何事情就被干掉了，-3会打印thread dump 但是不是heap dump。</p>
 </blockquote>
-</blockquote>
-<h2 id="更改所有子文件和子目录所有者权限"><a href="#更改所有子文件和子目录所有者权限" class="headerlink" title="更改所有子文件和子目录所有者权限"></a>更改所有子文件和子目录所有者权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod -R 777 fileDir</span><br></pre></td></tr></table></figure>
-<h2 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h2><p>curl -H “Content-Type:application/json” -X POST -d ‘json data’ URL<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -H &quot;Content-Type:application/json&quot; -X POST -d &apos;&#123;&quot;user&quot;: &quot;admin&quot;, &quot;passwd&quot;:&quot;12345678&quot;&#125;&apos; http://127.0.0.1:8000/login</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -d &quot;user=admin&amp;passwd=12345678&quot; http://127.0.0.1:8080/login</span><br></pre></td></tr></table></figure>
-<p>监控某个网站的网页响应下载时间：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o /dev/null -s -w ‘%&#123;time_total&#125;’ https://www.fengorz.me</span><br></pre></td></tr></table></figure></p>
-<p>更多用法参考：<a href="https://www.cnblogs.com/taosim/articles/4092572.html" target="_blank" rel="noopener">https://www.cnblogs.com/taosim/articles/4092572.html</a></p>
-<h2 id="df命令详解"><a href="#df命令详解" class="headerlink" title="df命令详解"></a>df命令详解</h2><p>whereis<br>which<br>xargs</p>
-<h2 id="https-blog-csdn-net-wzzfeitian-article-details-40985549"><a href="#https-blog-csdn-net-wzzfeitian-article-details-40985549" class="headerlink" title="https://blog.csdn.net/wzzfeitian/article/details/40985549"></a><a href="https://blog.csdn.net/wzzfeitian/article/details/40985549" target="_blank" rel="noopener">https://blog.csdn.net/wzzfeitian/article/details/40985549</a></h2><p>标准输出重定向</p>
-<h2 id="标准输出重定向到空，相当于忽略输出"><a href="#标准输出重定向到空，相当于忽略输出" class="headerlink" title="标准输出重定向到空，相当于忽略输出"></a>标准输出重定向到空，相当于忽略输出</h2><h2 id="查看防火墙，放开端口"><a href="#查看防火墙，放开端口" class="headerlink" title="查看防火墙，放开端口"></a>查看防火墙，放开端口</h2><h2 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h2><h2 id="killall"><a href="#killall" class="headerlink" title="killall"></a>killall</h2><p>结束所有进程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall -9 picName</span><br></pre></td></tr></table></figure></p>
-<p>##线上日志文件查看</p>
-<h3 id="查看文件内容more命令"><a href="#查看文件内容more命令" class="headerlink" title="查看文件内容more命令"></a>查看文件内容more命令</h3><p><a href="https://www.runoob.com/linux/linux-comm-more.html" target="_blank" rel="noopener">https://www.runoob.com/linux/linux-comm-more.html</a></p>
-<h3 id="less命令"><a href="#less命令" class="headerlink" title="less命令"></a>less命令</h3><p><a href="https://www.runoob.com/linux/linux-comm-less.html" target="_blank" rel="noopener">https://www.runoob.com/linux/linux-comm-less.html</a></p>
-<h2 id="解压war包"><a href="#解压war包" class="headerlink" title="解压war包"></a>解压war包</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 解压到当前目录</span><br><span class="line">jar -xvf</span><br><span class="line"># 解压到指定目录</span><br><span class="line">unzip pay.war -d /home/zookeeper1/test/pay</span><br></pre></td></tr></table></figure>
-<h2 id="du-Linux查看磁盘存储空间文件大小"><a href="#du-Linux查看磁盘存储空间文件大小" class="headerlink" title="du Linux查看磁盘存储空间文件大小"></a>du Linux查看磁盘存储空间文件大小</h2><p><a href="https://blog.csdn.net/zzldm/article/details/82804557" target="_blank" rel="noopener">https://blog.csdn.net/zzldm/article/details/82804557</a></p>
-<p>查看对应目录大小<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -sh 路径</span><br></pre></td></tr></table></figure></p>
-<h2 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h2><p>Linux sed 命令是利用脚本来处理文本文件。</p>
-<p>sed 可依照脚本的指令来处理、编辑文本文件。</p>
-<p>Sed 主要用来自动编辑一个或多个文件、简化对文件的反复操作、编写转换程序等。</p>
-<p><a href="https://www.runoob.com/linux/linux-comm-sed.html" target="_blank" rel="noopener">https://www.runoob.com/linux/linux-comm-sed.html</a></p>
-<h2 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h2><p>从本地复制到远程：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">scp local_file remote_username@remote_ip:remote_folder </span><br><span class="line">或者 </span><br><span class="line">scp local_file remote_username@remote_ip:remote_file </span><br><span class="line">或者 scp local_file remote_ip:remote_folder </span><br><span class="line">或者 </span><br><span class="line">scp local_file remote_ip:remote_file</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://www.runoob.com/linux/linux-comm-scp.html" target="_blank" rel="noopener">https://www.runoob.com/linux/linux-comm-scp.html</a></p>
-<h2 id="远程调用shell命令"><a href="#远程调用shell命令" class="headerlink" title="远程调用shell命令"></a>远程调用shell命令</h2><p><a href="https://www.cnblogs.com/ilfmonday/p/ShellRemote.html" target="_blank" rel="noopener">https://www.cnblogs.com/ilfmonday/p/ShellRemote.html</a></p>
-<h2 id="Linux下如何查看版本信息"><a href="#Linux下如何查看版本信息" class="headerlink" title="Linux下如何查看版本信息"></a>Linux下如何查看版本信息</h2><p><a href="https://www.cnblogs.com/williamjie/p/10271945.html" target="_blank" rel="noopener">https://www.cnblogs.com/williamjie/p/10271945.html</a></p>
-<h2 id="sleep"><a href="#sleep" class="headerlink" title="sleep"></a>sleep</h2><p>睡眠一段时间（5秒）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sleep 5s</span><br></pre></td></tr></table></figure></p>
-<h2 id="利用管道kill掉监听端口的进程"><a href="#利用管道kill掉监听端口的进程" class="headerlink" title="利用管道kill掉监听端口的进程"></a>利用管道kill掉监听端口的进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -9 `lsof -i -n -P | grep ? | awk &apos;&#123;print $2&#125;&apos;`</span><br></pre></td></tr></table></figure>
-<p>将问号换成对应的端口号</p>
-<h2 id="tldr"><a href="#tldr" class="headerlink" title="tldr"></a>tldr</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="top-查看内存状态"><a href="#top-查看内存状态" class="headerlink" title="top(查看内存状态)"></a>top(查看内存状态)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top -i（不显示任何闲置(Idle)或无用(Zombie)的行程）</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.jianshu.com/p/255b54b5445f" target="_blank" rel="noopener">https://www.jianshu.com/p/255b54b5445f</a></p>
-<h2 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h2><blockquote>
-<p>查看日志使用tail是不会显示行号的，如果要具体比对某些行，可以使用</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat -n xxx</span><br></pre></td></tr></table></figure>
+<h5 id="Java内存分析工具（hprof文件分析工具）"><a href="#Java内存分析工具（hprof文件分析工具）" class="headerlink" title="Java内存分析工具（hprof文件分析工具）"></a>Java内存分析工具（hprof文件分析工具）</h5><h5 id="GC-Roots"><a href="#GC-Roots" class="headerlink" title="GC Roots"></a>GC Roots</h5><h4 id="虚拟机栈和本地方法栈溢出"><a href="#虚拟机栈和本地方法栈溢出" class="headerlink" title="虚拟机栈和本地方法栈溢出"></a>虚拟机栈和本地方法栈溢出</h4><h4 id="方法区和运行时常量池溢出"><a href="#方法区和运行时常量池溢出" class="headerlink" title="方法区和运行时常量池溢出"></a>方法区和运行时常量池溢出</h4><h4 id="本机直接内存溢出"><a href="#本机直接内存溢出" class="headerlink" title="本机直接内存溢出"></a>本机直接内存溢出</h4><h1 id="垃圾收集器与内存分配策略-1"><a href="#垃圾收集器与内存分配策略-1" class="headerlink" title="垃圾收集器与内存分配策略"></a>垃圾收集器与内存分配策略</h1><h2 id="对象已死？"><a href="#对象已死？" class="headerlink" title="对象已死？"></a>对象已死？</h2><h3 id="引用计数算法"><a href="#引用计数算法" class="headerlink" title="引用计数算法"></a>引用计数算法</h3><h3 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h3><h4 id="GC-Roots-1"><a href="#GC-Roots-1" class="headerlink" title="GC Roots"></a>GC Roots</h4><h4 id="三色标记法（Tri-color-Marking）"><a href="#三色标记法（Tri-color-Marking）" class="headerlink" title="三色标记法（Tri-color Marking）"></a>三色标记法（Tri-color Marking）</h4><p>白色、黑色、灰色</p>
+<h5 id="并发出现对象消失问题"><a href="#并发出现对象消失问题" class="headerlink" title="并发出现对象消失问题"></a>并发出现对象消失问题</h5><p>两种解决方案：增量更新（Incremental Update）、原始快照（Snapshot At The Begging，SATB）。</p>
+<h2 id="经典垃圾收集器"><a href="#经典垃圾收集器" class="headerlink" title="经典垃圾收集器"></a>经典垃圾收集器</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/WLBBDC.png" alt></p>
+<h3 id="Serial收集器"><a href="#Serial收集器" class="headerlink" title="Serial收集器"></a>Serial收集器</h3><p>这是最古老，最基础的垃圾收集器，只会使用一个处理器单线程去做垃圾收集，而且它在进行垃圾收集期间，会停掉所有的用户工作线程，这是非常糟糕的用户体验。(Stop The World)<br>Serial/Serial Old收集器工作流程：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/lqCCw4.png" alt><br>（图片出自来自《深入理解Java虚拟机第3版》）<br>Serial虽然有上述这么大的弊端，但是历代JVM一直致力于Serial的优化改进，直至如今，Serial依然是HotSpot的默认新生代收集器，因为其在单线程的环境下相较而言简单高效，而且垃圾收集的时间甚至可以缩短到十几、几十毫秒。</p>
+<h3 id="ParNew收集器"><a href="#ParNew收集器" class="headerlink" title="ParNew收集器"></a>ParNew收集器</h3><p>是Serial的多线程并行版本，具体实现和Serial收集器完全一致。<br>ParNew收集器工作流程：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/gh4KtY.png" alt><br>（图片出自来自《深入理解Java虚拟机第3版》）</p>
+<p>JDK5发布时推出了划时代意义的CMS收集器，是HotSpot第一款支持并发的垃圾收集器，其首次实现垃圾收集器与用户线程（基本上）同时工作。<br>ParNew是HotSpot JVM中第一款退役的收集器。</p>
+<h4 id="垃圾收集并行-vs-并发"><a href="#垃圾收集并行-vs-并发" class="headerlink" title="垃圾收集并行 vs 并发"></a>垃圾收集并行 vs 并发</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/7vYpf1.png" alt><br>（图片出自来自《深入理解Java虚拟机第3版》）</p>
+<h3 id="Parallel-Scavenge收集器"><a href="#Parallel-Scavenge收集器" class="headerlink" title="Parallel Scavenge收集器"></a>Parallel Scavenge收集器</h3>
       
     </div>
 
@@ -375,7 +275,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Interview汇总/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/基金理财/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -389,7 +289,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/10/15/Interview汇总/" class="post-title-link" itemprop="url">Interview汇总</a>
+            <a href="/2020/03/29/基金理财/" class="post-title-link" itemprop="url">基金理财</a>
         </h2>
 
         <div class="post-meta">
@@ -399,14 +299,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2019-10-15 21:21:25" itemprop="dateCreated datePublished" datetime="2019-10-15T21:21:25+08:00">2019-10-15</time>
+              <time title="Created: 2020-03-29 15:27:56" itemprop="dateCreated datePublished" datetime="2020-03-29T15:27:56+08:00">2020-03-29</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-20 12:04:37" itemprop="dateModified" datetime="2020-08-20T12:04:37+08:00">2020-08-20</time>
+                <time title="Modified: 2020-08-27 19:44:43" itemprop="dateModified" datetime="2020-08-27T19:44:43+08:00">2020-08-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -414,7 +314,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/interview/" itemprop="url" rel="index"><span itemprop="name">interview</span></a>
+                  <a href="/categories/理财/" itemprop="url" rel="index"><span itemprop="name">理财</span></a>
                 </span>
             </span>
 
@@ -429,125 +329,300 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="深入理解IOC和DI之间的关系-todo"><a href="#深入理解IOC和DI之间的关系-todo" class="headerlink" title="深入理解IOC和DI之间的关系 todo"></a>深入理解IOC和DI之间的关系 todo</h2><h2 id="公司的新版微服务架构用到的技术栈"><a href="#公司的新版微服务架构用到的技术栈" class="headerlink" title="公司的新版微服务架构用到的技术栈"></a>公司的新版微服务架构用到的技术栈</h2><h1 id="CS"><a href="#CS" class="headerlink" title="CS"></a>CS</h1><h2 id="32位和64位系统底层的本质区别是什么？"><a href="#32位和64位系统底层的本质区别是什么？" class="headerlink" title="32位和64位系统底层的本质区别是什么？"></a>32位和64位系统底层的本质区别是什么？</h2><h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><p><a href="https://juejin.im/post/5e37b8ea6fb9a030080ca2df" target="_blank" rel="noopener">2020年2月面试题100+大全（合适各级Java人员）</a></p>
-<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><blockquote>
-<p>注意回顾自己总结的《Java系列之多线程并发-长篇》</p>
-</blockquote>
-<h2 id="多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？"><a href="#多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？" class="headerlink" title="多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？"></a>多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？</h2><h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="B-树和二叉树的区别"><a href="#B-树和二叉树的区别" class="headerlink" title="B+树和二叉树的区别"></a>B+树和二叉树的区别</h2><h2 id="红黑树和跳表"><a href="#红黑树和跳表" class="headerlink" title="红黑树和跳表"></a>红黑树和跳表</h2><h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="一个接口太多事务操作是否要使用批量事务"><a href="#一个接口太多事务操作是否要使用批量事务" class="headerlink" title="一个接口太多事务操作是否要使用批量事务"></a>一个接口太多事务操作是否要使用批量事务</h2><h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="OLAP和OLTP"><a href="#OLAP和OLTP" class="headerlink" title="OLAP和OLTP"></a>OLAP和OLTP</h2><h2 id="冗余字段"><a href="#冗余字段" class="headerlink" title="冗余字段"></a>冗余字段</h2><p>微服务架构加上前后端分离的情况下。后端接口很多时候会出现太多联表查询的情况。其实可以数据库存储空间大小允许的情况下，留出一些关键字段的冗余字段来代替联表查询。甚至可以将一些数据拆分出来查询封装成比较合适的数据JSON结构，然后可以将需要连表查询的逻辑放到前端去计算拼接，这样一来可以减少服务器和数据库的压力，同时前端做这部分的计算能力其实也是绰绰有余了，毕竟目前相对来说这是一个用户端性能过剩的时代。</p>
-<p>尽可能多的冗余字段也可以为一定业务场景带来便捷的查询，没必要一味得遵循数据库三方式。</p>
-<h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><h2 id="redis如何清理过期key"><a href="#redis如何清理过期key" class="headerlink" title="redis如何清理过期key"></a>redis如何清理过期key</h2><h2 id="redis内存不足时的策略"><a href="#redis内存不足时的策略" class="headerlink" title="redis内存不足时的策略"></a>redis内存不足时的策略</h2><h2 id="缓存更新的套路"><a href="#缓存更新的套路" class="headerlink" title="缓存更新的套路"></a>缓存更新的套路</h2><p><a href="https://coolshell.cn/articles/17416.html[](https://coolshell.cn/articles/17416.html" target="_blank" rel="noopener">https://coolshell.cn/articles/17416.html[](https://coolshell.cn/articles/17416.html</a> “”)</p>
-<h3 id="Cache-Aside-Pattern"><a href="#Cache-Aside-Pattern" class="headerlink" title="Cache Aside Pattern"></a>Cache Aside Pattern</h3><h3 id="Read-Write-Through-Pattern"><a href="#Read-Write-Through-Pattern" class="headerlink" title="Read/Write Through Pattern"></a>Read/Write Through Pattern</h3><h3 id="Write-Behind-Caching-Pattern"><a href="#Write-Behind-Caching-Pattern" class="headerlink" title="Write Behind Caching Pattern"></a>Write Behind Caching Pattern</h3>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/23/Java系列之多线程并发-长篇/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/23/Java系列之多线程并发-长篇/" class="post-title-link" itemprop="url">Java系列之多线程并发-长篇</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-04-23 16:42:15" itemprop="dateCreated datePublished" datetime="2019-04-23T16:42:15+08:00">2019-04-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-19 21:37:48" itemprop="dateModified" datetime="2020-08-19T21:37:48+08:00">2020-08-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="http://note.youdao.com/noteshare?id=5a758a5214a793176ed9c543a2011217" target="_blank" rel="noopener">http://note.youdao.com/noteshare?id=5a758a5214a793176ed9c543a2011217</a></p>
-<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><p><a href="https://www.baeldung.com/tag/java-concurrency/" target="_blank" rel="noopener">https://www.baeldung.com/tag/java-concurrency/</a><br><a href="https://www.baeldung.com/java-concurrent-locks" target="_blank" rel="noopener">https://www.baeldung.com/java-concurrent-locks</a></p>
-<h2 id="Overview-of-the-java-util-concurrent"><a href="#Overview-of-the-java-util-concurrent" class="headerlink" title="Overview of the java.util.concurrent"></a>Overview of the java.util.concurrent</h2><p><a href="https://www.baeldung.com/java-util-concurrent" target="_blank" rel="noopener">https://www.baeldung.com/java-util-concurrent</a></p>
+          <h1 id="踩过的坑"><a href="#踩过的坑" class="headerlink" title="踩过的坑"></a>踩过的坑</h1><h2 id="指数基金的坑"><a href="#指数基金的坑" class="headerlink" title="指数基金的坑"></a>指数基金的坑</h2><p>之前买过几只指数基金，因为没有太多时间去仔细研究，我就从天天基金最近的热销版中挑选了农业、消费、饮食、建筑四个方向的指数，加上受疫情影响，按道理后面应该是利好方向的，所以总共买了6万左右。</p>
+<p>然而我忽略了一个投资的定律：</p>
 <ul>
-<li>Executor</li>
-<li>ExecutorService</li>
-<li>ScheduledExecutorService</li>
-<li>Future</li>
-<li>CountDownLatch</li>
-<li>CyclicBarrier</li>
-<li>Semaphore</li>
-<li>ThreadFactory</li>
-<li>BlockingQueue</li>
-<li>DelayQueue</li>
-<li>Locks</li>
-<li>Phaser</li>
+<li>别人都纷纷买入了一段时间大涨之后，绝对不能轻易跟投，指不定就已经是山顶了；</li>
+<li>别人都纷纷卖出也不是进场的时候，指不定还在半山腰；</li>
 </ul>
-<h2 id="Semaphores-in-Java-API"><a href="#Semaphores-in-Java-API" class="headerlink" title="Semaphores in Java API"></a>Semaphores in Java API</h2><p><a href="https://www.baeldung.com/java-semaphore" target="_blank" rel="noopener">https://www.baeldung.com/java-semaphore</a></p>
-<h2 id="多线程知识的要点"><a href="#多线程知识的要点" class="headerlink" title="多线程知识的要点"></a>多线程知识的要点</h2><p><a href="https://zhuanlan.zhihu.com/p/29881777" target="_blank" rel="noopener">参考自知乎这篇文章</a></p>
-<h3 id="硬件内存架构"><a href="#硬件内存架构" class="headerlink" title="硬件内存架构"></a>硬件内存架构</h3><ul>
-<li>多CPU</li>
-<li>CPU寄存器</li>
-<li>高速缓存cache</li>
-<li>内存</li>
-<li>运作原理（从CPU&lt;-&gt;寄存器&lt;-&gt;高速缓存层&lt;-&gt;内存RAM）</li>
-<li>缓存一致性问题</li>
-<li>指令重排序问题（这个需要深入了解一下）<h3 id="Java内存模型（JMM）"><a href="#Java内存模型（JMM）" class="headerlink" title="Java内存模型（JMM）"></a>Java内存模型（JMM）</h3></li>
-<li>多线程的共享变量</li>
-<li>线程私有的本地内存（这个需要深入了解一下）</li>
-<li>JMM模型下的线程间通信</li>
-<li>JMM的八种基本操作</li>
-<li>多线程读同步与可见性<ul>
-<li>可见性（共享对象可见性）</li>
+<h1 id="债券基金"><a href="#债券基金" class="headerlink" title="债券基金"></a>债券基金</h1><h2 id="纯债基金"><a href="#纯债基金" class="headerlink" title="纯债基金"></a>纯债基金</h2><ul>
+<li>纯债基金与非纯债基金，力哥建议投资优先考虑纯债基金，在想要投资债券基金的情况下。<ul>
+<li>这里要注意的是，纯债基金中是允许投资可转债的，这种从严格意义上来讲是非纯债基金，如果投资范畴定位在百分之百纯债基金的话，那么要抛弃包含可转债的纯债基金。</li>
 </ul>
 </li>
 </ul>
-<h2 id="ThreadPoolExecutor-四种处理策略"><a href="#ThreadPoolExecutor-四种处理策略" class="headerlink" title="ThreadPoolExecutor 四种处理策略"></a>ThreadPoolExecutor 四种处理策略</h2><p>ThreadPoolExecutor.AbortPolicy()  抛出java.util.concurrent.RejectedExecutionException异常<br>ThreadPoolExecutor.CallerRunsPolicy() 重试添加当前的任务，他会自动重复调用execute()方法<br>ThreadPoolExecutor.DiscardOldestPolicy() 抛弃旧的任务<br>ThreadPoolExecutor.DiscardPolicy() 抛弃当前的任务 </p>
-<h2 id="锁对象的声明"><a href="#锁对象的声明" class="headerlink" title="锁对象的声明"></a>锁对象的声明</h2><p>如果只是简单的一个锁对象，没有类额外的对象状态变更的话，可以将锁声明为final：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 来自org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter</span><br><span class="line">// Spring Security token校验机制</span><br><span class="line">private final Object delegateMonitor = new Object();</span><br></pre></td></tr></table></figure></p>
-<h2 id="乐观锁-vs-悲观锁（PCC）"><a href="#乐观锁-vs-悲观锁（PCC）" class="headerlink" title="乐观锁 vs 悲观锁（PCC）"></a>乐观锁 vs 悲观锁（PCC）</h2><p><a href="http://www.imooc.com/article/285147" target="_blank" rel="noopener">http://www.imooc.com/article/285147</a></p>
+<h2 id="投资技巧"><a href="#投资技巧" class="headerlink" title="投资技巧"></a>投资技巧</h2><ol>
+<li>基金基于四四三三的情况下；或者直接在天天基金网选择长时间的范围来排名前三十位的，其网站有长期纯债可选。</li>
+<li>剔除投资了可转债的基金。</li>
+<li>剔除小公司基金。</li>
+<li>剔除基金规模太大的，比如超过20亿。</li>
+<li>剔除同一家大型基金公司的非王牌基金。</li>
+<li>挑选出综合费率最低的。</li>
+<li>选择成立时间相对更长的，基金经理年龄较大，其管理时间较长的。</li>
+</ol>
+<h2 id="债基收费模式"><a href="#债基收费模式" class="headerlink" title="债基收费模式"></a>债基收费模式</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/qdBMDJ.png" alt></p>
+<h4 id="那种类型更加合算："><a href="#那种类型更加合算：" class="headerlink" title="那种类型更加合算："></a>那种类型更加合算：</h4><ol>
+<li>如果只是想试试水，投资几个月也许就取出来了，那么选择不收取申购/赎回费用的模式更好。</li>
+<li>如果想长期投资，那么可以采取申购/赎回的模式。</li>
+</ol>
+<blockquote>
+<p>现在无论是前后端收费，费率听说都被压到很低了，所以前后端也许没有什么区别了，要具体比对。</p>
+</blockquote>
+<h2 id="定期开放式债券基金（定开债）"><a href="#定期开放式债券基金（定开债）" class="headerlink" title="定期开放式债券基金（定开债）"></a>定期开放式债券基金（定开债）</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/wZowEN.png" alt></p>
+<ul>
+<li>定开债相对于普通债基，其封闭阶段，可以让基金经理更有操作空间。</li>
+<li>定开债，有可能存在更高杠杠率的情况（普通债基杠杠率不能超过140%，定开债是200%），通过债券A低压给银行，再去申购债券B这种模式，使得风险性增加。<blockquote>
+<p>要注意的是，要追求更低风险的情况下，定开债依然要秉承着只选择纯债基的原则，这也是选择债基的原则。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="交易所市场和银行间市场"><a href="#交易所市场和银行间市场" class="headerlink" title="交易所市场和银行间市场"></a>交易所市场和银行间市场</h2><ul>
+<li>交易所市场类似股票的二级市场，但是市场流动性和股市不在同一个级别；</li>
+<li>银行间市场虽然流动性相对高，但是投资门槛高，老百姓玩不起；</li>
+</ul>
+<h1 id="混合型基金"><a href="#混合型基金" class="headerlink" title="混合型基金"></a>混合型基金</h1><ul>
+<li>偏股混合型基金</li>
+<li>平衡混合型基金</li>
+<li>灵活配置混合型基金</li>
+<li>偏债混合型基金<blockquote>
+<p>平衡和灵活配置才是混合型基金的精髓，因为可以做到风险对冲</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="股票型基金"><a href="#股票型基金" class="headerlink" title="股票型基金"></a>股票型基金</h1><h2 id="重要指标"><a href="#重要指标" class="headerlink" title="重要指标"></a>重要指标</h2><p>股票配置比例必须高于80%；</p>
+<h2 id="投资技巧-1"><a href="#投资技巧-1" class="headerlink" title="投资技巧"></a>投资技巧</h2><h4 id="拼爹"><a href="#拼爹" class="headerlink" title="拼爹"></a>拼爹</h4><p>尽量选择大型的、知名的基金公司</p>
+<h4 id="拼人"><a href="#拼人" class="headerlink" title="拼人"></a>拼人</h4><ul>
+<li>基金经理，可以有三个考察维度：<ul>
+<li>基金经理的基本背景（年龄、学历、履历）<ul>
+<li>年龄建议至少在35岁以上；</li>
+<li>学历当然无上限；</li>
+<li>履历应该选择掌控对应那只基金年份更加久远的；</li>
+</ul>
+</li>
+<li>操盘风格（短线、长线、基金偏好主题）<ul>
+<li>基金每个季度都会公布一份基金报告；（在基金公司官网或者天天基金网的基金股票持仓报告中可以看出；或者在天天基金网里面的可以直接查看基金换手率， 不过这个一般每半年才公布一次，换手率50%~200%之间算正常的，超过200%算高的，说明是短线，换手率太高的要小心）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="基金偏好风格"><a href="#基金偏好风格" class="headerlink" title="基金偏好风格"></a>基金偏好风格</h4><p>基金偏好风格依然可以在天天基金网查到相关信息；<br>【晨星投资风格箱】（在晨星中国的官网上可以查到所有股票型基金和混合型基金的风格箱，在天天基金也可以查到）</p>
+<h4 id="拼业绩"><a href="#拼业绩" class="headerlink" title="拼业绩"></a>拼业绩</h4><ul>
+<li>基金成立的时间要足够久<ul>
+<li>挑选成立三年以上的，最好是五年以上的</li>
+</ul>
+</li>
+<li>投资领域的二手货往往比一手货更厚投资价值</li>
+<li>基金的长期业绩排名波动不能太大</li>
+</ul>
+<h4 id="拼规模"><a href="#拼规模" class="headerlink" title="拼规模"></a>拼规模</h4><ul>
+<li><p>投资中小盘基金</p>
+<ul>
+<li>适合挑选10~20亿规模</li>
+</ul>
+</li>
+<li><p>投资大盘基金</p>
+<ul>
+<li>适合挑选30~100亿规模</li>
+</ul>
+</li>
+</ul>
+<p>超过100亿巨无霸基金，力哥建议不要；规模太小的也千万不要碰；</p>
+<h4 id="拼成本"><a href="#拼成本" class="headerlink" title="拼成本"></a>拼成本</h4><ul>
+<li>建议买管理费小于或者等于1.5%的股基；</li>
+<li>现在各大平台的申购费基本都很低了；</li>
+<li>赎回费可以考虑阶梯型征收的基金；</li>
+</ul>
+<h2 id="晨星风格箱"><a href="#晨星风格箱" class="headerlink" title="晨星风格箱"></a>晨星风格箱</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/3nbyuN.png" alt></p>
+<h2 id="股票型基金背后的黑幕【老鼠仓】"><a href="#股票型基金背后的黑幕【老鼠仓】" class="headerlink" title="股票型基金背后的黑幕【老鼠仓】"></a>股票型基金背后的黑幕【老鼠仓】</h2><p>股票型基金的有个臭名昭著的搞老鼠仓黑幕，基金经理利用自己作为业内人士，掌握一手咨询，可以预先自己私下个人名义买入股票，然后用客户在基金里面的大量资金去哄抬自己买入的股票，然后自己的个人仓位得以高抛，私下谋取自己的利益，代价就是广大客户来背锅！<br>而且这种现象基本是比比皆是，大大小小的基金公司做出这种恶劣行为的基本是无处不在，甚至于证券公司，保险公司也如此。</p>
+<p><strong><em>最臭名昭著的就是老鼠仓马乐案</em></strong></p>
+<h1 id="指数型基金"><a href="#指数型基金" class="headerlink" title="指数型基金"></a>指数型基金</h1><h2 id="何为指数"><a href="#何为指数" class="headerlink" title="何为指数"></a>何为指数</h2><p>简单来说就是一个最直观的指标可以衡量某个集体的整体水平。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/dGm6o6.png" alt></p>
+<h2 id="各国的重要指数"><a href="#各国的重要指数" class="headerlink" title="各国的重要指数"></a>各国的重要指数</h2><p><a href="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/YfAgMV.png" target="_blank" rel="noopener"></a></p>
+<h2 id="国内的股票指数"><a href="#国内的股票指数" class="headerlink" title="国内的股票指数"></a>国内的股票指数</h2><h4 id="综合指数"><a href="#综合指数" class="headerlink" title="综合指数"></a>综合指数</h4><ul>
+<li>上证指数(上证综指)：衡量了上交所的全部股票价格水平。</li>
+<li>深证指数（深证综指）：深交所的整体股票价格水平，深交所一般是民营上市公司，偏中小型企业。</li>
+</ul>
+<h4 id="沪深综合指数缺点"><a href="#沪深综合指数缺点" class="headerlink" title="沪深综合指数缺点"></a>沪深综合指数缺点</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/2GeXrW.png" alt><br>因为指数采用的是加权平均数，如果某个大盘股的股本极高，那么该股的涨跌对整体指数的影响就会很大，比如中石油这种巨头企业。<br>比如2015股灾，政府救市救市大举买入大盘蓝筹股，这些股票规模大，权重高，很快就把指数拉上来了。</p>
+<h4 id="成分指数"><a href="#成分指数" class="headerlink" title="成分指数"></a>成分指数</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/Xc0IE4.png" alt><br>成分指数的计算中一般只考虑流通股，不考虑非流通股</p>
+<h6 id="以前的股市背景"><a href="#以前的股市背景" class="headerlink" title="以前的股市背景"></a>以前的股市背景</h6><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/NhbXns.png" alt><br>比重大的非流通股确实在上证指数里面的，这就造成了严重的失真，于是成分指数就应运而生。</p>
+<h6 id="2005年的股改-支付对价"><a href="#2005年的股改-支付对价" class="headerlink" title="2005年的股改(支付对价)"></a>2005年的股改(支付对价)</h6><p>持有国有股份和法人股的大股东，想把自己手里的股票从非流通变成可流通，被允许卖掉，但是如果被允许都卖掉，造成了供大于求总体估价下跌，那么这样对原本就是可流通的小股民来说是致命打击。<br>于是大股东给出方案，就是送了小部分原本就是非流通的股票（即将要被转为可流通），这样一来，双方都有所获利，也就是支付对价，都是也不能一口气全部股改，于是又有了漫长的非流通股解禁周期（大小非解禁）<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/FBGLyf.png" alt></p>
+<h6 id="规模指数"><a href="#规模指数" class="headerlink" title="规模指数"></a>规模指数</h6><ul>
+<li>国证系列指数</li>
+<li>巨潮系列指数（巨潮100指数）</li>
+<li>申万xx指数</li>
+<li>富时中国系列指数（富时中国A50指数）</li>
+<li>道琼斯中国88指数</li>
+<li>标普中国500指数</li>
+</ul>
+<h6 id="行业指数"><a href="#行业指数" class="headerlink" title="行业指数"></a>行业指数</h6><p>比如金融指数可细分为：银行指数、券商指数、科技金融指数等等；<br>医药指数可以细分为：生物医药指数、医疗器械指数，中药指数；<br>TMT指数：科技、媒体与通信指数；</p>
+<h6 id="风格指数"><a href="#风格指数" class="headerlink" title="风格指数"></a>风格指数</h6><p>按照晨星风格箱的九宫格，可以分为九种不同风格的指数，比如：中小板300成长指数，上证180价值指数（只关注大盘价值股）；</p>
+<h6 id="主题指数"><a href="#主题指数" class="headerlink" title="主题指数"></a>主题指数</h6><ul>
+<li>上证龙头企业指数（就是把各行业的龙头股给单独挑出来）；</li>
+<li>上证红利指数（就是把分红特别多的股票给挑出来）；</li>
+<li>上证180治理指数（就是把上证180指数的成分股中把治理很好的股票挑出来）</li>
+<li>新思路指数（一带一路）</li>
+<li>养老指数</li>
+<li>国企改革指数</li>
+<li>人工智能指数</li>
+</ul>
+<h2 id="指数基金的重要指标"><a href="#指数基金的重要指标" class="headerlink" title="指数基金的重要指标"></a>指数基金的重要指标</h2><h4 id="优秀的指数基金"><a href="#优秀的指数基金" class="headerlink" title="优秀的指数基金"></a>优秀的指数基金</h4><p>指数基金的原理是让基金业绩尽可能地去复制指数的走势，所以，最重要的指标是看基金对指数的跟踪误差大不大，跟踪误差越小，该基金就越优秀；</p>
+<blockquote>
+<p>最终要的选择指数基金原则是选择，跟踪误差最小的基金</p>
+</blockquote>
+<p>一般跟踪误差都在0.5以内，优秀的可以在0.1%至0.05%以内。</p>
+<h2 id="增强型指数基金"><a href="#增强型指数基金" class="headerlink" title="增强型指数基金"></a>增强型指数基金</h2><p>基金经理有权在一定的范围内对投资的股票进行调整.</p>
+<h4 id="力哥的建议"><a href="#力哥的建议" class="headerlink" title="力哥的建议"></a>力哥的建议</h4><p>指数基金最大的优点是【便宜】,管理费最贵的是股票基金，毕竟基金经理是主动选股，但是指数基金不需要投入很大的人力在股票的挑选上，只要付指数公司的指数使用费就可以了，经理的活容易干，费率自然就低了。<br>但是增强型指数基金的管理费要比非增强型的高点，比正常的股票型基金的管理费低点。</p>
+<p>指数基金一般半年才调一次仓，毕竟指数的成分股一般是不变的，<strong><em>这样有个非常大的好处，可以大大节省交易佣金和印花税，毕竟股票的交易不是免费的，因此股票型基金的换手率太大了其实是很不好的，浪费在交易中间的费用太多了</em></strong></p>
+<p>所以，力哥个人一般不建议不纯粹的增强型指数基金，也呼应了之前非纯债基的挑选原则。</p>
+<p>指数基因最初的设计理念是为非激进型投资者取得市场的平均投资收益，如果初衷不是不求高收益，就不应该涉足指数基金，直接刚股票或股票型基金即可。【投资就要投纯的】</p>
+<h2 id="查询指数的相关资料"><a href="#查询指数的相关资料" class="headerlink" title="查询指数的相关资料"></a>查询指数的相关资料</h2><p>如果是上交所发行的就到上交所官网查询，深交所也同，中证指数也有对应官网。</p>
+<h2 id="指数基金的投资标的"><a href="#指数基金的投资标的" class="headerlink" title="指数基金的投资标的"></a>指数基金的投资标的</h2><p>用通俗的话来说就是：”要选择那种把优等生挑选出来的班级”</p>
+<h2 id="大数据指数基金"><a href="#大数据指数基金" class="headerlink" title="大数据指数基金"></a>大数据指数基金</h2><h4 id="BAT"><a href="#BAT" class="headerlink" title="BAT"></a>BAT</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/iwvhQm.png" alt></p>
+<h6 id="中证百度百发策略100指数"><a href="#中证百度百发策略100指数" class="headerlink" title="中证百度百发策略100指数"></a>中证百度百发策略100指数</h6><p>百发指数的成分股每个月变动一次，毕竟热点的变化很快，所以也只能跟着快速变化调整成分股。<br>正因为需要这样子快速的变动，所以基金的规模不能太大，俗话说”船小好调头”。</p>
+<h6 id="百度和阿里推出的大数据指数基金的区别"><a href="#百度和阿里推出的大数据指数基金的区别" class="headerlink" title="百度和阿里推出的大数据指数基金的区别"></a>百度和阿里推出的大数据指数基金的区别</h6><ul>
+<li>百发100属于情绪派</li>
+<li>淘金100属于业绩派（基本面派）</li>
+</ul>
+<h6 id="BA的大数据指数基金实际回报"><a href="#BA的大数据指数基金实际回报" class="headerlink" title="BA的大数据指数基金实际回报"></a>BA的大数据指数基金实际回报</h6><ul>
+<li>百发100指数 21%（平局每天也就每年7.7%）</li>
+<li>淘金100指数 -17%</li>
+</ul>
+<hr>
+<p>之所以如此亏损的原因有三点：</p>
+<ol>
+<li>大数据的管理成本比传统的指数基金更高。</li>
+<li>每个月一次大换血交易成本太高，特别是在持续的大熊市期间。</li>
+<li>投资者纷纷赎回。</li>
+</ol>
+<h4 id="电脑挑选成分股技巧"><a href="#电脑挑选成分股技巧" class="headerlink" title="电脑挑选成分股技巧"></a>电脑挑选成分股技巧</h4><ul>
+<li>剔除涉嫌财务造假的股票</li>
+<li>剔除涉嫌市场操纵的股票【特别是被人坐庄的股票，这样子的股票投资风险会很高】</li>
+<li>选出价值被低估的股票</li>
+</ul>
+<h4 id="人脑挑选成分股技巧"><a href="#人脑挑选成分股技巧" class="headerlink" title="人脑挑选成分股技巧"></a>人脑挑选成分股技巧</h4><p>经由上面电脑选择后之后，大数据指数基金还需要人脑进行最后的精选阶段，人脑阶段经理只是踢掉一些个经理认为没有投资价值的股票，不会引进其他股票，而且这个排雷工作是由8个基金专家共同商议决定，8个专家本身和指数基金没有直接明显的利益关系，所以他们的评价会更加客观和全面。</p>
+<h6 id="这里和增强型指数基金的区别"><a href="#这里和增强型指数基金的区别" class="headerlink" title="这里和增强型指数基金的区别"></a>这里和增强型指数基金的区别</h6><p>增强型指数基金是经理主观判断把一些个股剔除掉，然后可能会引进其他的成分股。</p>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><ul>
+<li>大数据指数基金只看股票的好坏，没有其他指标的羁绊。</li>
+<li>半年一次成分股的超级大换血。【可以一次换掉几十个成分股，如果本年内原本被低估的股票被炒作起来了，那么就已经不符合大数据指数基金挑选技巧的第三条原则了，可以选择踢掉对应股票，换新的一波低价值股票进来】<ul>
+<li>这其实和中国股市板块轮动的特点吻合了，一个板块炒烂了换个板块炒。</li>
+</ul>
+</li>
+<li>不设申购费和赎回费 ，一般收取的是销售服务费（比如每年0.25%），是提前从基金净值里面扣除的，不需要额外的再次支付手续费。</li>
+</ul>
+<h2 id="ETF基金"><a href="#ETF基金" class="headerlink" title="ETF基金"></a>ETF基金</h2><p>Exchange Traded Funds（上市交易型开放式指数基金）<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/HJOCfM.png" alt><br>就是说，可以像开放式基金一样在场外的一级市场随时申购速回，也可以像普通的封闭式基金一样在场内的二级市场买卖。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/dAvqJJ.png" alt><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/VTVW9J.png" alt></p>
+<h3 id="ETF基金相比传统基金的优点"><a href="#ETF基金相比传统基金的优点" class="headerlink" title="ETF基金相比传统基金的优点"></a>ETF基金相比传统基金的优点</h3><h4 id="资金利用效率最高"><a href="#资金利用效率最高" class="headerlink" title="资金利用效率最高"></a>资金利用效率最高</h4><ul>
+<li>申购：ETF基金不是直接拿钱去申购基金的，而是要拿一篮子的股票股申购</li>
+<li>赎回：赎回也是一样，赎回的不是钱，而是一篮子对应的股票</li>
+</ul>
+<p>ETC基金在一级市场并不是买卖行为，而是交换行为，使用股票去换资金，或者用基金去换股票。交换原理如下：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/beYB9B.png" alt><br>只有在二级市场中才能够买卖。</p>
+<h4 id="投资门槛低"><a href="#投资门槛低" class="headerlink" title="投资门槛低"></a>投资门槛低</h4><p>好比如沪深300ETF，普通投资者没有那么大的资金量去分别购买对应份额的300个成分股去兑换沪深300ETF，所以，<strong><em>ETF基金在一级市场的申购赎回更适合机构投资者。</em></strong></p>
+<p>所以基金公司一般对参与ETF基金申赎业务的客户一般会有最少200万左右的资金门槛要求。指数ETF的一级市场申赎其实和我们这种捞仔没关系。</p>
+<p>但是其二级市场的交易门槛就很低了，最低是以100股来交易，作为捞仔还是搞得起的。</p>
+<p><strong><em>ETF基金在二级市场的买卖更加适合普通投资者</em></strong></p>
+<p>机构投资者就可以在二级市场中买卖，也可以在一级市场申赎（基金与股票之间的交换）。</p>
+<p><strong><em>ETF能够将仓位达到98%、99%，甚至是99.5%以上，而普通的指数基金为了应对投资者的赎回需求，一般仓位只能是90%、92%（这种情况下普通指数基金在熊市时，投资者纷纷赎回的情况下就不得不在低位卖掉股票，造成亏损或者回报折损；而在牛市中，却有可能因为投资者的纷纷申购，基金规模大幅度膨胀，但是却来不及建仓，这样基金的真实涨幅往往会跑输理论的指数涨幅，造成回报大打折扣。）；因此在牛市中，沪深300ETF就一定会比普通的跟踪沪深300指数基金涨得更多</em></strong></p>
+<h4 id="管理费率低"><a href="#管理费率低" class="headerlink" title="管理费率低"></a>管理费率低</h4><p>是所有偏股型基金中最低的，投资者在二级市场中买卖ETF基金也是和买股票一样即时成交。普通的开放式指数基金是需要的等待一天才能够申购成功，赎回更是要等待几天钱才能够到账。</p>
+<p>ETF的交易还是没有印花税的，一般只需要缴纳从最高千分之三到最低万分一不等。</p>
+<h3 id="ETF基金的实战攻略"><a href="#ETF基金的实战攻略" class="headerlink" title="ETF基金的实战攻略"></a>ETF基金的实战攻略</h3><p>ETF基金选择依然要遵循选择规模大、成交量活跃的原则。</p>
+<h4 id="套利功能"><a href="#套利功能" class="headerlink" title="套利功能"></a>套利功能</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/0Zm9BH.png" alt></p>
+<ul>
+<li>折价（零售价&lt;批发价）</li>
+<li>溢价（零售价&gt;批发价）</li>
+</ul>
+<h5 id="实时参考净值（实时参考估值）"><a href="#实时参考净值（实时参考估值）" class="headerlink" title="实时参考净值（实时参考估值）"></a>实时参考净值（实时参考估值）</h5><p>零售价和批发价的公布时间不是同步的，批发价（一级市场的净值）不是实时公布的，而是每天收盘财务审计之后，才能够给出的确切数值。</p>
+<p>所以今天要买或卖ETF参考的基金净值实际上是昨天的，用过时的信息去指导当下的买卖操作，是个危险的事情，因此实时参考净值应运而生（在股市的涨涨跌跌中，后台程序自动模拟计算出基金的当下的最新净值，一般每15秒更新一次）。</p>
+<p>天天基金网上就有净值估算、单位净值和累积净值。这个估算值只供估算参考，不是权威的数字。</p>
+<h5 id="溢价与折价之间的买卖技巧"><a href="#溢价与折价之间的买卖技巧" class="headerlink" title="溢价与折价之间的买卖技巧"></a>溢价与折价之间的买卖技巧</h5><p><strong><em>知道实时参考净值就知道了该ETF基金当下在二级市场价格是溢价还是折价，如果市场走牛，大量投资者进场买买买，那么就会产生大幅溢价；但是这个时候有一点要注意，如果之后股价没有涨，那么当下的溢价在之后一定会回落的，到之后净值一定会下跌，倒不如在有所预判会回落之际，把基金在高溢价卖掉，美滋滋。</em></strong></p>
+<p><strong><em>反过来说，如果当下股市冷冷清清，走熊了，也没杀人愿意买基金，二级市场供大于求，就会产生折价，抓住一些个有这种折价收益的ETF基金给套利套出来，因为在之后的市场回涨时，折价也是会回归的。</em></strong></p>
+<h5 id="折溢价信息的查询"><a href="#折溢价信息的查询" class="headerlink" title="折溢价信息的查询"></a>折溢价信息的查询</h5><p>天天基金网根据【净值估算】和二级市场的价格做比较：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/Txgpla.png" alt></p>
+<p>也可以直接在<a href="www.jisilu.cn">集思录</a>，点击ETF基金-&gt;溢价率(升序或降序)，即可直接查看。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/ZIehrl.png" alt></p>
+<h5 id="折溢价指标战略（折价套利、溢价套利）"><a href="#折溢价指标战略（折价套利、溢价套利）" class="headerlink" title="折溢价指标战略（折价套利、溢价套利）"></a>折溢价指标战略（折价套利、溢价套利）</h5><ul>
+<li>溢价率&gt;3% 谨慎交易</li>
+<li>溢价率&gt;5% 暂停买入</li>
+<li>溢价率&gt;10% 建议卖出</li>
+<li>折价率&gt;3% 考虑买入</li>
+<li>折价率&gt;10% 加速买入</li>
+</ul>
+<p>一般正常的折溢价率区间是1~2%。<br><strong><em>那些既可以在一级市场交易又可以在二级市场买卖的机构投资者，在溢价的情况下，会选择从一级市场申购大量份额，到二级市场零售卖掉，反之亦然，这种套利行为被大量的机构投资者青睐，这就是为什么ETF基金的折溢价率一般会被很快抹平。</em></strong></p>
+<h3 id="ETF基金的优点"><a href="#ETF基金的优点" class="headerlink" title="ETF基金的优点"></a>ETF基金的优点</h3><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/IQW66e.png" alt></p>
+<h3 id="中国A股市场的交易规则"><a href="#中国A股市场的交易规则" class="headerlink" title="中国A股市场的交易规则"></a>中国A股市场的交易规则</h3><p>和股票一样：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/Rjkiz5.png" alt><br>在开盘之前，ETF基金和股票一样采用【集合竞价模式】。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/6r8Gwv.png" alt><br>集合竞价规则：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/1qOJUB.png" alt><br>9点25分之后，就可以看到具体的成交价格和数量了，这种开盘前先集合竞价的目的，就是为了在9点半正式开盘的时候，能够产生一个当天的开盘价，给当天股市的连续竞价确定一个开始的基数。</p>
+<h3 id="ETF联接基金"><a href="#ETF联接基金" class="headerlink" title="ETF联接基金"></a>ETF联接基金</h3><p>其实就是专门去买ETF基金的基金，或者叫做ETF基金的影子基金。</p>
+<p><strong><em>更加准确地说，ETF联接基金就是普通的开放式基金，可以直接在场外的一级市场申购赎回。</em></strong><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/TTbwn3.png" alt><br>百分之10的主动管理可以应对赎回需求。</p>
+<p>因为ETF联接基金90%以上投资的ETF基金已经征收过管理费和托管费了，所以是不能够再次征收管理费和托管费的，只有剩下不到10%的主动管理的基金资产才能收取两个费用。</p>
+<p>所以，ETF联接基金的持有成本，只比ETF基金高一点点，还是比普通的指数基金低很多。</p>
+<h4 id="ETF联接基金的优势"><a href="#ETF联接基金的优势" class="headerlink" title="ETF联接基金的优势"></a>ETF联接基金的优势</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/Rff1ix.png" alt><br>所以，买普通的沪深300指数基金，不如买沪深300ETF联接基金。</p>
+<h4 id="ETF基金-vs-ETF联接基金"><a href="#ETF基金-vs-ETF联接基金" class="headerlink" title="ETF基金 vs ETF联接基金"></a>ETF基金 vs ETF联接基金</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/ogm1hU.png" alt><br>普通的ETF基金的买卖操作需要和股票一样，要实时跟踪，费时费力，工作学习繁忙的投资者还是得选择ETF联接基金，可以自动设置定投。<br><a href="https://zhuanlan.zhihu.com/p/108820033" target="_blank" rel="noopener">知乎大佬分析ETF和ETF联接的区别</a></p>
+<blockquote>
+<p>买普通的沪深300指数基金，其实不如买其ETF基金</p>
+</blockquote>
+<h2 id="LOF基金"><a href="#LOF基金" class="headerlink" title="LOF基金"></a>LOF基金</h2><p>和ETF基金一样，全称Listed Open-ended Fund（上市型开放基金）<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/e2dDfW.png" alt><br>LOF基金本质上就是一个开放式基金，但是它却可以在二级市场上交易，也可以同时在一级市场申购赎回。（二级市场成本更低，可以玩折价溢价的玩法）</p>
+<p><strong><em>LOF基金同时具备了ETF基金和ETF连接基金的优点</em></strong></p>
+<h3 id="LOF-vs-ETF"><a href="#LOF-vs-ETF" class="headerlink" title="LOF vs ETF"></a>LOF vs ETF</h3><p>ETF是指数基金，而LOF基金可以是指数、股票、混合甚至是债券型等等</p>
+<h4 id="基金代码不同"><a href="#基金代码不同" class="headerlink" title="基金代码不同"></a>基金代码不同</h4><p>基金代码开头不一样：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/T9X3SX.png" alt><br>今天市场上的LOF基金主要都是在深交所上市的。</p>
+<h3 id="LOF基金套利实战"><a href="#LOF基金套利实战" class="headerlink" title="LOF基金套利实战"></a>LOF基金套利实战</h3><p>LOF和ETF一样，也可以同时在场外和场内两个市场交易，两个市场会出现价格差，除开手续费之后，如果还有赚头，那就可以实行套利了。</p>
+<h4 id="LOF溢价套利"><a href="#LOF溢价套利" class="headerlink" title="LOF溢价套利"></a>LOF溢价套利</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/wbsjQW.png" alt></p>
+<h4 id="LOF折价套利"><a href="#LOF折价套利" class="headerlink" title="LOF折价套利"></a>LOF折价套利</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/1ze3wi.png" alt></p>
+<blockquote>
+<p>跨市场的套利流程总共要5个交易日（比如，从天天基金到东方财富之间转托管的方式进行的套利），而直接在证券账户体系内完成的套利体系就更快一些了，只要3个交易日。</p>
+</blockquote>
+<h2 id="QDII"><a href="#QDII" class="headerlink" title="QDII"></a>QDII</h2><h3 id="QDII-ETF"><a href="#QDII-ETF" class="headerlink" title="QDII-ETF"></a>QDII-ETF</h3><h3 id="QDII-LOF"><a href="#QDII-LOF" class="headerlink" title="QDII-LOF"></a>QDII-LOF</h3><h1 id="Common-Basic-Knowledge"><a href="#Common-Basic-Knowledge" class="headerlink" title="Common Basic Knowledge"></a>Common Basic Knowledge</h1><h2 id="四四三三法则"><a href="#四四三三法则" class="headerlink" title="四四三三法则"></a>四四三三法则</h2><h2 id="基金分红"><a href="#基金分红" class="headerlink" title="基金分红"></a>基金分红</h2><blockquote>
+<p>基金的分红与股票的分红是截然不同的</p>
+</blockquote>
+<ul>
+<li>基金不分红留在基金里面，净值不降低，钱依然是申购者的；</li>
+<li>股票不分红，那就是对应上市公司自家的，和股民无关；</li>
+</ul>
+<h4 id="基金分红方式"><a href="#基金分红方式" class="headerlink" title="基金分红方式"></a>基金分红方式</h4><ul>
+<li>现金分红；</li>
+<li>红利在投资；</li>
+</ul>
+<h2 id="基金的重要指标"><a href="#基金的重要指标" class="headerlink" title="基金的重要指标"></a>基金的重要指标</h2><ol>
+<li>累计净值（平时一般说的净值是单位净值，就是把历次所有分红收益都剔除掉之后当下的净值；一些新基金可能单位净值和累计净值一样，但是老基金分红多次之后，两个值可能相差很大）</li>
+<li>单位净值（也就是净值，单位净值=（总资产－总负债）/基金总份额）</li>
+<li>分红与否、基金单位净值高低与基金好坏没有必然联系<h2 id="负相关"><a href="#负相关" class="headerlink" title="负相关"></a>负相关</h2>理论上以下关系较大概率是负相关（不排除出现正相关的情况）：</li>
+</ol>
+<ul>
+<li>股票–债券</li>
+<li>股票–房子</li>
+<li>存款–债券</li>
+<li>美元–黄金</li>
+<li>美元–石油</li>
+<li>美元–日元</li>
+<li>美元–比特币</li>
+</ul>
+<h2 id="最专业最中立的三家基金评级机构"><a href="#最专业最中立的三家基金评级机构" class="headerlink" title="最专业最中立的三家基金评级机构"></a>最专业最中立的三家基金评级机构</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/DDh3G4.png" alt></p>
+<h2 id="基金业绩评价基准"><a href="#基金业绩评价基准" class="headerlink" title="基金业绩评价基准"></a>基金业绩评价基准</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/ocja4B.png" alt></p>
+<ul>
+<li><p>基金KPI</p>
+<ul>
+<li>根据基金自身特性定制的考核标准</li>
+</ul>
+</li>
+<li><p>β系数 = 1 代表基金真实业绩表现和业绩比较基准重合（β系数是对一个基金所承受的系统性风险的量化表达，可以理解为收益弹性有多大）</p>
+</li>
+<li>β系统越高，基金随市场涨跌幅度越大，反之越小</li>
+</ul>
+<h2 id="基金公司"><a href="#基金公司" class="headerlink" title="基金公司"></a>基金公司</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/oIJv1r.png" alt></p>
+<blockquote>
+<p>只有红框的七家被评为五星公司</p>
+</blockquote>
+<h2 id="利率"><a href="#利率" class="headerlink" title="利率"></a>利率</h2><p>利率=利息÷本金÷时间×100%，如果说年利率的话，就是将公式的时间换成一年<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/771OZU.png" alt></p>
+<h4 id="年化率"><a href="#年化率" class="headerlink" title="年化率"></a>年化率</h4><p>年化收益率=（投资内收益/本金）/（投资天数/365）×100%</p>
+<h2 id="马克维兹的资产组合理论"><a href="#马克维兹的资产组合理论" class="headerlink" title="马克维兹的资产组合理论"></a>马克维兹的资产组合理论</h2><h2 id="基金的重要选择指标"><a href="#基金的重要选择指标" class="headerlink" title="基金的重要选择指标"></a>基金的重要选择指标</h2><p><strong><em>一般应该要选择三高基金（α系数、R平方还有夏普指数高的）</em></strong></p>
+<hr>
+<h4 id="β系数"><a href="#β系数" class="headerlink" title="β系数"></a>β系数</h4><ul>
+<li>高β策略（高波策略）<ul>
+<li>比较适合激进型的投资者</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/H6JVsQ.png" alt></p>
+<blockquote>
+<p>对应的镜像策略是：低β策略，也叫低波策略</p>
+</blockquote>
+<h4 id="α系数"><a href="#α系数" class="headerlink" title="α系数"></a>α系数</h4><p>代表一个基金的绝对回报或超额收益，通常是基金经理的择时或选股的高超水平获得的<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/O9o50V.png" alt></p>
+<h4 id="基金的真实收益"><a href="#基金的真实收益" class="headerlink" title="基金的真实收益"></a>基金的真实收益</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/KThPuP.png" alt></p>
+<h4 id="夏普指数"><a href="#夏普指数" class="headerlink" title="夏普指数"></a>夏普指数</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/sh2GwL.png" alt><br>夏普比率是评价基金优劣的最重要的标准化指标，夏普比率越高，基金性价比越高，越值得拥有。</p>
+<h4 id="R平方"><a href="#R平方" class="headerlink" title="R平方"></a>R平方</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/i7tQ5j.png" alt></p>
+<h4 id="特雷诺指数"><a href="#特雷诺指数" class="headerlink" title="特雷诺指数"></a>特雷诺指数</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/krld92.png" alt></p>
+<h4 id="一级市场和二级市场的区别"><a href="#一级市场和二级市场的区别" class="headerlink" title="一级市场和二级市场的区别"></a>一级市场和二级市场的区别</h4><p>所谓的一级市场和二级市场，可以说指的是金融市场，交易的是金融产品包括股票、股权，债券、债权，期货、远期协议等等。</p>
+<h5 id="一级市场"><a href="#一级市场" class="headerlink" title="一级市场"></a>一级市场</h5><p>也称发行市场或初级市场，是资本需求者将证券首次出售给公众时形成的市场。它是新证券和票据等金融工具的买卖市场。该市场的主要经营者是投资银行、经纪人和证券自营商(在我国这三种业务统一于证券公司)。它们承担政府、公司新发行的证券以及承购或分销股票。</p>
+<p>在企业的股权未进入标准化的市场流通之前，都应该属于一级市场的范畴。以股票为例，对于我国A股而言，我们常说的IPO就是在一级市场进行的。对IPO之前企业的投资（例如VC、PE等私募股权投资）一般也称为一级市场投资。这时主要参与通过是机构投资者，投资的机构股权方面有私募基金、投资银行等等。</p>
+<p>这时公司股权的溢价很难体现，只能靠公司的盈利体现，而且流通性也很有限。当企业进行一系列的经过一系列流程标准化之后，进入到证券交易场所流通，这时便是进入二级市场了，具体交易标的可以是股票、债券、公募基金等。</p>
+<h5 id="二级市场"><a href="#二级市场" class="headerlink" title="二级市场"></a>二级市场</h5><p>是指在证券发行后各种证券在不同的投资者之间买卖流通所形成的市场，又称流通市场或次级市场。比如上海证券交易所和深圳证券交易所就属于二级市场。在二级市场上销售证券的收入属于出售证券的投资者，而不属于发行该证券的公司。</p>
+<p>可以说二级市场是变现场所，在企业的股权、债券未实现标准化之前，那么投资银行、私募基金看中未来的升值空间，买下其中一些股权、债权等，到了企事业达到标准化的标准之后，股权成为股票的形式，便可以在二级市场进行交易，所以一级市场有时也叫初级市场，二级市场是一级市场投资得以存在和发展的条件。</p>
+<p>如果没有二级市场的存在，证券不具备流通性和溢价，就不会有大量的投资者来参与，一级的投资者就没有“接盘侠”。否则那些投资者就不愿意买这些证券。</p>
+<h4 id="场内vs场外"><a href="#场内vs场外" class="headerlink" title="场内vs场外"></a>场内vs场外</h4><p><a href="https://zhuanlan.zhihu.com/p/115616502" target="_blank" rel="noopener">知乎大佬的通透解析</a></p>
 
       
     </div>
@@ -567,7 +642,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/30/Java系列之零碎笔记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/27/Web前端汇总/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -581,7 +656,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/30/Java系列之零碎笔记/" class="post-title-link" itemprop="url">Java系列之零碎笔记</a>
+            <a href="/2019/11/27/Web前端汇总/" class="post-title-link" itemprop="url">Web前端汇总</a>
         </h2>
 
         <div class="post-meta">
@@ -591,14 +666,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2019-11-30 21:12:21" itemprop="dateCreated datePublished" datetime="2019-11-30T21:12:21+08:00">2019-11-30</time>
+              <time title="Created: 2019-11-27 22:00:11" itemprop="dateCreated datePublished" datetime="2019-11-27T22:00:11+08:00">2019-11-27</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-14 09:17:16" itemprop="dateModified" datetime="2020-08-14T09:17:16+08:00">2020-08-14</time>
+                <time title="Modified: 2020-08-27 18:28:36" itemprop="dateModified" datetime="2020-08-27T18:28:36+08:00">2020-08-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -606,7 +681,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                  <a href="/categories/Web前端/" itemprop="url" rel="index"><span itemprop="name">Web前端</span></a>
                 </span>
             </span>
 
@@ -621,56 +696,209 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="避坑"><a href="#避坑" class="headerlink" title="避坑"></a>避坑</h1><h2 id="代码格式"><a href="#代码格式" class="headerlink" title="代码格式"></a>代码格式</h2><p>一个团队你的代码格式一定要统一，不然代码冲突时，比对代码非常麻烦。</p>
-<h1 id="Java8-新特性"><a href="#Java8-新特性" class="headerlink" title="Java8 新特性"></a>Java8 新特性</h1><h2 id="Java8新特性参考"><a href="#Java8新特性参考" class="headerlink" title="Java8新特性参考"></a>Java8新特性参考</h2><ol>
-<li><a href="https://www.cnblogs.com/onetwo/p/8526374.html" target="_blank" rel="noopener">https://www.cnblogs.com/onetwo/p/8526374.html</a></li>
-<li><a href="https://www.cnblogs.com/dzy521/p/10077132.html" target="_blank" rel="noopener">https://www.cnblogs.com/dzy521/p/10077132.html</a><h3 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a>Stream</h3>由于Stream的起始点是基于Array来初始化，集合List可以直接通过parallelStream方法来启动一个Stream<h4 id="flatMap-vs-map"><a href="#flatMap-vs-map" class="headerlink" title="flatMap vs map"></a>flatMap vs map</h4>前者在结构之后是直接返回被扁平后的流对象，后者还是返回包装好原来元素的流对象<h2 id="java8注解新特性"><a href="#java8注解新特性" class="headerlink" title="java8注解新特性"></a>java8注解新特性</h2></li>
-<li>增加二个注解类型（ElementType.TYPE_USE 和 ElementType.TYPE_PARAMETER）<br> 意思是可以声明在任何类型声明的地方，比如lombok的@NonNull的几个用例：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@NonNull String str;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@NonNull List&lt;String&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 非负数</span><br><span class="line">Arrays&lt;@NonNegative Integer&gt; sort</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@Encrypted File file</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void divideInteger(int a, int b) throws @ZeroDivisor ArithmeticException</span><br></pre></td></tr></table></figure>
-<ol>
-<li>允许重复注解</li>
-</ol>
-<h2 id="参数名称的反射获取"><a href="#参数名称的反射获取" class="headerlink" title="参数名称的反射获取"></a>参数名称的反射获取</h2><p>Java 8终于将这个特性规范化，在语言层面（使用反射API和Parameter.getName()方法）和字节码层面（使用新的javac编译器以及-parameters参数）提供支持.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">&#125;</span><br><span class="line">@Test</span><br><span class="line">@SneakyThrows</span><br><span class="line">public void test1() &#123;</span><br><span class="line">    Method method = GeneratorTest.class.getMethod(&quot;main&quot;, String[].class);</span><br><span class="line">    for (Parameter parameter : method.getParameters()) &#123;</span><br><span class="line">        System.out.println(parameter.getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>打印结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">args</span><br></pre></td></tr></table></figure></p>
-<h2 id="Iterable-forEach"><a href="#Iterable-forEach" class="headerlink" title="Iterable.forEach"></a>Iterable.forEach</h2><p>在逻辑稍微复杂一旦的循环体里面不建议使用，至少要在外部方法声明处抛出个异常都不行，建单的循环可以使用。</p>
-<h2 id="FunctionalInterface（函数式接口）"><a href="#FunctionalInterface（函数式接口）" class="headerlink" title="@FunctionalInterface（函数式接口）"></a>@FunctionalInterface（函数式接口）</h2><p><a href="http://www.manongjc.com/article/46188.html" target="_blank" rel="noopener">http://www.manongjc.com/article/46188.html</a></p>
-<h2 id="parallelStream-vs-stream"><a href="#parallelStream-vs-stream" class="headerlink" title="parallelStream() vs stream()"></a>parallelStream() vs stream()</h2><p>前者是并行执行流，如果对执行结果的顺序没有要求，建议使用并行执行的parallelStream()，可以提高流执行的性能。</p>
-<h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public &lt;T&gt; T readObjectData(ByteBuffer buffer, Class&lt;T&gt; type) &#123;</span><br><span class="line">...</span><br><span class="line">T retVal = (T) summaries;</span><br><span class="line">return retVal;</span><br></pre></td></tr></table></figure>
-<p>我在stackoverflow发现一个很好的解析：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public &lt;T&gt; T readObjectData(...</span><br><span class="line">        ^  ^</span><br><span class="line">        |  + Return type</span><br><span class="line">        + Generic type argument</span><br></pre></td></tr></table></figure></p>
-<h1 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void.class // 罕见又骚气的用法</span><br></pre></td></tr></table></figure>
-<h1 id="框架抛出的莫名其妙的异常处理套路"><a href="#框架抛出的莫名其妙的异常处理套路" class="headerlink" title="框架抛出的莫名其妙的异常处理套路"></a>框架抛出的莫名其妙的异常处理套路</h1><p>百度和谷歌快速找不到答案的话，只能阅读报错的源代码，在框架源代码去打断点跟进。</p>
-<h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><h2 id="Unimagined"><a href="#Unimagined" class="headerlink" title="Unimagined"></a>Unimagined</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 一个集合并入到另一个集合的安全写法</span><br><span class="line">Collections.addAll(Collection&lt;? super T&gt; c, T... elements);</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Collections.singletonMap(...);</span><br></pre></td></tr></table></figure>
-<h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><h2 id="一些自定义常用异常可以抽成公用的静态final异常，如："><a href="#一些自定义常用异常可以抽成公用的静态final异常，如：" class="headerlink" title="一些自定义常用异常可以抽成公用的静态final异常，如："></a>一些自定义常用异常可以抽成公用的静态final异常，如：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public final class PrematureCloseException extends IOException &#123;</span><br><span class="line"></span><br><span class="line">	public static final PrematureCloseException BEFORE_RESPONSE_SENDING_REQUEST =</span><br><span class="line">			new PrematureCloseException(&quot;Connection has been closed BEFORE response, while sending request body&quot;);</span><br><span class="line"></span><br><span class="line">	public static final PrematureCloseException BEFORE_RESPONSE =</span><br><span class="line">			new PrematureCloseException(&quot;Connection prematurely closed BEFORE response&quot;);</span><br><span class="line"></span><br><span class="line">	public static final PrematureCloseException DURING_RESPONSE =</span><br><span class="line">			new PrematureCloseException(&quot;Connection prematurely closed DURING response&quot;);</span><br><span class="line"></span><br><span class="line">	PrematureCloseException(String message) &#123;</span><br><span class="line">		super(message);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public synchronized Throwable fillInStackTrace() &#123;</span><br><span class="line">		// omit stacktrace for this exception</span><br><span class="line">		return this;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="一些运行时异常可以用Spring内置的断言API比较高逼格"><a href="#一些运行时异常可以用Spring内置的断言API比较高逼格" class="headerlink" title="一些运行时异常可以用Spring内置的断言API比较高逼格"></a>一些运行时异常可以用Spring内置的断言API比较高逼格</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Assert.notNull etc.</span><br></pre></td></tr></table></figure>
-<h1 id="jar"><a href="#jar" class="headerlink" title="jar"></a>jar</h1><h2 id="jar运行之后窗口无法粘贴"><a href="#jar运行之后窗口无法粘贴" class="headerlink" title="jar运行之后窗口无法粘贴"></a>jar运行之后窗口无法粘贴</h2><p>有些情况下需要使用windows的复制粘贴快捷键才能生效</p>
-<h2 id="jar指定目录的所有classes去打包"><a href="#jar指定目录的所有classes去打包" class="headerlink" title="jar指定目录的所有classes去打包"></a>jar指定目录的所有classes去打包</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar cvf test.jar -C unwoven-classes .</span><br></pre></td></tr></table></figure>
-<h1 id="Jackson-Convert-Error-Cannot-construct-instance-of-java-time-LocalDateTime"><a href="#Jackson-Convert-Error-Cannot-construct-instance-of-java-time-LocalDateTime" class="headerlink" title="Jackson Convert Error: Cannot construct instance of java.time.LocalDateTime"></a>Jackson Convert Error: Cannot construct instance of <code>java.time.LocalDateTime</code></h1><p>LocalDateTime属性加上注解<br>@JsonDeserialize(using = LocalDateTimeDeserializer.class)<br>@JsonSerialize(using = LocalDateTimeSerializer.class)</p>
-<h1 id="减少箭头型代码"><a href="#减少箭头型代码" class="headerlink" title="减少箭头型代码"></a>减少箭头型代码</h1><p><a href="https://blog.csdn.net/weixin_33858485/article/details/88768985" target="_blank" rel="noopener">https://blog.csdn.net/weixin_33858485/article/details/88768985</a><br>但是个人认为，一味的追求箭头代码也会有弊端，比如这样:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Task task = monTask.getTask();</span><br><span class="line">if (task == null) &#123;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">MonAssignTaskExample monAssignTaskExample = new MonAssignTaskExample();</span><br><span class="line">monAssignTaskExample.createCriteria().andTaskIdEqualTo(task.getTaskId()).andDealObjectIdEqualTo(task.getDealObjectId())</span><br><span class="line">        .andIsFinishEqualTo(&quot;N&quot;);</span><br><span class="line">List&lt;MonAssignTask&gt; monAssignTasks = this.baseMonAssignTaskBO.selectByExample(monAssignTaskExample);</span><br><span class="line">if (ObjectUtils.isEmpty(monAssignTasks)) &#123;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">for (MonAssignTask monAssignTask : monAssignTasks) &#123;</span><br><span class="line">    // do something</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这样写固然是可以减少箭头代码，但是如若这段代码下面今后要添加一些额外的业务逻辑，这些业务逻辑与task是否为null没有必要的联系，<br>那么可能会因为task==null退出了整个函数，导致额外的业务逻辑不被执行。</p>
-<h1 id="Service与Controller的交互"><a href="#Service与Controller的交互" class="headerlink" title="Service与Controller的交互"></a>Service与Controller的交互</h1><p>Service最终返回给Controller层的数据如果比较复杂，尽量不要用Map，可以封装成DTO，而且这样一来还可以结合JSR303或者其各种扩展，对DTO进行优雅的数据校验。</p>
-<h1 id="非null判断的优雅写法"><a href="#非null判断的优雅写法" class="headerlink" title="非null判断的优雅写法"></a>非null判断的优雅写法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Objects.requireNonNull(obj);</span><br></pre></td></tr></table></figure>
-<h1 id="Utils-工具类的命名"><a href="#Utils-工具类的命名" class="headerlink" title="Utils 工具类的命名"></a>Utils 工具类的命名</h1><p>每次在使用工具类的时候，总是会出现一个类名出现N个工具类比如：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/xLpjyO.png" alt="image"><br>而且自己也会有自定义的Utils类，为了更好地区分，我喜欢在Utils类价格前缀Enhanced，这样找自己的工具类就方便多了，比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EnhancedBeanUtils</span><br></pre></td></tr></table></figure></p>
-<h1 id="Deprecated"><a href="#Deprecated" class="headerlink" title="@Deprecated"></a>@Deprecated</h1><p>有些被封装的业务方法或者工具类方法如果有做修改，增加了方法的升级版，老旧的方法可以用@Deprecated标记为过时，防止新业务逻辑用到废弃的API。</p>
-<h1 id="this"><a href="#this" class="headerlink" title="this"></a>this</h1><p>方法体中，调用到类成员变量的时候，我喜欢用this.开头，这样可读性好，写代码自动提醒也方便。</p>
-<h1 id="魔法值应该尽量避免"><a href="#魔法值应该尽量避免" class="headerlink" title="魔法值应该尽量避免"></a>魔法值应该尽量避免</h1><p>阿里巴巴说java规范里面说杜绝一切魔法值，但是我觉得也不用可以完全追求零魔法值，我认为需要用常量代替魔法值的有以下这些：</p>
-<ol>
-<li>使用频率高的，或者被频繁调用的逻辑块中的魔法值。</li>
-<li>可读性很差的魔法值和表达式，应该禁止，最好都声明成可读性较好的常量或者变量。</li>
-</ol>
-<h1 id="多余的super"><a href="#多余的super" class="headerlink" title="多余的super();"></a>多余的super();</h1><p>在看公司的上古代码发现这种写法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public CreateRepairBillThread(SaInterfaceAccept accept) &#123;</span><br><span class="line">	super();</span><br><span class="line">	this.accept = accept;</span><br><span class="line">	this.timeout = timeout * 60L * 1000L;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这里面super();是一句多余的代码，因为子类的构造器会默认先调用父类无参构造器。</p>
-<h1 id="try资源句式"><a href="#try资源句式" class="headerlink" title="try资源句式"></a>try资源句式</h1><p>如果代码调用的类是实现java.lang.AutoCloseable的，用try资源句式来释放关闭资源这样代码就优雅多了。</p>
-<h1 id="音频格式转换"><a href="#音频格式转换" class="headerlink" title="音频格式转换"></a>音频格式转换</h1><p>使用<a href="http://www.sauronsoftware.it/projects/jave/manual.php#2" target="_blank" rel="noopener">JAVE 音频转换包</a>库</p>
-<h1 id="jdk容易被忽略的强大内置类"><a href="#jdk容易被忽略的强大内置类" class="headerlink" title="jdk容易被忽略的强大内置类"></a>jdk容易被忽略的强大内置类</h1><h2 id="PropertyDescriptor"><a href="#PropertyDescriptor" class="headerlink" title="PropertyDescriptor"></a>PropertyDescriptor</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PropertyDescriptor descriptor = new PropertyDescriptor(&quot;propertyName&quot;, param.getClass());</span><br><span class="line">Method getPropertyMethod = descriptor.getReadMethod();</span><br><span class="line">property = (Integer) getPropertyMethod.invoke(param);</span><br></pre></td></tr></table></figure>
-<h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><h2 id="String-format"><a href="#String-format" class="headerlink" title="String.format"></a>String.format</h2><p><a href="https://blog.csdn.net/u010137760/article/details/82869637" target="_blank" rel="noopener">https://blog.csdn.net/u010137760/article/details/82869637</a></p>
-<h2 id="String-intern"><a href="#String-intern" class="headerlink" title="String.intern"></a>String.intern</h2><p><a href="https://www.cnblogs.com/Yintianhao/p/12273714.html" target="_blank" rel="noopener">https://www.cnblogs.com/Yintianhao/p/12273714.html</a></p>
-<h1 id="Thread-sleep-使用-TimeUnit-XXX-sleep-x-代替"><a href="#Thread-sleep-使用-TimeUnit-XXX-sleep-x-代替" class="headerlink" title="Thread.sleep 使用 TimeUnit.XXX.sleep(x) 代替"></a>Thread.sleep 使用 TimeUnit.XXX.sleep(x) 代替</h1><p><a href="https://stackoverflow.com/questions/9587673/thread-sleep-vs-timeunit-seconds-sleep" target="_blank" rel="noopener">https://stackoverflow.com/questions/9587673/thread-sleep-vs-timeunit-seconds-sleep</a></p>
+          <h1 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a>Resource</h1><h2 id="图标库"><a href="#图标库" class="headerlink" title="图标库"></a>图标库</h2><p><a href="http://www.fontawesome.com.cn/faicons/" target="_blank" rel="noopener">fontawesome</a></p>
+<h2 id="w3c参考手册"><a href="#w3c参考手册" class="headerlink" title="w3c参考手册"></a>w3c参考手册</h2><p><a href="https://www.w3school.com.cn/jsref/index.asp" target="_blank" rel="noopener">w3c参考手册详情</a></p>
+<h1 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h1><h2 id="npm国内慢"><a href="#npm国内慢" class="headerlink" title="npm国内慢"></a>npm国内慢</h2><p><a href="https://www.cnblogs.com/sddai/p/9388261.html" target="_blank" rel="noopener">https://www.cnblogs.com/sddai/p/9388261.html</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install cnpm -g --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure></p>
+<h2 id="npm-安装命令"><a href="#npm-安装命令" class="headerlink" title="npm 安装命令"></a>npm 安装命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install moduleName</span><br></pre></td></tr></table></figure>
+<p>安装模块到项目node_modules目录下。<br>不会将模块依赖写入devDependencies或dependencies 节点。<br>运行 npm install 初始化项目时不会下载模块。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g moduleName</span><br></pre></td></tr></table></figure></p>
+<p>安装模块到全局，不会在项目node_modules目录中保存模块包。<br>不会将模块依赖写入devDependencies或dependencies 节点。<br>运行 npm install 初始化项目时不会下载模块。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -save moduleName</span><br></pre></td></tr></table></figure></p>
+<p>安装模块到项目node_modules目录下。<br>会将模块依赖写入dependencies 节点。<br>运行 npm install 初始化项目时，会将模块下载到项目目录下。<br>运行npm install –production或者注明NODE_ENV变量值为production时，会自动下载模块到node_modules目录中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -save-dev moduleName</span><br></pre></td></tr></table></figure></p>
+<p>安装模块到项目node_modules目录下。<br>会将模块依赖写入devDependencies 节点。<br>运行 npm install 初始化项目时，会将模块下载到项目目录下。<br>运行npm install –production或者注明NODE_ENV变量值为production时，不会自动下载模块到node_modules目录中。</p>
+<blockquote>
+<p>devDependencies 节点下的模块是我们在开发时需要用的，比如项目中使用的 gulp ，压缩css、js的模块。这些模块在我们的项目部署后是不需要的，所以我们可以使用 -save-dev 的形式安装。像 express 这些模块是项目运行必备的，应该安装在 dependencies 节点下，所以我们应该使用 -save 的形式安装。</p>
+</blockquote>
+<p>from <a href="https://www.jianshu.com/p/939aa816893c" target="_blank" rel="noopener">https://www.jianshu.com/p/939aa816893c</a></p>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>npm uninstall 模块：删除模块，但不删除模块留在package.json中的对应信息<br>npm uninstall 模块 –save 删除模块，同时删除模块留在package.json中dependencies下的对应信息<br>npm uninstall 模块 –save-dev删除模块，同时删除模块留在package.json中devDependencies下的对应信息</p>
+<h2 id="npm-安装报错的解决方案"><a href="#npm-安装报错的解决方案" class="headerlink" title="npm 安装报错的解决方案"></a>npm 安装报错的解决方案</h2><p>比如这个报错:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm ERR! enoent ENOENT: no such file or directory, access &apos;~/Documents/myDocument/idea-project/pig-ui/node_modules/_@babel_highlight@7.5.0@@babel/highlight/node_modules/esutils&apos;</span><br></pre></td></tr></table></figure></p>
+<p>我是在项目pig-ui下面执行的npm install dev命令，报了esutils找不到，但是实际上目录上有esutils这个文件or目录，可以删除原来的esutils，切换到esutils的上级模块highlight执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  highlight git:(master) ✗ npm install esutils</span><br><span class="line">npm notice created a lockfile as package-lock.json. You should commit this file.</span><br><span class="line">+ esutils@2.0.3</span><br><span class="line">added 1 package and removed 1 package in 1.418s</span><br></pre></td></tr></table></figure></p>
+<p>但是有很多子模块都会报这种莫名其妙的错，可以直接将所有依赖模块删除，重新安装依赖。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rm -rf node_modules</span><br><span class="line">rm package-lock.json</span><br><span class="line">npm cache clear --force</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
+<h2 id="npm-–save-dev-–save-的区别"><a href="#npm-–save-dev-–save-的区别" class="headerlink" title="npm –save-dev –save 的区别"></a>npm –save-dev –save 的区别</h2><p><a href="https://blog.csdn.net/star0311/article/details/90899013" target="_blank" rel="noopener">https://blog.csdn.net/star0311/article/details/90899013</a></p>
+<h2 id="npm-relocation-error-npm-symbol-SSL-set-cert-cb-version-libssl-so-10-not-defined-in-file-libssl-so-10-with-link-time-reference"><a href="#npm-relocation-error-npm-symbol-SSL-set-cert-cb-version-libssl-so-10-not-defined-in-file-libssl-so-10-with-link-time-reference" class="headerlink" title="npm: relocation error: npm: symbol SSL_set_cert_cb, version libssl.so.10 not defined in file libssl.so.10 with link time reference"></a>npm: relocation error: npm: symbol SSL_set_cert_cb, version libssl.so.10 not defined in file libssl.so.10 with link time reference</h2><p><a href="https://blog.csdn.net/test1280/article/details/102937023" target="_blank" rel="noopener">https://blog.csdn.net/test1280/article/details/102937023</a></p>
+<h1 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h1><h2 id="Javascript之BOM与DOM"><a href="#Javascript之BOM与DOM" class="headerlink" title="Javascript之BOM与DOM"></a>Javascript之BOM与DOM</h2><p>引用自<a href="https://blog.csdn.net/qq877507054/article/details/51395830" target="_blank" rel="noopener">Javascript之BOM与DOM讲解</a></p>
+<ul>
+<li>ECMAScript(核心) ： 描述了JS的语法和基本对象。</li>
+<li>文档对象模型 （DOM） ： 处理网页内容的方法和接口</li>
+<li>浏览器对象模型（BOM） ： 与浏览器交互的方法和接口</li>
+</ul>
+<hr>
+<ul>
+<li>DOM 是 W3C 的标准； [所有浏览器公共遵守的标准]</li>
+<li>BOM 是 各个浏览器厂商根据 DOM在各自浏览器上的实现;[表现为不同浏览器定义有差别,实现方式不同]</li>
+<li>window 是 BOM 对象，而非 js 对象；javascript是通过访问BOM（Browser Object Model）对象来访问、控制、修改客户端(浏览器)</li>
+</ul>
+<h2 id="DOM-DOCUMENT-BOM-WINDOW-区别"><a href="#DOM-DOCUMENT-BOM-WINDOW-区别" class="headerlink" title="DOM, DOCUMENT, BOM, WINDOW 区别"></a>DOM, DOCUMENT, BOM, WINDOW 区别</h2><ul>
+<li>DOM 是为了操作文档出现的 API，document 是其的一个对象；</li>
+<li>BOM 是为了操作浏览器出现的 API，window 是其的一个对象。</li>
+</ul>
+<h3 id="DOM和BOM的操作对象区别"><a href="#DOM和BOM的操作对象区别" class="headerlink" title="DOM和BOM的操作对象区别"></a>DOM和BOM的操作对象区别</h3><ul>
+<li>BOM是浏览器对象模型，是对浏览器本身进行操作;</li>
+<li>DOM是文档对象模型，是对浏览器（可看成容器）内的内容进行操作；</li>
+</ul>
+<p>可以说BOM包含了DOM(对象)，window.document</p>
+<h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><h2 id="style-vs-class"><a href="#style-vs-class" class="headerlink" title="style vs class"></a>style vs class</h2><p>style是html元素的一个属性，在这里可以直接设置元素的样式，class也是一个属性，但它是通过预定义的样式使元素应用样式的。比如：div .box {width:80%;} 那么只要div的class引用了这个box那它的宽度就是父级容器的80%宽。<br>也就是style的优先级高于class。也就是说在style和class同时定义一种样式时，页面选择展示的是style中的样式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;.a1&#123;backgroung:#ccc;&#125;&lt;/style&gt;</span><br><span class="line">&lt;div class=&quot;a1&quot; style=&quot;background:#f00&quot;&gt;&lt;/div&gt;</span><br><span class="line">// 此时，div的背景颜色应该是#f00的红色。</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/12/算法汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/12/算法汇总/" class="post-title-link" itemprop="url">算法汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-06-12 10:14:11" itemprop="dateCreated datePublished" datetime="2020-06-12T10:14:11+08:00">2020-06-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-27 11:14:57" itemprop="dateModified" datetime="2020-08-27T11:14:57+08:00">2020-08-27</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="round-robin（随机轮询算法）"><a href="#round-robin（随机轮询算法）" class="headerlink" title="round-robin（随机轮询算法）"></a>round-robin（随机轮询算法）</h1><h1 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h1><h2 id="double-ended-queue"><a href="#double-ended-queue" class="headerlink" title="double-ended queue"></a>double-ended queue</h2><p><a href="https://en.wikipedia.org/wiki/Double-ended_queue" target="_blank" rel="noopener"></a></p>
+<h1 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h1><h1 id="Priority-Queue（优先队列）"><a href="#Priority-Queue（优先队列）" class="headerlink" title="Priority Queue（优先队列）"></a>Priority Queue（优先队列）</h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/05/English系列-思维练习错题笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/05/English系列-思维练习错题笔记/" class="post-title-link" itemprop="url">English系列-思维练习错题笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-05 22:47:26" itemprop="dateCreated datePublished" datetime="2020-08-05T22:47:26+08:00">2020-08-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-26 11:26:37" itemprop="dateModified" datetime="2020-08-26T11:26:37+08:00">2020-08-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="todo-item"><a href="#todo-item" class="headerlink" title="todo item"></a>todo item</h2><h2 id="完成时态综合训练）"><a href="#完成时态综合训练）" class="headerlink" title="完成时态综合训练）"></a>完成时态综合训练）</h2><p>Yesterday I had a phone call from Clint. I was very surprised. I <strong>__</strong> （write） to him many times but he <strong>__</strong> （never, reply） to my letters.<br>答案：had written, had never replied<br>解析：两个或两个以上相继发生的动作，用and或but按动作发生的先后顺序连接，此时要用一般过去时，而不用过去完成时。过去完成时则强调主语在过去的某一时刻“回顾”更早的动作。具体来说，如果在谈论过去某一事件时，又想到在这之前已发生的某事，就要用过去完成时态。   </p>
+<p>A: I need to find a dermatologist.（皮肤科医生） You’re familiar with Dr. Smith. Do you recommend her?<br>B: Well, I <strong>__</strong> （see） by her a few times. And the best I can say for her is she has interesting magazines in her waiting room.<br>答案：have been seen<br>解析：在英语中，“动作表达”的完成时态强调最近发生的事件，而“状态表达”的完成时态强调“较远的过去”经历。   </p>
+<p>It’s reported that by the end of this month the output of cement in the factory <strong>__</strong> （rise） by about 10%.<br>答案：will have risen<br>解析：将来完成时是以“将来”作为“坐标时间”，来表示开始于将来之前（可能是过去、现在或将来）的动作持续到将来。但动作开始的时间并不重要，关键是说话人要站在将来的某一时间来谈某一动作的完成情况。</p>
+<p>I have entered the university for two years.<br>答案：错误，应改为：I have been in the university for two years，或者用一般过去时态说成：I entered the university two years ago.</p>
+<p>He has left his native place for three years.<br>答案：“单一事件”完成时的肯定句不与持续的时间状语连用，动词leave（left的原形）是非延续性动词，不能跟一段时间状语（否定句除外）。</p>
+<p>A: Are you glad you came to China?<br>B: Yes. Indeed. 我本来是要考虑去Tokyo or Singapore, but 我从不后 悔我的决定。<br>答案：I’d considered going to Tokyo or Singapore, but I’ve never regretted my decision.<br>解析：表示“非真实”的过去，主要是指intend，mean，hope，want，plan，suppose，expect， think，propose和wish等动词用于过去完成时，可表示过去未能实现的计划、设想、意图或希望等。   </p>
+<p>George would certainly have attended the proceedings <strong>__</strong>.<br>A. had he not had a flat tire<br>B. had the tire no flattened itself<br>C. if the flat tire hadn’t happened<br>D. if he didn’t get a flat tire<br>答案：A</p>
+<p>If Greek civilization <strong>__</strong> all of Europe, English wouldn’t contain so many Greek words.<br>A. hadn’t influenced<br>B. doesn’t influence<br>C. hasn’t influenced<br>D. didn’t influence<br>答案：A</p>
+<p>Nelson <strong>__</strong> the fight, with a little more training and a better manager.<br>A. would win<br>B. had won<br>C. could have won<br>D. won<br>答案：C<br>解析：尼尔森本可以赢得这场战斗，但需要更多的训练和更好的教练。</p>
+<p>He would rather <strong>__</strong> than worked last night.<br>A. have slept<br>B. has slept<br>C. sleep<br>D. slept<br>答案：A<br>解析：本题考查 would rather have done 的虚拟句型，本题相当于“He would rather have slept than have worked last night.” ，后边的 have 被省去了。</p>
+<p>If the climate had been more favorable, the crops <strong>__</strong> still better.<br>A. would have grown<br>B. would be growing<br>C. would be grown<br>D. will grow<br>答案：A</p>
+<p>These facts suggested that women <strong>__</strong> in opportunity for physical exercise by cultural taboos.<br>A. should been limited<br>B. had been limited<br>C. be limited<br>D. have been limited<br>答案：B<br>解析：这里的 suggested 是“表明，显示”而不是“建议”的意思，因而不用虚拟语气。</p>
+<p>The result has turned still worse than it <strong>__</strong><br>A. would otherwise have been<br>B. would be otherwise<br>C. has otherwise been<br>D. had otherwise been<br>答案：A<br>解析：这里有 otherwise ，表明要用虚拟，且是虚拟的主句形式。另根据句意判断，这里是表示过去虚拟，故要用 would have done 形式，所以 A 正确。</p>
+<p>We (could, might) go to that new restaurant opposite the cinema.<br>答案：could<br>解析：用于表示委婉的“建议”，此时，could并不表示过去。</p>
+<p>You (could, may) be right, but I still don’t agree with you!<br>答案：may<br>解析：could更加的委婉和客观，因为后面的but I still don’t agree with you，所有要用may，即使两者可能性程度都很低。</p>
+<p>The situation was bad but it (could be, may have been, could have been) worse.<br>答案：could have been</p>
+<p>Thank you very much for buying me flowers. You <strong>__</strong> (buy) me flowers.<br>错误答案：couldn’t have bought<br>正确答案：shouldn’t have bought<br>解析：虽然could用于表示委婉的“建议，但是couldn’t就失去了委婉的含义了。</p>
+<p>Mary was a talented violinist at the age of ten. She <strong>__</strong> (play) the violin very well when she was ten.<br>错误答案：must have played<br>正确答案：could play<br>解析：这里要表达的是过去的能力（过去的潜能）</p>
+<p>Our worrying so much was a waste of time.=We <strong>__</strong> (worry) so much.<br>错误答案：shouldn’t worry<br>正确答案：needn’t have worried<br>解析：这里的need是情态动词。表示“没必要做……”</p>
+<p>It’s possible that the last person to leave didn’t lock the door.=The last person to leave <strong>__</strong> (lock) the door.<br>错误答案：could haven’t locked<br>正确答案：may not have locked<br>解析：过去推测，在否定句中，can’t/couldn’t要比may not/might not的否定语气强烈。</p>
+<p>She paid him and walked off. Then she realized that he <strong>__</strong> (not, be) a deaf mute. How did she know? He must have heard her initial instructions or he <strong>__</strong> (not, know) where to take her.<br>正确答案：can’t have been    wouldn’t have known<br>解析：can’t在此表示不可能，后者是过去虚拟语气</p>
+<p>The boss has promised that every player in NBA <strong>__</strong> have a rise in income.<br>A. would B. might C. shall D. should<br>正确答案：C<br>解析：shall用于第二、三人称的陈述句中，可以表示说话人的许诺。</p>
+<p>He was a good swimmer so he <strong>__</strong> swim to the river bank when the boat sank.<br>A. could B. might C. succeeded to D. was able to<br>正确答案：D<br>解析：was able to才是表达过去具体的能力，could只能表达过去潜在的能力。</p>
+<p>He did very badly on the exam. He <strong>__</strong> harder.<br>A. must study B. must have studied C. should study D. should have studied<br>正确答案：D<br>解析：</p>
+<p>He <strong>__</strong> pull down a bull and acknowledged as a man with superman strength.<br>A. used to be able to B. would be able to C. should be able to D. might be able to<br>正确答案：A<br>解析：为什么C不可以？</p>
 
       
     </div>
@@ -755,14 +983,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">116</span>
+          <span class="site-state-item-count">119</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">69</span>
+        <span class="site-state-item-count">68</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -819,71 +1047,11 @@
 
   
   <script src="/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
 <script src="/js/schemes/pisces.js"></script>
 <script src="/js/next-boot.js"></script>
-  <script>
-var pjax = new Pjax({
-  selectors: [
-    'head title',
-    '#page-configurations',
-    '.content-wrap',
-    '.post-toc-wrap',
-    '.languages',
-    '#pjax'
-  ],
-  switches: {
-    '.post-toc-wrap': Pjax.switches.innerHTML
-  },
-  analytics: false,
-  cacheBust: false,
-  scrollTo : !CONFIG.bookmark.enable
-});
-
-window.addEventListener('pjax:success', () => {
-  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
-    var code = element.text || element.textContent || element.innerHTML || '';
-    var parent = element.parentNode;
-    parent.removeChild(element);
-    var script = document.createElement('script');
-    if (element.id) {
-      script.id = element.id;
-    }
-    if (element.className) {
-      script.className = element.className;
-    }
-    if (element.type) {
-      script.type = element.type;
-    }
-    if (element.src) {
-      script.src = element.src;
-      // Force synchronous loading of peripheral JS.
-      script.async = false;
-    }
-    if (element.dataset.pjax !== undefined) {
-      script.dataset.pjax = '';
-    }
-    if (code !== '') {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
-  });
-  NexT.boot.refresh();
-  // Define Motion Sequence & Bootstrap Motion.
-  if (CONFIG.motion.enable) {
-    NexT.motion.integrator
-      .init()
-      .add(NexT.motion.middleWares.subMenu)
-      .add(NexT.motion.middleWares.postList)
-      .bootstrap();
-  }
-  NexT.utils.updateSidebarPosition();
-});
-</script>
-
 
 
 
@@ -903,11 +1071,9 @@ window.addEventListener('pjax:success', () => {
 
 
 
-    <div id="pjax">
   
 
   
 
-    </div>
 </body>
 </html>

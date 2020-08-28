@@ -163,6 +163,362 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/25/ear-war-jar-区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/11/25/ear-war-jar-区别/" class="post-title-link" itemprop="url">ear war jar 区别</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2016-11-25 10:29:38" itemprop="dateCreated datePublished" datetime="2016-11-25T10:29:38+08:00">2016-11-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-07 15:02:17" itemprop="dateModified" datetime="2020-04-07T15:02:17+08:00">2020-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Jar文件"><a href="#Jar文件" class="headerlink" title="Jar文件"></a>Jar文件</h2><p>（扩展名为. Jar，Java Application Archive）包含Java类的普通库、资源（resources）、辅助文件（auxiliary files）等</p>
+<h2 id="War文件"><a href="#War文件" class="headerlink" title="War文件"></a>War文件</h2><p>（扩展名为.War,Web Application Archive）包含全部Web应用程序。在这种情形下，一个Web应用程序被定义为单独的一组文件、类和资源，用户可以对jar文件进行封装，并把它作为小型服务程序（servlet）来访问。</p>
+<h2 id="Ear文件"><a href="#Ear文件" class="headerlink" title="Ear文件"></a>Ear文件</h2><p>（扩展名为.Ear,Enterprise Application Archive）包含全部企业应用程序。在这种情形下，一个企业应用程序被定义为多个jar文件、资源、类和Web应用程序的集合。</p>
+<blockquote>
+<p>EAR文件包括整个项目，内含多个ejb module（jar文件）和web module（war文件）</p>
+</blockquote>
+<p>EAR文件的生成可以使用winrar zip压缩方式或者jar命令。<br>先打包成war和jar,并写好application.xml，放到META-INF目录下，然后</p>
+<pre><code>jar cf your_application.ear your_war.war your_jar.jar META-INF/application.xml
+</code></pre><p>打包，我这假设war和jar都在当前目录下。解压用</p>
+<pre><code>jar xf your_application.ear 
+</code></pre><p>application.xml demo：</p>
+<pre><code>&lt;!DOCTYPE application PUBLIC  
+    &quot;-//Sun Microsystems, Inc.//DTD J2EE Application 1.3//EN&quot;  
+    &quot;http://java.sun.com/dtd/application_1_3.dtd&quot;&gt;  
+&lt;application&gt;  
+  &lt;display-name&gt;fengblog.ear&lt;/display-name&gt;  
+  &lt;module&gt;  
+    &lt;java&gt;fengblog_api-0.0.1-SNAPSHOT.jar&lt;/java&gt;  
+  &lt;/module&gt;  
+  &lt;module&gt;  
+    &lt;java&gt;fengblog_core-0.0.1-SNAPSHOT.jar&lt;/java&gt;  
+  &lt;/module&gt;  
+  &lt;module&gt;  
+    &lt;web&gt;  
+      &lt;web-uri&gt;fengblog_war-0.0.1-SNAPSHOT.war&lt;/web-uri&gt;  
+      &lt;context-root&gt;/fengblog_war&lt;/context-root&gt;  
+    &lt;/web&gt;  
+  &lt;/module&gt;  
+&lt;/application&gt;
+</code></pre>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/30/PTE考试准备/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/30/PTE考试准备/" class="post-title-link" itemprop="url">PTE考试准备</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-30 22:37:56" itemprop="dateCreated datePublished" datetime="2020-03-30T22:37:56+08:00">2020-03-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-31 17:43:37" itemprop="dateModified" datetime="2020-03-31T17:43:37+08:00">2020-03-31</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PTE/" itemprop="url" rel="index"><span itemprop="name">PTE</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h1 id="重要的备忘录"><a href="#重要的备忘录" class="headerlink" title="重要的备忘录"></a>重要的备忘录</h1><h2 id="模拟考网站"><a href="#模拟考网站" class="headerlink" title="模拟考网站"></a>模拟考网站</h2><p><a href="https://ptepractice.com" target="_blank" rel="noopener">https://ptepractice.com</a></p>
+<h2 id="官方的在线练习题目"><a href="#官方的在线练习题目" class="headerlink" title="官方的在线练习题目"></a>官方的在线练习题目</h2><p>Scored Practice Tests??</p>
+<h2 id="youtube资源"><a href="#youtube资源" class="headerlink" title="youtube资源"></a>youtube资源</h2><p>E2 PTE Academic</p>
+<h2 id="英语流利说"><a href="#英语流利说" class="headerlink" title="英语流利说"></a>英语流利说</h2><h2 id="大澳学院-微信公众号"><a href="#大澳学院-微信公众号" class="headerlink" title="大澳学院-微信公众号"></a>大澳学院-微信公众号</h2><h1 id="考试内容"><a href="#考试内容" class="headerlink" title="考试内容"></a>考试内容</h1><p><a href="https://zhuanlan.zhihu.com/p/47240655" target="_blank" rel="noopener">参考</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/04/oracle系列之触发器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/03/04/oracle系列之触发器/" class="post-title-link" itemprop="url">oracle系列之触发器</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-03-04 21:34:43" itemprop="dateCreated datePublished" datetime="2019-03-04T21:34:43+08:00">2019-03-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-29 15:22:29" itemprop="dateModified" datetime="2020-03-29T15:22:29+08:00">2020-03-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/oracle/" itemprop="url" rel="index"><span itemprop="name">oracle</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="什么是触发器"><a href="#什么是触发器" class="headerlink" title="什么是触发器"></a>什么是触发器</h2><p>触发器是一个特殊的存储过程，是一个与表相关联的，存储的PL/SQL程序，每当一个特定的数据操作语句（insert，update，delete）在指定的表上发出时，Oracle自动地执行触发器中定义的语句序列。</p>
+<h2 id="触发器的语法"><a href="#触发器的语法" class="headerlink" title="触发器的语法"></a>触发器的语法</h2><h4 id="如何创建触发器"><a href="#如何创建触发器" class="headerlink" title="如何创建触发器"></a>如何创建触发器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">--Print ’insert success‘ after insert record into the table.</span><br><span class="line">create [or replace] trigger trigger_name </span><br><span class="line">&#123;after|before&#125; &#123;insert|delete|update|of row_name&#125;</span><br><span class="line">on table_name</span><br><span class="line">[for each row [when(条件)]]</span><br><span class="line">declare</span><br><span class="line">begin</span><br><span class="line">    dbms_output.put_line(&apos;insert success!&apos;);</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+<h2 id="触发器的类型"><a href="#触发器的类型" class="headerlink" title="触发器的类型"></a>触发器的类型</h2><h4 id="语句级触发器和行级触发器"><a href="#语句级触发器和行级触发器" class="headerlink" title="语句级触发器和行级触发器"></a>语句级触发器和行级触发器</h4><p>语句级没有for each row，行级反之。<br>语句级触发器：在指定的操作语句操作之前或之后执行一次，不管这条语句影响了多少行。<br>行级触发器：触发语句作用的每条记录都被触发。在其中使用:old和:new伪记录变量，识别值的状态。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">insert into emp10 select * from emp where depno=10;</span><br><span class="line">-- 3 rows of records</span><br><span class="line">-- 语句级触发器：针对的是表，只执行一次。</span><br><span class="line">-- 行级触发器：针对的是行，执行了3次。</span><br></pre></td></tr></table></figure></p>
+<h2 id="触发器的具体应用场景"><a href="#触发器的具体应用场景" class="headerlink" title="触发器的具体应用场景"></a>触发器的具体应用场景</h2><h4 id="复杂的安全性检查"><a href="#复杂的安全性检查" class="headerlink" title="复杂的安全性检查"></a>复杂的安全性检查</h4><blockquote>
+<p>禁止在非工作时间插入新员工<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">--周末:to_char(sysdate, &apos;day&apos;) in (&apos;星期六&apos;, &apos;星期日&apos;)</span><br><span class="line">--上班前，下班后:to_number(to_char(sysdate, &apos;hh24&apos;)) not between 9 and 18</span><br><span class="line"></span><br><span class="line">create or replace trigger security_emp</span><br><span class="line">before insert</span><br><span class="line">on emp</span><br><span class="line">-- declare 程序中不使用变量的话，这块可以不写</span><br><span class="line">begin</span><br><span class="line">    if to_char(sysdate, &apos;day&apos;) in (&apos;星期六&apos;, &apos;星期日&apos;) or </span><br><span class="line">        to_number(to_char(sysdate, &apos;hh24&apos;)) not between 9 and 18 then</span><br><span class="line">        --禁止insert</span><br><span class="line">        raise_application_error(-20001, &apos;禁止在非工作时间插入新员工&apos;);</span><br><span class="line">    end if;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="数据确认"><a href="#数据确认" class="headerlink" title="数据确认"></a>数据确认</h4><blockquote>
+<p>涨工资不能越涨越少<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">--:old和:new 代表同一条记录，前者代表操作之前的值，后者反之。</span><br><span class="line">create or replace trigger check_salary</span><br><span class="line">before update</span><br><span class="line">on emp</span><br><span class="line">for each row</span><br><span class="line">begin</span><br><span class="line">    if :new.salary &lt; :old.salary then</span><br><span class="line">        raise_application_error(-20002, &apos;涨薪水不带这么玩的,涨前&apos;||:old.salary||&apos;涨后&apos;||:new.salary);    </span><br><span class="line">    end if;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="实现审计功能"><a href="#实现审计功能" class="headerlink" title="实现审计功能"></a>实现审计功能</h4><blockquote>
+<p>给员工涨工资，当涨后的薪水超过6000块的时候，审计该员工的信息</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">--创建表，用于保存审计信息</span><br><span class="line">create table audit_emp</span><br><span class="line">(</span><br><span class="line">infomation varchar2(200);</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">create or replace trigger do_audit_emp_salary</span><br><span class="line">after update</span><br><span class="line">on emp</span><br><span class="line">for each row</span><br><span class="line">begin</span><br><span class="line">    if :new.salary &gt; 6000 then</span><br><span class="line">        insert into audit_emp values(&apos;员工信息:&apos;||:new.somerows);</span><br><span class="line">    end if;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+<h3 id="完成数据的备份和同步"><a href="#完成数据的备份和同步" class="headerlink" title="完成数据的备份和同步"></a>完成数据的备份和同步</h3><p>给员工涨薪水之后，自动备份新工资到备份表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create or replace trigger sync_salary</span><br><span class="line">after update</span><br><span class="line">on emp</span><br><span class="line">for earch row</span><br><span class="line">begin</span><br><span class="line">    update emp_bak set sal=:new.sal where empno=:new.empno;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/18/沾ibator的光，sql忘得不能再多了/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/04/18/沾ibator的光，sql忘得不能再多了/" class="post-title-link" itemprop="url">沾ibator的光，sql忘得不能再多了</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2017-04-18 22:56:09" itemprop="dateCreated datePublished" datetime="2017-04-18T22:56:09+08:00">2017-04-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-29 15:22:29" itemprop="dateModified" datetime="2020-03-29T15:22:29+08:00">2020-03-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="单行子查询"><a href="#单行子查询" class="headerlink" title="单行子查询"></a>单行子查询</h2><pre><code>select * from t_mon_task tmt where tmt.bill_id=(select tpt.bill_id from t_pub_task tpt where tpt.task_sn=&apos;anything&apos;);
+</code></pre><h2 id="多行子查询"><a href="#多行子查询" class="headerlink" title="多行子查询"></a>多行子查询</h2><pre><code>select * from t_mon_task tmt where tmt.bill_id in (select tpt.bill_id from t_pub_task tpt where tpt.task_sn=&apos;anything&apos;);
+</code></pre><h2 id="多列子查询"><a href="#多列子查询" class="headerlink" title="多列子查询"></a>多列子查询</h2><pre><code>select tmt.deal_desc from t_mon_task tmt where (tmt.bill_id, tmt.task_id) in (select tpt.bill_id,tpt.task_id from t_pub_task tpt where tpt.task_sn=&apos;anything&apos;);
+</code></pre><h2 id="sql函数"><a href="#sql函数" class="headerlink" title="sql函数"></a>sql函数</h2><pre><code>http://blog.csdn.net/jojo52013145/article/details/6998984
+</code></pre><h2 id="group-by"><a href="#group-by" class="headerlink" title="group by"></a>group by</h2><blockquote>
+<p>   个人最为憎恨的地方就是，网上有很多所谓深入讲解sql语法的各种博文，其引用的example中，表用A表、B表或者table1、table2来表示，没有和实际应用场景配合说明，那这样子你还说个**毛啊。</p>
+</blockquote>
+<p>group by 将结果集进行分组，一般与多配合聚合函数，sum，count，min，max等一起使用。<br>举个简单的例子，数据表记录学生id，课程名称，课程成绩，一个学生多门课程，多条记录。<br>现在想要计算学生的总成绩，需要通过id进行分组，然后里面sum（成绩）就可以计算出总成绩了</p>
+<pre><code>select sum(t.成绩) 成绩 from 表 t group by t.成绩
+</code></pre><p>有时候我们再分组的同时需要查询其他字段，这时候可以采用多字段分组。<br>举个简单的例子，基于上面的例子，现在数据表还有一个字段学期（上学期和下学期）。<br>现在要统计分别每个同学上下成绩的总成绩。</p>
+<pre><code>select sum(t.成绩) 成绩, t.学期 学期 from 表 t group by t.成绩, t.学期
+</code></pre><h2 id="sql-select语句完整的执行顺序"><a href="#sql-select语句完整的执行顺序" class="headerlink" title="sql select语句完整的执行顺序"></a>sql select语句完整的执行顺序</h2><p>1、from子句组装来自不同数据源的数据；<br>2、where子句基于指定的条件对记录行进行筛选；<br>3、group by子句将数据划分为多个分组；<br>4、使用聚集函数进行计算；<br>5、使用having子句筛选分组；<br>6、计算所有的表达式；<br>7、select 的字段；<br>8、使用order by对结果集进行排序。SQL语言不同于其他编程语言的最明显特征是处理代码的顺序。在大多数据库语言中，代码按编码顺序被处理。但在SQL语句中，第一个被处理的子句式FROM，而不是第一出现的SELECT。</p>
+<h2 id="内连接-amp-amp-外链接"><a href="#内连接-amp-amp-外链接" class="headerlink" title="内连接 &amp;&amp; 外链接"></a>内连接 &amp;&amp; 外链接</h2><h5 id="内连接"><a href="#内连接" class="headerlink" title="内连接"></a>内连接</h5><p>所谓内连接，可以这么理解，还是引用上面学生的例子，现在两个表tb_student(学生表)，tb_exam(成绩表)，两个表用id主键关联，想要一一列出各个学生的成绩sql如下：</p>
+<pre><code>select s.id, s.name, e.course_name, e.score from tb_student s inner join tb_exam e on s.id=e.id;
+</code></pre><blockquote>
+<p>   未完待续</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/22/游侵华日军南京大屠杀遇难同胞纪念馆有感/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -214,365 +570,6 @@
 <h2 id="空袭"><a href="#空袭" class="headerlink" title="空袭"></a>空袭</h2><p>里面有个纪录片吸引我站那里看了好久，一个老奶奶讲述当年她被炸断腿，还有被炸死两个儿女，包括手里被炸飞的女儿，含泪的谈话中让我感受到无比的悲凉，和平年代还是要感谢那些年英勇抗战的勇士们。<br>展示空袭的区域头顶还一直播放着飞机轰炸的声音，仿佛身临其境。</p>
 <h2 id="吐槽"><a href="#吐槽" class="headerlink" title="吐槽"></a>吐槽</h2><p>导航图当前位置被扣掉，公共厕所永远没纸，在天朝我已经习惯，只是墙外某些国度我又再次向往了。</p>
 <h2 id="抗战胜利"><a href="#抗战胜利" class="headerlink" title="抗战胜利"></a>抗战胜利</h2><p>最后的抗战胜利纪念墙，我拍了下来，历史途径坎坷，最后胜利，人生应当也是这样，就看我如何步步为营。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/oracle系列之常用操作命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/07/oracle系列之常用操作命令/" class="post-title-link" itemprop="url">oracle系列之常用操作命令</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-04-07 10:34:12" itemprop="dateCreated datePublished" datetime="2019-04-07T10:34:12+08:00">2019-04-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-29 15:22:29" itemprop="dateModified" datetime="2020-03-29T15:22:29+08:00">2020-03-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/oracle/" itemprop="url" rel="index"><span itemprop="name">oracle</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="将a表的某些列插入b表的某些列"><a href="#将a表的某些列插入b表的某些列" class="headerlink" title="将a表的某些列插入b表的某些列"></a>将a表的某些列插入b表的某些列</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into a(ac1,ac2) select bc1,bc2 from b where ...;</span><br></pre></td></tr></table></figure>
-<h2 id="重命名表"><a href="#重命名表" class="headerlink" title="重命名表"></a>重命名表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name RENAME TO new_table_name；</span><br></pre></td></tr></table></figure>
-<h2 id="重命名字段"><a href="#重命名字段" class="headerlink" title="重命名字段"></a>重命名字段</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name RENAME COLUMN column_name TO new_column_name;</span><br></pre></td></tr></table></figure>
-<h2 id="修改字段类型"><a href="#修改字段类型" class="headerlink" title="修改字段类型"></a>修改字段类型</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE tableName modify(columnName 类型);</span><br></pre></td></tr></table></figure>
-<h2 id="增加多个字段"><a href="#增加多个字段" class="headerlink" title="增加多个字段"></a>增加多个字段</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alter table test1 add (name varchar2(30) default ‘无名氏’ not null,</span><br><span class="line">age integer default 22 not null,</span><br><span class="line">has_money number(9,2));</span><br></pre></td></tr></table></figure>
-<h2 id="主键操作"><a href="#主键操作" class="headerlink" title="主键操作"></a>主键操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--设置主键</span><br><span class="line">alter table jack add constraint pk_id primary key(object_id);</span><br></pre></td></tr></table></figure>
-<h2 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop table tn;</span><br></pre></td></tr></table></figure>
-<h2 id="查询表所属表空间"><a href="#查询表所属表空间" class="headerlink" title="查询表所属表空间"></a>查询表所属表空间</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select tablespace_name, table_name</span><br><span class="line">  from user_tables</span><br><span class="line"> where table_name = &apos;EOMS_OUTER_PROJECT&apos;;</span><br></pre></td></tr></table></figure>
-<h2 id="查询索引所在表空间"><a href="#查询索引所在表空间" class="headerlink" title="查询索引所在表空间"></a>查询索引所在表空间</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select index_name,tablespace_name from dba_indexes where index_name=&apos;INDEX_PS&apos;;</span><br></pre></td></tr></table></figure>
-<h2 id="查询表的建表DDL"><a href="#查询表的建表DDL" class="headerlink" title="查询表的建表DDL"></a>查询表的建表DDL</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select dbms_metadata.get_ddl(&apos;TABLE&apos;,&apos;TABLE_NAME&apos;,&apos;DB_USER&apos;) from dual;</span><br></pre></td></tr></table></figure>
-<h2 id="查看所有表空间大小以及使用情况"><a href="#查看所有表空间大小以及使用情况" class="headerlink" title="查看所有表空间大小以及使用情况"></a>查看所有表空间大小以及使用情况</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">SELECT Upper(F.TABLESPACE_NAME) &quot;表空间名&quot;,</span><br><span class="line">       D.TOT_GROOTTE_MB &quot;表空间大小(M)&quot;,</span><br><span class="line">       D.TOT_GROOTTE_MB - F.TOTAL_BYTES &quot;已使用空间(M)&quot;,</span><br><span class="line">       To_char(Round((D.TOT_GROOTTE_MB - F.TOTAL_BYTES) / D.TOT_GROOTTE_MB * 100,</span><br><span class="line">                     2),</span><br><span class="line">               &apos;990.99&apos;) || &apos;%&apos; &quot;使用比&quot;,</span><br><span class="line">       F.TOTAL_BYTES &quot;空闲空间(M)&quot;,</span><br><span class="line">       F.MAX_BYTES &quot;最大块(M)&quot;</span><br><span class="line">  FROM (SELECT TABLESPACE_NAME,</span><br><span class="line">               Round(Sum(BYTES) / (1024 * 1024), 2) TOTAL_BYTES,</span><br><span class="line">               Round(Max(BYTES) / (1024 * 1024), 2) MAX_BYTES</span><br><span class="line">          FROM SYS.DBA_FREE_SPACE</span><br><span class="line">         GROUP BY TABLESPACE_NAME) F,</span><br><span class="line">       (SELECT DD.TABLESPACE_NAME,</span><br><span class="line">               Round(Sum(DD.BYTES) / (1024 * 1024), 2) TOT_GROOTTE_MB</span><br><span class="line">          FROM SYS.DBA_DATA_FILES DD</span><br><span class="line">         GROUP BY DD.TABLESPACE_NAME) D</span><br><span class="line"> WHERE D.TABLESPACE_NAME = F.TABLESPACE_NAME</span><br><span class="line"> ORDER BY &quot;使用比&quot; desc;</span><br></pre></td></tr></table></figure>
-<h2 id="指定表空间查询所有表名"><a href="#指定表空间查询所有表名" class="headerlink" title="指定表空间查询所有表名"></a>指定表空间查询所有表名</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Select Table_Name, Tablespace_Name</span><br><span class="line">From Dba_Tables</span><br><span class="line">Where Tablespace_Name = &apos;USERS&apos;;</span><br></pre></td></tr></table></figure>
-<h2 id="通过指定表空间查询所属表的占用空间"><a href="#通过指定表空间查询所属表的占用空间" class="headerlink" title="通过指定表空间查询所属表的占用空间"></a>通过指定表空间查询所属表的占用空间</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select segment_name, bytes/1024||&apos;KB&apos; &quot;占用空间&quot;</span><br><span class="line">from user_segments </span><br><span class="line">where segment_type=&apos;TABLE&apos; and tablespace_name=&apos;USERS&apos; order by segment_name asc;</span><br></pre></td></tr></table></figure>
-<h2 id="删除列"><a href="#删除列" class="headerlink" title="删除列"></a>删除列</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name DROP COLUMN column_name;</span><br></pre></td></tr></table></figure>
-<h2 id="查询所有表及其所使用的表空间"><a href="#查询所有表及其所使用的表空间" class="headerlink" title="查询所有表及其所使用的表空间"></a>查询所有表及其所使用的表空间</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select table_name 表名 ,tablespace_name 所使用表空间 from user_tables t where t.TABLE_NAME=&apos;T_PRE_AI_ACTIVITY&apos;;</span><br></pre></td></tr></table></figure>
-<h2 id="查询所有表空间大小"><a href="#查询所有表空间大小" class="headerlink" title="查询所有表空间大小"></a>查询所有表空间大小</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT t.tablespace_name, round(SUM(bytes / (1024 * 1024)), 0) ts_size</span><br><span class="line">  FROM dba_tablespaces t, dba_data_files d</span><br><span class="line"> WHERE t.tablespace_name = d.tablespace_name</span><br><span class="line"> GROUP BY t.tablespace_name;</span><br></pre></td></tr></table></figure>
-<h2 id="查询版本"><a href="#查询版本" class="headerlink" title="查询版本"></a>查询版本</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from v$version;</span><br></pre></td></tr></table></figure>
-<h2 id="查看长时间未commit会话，10秒未commit"><a href="#查看长时间未commit会话，10秒未commit" class="headerlink" title="查看长时间未commit会话，10秒未commit"></a>查看长时间未commit会话，10秒未commit</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">SELECT A.SID,</span><br><span class="line">       A.SERIAL#,</span><br><span class="line">       A.USERNAME,</span><br><span class="line">       A.EVENT,</span><br><span class="line">       A.WAIT_CLASS,</span><br><span class="line">       A.SECONDS_IN_WAIT,</span><br><span class="line">       b.LOCKED_MODE,</span><br><span class="line">       C.OWNER,</span><br><span class="line">       C.OBJECT_NAME,</span><br><span class="line">       C.OBJECT_TYPE</span><br><span class="line">  FROM V$SESSION A</span><br><span class="line"> INNER JOIN V$LOCKED_OBJECT B ON A.SID = b.SESSION_ID</span><br><span class="line"> INNER JOIN DBA_OBJECTS C ON B.OBJECT_ID = c.OBJECT_ID</span><br><span class="line"> WHERE A.WAIT_CLASS = &apos;Idle&apos;</span><br><span class="line">   AND A.SECONDS_IN_WAIT &gt; 10</span><br></pre></td></tr></table></figure>
-<h2 id="查看锁主的记录rowid"><a href="#查看锁主的记录rowid" class="headerlink" title="查看锁主的记录rowid"></a>查看锁主的记录rowid</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">SELECT SID,</span><br><span class="line">       SERIAL#,</span><br><span class="line">       AUDSID,</span><br><span class="line">       PADDR,</span><br><span class="line">       USER#,</span><br><span class="line">       USERNAME,</span><br><span class="line">       EVENT,</span><br><span class="line">       WAIT_CLASS,</span><br><span class="line">       SECONDS_IN_WAIT,</span><br><span class="line">       ROW_WAIT_OBJ#,</span><br><span class="line">       ROW_WAIT_FILE#,</span><br><span class="line">       ROW_WAIT_BLOCK#,</span><br><span class="line">       ROW_WAIT_ROW#,</span><br><span class="line">       BLOCKING_SESSION_STATUS,</span><br><span class="line">       BLOCKING_INSTANCE,</span><br><span class="line">       BLOCKING_SESSION,</span><br><span class="line">       C.OWNER,</span><br><span class="line">       C.OBJECT_NAME,</span><br><span class="line">       C.OBJECT_TYPE,</span><br><span class="line">       dbms_rowid.rowid_create(1,</span><br><span class="line">                               ROW_WAIT_OBJ#,</span><br><span class="line">                               ROW_WAIT_FILE#,</span><br><span class="line">                               ROW_WAIT_BLOCK#,</span><br><span class="line">                               ROW_WAIT_ROW#)</span><br><span class="line">  FROM V$SESSION A</span><br><span class="line"> INNER JOIN V$LOCKED_OBJECT B ON A.SID = b.SESSION_ID</span><br><span class="line"> INNER JOIN DBA_OBJECTS C ON B.OBJECT_ID = c.OBJECT_ID</span><br><span class="line"> WHERE BLOCKING_SESSION IS NOT NULL;</span><br></pre></td></tr></table></figure>
-<h2 id="oracle命令行导入SQL脚本"><a href="#oracle命令行导入SQL脚本" class="headerlink" title="oracle命令行导入SQL脚本"></a>oracle命令行导入SQL脚本</h2><p>使用@导入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt;@/home/oracle/a.sql;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/lombok汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/15/lombok汇总/" class="post-title-link" itemprop="url">lombok汇总</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-10-15 21:34:21" itemprop="dateCreated datePublished" datetime="2019-10-15T21:34:21+08:00">2019-10-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-29 15:07:50" itemprop="dateModified" datetime="2020-03-29T15:07:50+08:00">2020-03-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/lombok/" itemprop="url" rel="index"><span itemprop="name">lombok</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="SneakyThrows是否可以大量使用？"><a href="#SneakyThrows是否可以大量使用？" class="headerlink" title="@SneakyThrows是否可以大量使用？"></a>@SneakyThrows是否可以大量使用？</h2><p>不建议大量使用，异常还是要研究地做好各种catch和处理，在单元测试中为了效率可以使用。</p>
-<h2 id="AllArgsConstructor"><a href="#AllArgsConstructor" class="headerlink" title="@AllArgsConstructor"></a>@AllArgsConstructor</h2><p>生成所有成员变量的有参构造器，同时因为Spring的新特性：<br>In the newest Spring release, it’s constructor does not need to be annotated with @Autowired annotation.</p>
-<p>所以成员变量会被自动注入。<br><strong><em>要注意的是，如果bean中有多个构造器的话，那么就要声明@Autowired给其中一个构造器，不然Spring不会默认去选择构造器。</em></strong></p>
-<h2 id="RequiredArgsConstructor"><a href="#RequiredArgsConstructor" class="headerlink" title="@RequiredArgsConstructor"></a>@RequiredArgsConstructor</h2><p>Required arguments are final fields and fields with constraints such as {@code @NonNull}.<br>RequiredArgsConstructor是针对final成员变量去生成有参构造器。</p>
-<h2 id="UtilityClass"><a href="#UtilityClass" class="headerlink" title="@UtilityClass"></a>@UtilityClass</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * An annotation to create utility classes.</span><br><span class="line"> * </span><br><span class="line"> * If a class is annotated with &#123;@code @UtilityClass&#125;, the following things happen to it:&lt;ul&gt;</span><br><span class="line"> * &lt;li&gt;It is marked final.&lt;/li&gt;</span><br><span class="line"> * &lt;li&gt;If any constructors are declared in it, an error is generated. Otherwise, a private no-args constructor is generated; it throws a &#123;@code UnsupportedOperationException&#125;.&lt;/li&gt;</span><br><span class="line"> * &lt;li&gt;All methods, inner classes, and fields in the class are marked static.&lt;/li&gt;</span><br><span class="line"> * &lt;li&gt;&lt;em&gt;WARNING:&lt;/em&gt; Do not use non-star static imports to import these members; javac won&apos;t be able to figure it out. Use either:</span><br><span class="line"> *    &lt;code&gt;import static ThisType.*;&lt;/code&gt; or don&apos;t static-import.&lt;/li&gt;</span><br><span class="line"> * &lt;/ul&gt;</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
-<p>被@UtilityClass定义的类会被视为工具类，该类会被编译成final类型，同时生成一个私有的无参构造器，禁止被实例化，此外，该类的所有方法，内部类和变量都会被编程成静态类型。</p>
-<h2 id="EqualsAndHashCode-callSuper-true"><a href="#EqualsAndHashCode-callSuper-true" class="headerlink" title="@EqualsAndHashCode(callSuper = true)"></a>@EqualsAndHashCode(callSuper = true)</h2><p>@Data相当于@Getter @Setter @RequiredArgsConstructor @ToString @EqualsAndHashCode这5个注解的合集。<br>通过官方文档，可以得知，当使用@Data注解时，则有了@EqualsAndHashCode注解，那么就会在此类中存在equals(Object other) 和 hashCode()方法，且不会使用父类的属性，这就导致了可能的问题。<br>加上callSuper = true表示需要使用父类的属性</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/28/oracle系列之索引深入研究/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/28/oracle系列之索引深入研究/" class="post-title-link" itemprop="url">oracle系列之索引</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-04-28 18:20:48" itemprop="dateCreated datePublished" datetime="2019-04-28T18:20:48+08:00">2019-04-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-29 14:48:53" itemprop="dateModified" datetime="2020-03-29T14:48:53+08:00">2020-03-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/oracle/" itemprop="url" rel="index"><span itemprop="name">oracle</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="为什么加索引后会使写入、修改、删除变慢？"><a href="#为什么加索引后会使写入、修改、删除变慢？" class="headerlink" title="为什么加索引后会使写入、修改、删除变慢？"></a>为什么加索引后会使写入、修改、删除变慢？</h2><p>事物都是有两面的， 索引能让数据库查询数据的速度上升， 而使写入数据的速度下降，原因很简单的， 因为平衡树这个结构必须一直维持在一个正确的状态， 增删改数据都会改变平衡树各节点中的索引数据内容，破坏树结构， 因此，在每次数据改变时， DBMS必须去重新梳理树（索引）的结构以确保它的正确，这会带来不小的性能开销，也就是为什么索引会给查询以外的操作带来副作用的原因。</p>
-<h2 id="什么情况下要同时在两个字段上建索引？"><a href="#什么情况下要同时在两个字段上建索引？" class="headerlink" title="什么情况下要同时在两个字段上建索引？"></a>什么情况下要同时在两个字段上建索引？</h2><p>有一种例外可以不使用聚集索引就能查询出所需要的数据， 这种非主流的方法 称之为「覆盖索引」查询， 也就是平时所说的复合索引或者多字段索引查询。 文章上面的内容已经指出， 当为字段建立索引以后， 字段中的内容会被同步到索引之中， 如果为一个索引指定两个字段， 那么这个两个字段的内容都会被同步至索引之中。</p>
-<p>先看下面这个SQL语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//建立索引</span><br><span class="line">create index index_birthday on user_info(birthday);</span><br><span class="line">//查询生日在1991年11月1日出生用户的用户名</span><br><span class="line">select user_name from user_info where birthday = &apos;1991-11-1&apos;</span><br></pre></td></tr></table></figure></p>
-<p>这句SQL语句的执行过程如下</p>
-<ul>
-<li><p>首先，通过非聚集索引index_birthday查找birthday等于1991-11-1的所有记录的主键ID值</p>
-</li>
-<li><p>然后，通过得到的主键ID值执行聚集索引查找，找到主键ID值对就的真实数据（数据行）存储的位置</p>
-</li>
-<li><p>最后， 从得到的真实数据中取得user_name字段的值返回， 也就是取得最终的结果</p>
-</li>
-</ul>
-<p>我们把birthday字段上的索引改成双字段的覆盖索引<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create index index_birthday_and_user_name on user_info(birthday, user_name);</span><br></pre></td></tr></table></figure></p>
-<p>这句SQL语句的执行过程就会变为:</p>
-<blockquote>
-<p>通过非聚集索引index_birthday_and_user_name查找birthday等于1991-11-1的叶节点的内容，然而， 叶节点中除了有user_name表主键ID的值以外， user_name字段的值也在里面， 因此不需要通过主键ID值的查找数据行的真实所在， 直接取得叶节点中user_name的值返回即可。 通过这种覆盖索引直接查找的方式， 可以省略不使用覆盖索引查找的后面两个步骤， 大大的提高了查询性能.</p>
-<p><a href="https://www.cnblogs.com/aspwebchh/p/6652855.html" target="_blank" rel="noopener">https://www.cnblogs.com/aspwebchh/p/6652855.html</a></p>
-</blockquote>
-<h2 id="B树索引-B-Tree"><a href="#B树索引-B-Tree" class="headerlink" title="B树索引(B-Tree)"></a>B树索引(B-Tree)</h2><h2 id="位图索引"><a href="#位图索引" class="headerlink" title="位图索引"></a>位图索引</h2><p>位图索引的应用场景:</p>
-<ol>
-<li>适合只有几个固定值的列,比如性别,行政区,祖籍等,这种基数很低的情况.</li>
-<li>适合相对静态的数据,不适合值频繁更新的字段.</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># demo:</span><br><span class="line">create bitmap index random_empno_bmx on test_random(empno);</span><br><span class="line"></span><br><span class="line"># 这个时候有人会说使用位图索引，因为busy只有两个值。好，我们使用位图索引索引busy字段！假设用户A使用update更新某个机器的busy值，比如update table set table.busy=1 where rowid=100;，但还没有commit，而用户B也使用update更新另一个机器的busy值，update table set table.busy=1 where rowid=12; 这个时候用户B怎么也更新不了，需要等待用户A commit。</span><br><span class="line">　　原因：用户A更新了某个机器的busy值为1，会导致所有busy为1的机器的位图向量发生改变，因此数据库会将busy＝1的所有行锁定，只有commit之后才解锁。</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><a href="http://hongyitong.github.io/2016/08/22/%E4%BD%8D%E5%9B%BE%E7%B4%A2%E5%BC%95%E5%8E%9F%E7%90%86%EF%BC%88BitMap%20index%EF%BC%89/" target="_blank" rel="noopener">http://hongyitong.github.io/2016/08/22/%E4%BD%8D%E5%9B%BE%E7%B4%A2%E5%BC%95%E5%8E%9F%E7%90%86%EF%BC%88BitMap%20index%EF%BC%89/</a></p>
-</blockquote>
-<h2 id="反向键索引"><a href="#反向键索引" class="headerlink" title="反向键索引"></a>反向键索引</h2><ol>
-<li>反向键索引是特殊的B数索引</li>
-<li>适用于在表中严格排序的列上创建反向键索引</li>
-</ol>
-<p>在常规的B树索引中，如果主键列时递增的，那么往表中添加新的数据时，B树索引将直接访问最后一个数据，而不是一个节点一个节点的访问。这种情况造成的现象是：随着数据行的不断添加，已经原有数据行的删除，B树索引的很多空间会被浪费掉，如1012节点上方的几个数据行都是空的。而且B树索引将会变得越来越不均匀。如下图这般。</p>
-
-<p>反向键索引原理<br>如果用户使用序列编号在表中添加新的纪录，则反向键索引首先反向转换每个键值的字节，然后在反向后的新数据在进行索引.</p>
-<p>例如：用户输入的索引键是4201，那么反向键索引将其反向转换为1024，这样索引键就变成非递增了，也就意味着，如果将反向后的索引键添加到叶子节点中，可能在任意的叶子节点中进行，从而使新的数据在值得范围分布式比原来的均匀。</p>
-<blockquote>
-<p>原文：<a href="https://blog.csdn.net/zhou920786312/article/details/72792355" target="_blank" rel="noopener">https://blog.csdn.net/zhou920786312/article/details/72792355</a> </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 创建反向索引的demo</span><br><span class="line">create unique index re_emp2no_idx on emp2(empno) reverse;</span><br><span class="line">alter table emp2 add constraint pk_emp2 primary key (empno) USING INDEX re_emp2no_idx;</span><br><span class="line">SELECT TABLE_NAME, CONSTRAINT_NAME, CONSTRAINT_TYPE FROM all_constraints WHERE TABLE_NAME = &apos;EMP2&apos;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/27/Hystrix汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/27/Hystrix汇总/" class="post-title-link" itemprop="url">Hystrix汇总</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-11-27 21:11:25" itemprop="dateCreated datePublished" datetime="2019-11-27T21:11:25+08:00">2019-11-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-29 14:17:04" itemprop="dateModified" datetime="2020-03-29T14:17:04+08:00">2020-03-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hystrix/" itemprop="url" rel="index"><span itemprop="name">Hystrix</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="各种配置属性文章"><a href="#各种配置属性文章" class="headerlink" title="各种配置属性文章"></a>各种配置属性文章</h2><p><a href="https://github.com/Netflix/Hystrix/wiki/Configuration" target="_blank" rel="noopener">https://github.com/Netflix/Hystrix/wiki/Configuration</a></p>
 
       
     </div>
@@ -657,14 +654,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">116</span>
+          <span class="site-state-item-count">119</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">69</span>
+        <span class="site-state-item-count">68</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -721,71 +718,11 @@
 
   
   <script src="/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
 <script src="/js/schemes/pisces.js"></script>
 <script src="/js/next-boot.js"></script>
-  <script>
-var pjax = new Pjax({
-  selectors: [
-    'head title',
-    '#page-configurations',
-    '.content-wrap',
-    '.post-toc-wrap',
-    '.languages',
-    '#pjax'
-  ],
-  switches: {
-    '.post-toc-wrap': Pjax.switches.innerHTML
-  },
-  analytics: false,
-  cacheBust: false,
-  scrollTo : !CONFIG.bookmark.enable
-});
-
-window.addEventListener('pjax:success', () => {
-  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
-    var code = element.text || element.textContent || element.innerHTML || '';
-    var parent = element.parentNode;
-    parent.removeChild(element);
-    var script = document.createElement('script');
-    if (element.id) {
-      script.id = element.id;
-    }
-    if (element.className) {
-      script.className = element.className;
-    }
-    if (element.type) {
-      script.type = element.type;
-    }
-    if (element.src) {
-      script.src = element.src;
-      // Force synchronous loading of peripheral JS.
-      script.async = false;
-    }
-    if (element.dataset.pjax !== undefined) {
-      script.dataset.pjax = '';
-    }
-    if (code !== '') {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
-  });
-  NexT.boot.refresh();
-  // Define Motion Sequence & Bootstrap Motion.
-  if (CONFIG.motion.enable) {
-    NexT.motion.integrator
-      .init()
-      .add(NexT.motion.middleWares.subMenu)
-      .add(NexT.motion.middleWares.postList)
-      .bootstrap();
-  }
-  NexT.utils.updateSidebarPosition();
-});
-</script>
-
 
 
 
@@ -805,11 +742,9 @@ window.addEventListener('pjax:success', () => {
 
 
 
-    <div id="pjax">
   
 
   
 
-    </div>
 </body>
 </html>

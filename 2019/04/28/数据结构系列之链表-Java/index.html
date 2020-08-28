@@ -20,18 +20,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="A Quiet Departure.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Feng&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/Reading/index.html">
+  <meta name="description" content="学习方法学完一个基础知识点后主动刷leetcode对应的题，根据标签专项刷对应的题。leetcode链表专题 链表分别都对应了那些Java类？ java.util.ArrayList java.util.LinkedList java.util.concurrent.CopyOnWriteArrayList  单向链表 Java的官方API包里面是没有单向链表的实现的。  双向链表循环链表静态链表">
+<meta name="keywords" content="Java,数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构系列之链表（Java）">
+<meta property="og:url" content="http://yoursite.com/2019/04/28/数据结构系列之链表-Java/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="A Quiet Departure.">
+<meta property="og:description" content="学习方法学完一个基础知识点后主动刷leetcode对应的题，根据标签专项刷对应的题。leetcode链表专题 链表分别都对应了那些Java类？ java.util.ArrayList java.util.LinkedList java.util.concurrent.CopyOnWriteArrayList  单向链表 Java的官方API包里面是没有单向链表的实现的。  双向链表循环链表静态链表">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-08-28T14:54:06.341Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Feng&#39;s Blog">
-<meta name="twitter:description" content="A Quiet Departure.">
+<meta name="twitter:title" content="数据结构系列之链表（Java）">
+<meta name="twitter:description" content="学习方法学完一个基础知识点后主动刷leetcode对应的题，根据标签专项刷对应的题。leetcode链表专题 链表分别都对应了那些Java类？ java.util.ArrayList java.util.LinkedList java.util.concurrent.CopyOnWriteArrayList  单向链表 Java的官方API包里面是没有单向链表的实现的。  双向链表循环链表静态链表">
 
-<link rel="canonical" href="http://yoursite.com/tags/Reading/">
+<link rel="canonical" href="http://yoursite.com/2019/04/28/数据结构系列之链表-Java/">
 
 
 <script id="page-configurations">
@@ -39,12 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-Hans'
   };
 </script>
 
-  <title>Tag: Reading | Feng's Blog</title>
+  <title>数据结构系列之链表（Java） | Feng's Blog</title>
   
 
 
@@ -157,51 +159,107 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">Reading
-          <small>Tag</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/28/数据结构系列之链表-Java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数据结构系列之链表（Java）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-04-28 18:22:07" itemprop="dateCreated datePublished" datetime="2019-04-28T18:22:07+08:00">2019-04-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-28 22:54:06" itemprop="dateModified" datetime="2020-08-28T22:54:06+08:00">2020-08-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+        <h2 id="学习方法"><a href="#学习方法" class="headerlink" title="学习方法"></a>学习方法</h2><p>学完一个基础知识点后主动刷leetcode对应的题，根据标签专项刷对应的题。<br><a href="https://leetcode-cn.com/tag/linked-list/" target="_blank" rel="noopener">leetcode链表专题</a></p>
+<h2 id="链表分别都对应了那些Java类？"><a href="#链表分别都对应了那些Java类？" class="headerlink" title="链表分别都对应了那些Java类？"></a>链表分别都对应了那些Java类？</h2><ul>
+<li>java.util.ArrayList</li>
+<li>java.util.LinkedList</li>
+<li>java.util.concurrent.CopyOnWriteArrayList</li>
+</ul>
+<h2 id="单向链表"><a href="#单向链表" class="headerlink" title="单向链表"></a>单向链表</h2><blockquote>
+<p>Java的官方API包里面是没有单向链表的实现的。</p>
+</blockquote>
+<h2 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h2><h2 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h2><h2 id="静态链表？"><a href="#静态链表？" class="headerlink" title="静态链表？"></a>静态链表？</h2>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-04T19:13:39+08:00"
-              content="2020-08-04">
-          08-04
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/04/读万卷书/" itemprop="url">
-            <span itemprop="name">读万卷书</span>
-          </a>
-      </div>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/04/28/oracle系列之索引深入研究/" rel="prev" title="oracle系列之索引">
+      <i class="fa fa-chevron-left"></i> oracle系列之索引
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/04/28/oracle系列之性能调优/" rel="next" title="oracle系列之性能调优">
+      oracle系列之性能调优 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
@@ -254,6 +312,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#学习方法"><span class="nav-number">1.</span> <span class="nav-text">学习方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表分别都对应了那些Java类？"><span class="nav-number">2.</span> <span class="nav-text">链表分别都对应了那些Java类？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单向链表"><span class="nav-number">3.</span> <span class="nav-text">单向链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双向链表"><span class="nav-number">4.</span> <span class="nav-text">双向链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环链表"><span class="nav-number">5.</span> <span class="nav-text">循环链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态链表？"><span class="nav-number">6.</span> <span class="nav-text">静态链表？</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -267,14 +326,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">116</span>
+          <span class="site-state-item-count">119</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">69</span>
+        <span class="site-state-item-count">68</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -331,71 +390,11 @@
 
   
   <script src="/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
 <script src="/js/schemes/pisces.js"></script>
 <script src="/js/next-boot.js"></script>
-  <script>
-var pjax = new Pjax({
-  selectors: [
-    'head title',
-    '#page-configurations',
-    '.content-wrap',
-    '.post-toc-wrap',
-    '.languages',
-    '#pjax'
-  ],
-  switches: {
-    '.post-toc-wrap': Pjax.switches.innerHTML
-  },
-  analytics: false,
-  cacheBust: false,
-  scrollTo : !CONFIG.bookmark.enable
-});
-
-window.addEventListener('pjax:success', () => {
-  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
-    var code = element.text || element.textContent || element.innerHTML || '';
-    var parent = element.parentNode;
-    parent.removeChild(element);
-    var script = document.createElement('script');
-    if (element.id) {
-      script.id = element.id;
-    }
-    if (element.className) {
-      script.className = element.className;
-    }
-    if (element.type) {
-      script.type = element.type;
-    }
-    if (element.src) {
-      script.src = element.src;
-      // Force synchronous loading of peripheral JS.
-      script.async = false;
-    }
-    if (element.dataset.pjax !== undefined) {
-      script.dataset.pjax = '';
-    }
-    if (code !== '') {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
-  });
-  NexT.boot.refresh();
-  // Define Motion Sequence & Bootstrap Motion.
-  if (CONFIG.motion.enable) {
-    NexT.motion.integrator
-      .init()
-      .add(NexT.motion.middleWares.subMenu)
-      .add(NexT.motion.middleWares.postList)
-      .bootstrap();
-  }
-  NexT.utils.updateSidebarPosition();
-});
-</script>
-
 
 
 
@@ -415,11 +414,9 @@ window.addEventListener('pjax:success', () => {
 
 
 
-    <div id="pjax">
   
 
   
 
-    </div>
 </body>
 </html>
