@@ -800,6 +800,27 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       </tags>
   </entry>
   <entry>
+    <title>windows环境下mysql提示ERROR 1045 (28000): Access denied for user &#39;root&#39;@&#39;localhost&#39; (using passwor: YES)的解决办法</title>
+    <url>/2016/11/23/windows%E7%8E%AF%E5%A2%83%E4%B8%8Bmysql%E6%8F%90%E7%A4%BAERROR-1045-28000-Access-denied-for-user-root-localhost-using-passwor-YES-%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
+    <content><![CDATA[<p>好久没用mysql，早上试了一下发现报了下面这个经典的错误，表示有点恶心。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:\Program Files\MySQL\MySQL Server 5.7\bin&gt;mysql -u root -p 12345678</span><br><span class="line">Enter password: ********</span><br><span class="line">ERROR 1045 (28000): Access denied for user &apos;root&apos;@&apos;localhost&apos; (using password: YES)</span><br></pre></td></tr></table></figure></p>
+<p>解决方法很简单，首先进入mysql的安装目录找到my.ini</p>
+<p>打开后，搜索mysqld关键字</p>
+<p>找到后，在mysqld下面添加skip-grant-tables，保存退出。</p>
+<p>如果提醒没有权限右键文件my.ini-&gt;安全-&gt;编辑-&gt;添加-&gt;高级-&gt;立即查找，把你当前账号添加进去，权限改成完全控制。</p>
+<p>然后运行cmd，cd进入你mysql安装目录的bin目录下，</p>
+<p>输入mysql -u root -p就可以不用密码登录了，出现password：的时候直接回车可以进入。</p>
+<p>如果没有输入密码还是报错的话可以再Enter password的时候输入你上一次的密码。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:\Program Files\MySQL\MySQL Server 5.7\bin&gt;mysql -u root -p</span><br><span class="line">Enter password: **********</span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is 11</span><br><span class="line">Server version: 5.7.9-log</span><br></pre></td></tr></table></figure></p>
+<p>之后执行修改密码命令<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mysql&gt; alter user &apos;root&apos;@&apos;localhost&apos; identified by &apos;123456789&apos;;</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br></pre></td></tr></table></figure></p>
+<p>大告功成！！</p>
+]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java系列之自定义注解入门</title>
     <url>/2016/11/23/Java%E7%B3%BB%E5%88%97%E4%B9%8B%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3%E5%85%A5%E9%97%A8/</url>
     <content><![CDATA[<blockquote>
@@ -946,27 +967,6 @@ public class Apple {
       </tags>
   </entry>
   <entry>
-    <title>windows环境下mysql提示ERROR 1045 (28000): Access denied for user &#39;root&#39;@&#39;localhost&#39; (using passwor: YES)的解决办法</title>
-    <url>/2016/11/23/windows%E7%8E%AF%E5%A2%83%E4%B8%8Bmysql%E6%8F%90%E7%A4%BAERROR-1045-28000-Access-denied-for-user-root-localhost-using-passwor-YES-%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
-    <content><![CDATA[<p>好久没用mysql，早上试了一下发现报了下面这个经典的错误，表示有点恶心。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:\Program Files\MySQL\MySQL Server 5.7\bin&gt;mysql -u root -p 12345678</span><br><span class="line">Enter password: ********</span><br><span class="line">ERROR 1045 (28000): Access denied for user &apos;root&apos;@&apos;localhost&apos; (using password: YES)</span><br></pre></td></tr></table></figure></p>
-<p>解决方法很简单，首先进入mysql的安装目录找到my.ini</p>
-<p>打开后，搜索mysqld关键字</p>
-<p>找到后，在mysqld下面添加skip-grant-tables，保存退出。</p>
-<p>如果提醒没有权限右键文件my.ini-&gt;安全-&gt;编辑-&gt;添加-&gt;高级-&gt;立即查找，把你当前账号添加进去，权限改成完全控制。</p>
-<p>然后运行cmd，cd进入你mysql安装目录的bin目录下，</p>
-<p>输入mysql -u root -p就可以不用密码登录了，出现password：的时候直接回车可以进入。</p>
-<p>如果没有输入密码还是报错的话可以再Enter password的时候输入你上一次的密码。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:\Program Files\MySQL\MySQL Server 5.7\bin&gt;mysql -u root -p</span><br><span class="line">Enter password: **********</span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is 11</span><br><span class="line">Server version: 5.7.9-log</span><br></pre></td></tr></table></figure></p>
-<p>之后执行修改密码命令<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mysql&gt; alter user &apos;root&apos;@&apos;localhost&apos; identified by &apos;123456789&apos;;</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br></pre></td></tr></table></figure></p>
-<p>大告功成！！</p>
-]]></content>
-      <categories>
-        <category>mysql</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ear war jar 区别</title>
     <url>/2016/11/25/ear-war-jar-%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<h2 id="Jar文件"><a href="#Jar文件" class="headerlink" title="Jar文件"></a>Jar文件</h2><p>（扩展名为. Jar，Java Application Archive）包含Java类的普通库、资源（resources）、辅助文件（auxiliary files）等</p>
@@ -1091,31 +1091,6 @@ public class Apple {
       </tags>
   </entry>
   <entry>
-    <title>oracle系列之触发器</title>
-    <url>/2019/03/04/oracle%E7%B3%BB%E5%88%97%E4%B9%8B%E8%A7%A6%E5%8F%91%E5%99%A8/</url>
-    <content><![CDATA[<h2 id="什么是触发器"><a href="#什么是触发器" class="headerlink" title="什么是触发器"></a>什么是触发器</h2><p>触发器是一个特殊的存储过程，是一个与表相关联的，存储的PL/SQL程序，每当一个特定的数据操作语句（insert，update，delete）在指定的表上发出时，Oracle自动地执行触发器中定义的语句序列。</p>
-<h2 id="触发器的语法"><a href="#触发器的语法" class="headerlink" title="触发器的语法"></a>触发器的语法</h2><h4 id="如何创建触发器"><a href="#如何创建触发器" class="headerlink" title="如何创建触发器"></a>如何创建触发器</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">--Print ’insert success‘ after insert record into the table.</span><br><span class="line">create [or replace] trigger trigger_name </span><br><span class="line">&#123;after|before&#125; &#123;insert|delete|update|of row_name&#125;</span><br><span class="line">on table_name</span><br><span class="line">[for each row [when(条件)]]</span><br><span class="line">declare</span><br><span class="line">begin</span><br><span class="line">    dbms_output.put_line(&apos;insert success!&apos;);</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
-<h2 id="触发器的类型"><a href="#触发器的类型" class="headerlink" title="触发器的类型"></a>触发器的类型</h2><h4 id="语句级触发器和行级触发器"><a href="#语句级触发器和行级触发器" class="headerlink" title="语句级触发器和行级触发器"></a>语句级触发器和行级触发器</h4><p>语句级没有for each row，行级反之。<br>语句级触发器：在指定的操作语句操作之前或之后执行一次，不管这条语句影响了多少行。<br>行级触发器：触发语句作用的每条记录都被触发。在其中使用:old和:new伪记录变量，识别值的状态。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">insert into emp10 select * from emp where depno=10;</span><br><span class="line">-- 3 rows of records</span><br><span class="line">-- 语句级触发器：针对的是表，只执行一次。</span><br><span class="line">-- 行级触发器：针对的是行，执行了3次。</span><br></pre></td></tr></table></figure></p>
-<h2 id="触发器的具体应用场景"><a href="#触发器的具体应用场景" class="headerlink" title="触发器的具体应用场景"></a>触发器的具体应用场景</h2><h4 id="复杂的安全性检查"><a href="#复杂的安全性检查" class="headerlink" title="复杂的安全性检查"></a>复杂的安全性检查</h4><blockquote>
-<p>禁止在非工作时间插入新员工<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">--周末:to_char(sysdate, &apos;day&apos;) in (&apos;星期六&apos;, &apos;星期日&apos;)</span><br><span class="line">--上班前，下班后:to_number(to_char(sysdate, &apos;hh24&apos;)) not between 9 and 18</span><br><span class="line"></span><br><span class="line">create or replace trigger security_emp</span><br><span class="line">before insert</span><br><span class="line">on emp</span><br><span class="line">-- declare 程序中不使用变量的话，这块可以不写</span><br><span class="line">begin</span><br><span class="line">    if to_char(sysdate, &apos;day&apos;) in (&apos;星期六&apos;, &apos;星期日&apos;) or </span><br><span class="line">        to_number(to_char(sysdate, &apos;hh24&apos;)) not between 9 and 18 then</span><br><span class="line">        --禁止insert</span><br><span class="line">        raise_application_error(-20001, &apos;禁止在非工作时间插入新员工&apos;);</span><br><span class="line">    end if;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h4 id="数据确认"><a href="#数据确认" class="headerlink" title="数据确认"></a>数据确认</h4><blockquote>
-<p>涨工资不能越涨越少<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">--:old和:new 代表同一条记录，前者代表操作之前的值，后者反之。</span><br><span class="line">create or replace trigger check_salary</span><br><span class="line">before update</span><br><span class="line">on emp</span><br><span class="line">for each row</span><br><span class="line">begin</span><br><span class="line">    if :new.salary &lt; :old.salary then</span><br><span class="line">        raise_application_error(-20002, &apos;涨薪水不带这么玩的,涨前&apos;||:old.salary||&apos;涨后&apos;||:new.salary);    </span><br><span class="line">    end if;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h4 id="实现审计功能"><a href="#实现审计功能" class="headerlink" title="实现审计功能"></a>实现审计功能</h4><blockquote>
-<p>给员工涨工资，当涨后的薪水超过6000块的时候，审计该员工的信息</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">--创建表，用于保存审计信息</span><br><span class="line">create table audit_emp</span><br><span class="line">(</span><br><span class="line">infomation varchar2(200);</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">create or replace trigger do_audit_emp_salary</span><br><span class="line">after update</span><br><span class="line">on emp</span><br><span class="line">for each row</span><br><span class="line">begin</span><br><span class="line">    if :new.salary &gt; 6000 then</span><br><span class="line">        insert into audit_emp values(&apos;员工信息:&apos;||:new.somerows);</span><br><span class="line">    end if;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
-<h3 id="完成数据的备份和同步"><a href="#完成数据的备份和同步" class="headerlink" title="完成数据的备份和同步"></a>完成数据的备份和同步</h3><p>给员工涨薪水之后，自动备份新工资到备份表<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">create or replace trigger sync_salary</span><br><span class="line">after update</span><br><span class="line">on emp</span><br><span class="line">for earch row</span><br><span class="line">begin</span><br><span class="line">    update emp_bak set sal=:new.sal where empno=:new.empno;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>oracle</category>
-      </categories>
-      <tags>
-        <tag>oracle</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>linux常用用命令</title>
     <url>/2019/02/26/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h2 id="返回上次所在目录"><a href="#返回上次所在目录" class="headerlink" title="返回上次所在目录"></a>返回上次所在目录</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd -</span><br><span class="line">cd $OLDPWD</span><br></pre></td></tr></table></figure>
@@ -1173,6 +1148,31 @@ public class Apple {
       </categories>
       <tags>
         <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>oracle系列之触发器</title>
+    <url>/2019/03/04/oracle%E7%B3%BB%E5%88%97%E4%B9%8B%E8%A7%A6%E5%8F%91%E5%99%A8/</url>
+    <content><![CDATA[<h2 id="什么是触发器"><a href="#什么是触发器" class="headerlink" title="什么是触发器"></a>什么是触发器</h2><p>触发器是一个特殊的存储过程，是一个与表相关联的，存储的PL/SQL程序，每当一个特定的数据操作语句（insert，update，delete）在指定的表上发出时，Oracle自动地执行触发器中定义的语句序列。</p>
+<h2 id="触发器的语法"><a href="#触发器的语法" class="headerlink" title="触发器的语法"></a>触发器的语法</h2><h4 id="如何创建触发器"><a href="#如何创建触发器" class="headerlink" title="如何创建触发器"></a>如何创建触发器</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">--Print ’insert success‘ after insert record into the table.</span><br><span class="line">create [or replace] trigger trigger_name </span><br><span class="line">&#123;after|before&#125; &#123;insert|delete|update|of row_name&#125;</span><br><span class="line">on table_name</span><br><span class="line">[for each row [when(条件)]]</span><br><span class="line">declare</span><br><span class="line">begin</span><br><span class="line">    dbms_output.put_line(&apos;insert success!&apos;);</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+<h2 id="触发器的类型"><a href="#触发器的类型" class="headerlink" title="触发器的类型"></a>触发器的类型</h2><h4 id="语句级触发器和行级触发器"><a href="#语句级触发器和行级触发器" class="headerlink" title="语句级触发器和行级触发器"></a>语句级触发器和行级触发器</h4><p>语句级没有for each row，行级反之。<br>语句级触发器：在指定的操作语句操作之前或之后执行一次，不管这条语句影响了多少行。<br>行级触发器：触发语句作用的每条记录都被触发。在其中使用:old和:new伪记录变量，识别值的状态。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">insert into emp10 select * from emp where depno=10;</span><br><span class="line">-- 3 rows of records</span><br><span class="line">-- 语句级触发器：针对的是表，只执行一次。</span><br><span class="line">-- 行级触发器：针对的是行，执行了3次。</span><br></pre></td></tr></table></figure></p>
+<h2 id="触发器的具体应用场景"><a href="#触发器的具体应用场景" class="headerlink" title="触发器的具体应用场景"></a>触发器的具体应用场景</h2><h4 id="复杂的安全性检查"><a href="#复杂的安全性检查" class="headerlink" title="复杂的安全性检查"></a>复杂的安全性检查</h4><blockquote>
+<p>禁止在非工作时间插入新员工<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">--周末:to_char(sysdate, &apos;day&apos;) in (&apos;星期六&apos;, &apos;星期日&apos;)</span><br><span class="line">--上班前，下班后:to_number(to_char(sysdate, &apos;hh24&apos;)) not between 9 and 18</span><br><span class="line"></span><br><span class="line">create or replace trigger security_emp</span><br><span class="line">before insert</span><br><span class="line">on emp</span><br><span class="line">-- declare 程序中不使用变量的话，这块可以不写</span><br><span class="line">begin</span><br><span class="line">    if to_char(sysdate, &apos;day&apos;) in (&apos;星期六&apos;, &apos;星期日&apos;) or </span><br><span class="line">        to_number(to_char(sysdate, &apos;hh24&apos;)) not between 9 and 18 then</span><br><span class="line">        --禁止insert</span><br><span class="line">        raise_application_error(-20001, &apos;禁止在非工作时间插入新员工&apos;);</span><br><span class="line">    end if;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="数据确认"><a href="#数据确认" class="headerlink" title="数据确认"></a>数据确认</h4><blockquote>
+<p>涨工资不能越涨越少<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">--:old和:new 代表同一条记录，前者代表操作之前的值，后者反之。</span><br><span class="line">create or replace trigger check_salary</span><br><span class="line">before update</span><br><span class="line">on emp</span><br><span class="line">for each row</span><br><span class="line">begin</span><br><span class="line">    if :new.salary &lt; :old.salary then</span><br><span class="line">        raise_application_error(-20002, &apos;涨薪水不带这么玩的,涨前&apos;||:old.salary||&apos;涨后&apos;||:new.salary);    </span><br><span class="line">    end if;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="实现审计功能"><a href="#实现审计功能" class="headerlink" title="实现审计功能"></a>实现审计功能</h4><blockquote>
+<p>给员工涨工资，当涨后的薪水超过6000块的时候，审计该员工的信息</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">--创建表，用于保存审计信息</span><br><span class="line">create table audit_emp</span><br><span class="line">(</span><br><span class="line">infomation varchar2(200);</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">create or replace trigger do_audit_emp_salary</span><br><span class="line">after update</span><br><span class="line">on emp</span><br><span class="line">for each row</span><br><span class="line">begin</span><br><span class="line">    if :new.salary &gt; 6000 then</span><br><span class="line">        insert into audit_emp values(&apos;员工信息:&apos;||:new.somerows);</span><br><span class="line">    end if;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+<h3 id="完成数据的备份和同步"><a href="#完成数据的备份和同步" class="headerlink" title="完成数据的备份和同步"></a>完成数据的备份和同步</h3><p>给员工涨薪水之后，自动备份新工资到备份表<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">create or replace trigger sync_salary</span><br><span class="line">after update</span><br><span class="line">on emp</span><br><span class="line">for earch row</span><br><span class="line">begin</span><br><span class="line">    update emp_bak set sal=:new.sal where empno=:new.empno;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>oracle</category>
+      </categories>
+      <tags>
+        <tag>oracle</tag>
       </tags>
   </entry>
   <entry>
@@ -1345,6 +1345,37 @@ public class Apple {
       </tags>
   </entry>
   <entry>
+    <title>Git汇总</title>
+    <url>/2019/03/20/Git%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<h1 id="git基本命令"><a href="#git基本命令" class="headerlink" title="git基本命令"></a>git基本命令</h1><p>最近打算搞个web应用，练习一下新的技术栈，所以在github建了个私库</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">clone https://github.com/coding-by-feng/keep-yourself.git</span><br><span class="line">## 查看当前分支有哪些修改</span><br><span class="line">vi README.md</span><br><span class="line">git status</span><br><span class="line">## 提交为空，但是存在尚未跟踪的文件（使用 &quot;git add&quot; 建立跟踪）</span><br><span class="line">git add README.md</span><br><span class="line">## 提交 执行之后需要写入备注 </span><br><span class="line">git commit -m &quot;remark&quot;</span><br><span class="line">## 再次执行git status 提示无文件要提交</span><br><span class="line">## git push 推送本地文件到github</span><br><span class="line">## 回到过去</span><br><span class="line">git log</span><br><span class="line">git reset --hard XXXXX（当前版本指针）</span><br><span class="line">## git reflog找回被重置冲刷掉之前的log，防止错误重置。</span><br><span class="line">## 建立里程碑</span><br><span class="line">## 在github new Releases.</span><br></pre></td></tr></table></figure>
+<h2 id="git-pull和git-fetch"><a href="#git-pull和git-fetch" class="headerlink" title="git pull和git fetch"></a>git pull和git fetch</h2><p>git pull<br>如果需要取回origin主机的erp01分支与本地的master分支合并，则写为：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git pull origin erp01:master</span><br></pre></td></tr></table></figure></p>
+<p>上面这句命令的意思相当于取回origin/erp01分支的代码在与当前的分支合并。<br>如果本地分支和远程分支之间建立了一种追踪的关系，那么我们git pull的时候就可以省略远程的分支名：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git pull origing</span><br></pre></td></tr></table></figure></p>
+<p>上面命令表明本地分支自动与队对应的origin主机追踪分支进行合并。<br>git 允许手动建立追踪关系:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git branch --set-upstream master origin/erp01</span><br></pre></td></tr></table></figure></p>
+<p>git fetch<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git fetch &lt;远程主机名&gt;（origin）&lt;分支名&gt;</span><br></pre></td></tr></table></figure></p>
+<p>如果想要取回特定分支的更新就可以指定分支名；<br>所取回的更新，在本地主机上要用“远程主机名/分支名”进行读取。比如origin主机的erp01，就要用origin/erp01读取。<br>接下来可以用git branch -r命令查看远程分支，如果用到 -a选项，则表明查看所有的分支；<br>如果你需要合并分支，就可以用merge或rebase：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git merge origin/erp01</span><br><span class="line">#或</span><br><span class="line">$ git rebase origin/erp01</span><br></pre></td></tr></table></figure></p>
+<p>git pull和git fetch区别<br>这两个命令的主要区别在与：git pull是拉下更新后就自动合并本地分支，而git fetch是先吧更新拉下来，在用merge或rebase进行合并。</p>
+<h2 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git tag（查看标签）</span><br><span class="line">git tag name（创建标签）</span><br><span class="line">git tag -a name -m &quot;remark&quot;（指定备注创建标签）</span><br><span class="line">git tag -d name（删除标签）</span><br><span class="line">git push origin name（发布标签）</span><br></pre></td></tr></table></figure>
+<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><p><a href="https://www.jianshu.com/p/2e162b544878" target="_blank" rel="noopener">https://www.jianshu.com/p/2e162b544878</a><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git branch test1</span><br><span class="line">git branch (查看分支)</span><br><span class="line">git checkout test1 (切换分支)</span><br><span class="line">git checkout master</span><br><span class="line">git merge master（合并分支）</span><br><span class="line">git branch -d test1（删除分支）</span><br></pre></td></tr></table></figure></p>
+<h2 id="强制更新本地和强制提交覆盖"><a href="#强制更新本地和强制提交覆盖" class="headerlink" title="强制更新本地和强制提交覆盖"></a>强制更新本地和强制提交覆盖</h2><p><a href="https://www.cnblogs.com/boundless-sky/p/10842700.html" target="_blank" rel="noopener">https://www.cnblogs.com/boundless-sky/p/10842700.html</a></p>
+<h2 id="git-commit回撤"><a href="#git-commit回撤" class="headerlink" title="git commit回撤"></a>git commit回撤</h2><p><a href="https://www.jianshu.com/p/c2ec5f06cf1a" target="_blank" rel="noopener">Git Reset 三种模式</a></p>
+<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="git仓库迁移（从github上拉下来的代码修改后push到自己的仓库）"><a href="#git仓库迁移（从github上拉下来的代码修改后push到自己的仓库）" class="headerlink" title="git仓库迁移（从github上拉下来的代码修改后push到自己的仓库）"></a>git仓库迁移（从github上拉下来的代码修改后push到自己的仓库）</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rm -rf .git        //删除.git</span><br><span class="line"></span><br><span class="line">git init</span><br><span class="line"></span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line">git commit -m &quot;desc&quot;</span><br><span class="line"></span><br><span class="line">git remote add origin https://github.com/xxxxxxx</span><br><span class="line"></span><br><span class="line">git push -u origin master</span><br><span class="line">————————————————</span><br><span class="line">版权声明：本文为CSDN博主「LynnWonderLu」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</span><br><span class="line">原文链接：https://blog.csdn.net/lynnwonder6/article/details/91892563</span><br></pre></td></tr></table></figure>
+<h2 id="解决版本冲突"><a href="#解决版本冲突" class="headerlink" title="解决版本冲突"></a>解决版本冲突</h2><h2 id="删除本地缓存（改变目录或文件成未track状态）"><a href="#删除本地缓存（改变目录或文件成未track状态）" class="headerlink" title="删除本地缓存（改变目录或文件成未track状态）"></a>删除本地缓存（改变目录或文件成未track状态）</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 目录的所有子目录和文件</span><br><span class="line">git rm --cached *</span><br></pre></td></tr></table></figure>
+<h2 id="The-following-paths-are-ignored-by-one-of-your-gitignore-files"><a href="#The-following-paths-are-ignored-by-one-of-your-gitignore-files" class="headerlink" title="The following paths are ignored by one of your .gitignore files:"></a>The following paths are ignored by one of your .gitignore files:</h2><p>git add 时如果报错：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">The following paths are ignored by one of your .gitignore files:</span><br><span class="line">kiwi-common/kiwi-common-api/src/main/resources</span><br><span class="line">Use -f if you really want to add them.</span><br></pre></td></tr></table></figure></p>
+<p>可以强制加入版本控制：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add -f  xxx.文件</span><br></pre></td></tr></table></figure></p>
+<p>或者在.gitignore删除对应的非版本控制配置</p>
+<h2 id="github项目不记录贡献度，格子不绿"><a href="#github项目不记录贡献度，格子不绿" class="headerlink" title="github项目不记录贡献度，格子不绿"></a>github项目不记录贡献度，格子不绿</h2><p><a href="https://www.jianshu.com/p/408efb964213" target="_blank" rel="noopener">https://www.jianshu.com/p/408efb964213</a></p>
+<h2 id="Push-failed-Invocation-failed-Server-returned-invalid-Response-java-lang-RuntimeException-Invocation-failed-Server-returned-invalid-Response-at"><a href="#Push-failed-Invocation-failed-Server-returned-invalid-Response-java-lang-RuntimeException-Invocation-failed-Server-returned-invalid-Response-at" class="headerlink" title="Push failed Invocation failed Server returned invalid Response. java.lang.RuntimeException: Invocation failed Server returned invalid Response. at"></a>Push failed Invocation failed Server returned invalid Response. java.lang.RuntimeException: Invocation failed Server returned invalid Response. at</h2><p>JetBrains系列软件git提交失败，解决方案：<br><a href="https://zhuanlan.zhihu.com/p/136365170" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/136365170</a></p>
+<h2 id="解决git-pull-push每次都需要输入密码问题"><a href="#解决git-pull-push每次都需要输入密码问题" class="headerlink" title="解决git pull/push每次都需要输入密码问题"></a>解决git pull/push每次都需要输入密码问题</h2><p><a href="https://blog.csdn.net/m0_37633370/article/details/90439113" target="_blank" rel="noopener">https://blog.csdn.net/m0_37633370/article/details/90439113</a></p>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>oracle系列之高级查询</title>
     <url>/2019/03/07/oracle%E7%B3%BB%E5%88%97%E4%B9%8B%E9%AB%98%E7%BA%A7%E6%9F%A5%E8%AF%A2/</url>
     <content><![CDATA[<h2 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h2><h4 id="常用分组函数"><a href="#常用分组函数" class="headerlink" title="常用分组函数"></a>常用分组函数</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-- avg,sum,min,max,count,wm_concat</span><br><span class="line">select avg(sal),sum(sal),min(sal),max(sal),count(sal) from emp;</span><br></pre></td></tr></table></figure>
@@ -1430,37 +1461,6 @@ public class Apple {
       </tags>
   </entry>
   <entry>
-    <title>Git汇总</title>
-    <url>/2019/03/20/Git%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<h1 id="git基本命令"><a href="#git基本命令" class="headerlink" title="git基本命令"></a>git基本命令</h1><p>最近打算搞个web应用，练习一下新的技术栈，所以在github建了个私库</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">clone https://github.com/coding-by-feng/keep-yourself.git</span><br><span class="line">## 查看当前分支有哪些修改</span><br><span class="line">vi README.md</span><br><span class="line">git status</span><br><span class="line">## 提交为空，但是存在尚未跟踪的文件（使用 &quot;git add&quot; 建立跟踪）</span><br><span class="line">git add README.md</span><br><span class="line">## 提交 执行之后需要写入备注 </span><br><span class="line">git commit -m &quot;remark&quot;</span><br><span class="line">## 再次执行git status 提示无文件要提交</span><br><span class="line">## git push 推送本地文件到github</span><br><span class="line">## 回到过去</span><br><span class="line">git log</span><br><span class="line">git reset --hard XXXXX（当前版本指针）</span><br><span class="line">## git reflog找回被重置冲刷掉之前的log，防止错误重置。</span><br><span class="line">## 建立里程碑</span><br><span class="line">## 在github new Releases.</span><br></pre></td></tr></table></figure>
-<h2 id="git-pull和git-fetch"><a href="#git-pull和git-fetch" class="headerlink" title="git pull和git fetch"></a>git pull和git fetch</h2><p>git pull<br>如果需要取回origin主机的erp01分支与本地的master分支合并，则写为：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git pull origin erp01:master</span><br></pre></td></tr></table></figure></p>
-<p>上面这句命令的意思相当于取回origin/erp01分支的代码在与当前的分支合并。<br>如果本地分支和远程分支之间建立了一种追踪的关系，那么我们git pull的时候就可以省略远程的分支名：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git pull origing</span><br></pre></td></tr></table></figure></p>
-<p>上面命令表明本地分支自动与队对应的origin主机追踪分支进行合并。<br>git 允许手动建立追踪关系:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git branch --set-upstream master origin/erp01</span><br></pre></td></tr></table></figure></p>
-<p>git fetch<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git fetch &lt;远程主机名&gt;（origin）&lt;分支名&gt;</span><br></pre></td></tr></table></figure></p>
-<p>如果想要取回特定分支的更新就可以指定分支名；<br>所取回的更新，在本地主机上要用“远程主机名/分支名”进行读取。比如origin主机的erp01，就要用origin/erp01读取。<br>接下来可以用git branch -r命令查看远程分支，如果用到 -a选项，则表明查看所有的分支；<br>如果你需要合并分支，就可以用merge或rebase：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git merge origin/erp01</span><br><span class="line">#或</span><br><span class="line">$ git rebase origin/erp01</span><br></pre></td></tr></table></figure></p>
-<p>git pull和git fetch区别<br>这两个命令的主要区别在与：git pull是拉下更新后就自动合并本地分支，而git fetch是先吧更新拉下来，在用merge或rebase进行合并。</p>
-<h2 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git tag（查看标签）</span><br><span class="line">git tag name（创建标签）</span><br><span class="line">git tag -a name -m &quot;remark&quot;（指定备注创建标签）</span><br><span class="line">git tag -d name（删除标签）</span><br><span class="line">git push origin name（发布标签）</span><br></pre></td></tr></table></figure>
-<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><p><a href="https://www.jianshu.com/p/2e162b544878" target="_blank" rel="noopener">https://www.jianshu.com/p/2e162b544878</a><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git branch test1</span><br><span class="line">git branch (查看分支)</span><br><span class="line">git checkout test1 (切换分支)</span><br><span class="line">git checkout master</span><br><span class="line">git merge master（合并分支）</span><br><span class="line">git branch -d test1（删除分支）</span><br></pre></td></tr></table></figure></p>
-<h2 id="强制更新本地和强制提交覆盖"><a href="#强制更新本地和强制提交覆盖" class="headerlink" title="强制更新本地和强制提交覆盖"></a>强制更新本地和强制提交覆盖</h2><p><a href="https://www.cnblogs.com/boundless-sky/p/10842700.html" target="_blank" rel="noopener">https://www.cnblogs.com/boundless-sky/p/10842700.html</a></p>
-<h2 id="git-commit回撤"><a href="#git-commit回撤" class="headerlink" title="git commit回撤"></a>git commit回撤</h2><p><a href="https://www.jianshu.com/p/c2ec5f06cf1a" target="_blank" rel="noopener">Git Reset 三种模式</a></p>
-<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="git仓库迁移（从github上拉下来的代码修改后push到自己的仓库）"><a href="#git仓库迁移（从github上拉下来的代码修改后push到自己的仓库）" class="headerlink" title="git仓库迁移（从github上拉下来的代码修改后push到自己的仓库）"></a>git仓库迁移（从github上拉下来的代码修改后push到自己的仓库）</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rm -rf .git        //删除.git</span><br><span class="line"></span><br><span class="line">git init</span><br><span class="line"></span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line">git commit -m &quot;desc&quot;</span><br><span class="line"></span><br><span class="line">git remote add origin https://github.com/xxxxxxx</span><br><span class="line"></span><br><span class="line">git push -u origin master</span><br><span class="line">————————————————</span><br><span class="line">版权声明：本文为CSDN博主「LynnWonderLu」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</span><br><span class="line">原文链接：https://blog.csdn.net/lynnwonder6/article/details/91892563</span><br></pre></td></tr></table></figure>
-<h2 id="解决版本冲突"><a href="#解决版本冲突" class="headerlink" title="解决版本冲突"></a>解决版本冲突</h2><h2 id="删除本地缓存（改变目录或文件成未track状态）"><a href="#删除本地缓存（改变目录或文件成未track状态）" class="headerlink" title="删除本地缓存（改变目录或文件成未track状态）"></a>删除本地缓存（改变目录或文件成未track状态）</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 目录的所有子目录和文件</span><br><span class="line">git rm --cached *</span><br></pre></td></tr></table></figure>
-<h2 id="The-following-paths-are-ignored-by-one-of-your-gitignore-files"><a href="#The-following-paths-are-ignored-by-one-of-your-gitignore-files" class="headerlink" title="The following paths are ignored by one of your .gitignore files:"></a>The following paths are ignored by one of your .gitignore files:</h2><p>git add 时如果报错：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">The following paths are ignored by one of your .gitignore files:</span><br><span class="line">kiwi-common/kiwi-common-api/src/main/resources</span><br><span class="line">Use -f if you really want to add them.</span><br></pre></td></tr></table></figure></p>
-<p>可以强制加入版本控制：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add -f  xxx.文件</span><br></pre></td></tr></table></figure></p>
-<p>或者在.gitignore删除对应的非版本控制配置</p>
-<h2 id="github项目不记录贡献度，格子不绿"><a href="#github项目不记录贡献度，格子不绿" class="headerlink" title="github项目不记录贡献度，格子不绿"></a>github项目不记录贡献度，格子不绿</h2><p><a href="https://www.jianshu.com/p/408efb964213" target="_blank" rel="noopener">https://www.jianshu.com/p/408efb964213</a></p>
-<h2 id="Push-failed-Invocation-failed-Server-returned-invalid-Response-java-lang-RuntimeException-Invocation-failed-Server-returned-invalid-Response-at"><a href="#Push-failed-Invocation-failed-Server-returned-invalid-Response-java-lang-RuntimeException-Invocation-failed-Server-returned-invalid-Response-at" class="headerlink" title="Push failed Invocation failed Server returned invalid Response. java.lang.RuntimeException: Invocation failed Server returned invalid Response. at"></a>Push failed Invocation failed Server returned invalid Response. java.lang.RuntimeException: Invocation failed Server returned invalid Response. at</h2><p>JetBrains系列软件git提交失败，解决方案：<br><a href="https://zhuanlan.zhihu.com/p/136365170" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/136365170</a></p>
-<h2 id="解决git-pull-push每次都需要输入密码问题"><a href="#解决git-pull-push每次都需要输入密码问题" class="headerlink" title="解决git pull/push每次都需要输入密码问题"></a>解决git pull/push每次都需要输入密码问题</h2><p><a href="https://blog.csdn.net/m0_37633370/article/details/90439113" target="_blank" rel="noopener">https://blog.csdn.net/m0_37633370/article/details/90439113</a></p>
-]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一台机器启动多个jboss</title>
     <url>/2019/03/20/%E4%B8%80%E5%8F%B0%E6%9C%BA%E5%99%A8%E5%90%AF%E5%8A%A8%E5%A4%9A%E4%B8%AAjboss/</url>
     <content><![CDATA[<p><a href="https://jingyan.baidu.com/album/a17d52851442e78098c8f21b.html?picindex=4" target="_blank" rel="noopener">https://jingyan.baidu.com/album/a17d52851442e78098c8f21b.html?picindex=4</a></p>
@@ -1490,6 +1490,28 @@ public class Apple {
       </categories>
       <tags>
         <tag>oracle</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据库三范式</title>
+    <url>/2019/04/07/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%89%E8%8C%83%E5%BC%8F/</url>
+    <content><![CDATA[<h2 id="第一范式"><a href="#第一范式" class="headerlink" title="第一范式"></a>第一范式</h2><p>当关系模式R的所有属性都不能在分解为更基本的数据单位时，称R是满足第一范式的，简记为1NF。满足第一范式是关系模式规范化的最低要求，否则，将有很多基本操作在这样的关系模式中实现不了。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">反例：</span><br><span class="line">表（联系人信息）</span><br><span class="line">正例:</span><br><span class="line">表（联系人姓名，手机号码，地址）</span><br></pre></td></tr></table></figure>
+<p>1，每一列属性都是不可再分的属性值，确保每一列的原子性。<br>2，两列的属性相近或相似或一样，尽量合并属性一样的列，确保不产生冗余数据。</p>
+<h2 id="第二范式"><a href="#第二范式" class="headerlink" title="第二范式"></a>第二范式</h2><p>如果关系模式R满足第一范式，并且R得所有非主属性都完全依赖于R的每一个候选关键属性，称R满足第二范式，简记为2NF。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">反例：</span><br><span class="line">订单表（订单号，价格，用户，用户名，身份证）</span><br><span class="line">正例：</span><br><span class="line">订单表和用户表分表。</span><br></pre></td></tr></table></figure>
+<h2 id="第三范式"><a href="#第三范式" class="headerlink" title="第三范式"></a>第三范式</h2><p>设R是一个满足第一范式条件的关系模式，X是R的任意属性集，如果X非传递依赖于R的任意一个候选关键字，称R满足第三范式，简记为3NF.<br>数据不能存在传递关系，即没个属性都跟主键有直接关系而不是间接关系。像：a–&gt;b–&gt;c  属性之间含有这样的关系，是不符合第三范式的。</p>
+<p>比如Student表（学号，姓名，年龄，性别，所在院校，院校地址，院校电话）</p>
+<p>这样一个表结构，就存在上述关系。 学号–&gt; 所在院校 –&gt; (院校地址，院校电话)</p>
+<p>这样的表结构，我们应该拆开来，如下。</p>
+<p>（学号，姓名，年龄，性别，所在院校）–（所在院校，院校地址，院校电话）</p>
+<p><strong><em>三大范式只是一般设计数据库的基本理念，可以建立冗余较小、结构合理的数据库。如果有特殊情况，当然要特殊对待，数据库设计最重要的是看需求跟性能，需求&gt;性能&gt;表结构。所以不能一味的去追求范式建立数据库。</em></strong></p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
       </tags>
   </entry>
   <entry>
@@ -1524,25 +1546,12 @@ public class Apple {
       </tags>
   </entry>
   <entry>
-    <title>数据库三范式</title>
-    <url>/2019/04/07/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%89%E8%8C%83%E5%BC%8F/</url>
-    <content><![CDATA[<h2 id="第一范式"><a href="#第一范式" class="headerlink" title="第一范式"></a>第一范式</h2><p>当关系模式R的所有属性都不能在分解为更基本的数据单位时，称R是满足第一范式的，简记为1NF。满足第一范式是关系模式规范化的最低要求，否则，将有很多基本操作在这样的关系模式中实现不了。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">反例：</span><br><span class="line">表（联系人信息）</span><br><span class="line">正例:</span><br><span class="line">表（联系人姓名，手机号码，地址）</span><br></pre></td></tr></table></figure>
-<p>1，每一列属性都是不可再分的属性值，确保每一列的原子性。<br>2，两列的属性相近或相似或一样，尽量合并属性一样的列，确保不产生冗余数据。</p>
-<h2 id="第二范式"><a href="#第二范式" class="headerlink" title="第二范式"></a>第二范式</h2><p>如果关系模式R满足第一范式，并且R得所有非主属性都完全依赖于R的每一个候选关键属性，称R满足第二范式，简记为2NF。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">反例：</span><br><span class="line">订单表（订单号，价格，用户，用户名，身份证）</span><br><span class="line">正例：</span><br><span class="line">订单表和用户表分表。</span><br></pre></td></tr></table></figure>
-<h2 id="第三范式"><a href="#第三范式" class="headerlink" title="第三范式"></a>第三范式</h2><p>设R是一个满足第一范式条件的关系模式，X是R的任意属性集，如果X非传递依赖于R的任意一个候选关键字，称R满足第三范式，简记为3NF.<br>数据不能存在传递关系，即没个属性都跟主键有直接关系而不是间接关系。像：a–&gt;b–&gt;c  属性之间含有这样的关系，是不符合第三范式的。</p>
-<p>比如Student表（学号，姓名，年龄，性别，所在院校，院校地址，院校电话）</p>
-<p>这样一个表结构，就存在上述关系。 学号–&gt; 所在院校 –&gt; (院校地址，院校电话)</p>
-<p>这样的表结构，我们应该拆开来，如下。</p>
-<p>（学号，姓名，年龄，性别，所在院校）–（所在院校，院校地址，院校电话）</p>
-<p><strong><em>三大范式只是一般设计数据库的基本理念，可以建立冗余较小、结构合理的数据库。如果有特殊情况，当然要特殊对待，数据库设计最重要的是看需求跟性能，需求&gt;性能&gt;表结构。所以不能一味的去追求范式建立数据库。</em></strong></p>
+    <title>公司项目随想</title>
+    <url>/2019/04/15/%E5%85%AC%E5%8F%B8%E9%A1%B9%E7%9B%AE%E9%9A%8F%E6%83%B3/</url>
+    <content><![CDATA[<p><a href="http://note.youdao.com/noteshare?id=d7e137587951ea943c71d39df6fbcd5f" target="_blank" rel="noopener">http://note.youdao.com/noteshare?id=d7e137587951ea943c71d39df6fbcd5f</a></p>
 ]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
       <tags>
-        <tag>数据库</tag>
+        <tag>JavaWeb</tag>
       </tags>
   </entry>
   <entry>
@@ -1566,12 +1575,19 @@ public class Apple {
       </tags>
   </entry>
   <entry>
-    <title>公司项目随想</title>
-    <url>/2019/04/15/%E5%85%AC%E5%8F%B8%E9%A1%B9%E7%9B%AE%E9%9A%8F%E6%83%B3/</url>
-    <content><![CDATA[<p><a href="http://note.youdao.com/noteshare?id=d7e137587951ea943c71d39df6fbcd5f" target="_blank" rel="noopener">http://note.youdao.com/noteshare?id=d7e137587951ea943c71d39df6fbcd5f</a></p>
+    <title>关于安装shadowsocks之后的iptables配置的坑</title>
+    <url>/2019/04/15/%E5%85%B3%E4%BA%8E%E5%AE%89%E8%A3%85shadowsocks%E4%B9%8B%E5%90%8E%E7%9A%84iptables%E9%85%8D%E7%BD%AE%E7%9A%84%E5%9D%91/</url>
+    <content><![CDATA[<p>利用shadowsocks科学上网的搭建方法网上教程很多，可以参考这个：<br><a href="https://www.vultrblog.com/vultr-ss.html" target="_blank" rel="noopener">https://www.vultrblog.com/vultr-ss.html</a></p>
+<h4 id="为了防止上面的地址被墙，记录一下command"><a href="#为了防止上面的地址被墙，记录一下command" class="headerlink" title="为了防止上面的地址被墙，记录一下command"></a>为了防止上面的地址被墙，记录一下command</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget --no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh</span><br><span class="line"></span><br><span class="line">chmod +x shadowsocks.sh</span><br><span class="line"></span><br><span class="line">./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log</span><br></pre></td></tr></table></figure>
+<h4 id="修改shadowsocks端口"><a href="#修改shadowsocks端口" class="headerlink" title="修改shadowsocks端口"></a>修改shadowsocks端口</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vi /etc/shadowsocks.json</span><br><span class="line"></span><br><span class="line">/etc/init.d/shadowsocks restart</span><br></pre></td></tr></table></figure>
+<p>我shadowsocks配置的端口是19726，所以iptables正确的配置命令是：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -A INPUT -p tcp --dport 19726 -j ACCEPT</span><br><span class="line">iptables -I INPUT -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT</span><br><span class="line">iptables -I INPUT -m state --state INVALID -j DROP</span><br><span class="line">service iptable save</span><br></pre></td></tr></table></figure></p>
+<p>网上很多配置上面最后二条命令。</p>
 ]]></content>
+      <categories>
+        <category>shadowsocks</category>
+      </categories>
       <tags>
-        <tag>JavaWeb</tag>
+        <tag>shadowsocks</tag>
       </tags>
   </entry>
   <entry>
@@ -1622,22 +1638,6 @@ public class Apple {
       </categories>
       <tags>
         <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于安装shadowsocks之后的iptables配置的坑</title>
-    <url>/2019/04/15/%E5%85%B3%E4%BA%8E%E5%AE%89%E8%A3%85shadowsocks%E4%B9%8B%E5%90%8E%E7%9A%84iptables%E9%85%8D%E7%BD%AE%E7%9A%84%E5%9D%91/</url>
-    <content><![CDATA[<p>利用shadowsocks科学上网的搭建方法网上教程很多，可以参考这个：<br><a href="https://www.vultrblog.com/vultr-ss.html" target="_blank" rel="noopener">https://www.vultrblog.com/vultr-ss.html</a></p>
-<h4 id="为了防止上面的地址被墙，记录一下command"><a href="#为了防止上面的地址被墙，记录一下command" class="headerlink" title="为了防止上面的地址被墙，记录一下command"></a>为了防止上面的地址被墙，记录一下command</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget --no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh</span><br><span class="line"></span><br><span class="line">chmod +x shadowsocks.sh</span><br><span class="line"></span><br><span class="line">./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log</span><br></pre></td></tr></table></figure>
-<h4 id="修改shadowsocks端口"><a href="#修改shadowsocks端口" class="headerlink" title="修改shadowsocks端口"></a>修改shadowsocks端口</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vi /etc/shadowsocks.json</span><br><span class="line"></span><br><span class="line">/etc/init.d/shadowsocks restart</span><br></pre></td></tr></table></figure>
-<p>我shadowsocks配置的端口是19726，所以iptables正确的配置命令是：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -A INPUT -p tcp --dport 19726 -j ACCEPT</span><br><span class="line">iptables -I INPUT -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT</span><br><span class="line">iptables -I INPUT -m state --state INVALID -j DROP</span><br><span class="line">service iptable save</span><br></pre></td></tr></table></figure></p>
-<p>网上很多配置上面最后二条命令。</p>
-]]></content>
-      <categories>
-        <category>shadowsocks</category>
-      </categories>
-      <tags>
-        <tag>shadowsocks</tag>
       </tags>
   </entry>
   <entry>
@@ -1712,9 +1712,9 @@ public class Apple {
       </tags>
   </entry>
   <entry>
-    <title>设计模式系列之策略模式</title>
-    <url>/2019/05/15/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%B3%BB%E5%88%97%E4%B9%8B%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<p><a href="http://note.youdao.com/noteshare?id=ba9e1f8e3298f010daf0e795401e8555" target="_blank" rel="noopener">http://note.youdao.com/noteshare?id=ba9e1f8e3298f010daf0e795401e8555</a></p>
+    <title>设计模式系列之状态模式</title>
+    <url>/2019/05/15/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%B3%BB%E5%88%97%E4%B9%8B%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<p><a href="http://note.youdao.com/noteshare?id=9346be53ca0e314879de34bac525e06e" target="_blank" rel="noopener">http://note.youdao.com/noteshare?id=9346be53ca0e314879de34bac525e06e</a></p>
 ]]></content>
       <categories>
         <category>设计模式</category>
@@ -1724,9 +1724,9 @@ public class Apple {
       </tags>
   </entry>
   <entry>
-    <title>设计模式系列之状态模式</title>
-    <url>/2019/05/15/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%B3%BB%E5%88%97%E4%B9%8B%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<p><a href="http://note.youdao.com/noteshare?id=9346be53ca0e314879de34bac525e06e" target="_blank" rel="noopener">http://note.youdao.com/noteshare?id=9346be53ca0e314879de34bac525e06e</a></p>
+    <title>设计模式系列之策略模式</title>
+    <url>/2019/05/15/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%B3%BB%E5%88%97%E4%B9%8B%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<p><a href="http://note.youdao.com/noteshare?id=ba9e1f8e3298f010daf0e795401e8555" target="_blank" rel="noopener">http://note.youdao.com/noteshare?id=ba9e1f8e3298f010daf0e795401e8555</a></p>
 ]]></content>
       <categories>
         <category>设计模式</category>
@@ -1758,6 +1758,24 @@ public class Apple {
       </tags>
   </entry>
   <entry>
+    <title>Interview汇总</title>
+    <url>/2019/10/15/Interview%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="深入理解IOC和DI之间的关系-todo"><a href="#深入理解IOC和DI之间的关系-todo" class="headerlink" title="深入理解IOC和DI之间的关系 todo"></a>深入理解IOC和DI之间的关系 todo</h2><h2 id="公司的新版微服务架构用到的技术栈"><a href="#公司的新版微服务架构用到的技术栈" class="headerlink" title="公司的新版微服务架构用到的技术栈"></a>公司的新版微服务架构用到的技术栈</h2><h1 id="CS"><a href="#CS" class="headerlink" title="CS"></a>CS</h1><h2 id="32位和64位系统底层的本质区别是什么？"><a href="#32位和64位系统底层的本质区别是什么？" class="headerlink" title="32位和64位系统底层的本质区别是什么？"></a>32位和64位系统底层的本质区别是什么？</h2><h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><p><a href="https://juejin.im/post/5e37b8ea6fb9a030080ca2df" target="_blank" rel="noopener">2020年2月面试题100+大全（合适各级Java人员）</a></p>
+<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><blockquote>
+<p>注意回顾自己总结的《Java系列之多线程并发-长篇》</p>
+</blockquote>
+<h2 id="多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？"><a href="#多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？" class="headerlink" title="多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？"></a>多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？</h2><h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="B-树和二叉树的区别"><a href="#B-树和二叉树的区别" class="headerlink" title="B+树和二叉树的区别"></a>B+树和二叉树的区别</h2><h2 id="红黑树和跳表"><a href="#红黑树和跳表" class="headerlink" title="红黑树和跳表"></a>红黑树和跳表</h2><h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="一个接口太多事务操作是否要使用批量事务"><a href="#一个接口太多事务操作是否要使用批量事务" class="headerlink" title="一个接口太多事务操作是否要使用批量事务"></a>一个接口太多事务操作是否要使用批量事务</h2><h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="OLAP和OLTP"><a href="#OLAP和OLTP" class="headerlink" title="OLAP和OLTP"></a>OLAP和OLTP</h2><h2 id="冗余字段"><a href="#冗余字段" class="headerlink" title="冗余字段"></a>冗余字段</h2><p>微服务架构加上前后端分离的情况下。后端接口很多时候会出现太多联表查询的情况。其实可以数据库存储空间大小允许的情况下，留出一些关键字段的冗余字段来代替联表查询。甚至可以将一些数据拆分出来查询封装成比较合适的数据JSON结构，然后可以将需要连表查询的逻辑放到前端去计算拼接，这样一来可以减少服务器和数据库的压力，同时前端做这部分的计算能力其实也是绰绰有余了，毕竟目前相对来说这是一个用户端性能过剩的时代。</p>
+<p>尽可能多的冗余字段也可以为一定业务场景带来便捷的查询，没必要一味得遵循数据库三方式。</p>
+<h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><h2 id="redis如何清理过期key"><a href="#redis如何清理过期key" class="headerlink" title="redis如何清理过期key"></a>redis如何清理过期key</h2><h2 id="redis内存不足时的策略"><a href="#redis内存不足时的策略" class="headerlink" title="redis内存不足时的策略"></a>redis内存不足时的策略</h2><h2 id="缓存更新的套路"><a href="#缓存更新的套路" class="headerlink" title="缓存更新的套路"></a>缓存更新的套路</h2><p><a href="https://coolshell.cn/articles/17416.html[](https://coolshell.cn/articles/17416.html" target="_blank" rel="noopener">https://coolshell.cn/articles/17416.html[](https://coolshell.cn/articles/17416.html</a> “”)</p>
+<h3 id="Cache-Aside-Pattern"><a href="#Cache-Aside-Pattern" class="headerlink" title="Cache Aside Pattern"></a>Cache Aside Pattern</h3><h3 id="Read-Write-Through-Pattern"><a href="#Read-Write-Through-Pattern" class="headerlink" title="Read/Write Through Pattern"></a>Read/Write Through Pattern</h3><h3 id="Write-Behind-Caching-Pattern"><a href="#Write-Behind-Caching-Pattern" class="headerlink" title="Write Behind Caching Pattern"></a>Write Behind Caching Pattern</h3>]]></content>
+      <categories>
+        <category>interview</category>
+      </categories>
+      <tags>
+        <tag>interview</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JUnit汇总</title>
     <url>/2019/10/15/JUnit%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<h2 id="RunWith"><a href="#RunWith" class="headerlink" title="@RunWith"></a>@RunWith</h2><p>查阅官方API文档如下：<br>When a class is annotated with @RunWith or extends a class annotated with @RunWith, JUnit will invoke the class it references to run the tests in that class instead of the runner built into JUnit. We added this feature late in development. While it seems powerful we expect the runner API to change as we learn how people really use it. Some of the classes that are currently internal will likely be refined and become public. For example, suites in JUnit 4 are built using RunWith, and a custom runner named Suite:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@RunWith(Suite.class)</span><br><span class="line">@SuiteClasses(ATest.class, BTest.class, CTest.class)</span><br><span class="line">public class ABCSuite &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -1779,21 +1797,51 @@ public class Apple {
       </tags>
   </entry>
   <entry>
-    <title>Interview汇总</title>
-    <url>/2019/10/15/Interview%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="深入理解IOC和DI之间的关系-todo"><a href="#深入理解IOC和DI之间的关系-todo" class="headerlink" title="深入理解IOC和DI之间的关系 todo"></a>深入理解IOC和DI之间的关系 todo</h2><h2 id="公司的新版微服务架构用到的技术栈"><a href="#公司的新版微服务架构用到的技术栈" class="headerlink" title="公司的新版微服务架构用到的技术栈"></a>公司的新版微服务架构用到的技术栈</h2><h1 id="CS"><a href="#CS" class="headerlink" title="CS"></a>CS</h1><h2 id="32位和64位系统底层的本质区别是什么？"><a href="#32位和64位系统底层的本质区别是什么？" class="headerlink" title="32位和64位系统底层的本质区别是什么？"></a>32位和64位系统底层的本质区别是什么？</h2><h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><p><a href="https://juejin.im/post/5e37b8ea6fb9a030080ca2df" target="_blank" rel="noopener">2020年2月面试题100+大全（合适各级Java人员）</a></p>
-<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><blockquote>
-<p>注意回顾自己总结的《Java系列之多线程并发-长篇》</p>
+    <title>Maven汇总</title>
+    <url>/2019/10/15/Maven%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><p><a href="https://www.cnblogs.com/shoshana-kong/p/11031388.html" target="_blank" rel="noopener">Maven常用命令</a></p>
+<h2 id="scope详解"><a href="#scope详解" class="headerlink" title="scope详解"></a>scope详解</h2><p><a href="https://www.cnblogs.com/hzzll/p/6738955.html" target="_blank" rel="noopener">https://www.cnblogs.com/hzzll/p/6738955.html</a></p>
+<h2 id="dependencies与dependencyManagement的区别"><a href="#dependencies与dependencyManagement的区别" class="headerlink" title="dependencies与dependencyManagement的区别"></a>dependencies与dependencyManagement的区别</h2><p>根据maven子模块继承父模块的特性，不难理解两者肯定都有继承父模块依赖的作用，但是要注意他们的区别是：</p>
+<p><strong><em>dependencies里面声明的依赖，子模块会默认全部继承，不用手动去引入依赖；而dependencyManagement里面声明的依赖，则不会再子模块中自动去隐式依赖，只有子模块中声明了依赖，并且没有指明依赖的版本这种情况才会到父模块中寻找dependencyManagement中的对应依赖，要注意的是，如果子模块声明了依赖版本号，那么在dependencyManagement中如果也有同一依赖库的不同版本共存的话，maven优先去依赖的是子模块自己的版本</em></strong></p>
+<h2 id="Maven仓库下载依赖太慢的解决方案"><a href="#Maven仓库下载依赖太慢的解决方案" class="headerlink" title="Maven仓库下载依赖太慢的解决方案"></a>Maven仓库下载依赖太慢的解决方案</h2><p>将仓库中心更改为阿里云的，修改setting.xml，如下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line"> &lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;</span><br><span class="line">  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">  xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd&quot;&gt;</span><br><span class="line">     &lt;mirrors&gt;</span><br><span class="line">         &lt;!-- 阿里云仓库 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://maven.aliyun.com/nexus/content/repositories/central/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line"></span><br><span class="line">         &lt;!-- 中央仓库1 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;repo1&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://repo1.maven.org/maven2/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line"></span><br><span class="line">         &lt;!-- 中央仓库2 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;repo2&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://repo2.maven.org/maven2/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line">     &lt;/mirrors&gt;</span><br><span class="line"> &lt;/settings&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Maven-BOM"><a href="#Maven-BOM" class="headerlink" title="Maven BOM"></a>Maven BOM</h2><p>BOM stands for Bill Of Materials. A BOM is a special kind of POM that is used to control the versions of a project’s dependencies and provide a central place to define and update those versions.<br>BOM字面理解是”材料清单”，它是一种特别的POM，可以用来控制项目的多个依赖，相当于某个依赖集群的中心控制处。</p>
+<h2 id="Transitive-Dependencies-依赖传递性"><a href="#Transitive-Dependencies-依赖传递性" class="headerlink" title="Transitive Dependencies 依赖传递性"></a>Transitive Dependencies 依赖传递性</h2><p>Maven can discover the libraries that are needed by our own dependencies in our pom.xml and includes them automatically. There’s no limit to the number of dependency levels that the libraries are gathered from.<br>Maven通过pom.xml的多层级依赖是没有限制的，也就是，父模块可以递归依赖子模块的任何依赖，所以可能会出现如下的矛盾：</p>
+<blockquote>
+<p>A -&gt; B -&gt; C -&gt; D 1.4  and  A -&gt; E -&gt; D 1.0</p>
 </blockquote>
-<h2 id="多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？"><a href="#多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？" class="headerlink" title="多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？"></a>多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？</h2><h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="B-树和二叉树的区别"><a href="#B-树和二叉树的区别" class="headerlink" title="B+树和二叉树的区别"></a>B+树和二叉树的区别</h2><h2 id="红黑树和跳表"><a href="#红黑树和跳表" class="headerlink" title="红黑树和跳表"></a>红黑树和跳表</h2><h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="一个接口太多事务操作是否要使用批量事务"><a href="#一个接口太多事务操作是否要使用批量事务" class="headerlink" title="一个接口太多事务操作是否要使用批量事务"></a>一个接口太多事务操作是否要使用批量事务</h2><h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="OLAP和OLTP"><a href="#OLAP和OLTP" class="headerlink" title="OLAP和OLTP"></a>OLAP和OLTP</h2><h2 id="冗余字段"><a href="#冗余字段" class="headerlink" title="冗余字段"></a>冗余字段</h2><p>微服务架构加上前后端分离的情况下。后端接口很多时候会出现太多联表查询的情况。其实可以数据库存储空间大小允许的情况下，留出一些关键字段的冗余字段来代替联表查询。甚至可以将一些数据拆分出来查询封装成比较合适的数据JSON结构，然后可以将需要连表查询的逻辑放到前端去计算拼接，这样一来可以减少服务器和数据库的压力，同时前端做这部分的计算能力其实也是绰绰有余了，毕竟目前相对来说这是一个用户端性能过剩的时代。</p>
-<p>尽可能多的冗余字段也可以为一定业务场景带来便捷的查询，没必要一味得遵循数据库三方式。</p>
-<h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><h2 id="redis如何清理过期key"><a href="#redis如何清理过期key" class="headerlink" title="redis如何清理过期key"></a>redis如何清理过期key</h2><h2 id="redis内存不足时的策略"><a href="#redis内存不足时的策略" class="headerlink" title="redis内存不足时的策略"></a>redis内存不足时的策略</h2><h2 id="缓存更新的套路"><a href="#缓存更新的套路" class="headerlink" title="缓存更新的套路"></a>缓存更新的套路</h2><p><a href="https://coolshell.cn/articles/17416.html[](https://coolshell.cn/articles/17416.html" target="_blank" rel="noopener">https://coolshell.cn/articles/17416.html[](https://coolshell.cn/articles/17416.html</a> “”)</p>
-<h3 id="Cache-Aside-Pattern"><a href="#Cache-Aside-Pattern" class="headerlink" title="Cache Aside Pattern"></a>Cache Aside Pattern</h3><h3 id="Read-Write-Through-Pattern"><a href="#Read-Write-Through-Pattern" class="headerlink" title="Read/Write Through Pattern"></a>Read/Write Through Pattern</h3><h3 id="Write-Behind-Caching-Pattern"><a href="#Write-Behind-Caching-Pattern" class="headerlink" title="Write Behind Caching Pattern"></a>Write Behind Caching Pattern</h3>]]></content>
+<p>那么Maven给出了两个解决方案：</p>
+<ol>
+<li>We can always guarantee a version by declaring it explicitly in our project’s POM. For instance, to guarantee that D 1.4 is used, we should add it explicitly as a dependency in the pom.xml file. 通过在A的pom.xml明确声明D的依赖版本，这样子就不会采用子模块传递过来的依赖了。</li>
+<li>We can use the Dependency Management section to control artifact versions. 可以通过依赖管理来控制依赖版本，也就是直接继承父模块，通过<parent>；或者通过import BOM。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;parent&gt;</span><br><span class="line">        &lt;groupId&gt;baeldung&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;Baeldung-BOM&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br><span class="line">    &lt;/parent&gt;</span><br></pre></td></tr></table></figure>
+</parent></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;dependencyManagement&gt;</span><br><span class="line">        &lt;dependencies&gt;</span><br><span class="line">            &lt;dependency&gt;</span><br><span class="line">                &lt;groupId&gt;baeldung&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;Baeldung-BOM&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br><span class="line">                &lt;type&gt;pom&lt;/type&gt;</span><br><span class="line">                &lt;scope&gt;import&lt;/scope&gt;</span><br><span class="line">            &lt;/dependency&gt;</span><br><span class="line">        &lt;/dependencies&gt;</span><br><span class="line">    &lt;/dependencyManagement&gt;</span><br></pre></td></tr></table></figure>
+<p>maven依赖版本的优先权如下：<br>1、项目自己pom.xml里面直接声明的版本<br>2、从parent项目继承的版本<br>3、通过import形式的依赖版本，和import的顺序有关，先import进来的版本被优先采用。</p>
+<p>详情参考：<a href="https://www.baeldung.com/spring-maven-bom#2-what-is-maven-bom" target="_blank" rel="noopener">https://www.baeldung.com/spring-maven-bom#2-what-is-maven-bom</a></p>
+<h2 id="mvn-compile与mvn-install、mvn-deploy的区别"><a href="#mvn-compile与mvn-install、mvn-deploy的区别" class="headerlink" title="mvn compile与mvn install、mvn deploy的区别"></a>mvn compile与mvn install、mvn deploy的区别</h2><ul>
+<li>mvn compile，编译类文件</li>
+<li>mvn install，包含mvn compile，mvn package，然后上传到本地仓库</li>
+<li>mvn deploy,包含mvn install,然后，上传到私服</li>
+</ul>
+<h2 id="maven-compiler-plugin-插件"><a href="#maven-compiler-plugin-插件" class="headerlink" title="maven-compiler-plugin 插件"></a>maven-compiler-plugin 插件</h2><p>可以用于指定模块编译的jdk版本<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">    &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">    &lt;configuration&gt;</span><br><span class="line">        &lt;target&gt;$&#123;java.version&#125;&lt;/target&gt;</span><br><span class="line">        &lt;source&gt;$&#123;java.version&#125;&lt;/source&gt;</span><br><span class="line">        &lt;encoding&gt;UTF-8&lt;/encoding&gt;</span><br><span class="line">    &lt;/configuration&gt;</span><br><span class="line">&lt;/plugin&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Maven中-DskipTests和-Dmaven-test-skip-true的区别"><a href="#Maven中-DskipTests和-Dmaven-test-skip-true的区别" class="headerlink" title="Maven中-DskipTests和-Dmaven.test.skip=true的区别"></a>Maven中-DskipTests和-Dmaven.test.skip=true的区别</h2><p>在使用mvn package进行编译、打包时，Maven会执行src/test/java中的JUnit测试用例，有时为了跳过测试，会使用参数-DskipTests和-Dmaven.test.skip=true，这两个参数的主要区别是：<br>-DskipTests，不执行测试用例，但编译测试用例类生成相应的class文件至target/test-classes下。<br>-Dmaven.test.skip=true，不执行测试用例，也不编译测试用例类。</p>
+<h2 id="profile切换正式环境和测试环境"><a href="#profile切换正式环境和测试环境" class="headerlink" title="profile切换正式环境和测试环境"></a>profile切换正式环境和测试环境</h2><p>可以使用<profiles>的<profile>通过id标签来切换不同环境的依赖</profile></profiles></p>
+<h2 id="mvn-install执行要注意的地方-错误笔记"><a href="#mvn-install执行要注意的地方-错误笔记" class="headerlink" title="mvn install执行要注意的地方 (错误笔记*)"></a>mvn install执行要注意的地方 (错误笔记*)</h2><p>通过在父项目的pom.xml目录执行mvn install可以连同子模块也一起安装，然后假如有多层级的父子模块依赖的情况下，mvn install是不会递归去安装子模块的子模块的。<br>比如，parent模块（BOM）下有subParent（BOM），subParent下面的子模块（jar），这个时候再parent模块下执行mvn install，subParent的jar是不会安装的，需要到subParent执行一次</p>
+<h2 id="Maven整个声明周期"><a href="#Maven整个声明周期" class="headerlink" title="Maven整个声明周期"></a>Maven整个声明周期</h2><p>验证（validate） 验证项目是正确的，所有必要的信息可用。<br>初始化（initialize） 初始化构建状态，例如设置属性或创建目录。<br>产生来源（generate-sources） 生成包含在编译中的任何源代码。<br>流程源（process-sources） 处理源代码，例如过滤任何值。<br>生成资源（generate-resources） 生成包含在包中的资源。<br>流程资源（process-resources） 将资源复制并处理到目标目录中，准备打包。<br>编译（compile） 编译项目的源代码。<br>工艺类（process-classes） 从编译后处理生成的文件，例如对Java类进行字节码增强。<br>生成测试来源（generate-test-sources） 生成包含在编译中的任何测试源代码。<br>流程测试来源（process-test-sources） 处理测试源代码，例如过滤任何值。<br>生成测试资源（generate-test-resources） 创建测试资源。<br>流程测试资源（process-test-resources） 将资源复制并处理到测试目标目录中。<br>测试编译（test-compile） 将测试源代码编译到测试目标目录中<br>流程检验类（process-test-classes） 从测试编译中处理生成的文件，例如对Java类进行字节码增强。对于Maven 2.0.5及以上版本。<br>测试（test） 使用合适的单元测试框架运行测试。这些测试不应该要求代码被打包或部署。<br>制备包（prepare-package） 在实际包装之前，执行必要的准备包装的操作。这通常会导致打包的处理版本的包。（Maven 2.1及以上）<br>打包（package） 采取编译的代码，并以其可分发的格式（如JAR）进行打包。<br>预集成测试（pre-integration-test） 在执行集成测试之前执行所需的操作。这可能涉及诸如设置所需环境等。<br>集成测试（integration-test） 如果需要，可以将该包过程并部署到可以运行集成测试的环境中。<br>整合后的测试（post-integration-test） 执行集成测试后执行所需的操作。这可能包括清理环境。<br>校验（verify） 运行任何检查以验证包装是否有效并符合质量标准。<br>安装（install） 将软件包安装到本地存储库中，以作为本地其他项目的依赖关系。<br>部署（deploy） 在集成或发布环境中完成，将最终软件包复制到远程存储库，以与其他开发人员和项目共享。<br>————————————————<br>版权声明：本文为CSDN博主「zhangxitab」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/zhangxitab/article/details/91047445" target="_blank" rel="noopener">https://blog.csdn.net/zhangxitab/article/details/91047445</a></p>
+<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="记录一个Idea中Maven的奇葩错误"><a href="#记录一个Idea中Maven的奇葩错误" class="headerlink" title="记录一个Idea中Maven的奇葩错误"></a>记录一个Idea中Maven的奇葩错误</h2><p>因为我从SVN拉代码下来是将项目根目录的名字修改为其他，导致根目录的pom.xml里面的name标签的值和文件不匹配，idea就一直报红，无法依赖其他依赖。。</p>
+<h2 id="新增加properties的变量时，编译打包报错"><a href="#新增加properties的变量时，编译打包报错" class="headerlink" title="新增加properties的变量时，编译打包报错"></a>新增加properties的变量时，编译打包报错</h2><p>很有可能需要把子模块modules都注释掉，然后编译一个或者多个父模块之后再放开子模块的注释。</p>
+<h2 id="jar-original"><a href="#jar-original" class="headerlink" title="jar.original"></a>jar.original</h2><ul>
+<li>jar.original 是普通jar包，不包含依赖</li>
+<li>.jar 是可执行jar包，包含了pom中的所有依赖，可以直接用java -jar 命令执行</li>
+<li>如果是部署，就用.jar</li>
+<li>如果是给别的项目用，就要给.jar.original这个包</li>
+</ul>
+]]></content>
       <categories>
-        <category>interview</category>
+        <category>maven</category>
       </categories>
       <tags>
-        <tag>interview</tag>
+        <tag>maven</tag>
       </tags>
   </entry>
   <entry>
@@ -1878,54 +1926,6 @@ public class Apple {
       </categories>
       <tags>
         <tag>Mac</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Maven汇总</title>
-    <url>/2019/10/15/Maven%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><p><a href="https://www.cnblogs.com/shoshana-kong/p/11031388.html" target="_blank" rel="noopener">Maven常用命令</a></p>
-<h2 id="scope详解"><a href="#scope详解" class="headerlink" title="scope详解"></a>scope详解</h2><p><a href="https://www.cnblogs.com/hzzll/p/6738955.html" target="_blank" rel="noopener">https://www.cnblogs.com/hzzll/p/6738955.html</a></p>
-<h2 id="dependencies与dependencyManagement的区别"><a href="#dependencies与dependencyManagement的区别" class="headerlink" title="dependencies与dependencyManagement的区别"></a>dependencies与dependencyManagement的区别</h2><p>根据maven子模块继承父模块的特性，不难理解两者肯定都有继承父模块依赖的作用，但是要注意他们的区别是：</p>
-<p><strong><em>dependencies里面声明的依赖，子模块会默认全部继承，不用手动去引入依赖；而dependencyManagement里面声明的依赖，则不会再子模块中自动去隐式依赖，只有子模块中声明了依赖，并且没有指明依赖的版本这种情况才会到父模块中寻找dependencyManagement中的对应依赖，要注意的是，如果子模块声明了依赖版本号，那么在dependencyManagement中如果也有同一依赖库的不同版本共存的话，maven优先去依赖的是子模块自己的版本</em></strong></p>
-<h2 id="Maven仓库下载依赖太慢的解决方案"><a href="#Maven仓库下载依赖太慢的解决方案" class="headerlink" title="Maven仓库下载依赖太慢的解决方案"></a>Maven仓库下载依赖太慢的解决方案</h2><p>将仓库中心更改为阿里云的，修改setting.xml，如下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line"> &lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;</span><br><span class="line">  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">  xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd&quot;&gt;</span><br><span class="line">     &lt;mirrors&gt;</span><br><span class="line">         &lt;!-- 阿里云仓库 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://maven.aliyun.com/nexus/content/repositories/central/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line"></span><br><span class="line">         &lt;!-- 中央仓库1 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;repo1&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://repo1.maven.org/maven2/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line"></span><br><span class="line">         &lt;!-- 中央仓库2 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;repo2&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://repo2.maven.org/maven2/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line">     &lt;/mirrors&gt;</span><br><span class="line"> &lt;/settings&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="Maven-BOM"><a href="#Maven-BOM" class="headerlink" title="Maven BOM"></a>Maven BOM</h2><p>BOM stands for Bill Of Materials. A BOM is a special kind of POM that is used to control the versions of a project’s dependencies and provide a central place to define and update those versions.<br>BOM字面理解是”材料清单”，它是一种特别的POM，可以用来控制项目的多个依赖，相当于某个依赖集群的中心控制处。</p>
-<h2 id="Transitive-Dependencies-依赖传递性"><a href="#Transitive-Dependencies-依赖传递性" class="headerlink" title="Transitive Dependencies 依赖传递性"></a>Transitive Dependencies 依赖传递性</h2><p>Maven can discover the libraries that are needed by our own dependencies in our pom.xml and includes them automatically. There’s no limit to the number of dependency levels that the libraries are gathered from.<br>Maven通过pom.xml的多层级依赖是没有限制的，也就是，父模块可以递归依赖子模块的任何依赖，所以可能会出现如下的矛盾：</p>
-<blockquote>
-<p>A -&gt; B -&gt; C -&gt; D 1.4  and  A -&gt; E -&gt; D 1.0</p>
-</blockquote>
-<p>那么Maven给出了两个解决方案：</p>
-<ol>
-<li>We can always guarantee a version by declaring it explicitly in our project’s POM. For instance, to guarantee that D 1.4 is used, we should add it explicitly as a dependency in the pom.xml file. 通过在A的pom.xml明确声明D的依赖版本，这样子就不会采用子模块传递过来的依赖了。</li>
-<li>We can use the Dependency Management section to control artifact versions. 可以通过依赖管理来控制依赖版本，也就是直接继承父模块，通过<parent>；或者通过import BOM。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;parent&gt;</span><br><span class="line">        &lt;groupId&gt;baeldung&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;Baeldung-BOM&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br><span class="line">    &lt;/parent&gt;</span><br></pre></td></tr></table></figure>
-</parent></li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;dependencyManagement&gt;</span><br><span class="line">        &lt;dependencies&gt;</span><br><span class="line">            &lt;dependency&gt;</span><br><span class="line">                &lt;groupId&gt;baeldung&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;Baeldung-BOM&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br><span class="line">                &lt;type&gt;pom&lt;/type&gt;</span><br><span class="line">                &lt;scope&gt;import&lt;/scope&gt;</span><br><span class="line">            &lt;/dependency&gt;</span><br><span class="line">        &lt;/dependencies&gt;</span><br><span class="line">    &lt;/dependencyManagement&gt;</span><br></pre></td></tr></table></figure>
-<p>maven依赖版本的优先权如下：<br>1、项目自己pom.xml里面直接声明的版本<br>2、从parent项目继承的版本<br>3、通过import形式的依赖版本，和import的顺序有关，先import进来的版本被优先采用。</p>
-<p>详情参考：<a href="https://www.baeldung.com/spring-maven-bom#2-what-is-maven-bom" target="_blank" rel="noopener">https://www.baeldung.com/spring-maven-bom#2-what-is-maven-bom</a></p>
-<h2 id="mvn-compile与mvn-install、mvn-deploy的区别"><a href="#mvn-compile与mvn-install、mvn-deploy的区别" class="headerlink" title="mvn compile与mvn install、mvn deploy的区别"></a>mvn compile与mvn install、mvn deploy的区别</h2><ul>
-<li>mvn compile，编译类文件</li>
-<li>mvn install，包含mvn compile，mvn package，然后上传到本地仓库</li>
-<li>mvn deploy,包含mvn install,然后，上传到私服</li>
-</ul>
-<h2 id="maven-compiler-plugin-插件"><a href="#maven-compiler-plugin-插件" class="headerlink" title="maven-compiler-plugin 插件"></a>maven-compiler-plugin 插件</h2><p>可以用于指定模块编译的jdk版本<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">    &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">    &lt;configuration&gt;</span><br><span class="line">        &lt;target&gt;$&#123;java.version&#125;&lt;/target&gt;</span><br><span class="line">        &lt;source&gt;$&#123;java.version&#125;&lt;/source&gt;</span><br><span class="line">        &lt;encoding&gt;UTF-8&lt;/encoding&gt;</span><br><span class="line">    &lt;/configuration&gt;</span><br><span class="line">&lt;/plugin&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="Maven中-DskipTests和-Dmaven-test-skip-true的区别"><a href="#Maven中-DskipTests和-Dmaven-test-skip-true的区别" class="headerlink" title="Maven中-DskipTests和-Dmaven.test.skip=true的区别"></a>Maven中-DskipTests和-Dmaven.test.skip=true的区别</h2><p>在使用mvn package进行编译、打包时，Maven会执行src/test/java中的JUnit测试用例，有时为了跳过测试，会使用参数-DskipTests和-Dmaven.test.skip=true，这两个参数的主要区别是：<br>-DskipTests，不执行测试用例，但编译测试用例类生成相应的class文件至target/test-classes下。<br>-Dmaven.test.skip=true，不执行测试用例，也不编译测试用例类。</p>
-<h2 id="profile切换正式环境和测试环境"><a href="#profile切换正式环境和测试环境" class="headerlink" title="profile切换正式环境和测试环境"></a>profile切换正式环境和测试环境</h2><p>可以使用<profiles>的<profile>通过id标签来切换不同环境的依赖</profile></profiles></p>
-<h2 id="mvn-install执行要注意的地方-错误笔记"><a href="#mvn-install执行要注意的地方-错误笔记" class="headerlink" title="mvn install执行要注意的地方 (错误笔记*)"></a>mvn install执行要注意的地方 (错误笔记*)</h2><p>通过在父项目的pom.xml目录执行mvn install可以连同子模块也一起安装，然后假如有多层级的父子模块依赖的情况下，mvn install是不会递归去安装子模块的子模块的。<br>比如，parent模块（BOM）下有subParent（BOM），subParent下面的子模块（jar），这个时候再parent模块下执行mvn install，subParent的jar是不会安装的，需要到subParent执行一次</p>
-<h2 id="Maven整个声明周期"><a href="#Maven整个声明周期" class="headerlink" title="Maven整个声明周期"></a>Maven整个声明周期</h2><p>验证（validate） 验证项目是正确的，所有必要的信息可用。<br>初始化（initialize） 初始化构建状态，例如设置属性或创建目录。<br>产生来源（generate-sources） 生成包含在编译中的任何源代码。<br>流程源（process-sources） 处理源代码，例如过滤任何值。<br>生成资源（generate-resources） 生成包含在包中的资源。<br>流程资源（process-resources） 将资源复制并处理到目标目录中，准备打包。<br>编译（compile） 编译项目的源代码。<br>工艺类（process-classes） 从编译后处理生成的文件，例如对Java类进行字节码增强。<br>生成测试来源（generate-test-sources） 生成包含在编译中的任何测试源代码。<br>流程测试来源（process-test-sources） 处理测试源代码，例如过滤任何值。<br>生成测试资源（generate-test-resources） 创建测试资源。<br>流程测试资源（process-test-resources） 将资源复制并处理到测试目标目录中。<br>测试编译（test-compile） 将测试源代码编译到测试目标目录中<br>流程检验类（process-test-classes） 从测试编译中处理生成的文件，例如对Java类进行字节码增强。对于Maven 2.0.5及以上版本。<br>测试（test） 使用合适的单元测试框架运行测试。这些测试不应该要求代码被打包或部署。<br>制备包（prepare-package） 在实际包装之前，执行必要的准备包装的操作。这通常会导致打包的处理版本的包。（Maven 2.1及以上）<br>打包（package） 采取编译的代码，并以其可分发的格式（如JAR）进行打包。<br>预集成测试（pre-integration-test） 在执行集成测试之前执行所需的操作。这可能涉及诸如设置所需环境等。<br>集成测试（integration-test） 如果需要，可以将该包过程并部署到可以运行集成测试的环境中。<br>整合后的测试（post-integration-test） 执行集成测试后执行所需的操作。这可能包括清理环境。<br>校验（verify） 运行任何检查以验证包装是否有效并符合质量标准。<br>安装（install） 将软件包安装到本地存储库中，以作为本地其他项目的依赖关系。<br>部署（deploy） 在集成或发布环境中完成，将最终软件包复制到远程存储库，以与其他开发人员和项目共享。<br>————————————————<br>版权声明：本文为CSDN博主「zhangxitab」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/zhangxitab/article/details/91047445" target="_blank" rel="noopener">https://blog.csdn.net/zhangxitab/article/details/91047445</a></p>
-<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="记录一个Idea中Maven的奇葩错误"><a href="#记录一个Idea中Maven的奇葩错误" class="headerlink" title="记录一个Idea中Maven的奇葩错误"></a>记录一个Idea中Maven的奇葩错误</h2><p>因为我从SVN拉代码下来是将项目根目录的名字修改为其他，导致根目录的pom.xml里面的name标签的值和文件不匹配，idea就一直报红，无法依赖其他依赖。。</p>
-<h2 id="新增加properties的变量时，编译打包报错"><a href="#新增加properties的变量时，编译打包报错" class="headerlink" title="新增加properties的变量时，编译打包报错"></a>新增加properties的变量时，编译打包报错</h2><p>很有可能需要把子模块modules都注释掉，然后编译一个或者多个父模块之后再放开子模块的注释。</p>
-<h2 id="jar-original"><a href="#jar-original" class="headerlink" title="jar.original"></a>jar.original</h2><ul>
-<li>jar.original 是普通jar包，不包含依赖</li>
-<li>.jar 是可执行jar包，包含了pom中的所有依赖，可以直接用java -jar 命令执行</li>
-<li>如果是部署，就用.jar</li>
-<li>如果是给别的项目用，就要给.jar.original这个包</li>
-</ul>
-]]></content>
-      <categories>
-        <category>maven</category>
-      </categories>
-      <tags>
-        <tag>maven</tag>
       </tags>
   </entry>
   <entry>
@@ -2092,6 +2092,22 @@ public class Apple {
       <tags>
         <tag>Spring</tag>
         <tag>SpringBoot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring系列之SpringCloudConfig</title>
+    <url>/2019/10/15/Spring%E7%B3%BB%E5%88%97%E4%B9%8BSpringCloudConfig/</url>
+    <content><![CDATA[<p>参考<a href="https://www.cnblogs.com/hellxz/p/9306507.html" target="_blank" rel="noopener">https://www.cnblogs.com/hellxz/p/9306507.html</a></p>
+<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="配置服务端修改配置，不需要重启服务端和客户端的服务？"><a href="#配置服务端修改配置，不需要重启服务端和客户端的服务？" class="headerlink" title="配置服务端修改配置，不需要重启服务端和客户端的服务？"></a>配置服务端修改配置，不需要重启服务端和客户端的服务？</h2><p>在配置中心的服务端修改了配置，还是要先启动配置中心的服务端，再重启配置中心的客户端。。。</p>
+<h2 id="配置中心的yml"><a href="#配置中心的yml" class="headerlink" title="配置中心的yml"></a>配置中心的yml</h2><p>编写yml配置文件的时候，可以自动提示，但是这个自动提示貌似只会提示Spring Boot的基础配置，如果是在配置中心的话，其他的依赖配置要在配置中心引入其spring-boot-starter的依赖才能自动提示对应的配置。</p>
+]]></content>
+      <categories>
+        <category>Spring</category>
+        <category>SpringCloudConfig</category>
+      </categories>
+      <tags>
+        <tag>Spring</tag>
+        <tag>SpringCloudConfig</tag>
       </tags>
   </entry>
   <entry>
@@ -2299,22 +2315,6 @@ public class Apple {
       </tags>
   </entry>
   <entry>
-    <title>Spring系列之SpringCloudConfig</title>
-    <url>/2019/10/15/Spring%E7%B3%BB%E5%88%97%E4%B9%8BSpringCloudConfig/</url>
-    <content><![CDATA[<p>参考<a href="https://www.cnblogs.com/hellxz/p/9306507.html" target="_blank" rel="noopener">https://www.cnblogs.com/hellxz/p/9306507.html</a></p>
-<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="配置服务端修改配置，不需要重启服务端和客户端的服务？"><a href="#配置服务端修改配置，不需要重启服务端和客户端的服务？" class="headerlink" title="配置服务端修改配置，不需要重启服务端和客户端的服务？"></a>配置服务端修改配置，不需要重启服务端和客户端的服务？</h2><p>在配置中心的服务端修改了配置，还是要先启动配置中心的服务端，再重启配置中心的客户端。。。</p>
-<h2 id="配置中心的yml"><a href="#配置中心的yml" class="headerlink" title="配置中心的yml"></a>配置中心的yml</h2><p>编写yml配置文件的时候，可以自动提示，但是这个自动提示貌似只会提示Spring Boot的基础配置，如果是在配置中心的话，其他的依赖配置要在配置中心引入其spring-boot-starter的依赖才能自动提示对应的配置。</p>
-]]></content>
-      <categories>
-        <category>Spring</category>
-        <category>SpringCloudConfig</category>
-      </categories>
-      <tags>
-        <tag>Spring</tag>
-        <tag>SpringCloudConfig</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>iTerm2汇总</title>
     <url>/2019/10/15/iTerm2%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="iterm2-ranger强大的终端文件管理器-todo"><a href="#iterm2-ranger强大的终端文件管理器-todo" class="headerlink" title="iterm2+ranger强大的终端文件管理器 todo"></a>iterm2+ranger强大的终端文件管理器 todo</h2><h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="HotKey"><a href="#HotKey" class="headerlink" title="HotKey"></a>HotKey</h2><p>按方向切换 pane：⌘+Option+方向键<br>切分屏幕：⌘+d 水平切分，⌘+Shift+d 垂直切分<br>智能查找，支持正则查找：⌘+f<br>自动查找历史命令: ⌘+;<br>ctrl+r 搜索历史命令<br>查看剪贴板历史: cmd+shift+h</p>
@@ -2427,6 +2427,29 @@ public class Apple {
       </tags>
   </entry>
   <entry>
+    <title>网络、密码与安全</title>
+    <url>/2019/10/15/%E7%BD%91%E7%BB%9C%E3%80%81%E5%AF%86%E7%A0%81%E4%B8%8E%E5%AE%89%E5%85%A8/</url>
+    <content><![CDATA[<h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="JWT-todo"><a href="#JWT-todo" class="headerlink" title="JWT todo"></a>JWT todo</h2><h2 id="互联网-20-大安全隐患-todo"><a href="#互联网-20-大安全隐患-todo" class="headerlink" title="互联网 20 大安全隐患 todo"></a>互联网 20 大安全隐患 todo</h2><h4 id="CSRF-攻击的应对之道-todo"><a href="#CSRF-攻击的应对之道-todo" class="headerlink" title="CSRF 攻击的应对之道 todo"></a>CSRF 攻击的应对之道 todo</h4><p><a href="https://www.ibm.com/developerworks/cn/web/1102_niugang_csrf/" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/web/1102_niugang_csrf/</a></p>
+<p><a href="https://segmentfault.com/a/1190000006944760?utm_source=tag-newest" target="_blank" rel="noopener">https://segmentfault.com/a/1190000006944760?utm_source=tag-newest</a></p>
+<p><a href="https://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html" target="_blank" rel="noopener">https://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html</a></p>
+<h2 id="RS256加密算法研究-todo"><a href="#RS256加密算法研究-todo" class="headerlink" title="RS256加密算法研究 todo"></a>RS256加密算法研究 todo</h2><h2 id="http-vs-https-todo"><a href="#http-vs-https-todo" class="headerlink" title="http vs https todo"></a>http vs https todo</h2><h2 id="SSL-vs-TLS-todo"><a href="#SSL-vs-TLS-todo" class="headerlink" title="SSL vs TLS todo"></a>SSL vs TLS todo</h2><h2 id="AES-是对称加密，不安全-todo"><a href="#AES-是对称加密，不安全-todo" class="headerlink" title="AES 是对称加密，不安全? todo"></a>AES 是对称加密，不安全? todo</h2><h2 id="TCP-vs-WebSocket-vs-KCP"><a href="#TCP-vs-WebSocket-vs-KCP" class="headerlink" title="TCP vs WebSocket vs KCP"></a>TCP vs WebSocket vs KCP</h2><h1 id="两种基本的加解密算法类型"><a href="#两种基本的加解密算法类型" class="headerlink" title="两种基本的加解密算法类型"></a>两种基本的加解密算法类型</h1><ol>
+<li><p>对称加密（symmetrcic encryption）：密钥只有一个，加密解密为同一个密码，且加解密速度快，典型的对称加密算法有DES、AES，RC5，3DES等；对称加密主要问题是共享秘钥，除你的计算机（客户端）知道另外一台计算机（服务器）的私钥秘钥，否则无法对通信流进行加密解密。解决这个问题的方案非对称秘钥。</p>
+</li>
+<li><p>非对称加密：使用两个秘钥：公共秘钥和私有秘钥。私有秘钥由一方密码保存（一般是服务器保存），另一方任何人都可以获得公共秘钥。<br>这种密钥成对出现（且根据公钥无法推知私钥，根据私钥也无法推知公钥），加密解密使用不同密钥（公钥加密需要私钥解密，私钥加密需要公钥解密），相对对称加密速度较慢，典型的非对称加密算法有RSA、DSA等。</p>
+</li>
+</ol>
+<h1 id="Http"><a href="#Http" class="headerlink" title="Http"></a>Http</h1><h2 id="Unsupported-Media-Type"><a href="#Unsupported-Media-Type" class="headerlink" title="Unsupported Media Type"></a>Unsupported Media Type</h2><p>在PostMan中调用后端微服务的Post接口，报了这个错，解决方法：<br>Headers增加Content-Type:application/json<br>Body采用raw和JSON(application/json)的方式发送，然后再下方填入json数据。</p>
+<h2 id="各种状态"><a href="#各种状态" class="headerlink" title="各种状态"></a>各种状态</h2>]]></content>
+      <categories>
+        <category>网络安全</category>
+        <category>网络</category>
+      </categories>
+      <tags>
+        <tag>网络安全</tag>
+        <tag>网络</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Element-ui汇总</title>
     <url>/2019/10/17/Element-ui%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<h1 id="v-contextmenu的使用-树形控件右键菜单"><a href="#v-contextmenu的使用-树形控件右键菜单" class="headerlink" title="v-contextmenu的使用(树形控件右键菜单)"></a>v-contextmenu的使用(树形控件右键菜单)</h1><p><a href="https://github.com/heynext/v-contextmenu/blob/a852e61278711ffaa811ad60bedef167e09782e8/examples/Simple.vue" target="_blank" rel="noopener">Simple Demo</a><br><a href="https://github.com/heynext/v-contextmenu" target="_blank" rel="noopener">Github 仓库代码</a></p>
@@ -2455,53 +2478,6 @@ public class Apple {
       </categories>
       <tags>
         <tag>WebStorm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>网络、密码与安全</title>
-    <url>/2019/10/15/%E7%BD%91%E7%BB%9C%E3%80%81%E5%AF%86%E7%A0%81%E4%B8%8E%E5%AE%89%E5%85%A8/</url>
-    <content><![CDATA[<h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="JWT-todo"><a href="#JWT-todo" class="headerlink" title="JWT todo"></a>JWT todo</h2><h2 id="互联网-20-大安全隐患-todo"><a href="#互联网-20-大安全隐患-todo" class="headerlink" title="互联网 20 大安全隐患 todo"></a>互联网 20 大安全隐患 todo</h2><h4 id="CSRF-攻击的应对之道-todo"><a href="#CSRF-攻击的应对之道-todo" class="headerlink" title="CSRF 攻击的应对之道 todo"></a>CSRF 攻击的应对之道 todo</h4><p><a href="https://www.ibm.com/developerworks/cn/web/1102_niugang_csrf/" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/web/1102_niugang_csrf/</a></p>
-<p><a href="https://segmentfault.com/a/1190000006944760?utm_source=tag-newest" target="_blank" rel="noopener">https://segmentfault.com/a/1190000006944760?utm_source=tag-newest</a></p>
-<p><a href="https://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html" target="_blank" rel="noopener">https://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html</a></p>
-<h2 id="RS256加密算法研究-todo"><a href="#RS256加密算法研究-todo" class="headerlink" title="RS256加密算法研究 todo"></a>RS256加密算法研究 todo</h2><h2 id="http-vs-https-todo"><a href="#http-vs-https-todo" class="headerlink" title="http vs https todo"></a>http vs https todo</h2><h2 id="SSL-vs-TLS-todo"><a href="#SSL-vs-TLS-todo" class="headerlink" title="SSL vs TLS todo"></a>SSL vs TLS todo</h2><h2 id="AES-是对称加密，不安全-todo"><a href="#AES-是对称加密，不安全-todo" class="headerlink" title="AES 是对称加密，不安全? todo"></a>AES 是对称加密，不安全? todo</h2><h2 id="TCP-vs-WebSocket-vs-KCP"><a href="#TCP-vs-WebSocket-vs-KCP" class="headerlink" title="TCP vs WebSocket vs KCP"></a>TCP vs WebSocket vs KCP</h2><h1 id="两种基本的加解密算法类型"><a href="#两种基本的加解密算法类型" class="headerlink" title="两种基本的加解密算法类型"></a>两种基本的加解密算法类型</h1><ol>
-<li><p>对称加密（symmetrcic encryption）：密钥只有一个，加密解密为同一个密码，且加解密速度快，典型的对称加密算法有DES、AES，RC5，3DES等；对称加密主要问题是共享秘钥，除你的计算机（客户端）知道另外一台计算机（服务器）的私钥秘钥，否则无法对通信流进行加密解密。解决这个问题的方案非对称秘钥。</p>
-</li>
-<li><p>非对称加密：使用两个秘钥：公共秘钥和私有秘钥。私有秘钥由一方密码保存（一般是服务器保存），另一方任何人都可以获得公共秘钥。<br>这种密钥成对出现（且根据公钥无法推知私钥，根据私钥也无法推知公钥），加密解密使用不同密钥（公钥加密需要私钥解密，私钥加密需要公钥解密），相对对称加密速度较慢，典型的非对称加密算法有RSA、DSA等。</p>
-</li>
-</ol>
-<h1 id="Http"><a href="#Http" class="headerlink" title="Http"></a>Http</h1><h2 id="Unsupported-Media-Type"><a href="#Unsupported-Media-Type" class="headerlink" title="Unsupported Media Type"></a>Unsupported Media Type</h2><p>在PostMan中调用后端微服务的Post接口，报了这个错，解决方法：<br>Headers增加Content-Type:application/json<br>Body采用raw和JSON(application/json)的方式发送，然后再下方填入json数据。</p>
-<h2 id="各种状态"><a href="#各种状态" class="headerlink" title="各种状态"></a>各种状态</h2>]]></content>
-      <categories>
-        <category>网络安全</category>
-        <category>网络</category>
-      </categories>
-      <tags>
-        <tag>网络安全</tag>
-        <tag>网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>RabbitMQ汇总</title>
-    <url>/2019/10/28/RabbitMQ%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<h1 id="BASIC-KNOWLEDGE"><a href="#BASIC-KNOWLEDGE" class="headerlink" title="BASIC KNOWLEDGE"></a>BASIC KNOWLEDGE</h1><h2 id="网上的基础教程"><a href="#网上的基础教程" class="headerlink" title="网上的基础教程"></a>网上的基础教程</h2><p><a href="https://blog.csdn.net/hellozpc/article/details/81436980" target="_blank" rel="noopener">https://blog.csdn.net/hellozpc/article/details/81436980</a></p>
-<h2 id="两个消息分发机制"><a href="#两个消息分发机制" class="headerlink" title="两个消息分发机制"></a>两个消息分发机制</h2><ul>
-<li>Round-robin dispatch（轮训分发）</li>
-<li>Fair dispatch（公平分发）</li>
-</ul>
-<h2 id="开启Browser后台界面管理插件"><a href="#开启Browser后台界面管理插件" class="headerlink" title="开启Browser后台界面管理插件"></a>开启Browser后台界面管理插件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker pull rabbitmq:management</span><br><span class="line">docker run -d --hostname my-rabbit --name some-rabbit -p 15555:15672 rabbitmq:management</span><br></pre></td></tr></table></figure>
-<p>15555端口可以自定义</p>
-<h1 id="PROBLEM-SOLUTION"><a href="#PROBLEM-SOLUTION" class="headerlink" title="PROBLEM SOLUTION"></a>PROBLEM SOLUTION</h1><h2 id="guest取消本地登录限制"><a href="#guest取消本地登录限制" class="headerlink" title="guest取消本地登录限制"></a>guest取消本地登录限制</h2><p><a href="https://blog.csdn.net/shenhonglei1234/article/details/82745601" target="_blank" rel="noopener">https://blog.csdn.net/shenhonglei1234/article/details/82745601</a></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">## 注意对应版本</span><br><span class="line">vi /usr/lib/rabbitmq/lib/rabbitmq_server-3.7.7/ebin/rabbit.app</span><br><span class="line"></span><br><span class="line">将：&#123;loopback_users, [&lt;&lt;”guest”&gt;&gt;]&#125;，</span><br><span class="line">改为：&#123;loopback_users, []&#125;，</span><br><span class="line">原因：rabbitmq从3.3.0开始禁止使用guest/guest权限通过除localhost外的访问</span><br><span class="line"></span><br><span class="line">service rabbitmq-server restart</span><br></pre></td></tr></table></figure>
-<h2 id="org-springframework-amqp-AmqpConnectException-java-net-ConnectException-Connection-refused-Connection-refused"><a href="#org-springframework-amqp-AmqpConnectException-java-net-ConnectException-Connection-refused-Connection-refused" class="headerlink" title="org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused (Connection refused)"></a>org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused (Connection refused)</h2><p>默认基于tcp的连接端口是5672，详情可见rabbit.app配置文件里面的<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;tcp_listeners, [5672]&#125;</span><br></pre></td></tr></table></figure></p>
-<p>还要注意防火墙是否屏蔽端口。</p>
-<h2 id="cannot-deserialize-from-Object-value-no-delegate-or-property-based-Creator"><a href="#cannot-deserialize-from-Object-value-no-delegate-or-property-based-Creator" class="headerlink" title="cannot deserialize from Object value (no delegate- or property-based Creator)"></a>cannot deserialize from Object value (no delegate- or property-based Creator)</h2><p>不小心在POJO加了lombok的@AllArgsConstructor注解，这个方法会私有化无参构造器，导致序列化失败。</p>
-<h2 id="How-to-delete-all-messages-from-a-Queue"><a href="#How-to-delete-all-messages-from-a-Queue" class="headerlink" title="How to delete all messages from a Queue"></a>How to delete all messages from a Queue</h2><p><a href="https://www.cloudamqp.com/blog/2016-06-14_how_to_delete_all_messages_in_a_queue.html#mgmt_interface" target="_blank" rel="noopener">https://www.cloudamqp.com/blog/2016-06-14_how_to_delete_all_messages_in_a_queue.html#mgmt_interface</a></p>
-]]></content>
-      <categories>
-        <category>rabbitmq</category>
-      </categories>
-      <tags>
-        <tag>rabbitmq</tag>
       </tags>
   </entry>
   <entry>
@@ -2534,6 +2510,30 @@ public class Apple {
       </categories>
       <tags>
         <tag>fastdfs</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RabbitMQ汇总</title>
+    <url>/2019/10/28/RabbitMQ%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<h1 id="BASIC-KNOWLEDGE"><a href="#BASIC-KNOWLEDGE" class="headerlink" title="BASIC KNOWLEDGE"></a>BASIC KNOWLEDGE</h1><h2 id="网上的基础教程"><a href="#网上的基础教程" class="headerlink" title="网上的基础教程"></a>网上的基础教程</h2><p><a href="https://blog.csdn.net/hellozpc/article/details/81436980" target="_blank" rel="noopener">https://blog.csdn.net/hellozpc/article/details/81436980</a></p>
+<h2 id="两个消息分发机制"><a href="#两个消息分发机制" class="headerlink" title="两个消息分发机制"></a>两个消息分发机制</h2><ul>
+<li>Round-robin dispatch（轮训分发）</li>
+<li>Fair dispatch（公平分发）</li>
+</ul>
+<h2 id="开启Browser后台界面管理插件"><a href="#开启Browser后台界面管理插件" class="headerlink" title="开启Browser后台界面管理插件"></a>开启Browser后台界面管理插件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker pull rabbitmq:management</span><br><span class="line">docker run -d --hostname my-rabbit --name some-rabbit -p 15555:15672 rabbitmq:management</span><br></pre></td></tr></table></figure>
+<p>15555端口可以自定义</p>
+<h1 id="PROBLEM-SOLUTION"><a href="#PROBLEM-SOLUTION" class="headerlink" title="PROBLEM SOLUTION"></a>PROBLEM SOLUTION</h1><h2 id="guest取消本地登录限制"><a href="#guest取消本地登录限制" class="headerlink" title="guest取消本地登录限制"></a>guest取消本地登录限制</h2><p><a href="https://blog.csdn.net/shenhonglei1234/article/details/82745601" target="_blank" rel="noopener">https://blog.csdn.net/shenhonglei1234/article/details/82745601</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">## 注意对应版本</span><br><span class="line">vi /usr/lib/rabbitmq/lib/rabbitmq_server-3.7.7/ebin/rabbit.app</span><br><span class="line"></span><br><span class="line">将：&#123;loopback_users, [&lt;&lt;”guest”&gt;&gt;]&#125;，</span><br><span class="line">改为：&#123;loopback_users, []&#125;，</span><br><span class="line">原因：rabbitmq从3.3.0开始禁止使用guest/guest权限通过除localhost外的访问</span><br><span class="line"></span><br><span class="line">service rabbitmq-server restart</span><br></pre></td></tr></table></figure>
+<h2 id="org-springframework-amqp-AmqpConnectException-java-net-ConnectException-Connection-refused-Connection-refused"><a href="#org-springframework-amqp-AmqpConnectException-java-net-ConnectException-Connection-refused-Connection-refused" class="headerlink" title="org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused (Connection refused)"></a>org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused (Connection refused)</h2><p>默认基于tcp的连接端口是5672，详情可见rabbit.app配置文件里面的<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;tcp_listeners, [5672]&#125;</span><br></pre></td></tr></table></figure></p>
+<p>还要注意防火墙是否屏蔽端口。</p>
+<h2 id="cannot-deserialize-from-Object-value-no-delegate-or-property-based-Creator"><a href="#cannot-deserialize-from-Object-value-no-delegate-or-property-based-Creator" class="headerlink" title="cannot deserialize from Object value (no delegate- or property-based Creator)"></a>cannot deserialize from Object value (no delegate- or property-based Creator)</h2><p>不小心在POJO加了lombok的@AllArgsConstructor注解，这个方法会私有化无参构造器，导致序列化失败。</p>
+<h2 id="How-to-delete-all-messages-from-a-Queue"><a href="#How-to-delete-all-messages-from-a-Queue" class="headerlink" title="How to delete all messages from a Queue"></a>How to delete all messages from a Queue</h2><p><a href="https://www.cloudamqp.com/blog/2016-06-14_how_to_delete_all_messages_in_a_queue.html#mgmt_interface" target="_blank" rel="noopener">https://www.cloudamqp.com/blog/2016-06-14_how_to_delete_all_messages_in_a_queue.html#mgmt_interface</a></p>
+]]></content>
+      <categories>
+        <category>rabbitmq</category>
+      </categories>
+      <tags>
+        <tag>rabbitmq</tag>
       </tags>
   </entry>
   <entry>
@@ -2693,6 +2693,18 @@ public class Apple {
       </tags>
   </entry>
   <entry>
+    <title>Hystrix汇总</title>
+    <url>/2019/11/27/Hystrix%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<h2 id="各种配置属性文章"><a href="#各种配置属性文章" class="headerlink" title="各种配置属性文章"></a>各种配置属性文章</h2><p><a href="https://github.com/Netflix/Hystrix/wiki/Configuration" target="_blank" rel="noopener">https://github.com/Netflix/Hystrix/wiki/Configuration</a></p>
+]]></content>
+      <categories>
+        <category>Hystrix</category>
+      </categories>
+      <tags>
+        <tag>Hystrix</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Spring系列之SpringMVC</title>
     <url>/2019/11/26/Spring%E7%B3%BB%E5%88%97%E4%B9%8BSpringMVC/</url>
     <content><![CDATA[<h1 id="处理过的问题"><a href="#处理过的问题" class="headerlink" title="处理过的问题"></a>处理过的问题</h1><h4 id="Required-request-body-is-missing"><a href="#Required-request-body-is-missing" class="headerlink" title="Required request body is missing"></a>Required request body is missing</h4><p>一般都是@RequestBody注解的参数，而请求数据空；或者用postman的话，注意要这样选择参数：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/BiF57m.png" alt="image"></p>
@@ -2712,18 +2724,6 @@ public class Apple {
       <tags>
         <tag>Spring</tag>
         <tag>SpringMVC</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hystrix汇总</title>
-    <url>/2019/11/27/Hystrix%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<h2 id="各种配置属性文章"><a href="#各种配置属性文章" class="headerlink" title="各种配置属性文章"></a>各种配置属性文章</h2><p><a href="https://github.com/Netflix/Hystrix/wiki/Configuration" target="_blank" rel="noopener">https://github.com/Netflix/Hystrix/wiki/Configuration</a></p>
-]]></content>
-      <categories>
-        <category>Hystrix</category>
-      </categories>
-      <tags>
-        <tag>Hystrix</tag>
       </tags>
   </entry>
   <entry>
@@ -3243,6 +3243,22 @@ public class Apple {
       </tags>
   </entry>
   <entry>
+    <title>Vue系列之表严肃Vue视频教程笔记</title>
+    <url>/2019/12/02/Vue%E7%B3%BB%E5%88%97%E4%B9%8B%E8%A1%A8%E4%B8%A5%E8%82%83Vue%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<blockquote>
+<p>参考自表严肃的视频教程 <a href="https://www.bilibili.com/video/av13450835?p=4" target="_blank" rel="noopener">https://www.bilibili.com/video/av13450835?p=4</a></p>
+</blockquote>
+<h1 id="常用feature"><a href="#常用feature" class="headerlink" title="常用feature"></a>常用feature</h1><h2 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;span v-for=&quot;(role) in scope.row.roleList&quot;&gt;</span><br><span class="line">                &lt;el-tag&gt;&#123;&#123;role.roleName&#125;&#125; &lt;/el-tag&gt;</span><br><span class="line">              &lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<p>chrome的控制台可以动态直接通过js的api给页面update数据，比如：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/JOPVFM.png" alt></p>
+]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Idea汇总</title>
     <url>/2019/12/01/Idea%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<blockquote>
@@ -3574,6 +3590,20 @@ public class Apple {
       </tags>
   </entry>
   <entry>
+    <title>Mysql系列之官方文档总结</title>
+    <url>/2019/12/12/Mysql%E7%B3%BB%E5%88%97%E4%B9%8B%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h1 id="常用命名"><a href="#常用命名" class="headerlink" title="常用命名"></a>常用命名</h1><h2 id="mysqladmin的用法"><a href="#mysqladmin的用法" class="headerlink" title="mysqladmin的用法"></a>mysqladmin的用法</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mysqladmin -u root -p status</span><br></pre></td></tr></table></figure>
+<p>然后输入密码，<a href="https://dev.mysql.com/doc/refman/8.0/en/mysqladmin.html" target="_blank" rel="noopener">命令参考</a></p>
+<h2 id="Using-Options-on-the-Command-Line-在命令行使用可选项"><a href="#Using-Options-on-the-Command-Line-在命令行使用可选项" class="headerlink" title="Using Options on the Command Line(在命令行使用可选项)"></a>Using Options on the Command Line(在命令行使用可选项)</h2><p>横线和下划线在命令中是可以互换来使用的，比如 –skip-grant-tables and –skip_grant_tables效果相同，但是官方默认使用的是-，看起来也比较直观。<br><strong><em>但是要注意的是，前面的起引导作用的横线不能被替换，–skip不能替换为__skip</em></strong></p>
+]]></content>
+      <categories>
+        <category>Mysql</category>
+      </categories>
+      <tags>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Flowable汇总</title>
     <url>/2019/12/02/Flowable%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<h1 id="flowable涉及到的表"><a href="#flowable涉及到的表" class="headerlink" title="flowable涉及到的表"></a>flowable涉及到的表</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ACT_GE_BYTEARRAY	通用的流程定义和流程资源</span><br><span class="line">ACT_GE_PROPERTY	系统相关属性</span><br><span class="line"># 流程历史记录</span><br><span class="line">ACT_HI_ACTINST	历史的流程实例</span><br><span class="line">ACT_HI_ATTACHMENT	历史的流程附件</span><br><span class="line">ACT_HI_COMMENT	历史的说明性信息</span><br><span class="line">ACT_HI_DETAIL	历史的流程运行中的细节信息</span><br><span class="line">ACT_HI_IDENTITYLINK	历史的流程运行过程中用户关系</span><br><span class="line">ACT_HI_PROCINST	历史的流程实例</span><br><span class="line">ACT_HI_TASKINST	历史的任务实例</span><br><span class="line">ACT_HI_VARINST	历史的流程运行中的变量信息</span><br><span class="line"># 用户用户组表</span><br><span class="line">ACT_ID_BYTEARRAY	二进制数据表</span><br><span class="line">ACT_ID_GROUP	用户组信息表</span><br><span class="line">ACT_ID_INFO	用户信息详情表</span><br><span class="line">ACT_ID_MEMBERSHIP	人与组关系表</span><br><span class="line">ACT_ID_PRIV	权限表</span><br><span class="line">ACT_ID_PRIV_MAPPING	用户或组权限关系表</span><br><span class="line">ACT_ID_PROPERTY	属性表</span><br><span class="line">ACT_ID_TOKEN	系统登录日志表</span><br><span class="line">ACT_ID_USER	用户表</span><br><span class="line"># 流程定义表</span><br><span class="line">ACT_RE_DEPLOYMENT	部署单元信息</span><br><span class="line">ACT_RE_MODEL	模型信息</span><br><span class="line">ACT_RE_PROCDEF	已部署的流程定义</span><br><span class="line"># 运行实例表</span><br><span class="line">ACT_RU_DEADLETTER_JOB	正在运行的任务表</span><br><span class="line">ACT_RU_EVENT_SUBSCR	运行时事件</span><br><span class="line">ACT_RU_EXECUTION	运行时流程执行实例</span><br><span class="line">ACT_RU_HISTORY_JOB	历史作业表</span><br><span class="line">ACT_RU_IDENTITYLINK	运行时用户关系信息</span><br><span class="line">ACT_RU_JOB	运行时作业表</span><br><span class="line">ACT_RU_SUSPENDED_JOB	暂停作业表</span><br><span class="line">ACT_RU_TASK	运行时任务表</span><br><span class="line">ACT_RU_TIMER_JOB	定时作业表</span><br><span class="line">ACT_RU_VARIABLE	运行时变量表</span><br><span class="line"># 其他表	</span><br><span class="line">ACT_EVT_LOG	事件日志表</span><br><span class="line">ACT_PROCDEF_INFO	流程定义信息</span><br></pre></td></tr></table></figure>
@@ -3657,76 +3687,6 @@ public class Apple {
       </tags>
   </entry>
   <entry>
-    <title>Vue系列之表严肃Vue视频教程笔记</title>
-    <url>/2019/12/02/Vue%E7%B3%BB%E5%88%97%E4%B9%8B%E8%A1%A8%E4%B8%A5%E8%82%83Vue%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<blockquote>
-<p>参考自表严肃的视频教程 <a href="https://www.bilibili.com/video/av13450835?p=4" target="_blank" rel="noopener">https://www.bilibili.com/video/av13450835?p=4</a></p>
-</blockquote>
-<h1 id="常用feature"><a href="#常用feature" class="headerlink" title="常用feature"></a>常用feature</h1><h2 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;span v-for=&quot;(role) in scope.row.roleList&quot;&gt;</span><br><span class="line">                &lt;el-tag&gt;&#123;&#123;role.roleName&#125;&#125; &lt;/el-tag&gt;</span><br><span class="line">              &lt;/span&gt;</span><br></pre></td></tr></table></figure>
-<p>chrome的控制台可以动态直接通过js的api给页面update数据，比如：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/JOPVFM.png" alt></p>
-]]></content>
-      <categories>
-        <category>vue</category>
-      </categories>
-      <tags>
-        <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>业界内各种权威标准</title>
-    <url>/2019/12/05/%E4%B8%9A%E7%95%8C%E5%86%85%E5%90%84%E7%A7%8D%E6%9D%83%E5%A8%81%E6%A0%87%E5%87%86/</url>
-    <content><![CDATA[<h1 id="ISO-8601"><a href="#ISO-8601" class="headerlink" title="ISO 8601"></a>ISO 8601</h1><p>国际标准化组织的时间和日期的表达方法。</p>
-<h1 id="cron-expressions"><a href="#cron-expressions" class="headerlink" title="cron expressions"></a>cron expressions</h1><p><a href="http://www.quartz-scheduler.org/documentation/quartz-2.x/tutorials/crontrigger.html" title="cron expressions教程参考" target="_blank" rel="noopener">cron expressions教程参考</a></p>
-<h1 id="GA-PRE-SNAPSHOT等各种版本含义"><a href="#GA-PRE-SNAPSHOT等各种版本含义" class="headerlink" title="GA/PRE/SNAPSHOT等各种版本含义"></a>GA/PRE/SNAPSHOT等各种版本含义</h1><ul>
-<li>GA General Availability,正式发布的版本，官方推荐使用该版本，国外很多项目都是使用GA来表示正式发布版本的</li>
-<li>PRE 预览版，主要是用来内部开发人员和测试人员测试使用，因此不建议使用</li>
-<li>SNAPSHOT 快照版，可以稳定使用，且该版本会一直进行小量的优化和改进</li>
-<li>RC (Release Candidate)：候选版本，几乎就是正式版了</li>
-<li>R (RELEASE) 正式版，等价于GA</li>
-<li>Alpha 内测版，BUG多，开发人员开发过程中使用，希腊字母α，第一，指最初版</li>
-<li>Beta 早期版本，有缺陷，无大BUG，可能加入新功能，进一步开发完善</li>
-<li>Gamma 经beta 版，完善修改，成为正式发布的候选版本（Release Candidate）</li>
-<li>Build 修正版</li>
-<li>Corporation或Enterprise：企业版</li>
-<li>Delux：豪华版</li>
-<li>DEMO：演示版，有功能限制</li>
-<li>Free：免费版</li>
-<li>Full：完全版</li>
-<li>Final：正式版</li>
-<li>Pro(professional)：专业版</li>
-<li>Plus：加强版\</li>
-<li>Retail：零售版</li>
-<li>Shareware：共享版，虽然不会要求注册但是一般也有功能限制</li>
-<li>SR：修正版</li>
-<li>Trial：试用版（一般有时间或者功能限制）</li>
-<li>M Milestone build probably not feature complete; should be vaguely stable (i.e. it’s more than just a nightly snapshot) but may still have problems.</li>
-<li>LTS（Long Term Support）：长期演进版，Ubuntu会对这一版本的支持时间更长。目前Java也在运用这种方式</li>
-</ul>
-<h1 id="计算机内存存储数据原理"><a href="#计算机内存存储数据原理" class="headerlink" title="计算机内存存储数据原理"></a>计算机内存存储数据原理</h1><p><a href="https://www.iteye.com/blog/wwty-401713" target="_blank" rel="noopener">https://www.iteye.com/blog/wwty-401713</a></p>
-<h1 id="SaaS"><a href="#SaaS" class="headerlink" title="SaaS"></a>SaaS</h1><h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><h2 id="JEP-JDK-Enhancement-Proposals-JDK增强提案"><a href="#JEP-JDK-Enhancement-Proposals-JDK增强提案" class="headerlink" title="JEP(JDK Enhancement Proposals)(JDK增强提案)"></a>JEP(JDK Enhancement Proposals)(JDK增强提案)</h2><p><a href="http://openjdk.java.net/jeps/0" target="_blank" rel="noopener">http://openjdk.java.net/jeps/0</a></p>
-]]></content>
-      <categories>
-        <category>标准</category>
-      </categories>
-      <tags>
-        <tag>标准</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mysql系列之官方文档总结</title>
-    <url>/2019/12/12/Mysql%E7%B3%BB%E5%88%97%E4%B9%8B%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h1 id="常用命名"><a href="#常用命名" class="headerlink" title="常用命名"></a>常用命名</h1><h2 id="mysqladmin的用法"><a href="#mysqladmin的用法" class="headerlink" title="mysqladmin的用法"></a>mysqladmin的用法</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mysqladmin -u root -p status</span><br></pre></td></tr></table></figure>
-<p>然后输入密码，<a href="https://dev.mysql.com/doc/refman/8.0/en/mysqladmin.html" target="_blank" rel="noopener">命令参考</a></p>
-<h2 id="Using-Options-on-the-Command-Line-在命令行使用可选项"><a href="#Using-Options-on-the-Command-Line-在命令行使用可选项" class="headerlink" title="Using Options on the Command Line(在命令行使用可选项)"></a>Using Options on the Command Line(在命令行使用可选项)</h2><p>横线和下划线在命令中是可以互换来使用的，比如 –skip-grant-tables and –skip_grant_tables效果相同，但是官方默认使用的是-，看起来也比较直观。<br><strong><em>但是要注意的是，前面的起引导作用的横线不能被替换，–skip不能替换为__skip</em></strong></p>
-]]></content>
-      <categories>
-        <category>Mysql</category>
-      </categories>
-      <tags>
-        <tag>Mysql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Mysql系列之性能优化与问题定位</title>
     <url>/2019/12/12/Mysql%E7%B3%BB%E5%88%97%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B8%8E%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D/</url>
     <content><![CDATA[<h1 id="Server-Status-Variables"><a href="#Server-Status-Variables" class="headerlink" title="Server Status Variables"></a>Server Status Variables</h1><h2 id="设置事务自动提交"><a href="#设置事务自动提交" class="headerlink" title="设置事务自动提交"></a>设置事务自动提交</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 查看是否开启自动提交事务</span><br><span class="line">SHOW VARIABLES LIKE &apos;AUTOCOMMIT&apos;;</span><br><span class="line">select @@AUTOCOMMIT;</span><br></pre></td></tr></table></figure>
@@ -3776,6 +3736,46 @@ public class Apple {
       </categories>
       <tags>
         <tag>Reactor</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>业界内各种权威标准</title>
+    <url>/2019/12/05/%E4%B8%9A%E7%95%8C%E5%86%85%E5%90%84%E7%A7%8D%E6%9D%83%E5%A8%81%E6%A0%87%E5%87%86/</url>
+    <content><![CDATA[<h1 id="ISO-8601"><a href="#ISO-8601" class="headerlink" title="ISO 8601"></a>ISO 8601</h1><p>国际标准化组织的时间和日期的表达方法。</p>
+<h1 id="cron-expressions"><a href="#cron-expressions" class="headerlink" title="cron expressions"></a>cron expressions</h1><p><a href="http://www.quartz-scheduler.org/documentation/quartz-2.x/tutorials/crontrigger.html" title="cron expressions教程参考" target="_blank" rel="noopener">cron expressions教程参考</a></p>
+<h1 id="GA-PRE-SNAPSHOT等各种版本含义"><a href="#GA-PRE-SNAPSHOT等各种版本含义" class="headerlink" title="GA/PRE/SNAPSHOT等各种版本含义"></a>GA/PRE/SNAPSHOT等各种版本含义</h1><ul>
+<li>GA General Availability,正式发布的版本，官方推荐使用该版本，国外很多项目都是使用GA来表示正式发布版本的</li>
+<li>PRE 预览版，主要是用来内部开发人员和测试人员测试使用，因此不建议使用</li>
+<li>SNAPSHOT 快照版，可以稳定使用，且该版本会一直进行小量的优化和改进</li>
+<li>RC (Release Candidate)：候选版本，几乎就是正式版了</li>
+<li>R (RELEASE) 正式版，等价于GA</li>
+<li>Alpha 内测版，BUG多，开发人员开发过程中使用，希腊字母α，第一，指最初版</li>
+<li>Beta 早期版本，有缺陷，无大BUG，可能加入新功能，进一步开发完善</li>
+<li>Gamma 经beta 版，完善修改，成为正式发布的候选版本（Release Candidate）</li>
+<li>Build 修正版</li>
+<li>Corporation或Enterprise：企业版</li>
+<li>Delux：豪华版</li>
+<li>DEMO：演示版，有功能限制</li>
+<li>Free：免费版</li>
+<li>Full：完全版</li>
+<li>Final：正式版</li>
+<li>Pro(professional)：专业版</li>
+<li>Plus：加强版\</li>
+<li>Retail：零售版</li>
+<li>Shareware：共享版，虽然不会要求注册但是一般也有功能限制</li>
+<li>SR：修正版</li>
+<li>Trial：试用版（一般有时间或者功能限制）</li>
+<li>M Milestone build probably not feature complete; should be vaguely stable (i.e. it’s more than just a nightly snapshot) but may still have problems.</li>
+<li>LTS（Long Term Support）：长期演进版，Ubuntu会对这一版本的支持时间更长。目前Java也在运用这种方式</li>
+</ul>
+<h1 id="计算机内存存储数据原理"><a href="#计算机内存存储数据原理" class="headerlink" title="计算机内存存储数据原理"></a>计算机内存存储数据原理</h1><p><a href="https://www.iteye.com/blog/wwty-401713" target="_blank" rel="noopener">https://www.iteye.com/blog/wwty-401713</a></p>
+<h1 id="SaaS"><a href="#SaaS" class="headerlink" title="SaaS"></a>SaaS</h1><h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><h2 id="JEP-JDK-Enhancement-Proposals-JDK增强提案"><a href="#JEP-JDK-Enhancement-Proposals-JDK增强提案" class="headerlink" title="JEP(JDK Enhancement Proposals)(JDK增强提案)"></a>JEP(JDK Enhancement Proposals)(JDK增强提案)</h2><p><a href="http://openjdk.java.net/jeps/0" target="_blank" rel="noopener">http://openjdk.java.net/jeps/0</a></p>
+]]></content>
+      <categories>
+        <category>标准</category>
+      </categories>
+      <tags>
+        <tag>标准</tag>
       </tags>
   </entry>
   <entry>
@@ -4399,6 +4399,21 @@ public class Apple {
       </tags>
   </entry>
   <entry>
+    <title>PTE考试准备</title>
+    <url>/2020/03/30/PTE%E8%80%83%E8%AF%95%E5%87%86%E5%A4%87/</url>
+    <content><![CDATA[<h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h1 id="重要的备忘录"><a href="#重要的备忘录" class="headerlink" title="重要的备忘录"></a>重要的备忘录</h1><h2 id="模拟考网站"><a href="#模拟考网站" class="headerlink" title="模拟考网站"></a>模拟考网站</h2><p><a href="https://ptepractice.com" target="_blank" rel="noopener">https://ptepractice.com</a></p>
+<h2 id="官方的在线练习题目"><a href="#官方的在线练习题目" class="headerlink" title="官方的在线练习题目"></a>官方的在线练习题目</h2><p>Scored Practice Tests??</p>
+<h2 id="youtube资源"><a href="#youtube资源" class="headerlink" title="youtube资源"></a>youtube资源</h2><p>E2 PTE Academic</p>
+<h2 id="英语流利说"><a href="#英语流利说" class="headerlink" title="英语流利说"></a>英语流利说</h2><h2 id="大澳学院-微信公众号"><a href="#大澳学院-微信公众号" class="headerlink" title="大澳学院-微信公众号"></a>大澳学院-微信公众号</h2><h1 id="考试内容"><a href="#考试内容" class="headerlink" title="考试内容"></a>考试内容</h1><p><a href="https://zhuanlan.zhihu.com/p/47240655" target="_blank" rel="noopener">参考</a></p>
+]]></content>
+      <categories>
+        <category>PTE</category>
+      </categories>
+      <tags>
+        <tag>PTE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>股票理财</title>
     <url>/2020/03/29/%E8%82%A1%E7%A5%A8%E7%90%86%E8%B4%A2/</url>
     <content><![CDATA[<blockquote>
@@ -4468,18 +4483,18 @@ public class Apple {
       </tags>
   </entry>
   <entry>
-    <title>PTE考试准备</title>
-    <url>/2020/03/30/PTE%E8%80%83%E8%AF%95%E5%87%86%E5%A4%87/</url>
-    <content><![CDATA[<h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h1 id="重要的备忘录"><a href="#重要的备忘录" class="headerlink" title="重要的备忘录"></a>重要的备忘录</h1><h2 id="模拟考网站"><a href="#模拟考网站" class="headerlink" title="模拟考网站"></a>模拟考网站</h2><p><a href="https://ptepractice.com" target="_blank" rel="noopener">https://ptepractice.com</a></p>
-<h2 id="官方的在线练习题目"><a href="#官方的在线练习题目" class="headerlink" title="官方的在线练习题目"></a>官方的在线练习题目</h2><p>Scored Practice Tests??</p>
-<h2 id="youtube资源"><a href="#youtube资源" class="headerlink" title="youtube资源"></a>youtube资源</h2><p>E2 PTE Academic</p>
-<h2 id="英语流利说"><a href="#英语流利说" class="headerlink" title="英语流利说"></a>英语流利说</h2><h2 id="大澳学院-微信公众号"><a href="#大澳学院-微信公众号" class="headerlink" title="大澳学院-微信公众号"></a>大澳学院-微信公众号</h2><h1 id="考试内容"><a href="#考试内容" class="headerlink" title="考试内容"></a>考试内容</h1><p><a href="https://zhuanlan.zhihu.com/p/47240655" target="_blank" rel="noopener">参考</a></p>
+    <title>Spring系列之Cache</title>
+    <url>/2020/04/02/Spring%E7%B3%BB%E5%88%97%E4%B9%8BCache/</url>
+    <content><![CDATA[<h1 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h1><p><a href="https://spring.io/guides" target="_blank" rel="noopener">Spring All Guides</a><br><a href="https://spring.io/guides/gs/caching/" target="_blank" rel="noopener">Caching Data with Spring</a></p>
+<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="SpringBoot中-Cacheable-CacheEvict-CachePut在同一个类中方法调用不起作用"><a href="#SpringBoot中-Cacheable-CacheEvict-CachePut在同一个类中方法调用不起作用" class="headerlink" title="SpringBoot中@Cacheable,@CacheEvict,@CachePut在同一个类中方法调用不起作用"></a>SpringBoot中@Cacheable,@CacheEvict,@CachePut在同一个类中方法调用不起作用</h2><p><a href="https://www.jianshu.com/p/c33ba070028e" target="_blank" rel="noopener">https://www.jianshu.com/p/c33ba070028e</a><br><a href="https://www.cnblogs.com/liubey/archive/2018/04/02/spring_cacheable.html" target="_blank" rel="noopener">https://www.cnblogs.com/liubey/archive/2018/04/02/spring_cacheable.html</a><br><a href="https://www.cnblogs.com/chanedi/p/4552555.html" target="_blank" rel="noopener">https://www.cnblogs.com/chanedi/p/4552555.html</a><br><a href="https://blog.csdn.net/dapinxiaohuo/article/details/52092447" target="_blank" rel="noopener">https://blog.csdn.net/dapinxiaohuo/article/details/52092447</a></p>
 ]]></content>
       <categories>
-        <category>PTE</category>
+        <category>Spring</category>
+        <category>Spring Cache</category>
       </categories>
       <tags>
-        <tag>PTE</tag>
+        <tag>Spring</tag>
+        <tag>Spring Cache</tag>
       </tags>
   </entry>
   <entry>
@@ -4509,18 +4524,21 @@ public class Apple {
       </tags>
   </entry>
   <entry>
-    <title>Spring系列之Cache</title>
-    <url>/2020/04/02/Spring%E7%B3%BB%E5%88%97%E4%B9%8BCache/</url>
-    <content><![CDATA[<h1 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h1><p><a href="https://spring.io/guides" target="_blank" rel="noopener">Spring All Guides</a><br><a href="https://spring.io/guides/gs/caching/" target="_blank" rel="noopener">Caching Data with Spring</a></p>
-<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="SpringBoot中-Cacheable-CacheEvict-CachePut在同一个类中方法调用不起作用"><a href="#SpringBoot中-Cacheable-CacheEvict-CachePut在同一个类中方法调用不起作用" class="headerlink" title="SpringBoot中@Cacheable,@CacheEvict,@CachePut在同一个类中方法调用不起作用"></a>SpringBoot中@Cacheable,@CacheEvict,@CachePut在同一个类中方法调用不起作用</h2><p><a href="https://www.jianshu.com/p/c33ba070028e" target="_blank" rel="noopener">https://www.jianshu.com/p/c33ba070028e</a><br><a href="https://www.cnblogs.com/liubey/archive/2018/04/02/spring_cacheable.html" target="_blank" rel="noopener">https://www.cnblogs.com/liubey/archive/2018/04/02/spring_cacheable.html</a><br><a href="https://www.cnblogs.com/chanedi/p/4552555.html" target="_blank" rel="noopener">https://www.cnblogs.com/chanedi/p/4552555.html</a><br><a href="https://blog.csdn.net/dapinxiaohuo/article/details/52092447" target="_blank" rel="noopener">https://blog.csdn.net/dapinxiaohuo/article/details/52092447</a></p>
+    <title>正则表达式汇总</title>
+    <url>/2020/04/06/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<blockquote>
+<p>有时候需要通过正则表达式来快速匹配某些字符串筛选结果，但是规则老是忘了，所以记录一下，以便日后使用。</p>
+</blockquote>
+<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="行首和行尾"><a href="#行首和行尾" class="headerlink" title="行首和行尾"></a>行首和行尾</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">^cat : 验证该行以c开头紧接着是a，然后是t</span><br><span class="line">cat$ : 验证该行以t结尾倒数第二个字符为a倒数第三个字符为c</span><br><span class="line">^cat$: 以c开头接着是a-&gt;t然后是行结束：只有cat三个字母的数据行</span><br><span class="line">^$  : 开头之后马上结束：空白行，不包括任何字符</span><br></pre></td></tr></table></figure>
+<p>匹配以- 开头的任何字符串，到以#开头的行：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">^- .*$</span><br><span class="line">^#.*</span><br></pre></td></tr></table></figure></p>
+<h2 id="匹配包含某个字符串的行"><a href="#匹配包含某个字符串的行" class="headerlink" title="匹配包含某个字符串的行"></a>匹配包含某个字符串的行</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">^(.*)string(.*)\n</span><br></pre></td></tr></table></figure>
+<p>string为指定的字符串</p>
 ]]></content>
       <categories>
-        <category>Spring</category>
-        <category>Spring Cache</category>
+        <category>正则表达式</category>
       </categories>
       <tags>
-        <tag>Spring</tag>
-        <tag>Spring Cache</tag>
+        <tag>正则表达式</tag>
       </tags>
   </entry>
   <entry>
@@ -4590,22 +4608,9 @@ public class Apple {
       </tags>
   </entry>
   <entry>
-    <title>正则表达式汇总</title>
-    <url>/2020/04/06/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<blockquote>
-<p>有时候需要通过正则表达式来快速匹配某些字符串筛选结果，但是规则老是忘了，所以记录一下，以便日后使用。</p>
-</blockquote>
-<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="行首和行尾"><a href="#行首和行尾" class="headerlink" title="行首和行尾"></a>行首和行尾</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">^cat : 验证该行以c开头紧接着是a，然后是t</span><br><span class="line">cat$ : 验证该行以t结尾倒数第二个字符为a倒数第三个字符为c</span><br><span class="line">^cat$: 以c开头接着是a-&gt;t然后是行结束：只有cat三个字母的数据行</span><br><span class="line">^$  : 开头之后马上结束：空白行，不包括任何字符</span><br></pre></td></tr></table></figure>
-<p>匹配以- 开头的任何字符串，到以#开头的行：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">^- .*$</span><br><span class="line">^#.*</span><br></pre></td></tr></table></figure></p>
-<h2 id="匹配包含某个字符串的行"><a href="#匹配包含某个字符串的行" class="headerlink" title="匹配包含某个字符串的行"></a>匹配包含某个字符串的行</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">^(.*)string(.*)\n</span><br></pre></td></tr></table></figure>
-<p>string为指定的字符串</p>
-]]></content>
-      <categories>
-        <category>正则表达式</category>
-      </categories>
-      <tags>
-        <tag>正则表达式</tag>
-      </tags>
+    <title>Spring系列之SpringCloud微服务架构</title>
+    <url>/2020/04/09/Spring%E7%B3%BB%E5%88%97%E4%B9%8BSpringCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84/</url>
+    <content><![CDATA[<h1 id="公司的微服务模块架构关系"><a href="#公司的微服务模块架构关系" class="headerlink" title="公司的微服务模块架构关系"></a>公司的微服务模块架构关系</h1><h2 id="云原生"><a href="#云原生" class="headerlink" title="云原生"></a>云原生</h2>]]></content>
   </entry>
   <entry>
     <title>English之名词系列</title>
@@ -4810,6 +4815,69 @@ public class Apple {
       <tags>
         <tag>Spring</tag>
         <tag>Spring WebFlux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>原油宝事件简单分析</title>
+    <url>/2020/04/26/%E5%8E%9F%E6%B2%B9%E5%AE%9D%E4%BA%8B%E4%BB%B6%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<h2 id="期货交易原理"><a href="#期货交易原理" class="headerlink" title="期货交易原理"></a>期货交易原理</h2><p>期货一般是买方（多方）&lt;=&gt;卖方（空方）</p>
+<p>双方指定在未来的某个时间一手交钱一手交货，前提是双方签订之日都交保证金（比如这一单的10%）</p>
+<h4 id="期货平仓机制"><a href="#期货平仓机制" class="headerlink" title="期货平仓机制"></a>期货平仓机制</h4><p>空方卖给多方按照合约的价格P1和时间的交易过程叫【开仓】</p>
+<p>如果出现异常情况不能【开仓】，那么就会启动【平仓】操作：多方把合约还给空方，此时采用另外一个价格P2（该价格随着市场的波动变化）【平仓】，【强制平仓】可以及时止损。</p>
+<p>综上所述：</p>
+<p>如果P1&lt;P2，多方就赚了，空方亏了，因为多方在过去的时间以低价位拿到货，而在交易时日时，平仓的时候空方要重新拿回来合约要以更高的价格结算；</p>
+<p>如果P1&gt;P2，反之，多方亏了，空方赚了。</p>
+<h4 id="期货保证金交易制度"><a href="#期货保证金交易制度" class="headerlink" title="期货保证金交易制度"></a>期货保证金交易制度</h4><h5 id="假如油价在拟定合约后上涨的情况"><a href="#假如油价在拟定合约后上涨的情况" class="headerlink" title="假如油价在拟定合约后上涨的情况"></a>假如油价在拟定合约后上涨的情况</h5><p>期货市场的【平仓保证金交易制度】（假如以10%结算）：</p>
+<table>
+<thead>
+<tr>
+<th>交易阶段</th>
+<th>买方（多方）保证金账户</th>
+<th>卖方（空方）保证金账户</th>
+<th>输方的资金流入</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>期货合约拟定（总价比如20000$）</td>
+<td>2000$</td>
+<td>2000$</td>
+<td>0$</td>
+</tr>
+<tr>
+<td>临近交货时日价格变动之后（假如油价上涨8个点，总价25000）</td>
+<td>2500$（从空方划走500$）</td>
+<td>2500$（保证金不足，要再充值1500元）</td>
+<td>1500$</td>
+</tr>
+</tbody>
+</table>
+<p>如果有一方因为交不起保证金的情况下，交易所就会强行平仓，这样一来，【原本的空方就要变成买房来重新买回来之前的合约，不过是以更高的价位买入，也就是上文提到的P2】</p>
+<h5 id="假如油价在拟定合约后下跌的情况"><a href="#假如油价在拟定合约后下跌的情况" class="headerlink" title="假如油价在拟定合约后下跌的情况"></a>假如油价在拟定合约后下跌的情况</h5><p>保证金在下跌的情况，合约签订时计算好的保证金已经交足，所以保证金账户余额里面就一直是充足的，无需追加保证金。【应该是这样】</p>
+<p>单看价格下跌，其实如果是直接期货交易完成，对于两方来说是无伤大雅，但是不要忘了，期货是要实货交易的，这就是原油宝问题的致命之处。</p>
+<h4 id="原油宝事件的致命问题"><a href="#原油宝事件的致命问题" class="headerlink" title="原油宝事件的致命问题"></a>原油宝事件的致命问题</h4><p>如果说按照合约规定，到期后在一定的短时间内，多方（原油宝客户 约等于 中行）去美国的油库提油，那么问题不大，可惜没有这个如果，中行没有能力在短时间内拿出设备和运载工具去提油！</p>
+<p>既然无法真实交易，那么交易所会自动强行平仓，这下麻烦大了，按照当前负油价，那么原油宝客户方一下子从多方变成空方，空方此时卖原油是要倒贴钱的啊！</p>
+]]></content>
+      <categories>
+        <category>理财</category>
+      </categories>
+      <tags>
+        <tag>理财</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSS备忘录</title>
+    <url>/2020/05/01/CSS%E5%A4%87%E5%BF%98%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="固定在div的右下角"><a href="#固定在div的右下角" class="headerlink" title="固定在div的右下角"></a>固定在div的右下角</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">position:absolute;</span><br><span class="line">right:5px;</span><br><span class="line">bottom:5px;</span><br></pre></td></tr></table></figure>
+<h2 id="下外边框距离（和底部的div拉开距离）"><a href="#下外边框距离（和底部的div拉开距离）" class="headerlink" title="下外边框距离（和底部的div拉开距离）"></a>下外边框距离（和底部的div拉开距离）</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">margin-bottom: 10px</span><br></pre></td></tr></table></figure>
+<h2 id="靠边"><a href="#靠边" class="headerlink" title="靠边"></a>靠边</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.pull-right &#123;</span><br><span class="line">  float: right !important;</span><br><span class="line">&#125;</span><br><span class="line">.pull-left &#123;</span><br><span class="line">  float: left !important;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="字体加粗"><a href="#字体加粗" class="headerlink" title="字体加粗"></a>字体加粗</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;b&gt;&lt;/b&gt;</span><br><span class="line">&lt;strong&gt;&lt;/strong&gt;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
       </tags>
   </entry>
   <entry>
@@ -5084,74 +5152,6 @@ public class Apple {
       </tags>
   </entry>
   <entry>
-    <title>Spring系列之SpringCloud微服务架构</title>
-    <url>/2020/04/09/Spring%E7%B3%BB%E5%88%97%E4%B9%8BSpringCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84/</url>
-    <content><![CDATA[<h1 id="公司的微服务模块架构关系"><a href="#公司的微服务模块架构关系" class="headerlink" title="公司的微服务模块架构关系"></a>公司的微服务模块架构关系</h1><h2 id="云原生"><a href="#云原生" class="headerlink" title="云原生"></a>云原生</h2>]]></content>
-  </entry>
-  <entry>
-    <title>原油宝事件简单分析</title>
-    <url>/2020/04/26/%E5%8E%9F%E6%B2%B9%E5%AE%9D%E4%BA%8B%E4%BB%B6%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90/</url>
-    <content><![CDATA[<h2 id="期货交易原理"><a href="#期货交易原理" class="headerlink" title="期货交易原理"></a>期货交易原理</h2><p>期货一般是买方（多方）&lt;=&gt;卖方（空方）</p>
-<p>双方指定在未来的某个时间一手交钱一手交货，前提是双方签订之日都交保证金（比如这一单的10%）</p>
-<h4 id="期货平仓机制"><a href="#期货平仓机制" class="headerlink" title="期货平仓机制"></a>期货平仓机制</h4><p>空方卖给多方按照合约的价格P1和时间的交易过程叫【开仓】</p>
-<p>如果出现异常情况不能【开仓】，那么就会启动【平仓】操作：多方把合约还给空方，此时采用另外一个价格P2（该价格随着市场的波动变化）【平仓】，【强制平仓】可以及时止损。</p>
-<p>综上所述：</p>
-<p>如果P1&lt;P2，多方就赚了，空方亏了，因为多方在过去的时间以低价位拿到货，而在交易时日时，平仓的时候空方要重新拿回来合约要以更高的价格结算；</p>
-<p>如果P1&gt;P2，反之，多方亏了，空方赚了。</p>
-<h4 id="期货保证金交易制度"><a href="#期货保证金交易制度" class="headerlink" title="期货保证金交易制度"></a>期货保证金交易制度</h4><h5 id="假如油价在拟定合约后上涨的情况"><a href="#假如油价在拟定合约后上涨的情况" class="headerlink" title="假如油价在拟定合约后上涨的情况"></a>假如油价在拟定合约后上涨的情况</h5><p>期货市场的【平仓保证金交易制度】（假如以10%结算）：</p>
-<table>
-<thead>
-<tr>
-<th>交易阶段</th>
-<th>买方（多方）保证金账户</th>
-<th>卖方（空方）保证金账户</th>
-<th>输方的资金流入</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>期货合约拟定（总价比如20000$）</td>
-<td>2000$</td>
-<td>2000$</td>
-<td>0$</td>
-</tr>
-<tr>
-<td>临近交货时日价格变动之后（假如油价上涨8个点，总价25000）</td>
-<td>2500$（从空方划走500$）</td>
-<td>2500$（保证金不足，要再充值1500元）</td>
-<td>1500$</td>
-</tr>
-</tbody>
-</table>
-<p>如果有一方因为交不起保证金的情况下，交易所就会强行平仓，这样一来，【原本的空方就要变成买房来重新买回来之前的合约，不过是以更高的价位买入，也就是上文提到的P2】</p>
-<h5 id="假如油价在拟定合约后下跌的情况"><a href="#假如油价在拟定合约后下跌的情况" class="headerlink" title="假如油价在拟定合约后下跌的情况"></a>假如油价在拟定合约后下跌的情况</h5><p>保证金在下跌的情况，合约签订时计算好的保证金已经交足，所以保证金账户余额里面就一直是充足的，无需追加保证金。【应该是这样】</p>
-<p>单看价格下跌，其实如果是直接期货交易完成，对于两方来说是无伤大雅，但是不要忘了，期货是要实货交易的，这就是原油宝问题的致命之处。</p>
-<h4 id="原油宝事件的致命问题"><a href="#原油宝事件的致命问题" class="headerlink" title="原油宝事件的致命问题"></a>原油宝事件的致命问题</h4><p>如果说按照合约规定，到期后在一定的短时间内，多方（原油宝客户 约等于 中行）去美国的油库提油，那么问题不大，可惜没有这个如果，中行没有能力在短时间内拿出设备和运载工具去提油！</p>
-<p>既然无法真实交易，那么交易所会自动强行平仓，这下麻烦大了，按照当前负油价，那么原油宝客户方一下子从多方变成空方，空方此时卖原油是要倒贴钱的啊！</p>
-]]></content>
-      <categories>
-        <category>理财</category>
-      </categories>
-      <tags>
-        <tag>理财</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CSS备忘录</title>
-    <url>/2020/05/01/CSS%E5%A4%87%E5%BF%98%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="固定在div的右下角"><a href="#固定在div的右下角" class="headerlink" title="固定在div的右下角"></a>固定在div的右下角</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">position:absolute;</span><br><span class="line">right:5px;</span><br><span class="line">bottom:5px;</span><br></pre></td></tr></table></figure>
-<h2 id="下外边框距离（和底部的div拉开距离）"><a href="#下外边框距离（和底部的div拉开距离）" class="headerlink" title="下外边框距离（和底部的div拉开距离）"></a>下外边框距离（和底部的div拉开距离）</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">margin-bottom: 10px</span><br></pre></td></tr></table></figure>
-<h2 id="靠边"><a href="#靠边" class="headerlink" title="靠边"></a>靠边</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.pull-right &#123;</span><br><span class="line">  float: right !important;</span><br><span class="line">&#125;</span><br><span class="line">.pull-left &#123;</span><br><span class="line">  float: left !important;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="字体加粗"><a href="#字体加粗" class="headerlink" title="字体加粗"></a>字体加粗</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;b&gt;&lt;/b&gt;</span><br><span class="line">&lt;strong&gt;&lt;/strong&gt;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>CSS</category>
-      </categories>
-      <tags>
-        <tag>CSS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue系列之Vue Router</title>
     <url>/2020/05/01/Vue%E7%B3%BB%E5%88%97%E4%B9%8BVue-Router/</url>
     <content><![CDATA[<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="的基本使用"><a href="#的基本使用" class="headerlink" title="的基本使用"></a><router-view></router-view>的基本使用</h2><p>假如路由的配置如下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export default [&#123;</span><br><span class="line">  path: &apos;/index&apos;,</span><br><span class="line">  component: $ =&gt; import(&apos;@/page/index/Index&apos;),</span><br><span class="line">  children: [&#123;</span><br><span class="line">    path: &apos;vocabulary&apos;,</span><br><span class="line">    component: $ =&gt; import(&apos;@/page/word/Search&apos;),</span><br><span class="line">    children: [&#123;</span><br><span class="line">      path: &apos;detail&apos;,</span><br><span class="line">      component: $ =&gt; import(&apos;@/page/word/Detail&apos;)</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      path: &apos;starList&apos;,</span><br><span class="line">      component: $ =&gt; import(&apos;@/page/word/StarList&apos;)</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      path: &apos;starListDetail&apos;,</span><br><span class="line">      component: $ =&gt; import(&apos;@/page/word/StarListDetail&apos;)</span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure></p>
@@ -5260,6 +5260,48 @@ public class Apple {
       </tags>
   </entry>
   <entry>
+    <title>English之时态系列-进行时态（将来进行时）</title>
+    <url>/2020/06/07/English%E4%B9%8B%E6%97%B6%E6%80%81%E7%B3%BB%E5%88%97-%E8%BF%9B%E8%A1%8C%E6%97%B6%E6%80%81-%E5%B0%86%E6%9D%A5%E8%BF%9B%E8%A1%8C%E6%97%B6/</url>
+    <content><![CDATA[<h1 id="将来进行时"><a href="#将来进行时" class="headerlink" title="将来进行时"></a>将来进行时</h1><h2 id="典型用法：将来某一特定时刻正在持续的事"><a href="#典型用法：将来某一特定时刻正在持续的事" class="headerlink" title="典型用法：将来某一特定时刻正在持续的事"></a>典型用法：将来某一特定时刻正在持续的事</h2><p><strong><em>将来进行时态的典型用法，就是想象自己或其他人在将来某一特定时刻（at a particular time in future）正在做某事。</em></strong>比如下面的两个朋友在谈论休假的事：<br>A: When do you leave for Hainan?<br>B: Tomorrow. Just think, two days from now I will be lying on the beach in the sun.<br>A: Sounds great!<br>在上文中，说话人B用了will be lying这一动词变化形式，表示想象自己后天就正躺在海滩上的情景，这样的表达很生动。</p>
+<p>Don’t telephone me after eight tomorrow—I’ll be having a meeting.<br>明天8点钟以后不要给我打电话，因为那时我正在开会。</p>
+<p>Wait until seven o’clock so that they won’t still be eating.<br>等到7点钟再过去吧，这样他们那时就不会还在吃饭了。</p>
+<h2 id="口语用法：将来计划好的事"><a href="#口语用法：将来计划好的事" class="headerlink" title="口语用法：将来计划好的事"></a>口语用法：将来计划好的事</h2><p><strong><em>在日常的口语中，我们常用will be doing来谈一个将来计划好的事情。</em></strong><br>Professor Smith will be giving a lecture on American literature tomorrow evening.<br>这里的将来进行时态表示确定好的安排。<br>明晚史密斯教授将会举行有关美国文学的讲座。<br>现在进行时态be doing也可以表示计划好的事。比如上面这个句子也可以说成：<br>Professor Smith is giving a lecture on American literature tomorrow evening. </p>
+<blockquote>
+<p>此时，两者的区别不是很大。因此，表示将来安排好的事情，两种时态可以换用。</p>
+</blockquote>
+<p>不过，二者还是有下列两点不同： </p>
+<blockquote>
+<p>现在进行时只表示最近的将来；而将来进行时既可以表示最近的将来，也可以表示较远的将来。</p>
+</blockquote>
+<p>I am meeting him tomorrow. 我明天要见他。<br>I will be meeting him tomorrow/next year. 我明天/明年要见他。</p>
+<blockquote>
+<p>现在进行时表示最近将来的动作时，必须有确定的表示将来的时间状语；而将来进行时则没有这种限制。</p>
+</blockquote>
+<p>1） He’s working in this room next Monday.<br>2） He’ll be working in this room.<br>在例句1）中，如果没有表示将来的时间状语next Monday，则该句一般理解成正在进行的活动，表示“他现正在这个房间里工作”。在例句2）中，虽然没有表示将来的时间状语，但依然可以表示将来的活动。</p>
+<h2 id="少见用法：表示背景动作——提供另外一个短动作发生的事件背景"><a href="#少见用法：表示背景动作——提供另外一个短动作发生的事件背景" class="headerlink" title="少见用法：表示背景动作——提供另外一个短动作发生的事件背景"></a>少见用法：表示背景动作——提供另外一个短动作发生的事件背景</h2><p>同过去进行时的用法类似，将来进行时可以表示一个背景动作，来描述在这个背景动作下，将会发生的另外一个短暂动作。<br>They probably will be watching TV when we get there.<br>用将来进行时表示一个长的背景动作，比如“看电视”， 而我们“到达”是在他们看电视的过程中的某一将来的时间点发生的动作。主句的进行时表示动作较长，从句的现在时表示将来的某一短动作。<br>等我们一会儿到那里时，他们可能正在看电视。<br>Will your friends be waiting for you at the airport when you arrive?<br>你一会到达机场时，你的朋友们会在那接你吗？</p>
+<h2 id="难点用法1：用在疑问句中，表示客气地询问"><a href="#难点用法1：用在疑问句中，表示客气地询问" class="headerlink" title="难点用法1：用在疑问句中，表示客气地询问"></a>难点用法1：用在疑问句中，表示客气地询问</h2><blockquote>
+<p>许多美国电影和美国人口语中好像爱用进行时态，但动作又似乎并不是正在进行着，这样的表达有什么特别的意义吗？如在电影 You’ve Got Mail［注：这是由汤姆·汉克斯（Tom Hanks）和梅格·瑞 安（Meg Ryan）主演的一部美国影片，中文译名为《网上情缘》］中， 书店营业员George问Joe付款方式，用的是“How will you be paying for this？”。Joe答Cash。为何不直接用“How will you pay for this？”。这是一种习惯还是一种思维？</p>
+</blockquote>
+<p>这一问题涉及将来进行时态（如will be paying）的意义及其与一般将来时态（如will pay）的区别。我们注意到，上面的营业员用的是将来进行时态will be paying来询问顾客的付款方式，而不是一般将来时态will pay。<br>这个问题其实引出了“将来进行时态（will be doing）”的一种很有用的用法，即我们用它来“礼貌地询问”，显得比一般将来时will do更委婉客气。这是因为will be doing常表示很客观地询问事实，并不想干涉对方的决定；而will do往往带有各种感情色彩，如请求、命令、指示、质问甚至威胁等等。<br>所以，上述的will be paying就是表示一种客气的询问。我们知道这是发生在书店营业员和顾客之间的对话，店员乔治（George）当然应该要很有礼貌地向顾客提出询问，所以在此场景中他选用了将来进行时“How will you be paying for this?”这一礼貌的询问句式。若他说“How will you pay for this?”则显得比较生硬，不够礼貌，会让顾客感觉对方是在质问自己。<br>will be doing都是出现在服务人员向顾客询问信息的场景中。当然，这种礼貌询问的表达方式不只是出现在公司与客户之间，它同样适用于人与人之间的询问与关心。<br>比如，一位演员在问及导演有关角色的分配时，他是这样礼貌地提问的：<br>Who will I be acting with?<br>这里他同样用了礼貌的提问形式will be acting，表示自己只是在客观地打听事实，而不是要干涉导演的安排，因而这样询问显得委婉礼貌。</p>
+<p><strong><em>will be doing用在疑问句中表示客气地询问。但我们也要注意，这并不是说以后我们就不用will do来提问了，而一律用 will be doing代替will do。will do往往带有各种感情色彩，比如表达“请求”，此时我们就得用will do，而一般不用will be doing。</em></strong><br>比如“你能借给我10美元吗？”这句话，一般不说：<br>Will you be lending me ten dollars?*<br>这里的will不是在客观地询问事实，而是表示一种请求，所以，我们要说：<br>Will you lend me ten dollars?<br>如果我们是要客观地询问事实，宜用will be doing来提问； 而若是其他语气，比如请求或命令等，我们则要用will do来提问。</p>
+<p>1） Will you be staying in this evening?<br>2） Will you stay in this evening?<br>在例句1）中，用will be doing是表示礼貌地、客观地询问，只是想了解你今晚的打算，并没有干涉的意思。所以我们可译成“今晚你不出去吧？”在例句2）中，用will do，含有感情色彩，如请求、指示或命令。所以这句话可以根据说话者的语气译成“今晚你别出去了，好吗？”（请求），或者“今晚你不要出去了行不行?!”（命令）。</p>
+<h2 id="难点用法2：用来表示客观的将来，以避免与表示“意愿”的will-do混淆"><a href="#难点用法2：用来表示客观的将来，以避免与表示“意愿”的will-do混淆" class="headerlink" title="难点用法2：用来表示客观的将来，以避免与表示“意愿”的will do混淆"></a>难点用法2：用来表示客观的将来，以避免与表示“意愿”的will do混淆</h2><p>A: It’s already 10 o’clock. I guess Bob and Amy won’t be coming to the party.<br>B: They called at nine to say that they’d been held up.<br>上面这个对话中的将来进行时态won’t be coming并非像我们通常理解的那样，表示“在将来某一特定的时刻正在做某事”，即并不是进行时态要表达的典型语义。<br>那为什么要用won’t be coming这种较为复杂的形式呢？句中为什么不用更为简单的谓语形式won’t come呢？可不可以用won’t come？两者有何区别？<br>这里涉及情态动词will的意义和用法问题。我们知道，will可以用来表示意愿（willingness）和意图 （intention）等情态语义，所以will do往往表示主观意愿，如will do 有“蓄意为之”的含义，而won’t do则有“不愿意为之”的含义。但将来进行时态will be doing则是表示客观的将来时间，侧重于对将来事件的客观陈述，表示在正常情况下预计要发生的事件，而不表达个人意图。总而言之，will be doing较客观，will do较主观，所以我们用will be doing 来表示客观的将来时间，以避免与表示主观意愿的will do混淆。<br>说话人用won’t be coming是想强调鲍勃和埃米可能是因为其他事情耽误了而“来不了”这一客观事实，而不是主观意愿上的“不愿来”。下文紧接着就说明了他们来不了的原因是they had been held up（他们有事耽误了）。如果说“Bob and Amy won’t come to the party.”。因为won’t do的意思往往相当于refuse to do，表示“拒绝做，不愿意做”。所以，对于这句话，人们一般会理解为“鲍勃和埃米不愿意来参加聚会”。而在原文中，说话人其实是在强调客观将来的时间——“来不了”，而不是“不愿来”。所以，我们看到，这里一个won’t be coming， 一个won’t come，两者的意思大相径庭。<br>A：现在已经10点了，我猜鲍勃和埃米不会来参加聚会了。<br>B：他们9点钟时打过电话，说有事耽误了。</p>
+<h2 id="will-be-doing的五种意思"><a href="#will-be-doing的五种意思" class="headerlink" title="will be doing的五种意思"></a>will be doing的五种意思</h2><ol>
+<li>想象自己或其他人在将来某一特定的时刻正在做某事； </li>
+<li>表示计划好的事； </li>
+<li>表示背景动作，提供另外一个短动作发生的事件背景； </li>
+<li>用在疑问句中，表示客气的询问。这一用法在口语中尤为常见； </li>
+<li>用will be doing来表示客观的将来，以避免与表示“意愿”的will do 混淆。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>English</category>
+      </categories>
+      <tags>
+        <tag>English</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>English之时态系列（一般将来时）</title>
     <url>/2020/06/06/English%E4%B9%8B%E6%97%B6%E6%80%81%E7%B3%BB%E5%88%97-%E4%B8%80%E8%88%AC%E5%B0%86%E6%9D%A5%E6%97%B6/</url>
     <content><![CDATA[<blockquote>
@@ -5343,45 +5385,13 @@ public class Apple {
       </tags>
   </entry>
   <entry>
-    <title>English之时态系列-进行时态（将来进行时）</title>
-    <url>/2020/06/07/English%E4%B9%8B%E6%97%B6%E6%80%81%E7%B3%BB%E5%88%97-%E8%BF%9B%E8%A1%8C%E6%97%B6%E6%80%81-%E5%B0%86%E6%9D%A5%E8%BF%9B%E8%A1%8C%E6%97%B6/</url>
-    <content><![CDATA[<h1 id="将来进行时"><a href="#将来进行时" class="headerlink" title="将来进行时"></a>将来进行时</h1><h2 id="典型用法：将来某一特定时刻正在持续的事"><a href="#典型用法：将来某一特定时刻正在持续的事" class="headerlink" title="典型用法：将来某一特定时刻正在持续的事"></a>典型用法：将来某一特定时刻正在持续的事</h2><p><strong><em>将来进行时态的典型用法，就是想象自己或其他人在将来某一特定时刻（at a particular time in future）正在做某事。</em></strong>比如下面的两个朋友在谈论休假的事：<br>A: When do you leave for Hainan?<br>B: Tomorrow. Just think, two days from now I will be lying on the beach in the sun.<br>A: Sounds great!<br>在上文中，说话人B用了will be lying这一动词变化形式，表示想象自己后天就正躺在海滩上的情景，这样的表达很生动。</p>
-<p>Don’t telephone me after eight tomorrow—I’ll be having a meeting.<br>明天8点钟以后不要给我打电话，因为那时我正在开会。</p>
-<p>Wait until seven o’clock so that they won’t still be eating.<br>等到7点钟再过去吧，这样他们那时就不会还在吃饭了。</p>
-<h2 id="口语用法：将来计划好的事"><a href="#口语用法：将来计划好的事" class="headerlink" title="口语用法：将来计划好的事"></a>口语用法：将来计划好的事</h2><p><strong><em>在日常的口语中，我们常用will be doing来谈一个将来计划好的事情。</em></strong><br>Professor Smith will be giving a lecture on American literature tomorrow evening.<br>这里的将来进行时态表示确定好的安排。<br>明晚史密斯教授将会举行有关美国文学的讲座。<br>现在进行时态be doing也可以表示计划好的事。比如上面这个句子也可以说成：<br>Professor Smith is giving a lecture on American literature tomorrow evening. </p>
-<blockquote>
-<p>此时，两者的区别不是很大。因此，表示将来安排好的事情，两种时态可以换用。</p>
-</blockquote>
-<p>不过，二者还是有下列两点不同： </p>
-<blockquote>
-<p>现在进行时只表示最近的将来；而将来进行时既可以表示最近的将来，也可以表示较远的将来。</p>
-</blockquote>
-<p>I am meeting him tomorrow. 我明天要见他。<br>I will be meeting him tomorrow/next year. 我明天/明年要见他。</p>
-<blockquote>
-<p>现在进行时表示最近将来的动作时，必须有确定的表示将来的时间状语；而将来进行时则没有这种限制。</p>
-</blockquote>
-<p>1） He’s working in this room next Monday.<br>2） He’ll be working in this room.<br>在例句1）中，如果没有表示将来的时间状语next Monday，则该句一般理解成正在进行的活动，表示“他现正在这个房间里工作”。在例句2）中，虽然没有表示将来的时间状语，但依然可以表示将来的活动。</p>
-<h2 id="少见用法：表示背景动作——提供另外一个短动作发生的事件背景"><a href="#少见用法：表示背景动作——提供另外一个短动作发生的事件背景" class="headerlink" title="少见用法：表示背景动作——提供另外一个短动作发生的事件背景"></a>少见用法：表示背景动作——提供另外一个短动作发生的事件背景</h2><p>同过去进行时的用法类似，将来进行时可以表示一个背景动作，来描述在这个背景动作下，将会发生的另外一个短暂动作。<br>They probably will be watching TV when we get there.<br>用将来进行时表示一个长的背景动作，比如“看电视”， 而我们“到达”是在他们看电视的过程中的某一将来的时间点发生的动作。主句的进行时表示动作较长，从句的现在时表示将来的某一短动作。<br>等我们一会儿到那里时，他们可能正在看电视。<br>Will your friends be waiting for you at the airport when you arrive?<br>你一会到达机场时，你的朋友们会在那接你吗？</p>
-<h2 id="难点用法1：用在疑问句中，表示客气地询问"><a href="#难点用法1：用在疑问句中，表示客气地询问" class="headerlink" title="难点用法1：用在疑问句中，表示客气地询问"></a>难点用法1：用在疑问句中，表示客气地询问</h2><blockquote>
-<p>许多美国电影和美国人口语中好像爱用进行时态，但动作又似乎并不是正在进行着，这样的表达有什么特别的意义吗？如在电影 You’ve Got Mail［注：这是由汤姆·汉克斯（Tom Hanks）和梅格·瑞 安（Meg Ryan）主演的一部美国影片，中文译名为《网上情缘》］中， 书店营业员George问Joe付款方式，用的是“How will you be paying for this？”。Joe答Cash。为何不直接用“How will you pay for this？”。这是一种习惯还是一种思维？</p>
-</blockquote>
-<p>这一问题涉及将来进行时态（如will be paying）的意义及其与一般将来时态（如will pay）的区别。我们注意到，上面的营业员用的是将来进行时态will be paying来询问顾客的付款方式，而不是一般将来时态will pay。<br>这个问题其实引出了“将来进行时态（will be doing）”的一种很有用的用法，即我们用它来“礼貌地询问”，显得比一般将来时will do更委婉客气。这是因为will be doing常表示很客观地询问事实，并不想干涉对方的决定；而will do往往带有各种感情色彩，如请求、命令、指示、质问甚至威胁等等。<br>所以，上述的will be paying就是表示一种客气的询问。我们知道这是发生在书店营业员和顾客之间的对话，店员乔治（George）当然应该要很有礼貌地向顾客提出询问，所以在此场景中他选用了将来进行时“How will you be paying for this?”这一礼貌的询问句式。若他说“How will you pay for this?”则显得比较生硬，不够礼貌，会让顾客感觉对方是在质问自己。<br>will be doing都是出现在服务人员向顾客询问信息的场景中。当然，这种礼貌询问的表达方式不只是出现在公司与客户之间，它同样适用于人与人之间的询问与关心。<br>比如，一位演员在问及导演有关角色的分配时，他是这样礼貌地提问的：<br>Who will I be acting with?<br>这里他同样用了礼貌的提问形式will be acting，表示自己只是在客观地打听事实，而不是要干涉导演的安排，因而这样询问显得委婉礼貌。</p>
-<p><strong><em>will be doing用在疑问句中表示客气地询问。但我们也要注意，这并不是说以后我们就不用will do来提问了，而一律用 will be doing代替will do。will do往往带有各种感情色彩，比如表达“请求”，此时我们就得用will do，而一般不用will be doing。</em></strong><br>比如“你能借给我10美元吗？”这句话，一般不说：<br>Will you be lending me ten dollars?*<br>这里的will不是在客观地询问事实，而是表示一种请求，所以，我们要说：<br>Will you lend me ten dollars?<br>如果我们是要客观地询问事实，宜用will be doing来提问； 而若是其他语气，比如请求或命令等，我们则要用will do来提问。</p>
-<p>1） Will you be staying in this evening?<br>2） Will you stay in this evening?<br>在例句1）中，用will be doing是表示礼貌地、客观地询问，只是想了解你今晚的打算，并没有干涉的意思。所以我们可译成“今晚你不出去吧？”在例句2）中，用will do，含有感情色彩，如请求、指示或命令。所以这句话可以根据说话者的语气译成“今晚你别出去了，好吗？”（请求），或者“今晚你不要出去了行不行?!”（命令）。</p>
-<h2 id="难点用法2：用来表示客观的将来，以避免与表示“意愿”的will-do混淆"><a href="#难点用法2：用来表示客观的将来，以避免与表示“意愿”的will-do混淆" class="headerlink" title="难点用法2：用来表示客观的将来，以避免与表示“意愿”的will do混淆"></a>难点用法2：用来表示客观的将来，以避免与表示“意愿”的will do混淆</h2><p>A: It’s already 10 o’clock. I guess Bob and Amy won’t be coming to the party.<br>B: They called at nine to say that they’d been held up.<br>上面这个对话中的将来进行时态won’t be coming并非像我们通常理解的那样，表示“在将来某一特定的时刻正在做某事”，即并不是进行时态要表达的典型语义。<br>那为什么要用won’t be coming这种较为复杂的形式呢？句中为什么不用更为简单的谓语形式won’t come呢？可不可以用won’t come？两者有何区别？<br>这里涉及情态动词will的意义和用法问题。我们知道，will可以用来表示意愿（willingness）和意图 （intention）等情态语义，所以will do往往表示主观意愿，如will do 有“蓄意为之”的含义，而won’t do则有“不愿意为之”的含义。但将来进行时态will be doing则是表示客观的将来时间，侧重于对将来事件的客观陈述，表示在正常情况下预计要发生的事件，而不表达个人意图。总而言之，will be doing较客观，will do较主观，所以我们用will be doing 来表示客观的将来时间，以避免与表示主观意愿的will do混淆。<br>说话人用won’t be coming是想强调鲍勃和埃米可能是因为其他事情耽误了而“来不了”这一客观事实，而不是主观意愿上的“不愿来”。下文紧接着就说明了他们来不了的原因是they had been held up（他们有事耽误了）。如果说“Bob and Amy won’t come to the party.”。因为won’t do的意思往往相当于refuse to do，表示“拒绝做，不愿意做”。所以，对于这句话，人们一般会理解为“鲍勃和埃米不愿意来参加聚会”。而在原文中，说话人其实是在强调客观将来的时间——“来不了”，而不是“不愿来”。所以，我们看到，这里一个won’t be coming， 一个won’t come，两者的意思大相径庭。<br>A：现在已经10点了，我猜鲍勃和埃米不会来参加聚会了。<br>B：他们9点钟时打过电话，说有事耽误了。</p>
-<h2 id="will-be-doing的五种意思"><a href="#will-be-doing的五种意思" class="headerlink" title="will be doing的五种意思"></a>will be doing的五种意思</h2><ol>
-<li>想象自己或其他人在将来某一特定的时刻正在做某事； </li>
-<li>表示计划好的事； </li>
-<li>表示背景动作，提供另外一个短动作发生的事件背景； </li>
-<li>用在疑问句中，表示客气的询问。这一用法在口语中尤为常见； </li>
-<li>用will be doing来表示客观的将来，以避免与表示“意愿”的will do 混淆。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>English</category>
-      </categories>
+    <title>算法汇总</title>
+    <url>/2020/06/12/%E7%AE%97%E6%B3%95%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<h1 id="round-robin（随机轮询算法）"><a href="#round-robin（随机轮询算法）" class="headerlink" title="round-robin（随机轮询算法）"></a>round-robin（随机轮询算法）</h1><h1 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h1><h2 id="double-ended-queue"><a href="#double-ended-queue" class="headerlink" title="double-ended queue"></a>double-ended queue</h2><p><a href="https://en.wikipedia.org/wiki/Double-ended_queue" target="_blank" rel="noopener"></a></p>
+<h1 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h1><h1 id="Priority-Queue（优先队列）"><a href="#Priority-Queue（优先队列）" class="headerlink" title="Priority Queue（优先队列）"></a>Priority Queue（优先队列）</h1>]]></content>
       <tags>
-        <tag>English</tag>
+        <tag>Algorithm</tag>
+        <tag>[object Object]</tag>
       </tags>
   </entry>
   <entry>
@@ -5476,86 +5486,6 @@ public class Apple {
       </categories>
       <tags>
         <tag>English</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>English之时态系列-进行时态（过去进行时）</title>
-    <url>/2020/06/07/English%E4%B9%8B%E6%97%B6%E6%80%81%E7%B3%BB%E5%88%97-%E8%BF%9B%E8%A1%8C%E6%97%B6%E6%80%81-%E8%BF%87%E5%8E%BB%E8%BF%9B%E8%A1%8C%E6%97%B6/</url>
-    <content><![CDATA[<h1 id="过去进行时"><a href="#过去进行时" class="headerlink" title="过去进行时"></a>过去进行时</h1><h2 id="常见用法：用来设置故事的背景"><a href="#常见用法：用来设置故事的背景" class="headerlink" title="常见用法：用来设置故事的背景"></a>常见用法：用来设置故事的背景</h2><p><strong><em>在讲故事时，我们往往会用到过去进行时态（the past continuous tense） was/were doing来设置故事发生的过去背景（We often use the past continuous tense to “set the scene” in stories.）这是因为进行时态往往表示一个持续的活动场景，所以用它来铺垫故事的背景，往往会给读者一种身临其境的感觉。</em></strong></p>
-<p>It was getting darker. The rain was beating on the windows. The wind was rising. A wood fire was burning on the hearth, and a cat was sleeping in front of it. A girl was playing the piano and was singing softly to herself. Suddenly, there was a knock on the door…<br>上文中就是用了一系列过去进行时（was getting, was beating, was rising, was burning, was sleeping, was playing和 was singing）来进行故事背景的铺垫——屋外是风雨交加的恶劣天气， 而屋内是温馨、舒适和祥和的气氛，这两者形成了鲜明的对比. 然后“传来了敲门声”——这一切都烘托出了一种略带恐怖的氛围。</p>
-<p>James Bond was driving through town. It was raining. The wind was blowing hard. Nobody was walking in the streets. Suddenly, Bond saw the killer in a telephone box…<br>上面这种通过描写一系列过去进行的动作来渲染故事背景的过去进行时用法，多见于文学作品中。在日常生活的叙事中，我们更多的是把“过去进行时”和“一般过去时”配合使用（past continuous tense+simple past tense）。此时，过去进行时通常表示一个历时较长的体现“背景”的动作或状态；而一般过去时则表示在此“背景”下发生的一个短暂的动作或状态。简言之，长动作用过去进行时，短动作用一般过去时，以此表示在过去进行时的动作的持续期间，发生了另一个短暂动作。这两个动作之间用when或while连接。</p>
-<p>比如我们这样告诉别人自己曾经的“恐怖”经历：<br>I was walking along the street late last night when suddenly I heard footsteps behind me. Somebody was following me. I was frightened and I started to run.<br>这句中的walk表示“一直在走”，显然是长动作，所以要用过去进行时；hear表示“听到了”，显然是短动作，所以用了一般过去时。这里表示在was walking这个持续动作的背景下发生了短暂动作heard。</p>
-<h3 id="动作长短的相对性及其与时态的关系"><a href="#动作长短的相对性及其与时态的关系" class="headerlink" title="动作长短的相对性及其与时态的关系"></a>动作长短的相对性及其与时态的关系</h3><p>I was watching TV when the telephone rang.<br>我当时正在看电视， 突然电话铃响了。 在这个句子里，“看电视（watching TV）”可能持续几个小时， 而“电话铃响”可能就持续几秒钟（a few seconds）。但在下面这个句子里：<br>I was walking past the car when it exploded.<br>汽车爆炸时我正好刚走过。在这里，walking past the car可能只持续了几秒钟（a few seconds），而exploded则更短，可能也就几毫秒（a few milliseconds）。<br><strong><em>总之，动作的长短是指具体句子里的两个动作的相对长短。相对短的动作用一般过去时，相对长的动作用过去进行时</em></strong>。若时态用错，句意可能就要发生改变。比如：<br>I was cooking dinner last night when I cut my finger. 我昨晚做晚饭的时候，不小心把手指给切了。<br>I was telephoning Harry when she arrived. 她到的时候，我正在给哈里打电话。<br>若是违反了这一英语思维规律，比如在下面的句子中，我们把短动作cut也用过去进行时，说成：<br>…when I was cutting my finger.<br>那意思就变成“当我在砍手指的时候……”，此时cutting就变成一个长动作了。相信一个正常人是不会说出这样的话的，更不会做出cutting fingers这样的行为。<br>再比如，我们把长动作telephone改用一般过去时，请比较：<br>1） I was telephoning Harry when she arrived.<br>2） I telephoned Harry when she arrived.<br>在例句1）中，telephone是一个延续动作，arrive是短暂 动作。用进行时telephoning是表明在“我”打电话的过程中，她到了，即先telephone，后arrive。在例句2）中，telephone和arrive都用一般过去时，都变成了短暂动作。此时，是表明“我”打电话是发生在她来了之后，即先arrive，后telephone。<br>1） 她到的时候我正在给哈里打电话。<br>2） 她到了之后，我再给哈里打电话。</p>
-<h3 id="when和while的区别"><a href="#when和while的区别" class="headerlink" title="when和while的区别"></a>when和while的区别</h3><p><strong><em>我们还看到，过去进行时与一般过去时的这种搭配使用主要由when或while连接，但两者有以下区别：<br>when的后面接短动作，用一般过去时（when+short action, simple past tense），或者接长动作，用过去进行时（when+long action, past continuous tense）； while的后面只能接长动作，用过去进行时（while+long action, past continuous tense）。</em></strong><br>I was walking past the car when it exploded.<br>The car exploded when I was walking past it.<br>The car exploded while I was walking past it.<br>不能说： I was walking past the car while it exploded. *<br>因为这里的exploded是一个短暂动词，不能和while搭配。</p>
-<h2 id="少见用法：两个过去同时在持续的动作"><a href="#少见用法：两个过去同时在持续的动作" class="headerlink" title="少见用法：两个过去同时在持续的动作"></a>少见用法：两个过去同时在持续的动作</h2><p>如果句中有两个相对长短的动作，那么长动作用过去进行时，短动作用一般过去时。但是，若句中的两个动作都是较长的动作，则两个动作都用过去进行时，表示两个过去同时在持续的动作。<br>While I was studying in my dorm, my roommates were talking loudly with their friends. 我在宿舍里学习的时候，我的室友在大声地和他们的朋友们说话。<br>While I was studying last night, my wife was watchingTV. 我昨晚学习的时候，我的妻子在看电视。</p>
-<h2 id="典型用法：描述一件过去特定时刻正在发生的事情"><a href="#典型用法：描述一件过去特定时刻正在发生的事情" class="headerlink" title="典型用法：描述一件过去特定时刻正在发生的事情"></a>典型用法：描述一件过去特定时刻正在发生的事情</h2><p>过去进行时还可以用来描述一件在过去的特定时刻正在发生的事情，这是各种进行时的典型用法。<br>I was discussing my thesis with my director at this time last night. （特定时刻）</p>
-<p>A: What were you doing at 10 o’clock last night?<br>B: I was having dinner with my friends.</p>
-<h2 id="口语用法：表示委婉的请求或建议"><a href="#口语用法：表示委婉的请求或建议" class="headerlink" title="口语用法：表示委婉的请求或建议"></a>口语用法：表示委婉的请求或建议</h2><p>在口语表达中，我们还常常用过去进行时来表示委婉的请求或建议，这时并不表示过去时间的动作。这尤其适用于表示态度的动词，如 wonder, hope和think等，这些动词用过去进行时（was wondering）或现在进行时（is wondering），均表示现在的一种愿望或态度，给人一种探询式的、犹豫不决的印象，因而显得很礼貌。</p>
-<p>I was wondering if you’d like to lend me your car.<br>I was wondering if you could lend me your car.<br>I was hoping that you’d like to lend me your car.<br>I was thinking that you’d like to lend me your car.<br>我希望你能把车借给我。<br>I hope to borrow your car.<br>I wonder if you can lend me your car.<br>则由于比较直截了当地表达了自己的态度，因而显得欠礼貌。</p>
-]]></content>
-      <categories>
-        <category>English</category>
-      </categories>
-      <tags>
-        <tag>English</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>算法汇总</title>
-    <url>/2020/06/12/%E7%AE%97%E6%B3%95%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<h1 id="round-robin（随机轮询算法）"><a href="#round-robin（随机轮询算法）" class="headerlink" title="round-robin（随机轮询算法）"></a>round-robin（随机轮询算法）</h1><h1 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h1><h2 id="double-ended-queue"><a href="#double-ended-queue" class="headerlink" title="double-ended queue"></a>double-ended queue</h2><p><a href="https://en.wikipedia.org/wiki/Double-ended_queue" target="_blank" rel="noopener"></a></p>
-<h1 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h1><h1 id="Priority-Queue（优先队列）"><a href="#Priority-Queue（优先队列）" class="headerlink" title="Priority Queue（优先队列）"></a>Priority Queue（优先队列）</h1>]]></content>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>[object Object]</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《深入理解Java虚拟机第3版》阅读笔记</title>
-    <url>/2020/07/09/%E3%80%8A%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AC%AC3%E7%89%88%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<blockquote>
-<p>这篇笔记总结自周志明老师的《深入理解Java虚拟机第3版》，以及其他网上知识点收集，只是我自己的个人复习笔记。</p>
-</blockquote>
-<h1 id="虚拟机概述"><a href="#虚拟机概述" class="headerlink" title="虚拟机概述"></a>虚拟机概述</h1><h2 id="中间语言翻译（从Java翻译到机器码）"><a href="#中间语言翻译（从Java翻译到机器码）" class="headerlink" title="中间语言翻译（从Java翻译到机器码）"></a>中间语言翻译（从Java翻译到机器码）</h2><blockquote>
-<p>从中间语言翻译到机器码</p>
-</blockquote>
-<h3 id="通过C语言翻译（初JVM）"><a href="#通过C语言翻译（初JVM）" class="headerlink" title="通过C语言翻译（初JVM）"></a>通过C语言翻译（初JVM）</h3><p>通过将字节码class翻译成C语言，比如定义iadd这个字节码是相加的助记符，然后通过c语言来解析字节码中的iadd就是相加，并指向对应的c语言相加的c程序来做实际运算，这样子的话，这个解析字节码的C程序就是所谓的JVM，最简陋效率最低的初代JVM</p>
-<h3 id="直接翻译为机器码"><a href="#直接翻译为机器码" class="headerlink" title="直接翻译为机器码"></a>直接翻译为机器码</h3><h4 id="CS-IP"><a href="#CS-IP" class="headerlink" title="CS:IP"></a>CS:IP</h4><p>CS与IPO这是物理CPU内部的两个寄存器。对于一台物理机器而言，这两个寄存器是最重要的寄存器，因为CPU在取指令时便完全依靠这两个寄存器。CS寄存器保存段地址，IP保存偏移地址。CS和IP这两个寄存器的值能够唯一确定内存中的一个地址，CPU在执行机器指令之前，便通过这两个寄存器定位到目标内存位置，并将该位置处的机器指令取出来进行运算。函数跳转的本质其实便是修改CS和IP这两个寄存器的内容，使其指向到目标函数所在内存的首地址，这样CPU便能执行目标函数了。Java虚拟机要想让物理CPU直接执行Java程序所对应的目标机器码，也得修改这两个寄存器才能实现。</p>
-<p>在C语言中，能够使用语法糖来修改CS:IP段寄存器，这样C程序就能直接动态执行机器码。<br>既然都能在C语言中直接动态执行机器码了（可以简单理解为：C语言的变量里面可以复制解析出来的机器码，然后直接执行），我们只要将中间语言指令直接翻译为机器码，然后让CS:IP直接指向这段机器码执行，这也是现代JVM最重要的的基本原理之一。</p>
-<h3 id="本地编译"><a href="#本地编译" class="headerlink" title="本地编译"></a>本地编译</h3><p>中间语言（Java）与同样属于高级语言的C语言相比，它们实现相同的功能，C语言编译后所生成的机器码，也比中间语言直接翻译成的机器码，在数量上要精简很多，所以单从这个角度来讲，C语言的执行效率当然是要更高一些。<br>中间语言由于其本身不能直接被CPU执行，为了能够被CPU执行，中间语言在完成同样一个功能时，需要准备更多便于自我管理的上下文环境，最后才能执行目标机器指令。准备上下文环境最终也是依靠机器码去实现，因此中间语言最终便生成了更多机器码，当然执行效率就降低了。<br>为了提高性能，JVM提供了一种机制能够将中间语言(字节码)直接编译为本地机器指令。例如安卓和部分JVM所实现的AOT ( ahead of time )特性便是这方面的尝试，但是这种方式并没有减少机器指令的数量级问题。<br>除此之外，JVM的大牛们在JIT (即时编译)、内存分配也进行了大量的优化，使JVM能够对热点代码进行大幅度指令优化，正是由于JVM可以在运行期基于上下文链路进行各种优化，因此优化后的指令质量甚至比C/C++编译岀的指令质量更高，以及部分Java程序性能甚至反超C/C++程序。如果离开了这些动态优化，Java程序的执行效率是无论如何也提不上去的。</p>
-<h2 id="神奇的指令"><a href="#神奇的指令" class="headerlink" title="神奇的指令"></a>神奇的指令</h2><p>Java虚拟机其实是”读不懂”Java代码的，不过也并非所有的虚拟机都不懂得面向对象的语言，JavaScript执行引擎就是个例外一JS脚本不需要编译就能被JS引擎直接执行。<br>Java所谓的中间语言就是Java字节码指令集，指令集一般是计算机硬件才有的东西，而作者却在软件层面定义了一套同样的东西。但是，软件本身不具备执行程序的能力，软件最终还得依靠硬件指令才能完成逻辑计算。因此，一套好的软件指令必须不能超出硬件指令所能表达的计算能力，同时又要对硬件指令进行高度抽象与概括。换言之，如果你定义了一套与硬件指令集完全一模一样的软件指令集，那大家还用你干嘛呀，不如直接用硬件指令得了。</p>
-<hr>
-<h1 id="Java技术的未来"><a href="#Java技术的未来" class="headerlink" title="Java技术的未来"></a>Java技术的未来</h1><h2 id="无语言倾向"><a href="#无语言倾向" class="headerlink" title="无语言倾向"></a>无语言倾向</h2><h3 id="GraalJVM"><a href="#GraalJVM" class="headerlink" title="GraalJVM"></a>GraalJVM</h3><h3 id="新一代即时编译器"><a href="#新一代即时编译器" class="headerlink" title="新一代即时编译器"></a>新一代即时编译器</h3><p>JDK10之后，HotSpot加入了一个全新的即时编译器，Graal编译器。(可以通过相应的JVM参数配置启动)</p>
-<h4 id="Substrate-VM"><a href="#Substrate-VM" class="headerlink" title="Substrate VM"></a>Substrate VM</h4><p>Substrate VM在内存占用和启动时间比HotSpot强5到50倍：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/eoIO68.png" alt><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/yutz7e.png" alt></p>
-<h2 id="实战：自己编译JDK"><a href="#实战：自己编译JDK" class="headerlink" title="实战：自己编译JDK"></a>实战：自己编译JDK</h2><h3 id="OpenJDK-vs-OracleJDK"><a href="#OpenJDK-vs-OracleJDK" class="headerlink" title="OpenJDK vs OracleJDK"></a>OpenJDK vs OracleJDK</h3><p>实际上，JDK11之后，两者的公用源码已经占比很高了：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/BzIIY0.png" alt></p>
-<h1 id="自动内存管理"><a href="#自动内存管理" class="headerlink" title="自动内存管理"></a>自动内存管理</h1><h2 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/LxyOJy.png" alt></p>
-<h3 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h3><p>程序计数器(Program Counter Register)是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。在Java虚拟机的概念模型里，字节解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。</p>
-<h3 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a>Java虚拟机栈</h3><h3 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h3><h3 id="Java堆（Heap）"><a href="#Java堆（Heap）" class="headerlink" title="Java堆（Heap）"></a>Java堆（Heap）</h3><h3 id="方法区【别名：”非堆”（Non-Heap）】"><a href="#方法区【别名：”非堆”（Non-Heap）】" class="headerlink" title="方法区【别名：”非堆”（Non-Heap）】"></a>方法区【别名：”非堆”（Non-Heap）】</h3><h4 id="JDK8以前”永久代”的落寞"><a href="#JDK8以前”永久代”的落寞" class="headerlink" title="JDK8以前”永久代”的落寞"></a>JDK8以前”永久代”的落寞</h4><p>JDK8之后”永久代”终于被全面废弃，换来了元空间（Meta-space）的登场。</p>
-<h4 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h4><h4 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h4><blockquote>
-<p>Java堆和Native堆</p>
-</blockquote>
-<h2 id="垃圾收集器与内存分配策略"><a href="#垃圾收集器与内存分配策略" class="headerlink" title="垃圾收集器与内存分配策略"></a>垃圾收集器与内存分配策略</h2><h3 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h3><h3 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h3><h3 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h3><h4 id="句柄和直接指针两种方式"><a href="#句柄和直接指针两种方式" class="headerlink" title="句柄和直接指针两种方式"></a>句柄和直接指针两种方式</h4><h3 id="实战：OutOfMemoryError异常"><a href="#实战：OutOfMemoryError异常" class="headerlink" title="实战：OutOfMemoryError异常"></a>实战：OutOfMemoryError异常</h3><h4 id="Java堆溢出"><a href="#Java堆溢出" class="headerlink" title="Java堆溢出"></a>Java堆溢出</h4><blockquote>
-<p>JVM堆转储快照文件（hprof文件）查看分析</p>
-</blockquote>
-<p>可以指定heapDumpPath：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/export/Domains/rcsv-fm.wd.local/server1/logs</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>kill -3 or -9 都不会打heap dump，kill -9 java_pid来不及做任何事情就被干掉了，-3会打印thread dump 但是不是heap dump。</p>
-</blockquote>
-<h5 id="Java内存分析工具（hprof文件分析工具）"><a href="#Java内存分析工具（hprof文件分析工具）" class="headerlink" title="Java内存分析工具（hprof文件分析工具）"></a>Java内存分析工具（hprof文件分析工具）</h5><h5 id="GC-Roots"><a href="#GC-Roots" class="headerlink" title="GC Roots"></a>GC Roots</h5><h4 id="虚拟机栈和本地方法栈溢出"><a href="#虚拟机栈和本地方法栈溢出" class="headerlink" title="虚拟机栈和本地方法栈溢出"></a>虚拟机栈和本地方法栈溢出</h4><h4 id="方法区和运行时常量池溢出"><a href="#方法区和运行时常量池溢出" class="headerlink" title="方法区和运行时常量池溢出"></a>方法区和运行时常量池溢出</h4><h4 id="本机直接内存溢出"><a href="#本机直接内存溢出" class="headerlink" title="本机直接内存溢出"></a>本机直接内存溢出</h4><h1 id="垃圾收集器与内存分配策略-1"><a href="#垃圾收集器与内存分配策略-1" class="headerlink" title="垃圾收集器与内存分配策略"></a>垃圾收集器与内存分配策略</h1><h2 id="对象已死？"><a href="#对象已死？" class="headerlink" title="对象已死？"></a>对象已死？</h2><h3 id="引用计数算法"><a href="#引用计数算法" class="headerlink" title="引用计数算法"></a>引用计数算法</h3><h3 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h3><h4 id="GC-Roots-1"><a href="#GC-Roots-1" class="headerlink" title="GC Roots"></a>GC Roots</h4><h4 id="三色标记法（Tri-color-Marking）"><a href="#三色标记法（Tri-color-Marking）" class="headerlink" title="三色标记法（Tri-color Marking）"></a>三色标记法（Tri-color Marking）</h4><p>白色、黑色、灰色</p>
-<h5 id="并发出现对象消失问题"><a href="#并发出现对象消失问题" class="headerlink" title="并发出现对象消失问题"></a>并发出现对象消失问题</h5><p>两种解决方案：增量更新（Incremental Update）、原始快照（Snapshot At The Begging，SATB）。</p>
-<h2 id="经典垃圾收集器"><a href="#经典垃圾收集器" class="headerlink" title="经典垃圾收集器"></a>经典垃圾收集器</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/WLBBDC.png" alt></p>
-<h3 id="Serial收集器"><a href="#Serial收集器" class="headerlink" title="Serial收集器"></a>Serial收集器</h3><p>这是最古老，最基础的垃圾收集器，只会使用一个处理器单线程去做垃圾收集，而且它在进行垃圾收集期间，会停掉所有的用户工作线程，这是非常糟糕的用户体验。(Stop The World)<br>Serial/Serial Old收集器工作流程：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/lqCCw4.png" alt><br>（图片出自来自《深入理解Java虚拟机第3版》）<br>Serial虽然有上述这么大的弊端，但是历代JVM一直致力于Serial的优化改进，直至如今，Serial依然是HotSpot的默认新生代收集器，因为其在单线程的环境下相较而言简单高效，而且垃圾收集的时间甚至可以缩短到十几、几十毫秒。</p>
-<h3 id="ParNew收集器"><a href="#ParNew收集器" class="headerlink" title="ParNew收集器"></a>ParNew收集器</h3><p>是Serial的多线程并行版本，具体实现和Serial收集器完全一致。<br>ParNew收集器工作流程：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/gh4KtY.png" alt><br>（图片出自来自《深入理解Java虚拟机第3版》）</p>
-<p>JDK5发布时推出了划时代意义的CMS收集器，是HotSpot第一款支持并发的垃圾收集器，其首次实现垃圾收集器与用户线程（基本上）同时工作。<br>ParNew是HotSpot JVM中第一款退役的收集器。</p>
-<h4 id="垃圾收集并行-vs-并发"><a href="#垃圾收集并行-vs-并发" class="headerlink" title="垃圾收集并行 vs 并发"></a>垃圾收集并行 vs 并发</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/7vYpf1.png" alt><br>（图片出自来自《深入理解Java虚拟机第3版》）</p>
-<h3 id="Parallel-Scavenge收集器"><a href="#Parallel-Scavenge收集器" class="headerlink" title="Parallel Scavenge收集器"></a>Parallel Scavenge收集器</h3>]]></content>
-      <categories>
-        <category>Java</category>
-        <category>JVM</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>JVM</tag>
       </tags>
   </entry>
   <entry>
@@ -5692,6 +5622,76 @@ public class Apple {
       </tags>
   </entry>
   <entry>
+    <title>English之时态系列-进行时态（过去进行时）</title>
+    <url>/2020/06/07/English%E4%B9%8B%E6%97%B6%E6%80%81%E7%B3%BB%E5%88%97-%E8%BF%9B%E8%A1%8C%E6%97%B6%E6%80%81-%E8%BF%87%E5%8E%BB%E8%BF%9B%E8%A1%8C%E6%97%B6/</url>
+    <content><![CDATA[<h1 id="过去进行时"><a href="#过去进行时" class="headerlink" title="过去进行时"></a>过去进行时</h1><h2 id="常见用法：用来设置故事的背景"><a href="#常见用法：用来设置故事的背景" class="headerlink" title="常见用法：用来设置故事的背景"></a>常见用法：用来设置故事的背景</h2><p><strong><em>在讲故事时，我们往往会用到过去进行时态（the past continuous tense） was/were doing来设置故事发生的过去背景（We often use the past continuous tense to “set the scene” in stories.）这是因为进行时态往往表示一个持续的活动场景，所以用它来铺垫故事的背景，往往会给读者一种身临其境的感觉。</em></strong></p>
+<p>It was getting darker. The rain was beating on the windows. The wind was rising. A wood fire was burning on the hearth, and a cat was sleeping in front of it. A girl was playing the piano and was singing softly to herself. Suddenly, there was a knock on the door…<br>上文中就是用了一系列过去进行时（was getting, was beating, was rising, was burning, was sleeping, was playing和 was singing）来进行故事背景的铺垫——屋外是风雨交加的恶劣天气， 而屋内是温馨、舒适和祥和的气氛，这两者形成了鲜明的对比. 然后“传来了敲门声”——这一切都烘托出了一种略带恐怖的氛围。</p>
+<p>James Bond was driving through town. It was raining. The wind was blowing hard. Nobody was walking in the streets. Suddenly, Bond saw the killer in a telephone box…<br>上面这种通过描写一系列过去进行的动作来渲染故事背景的过去进行时用法，多见于文学作品中。在日常生活的叙事中，我们更多的是把“过去进行时”和“一般过去时”配合使用（past continuous tense+simple past tense）。此时，过去进行时通常表示一个历时较长的体现“背景”的动作或状态；而一般过去时则表示在此“背景”下发生的一个短暂的动作或状态。简言之，长动作用过去进行时，短动作用一般过去时，以此表示在过去进行时的动作的持续期间，发生了另一个短暂动作。这两个动作之间用when或while连接。</p>
+<p>比如我们这样告诉别人自己曾经的“恐怖”经历：<br>I was walking along the street late last night when suddenly I heard footsteps behind me. Somebody was following me. I was frightened and I started to run.<br>这句中的walk表示“一直在走”，显然是长动作，所以要用过去进行时；hear表示“听到了”，显然是短动作，所以用了一般过去时。这里表示在was walking这个持续动作的背景下发生了短暂动作heard。</p>
+<h3 id="动作长短的相对性及其与时态的关系"><a href="#动作长短的相对性及其与时态的关系" class="headerlink" title="动作长短的相对性及其与时态的关系"></a>动作长短的相对性及其与时态的关系</h3><p>I was watching TV when the telephone rang.<br>我当时正在看电视， 突然电话铃响了。 在这个句子里，“看电视（watching TV）”可能持续几个小时， 而“电话铃响”可能就持续几秒钟（a few seconds）。但在下面这个句子里：<br>I was walking past the car when it exploded.<br>汽车爆炸时我正好刚走过。在这里，walking past the car可能只持续了几秒钟（a few seconds），而exploded则更短，可能也就几毫秒（a few milliseconds）。<br><strong><em>总之，动作的长短是指具体句子里的两个动作的相对长短。相对短的动作用一般过去时，相对长的动作用过去进行时</em></strong>。若时态用错，句意可能就要发生改变。比如：<br>I was cooking dinner last night when I cut my finger. 我昨晚做晚饭的时候，不小心把手指给切了。<br>I was telephoning Harry when she arrived. 她到的时候，我正在给哈里打电话。<br>若是违反了这一英语思维规律，比如在下面的句子中，我们把短动作cut也用过去进行时，说成：<br>…when I was cutting my finger.<br>那意思就变成“当我在砍手指的时候……”，此时cutting就变成一个长动作了。相信一个正常人是不会说出这样的话的，更不会做出cutting fingers这样的行为。<br>再比如，我们把长动作telephone改用一般过去时，请比较：<br>1） I was telephoning Harry when she arrived.<br>2） I telephoned Harry when she arrived.<br>在例句1）中，telephone是一个延续动作，arrive是短暂 动作。用进行时telephoning是表明在“我”打电话的过程中，她到了，即先telephone，后arrive。在例句2）中，telephone和arrive都用一般过去时，都变成了短暂动作。此时，是表明“我”打电话是发生在她来了之后，即先arrive，后telephone。<br>1） 她到的时候我正在给哈里打电话。<br>2） 她到了之后，我再给哈里打电话。</p>
+<h3 id="when和while的区别"><a href="#when和while的区别" class="headerlink" title="when和while的区别"></a>when和while的区别</h3><p><strong><em>我们还看到，过去进行时与一般过去时的这种搭配使用主要由when或while连接，但两者有以下区别：<br>when的后面接短动作，用一般过去时（when+short action, simple past tense），或者接长动作，用过去进行时（when+long action, past continuous tense）； while的后面只能接长动作，用过去进行时（while+long action, past continuous tense）。</em></strong><br>I was walking past the car when it exploded.<br>The car exploded when I was walking past it.<br>The car exploded while I was walking past it.<br>不能说： I was walking past the car while it exploded. *<br>因为这里的exploded是一个短暂动词，不能和while搭配。</p>
+<h2 id="少见用法：两个过去同时在持续的动作"><a href="#少见用法：两个过去同时在持续的动作" class="headerlink" title="少见用法：两个过去同时在持续的动作"></a>少见用法：两个过去同时在持续的动作</h2><p>如果句中有两个相对长短的动作，那么长动作用过去进行时，短动作用一般过去时。但是，若句中的两个动作都是较长的动作，则两个动作都用过去进行时，表示两个过去同时在持续的动作。<br>While I was studying in my dorm, my roommates were talking loudly with their friends. 我在宿舍里学习的时候，我的室友在大声地和他们的朋友们说话。<br>While I was studying last night, my wife was watchingTV. 我昨晚学习的时候，我的妻子在看电视。</p>
+<h2 id="典型用法：描述一件过去特定时刻正在发生的事情"><a href="#典型用法：描述一件过去特定时刻正在发生的事情" class="headerlink" title="典型用法：描述一件过去特定时刻正在发生的事情"></a>典型用法：描述一件过去特定时刻正在发生的事情</h2><p>过去进行时还可以用来描述一件在过去的特定时刻正在发生的事情，这是各种进行时的典型用法。<br>I was discussing my thesis with my director at this time last night. （特定时刻）</p>
+<p>A: What were you doing at 10 o’clock last night?<br>B: I was having dinner with my friends.</p>
+<h2 id="口语用法：表示委婉的请求或建议"><a href="#口语用法：表示委婉的请求或建议" class="headerlink" title="口语用法：表示委婉的请求或建议"></a>口语用法：表示委婉的请求或建议</h2><p>在口语表达中，我们还常常用过去进行时来表示委婉的请求或建议，这时并不表示过去时间的动作。这尤其适用于表示态度的动词，如 wonder, hope和think等，这些动词用过去进行时（was wondering）或现在进行时（is wondering），均表示现在的一种愿望或态度，给人一种探询式的、犹豫不决的印象，因而显得很礼貌。</p>
+<p>I was wondering if you’d like to lend me your car.<br>I was wondering if you could lend me your car.<br>I was hoping that you’d like to lend me your car.<br>I was thinking that you’d like to lend me your car.<br>我希望你能把车借给我。<br>I hope to borrow your car.<br>I wonder if you can lend me your car.<br>则由于比较直截了当地表达了自己的态度，因而显得欠礼貌。</p>
+]]></content>
+      <categories>
+        <category>English</category>
+      </categories>
+      <tags>
+        <tag>English</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《深入理解Java虚拟机第3版》阅读笔记</title>
+    <url>/2020/07/09/%E3%80%8A%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AC%AC3%E7%89%88%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<blockquote>
+<p>这篇笔记总结自周志明老师的《深入理解Java虚拟机第3版》，以及其他网上知识点收集，只是我自己的个人复习笔记。</p>
+</blockquote>
+<h1 id="虚拟机概述"><a href="#虚拟机概述" class="headerlink" title="虚拟机概述"></a>虚拟机概述</h1><h2 id="中间语言翻译（从Java翻译到机器码）"><a href="#中间语言翻译（从Java翻译到机器码）" class="headerlink" title="中间语言翻译（从Java翻译到机器码）"></a>中间语言翻译（从Java翻译到机器码）</h2><blockquote>
+<p>从中间语言翻译到机器码</p>
+</blockquote>
+<h3 id="通过C语言翻译（初JVM）"><a href="#通过C语言翻译（初JVM）" class="headerlink" title="通过C语言翻译（初JVM）"></a>通过C语言翻译（初JVM）</h3><p>通过将字节码class翻译成C语言，比如定义iadd这个字节码是相加的助记符，然后通过c语言来解析字节码中的iadd就是相加，并指向对应的c语言相加的c程序来做实际运算，这样子的话，这个解析字节码的C程序就是所谓的JVM，最简陋效率最低的初代JVM</p>
+<h3 id="直接翻译为机器码"><a href="#直接翻译为机器码" class="headerlink" title="直接翻译为机器码"></a>直接翻译为机器码</h3><h4 id="CS-IP"><a href="#CS-IP" class="headerlink" title="CS:IP"></a>CS:IP</h4><p>CS与IPO这是物理CPU内部的两个寄存器。对于一台物理机器而言，这两个寄存器是最重要的寄存器，因为CPU在取指令时便完全依靠这两个寄存器。CS寄存器保存段地址，IP保存偏移地址。CS和IP这两个寄存器的值能够唯一确定内存中的一个地址，CPU在执行机器指令之前，便通过这两个寄存器定位到目标内存位置，并将该位置处的机器指令取出来进行运算。函数跳转的本质其实便是修改CS和IP这两个寄存器的内容，使其指向到目标函数所在内存的首地址，这样CPU便能执行目标函数了。Java虚拟机要想让物理CPU直接执行Java程序所对应的目标机器码，也得修改这两个寄存器才能实现。</p>
+<p>在C语言中，能够使用语法糖来修改CS:IP段寄存器，这样C程序就能直接动态执行机器码。<br>既然都能在C语言中直接动态执行机器码了（可以简单理解为：C语言的变量里面可以复制解析出来的机器码，然后直接执行），我们只要将中间语言指令直接翻译为机器码，然后让CS:IP直接指向这段机器码执行，这也是现代JVM最重要的的基本原理之一。</p>
+<h3 id="本地编译"><a href="#本地编译" class="headerlink" title="本地编译"></a>本地编译</h3><p>中间语言（Java）与同样属于高级语言的C语言相比，它们实现相同的功能，C语言编译后所生成的机器码，也比中间语言直接翻译成的机器码，在数量上要精简很多，所以单从这个角度来讲，C语言的执行效率当然是要更高一些。<br>中间语言由于其本身不能直接被CPU执行，为了能够被CPU执行，中间语言在完成同样一个功能时，需要准备更多便于自我管理的上下文环境，最后才能执行目标机器指令。准备上下文环境最终也是依靠机器码去实现，因此中间语言最终便生成了更多机器码，当然执行效率就降低了。<br>为了提高性能，JVM提供了一种机制能够将中间语言(字节码)直接编译为本地机器指令。例如安卓和部分JVM所实现的AOT ( ahead of time )特性便是这方面的尝试，但是这种方式并没有减少机器指令的数量级问题。<br>除此之外，JVM的大牛们在JIT (即时编译)、内存分配也进行了大量的优化，使JVM能够对热点代码进行大幅度指令优化，正是由于JVM可以在运行期基于上下文链路进行各种优化，因此优化后的指令质量甚至比C/C++编译岀的指令质量更高，以及部分Java程序性能甚至反超C/C++程序。如果离开了这些动态优化，Java程序的执行效率是无论如何也提不上去的。</p>
+<h2 id="神奇的指令"><a href="#神奇的指令" class="headerlink" title="神奇的指令"></a>神奇的指令</h2><p>Java虚拟机其实是”读不懂”Java代码的，不过也并非所有的虚拟机都不懂得面向对象的语言，JavaScript执行引擎就是个例外一JS脚本不需要编译就能被JS引擎直接执行。<br>Java所谓的中间语言就是Java字节码指令集，指令集一般是计算机硬件才有的东西，而作者却在软件层面定义了一套同样的东西。但是，软件本身不具备执行程序的能力，软件最终还得依靠硬件指令才能完成逻辑计算。因此，一套好的软件指令必须不能超出硬件指令所能表达的计算能力，同时又要对硬件指令进行高度抽象与概括。换言之，如果你定义了一套与硬件指令集完全一模一样的软件指令集，那大家还用你干嘛呀，不如直接用硬件指令得了。</p>
+<hr>
+<h1 id="Java技术的未来"><a href="#Java技术的未来" class="headerlink" title="Java技术的未来"></a>Java技术的未来</h1><h2 id="无语言倾向"><a href="#无语言倾向" class="headerlink" title="无语言倾向"></a>无语言倾向</h2><h3 id="GraalJVM"><a href="#GraalJVM" class="headerlink" title="GraalJVM"></a>GraalJVM</h3><h3 id="新一代即时编译器"><a href="#新一代即时编译器" class="headerlink" title="新一代即时编译器"></a>新一代即时编译器</h3><p>JDK10之后，HotSpot加入了一个全新的即时编译器，Graal编译器。(可以通过相应的JVM参数配置启动)</p>
+<h4 id="Substrate-VM"><a href="#Substrate-VM" class="headerlink" title="Substrate VM"></a>Substrate VM</h4><p>Substrate VM在内存占用和启动时间比HotSpot强5到50倍：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/eoIO68.png" alt><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/yutz7e.png" alt></p>
+<h2 id="实战：自己编译JDK"><a href="#实战：自己编译JDK" class="headerlink" title="实战：自己编译JDK"></a>实战：自己编译JDK</h2><h3 id="OpenJDK-vs-OracleJDK"><a href="#OpenJDK-vs-OracleJDK" class="headerlink" title="OpenJDK vs OracleJDK"></a>OpenJDK vs OracleJDK</h3><p>实际上，JDK11之后，两者的公用源码已经占比很高了：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/BzIIY0.png" alt></p>
+<h1 id="自动内存管理"><a href="#自动内存管理" class="headerlink" title="自动内存管理"></a>自动内存管理</h1><h2 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/LxyOJy.png" alt></p>
+<h3 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h3><p>程序计数器(Program Counter Register)是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。在Java虚拟机的概念模型里，字节解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。</p>
+<h3 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a>Java虚拟机栈</h3><h3 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h3><h3 id="Java堆（Heap）"><a href="#Java堆（Heap）" class="headerlink" title="Java堆（Heap）"></a>Java堆（Heap）</h3><h3 id="方法区【别名：”非堆”（Non-Heap）】"><a href="#方法区【别名：”非堆”（Non-Heap）】" class="headerlink" title="方法区【别名：”非堆”（Non-Heap）】"></a>方法区【别名：”非堆”（Non-Heap）】</h3><h4 id="JDK8以前”永久代”的落寞"><a href="#JDK8以前”永久代”的落寞" class="headerlink" title="JDK8以前”永久代”的落寞"></a>JDK8以前”永久代”的落寞</h4><p>JDK8之后”永久代”终于被全面废弃，换来了元空间（Meta-space）的登场。</p>
+<h4 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h4><h4 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h4><blockquote>
+<p>Java堆和Native堆</p>
+</blockquote>
+<h2 id="垃圾收集器与内存分配策略"><a href="#垃圾收集器与内存分配策略" class="headerlink" title="垃圾收集器与内存分配策略"></a>垃圾收集器与内存分配策略</h2><h3 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h3><h3 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h3><h3 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h3><h4 id="句柄和直接指针两种方式"><a href="#句柄和直接指针两种方式" class="headerlink" title="句柄和直接指针两种方式"></a>句柄和直接指针两种方式</h4><h3 id="实战：OutOfMemoryError异常"><a href="#实战：OutOfMemoryError异常" class="headerlink" title="实战：OutOfMemoryError异常"></a>实战：OutOfMemoryError异常</h3><h4 id="Java堆溢出"><a href="#Java堆溢出" class="headerlink" title="Java堆溢出"></a>Java堆溢出</h4><blockquote>
+<p>JVM堆转储快照文件（hprof文件）查看分析</p>
+</blockquote>
+<p>可以指定heapDumpPath：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/export/Domains/rcsv-fm.wd.local/server1/logs</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>kill -3 or -9 都不会打heap dump，kill -9 java_pid来不及做任何事情就被干掉了，-3会打印thread dump 但是不是heap dump。</p>
+</blockquote>
+<h5 id="Java内存分析工具（hprof文件分析工具）"><a href="#Java内存分析工具（hprof文件分析工具）" class="headerlink" title="Java内存分析工具（hprof文件分析工具）"></a>Java内存分析工具（hprof文件分析工具）</h5><h5 id="GC-Roots"><a href="#GC-Roots" class="headerlink" title="GC Roots"></a>GC Roots</h5><h4 id="虚拟机栈和本地方法栈溢出"><a href="#虚拟机栈和本地方法栈溢出" class="headerlink" title="虚拟机栈和本地方法栈溢出"></a>虚拟机栈和本地方法栈溢出</h4><h4 id="方法区和运行时常量池溢出"><a href="#方法区和运行时常量池溢出" class="headerlink" title="方法区和运行时常量池溢出"></a>方法区和运行时常量池溢出</h4><h4 id="本机直接内存溢出"><a href="#本机直接内存溢出" class="headerlink" title="本机直接内存溢出"></a>本机直接内存溢出</h4><h1 id="垃圾收集器与内存分配策略-1"><a href="#垃圾收集器与内存分配策略-1" class="headerlink" title="垃圾收集器与内存分配策略"></a>垃圾收集器与内存分配策略</h1><h2 id="对象已死？"><a href="#对象已死？" class="headerlink" title="对象已死？"></a>对象已死？</h2><h3 id="引用计数算法"><a href="#引用计数算法" class="headerlink" title="引用计数算法"></a>引用计数算法</h3><h3 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h3><h4 id="GC-Roots-1"><a href="#GC-Roots-1" class="headerlink" title="GC Roots"></a>GC Roots</h4><h4 id="三色标记法（Tri-color-Marking）"><a href="#三色标记法（Tri-color-Marking）" class="headerlink" title="三色标记法（Tri-color Marking）"></a>三色标记法（Tri-color Marking）</h4><p>白色、黑色、灰色</p>
+<h5 id="并发出现对象消失问题"><a href="#并发出现对象消失问题" class="headerlink" title="并发出现对象消失问题"></a>并发出现对象消失问题</h5><p>两种解决方案：增量更新（Incremental Update）、原始快照（Snapshot At The Begging，SATB）。</p>
+<h2 id="经典垃圾收集器"><a href="#经典垃圾收集器" class="headerlink" title="经典垃圾收集器"></a>经典垃圾收集器</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/WLBBDC.png" alt></p>
+<h3 id="Serial收集器"><a href="#Serial收集器" class="headerlink" title="Serial收集器"></a>Serial收集器</h3><p>这是最古老，最基础的垃圾收集器，只会使用一个处理器单线程去做垃圾收集，而且它在进行垃圾收集期间，会停掉所有的用户工作线程，这是非常糟糕的用户体验。(Stop The World)<br>Serial/Serial Old收集器工作流程：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/lqCCw4.png" alt><br>（图片出自来自《深入理解Java虚拟机第3版》）<br>Serial虽然有上述这么大的弊端，但是历代JVM一直致力于Serial的优化改进，直至如今，Serial依然是HotSpot的默认新生代收集器，因为其在单线程的环境下相较而言简单高效，而且垃圾收集的时间甚至可以缩短到十几、几十毫秒。</p>
+<h3 id="ParNew收集器"><a href="#ParNew收集器" class="headerlink" title="ParNew收集器"></a>ParNew收集器</h3><p>是Serial的多线程并行版本，具体实现和Serial收集器完全一致。<br>ParNew收集器工作流程：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/gh4KtY.png" alt><br>（图片出自来自《深入理解Java虚拟机第3版》）</p>
+<p>JDK5发布时推出了划时代意义的CMS收集器，是HotSpot第一款支持并发的垃圾收集器，其首次实现垃圾收集器与用户线程（基本上）同时工作。<br>ParNew是HotSpot JVM中第一款退役的收集器。</p>
+<h4 id="垃圾收集并行-vs-并发"><a href="#垃圾收集并行-vs-并发" class="headerlink" title="垃圾收集并行 vs 并发"></a>垃圾收集并行 vs 并发</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/7vYpf1.png" alt><br>（图片出自来自《深入理解Java虚拟机第3版》）</p>
+<h3 id="Parallel-Scavenge收集器"><a href="#Parallel-Scavenge收集器" class="headerlink" title="Parallel Scavenge收集器"></a>Parallel Scavenge收集器</h3>]]></content>
+      <categories>
+        <category>Java</category>
+        <category>JVM</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JVM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>English之时态系列-完成时态（过去完成时）</title>
     <url>/2020/07/11/English%E4%B9%8B%E6%97%B6%E6%80%81%E7%B3%BB%E5%88%97-%E5%AE%8C%E6%88%90%E6%97%B6%E6%80%81-%E8%BF%87%E5%8E%BB%E5%AE%8C%E6%88%90%E6%97%B6/</url>
     <content><![CDATA[<p>过去完成时就是站在“过去时间”的角度回顾更远的另一个过去，表示一个事件从这个更远的过去持续到离现在较近的过去。</p>
@@ -5725,19 +5725,6 @@ public class Apple {
 <p>在表示两个相继发生的动作时，用过去完成时可以表示一个动作完成以后，另一个动作才开始发生，从而使得两个动作相互独立，彼此脱离开来。用一般过去时，则可能表示一个动作“导致”另一个动作的发生，或两个动作之间有因果关系。</p>
 </blockquote>
 <p>When I had opened all the windows, I sat down and had a cup of tea. 我把所有的窗子都打开后，就坐下来喝了杯茶。<br>不宜说“When I opened all the windows, I sat down and had a cup of tea.*”。<br>When I opened the window the cat jumped in. （比说When I had opened…更自然。） 我刚把窗子一打开，就有只猫跳了进来。<br>When I wrote him a letter, he came at once. 我给他去了封信后，他立即就来了。<br>When the singer had sung her song, she sat down. 这名歌手唱完歌以后，就坐下了。<br>上面这句话若说成“When the singer sang her song, she sat down.”，则可能给人造成这种印象：这位歌手喜欢坐着唱歌。</p>
-]]></content>
-      <categories>
-        <category>English</category>
-      </categories>
-      <tags>
-        <tag>English</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>English系列-自然拼读</title>
-    <url>/2020/07/22/English%E7%B3%BB%E5%88%97-%E8%87%AA%E7%84%B6%E6%8B%BC%E8%AF%BB/</url>
-    <content><![CDATA[<h1 id="字母组合发音"><a href="#字母组合发音" class="headerlink" title="字母组合发音"></a>字母组合发音</h1><h2 id="ar"><a href="#ar" class="headerlink" title="ar"></a>ar</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/ɑː/</span><br></pre></td></tr></table></figure>
-<p>garbage</p>
 ]]></content>
       <categories>
         <category>English</category>
@@ -5870,6 +5857,19 @@ public class Apple {
       </tags>
   </entry>
   <entry>
+    <title>English系列-自然拼读</title>
+    <url>/2020/07/22/English%E7%B3%BB%E5%88%97-%E8%87%AA%E7%84%B6%E6%8B%BC%E8%AF%BB/</url>
+    <content><![CDATA[<h1 id="字母组合发音"><a href="#字母组合发音" class="headerlink" title="字母组合发音"></a>字母组合发音</h1><h2 id="ar"><a href="#ar" class="headerlink" title="ar"></a>ar</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/ɑː/</span><br></pre></td></tr></table></figure>
+<p>garbage</p>
+]]></content>
+      <categories>
+        <category>English</category>
+      </categories>
+      <tags>
+        <tag>English</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>English之时态系列-完成进行时（将来完成进行时）</title>
     <url>/2020/07/26/English%E4%B9%8B%E6%97%B6%E6%80%81%E7%B3%BB%E5%88%97-%E5%AE%8C%E6%88%90%E8%BF%9B%E8%A1%8C%E6%97%B6-%E5%B0%86%E6%9D%A5%E5%AE%8C%E6%88%90%E8%BF%9B%E8%A1%8C%E6%97%B6/</url>
     <content><![CDATA[<p>将来完成进行时的用法与现在完成进行时基本相同，只是将“坐标时间”移到了将来。同样是强调动作的持续性，表示开始于将来某个时刻之前的动作持续到将来这一时刻，并可能继续持续下去。从时间的角度来看，将来完成进行时需要在上下文中有将来的时间坐标，这类似于过去完成进行时的过去的时间坐标。通常用“by+将来时间”或者是“by the time+从句（从句谓语用一般现在时）”来给出一个将来的时间坐标。<br>My brother has promised to help me study for my exam tomorrow. I get home from school at 3:00 and he gets home from school at 5:00. I will have been studying for two hours by the time he gets home.<br>这里是“by the time+从句”结构给出的将来的时间坐标，从句的谓语gets是一般现在时态，但表示将来的动作。然后在这个将来时间的基础上谈论之前的一个延续事件——一直在学习（到5:00时，studying的活动仍将持续），此时就要用将来完成进行时will have been studying这一较为复杂的动词形式。<br>图示如下：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/9tcgtR.png" alt></p>
@@ -5900,6 +5900,39 @@ public class Apple {
       </categories>
       <tags>
         <tag>English</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>学海无涯苦作舟</title>
+    <url>/2020/08/04/%E5%AD%A6%E6%B5%B7%E6%97%A0%E6%B6%AF%E8%8B%A6%E4%BD%9C%E8%88%9F/</url>
+    <content><![CDATA[<h1 id="专业方法和技巧"><a href="#专业方法和技巧" class="headerlink" title="专业方法和技巧"></a>专业方法和技巧</h1><h2 id="第一原理（第一性原理、第一思维方式）"><a href="#第一原理（第一性原理、第一思维方式）" class="headerlink" title="第一原理（第一性原理、第一思维方式）"></a>第一原理（第一性原理、第一思维方式）</h2><p><a href="https://wiki.mbalib.com/wiki/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86" target="_blank" rel="noopener">https://wiki.mbalib.com/wiki/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86</a><br>“我们运用第一性原理，而不是比较思维去思考问题是非常重要的。我们在生活中总是倾向于比较，对别人已经做过或者正在做的事情我们也都去做，这样发展的结果只能产生细小的迭代发展。第一性原理的思想方式是用物理学的角度看待世界，也就是说一层层拨开事物表象，看到里面的本质，再从本质一层层往上走。”这是马斯克眼中的“第一性原理思维模型”——回溯事物的本质，重新思考怎么做。</p>
+<h2 id="费曼4步学习法"><a href="#费曼4步学习法" class="headerlink" title="费曼4步学习法"></a>费曼4步学习法</h2><h2 id="艾宾浩斯记忆曲线"><a href="#艾宾浩斯记忆曲线" class="headerlink" title="艾宾浩斯记忆曲线"></a>艾宾浩斯记忆曲线</h2><p>遗忘曲线（Forgetting curve）是用于表述记忆中的中长期记忆的遗忘率的一种曲线。这一曲线最早由心理学家赫尔曼·艾宾浩斯通过自己的实验提出。在这一实验中，艾宾浩斯使用了一些毫无意义的字母组合。通过记忆这些字母组合，并在一系列时间间隔后检查遗忘率，得到了这一曲线。因此，这一曲线又叫艾宾浩斯遗忘曲线。<br>记忆曲线大概如下：</p>
+<ul>
+<li>20分钟后，42%被遗忘掉，58%被记住。</li>
+<li>1小时后，56%被遗忘掉，44%被记住。</li>
+<li>1天后，74%被遗忘掉，26%被记住。</li>
+<li>1周后，77%被遗忘掉，23%被记住。</li>
+<li>1个月后，79%被遗忘掉，21%被记住。</li>
+</ul>
+<blockquote>
+<p>Anki Notes这个软件就是根据</p>
+</blockquote>
+<h2 id="罗斯福专业法"><a href="#罗斯福专业法" class="headerlink" title="罗斯福专业法"></a>罗斯福专业法</h2><h2 id="达芬奇笔记"><a href="#达芬奇笔记" class="headerlink" title="达芬奇笔记"></a>达芬奇笔记</h2><h1 id="一些个专有名词"><a href="#一些个专有名词" class="headerlink" title="一些个专有名词"></a>一些个专有名词</h1><h2 id="边际效益"><a href="#边际效益" class="headerlink" title="边际效益"></a>边际效益</h2><p><a href="https://baike.baidu.com/item/%E8%BE%B9%E9%99%85%E6%95%88%E7%9B%8A/2414098?fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/%E8%BE%B9%E9%99%85%E6%95%88%E7%9B%8A/2414098?fr=aladdin</a></p>
+<h2 id="方法论-VS-世界观"><a href="#方法论-VS-世界观" class="headerlink" title="方法论 VS 世界观"></a>方法论 VS 世界观</h2><p><strong><em>它是人们用什么样的方式、方法来观察事物和处理问题。概括地说，世界观主要说明世界“是什么”的问题，方法论主要说明“怎么办”的问题。</em></strong><br>方法论是一种以解决问题为目标的理论体系或系统，通常涉及对问题阶段、任务、工具、方法技巧的论述。方法论会对一系列具体的方法进行分析研究、系统总结并最终提出较为一般性的原则。<br><a href="https://baike.baidu.com/item/%E6%96%B9%E6%B3%95%E8%AE%BA/82748?fr=aladdin" target="_blank" rel="noopener">方法论的百度百科</a></p>
+<h2 id="结痂"><a href="#结痂" class="headerlink" title="结痂"></a>结痂</h2><h1 id="成语"><a href="#成语" class="headerlink" title="成语"></a>成语</h1><ul>
+<li>睚眦必报</li>
+<li>兼听则明，偏听则暗</li>
+<li>触类旁通</li>
+<li>高光时刻</li>
+<li>窸窸窣窣</li>
+<li>侧足而立</li>
+</ul>
+<h1 id="权威书籍"><a href="#权威书籍" class="headerlink" title="权威书籍"></a>权威书籍</h1><h2 id="《金字塔原理》"><a href="#《金字塔原理》" class="headerlink" title="《金字塔原理》"></a>《金字塔原理》</h2><h2 id="《罗伯特议事规则》"><a href="#《罗伯特议事规则》" class="headerlink" title="《罗伯特议事规则》"></a>《罗伯特议事规则》</h2>]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -6029,39 +6062,6 @@ public class Apple {
       </tags>
   </entry>
   <entry>
-    <title>学海无涯苦作舟</title>
-    <url>/2020/08/04/%E5%AD%A6%E6%B5%B7%E6%97%A0%E6%B6%AF%E8%8B%A6%E4%BD%9C%E8%88%9F/</url>
-    <content><![CDATA[<h1 id="专业方法和技巧"><a href="#专业方法和技巧" class="headerlink" title="专业方法和技巧"></a>专业方法和技巧</h1><h2 id="第一原理（第一性原理、第一思维方式）"><a href="#第一原理（第一性原理、第一思维方式）" class="headerlink" title="第一原理（第一性原理、第一思维方式）"></a>第一原理（第一性原理、第一思维方式）</h2><p><a href="https://wiki.mbalib.com/wiki/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86" target="_blank" rel="noopener">https://wiki.mbalib.com/wiki/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86</a><br>“我们运用第一性原理，而不是比较思维去思考问题是非常重要的。我们在生活中总是倾向于比较，对别人已经做过或者正在做的事情我们也都去做，这样发展的结果只能产生细小的迭代发展。第一性原理的思想方式是用物理学的角度看待世界，也就是说一层层拨开事物表象，看到里面的本质，再从本质一层层往上走。”这是马斯克眼中的“第一性原理思维模型”——回溯事物的本质，重新思考怎么做。</p>
-<h2 id="费曼4步学习法"><a href="#费曼4步学习法" class="headerlink" title="费曼4步学习法"></a>费曼4步学习法</h2><h2 id="艾宾浩斯记忆曲线"><a href="#艾宾浩斯记忆曲线" class="headerlink" title="艾宾浩斯记忆曲线"></a>艾宾浩斯记忆曲线</h2><p>遗忘曲线（Forgetting curve）是用于表述记忆中的中长期记忆的遗忘率的一种曲线。这一曲线最早由心理学家赫尔曼·艾宾浩斯通过自己的实验提出。在这一实验中，艾宾浩斯使用了一些毫无意义的字母组合。通过记忆这些字母组合，并在一系列时间间隔后检查遗忘率，得到了这一曲线。因此，这一曲线又叫艾宾浩斯遗忘曲线。<br>记忆曲线大概如下：</p>
-<ul>
-<li>20分钟后，42%被遗忘掉，58%被记住。</li>
-<li>1小时后，56%被遗忘掉，44%被记住。</li>
-<li>1天后，74%被遗忘掉，26%被记住。</li>
-<li>1周后，77%被遗忘掉，23%被记住。</li>
-<li>1个月后，79%被遗忘掉，21%被记住。</li>
-</ul>
-<blockquote>
-<p>Anki Notes这个软件就是根据</p>
-</blockquote>
-<h2 id="罗斯福专业法"><a href="#罗斯福专业法" class="headerlink" title="罗斯福专业法"></a>罗斯福专业法</h2><h2 id="达芬奇笔记"><a href="#达芬奇笔记" class="headerlink" title="达芬奇笔记"></a>达芬奇笔记</h2><h1 id="一些个专有名词"><a href="#一些个专有名词" class="headerlink" title="一些个专有名词"></a>一些个专有名词</h1><h2 id="边际效益"><a href="#边际效益" class="headerlink" title="边际效益"></a>边际效益</h2><p><a href="https://baike.baidu.com/item/%E8%BE%B9%E9%99%85%E6%95%88%E7%9B%8A/2414098?fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/%E8%BE%B9%E9%99%85%E6%95%88%E7%9B%8A/2414098?fr=aladdin</a></p>
-<h2 id="方法论-VS-世界观"><a href="#方法论-VS-世界观" class="headerlink" title="方法论 VS 世界观"></a>方法论 VS 世界观</h2><p><strong><em>它是人们用什么样的方式、方法来观察事物和处理问题。概括地说，世界观主要说明世界“是什么”的问题，方法论主要说明“怎么办”的问题。</em></strong><br>方法论是一种以解决问题为目标的理论体系或系统，通常涉及对问题阶段、任务、工具、方法技巧的论述。方法论会对一系列具体的方法进行分析研究、系统总结并最终提出较为一般性的原则。<br><a href="https://baike.baidu.com/item/%E6%96%B9%E6%B3%95%E8%AE%BA/82748?fr=aladdin" target="_blank" rel="noopener">方法论的百度百科</a></p>
-<h2 id="结痂"><a href="#结痂" class="headerlink" title="结痂"></a>结痂</h2><h1 id="成语"><a href="#成语" class="headerlink" title="成语"></a>成语</h1><ul>
-<li>睚眦必报</li>
-<li>兼听则明，偏听则暗</li>
-<li>触类旁通</li>
-<li>高光时刻</li>
-<li>窸窸窣窣</li>
-<li>侧足而立</li>
-</ul>
-<h1 id="权威书籍"><a href="#权威书籍" class="headerlink" title="权威书籍"></a>权威书籍</h1><h2 id="《金字塔原理》"><a href="#《金字塔原理》" class="headerlink" title="《金字塔原理》"></a>《金字塔原理》</h2><h2 id="《罗伯特议事规则》"><a href="#《罗伯特议事规则》" class="headerlink" title="《罗伯特议事规则》"></a>《罗伯特议事规则》</h2>]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>English系列-思维练习错题笔记</title>
     <url>/2020/08/05/English%E7%B3%BB%E5%88%97-%E6%80%9D%E7%BB%B4%E7%BB%83%E4%B9%A0%E9%94%99%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h2 id="todo-item"><a href="#todo-item" class="headerlink" title="todo item"></a>todo item</h2><h2 id="完成时态综合训练）"><a href="#完成时态综合训练）" class="headerlink" title="完成时态综合训练）"></a>完成时态综合训练）</h2><p>Yesterday I had a phone call from Clint. I was very surprised. I <strong>__</strong> （write） to him many times but he <strong>__</strong> （never, reply） to my letters.<br>答案：had written, had never replied<br>解析：两个或两个以上相继发生的动作，用and或but按动作发生的先后顺序连接，此时要用一般过去时，而不用过去完成时。过去完成时则强调主语在过去的某一时刻“回顾”更早的动作。具体来说，如果在谈论过去某一事件时，又想到在这之前已发生的某事，就要用过去完成时态。   </p>
@@ -6096,6 +6096,11 @@ public class Apple {
       <tags>
         <tag>English</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>English时态系列-一般过去时</title>
+    <url>/2020/08/28/English%E6%97%B6%E6%80%81%E7%B3%BB%E5%88%97-%E4%B8%80%E8%88%AC%E8%BF%87%E5%8E%BB%E6%97%B6/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>English时态系列-一般现在时</title>
@@ -6165,11 +6170,6 @@ public class Apple {
       <tags>
         <tag>English</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>English时态系列-一般过去时</title>
-    <url>/2020/08/28/English%E6%97%B6%E6%80%81%E7%B3%BB%E5%88%97-%E4%B8%80%E8%88%AC%E8%BF%87%E5%8E%BB%E6%97%B6/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>信息来源与获取技巧</title>
