@@ -20,18 +20,28 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="学习方法学完一个基础知识点后主动刷leetcode对应的题，根据标签专项刷对应的题。leetcode链表专题 链表分别都对应了那些Java类？ java.util.ArrayList java.util.LinkedList java.util.concurrent.CopyOnWriteArrayList  单向链表 Java的官方API包里面是没有单向链表的实现的。  双向链表循环链表静态链表">
+  <meta name="description" content="学习方法学完一个基础知识点后主动刷leetcode对应的题，根据标签专项刷对应的题。leetcode链表专题 链表分别都对应了那些Java类？ java.util.ArrayList java.util.LinkedList java.util.concurrent.CopyOnWriteArrayList  单向链表单向链表包含两个域：  信息域（上图的data，存放节点数据） 指针域（上图的n">
 <meta name="keywords" content="Java,数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构系列之链表（Java）">
 <meta property="og:url" content="http://yoursite.com/2019/04/28/数据结构系列之链表-Java/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="学习方法学完一个基础知识点后主动刷leetcode对应的题，根据标签专项刷对应的题。leetcode链表专题 链表分别都对应了那些Java类？ java.util.ArrayList java.util.LinkedList java.util.concurrent.CopyOnWriteArrayList  单向链表 Java的官方API包里面是没有单向链表的实现的。  双向链表循环链表静态链表">
+<meta property="og:description" content="学习方法学完一个基础知识点后主动刷leetcode对应的题，根据标签专项刷对应的题。leetcode链表专题 链表分别都对应了那些Java类？ java.util.ArrayList java.util.LinkedList java.util.concurrent.CopyOnWriteArrayList  单向链表单向链表包含两个域：  信息域（上图的data，存放节点数据） 指针域（上图的n">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-28T14:54:06.341Z">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/X2alLM.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/AbY5Jl.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/zFgr4G.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/rlUd5C.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/odYgoS.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/hW9eHt.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/PWjUfy.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/GW4slV.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/XZMAXD.png">
+<meta property="og:updated_time" content="2020-08-30T13:04:25.868Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构系列之链表（Java）">
-<meta name="twitter:description" content="学习方法学完一个基础知识点后主动刷leetcode对应的题，根据标签专项刷对应的题。leetcode链表专题 链表分别都对应了那些Java类？ java.util.ArrayList java.util.LinkedList java.util.concurrent.CopyOnWriteArrayList  单向链表 Java的官方API包里面是没有单向链表的实现的。  双向链表循环链表静态链表">
+<meta name="twitter:description" content="学习方法学完一个基础知识点后主动刷leetcode对应的题，根据标签专项刷对应的题。leetcode链表专题 链表分别都对应了那些Java类？ java.util.ArrayList java.util.LinkedList java.util.concurrent.CopyOnWriteArrayList  单向链表单向链表包含两个域：  信息域（上图的data，存放节点数据） 指针域（上图的n">
+<meta name="twitter:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/X2alLM.png">
 
 <link rel="canonical" href="http://yoursite.com/2019/04/28/数据结构系列之链表-Java/">
 
@@ -196,7 +206,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-28 22:54:06" itemprop="dateModified" datetime="2020-08-28T22:54:06+08:00">2020-08-28</time>
+                <time title="Modified: 2020-08-30 21:04:25" itemprop="dateModified" datetime="2020-08-30T21:04:25+08:00">2020-08-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -225,10 +235,38 @@
 <li>java.util.LinkedList</li>
 <li>java.util.concurrent.CopyOnWriteArrayList</li>
 </ul>
-<h2 id="单向链表"><a href="#单向链表" class="headerlink" title="单向链表"></a>单向链表</h2><blockquote>
-<p>Java的官方API包里面是没有单向链表的实现的。</p>
+<h2 id="单向链表"><a href="#单向链表" class="headerlink" title="单向链表"></a>单向链表</h2><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/X2alLM.png" alt><br>单向链表包含两个域：</p>
+<ul>
+<li>信息域（上图的data，存放节点数据）</li>
+<li>指针域（上图的next，链接指向列表中的下一个节点，而最后一个节点则指向一个空值）</li>
+</ul>
+<p><strong><em>每个节点只有一个指针的链表也叫单向链表，或者单链表。</em></strong></p>
+<h3 id="在链表表头插入新节点"><a href="#在链表表头插入新节点" class="headerlink" title="在链表表头插入新节点"></a>在链表表头插入新节点</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/AbY5Jl.png" alt><br>此时只需要变更Head的指向。</p>
+<h3 id="在链表中间插入新节点"><a href="#在链表中间插入新节点" class="headerlink" title="在链表中间插入新节点"></a>在链表中间插入新节点</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/zFgr4G.png" alt><br>此时需要变更front node的next值，将其指向new node，new node的next值指向next node。</p>
+<h3 id="带头节点和尾节点的单链表"><a href="#带头节点和尾节点的单链表" class="headerlink" title="带头节点和尾节点的单链表"></a>带头节点和尾节点的单链表</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/rlUd5C.png" alt><br>在不带头节点的单链表中，插入和删除都需要区分操作的节点下标，在链表表头插入新节点与在链表中间插入新节点是不同的。<br>而在带头节点的单链表中，就不再需要做这样的区分。<br>在带头节点的链表表头插入新节点：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/odYgoS.png" alt><br>在带头节点的链表中间插入新节点：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/hW9eHt.png" alt><br>上面操作都是变更front node的next值，将其指向new node，new node的next值指向next node。<br>删除节点同理。</p>
+<h4 id="尾部插入"><a href="#尾部插入" class="headerlink" title="尾部插入"></a>尾部插入</h4><p>为了使链表在尾部插入时也和上面的头部、中间插入一直，以及达到更加高效，可在链表增加一个尾部指向的尾节点，这样一来，在尾部添加节点时，只要通过尾节点直接操作即可，无需从表头遍历到表尾。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/PWjUfy.png" alt><br>如上图，通过尾节点可能快速定位到front node，然后操作依然是变更front node的next值，将其指向new node，new node的next值指向next node（尾节点）。</p>
+<blockquote>
+<p>这样一来，头部、中间和尾部插入就可以视为同一种操作逻辑了。<br>分析java.util.LinkedList的源码可以发现有成员变量<code>transient Node&lt;E&gt; first;</code>和<code>transient Node&lt;E&gt; last;</code>。</p>
 </blockquote>
-<h2 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h2><h2 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h2><h2 id="静态链表？"><a href="#静态链表？" class="headerlink" title="静态链表？"></a>静态链表？</h2>
+<h3 id="循环单链表"><a href="#循环单链表" class="headerlink" title="循环单链表"></a>循环单链表</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/GW4slV.png" alt><br>循环链表在实现遍历的时候要注意避免死循环，判断遍历到尾节点即可停止。</p>
+<h3 id="单链表-vs-顺序表"><a href="#单链表-vs-顺序表" class="headerlink" title="单链表 vs 顺序表"></a>单链表 vs 顺序表</h3><p>单链表的插入和删除，每次都要从表头开始遍历至要插入或者删除结点的前一个结点，这个过程所花费的时间和访问结点所花费的时间是一样的，即O(n),而顺序表查询节点时间为O(1)。<br>单链表的操作时间开销是花费在遍历找到所在节点，而顺序表在插入和删除节点后要把后面元素全部做移位，如果后面的还有大量的元素，那么这个移位操作开销会比单链表大很多。<br>链表在插入和删除节点方面相较于顺序表是十分高效的</p>
+<h3 id="单链表的弊端"><a href="#单链表的弊端" class="headerlink" title="单链表的弊端"></a>单链表的弊端</h3><p>指针域中没有前驱指针，无法知道前驱节点，假如指针this指向某个节点，想要在this的前面插入一个节点或删除this所在节点时，必须从链表的表头遍历至this的前一个节点再执行插入或者删除操作，这种情况使用双链表就更为高效了。</p>
+<h2 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h2><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/XZMAXD.png" alt></p>
+<ul>
+<li>信息域（存放节点数据）</li>
+<li>指针域（有两个链接）<ul>
+<li>前链接：指向前一个节点，当此“前链接”为第一个时，指向空值或者空列表；</li>
+<li>后链接：指向下一个节点，当此“后连接”为最后一个时，指向空值或者空列表；</li>
+</ul>
+</li>
+</ul>
+<p>双向链表也叫双链表。双链表可以从任何一个节点访问前一个节点，当然也可以访问后一个节点，</p>
+<h2 id="静态链表？"><a href="#静态链表？" class="headerlink" title="静态链表？"></a>静态链表？</h2><h2 id="链表的利与弊"><a href="#链表的利与弊" class="headerlink" title="链表的利与弊"></a>链表的利与弊</h2><p>使用链表的好处：</p>
+<ul>
+<li>链表在初始化时仅需要分配一个元素的存储空间，在内存分配上可以是不连续的内存，也不需要做任何内存复制和重新分配的操作，在访问单个元素的时间开销会更少。</li>
+<li>链表在插入和删除节点方面相较于顺序表是十分高效的，因此链表比较适合那些插入删除频繁的场景使用。</li>
+</ul>
+
     </div>
 
     
@@ -312,7 +350,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#学习方法"><span class="nav-number">1.</span> <span class="nav-text">学习方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表分别都对应了那些Java类？"><span class="nav-number">2.</span> <span class="nav-text">链表分别都对应了那些Java类？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单向链表"><span class="nav-number">3.</span> <span class="nav-text">单向链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双向链表"><span class="nav-number">4.</span> <span class="nav-text">双向链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环链表"><span class="nav-number">5.</span> <span class="nav-text">循环链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态链表？"><span class="nav-number">6.</span> <span class="nav-text">静态链表？</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#学习方法"><span class="nav-number">1.</span> <span class="nav-text">学习方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表分别都对应了那些Java类？"><span class="nav-number">2.</span> <span class="nav-text">链表分别都对应了那些Java类？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单向链表"><span class="nav-number">3.</span> <span class="nav-text">单向链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在链表表头插入新节点"><span class="nav-number">3.1.</span> <span class="nav-text">在链表表头插入新节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在链表中间插入新节点"><span class="nav-number">3.2.</span> <span class="nav-text">在链表中间插入新节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#带头节点和尾节点的单链表"><span class="nav-number">3.3.</span> <span class="nav-text">带头节点和尾节点的单链表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#尾部插入"><span class="nav-number">3.3.1.</span> <span class="nav-text">尾部插入</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环单链表"><span class="nav-number">3.4.</span> <span class="nav-text">循环单链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单链表-vs-顺序表"><span class="nav-number">3.5.</span> <span class="nav-text">单链表 vs 顺序表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单链表的弊端"><span class="nav-number">3.6.</span> <span class="nav-text">单链表的弊端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双向链表"><span class="nav-number">4.</span> <span class="nav-text">双向链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态链表？"><span class="nav-number">5.</span> <span class="nav-text">静态链表？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表的利与弊"><span class="nav-number">6.</span> <span class="nav-text">链表的利与弊</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
