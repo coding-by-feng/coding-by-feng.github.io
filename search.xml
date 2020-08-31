@@ -1624,12 +1624,15 @@ public class Apple {
 <h3 id="带头节点和尾节点的单链表"><a href="#带头节点和尾节点的单链表" class="headerlink" title="带头节点和尾节点的单链表"></a>带头节点和尾节点的单链表</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/rlUd5C.png" alt><br>在不带头节点的单链表中，插入和删除都需要区分操作的节点下标，在链表表头插入新节点与在链表中间插入新节点是不同的。<br>而在带头节点的单链表中，就不再需要做这样的区分。<br>在带头节点的链表表头插入新节点：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/odYgoS.png" alt><br>在带头节点的链表中间插入新节点：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/hW9eHt.png" alt><br>上面操作都是变更front node的next值，将其指向new node，new node的next值指向next node。<br>删除节点同理。</p>
 <h4 id="尾部插入"><a href="#尾部插入" class="headerlink" title="尾部插入"></a>尾部插入</h4><p>为了使链表在尾部插入时也和上面的头部、中间插入一直，以及达到更加高效，可在链表增加一个尾部指向的尾节点，这样一来，在尾部添加节点时，只要通过尾节点直接操作即可，无需从表头遍历到表尾。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/PWjUfy.png" alt><br>如上图，通过尾节点可能快速定位到front node，然后操作依然是变更front node的next值，将其指向new node，new node的next值指向next node（尾节点）。</p>
 <blockquote>
-<p>这样一来，头部、中间和尾部插入就可以视为同一种操作逻辑了。<br>分析java.util.LinkedList的源码可以发现有成员变量<code>transient Node&lt;E&gt; first;</code>和<code>transient Node&lt;E&gt; last;</code>。</p>
+<p>这样一来，头部、中间和尾部插入就可以视为同一种操作逻辑了。</p>
 </blockquote>
 <h3 id="循环单链表"><a href="#循环单链表" class="headerlink" title="循环单链表"></a>循环单链表</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/GW4slV.png" alt><br>循环链表在实现遍历的时候要注意避免死循环，判断遍历到尾节点即可停止。</p>
-<h3 id="单链表-vs-顺序表"><a href="#单链表-vs-顺序表" class="headerlink" title="单链表 vs 顺序表"></a>单链表 vs 顺序表</h3><p>单链表的插入和删除，每次都要从表头开始遍历至要插入或者删除结点的前一个结点，这个过程所花费的时间和访问结点所花费的时间是一样的，即O(n),而顺序表查询节点时间为O(1)。<br>单链表的操作时间开销是花费在遍历找到所在节点，而顺序表在插入和删除节点后要把后面元素全部做移位，如果后面的还有大量的元素，那么这个移位操作开销会比单链表大很多。<br>链表在插入和删除节点方面相较于顺序表是十分高效的</p>
+<h3 id="单链表-vs-顺序表"><a href="#单链表-vs-顺序表" class="headerlink" title="单链表 vs 顺序表"></a>单链表 vs 顺序表</h3><p>由于不必须按顺序存储，链表在插入的时候可以达到 O(1) 的复杂度，比另一种线性表 —— 顺序表快得多，但是查找一个节点或者访问特定编号的节点则需要 O(n) 的时间，而顺序表相应的时间复杂度分别是 O(log n) 和 O(1)。<br>使用链表结构可以克服数组链表需要预先知道数据大小的缺点，链表结构可以充分利用计算机内存空间，实现灵活的内存动态管理。但是链表失去了数组随机读取的优点，同时链表由于增加了结点的指针域，空间开销比较大。<br>在计算机科学中，链表作为一种基础的数据结构可以用来生成其它类型的数据结构。链表通常由一连串节点组成，每个节点包含任意的实例数据（data fields）和一或两个用来指向上一个/或下一个节点的位置的链接（links）。链表最明显的好处就是，常规数组排列关联项目的方式可能不同于这些数据项目在记忆体或磁盘上顺序，数据的访问往往要在不同的排列顺序中转换。而链表是一种自我指示数据类型，因为它包含指向另一个相同类型的数据的指针（链接）。</p>
+<blockquote>
+<p>来源：<a href="https://leetcode-cn.com/tag/linked-list/" target="_blank" rel="noopener">https://leetcode-cn.com/tag/linked-list/</a></p>
+</blockquote>
 <h3 id="单链表的弊端"><a href="#单链表的弊端" class="headerlink" title="单链表的弊端"></a>单链表的弊端</h3><p>指针域中没有前驱指针，无法知道前驱节点，假如指针this指向某个节点，想要在this的前面插入一个节点或删除this所在节点时，必须从链表的表头遍历至this的前一个节点再执行插入或者删除操作，这种情况使用双链表就更为高效了。</p>
-<h2 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h2><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/XZMAXD.png" alt></p>
+<h2 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h2><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/mIH8Eo.png" alt></p>
 <ul>
 <li>信息域（存放节点数据）</li>
 <li>指针域（有两个链接）<ul>
@@ -1639,6 +1642,11 @@ public class Apple {
 </li>
 </ul>
 <p>双向链表也叫双链表。双链表可以从任何一个节点访问前一个节点，当然也可以访问后一个节点，</p>
+<h3 id="java-util-LinkedList双链表的实现逻辑"><a href="#java-util-LinkedList双链表的实现逻辑" class="headerlink" title="java.util.LinkedList双链表的实现逻辑"></a>java.util.LinkedList双链表的实现逻辑</h3><blockquote>
+<p>分析java.util.LinkedList的源码可以发现有成员变量<code>transient Node&lt;E&gt; first;</code>和<code>transient Node&lt;E&gt; last;</code>。</p>
+</blockquote>
+<p>初始化状态：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/gNi1Bf.png" alt><br>java.util.LinkedList插入数据的代码：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">private static class Node&lt;E&gt; &#123;</span><br><span class="line">    E item;</span><br><span class="line">    Node&lt;E&gt; next;</span><br><span class="line">    Node&lt;E&gt; prev;</span><br><span class="line"></span><br><span class="line">    Node(Node&lt;E&gt; prev, E element, Node&lt;E&gt; next) &#123;</span><br><span class="line">        this.item = element;</span><br><span class="line">        this.next = next;</span><br><span class="line">        this.prev = prev;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public boolean add(E e) &#123;</span><br><span class="line">    linkLast(e);</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void linkLast(E e) &#123;</span><br><span class="line">    final Node&lt;E&gt; l = last;</span><br><span class="line">    final Node&lt;E&gt; newNode = new Node&lt;&gt;(l, e, null);</span><br><span class="line">    last = newNode;</span><br><span class="line">    if (l == null)</span><br><span class="line">        first = newNode;</span><br><span class="line">    else</span><br><span class="line">        l.next = newNode;</span><br><span class="line">    size++;</span><br><span class="line">    modCount++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可见空双链表插入第一个节点时，判断尾节点是否为空，如果为空是在first头节点插入，否则是插入到尾部节点之后，如图：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/zhs4xu.png" alt><br>当再次插入新节点时，如图：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/q0mXuS.png" alt></p>
 <h2 id="静态链表？"><a href="#静态链表？" class="headerlink" title="静态链表？"></a>静态链表？</h2><h2 id="链表的利与弊"><a href="#链表的利与弊" class="headerlink" title="链表的利与弊"></a>链表的利与弊</h2><p>使用链表的好处：</p>
 <ul>
 <li>链表在初始化时仅需要分配一个元素的存储空间，在内存分配上可以是不连续的内存，也不需要做任何内存复制和重新分配的操作，在访问单个元素的时间开销会更少。</li>
@@ -3649,7 +3657,7 @@ public class Apple {
 </ul>
 <h1 id="计算机内存存储数据原理"><a href="#计算机内存存储数据原理" class="headerlink" title="计算机内存存储数据原理"></a>计算机内存存储数据原理</h1><p><a href="https://www.iteye.com/blog/wwty-401713" target="_blank" rel="noopener">https://www.iteye.com/blog/wwty-401713</a></p>
 <h1 id="SaaS"><a href="#SaaS" class="headerlink" title="SaaS"></a>SaaS</h1><h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><h2 id="JEP-JDK-Enhancement-Proposals-JDK增强提案"><a href="#JEP-JDK-Enhancement-Proposals-JDK增强提案" class="headerlink" title="JEP(JDK Enhancement Proposals)(JDK增强提案)"></a>JEP(JDK Enhancement Proposals)(JDK增强提案)</h2><p><a href="http://openjdk.java.net/jeps/0" target="_blank" rel="noopener">http://openjdk.java.net/jeps/0</a></p>
-]]></content>
+<h2 id="J9"><a href="#J9" class="headerlink" title="J9"></a>J9</h2>]]></content>
       <categories>
         <category>标准</category>
       </categories>
@@ -4213,7 +4221,7 @@ public class Apple {
 <h4 id="直接指针"><a href="#直接指针" class="headerlink" title="直接指针"></a>直接指针</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/7BWN68.png" alt></p>
 <h3 id="句柄方式-vs-直接指针"><a href="#句柄方式-vs-直接指针" class="headerlink" title="句柄方式 vs 直接指针"></a>句柄方式 vs 直接指针</h3><p>后者的效率更高，但是当GC挪动对象的时候，前者效率更高。（上图中，前者GC挪动存活对象和清理垃圾对象的时候，t的指针不需要变）</p>
 <h3 id="对象怎么分配"><a href="#对象怎么分配" class="headerlink" title="对象怎么分配"></a>对象怎么分配</h3><h3 id="OOP-KLASS模型"><a href="#OOP-KLASS模型" class="headerlink" title="OOP-KLASS模型"></a>OOP-KLASS模型</h3><h2 id="Java内存模型（Java-Memory-Model-JMM）"><a href="#Java内存模型（Java-Memory-Model-JMM）" class="headerlink" title="Java内存模型（Java Memory Model/JMM）"></a>Java内存模型（Java Memory Model/JMM）</h2><p><a href="https://zhuanlan.zhihu.com/p/29881777" target="_blank" rel="noopener">Java内存模型（JMM）总结</a></p>
-<h2 id="Java三种编译方式：前端编译-JIT编译-AOT编译"><a href="#Java三种编译方式：前端编译-JIT编译-AOT编译" class="headerlink" title="Java三种编译方式：前端编译 JIT编译 AOT编译"></a>Java三种编译方式：前端编译 JIT编译 AOT编译</h2><p><a href="https://blog.csdn.net/tjiyu/article/details/53748965" target="_blank" rel="noopener">https://blog.csdn.net/tjiyu/article/details/53748965</a></p>
+<h2 id="Java三种编译方式：前端编译-JIT编译（即时编译）-AOT编译"><a href="#Java三种编译方式：前端编译-JIT编译（即时编译）-AOT编译" class="headerlink" title="Java三种编译方式：前端编译 JIT编译（即时编译） AOT编译"></a>Java三种编译方式：前端编译 JIT编译（即时编译） AOT编译</h2><p><a href="https://blog.csdn.net/tjiyu/article/details/53748965" target="_blank" rel="noopener">https://blog.csdn.net/tjiyu/article/details/53748965</a></p>
 <h2 id="JVM各种实现"><a href="#JVM各种实现" class="headerlink" title="JVM各种实现"></a>JVM各种实现</h2><p>实现JVM规范的各种虚拟机：</p>
 <ul>
 <li>Oracle的HotSpot</li>
@@ -5543,12 +5551,27 @@ public class Apple {
 <h3 id="本地编译"><a href="#本地编译" class="headerlink" title="本地编译"></a>本地编译</h3><p>中间语言（Java）与同样属于高级语言的C语言相比，它们实现相同的功能，C语言编译后所生成的机器码，也比中间语言直接翻译成的机器码，在数量上要精简很多，所以单从这个角度来讲，C语言的执行效率当然是要更高一些。<br>中间语言由于其本身不能直接被CPU执行，为了能够被CPU执行，中间语言在完成同样一个功能时，需要准备更多便于自我管理的上下文环境，最后才能执行目标机器指令。准备上下文环境最终也是依靠机器码去实现，因此中间语言最终便生成了更多机器码，当然执行效率就降低了。<br>为了提高性能，JVM提供了一种机制能够将中间语言(字节码)直接编译为本地机器指令。例如安卓和部分JVM所实现的AOT ( ahead of time )特性便是这方面的尝试，但是这种方式并没有减少机器指令的数量级问题。<br>除此之外，JVM的大牛们在JIT (即时编译)、内存分配也进行了大量的优化，使JVM能够对热点代码进行大幅度指令优化，正是由于JVM可以在运行期基于上下文链路进行各种优化，因此优化后的指令质量甚至比C/C++编译岀的指令质量更高，以及部分Java程序性能甚至反超C/C++程序。如果离开了这些动态优化，Java程序的执行效率是无论如何也提不上去的。</p>
 <h2 id="神奇的指令"><a href="#神奇的指令" class="headerlink" title="神奇的指令"></a>神奇的指令</h2><p>Java虚拟机其实是”读不懂”Java代码的，不过也并非所有的虚拟机都不懂得面向对象的语言，JavaScript执行引擎就是个例外一JS脚本不需要编译就能被JS引擎直接执行。<br>Java所谓的中间语言就是Java字节码指令集，指令集一般是计算机硬件才有的东西，而作者却在软件层面定义了一套同样的东西。但是，软件本身不具备执行程序的能力，软件最终还得依靠硬件指令才能完成逻辑计算。因此，一套好的软件指令必须不能超出硬件指令所能表达的计算能力，同时又要对硬件指令进行高度抽象与概括。换言之，如果你定义了一套与硬件指令集完全一模一样的软件指令集，那大家还用你干嘛呀，不如直接用硬件指令得了。</p>
 <hr>
-<h1 id="Java技术的未来"><a href="#Java技术的未来" class="headerlink" title="Java技术的未来"></a>Java技术的未来</h1><h2 id="无语言倾向"><a href="#无语言倾向" class="headerlink" title="无语言倾向"></a>无语言倾向</h2><h3 id="GraalJVM"><a href="#GraalJVM" class="headerlink" title="GraalJVM"></a>GraalJVM</h3><h3 id="新一代即时编译器"><a href="#新一代即时编译器" class="headerlink" title="新一代即时编译器"></a>新一代即时编译器</h3><p>JDK10之后，HotSpot加入了一个全新的即时编译器，Graal编译器。(可以通过相应的JVM参数配置启动)</p>
+<h1 id="Java技术的未来"><a href="#Java技术的未来" class="headerlink" title="Java技术的未来"></a>Java技术的未来</h1><h2 id="无语言倾向"><a href="#无语言倾向" class="headerlink" title="无语言倾向"></a>无语言倾向</h2><h3 id="GraalJVM"><a href="#GraalJVM" class="headerlink" title="GraalJVM"></a>GraalJVM</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/0eyudF.png" alt></p>
+<h3 id="新一代即时编译器"><a href="#新一代即时编译器" class="headerlink" title="新一代即时编译器"></a>新一代即时编译器</h3><p>HotSpot虚拟机中含有两个即使编译器：</p>
+<ul>
+<li>编译耗时短但是输出代码优化程度较低的客户端编译器（C1）。</li>
+<li>编译耗时长但输出代码优化质量较高的服务端编译器（C2）。</li>
+</ul>
+<p>JDK10之后，HotSpot加入了一个全新的即时编译器，Graal编译器(可以通过相应的JVM参数配置启动，以C2代替者的身份登场，目前还是处于”实验状态”)。<br>Graal能够做比C2更加复杂的优化，如“部分逃逸分析”(Partial Escape Analysis)，也拥有比C2更容易使用激进预测性优化(Aggressive Speculative Optimization)的策略，支持自定义的预测性假设等。</p>
+<h3 id="想Native迈进"><a href="#想Native迈进" class="headerlink" title="想Native迈进"></a>想Native迈进</h3><p>最新的基本版本的JDK已经推出跨进程的、可以面向用户程序的类型信息共享(Application Class Data Sharing, AppCDS,允许把加载解析后的类型信息缓存起来，从而提升下次启动速度。</p>
 <h4 id="Substrate-VM"><a href="#Substrate-VM" class="headerlink" title="Substrate VM"></a>Substrate VM</h4><p>Substrate VM在内存占用和启动时间比HotSpot强5到50倍：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/eoIO68.png" alt><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/yutz7e.png" alt></p>
 <h2 id="实战：自己编译JDK"><a href="#实战：自己编译JDK" class="headerlink" title="实战：自己编译JDK"></a>实战：自己编译JDK</h2><h3 id="OpenJDK-vs-OracleJDK"><a href="#OpenJDK-vs-OracleJDK" class="headerlink" title="OpenJDK vs OracleJDK"></a>OpenJDK vs OracleJDK</h3><p>实际上，JDK11之后，两者的公用源码已经占比很高了：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/BzIIY0.png" alt></p>
 <h1 id="自动内存管理"><a href="#自动内存管理" class="headerlink" title="自动内存管理"></a>自动内存管理</h1><h2 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/LxyOJy.png" alt></p>
-<h3 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h3><p>程序计数器(Program Counter Register)是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。在Java虚拟机的概念模型里，字节解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。</p>
-<h3 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a>Java虚拟机栈</h3><h3 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h3><h3 id="Java堆（Heap）"><a href="#Java堆（Heap）" class="headerlink" title="Java堆（Heap）"></a>Java堆（Heap）</h3><h3 id="方法区【别名：”非堆”（Non-Heap）】"><a href="#方法区【别名：”非堆”（Non-Heap）】" class="headerlink" title="方法区【别名：”非堆”（Non-Heap）】"></a>方法区【别名：”非堆”（Non-Heap）】</h3><h4 id="JDK8以前”永久代”的落寞"><a href="#JDK8以前”永久代”的落寞" class="headerlink" title="JDK8以前”永久代”的落寞"></a>JDK8以前”永久代”的落寞</h4><p>JDK8之后”永久代”终于被全面废弃，换来了元空间（Meta-space）的登场。</p>
+<h3 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h3><p>程序计数器(Program Counter Register)是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。在Java虚拟机的<code>概念模型</code>里，字节解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。<br>每个线程都有一个独立的程序计数器，各线程之间的计数器互不影响（因为Java多线程是采用线程轮流切换来实现的，多核处理器中的单个处理器一次只能执行某个线程中的某条指令，切换之后各自的计数器能够恢复到各自接下来的执行位置）。<br>所以，<strong><em>程序计数器是线程私有的。</em></strong></p>
+<h3 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a>Java虚拟机栈</h3><p><strong><em>Java虚拟机栈一样是线程私有的，生命周期与线程相同。</em></strong><br>虚拟机栈描述的是Java方法执行的线程内存模型，每个方法被执行的时候，Java虚拟机都会同步创建一一个<code>栈帧(Stack Frame)</code>用于存储局部变量表、操作数栈、动态连接、方法出口等信息。每一个方法被调用直至执行完毕的过程，就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。<br>广为流传的所谓”堆”和”栈”内存划分说话中的”栈”就是指虚拟机栈，或者是指虚拟机栈中的局部变量表部分。</p>
+<h4 id="栈帧？"><a href="#栈帧？" class="headerlink" title="栈帧？"></a>栈帧？</h4><h4 id="局部变量表"><a href="#局部变量表" class="headerlink" title="局部变量表"></a>局部变量表</h4><p>局部变量表存放了编译期可知的各种Java虚拟机基本数据类型(boolean、byte、char、 short、 int、 float、 long、 double) 、对象引用(reference类型，它并不等同于对象本身，可能是一个指向对象起始地址的<code>引用指针</code>，或者叫<code>直接指针</code>；也可能是指向一个代表对象的<code>句柄</code>或者其他与此对象相关的位置)和returnAddress类型(指向了一条字节码指令的地址)<br>这些数据类型在局部变量表中的存储空间以局部变量槽(Slot)来表示，其中64位长度的1ong和double类型的数据会占用两个变量槽，其余的数据类型只占用一个。局部变量表所需的内存空间在编译期间完成分配，当进入-一个方法时，这个方法需要在栈帧中分配多大的局部变量空间是完全确定的，在方法运行期间不会改变局部变量表的大小。（“大小”是指变量槽的数量，变量槽占用32个比特还是64个比特由虚拟机决定）。</p>
+<h4 id="StackOverFlowError和OutOfMemoryError（Java虚拟机规范）"><a href="#StackOverFlowError和OutOfMemoryError（Java虚拟机规范）" class="headerlink" title="StackOverFlowError和OutOfMemoryError（Java虚拟机规范）"></a>StackOverFlowError和OutOfMemoryError（Java虚拟机规范）</h4><ul>
+<li>如果线程请求的栈深度大于虚拟机所允许的深度，将拋出StackOverflowError异常; </li>
+<li>如果Java虚拟机栈容量可以动态扩展，当栈扩展时无法申请到足够的内存会拋出OutOfMemoryError异常。</li>
+</ul>
+<h4 id="操作数栈？"><a href="#操作数栈？" class="headerlink" title="操作数栈？"></a>操作数栈？</h4><h3 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h3><p>本地方法栈（Native Method Stacks）为虚拟机调用本地方法而服务，就像虚拟机栈服务于Java方法的调用一样。<br>虚拟机可以对本地方法栈自由实现，《Java虚拟机规范》对这没有强制约束（HotSpot将虚拟机栈和本地方法栈合并了）。</p>
+<h3 id="Java堆（Heap、GC堆）"><a href="#Java堆（Heap、GC堆）" class="headerlink" title="Java堆（Heap、GC堆）"></a>Java堆（Heap、GC堆）</h3><p>Java堆是虚拟机内存管理中最大的一块（线程共享）。<br>当前主流虚拟机都可以通过参数扩展堆的大小（<code>-Xmx</code>、<code>-Xms</code>），如果内存不足或者堆无法再扩展了，就会抛出OutOfMemoryError。</p>
+<h3 id="方法区【别名：”非堆”（Non-Heap）】"><a href="#方法区【别名：”非堆”（Non-Heap）】" class="headerlink" title="方法区【别名：”非堆”（Non-Heap）】"></a>方法区【别名：”非堆”（Non-Heap）】</h3><h4 id="JDK8以前”永久代”的落寞"><a href="#JDK8以前”永久代”的落寞" class="headerlink" title="JDK8以前”永久代”的落寞"></a>JDK8以前”永久代”的落寞</h4><p>JDK8之后”永久代”终于被全面废弃，换来了元空间（Meta-space）的登场。</p>
 <h4 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h4><h4 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h4><blockquote>
 <p>Java堆和Native堆</p>
 </blockquote>
@@ -5566,7 +5589,14 @@ public class Apple {
 <h3 id="ParNew收集器"><a href="#ParNew收集器" class="headerlink" title="ParNew收集器"></a>ParNew收集器</h3><p>是Serial的多线程并行版本，具体实现和Serial收集器完全一致。<br>ParNew收集器工作流程：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/gh4KtY.png" alt><br>（图片出自来自《深入理解Java虚拟机第3版》）</p>
 <p>JDK5发布时推出了划时代意义的CMS收集器，是HotSpot第一款支持并发的垃圾收集器，其首次实现垃圾收集器与用户线程（基本上）同时工作。<br>ParNew是HotSpot JVM中第一款退役的收集器。</p>
 <h4 id="垃圾收集并行-vs-并发"><a href="#垃圾收集并行-vs-并发" class="headerlink" title="垃圾收集并行 vs 并发"></a>垃圾收集并行 vs 并发</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/7vYpf1.png" alt><br>（图片出自来自《深入理解Java虚拟机第3版》）</p>
-<h3 id="Parallel-Scavenge收集器"><a href="#Parallel-Scavenge收集器" class="headerlink" title="Parallel Scavenge收集器"></a>Parallel Scavenge收集器</h3>]]></content>
+<h3 id="Parallel-Scavenge收集器（吞吐量优先收集器）"><a href="#Parallel-Scavenge收集器（吞吐量优先收集器）" class="headerlink" title="Parallel Scavenge收集器（吞吐量优先收集器）"></a>Parallel Scavenge收集器（吞吐量优先收集器）</h3><p>是一款新生代收集器，同样是基于标记-复制算法实现的，也是能够并行收集的多线程收集器。<br>Parallel Scavenge的目标是要达到一个可控的吞吐量。</p>
+<h4 id="吞吐量"><a href="#吞吐量" class="headerlink" title="吞吐量"></a>吞吐量</h4><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/9wrqFn.png" alt><br>搞吞吐量可以更好地利用处理器资源，更快完成用户的任务。</p>
+<h4 id="Parallel-Scavenge精确控制吞吐量的参数"><a href="#Parallel-Scavenge精确控制吞吐量的参数" class="headerlink" title="Parallel Scavenge精确控制吞吐量的参数"></a>Parallel Scavenge精确控制吞吐量的参数</h4><ul>
+<li><code>-XX: MaxGCPauseMills</code>：最大垃圾收集停顿时间（并非越小越好，它与吞吐量是互斥的关系）。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/UcHrpK.png" alt></li>
+<li><code>-XX: GCTimeRatio</code>：直接设置吞吐量大小。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/F3rNln.png" alt></li>
+<li><code>-XX: +UseAdaptiveSizePolicy</code>：开关参数，开启之后虚拟机会根据当前系统运行情况收集性能监控信息，动态调整其它一些参数以提供最合适的停顿时间或者最大的吞吐量（<code>自适应的调节策略</code>）。</li>
+</ul>
+]]></content>
       <categories>
         <category>Java</category>
         <category>JVM</category>
@@ -5947,13 +5977,15 @@ public class Apple {
 </blockquote>
 <h2 id="罗斯福专业法"><a href="#罗斯福专业法" class="headerlink" title="罗斯福专业法"></a>罗斯福专业法</h2><h2 id="达芬奇笔记"><a href="#达芬奇笔记" class="headerlink" title="达芬奇笔记"></a>达芬奇笔记</h2><h1 id="一些个专有名词"><a href="#一些个专有名词" class="headerlink" title="一些个专有名词"></a>一些个专有名词</h1><h2 id="边际效益"><a href="#边际效益" class="headerlink" title="边际效益"></a>边际效益</h2><p><a href="https://baike.baidu.com/item/%E8%BE%B9%E9%99%85%E6%95%88%E7%9B%8A/2414098?fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/%E8%BE%B9%E9%99%85%E6%95%88%E7%9B%8A/2414098?fr=aladdin</a></p>
 <h2 id="方法论-VS-世界观"><a href="#方法论-VS-世界观" class="headerlink" title="方法论 VS 世界观"></a>方法论 VS 世界观</h2><p><strong><em>它是人们用什么样的方式、方法来观察事物和处理问题。概括地说，世界观主要说明世界“是什么”的问题，方法论主要说明“怎么办”的问题。</em></strong><br>方法论是一种以解决问题为目标的理论体系或系统，通常涉及对问题阶段、任务、工具、方法技巧的论述。方法论会对一系列具体的方法进行分析研究、系统总结并最终提出较为一般性的原则。<br><a href="https://baike.baidu.com/item/%E6%96%B9%E6%B3%95%E8%AE%BA/82748?fr=aladdin" target="_blank" rel="noopener">方法论的百度百科</a></p>
-<h2 id="结痂"><a href="#结痂" class="headerlink" title="结痂"></a>结痂</h2><h1 id="成语"><a href="#成语" class="headerlink" title="成语"></a>成语</h1><ul>
+<h2 id="结痂"><a href="#结痂" class="headerlink" title="结痂"></a>结痂</h2><h1 id="成语-amp-词语"><a href="#成语-amp-词语" class="headerlink" title="成语&amp;词语"></a>成语&amp;词语</h1><ul>
 <li>睚眦必报</li>
 <li>兼听则明，偏听则暗</li>
 <li>触类旁通</li>
 <li>高光时刻</li>
 <li>窸窸窣窣</li>
 <li>侧足而立</li>
+<li>相悖</li>
+<li>商榷</li>
 </ul>
 <h1 id="权威书籍"><a href="#权威书籍" class="headerlink" title="权威书籍"></a>权威书籍</h1><h2 id="《金字塔原理》"><a href="#《金字塔原理》" class="headerlink" title="《金字塔原理》"></a>《金字塔原理》</h2><h2 id="《罗伯特议事规则》"><a href="#《罗伯特议事规则》" class="headerlink" title="《罗伯特议事规则》"></a>《罗伯特议事规则》</h2>]]></content>
       <categories>
@@ -6128,13 +6160,26 @@ public class Apple {
   <entry>
     <title>English时态系列-一般过去时</title>
     <url>/2020/08/28/English%E6%97%B6%E6%80%81%E7%B3%BB%E5%88%97-%E4%B8%80%E8%88%AC%E8%BF%87%E5%8E%BB%E6%97%B6/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<blockquote>
+<p>这篇笔记摘选自《英语语法新思维初级教程通悟语法第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记。</p>
+</blockquote>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>据说，在美国的新闻报道中，最精练简明的导语出现在1906年4月的旧金山大地震之时，这个导语是：<br>San Francisco Was<br>这里除了地名San Francisco外，就只有唯一的一个关键词was，通过was表明了这次地震对旧金山所造成的破坏程度——已将其夷为平地，该城市不复存在了。因此，这个导语不妨译成：<br>旧金山已成为过去</p>
+<h2 id="基本用法一：过去发生的短暂动作或状态"><a href="#基本用法一：过去发生的短暂动作或状态" class="headerlink" title="基本用法一：过去发生的短暂动作或状态"></a>基本用法一：过去发生的短暂动作或状态</h2><p>一般过去时常表示在过去某一个特定的时间所发生的动作或存在的状态，此时常和表示过去的特定的时间状语连用。这些时间状语有：yesterday, yesterday evening, last night, the night before last（前天晚上）, last year, last spring（去年春天）以及three days/months/years ago等等。注意，这些时间状语之前不需加介词，比如不能说：at last night<em>, in last year</em>或in three years ago*等等。<br>I saw him in the library yesterday morning. 我昨天早上在图书馆看到他了。<br>I bought this computer three years ago. 我3年以前买的这台电脑。<br>是表示过去存在的状态：<br>He was late for school this morning. 他今天早上上学迟到了。<br>I was tired last night, so I went to bed early. 我昨晚感到很累，所以早早地上床睡觉了。<br>图示：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/jCl8Ia.png" alt></p>
+<p>I didn’t choose this life; it chose me.<br>这是巴基斯坦反对派领袖、前总理贝·布托（Bhutto）在其回忆录中的一句话。这里虽然没有明确的过去的时间状语，但根据语境判断，是表示过去发生的事件，所以用了一般过去时态。<br>我没有选择这种命运，而是命运选择了我。</p>
+<h2 id="基本用法二：过去发生的重复或延续活动"><a href="#基本用法二：过去发生的重复或延续活动" class="headerlink" title="基本用法二：过去发生的重复或延续活动"></a>基本用法二：过去发生的重复或延续活动</h2><p>除了表示短暂动作之外，一般过去时还可以表示过去的一段时间（a specific period of time in the past）内延续或重复的动作，图示为：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/AWxXqn.png" alt><br>I slept for eight hours last night. 我昨晚睡了8个小时。<br>She lived in our town for three years, but now she is living in Beijing.<br>她在我们这个小镇生活了3年，不过她现在住在北京。<br>I lived in the country for ten years. 我在农村生活了10年。</p>
+]]></content>
+      <categories>
+        <category>English</category>
+      </categories>
+      <tags>
+        <tag>English</tag>
+      </tags>
   </entry>
   <entry>
     <title>English时态系列-一般现在时</title>
     <url>/2020/08/28/English%E6%97%B6%E6%80%81%E7%B3%BB%E5%88%97-%E4%B8%80%E8%88%AC%E7%8E%B0%E5%9C%A8%E6%97%B6/</url>
     <content><![CDATA[<blockquote>
-<p>这篇笔记摘选自《英语语法新思维中级教程通悟语法第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记。</p>
+<p>这篇笔记摘选自《英语语法新思维初级教程通悟语法第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记。</p>
 </blockquote>
 <h2 id="并非只表示现在"><a href="#并非只表示现在" class="headerlink" title="并非只表示现在"></a>并非只表示现在</h2><p>一般现在时态并非只表示“现在”。一般现在时本质的思维特征是：表示从过去到现在直至将来的一段时间内发生的动作（action）或存在的状态（state），它们可发生于任何时间，这一段时间可以近乎无限长（如表示客观真理），也可以是人们生活中的一段时间（如人们的习惯活动）。<br>因此，一般现在时态通常被描述为有两种基本用法：</p>
 <ol>

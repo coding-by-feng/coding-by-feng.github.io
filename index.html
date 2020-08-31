@@ -163,7 +163,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/28/数据结构系列之链表-Java/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/09/《深入理解Java虚拟机第3版》阅读笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -177,7 +177,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/04/28/数据结构系列之链表-Java/" class="post-title-link" itemprop="url">数据结构系列之链表（Java）</a>
+            <a href="/2020/07/09/《深入理解Java虚拟机第3版》阅读笔记/" class="post-title-link" itemprop="url">《深入理解Java虚拟机第3版》阅读笔记</a>
         </h2>
 
         <div class="post-meta">
@@ -187,14 +187,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2019-04-28 18:22:07" itemprop="dateCreated datePublished" datetime="2019-04-28T18:22:07+08:00">2019-04-28</time>
+              <time title="Created: 2020-07-09 09:55:12" itemprop="dateCreated datePublished" datetime="2020-07-09T09:55:12+08:00">2020-07-09</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-30 21:04:25" itemprop="dateModified" datetime="2020-08-30T21:04:25+08:00">2020-08-30</time>
+                <time title="Modified: 2020-09-01 07:22:54" itemprop="dateModified" datetime="2020-09-01T07:22:54+08:00">2020-09-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -202,7 +202,11 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/JVM/" itemprop="url" rel="index"><span itemprop="name">JVM</span></a>
                 </span>
             </span>
 
@@ -217,42 +221,62 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="学习方法"><a href="#学习方法" class="headerlink" title="学习方法"></a>学习方法</h2><p>学完一个基础知识点后主动刷leetcode对应的题，根据标签专项刷对应的题。<br><a href="https://leetcode-cn.com/tag/linked-list/" target="_blank" rel="noopener">leetcode链表专题</a></p>
-<h2 id="链表分别都对应了那些Java类？"><a href="#链表分别都对应了那些Java类？" class="headerlink" title="链表分别都对应了那些Java类？"></a>链表分别都对应了那些Java类？</h2><ul>
-<li>java.util.ArrayList</li>
-<li>java.util.LinkedList</li>
-<li>java.util.concurrent.CopyOnWriteArrayList</li>
-</ul>
-<h2 id="单向链表"><a href="#单向链表" class="headerlink" title="单向链表"></a>单向链表</h2><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/X2alLM.png" alt><br>单向链表包含两个域：</p>
-<ul>
-<li>信息域（上图的data，存放节点数据）</li>
-<li>指针域（上图的next，链接指向列表中的下一个节点，而最后一个节点则指向一个空值）</li>
-</ul>
-<p><strong><em>每个节点只有一个指针的链表也叫单向链表，或者单链表。</em></strong></p>
-<h3 id="在链表表头插入新节点"><a href="#在链表表头插入新节点" class="headerlink" title="在链表表头插入新节点"></a>在链表表头插入新节点</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/AbY5Jl.png" alt><br>此时只需要变更Head的指向。</p>
-<h3 id="在链表中间插入新节点"><a href="#在链表中间插入新节点" class="headerlink" title="在链表中间插入新节点"></a>在链表中间插入新节点</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/zFgr4G.png" alt><br>此时需要变更front node的next值，将其指向new node，new node的next值指向next node。</p>
-<h3 id="带头节点和尾节点的单链表"><a href="#带头节点和尾节点的单链表" class="headerlink" title="带头节点和尾节点的单链表"></a>带头节点和尾节点的单链表</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/rlUd5C.png" alt><br>在不带头节点的单链表中，插入和删除都需要区分操作的节点下标，在链表表头插入新节点与在链表中间插入新节点是不同的。<br>而在带头节点的单链表中，就不再需要做这样的区分。<br>在带头节点的链表表头插入新节点：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/odYgoS.png" alt><br>在带头节点的链表中间插入新节点：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/hW9eHt.png" alt><br>上面操作都是变更front node的next值，将其指向new node，new node的next值指向next node。<br>删除节点同理。</p>
-<h4 id="尾部插入"><a href="#尾部插入" class="headerlink" title="尾部插入"></a>尾部插入</h4><p>为了使链表在尾部插入时也和上面的头部、中间插入一直，以及达到更加高效，可在链表增加一个尾部指向的尾节点，这样一来，在尾部添加节点时，只要通过尾节点直接操作即可，无需从表头遍历到表尾。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/PWjUfy.png" alt><br>如上图，通过尾节点可能快速定位到front node，然后操作依然是变更front node的next值，将其指向new node，new node的next值指向next node（尾节点）。</p>
-<blockquote>
-<p>这样一来，头部、中间和尾部插入就可以视为同一种操作逻辑了。<br>分析java.util.LinkedList的源码可以发现有成员变量<code>transient Node&lt;E&gt; first;</code>和<code>transient Node&lt;E&gt; last;</code>。</p>
+          <blockquote>
+<p>这篇笔记总结自周志明老师的《深入理解Java虚拟机第3版》，以及其他网上知识点收集，只是我自己的个人复习笔记。</p>
 </blockquote>
-<h3 id="循环单链表"><a href="#循环单链表" class="headerlink" title="循环单链表"></a>循环单链表</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/GW4slV.png" alt><br>循环链表在实现遍历的时候要注意避免死循环，判断遍历到尾节点即可停止。</p>
-<h3 id="单链表-vs-顺序表"><a href="#单链表-vs-顺序表" class="headerlink" title="单链表 vs 顺序表"></a>单链表 vs 顺序表</h3><p>单链表的插入和删除，每次都要从表头开始遍历至要插入或者删除结点的前一个结点，这个过程所花费的时间和访问结点所花费的时间是一样的，即O(n),而顺序表查询节点时间为O(1)。<br>单链表的操作时间开销是花费在遍历找到所在节点，而顺序表在插入和删除节点后要把后面元素全部做移位，如果后面的还有大量的元素，那么这个移位操作开销会比单链表大很多。<br>链表在插入和删除节点方面相较于顺序表是十分高效的</p>
-<h3 id="单链表的弊端"><a href="#单链表的弊端" class="headerlink" title="单链表的弊端"></a>单链表的弊端</h3><p>指针域中没有前驱指针，无法知道前驱节点，假如指针this指向某个节点，想要在this的前面插入一个节点或删除this所在节点时，必须从链表的表头遍历至this的前一个节点再执行插入或者删除操作，这种情况使用双链表就更为高效了。</p>
-<h2 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h2><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/XZMAXD.png" alt></p>
+<h1 id="虚拟机概述"><a href="#虚拟机概述" class="headerlink" title="虚拟机概述"></a>虚拟机概述</h1><h2 id="中间语言翻译（从Java翻译到机器码）"><a href="#中间语言翻译（从Java翻译到机器码）" class="headerlink" title="中间语言翻译（从Java翻译到机器码）"></a>中间语言翻译（从Java翻译到机器码）</h2><blockquote>
+<p>从中间语言翻译到机器码</p>
+</blockquote>
+<h3 id="通过C语言翻译（初JVM）"><a href="#通过C语言翻译（初JVM）" class="headerlink" title="通过C语言翻译（初JVM）"></a>通过C语言翻译（初JVM）</h3><p>通过将字节码class翻译成C语言，比如定义iadd这个字节码是相加的助记符，然后通过c语言来解析字节码中的iadd就是相加，并指向对应的c语言相加的c程序来做实际运算，这样子的话，这个解析字节码的C程序就是所谓的JVM，最简陋效率最低的初代JVM</p>
+<h3 id="直接翻译为机器码"><a href="#直接翻译为机器码" class="headerlink" title="直接翻译为机器码"></a>直接翻译为机器码</h3><h4 id="CS-IP"><a href="#CS-IP" class="headerlink" title="CS:IP"></a>CS:IP</h4><p>CS与IPO这是物理CPU内部的两个寄存器。对于一台物理机器而言，这两个寄存器是最重要的寄存器，因为CPU在取指令时便完全依靠这两个寄存器。CS寄存器保存段地址，IP保存偏移地址。CS和IP这两个寄存器的值能够唯一确定内存中的一个地址，CPU在执行机器指令之前，便通过这两个寄存器定位到目标内存位置，并将该位置处的机器指令取出来进行运算。函数跳转的本质其实便是修改CS和IP这两个寄存器的内容，使其指向到目标函数所在内存的首地址，这样CPU便能执行目标函数了。Java虚拟机要想让物理CPU直接执行Java程序所对应的目标机器码，也得修改这两个寄存器才能实现。</p>
+<p>在C语言中，能够使用语法糖来修改CS:IP段寄存器，这样C程序就能直接动态执行机器码。<br>既然都能在C语言中直接动态执行机器码了（可以简单理解为：C语言的变量里面可以复制解析出来的机器码，然后直接执行），我们只要将中间语言指令直接翻译为机器码，然后让CS:IP直接指向这段机器码执行，这也是现代JVM最重要的的基本原理之一。</p>
+<h3 id="本地编译"><a href="#本地编译" class="headerlink" title="本地编译"></a>本地编译</h3><p>中间语言（Java）与同样属于高级语言的C语言相比，它们实现相同的功能，C语言编译后所生成的机器码，也比中间语言直接翻译成的机器码，在数量上要精简很多，所以单从这个角度来讲，C语言的执行效率当然是要更高一些。<br>中间语言由于其本身不能直接被CPU执行，为了能够被CPU执行，中间语言在完成同样一个功能时，需要准备更多便于自我管理的上下文环境，最后才能执行目标机器指令。准备上下文环境最终也是依靠机器码去实现，因此中间语言最终便生成了更多机器码，当然执行效率就降低了。<br>为了提高性能，JVM提供了一种机制能够将中间语言(字节码)直接编译为本地机器指令。例如安卓和部分JVM所实现的AOT ( ahead of time )特性便是这方面的尝试，但是这种方式并没有减少机器指令的数量级问题。<br>除此之外，JVM的大牛们在JIT (即时编译)、内存分配也进行了大量的优化，使JVM能够对热点代码进行大幅度指令优化，正是由于JVM可以在运行期基于上下文链路进行各种优化，因此优化后的指令质量甚至比C/C++编译岀的指令质量更高，以及部分Java程序性能甚至反超C/C++程序。如果离开了这些动态优化，Java程序的执行效率是无论如何也提不上去的。</p>
+<h2 id="神奇的指令"><a href="#神奇的指令" class="headerlink" title="神奇的指令"></a>神奇的指令</h2><p>Java虚拟机其实是”读不懂”Java代码的，不过也并非所有的虚拟机都不懂得面向对象的语言，JavaScript执行引擎就是个例外一JS脚本不需要编译就能被JS引擎直接执行。<br>Java所谓的中间语言就是Java字节码指令集，指令集一般是计算机硬件才有的东西，而作者却在软件层面定义了一套同样的东西。但是，软件本身不具备执行程序的能力，软件最终还得依靠硬件指令才能完成逻辑计算。因此，一套好的软件指令必须不能超出硬件指令所能表达的计算能力，同时又要对硬件指令进行高度抽象与概括。换言之，如果你定义了一套与硬件指令集完全一模一样的软件指令集，那大家还用你干嘛呀，不如直接用硬件指令得了。</p>
+<hr>
+<h1 id="Java技术的未来"><a href="#Java技术的未来" class="headerlink" title="Java技术的未来"></a>Java技术的未来</h1><h2 id="无语言倾向"><a href="#无语言倾向" class="headerlink" title="无语言倾向"></a>无语言倾向</h2><h3 id="GraalJVM"><a href="#GraalJVM" class="headerlink" title="GraalJVM"></a>GraalJVM</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/0eyudF.png" alt></p>
+<h3 id="新一代即时编译器"><a href="#新一代即时编译器" class="headerlink" title="新一代即时编译器"></a>新一代即时编译器</h3><p>HotSpot虚拟机中含有两个即使编译器：</p>
 <ul>
-<li>信息域（存放节点数据）</li>
-<li>指针域（有两个链接）<ul>
-<li>前链接：指向前一个节点，当此“前链接”为第一个时，指向空值或者空列表；</li>
-<li>后链接：指向下一个节点，当此“后连接”为最后一个时，指向空值或者空列表；</li>
+<li>编译耗时短但是输出代码优化程度较低的客户端编译器（C1）。</li>
+<li>编译耗时长但输出代码优化质量较高的服务端编译器（C2）。</li>
 </ul>
-</li>
+<p>JDK10之后，HotSpot加入了一个全新的即时编译器，Graal编译器(可以通过相应的JVM参数配置启动，以C2代替者的身份登场，目前还是处于”实验状态”)。<br>Graal能够做比C2更加复杂的优化，如“部分逃逸分析”(Partial Escape Analysis)，也拥有比C2更容易使用激进预测性优化(Aggressive Speculative Optimization)的策略，支持自定义的预测性假设等。</p>
+<h3 id="想Native迈进"><a href="#想Native迈进" class="headerlink" title="想Native迈进"></a>想Native迈进</h3><p>最新的基本版本的JDK已经推出跨进程的、可以面向用户程序的类型信息共享(Application Class Data Sharing, AppCDS,允许把加载解析后的类型信息缓存起来，从而提升下次启动速度。</p>
+<h4 id="Substrate-VM"><a href="#Substrate-VM" class="headerlink" title="Substrate VM"></a>Substrate VM</h4><p>Substrate VM在内存占用和启动时间比HotSpot强5到50倍：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/eoIO68.png" alt><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/yutz7e.png" alt></p>
+<h2 id="实战：自己编译JDK"><a href="#实战：自己编译JDK" class="headerlink" title="实战：自己编译JDK"></a>实战：自己编译JDK</h2><h3 id="OpenJDK-vs-OracleJDK"><a href="#OpenJDK-vs-OracleJDK" class="headerlink" title="OpenJDK vs OracleJDK"></a>OpenJDK vs OracleJDK</h3><p>实际上，JDK11之后，两者的公用源码已经占比很高了：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/BzIIY0.png" alt></p>
+<h1 id="自动内存管理"><a href="#自动内存管理" class="headerlink" title="自动内存管理"></a>自动内存管理</h1><h2 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/LxyOJy.png" alt></p>
+<h3 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h3><p>程序计数器(Program Counter Register)是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。在Java虚拟机的<code>概念模型</code>里，字节解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。<br>每个线程都有一个独立的程序计数器，各线程之间的计数器互不影响（因为Java多线程是采用线程轮流切换来实现的，多核处理器中的单个处理器一次只能执行某个线程中的某条指令，切换之后各自的计数器能够恢复到各自接下来的执行位置）。<br>所以，<strong><em>程序计数器是线程私有的。</em></strong></p>
+<h3 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a>Java虚拟机栈</h3><p><strong><em>Java虚拟机栈一样是线程私有的，生命周期与线程相同。</em></strong><br>虚拟机栈描述的是Java方法执行的线程内存模型，每个方法被执行的时候，Java虚拟机都会同步创建一一个<code>栈帧(Stack Frame)</code>用于存储局部变量表、操作数栈、动态连接、方法出口等信息。每一个方法被调用直至执行完毕的过程，就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。<br>广为流传的所谓”堆”和”栈”内存划分说话中的”栈”就是指虚拟机栈，或者是指虚拟机栈中的局部变量表部分。</p>
+<h4 id="栈帧？"><a href="#栈帧？" class="headerlink" title="栈帧？"></a>栈帧？</h4><h4 id="局部变量表"><a href="#局部变量表" class="headerlink" title="局部变量表"></a>局部变量表</h4><p>局部变量表存放了编译期可知的各种Java虚拟机基本数据类型(boolean、byte、char、 short、 int、 float、 long、 double) 、对象引用(reference类型，它并不等同于对象本身，可能是一个指向对象起始地址的<code>引用指针</code>，或者叫<code>直接指针</code>；也可能是指向一个代表对象的<code>句柄</code>或者其他与此对象相关的位置)和returnAddress类型(指向了一条字节码指令的地址)<br>这些数据类型在局部变量表中的存储空间以局部变量槽(Slot)来表示，其中64位长度的1ong和double类型的数据会占用两个变量槽，其余的数据类型只占用一个。局部变量表所需的内存空间在编译期间完成分配，当进入-一个方法时，这个方法需要在栈帧中分配多大的局部变量空间是完全确定的，在方法运行期间不会改变局部变量表的大小。（“大小”是指变量槽的数量，变量槽占用32个比特还是64个比特由虚拟机决定）。</p>
+<h4 id="StackOverFlowError和OutOfMemoryError（Java虚拟机规范）"><a href="#StackOverFlowError和OutOfMemoryError（Java虚拟机规范）" class="headerlink" title="StackOverFlowError和OutOfMemoryError（Java虚拟机规范）"></a>StackOverFlowError和OutOfMemoryError（Java虚拟机规范）</h4><ul>
+<li>如果线程请求的栈深度大于虚拟机所允许的深度，将拋出StackOverflowError异常; </li>
+<li>如果Java虚拟机栈容量可以动态扩展，当栈扩展时无法申请到足够的内存会拋出OutOfMemoryError异常。</li>
 </ul>
-<p>双向链表也叫双链表。双链表可以从任何一个节点访问前一个节点，当然也可以访问后一个节点，</p>
-<h2 id="静态链表？"><a href="#静态链表？" class="headerlink" title="静态链表？"></a>静态链表？</h2><h2 id="链表的利与弊"><a href="#链表的利与弊" class="headerlink" title="链表的利与弊"></a>链表的利与弊</h2><p>使用链表的好处：</p>
-<ul>
-<li>链表在初始化时仅需要分配一个元素的存储空间，在内存分配上可以是不连续的内存，也不需要做任何内存复制和重新分配的操作，在访问单个元素的时间开销会更少。</li>
-<li>链表在插入和删除节点方面相较于顺序表是十分高效的，因此链表比较适合那些插入删除频繁的场景使用。</li>
+<h4 id="操作数栈？"><a href="#操作数栈？" class="headerlink" title="操作数栈？"></a>操作数栈？</h4><h3 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h3><p>本地方法栈（Native Method Stacks）为虚拟机调用本地方法而服务，就像虚拟机栈服务于Java方法的调用一样。<br>虚拟机可以对本地方法栈自由实现，《Java虚拟机规范》对这没有强制约束（HotSpot将虚拟机栈和本地方法栈合并了）。</p>
+<h3 id="Java堆（Heap、GC堆）"><a href="#Java堆（Heap、GC堆）" class="headerlink" title="Java堆（Heap、GC堆）"></a>Java堆（Heap、GC堆）</h3><p>Java堆是虚拟机内存管理中最大的一块（线程共享）。<br>当前主流虚拟机都可以通过参数扩展堆的大小（<code>-Xmx</code>、<code>-Xms</code>），如果内存不足或者堆无法再扩展了，就会抛出OutOfMemoryError。</p>
+<h3 id="方法区【别名：”非堆”（Non-Heap）】"><a href="#方法区【别名：”非堆”（Non-Heap）】" class="headerlink" title="方法区【别名：”非堆”（Non-Heap）】"></a>方法区【别名：”非堆”（Non-Heap）】</h3><h4 id="JDK8以前”永久代”的落寞"><a href="#JDK8以前”永久代”的落寞" class="headerlink" title="JDK8以前”永久代”的落寞"></a>JDK8以前”永久代”的落寞</h4><p>JDK8之后”永久代”终于被全面废弃，换来了元空间（Meta-space）的登场。</p>
+<h4 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h4><h4 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h4><blockquote>
+<p>Java堆和Native堆</p>
+</blockquote>
+<h2 id="垃圾收集器与内存分配策略"><a href="#垃圾收集器与内存分配策略" class="headerlink" title="垃圾收集器与内存分配策略"></a>垃圾收集器与内存分配策略</h2><h3 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h3><h3 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h3><h3 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h3><h4 id="句柄和直接指针两种方式"><a href="#句柄和直接指针两种方式" class="headerlink" title="句柄和直接指针两种方式"></a>句柄和直接指针两种方式</h4><h3 id="实战：OutOfMemoryError异常"><a href="#实战：OutOfMemoryError异常" class="headerlink" title="实战：OutOfMemoryError异常"></a>实战：OutOfMemoryError异常</h3><h4 id="Java堆溢出"><a href="#Java堆溢出" class="headerlink" title="Java堆溢出"></a>Java堆溢出</h4><blockquote>
+<p>JVM堆转储快照文件（hprof文件）查看分析</p>
+</blockquote>
+<p>可以指定heapDumpPath：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/export/Domains/rcsv-fm.wd.local/server1/logs</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>kill -3 or -9 都不会打heap dump，kill -9 java_pid来不及做任何事情就被干掉了，-3会打印thread dump 但是不是heap dump。</p>
+</blockquote>
+<h5 id="Java内存分析工具（hprof文件分析工具）"><a href="#Java内存分析工具（hprof文件分析工具）" class="headerlink" title="Java内存分析工具（hprof文件分析工具）"></a>Java内存分析工具（hprof文件分析工具）</h5><h5 id="GC-Roots"><a href="#GC-Roots" class="headerlink" title="GC Roots"></a>GC Roots</h5><h4 id="虚拟机栈和本地方法栈溢出"><a href="#虚拟机栈和本地方法栈溢出" class="headerlink" title="虚拟机栈和本地方法栈溢出"></a>虚拟机栈和本地方法栈溢出</h4><h4 id="方法区和运行时常量池溢出"><a href="#方法区和运行时常量池溢出" class="headerlink" title="方法区和运行时常量池溢出"></a>方法区和运行时常量池溢出</h4><h4 id="本机直接内存溢出"><a href="#本机直接内存溢出" class="headerlink" title="本机直接内存溢出"></a>本机直接内存溢出</h4><h1 id="垃圾收集器与内存分配策略-1"><a href="#垃圾收集器与内存分配策略-1" class="headerlink" title="垃圾收集器与内存分配策略"></a>垃圾收集器与内存分配策略</h1><h2 id="对象已死？"><a href="#对象已死？" class="headerlink" title="对象已死？"></a>对象已死？</h2><h3 id="引用计数算法"><a href="#引用计数算法" class="headerlink" title="引用计数算法"></a>引用计数算法</h3><h3 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h3><h4 id="GC-Roots-1"><a href="#GC-Roots-1" class="headerlink" title="GC Roots"></a>GC Roots</h4><h4 id="三色标记法（Tri-color-Marking）"><a href="#三色标记法（Tri-color-Marking）" class="headerlink" title="三色标记法（Tri-color Marking）"></a>三色标记法（Tri-color Marking）</h4><p>白色、黑色、灰色</p>
+<h5 id="并发出现对象消失问题"><a href="#并发出现对象消失问题" class="headerlink" title="并发出现对象消失问题"></a>并发出现对象消失问题</h5><p>两种解决方案：增量更新（Incremental Update）、原始快照（Snapshot At The Begging，SATB）。</p>
+<h2 id="经典垃圾收集器"><a href="#经典垃圾收集器" class="headerlink" title="经典垃圾收集器"></a>经典垃圾收集器</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/WLBBDC.png" alt></p>
+<h3 id="Serial收集器"><a href="#Serial收集器" class="headerlink" title="Serial收集器"></a>Serial收集器</h3><p>这是最古老，最基础的垃圾收集器，只会使用一个处理器单线程去做垃圾收集，而且它在进行垃圾收集期间，会停掉所有的用户工作线程，这是非常糟糕的用户体验。(Stop The World)<br>Serial/Serial Old收集器工作流程：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/lqCCw4.png" alt><br>（图片出自来自《深入理解Java虚拟机第3版》）<br>Serial虽然有上述这么大的弊端，但是历代JVM一直致力于Serial的优化改进，直至如今，Serial依然是HotSpot的默认新生代收集器，因为其在单线程的环境下相较而言简单高效，而且垃圾收集的时间甚至可以缩短到十几、几十毫秒。</p>
+<h3 id="ParNew收集器"><a href="#ParNew收集器" class="headerlink" title="ParNew收集器"></a>ParNew收集器</h3><p>是Serial的多线程并行版本，具体实现和Serial收集器完全一致。<br>ParNew收集器工作流程：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/gh4KtY.png" alt><br>（图片出自来自《深入理解Java虚拟机第3版》）</p>
+<p>JDK5发布时推出了划时代意义的CMS收集器，是HotSpot第一款支持并发的垃圾收集器，其首次实现垃圾收集器与用户线程（基本上）同时工作。<br>ParNew是HotSpot JVM中第一款退役的收集器。</p>
+<h4 id="垃圾收集并行-vs-并发"><a href="#垃圾收集并行-vs-并发" class="headerlink" title="垃圾收集并行 vs 并发"></a>垃圾收集并行 vs 并发</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/7vYpf1.png" alt><br>（图片出自来自《深入理解Java虚拟机第3版》）</p>
+<h3 id="Parallel-Scavenge收集器（吞吐量优先收集器）"><a href="#Parallel-Scavenge收集器（吞吐量优先收集器）" class="headerlink" title="Parallel Scavenge收集器（吞吐量优先收集器）"></a>Parallel Scavenge收集器（吞吐量优先收集器）</h3><p>是一款新生代收集器，同样是基于标记-复制算法实现的，也是能够并行收集的多线程收集器。<br>Parallel Scavenge的目标是要达到一个可控的吞吐量。</p>
+<h4 id="吞吐量"><a href="#吞吐量" class="headerlink" title="吞吐量"></a>吞吐量</h4><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/9wrqFn.png" alt><br>搞吞吐量可以更好地利用处理器资源，更快完成用户的任务。</p>
+<h4 id="Parallel-Scavenge精确控制吞吐量的参数"><a href="#Parallel-Scavenge精确控制吞吐量的参数" class="headerlink" title="Parallel Scavenge精确控制吞吐量的参数"></a>Parallel Scavenge精确控制吞吐量的参数</h4><ul>
+<li><code>-XX: MaxGCPauseMills</code>：最大垃圾收集停顿时间（并非越小越好，它与吞吐量是互斥的关系）。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/UcHrpK.png" alt></li>
+<li><code>-XX: GCTimeRatio</code>：直接设置吞吐量大小。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/F3rNln.png" alt></li>
+<li><code>-XX: +UseAdaptiveSizePolicy</code>：开关参数，开启之后虚拟机会根据当前系统运行情况收集性能监控信息，动态调整其它一些参数以提供最合适的停顿时间或者最大的吞吐量（<code>自适应的调节策略</code>）。</li>
 </ul>
 
       
@@ -273,7 +297,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/30/Java系列之零碎笔记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/28/English时态系列-一般过去时/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -287,7 +311,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/30/Java系列之零碎笔记/" class="post-title-link" itemprop="url">Java系列之零碎笔记</a>
+            <a href="/2020/08/28/English时态系列-一般过去时/" class="post-title-link" itemprop="url">English时态系列-一般过去时</a>
         </h2>
 
         <div class="post-meta">
@@ -297,14 +321,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2019-11-30 21:12:21" itemprop="dateCreated datePublished" datetime="2019-11-30T21:12:21+08:00">2019-11-30</time>
+              <time title="Created: 2020-08-28 08:43:38" itemprop="dateCreated datePublished" datetime="2020-08-28T08:43:38+08:00">2020-08-28</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-30 12:52:22" itemprop="dateModified" datetime="2020-08-30T12:52:22+08:00">2020-08-30</time>
+                <time title="Modified: 2020-09-01 00:11:53" itemprop="dateModified" datetime="2020-09-01T00:11:53+08:00">2020-09-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -312,7 +336,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
                 </span>
             </span>
 
@@ -327,56 +351,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="避坑"><a href="#避坑" class="headerlink" title="避坑"></a>避坑</h1><h2 id="代码格式"><a href="#代码格式" class="headerlink" title="代码格式"></a>代码格式</h2><p>一个团队你的代码格式一定要统一，不然代码冲突时，比对代码非常麻烦。</p>
-<h1 id="Java8-新特性"><a href="#Java8-新特性" class="headerlink" title="Java8 新特性"></a>Java8 新特性</h1><h2 id="Java8新特性参考"><a href="#Java8新特性参考" class="headerlink" title="Java8新特性参考"></a>Java8新特性参考</h2><ol>
-<li><a href="https://www.cnblogs.com/onetwo/p/8526374.html" target="_blank" rel="noopener">https://www.cnblogs.com/onetwo/p/8526374.html</a></li>
-<li><a href="https://www.cnblogs.com/dzy521/p/10077132.html" target="_blank" rel="noopener">https://www.cnblogs.com/dzy521/p/10077132.html</a><h3 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a>Stream</h3>由于Stream的起始点是基于Array来初始化，集合List可以直接通过parallelStream方法来启动一个Stream<h4 id="flatMap-vs-map"><a href="#flatMap-vs-map" class="headerlink" title="flatMap vs map"></a>flatMap vs map</h4>前者在结构之后是直接返回被扁平后的流对象，后者还是返回包装好原来元素的流对象<h2 id="java8注解新特性"><a href="#java8注解新特性" class="headerlink" title="java8注解新特性"></a>java8注解新特性</h2></li>
-<li>增加二个注解类型（ElementType.TYPE_USE 和 ElementType.TYPE_PARAMETER）<br> 意思是可以声明在任何类型声明的地方，比如lombok的@NonNull的几个用例：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@NonNull String str;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@NonNull List&lt;String&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 非负数</span><br><span class="line">Arrays&lt;@NonNegative Integer&gt; sort</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@Encrypted File file</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void divideInteger(int a, int b) throws @ZeroDivisor ArithmeticException</span><br></pre></td></tr></table></figure>
-<ol>
-<li>允许重复注解</li>
-</ol>
-<h2 id="参数名称的反射获取"><a href="#参数名称的反射获取" class="headerlink" title="参数名称的反射获取"></a>参数名称的反射获取</h2><p>Java 8终于将这个特性规范化，在语言层面（使用反射API和Parameter.getName()方法）和字节码层面（使用新的javac编译器以及-parameters参数）提供支持.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">&#125;</span><br><span class="line">@Test</span><br><span class="line">@SneakyThrows</span><br><span class="line">public void test1() &#123;</span><br><span class="line">    Method method = GeneratorTest.class.getMethod(&quot;main&quot;, String[].class);</span><br><span class="line">    for (Parameter parameter : method.getParameters()) &#123;</span><br><span class="line">        System.out.println(parameter.getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>打印结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">args</span><br></pre></td></tr></table></figure></p>
-<h2 id="Iterable-forEach"><a href="#Iterable-forEach" class="headerlink" title="Iterable.forEach"></a>Iterable.forEach</h2><p>在逻辑稍微复杂一旦的循环体里面不建议使用，至少要在外部方法声明处抛出个异常都不行，建单的循环可以使用。</p>
-<h2 id="FunctionalInterface（函数式接口）"><a href="#FunctionalInterface（函数式接口）" class="headerlink" title="@FunctionalInterface（函数式接口）"></a>@FunctionalInterface（函数式接口）</h2><p><a href="http://www.manongjc.com/article/46188.html" target="_blank" rel="noopener">http://www.manongjc.com/article/46188.html</a></p>
-<h2 id="parallelStream-vs-stream"><a href="#parallelStream-vs-stream" class="headerlink" title="parallelStream() vs stream()"></a>parallelStream() vs stream()</h2><p>前者是并行执行流，如果对执行结果的顺序没有要求，建议使用并行执行的parallelStream()，可以提高流执行的性能。</p>
-<h1 id="transient"><a href="#transient" class="headerlink" title="transient"></a>transient</h1><p><a href="https://baijiahao.baidu.com/s?id=1636557218432721275&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">https://baijiahao.baidu.com/s?id=1636557218432721275&amp;wfr=spider&amp;for=pc</a></p>
-<h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public &lt;T&gt; T readObjectData(ByteBuffer buffer, Class&lt;T&gt; type) &#123;</span><br><span class="line">...</span><br><span class="line">T retVal = (T) summaries;</span><br><span class="line">return retVal;</span><br></pre></td></tr></table></figure>
-<p>我在stackoverflow发现一个很好的解析：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public &lt;T&gt; T readObjectData(...</span><br><span class="line">        ^  ^</span><br><span class="line">        |  + Return type</span><br><span class="line">        + Generic type argument</span><br></pre></td></tr></table></figure></p>
-<h1 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void.class // 罕见又骚气的用法</span><br></pre></td></tr></table></figure>
-<h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><h2 id="Unimagined"><a href="#Unimagined" class="headerlink" title="Unimagined"></a>Unimagined</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 一个集合并入到另一个集合的安全写法</span><br><span class="line">Collections.addAll(Collection&lt;? super T&gt; c, T... elements);</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Collections.singletonMap(...);</span><br></pre></td></tr></table></figure>
-<h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><h2 id="一些自定义常用异常可以抽成公用的静态final异常，如："><a href="#一些自定义常用异常可以抽成公用的静态final异常，如：" class="headerlink" title="一些自定义常用异常可以抽成公用的静态final异常，如："></a>一些自定义常用异常可以抽成公用的静态final异常，如：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public final class PrematureCloseException extends IOException &#123;</span><br><span class="line"></span><br><span class="line">	public static final PrematureCloseException BEFORE_RESPONSE_SENDING_REQUEST =</span><br><span class="line">			new PrematureCloseException(&quot;Connection has been closed BEFORE response, while sending request body&quot;);</span><br><span class="line"></span><br><span class="line">	public static final PrematureCloseException BEFORE_RESPONSE =</span><br><span class="line">			new PrematureCloseException(&quot;Connection prematurely closed BEFORE response&quot;);</span><br><span class="line"></span><br><span class="line">	public static final PrematureCloseException DURING_RESPONSE =</span><br><span class="line">			new PrematureCloseException(&quot;Connection prematurely closed DURING response&quot;);</span><br><span class="line"></span><br><span class="line">	PrematureCloseException(String message) &#123;</span><br><span class="line">		super(message);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public synchronized Throwable fillInStackTrace() &#123;</span><br><span class="line">		// omit stacktrace for this exception</span><br><span class="line">		return this;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="一些运行时异常可以用Spring内置的断言API比较高逼格"><a href="#一些运行时异常可以用Spring内置的断言API比较高逼格" class="headerlink" title="一些运行时异常可以用Spring内置的断言API比较高逼格"></a>一些运行时异常可以用Spring内置的断言API比较高逼格</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Assert.notNull etc.</span><br></pre></td></tr></table></figure>
-<h1 id="jar"><a href="#jar" class="headerlink" title="jar"></a>jar</h1><h2 id="jar运行之后窗口无法粘贴"><a href="#jar运行之后窗口无法粘贴" class="headerlink" title="jar运行之后窗口无法粘贴"></a>jar运行之后窗口无法粘贴</h2><p>有些情况下需要使用windows的复制粘贴快捷键才能生效</p>
-<h2 id="jar指定目录的所有classes去打包"><a href="#jar指定目录的所有classes去打包" class="headerlink" title="jar指定目录的所有classes去打包"></a>jar指定目录的所有classes去打包</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar cvf test.jar -C unwoven-classes .</span><br></pre></td></tr></table></figure>
-<h1 id="Jackson-Convert-Error-Cannot-construct-instance-of-java-time-LocalDateTime"><a href="#Jackson-Convert-Error-Cannot-construct-instance-of-java-time-LocalDateTime" class="headerlink" title="Jackson Convert Error: Cannot construct instance of java.time.LocalDateTime"></a>Jackson Convert Error: Cannot construct instance of <code>java.time.LocalDateTime</code></h1><p>LocalDateTime属性加上注解<br>@JsonDeserialize(using = LocalDateTimeDeserializer.class)<br>@JsonSerialize(using = LocalDateTimeSerializer.class)</p>
-<h1 id="减少箭头型代码"><a href="#减少箭头型代码" class="headerlink" title="减少箭头型代码"></a>减少箭头型代码</h1><p><a href="https://blog.csdn.net/weixin_33858485/article/details/88768985" target="_blank" rel="noopener">https://blog.csdn.net/weixin_33858485/article/details/88768985</a><br>但是个人认为，一味的追求箭头代码也会有弊端，比如这样:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Task task = monTask.getTask();</span><br><span class="line">if (task == null) &#123;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">MonAssignTaskExample monAssignTaskExample = new MonAssignTaskExample();</span><br><span class="line">monAssignTaskExample.createCriteria().andTaskIdEqualTo(task.getTaskId()).andDealObjectIdEqualTo(task.getDealObjectId())</span><br><span class="line">        .andIsFinishEqualTo(&quot;N&quot;);</span><br><span class="line">List&lt;MonAssignTask&gt; monAssignTasks = this.baseMonAssignTaskBO.selectByExample(monAssignTaskExample);</span><br><span class="line">if (ObjectUtils.isEmpty(monAssignTasks)) &#123;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">for (MonAssignTask monAssignTask : monAssignTasks) &#123;</span><br><span class="line">    // do something</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这样写固然是可以减少箭头代码，但是如若这段代码下面今后要添加一些额外的业务逻辑，这些业务逻辑与task是否为null没有必要的联系，<br>那么可能会因为task==null退出了整个函数，导致额外的业务逻辑不被执行。</p>
-<h1 id="Service与Controller的交互"><a href="#Service与Controller的交互" class="headerlink" title="Service与Controller的交互"></a>Service与Controller的交互</h1><p>Service最终返回给Controller层的数据如果比较复杂，尽量不要用Map，可以封装成DTO，而且这样一来还可以结合JSR303或者其各种扩展，对DTO进行优雅的数据校验。</p>
-<h1 id="非null判断的优雅写法"><a href="#非null判断的优雅写法" class="headerlink" title="非null判断的优雅写法"></a>非null判断的优雅写法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Objects.requireNonNull(obj);</span><br></pre></td></tr></table></figure>
-<h1 id="Utils-工具类的命名"><a href="#Utils-工具类的命名" class="headerlink" title="Utils 工具类的命名"></a>Utils 工具类的命名</h1><p>每次在使用工具类的时候，总是会出现一个类名出现N个工具类比如：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/xLpjyO.png" alt="image"><br>而且自己也会有自定义的Utils类，为了更好地区分，我喜欢在Utils类价格前缀Enhanced，这样找自己的工具类就方便多了，比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EnhancedBeanUtils</span><br></pre></td></tr></table></figure></p>
-<h1 id="Deprecated"><a href="#Deprecated" class="headerlink" title="@Deprecated"></a>@Deprecated</h1><p>有些被封装的业务方法或者工具类方法如果有做修改，增加了方法的升级版，老旧的方法可以用@Deprecated标记为过时，防止新业务逻辑用到废弃的API。</p>
-<h1 id="this"><a href="#this" class="headerlink" title="this"></a>this</h1><p>方法体中，调用到类成员变量的时候，我喜欢用this.开头，这样可读性好，写代码自动提醒也方便。</p>
-<h1 id="魔法值应该尽量避免"><a href="#魔法值应该尽量避免" class="headerlink" title="魔法值应该尽量避免"></a>魔法值应该尽量避免</h1><p>阿里巴巴说java规范里面说杜绝一切魔法值，但是我觉得也不用可以完全追求零魔法值，我认为需要用常量代替魔法值的有以下这些：</p>
-<ol>
-<li>使用频率高的，或者被频繁调用的逻辑块中的魔法值。</li>
-<li>可读性很差的魔法值和表达式，应该禁止，最好都声明成可读性较好的常量或者变量。</li>
-</ol>
-<h1 id="多余的super"><a href="#多余的super" class="headerlink" title="多余的super();"></a>多余的super();</h1><p>在看公司的上古代码发现这种写法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public CreateRepairBillThread(SaInterfaceAccept accept) &#123;</span><br><span class="line">	super();</span><br><span class="line">	this.accept = accept;</span><br><span class="line">	this.timeout = timeout * 60L * 1000L;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这里面super();是一句多余的代码，因为子类的构造器会默认先调用父类无参构造器。</p>
-<h1 id="try资源句式"><a href="#try资源句式" class="headerlink" title="try资源句式"></a>try资源句式</h1><p>如果代码调用的类是实现java.lang.AutoCloseable的，用try资源句式来释放关闭资源这样代码就优雅多了。</p>
-<h1 id="音频格式转换"><a href="#音频格式转换" class="headerlink" title="音频格式转换"></a>音频格式转换</h1><p>使用<a href="http://www.sauronsoftware.it/projects/jave/manual.php#2" target="_blank" rel="noopener">JAVE 音频转换包</a>库</p>
-<h1 id="jdk容易被忽略的强大内置类"><a href="#jdk容易被忽略的强大内置类" class="headerlink" title="jdk容易被忽略的强大内置类"></a>jdk容易被忽略的强大内置类</h1><h2 id="PropertyDescriptor"><a href="#PropertyDescriptor" class="headerlink" title="PropertyDescriptor"></a>PropertyDescriptor</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PropertyDescriptor descriptor = new PropertyDescriptor(&quot;propertyName&quot;, param.getClass());</span><br><span class="line">Method getPropertyMethod = descriptor.getReadMethod();</span><br><span class="line">property = (Integer) getPropertyMethod.invoke(param);</span><br></pre></td></tr></table></figure>
-<h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><h2 id="String-format"><a href="#String-format" class="headerlink" title="String.format"></a>String.format</h2><p><a href="https://blog.csdn.net/u010137760/article/details/82869637" target="_blank" rel="noopener">https://blog.csdn.net/u010137760/article/details/82869637</a></p>
-<h2 id="String-intern"><a href="#String-intern" class="headerlink" title="String.intern"></a>String.intern</h2><p><a href="https://www.cnblogs.com/Yintianhao/p/12273714.html" target="_blank" rel="noopener">https://www.cnblogs.com/Yintianhao/p/12273714.html</a></p>
-<h1 id="Thread-sleep-使用-TimeUnit-XXX-sleep-x-代替"><a href="#Thread-sleep-使用-TimeUnit-XXX-sleep-x-代替" class="headerlink" title="Thread.sleep 使用 TimeUnit.XXX.sleep(x) 代替"></a>Thread.sleep 使用 TimeUnit.XXX.sleep(x) 代替</h1><p><a href="https://stackoverflow.com/questions/9587673/thread-sleep-vs-timeunit-seconds-sleep" target="_blank" rel="noopener">https://stackoverflow.com/questions/9587673/thread-sleep-vs-timeunit-seconds-sleep</a></p>
+          <blockquote>
+<p>这篇笔记摘选自《英语语法新思维初级教程通悟语法第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记。</p>
+</blockquote>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>据说，在美国的新闻报道中，最精练简明的导语出现在1906年4月的旧金山大地震之时，这个导语是：<br>San Francisco Was<br>这里除了地名San Francisco外，就只有唯一的一个关键词was，通过was表明了这次地震对旧金山所造成的破坏程度——已将其夷为平地，该城市不复存在了。因此，这个导语不妨译成：<br>旧金山已成为过去</p>
+<h2 id="基本用法一：过去发生的短暂动作或状态"><a href="#基本用法一：过去发生的短暂动作或状态" class="headerlink" title="基本用法一：过去发生的短暂动作或状态"></a>基本用法一：过去发生的短暂动作或状态</h2><p>一般过去时常表示在过去某一个特定的时间所发生的动作或存在的状态，此时常和表示过去的特定的时间状语连用。这些时间状语有：yesterday, yesterday evening, last night, the night before last（前天晚上）, last year, last spring（去年春天）以及three days/months/years ago等等。注意，这些时间状语之前不需加介词，比如不能说：at last night<em>, in last year</em>或in three years ago*等等。<br>I saw him in the library yesterday morning. 我昨天早上在图书馆看到他了。<br>I bought this computer three years ago. 我3年以前买的这台电脑。<br>是表示过去存在的状态：<br>He was late for school this morning. 他今天早上上学迟到了。<br>I was tired last night, so I went to bed early. 我昨晚感到很累，所以早早地上床睡觉了。<br>图示：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/jCl8Ia.png" alt></p>
+<p>I didn’t choose this life; it chose me.<br>这是巴基斯坦反对派领袖、前总理贝·布托（Bhutto）在其回忆录中的一句话。这里虽然没有明确的过去的时间状语，但根据语境判断，是表示过去发生的事件，所以用了一般过去时态。<br>我没有选择这种命运，而是命运选择了我。</p>
+<h2 id="基本用法二：过去发生的重复或延续活动"><a href="#基本用法二：过去发生的重复或延续活动" class="headerlink" title="基本用法二：过去发生的重复或延续活动"></a>基本用法二：过去发生的重复或延续活动</h2><p>除了表示短暂动作之外，一般过去时还可以表示过去的一段时间（a specific period of time in the past）内延续或重复的动作，图示为：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/AWxXqn.png" alt><br>I slept for eight hours last night. 我昨晚睡了8个小时。<br>She lived in our town for three years, but now she is living in Beijing.<br>她在我们这个小镇生活了3年，不过她现在住在北京。<br>I lived in the country for ten years. 我在农村生活了10年。</p>
 
       
     </div>
@@ -419,10 +400,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-08-28 08:43:28 / Modified: 19:34:41" itemprop="dateCreated datePublished" datetime="2020-08-28T08:43:28+08:00">2020-08-28</time>
+              <time title="Created: 2020-08-28 08:43:28" itemprop="dateCreated datePublished" datetime="2020-08-28T08:43:28+08:00">2020-08-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-31 21:18:10" itemprop="dateModified" datetime="2020-08-31T21:18:10+08:00">2020-08-31</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -445,7 +432,7 @@
 
       
           <blockquote>
-<p>这篇笔记摘选自《英语语法新思维中级教程通悟语法第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记。</p>
+<p>这篇笔记摘选自《英语语法新思维初级教程通悟语法第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记。</p>
 </blockquote>
 <h2 id="并非只表示现在"><a href="#并非只表示现在" class="headerlink" title="并非只表示现在"></a>并非只表示现在</h2><p>一般现在时态并非只表示“现在”。一般现在时本质的思维特征是：表示从过去到现在直至将来的一段时间内发生的动作（action）或存在的状态（state），它们可发生于任何时间，这一段时间可以近乎无限长（如表示客观真理），也可以是人们生活中的一段时间（如人们的习惯活动）。<br>因此，一般现在时态通常被描述为有两种基本用法：</p>
 <ol>
@@ -552,7 +539,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-28 15:54:39" itemprop="dateModified" datetime="2020-08-28T15:54:39+08:00">2020-08-28</time>
+                <time title="Modified: 2020-08-31 19:10:59" itemprop="dateModified" datetime="2020-08-31T19:10:59+08:00">2020-08-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -589,13 +576,15 @@
 </blockquote>
 <h2 id="罗斯福专业法"><a href="#罗斯福专业法" class="headerlink" title="罗斯福专业法"></a>罗斯福专业法</h2><h2 id="达芬奇笔记"><a href="#达芬奇笔记" class="headerlink" title="达芬奇笔记"></a>达芬奇笔记</h2><h1 id="一些个专有名词"><a href="#一些个专有名词" class="headerlink" title="一些个专有名词"></a>一些个专有名词</h1><h2 id="边际效益"><a href="#边际效益" class="headerlink" title="边际效益"></a>边际效益</h2><p><a href="https://baike.baidu.com/item/%E8%BE%B9%E9%99%85%E6%95%88%E7%9B%8A/2414098?fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/%E8%BE%B9%E9%99%85%E6%95%88%E7%9B%8A/2414098?fr=aladdin</a></p>
 <h2 id="方法论-VS-世界观"><a href="#方法论-VS-世界观" class="headerlink" title="方法论 VS 世界观"></a>方法论 VS 世界观</h2><p><strong><em>它是人们用什么样的方式、方法来观察事物和处理问题。概括地说，世界观主要说明世界“是什么”的问题，方法论主要说明“怎么办”的问题。</em></strong><br>方法论是一种以解决问题为目标的理论体系或系统，通常涉及对问题阶段、任务、工具、方法技巧的论述。方法论会对一系列具体的方法进行分析研究、系统总结并最终提出较为一般性的原则。<br><a href="https://baike.baidu.com/item/%E6%96%B9%E6%B3%95%E8%AE%BA/82748?fr=aladdin" target="_blank" rel="noopener">方法论的百度百科</a></p>
-<h2 id="结痂"><a href="#结痂" class="headerlink" title="结痂"></a>结痂</h2><h1 id="成语"><a href="#成语" class="headerlink" title="成语"></a>成语</h1><ul>
+<h2 id="结痂"><a href="#结痂" class="headerlink" title="结痂"></a>结痂</h2><h1 id="成语-amp-词语"><a href="#成语-amp-词语" class="headerlink" title="成语&amp;词语"></a>成语&amp;词语</h1><ul>
 <li>睚眦必报</li>
 <li>兼听则明，偏听则暗</li>
 <li>触类旁通</li>
 <li>高光时刻</li>
 <li>窸窸窣窣</li>
 <li>侧足而立</li>
+<li>相悖</li>
+<li>商榷</li>
 </ul>
 <h1 id="权威书籍"><a href="#权威书籍" class="headerlink" title="权威书籍"></a>权威书籍</h1><h2 id="《金字塔原理》"><a href="#《金字塔原理》" class="headerlink" title="《金字塔原理》"></a>《金字塔原理》</h2><h2 id="《罗伯特议事规则》"><a href="#《罗伯特议事规则》" class="headerlink" title="《罗伯特议事规则》"></a>《罗伯特议事规则》</h2>
       
@@ -616,7 +605,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/28/信息来源与获取技巧/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/05/业界内各种权威标准/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -630,7 +619,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/08/28/信息来源与获取技巧/" class="post-title-link" itemprop="url">信息来源与获取技巧</a>
+            <a href="/2019/12/05/业界内各种权威标准/" class="post-title-link" itemprop="url">业界内各种权威标准</a>
         </h2>
 
         <div class="post-meta">
@@ -639,17 +628,23 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-08-28 15:51:58 / Modified: 15:54:06" itemprop="dateCreated datePublished" datetime="2020-08-28T15:51:58+08:00">2020-08-28</time>
+              <time title="Created: 2019-12-05 15:44:13" itemprop="dateCreated datePublished" datetime="2019-12-05T15:44:13+08:00">2019-12-05</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-31 18:11:08" itemprop="dateModified" datetime="2020-08-31T18:11:08+08:00">2020-08-31</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
+                  <a href="/categories/标准/" itemprop="url" rel="index"><span itemprop="name">标准</span></a>
                 </span>
             </span>
 
@@ -664,22 +659,36 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h1><h2 id="搜索引擎技巧"><a href="#搜索引擎技巧" class="headerlink" title="搜索引擎技巧"></a>搜索引擎技巧</h2><p><a href="https://zhuanlan.zhihu.com/p/58124215" target="_blank" rel="noopener">更多搜索技巧查看</a></p>
-<h3 id="准确搜索"><a href="#准确搜索" class="headerlink" title="准确搜索"></a>准确搜索</h3><p>在关键词上加上双引号, 这样搜索引擎只会返回和关键词完全吻合的搜索结果。</p>
-<h3 id="排除关键词"><a href="#排除关键词" class="headerlink" title="排除关键词"></a>排除关键词</h3><p>比如想要搜索”暴走大事件”且排除百度百科：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/MDEB69.png" alt></p>
-<h3 id="用-OR-或-逻辑进行搜索"><a href="#用-OR-或-逻辑进行搜索" class="headerlink" title="用 OR (或)逻辑进行搜索"></a>用 OR (或)逻辑进行搜索</h3><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/TC6wLT.png" alt></p>
-<h3 id="同义词搜索"><a href="#同义词搜索" class="headerlink" title="同义词搜索 ~"></a>同义词搜索 ~</h3><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/YDligF.png" alt><br>在未能准确判断关键词的情况下，你可以通过 ~ 进行同义词搜索。</p>
-<h3 id="站内搜索"><a href="#站内搜索" class="headerlink" title="站内搜索"></a>站内搜索</h3><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/tPrBcs.png" alt><br>在输入框输入 site: 网址 关键字 就会在输入的网址内进行站内关键字搜索</p>
-<h3 id="排除网站搜索"><a href="#排除网站搜索" class="headerlink" title="排除网站搜索"></a>排除网站搜索</h3><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/bbrgoV.png" alt><br>例如：Java csdn -site:csdn.net</p>
-<h3 id="通配符"><a href="#通配符" class="headerlink" title="*通配符"></a>*通配符</h3><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/EL0jbL.png" alt><br>通配符搜索</p>
-<h4 id="通配符的高级用法"><a href="#通配符的高级用法" class="headerlink" title="通配符的高级用法"></a>通配符的高级用法</h4><p>比如，搜索所有的amazon网站，但是不包含amazon.cn：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/SzSfk8.png" alt></p>
-<h3 id="搜索相同类型网站"><a href="#搜索相同类型网站" class="headerlink" title="搜索相同类型网站"></a>搜索相同类型网站</h3><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/xxuLhw.png" alt><br>一般使用related指令去搜索的时候，后面跟着的通常是域名，输入域名之后，谷歌会去寻找并索引与输入域名相同类型的网站。举个例子：我们试着输入related: amazon.com搜索一下。</p>
-<h3 id="filetype"><a href="#filetype" class="headerlink" title="filetype"></a>filetype</h3><p>只展示特定文件类型的搜索结果。比如，PDF，DOCX，TXT，PPT 等。</p>
-<ul>
-<li>apple filetype:pdf<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/oW2hyM.png" alt></li>
-<li>apple ext:pdf<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/jNzRfR.png" alt><br><strong><em>等价于 ext: 操作符。</em></strong><h3 id="各种搜索技能的组合使用"><a href="#各种搜索技能的组合使用" class="headerlink" title="各种搜索技能的组合使用"></a>各种搜索技能的组合使用</h3></li>
+          <h1 id="ISO-8601"><a href="#ISO-8601" class="headerlink" title="ISO 8601"></a>ISO 8601</h1><p>国际标准化组织的时间和日期的表达方法。</p>
+<h1 id="cron-expressions"><a href="#cron-expressions" class="headerlink" title="cron expressions"></a>cron expressions</h1><p><a href="http://www.quartz-scheduler.org/documentation/quartz-2.x/tutorials/crontrigger.html" title="cron expressions教程参考" target="_blank" rel="noopener">cron expressions教程参考</a></p>
+<h1 id="GA-PRE-SNAPSHOT等各种版本含义"><a href="#GA-PRE-SNAPSHOT等各种版本含义" class="headerlink" title="GA/PRE/SNAPSHOT等各种版本含义"></a>GA/PRE/SNAPSHOT等各种版本含义</h1><ul>
+<li>GA General Availability,正式发布的版本，官方推荐使用该版本，国外很多项目都是使用GA来表示正式发布版本的</li>
+<li>PRE 预览版，主要是用来内部开发人员和测试人员测试使用，因此不建议使用</li>
+<li>SNAPSHOT 快照版，可以稳定使用，且该版本会一直进行小量的优化和改进</li>
+<li>RC (Release Candidate)：候选版本，几乎就是正式版了</li>
+<li>R (RELEASE) 正式版，等价于GA</li>
+<li>Alpha 内测版，BUG多，开发人员开发过程中使用，希腊字母α，第一，指最初版</li>
+<li>Beta 早期版本，有缺陷，无大BUG，可能加入新功能，进一步开发完善</li>
+<li>Gamma 经beta 版，完善修改，成为正式发布的候选版本（Release Candidate）</li>
+<li>Build 修正版</li>
+<li>Corporation或Enterprise：企业版</li>
+<li>Delux：豪华版</li>
+<li>DEMO：演示版，有功能限制</li>
+<li>Free：免费版</li>
+<li>Full：完全版</li>
+<li>Final：正式版</li>
+<li>Pro(professional)：专业版</li>
+<li>Plus：加强版\</li>
+<li>Retail：零售版</li>
+<li>Shareware：共享版，虽然不会要求注册但是一般也有功能限制</li>
+<li>SR：修正版</li>
+<li>Trial：试用版（一般有时间或者功能限制）</li>
+<li>M Milestone build probably not feature complete; should be vaguely stable (i.e. it’s more than just a nightly snapshot) but may still have problems.</li>
+<li>LTS（Long Term Support）：长期演进版，Ubuntu会对这一版本的支持时间更长。目前Java也在运用这种方式</li>
 </ul>
-<h1 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h1>
+<h1 id="计算机内存存储数据原理"><a href="#计算机内存存储数据原理" class="headerlink" title="计算机内存存储数据原理"></a>计算机内存存储数据原理</h1><p><a href="https://www.iteye.com/blog/wwty-401713" target="_blank" rel="noopener">https://www.iteye.com/blog/wwty-401713</a></p>
+<h1 id="SaaS"><a href="#SaaS" class="headerlink" title="SaaS"></a>SaaS</h1><h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><h2 id="JEP-JDK-Enhancement-Proposals-JDK增强提案"><a href="#JEP-JDK-Enhancement-Proposals-JDK增强提案" class="headerlink" title="JEP(JDK Enhancement Proposals)(JDK增强提案)"></a>JEP(JDK Enhancement Proposals)(JDK增强提案)</h2><p><a href="http://openjdk.java.net/jeps/0" target="_blank" rel="noopener">http://openjdk.java.net/jeps/0</a></p>
+<h2 id="J9"><a href="#J9" class="headerlink" title="J9"></a>J9</h2>
       
     </div>
 
