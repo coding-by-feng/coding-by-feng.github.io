@@ -163,7 +163,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/23/Java系列之多线程并发-长篇/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/26/linux常用命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -177,7 +177,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/04/23/Java系列之多线程并发-长篇/" class="post-title-link" itemprop="url">Java系列之多线程并发-长篇</a>
+            <a href="/2019/02/26/linux常用命令/" class="post-title-link" itemprop="url">linux常用用命令</a>
         </h2>
 
         <div class="post-meta">
@@ -187,14 +187,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2019-04-23 16:42:15" itemprop="dateCreated datePublished" datetime="2019-04-23T16:42:15+08:00">2019-04-23</time>
+              <time title="Created: 2019-02-26 22:00:21" itemprop="dateCreated datePublished" datetime="2019-02-26T22:00:21+08:00">2019-02-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-19 21:37:48" itemprop="dateModified" datetime="2020-08-19T21:37:48+08:00">2020-08-19</time>
+                <time title="Modified: 2020-08-20 12:04:55" itemprop="dateModified" datetime="2020-08-20T12:04:55+08:00">2020-08-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -202,7 +202,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
                 </span>
             </span>
 
@@ -217,46 +217,56 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><a href="http://note.youdao.com/noteshare?id=5a758a5214a793176ed9c543a2011217" target="_blank" rel="noopener">http://note.youdao.com/noteshare?id=5a758a5214a793176ed9c543a2011217</a></p>
-<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><p><a href="https://www.baeldung.com/tag/java-concurrency/" target="_blank" rel="noopener">https://www.baeldung.com/tag/java-concurrency/</a><br><a href="https://www.baeldung.com/java-concurrent-locks" target="_blank" rel="noopener">https://www.baeldung.com/java-concurrent-locks</a></p>
-<h2 id="Overview-of-the-java-util-concurrent"><a href="#Overview-of-the-java-util-concurrent" class="headerlink" title="Overview of the java.util.concurrent"></a>Overview of the java.util.concurrent</h2><p><a href="https://www.baeldung.com/java-util-concurrent" target="_blank" rel="noopener">https://www.baeldung.com/java-util-concurrent</a></p>
-<ul>
-<li>Executor</li>
-<li>ExecutorService</li>
-<li>ScheduledExecutorService</li>
-<li>Future</li>
-<li>CountDownLatch</li>
-<li>CyclicBarrier</li>
-<li>Semaphore</li>
-<li>ThreadFactory</li>
-<li>BlockingQueue</li>
-<li>DelayQueue</li>
-<li>Locks</li>
-<li>Phaser</li>
-</ul>
-<h2 id="Semaphores-in-Java-API"><a href="#Semaphores-in-Java-API" class="headerlink" title="Semaphores in Java API"></a>Semaphores in Java API</h2><p><a href="https://www.baeldung.com/java-semaphore" target="_blank" rel="noopener">https://www.baeldung.com/java-semaphore</a></p>
-<h2 id="多线程知识的要点"><a href="#多线程知识的要点" class="headerlink" title="多线程知识的要点"></a>多线程知识的要点</h2><p><a href="https://zhuanlan.zhihu.com/p/29881777" target="_blank" rel="noopener">参考自知乎这篇文章</a></p>
-<h3 id="硬件内存架构"><a href="#硬件内存架构" class="headerlink" title="硬件内存架构"></a>硬件内存架构</h3><ul>
-<li>多CPU</li>
-<li>CPU寄存器</li>
-<li>高速缓存cache</li>
-<li>内存</li>
-<li>运作原理（从CPU&lt;-&gt;寄存器&lt;-&gt;高速缓存层&lt;-&gt;内存RAM）</li>
-<li>缓存一致性问题</li>
-<li>指令重排序问题（这个需要深入了解一下）<h3 id="Java内存模型（JMM）"><a href="#Java内存模型（JMM）" class="headerlink" title="Java内存模型（JMM）"></a>Java内存模型（JMM）</h3></li>
-<li>多线程的共享变量</li>
-<li>线程私有的本地内存（这个需要深入了解一下）</li>
-<li>JMM模型下的线程间通信</li>
-<li>JMM的八种基本操作</li>
-<li>多线程读同步与可见性<ul>
-<li>可见性（共享对象可见性）</li>
-</ul>
-</li>
-</ul>
-<h2 id="ThreadPoolExecutor-四种处理策略"><a href="#ThreadPoolExecutor-四种处理策略" class="headerlink" title="ThreadPoolExecutor 四种处理策略"></a>ThreadPoolExecutor 四种处理策略</h2><p>ThreadPoolExecutor.AbortPolicy()  抛出java.util.concurrent.RejectedExecutionException异常<br>ThreadPoolExecutor.CallerRunsPolicy() 重试添加当前的任务，他会自动重复调用execute()方法<br>ThreadPoolExecutor.DiscardOldestPolicy() 抛弃旧的任务<br>ThreadPoolExecutor.DiscardPolicy() 抛弃当前的任务 </p>
-<h2 id="锁对象的声明"><a href="#锁对象的声明" class="headerlink" title="锁对象的声明"></a>锁对象的声明</h2><p>如果只是简单的一个锁对象，没有类额外的对象状态变更的话，可以将锁声明为final：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 来自org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter</span><br><span class="line">// Spring Security token校验机制</span><br><span class="line">private final Object delegateMonitor = new Object();</span><br></pre></td></tr></table></figure></p>
-<h2 id="乐观锁-vs-悲观锁（PCC）"><a href="#乐观锁-vs-悲观锁（PCC）" class="headerlink" title="乐观锁 vs 悲观锁（PCC）"></a>乐观锁 vs 悲观锁（PCC）</h2><p><a href="http://www.imooc.com/article/285147" target="_blank" rel="noopener">http://www.imooc.com/article/285147</a></p>
-
+          <h2 id="返回上次所在目录"><a href="#返回上次所在目录" class="headerlink" title="返回上次所在目录"></a>返回上次所在目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd -</span><br><span class="line">cd $OLDPWD</span><br></pre></td></tr></table></figure>
+<h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 修改文件夹以及其子文件夹</span><br><span class="line">chmod -R 777 fileName</span><br></pre></td></tr></table></figure>
+<h2 id="find和grep"><a href="#find和grep" class="headerlink" title="find和grep"></a>find和grep</h2><p>find是在系统中搜索符合条件的文件名，grep是在文件中搜索符合条件的字符串。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">find ~/dir -name filename.txt</span><br><span class="line">grep &quot;someStr&quot; filename.txt</span><br><span class="line"># 查询某个文件夹下面大小大于某个值文件</span><br><span class="line">find ~/dir -type f -size +1G</span><br></pre></td></tr></table></figure></p>
+<h2 id="ls-查询目录具体file"><a href="#ls-查询目录具体file" class="headerlink" title="ls 查询目录具体file"></a>ls 查询目录具体file</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 按照时间升序</span><br><span class="line">ls -lrt</span><br><span class="line"># 按照时间降序</span><br><span class="line">ls -lt</span><br></pre></td></tr></table></figure>
+<h2 id="ll按时间排序"><a href="#ll按时间排序" class="headerlink" title="ll按时间排序"></a>ll按时间排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 升序</span><br><span class="line">ll -rt</span><br><span class="line"># 降序</span><br><span class="line">ll -t</span><br></pre></td></tr></table></figure>
+<h2 id="ll按大小排序"><a href="#ll按大小排序" class="headerlink" title="ll按大小排序"></a>ll按大小排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 大小单位按照human-readable</span><br><span class="line">ll -Sh</span><br></pre></td></tr></table></figure>
+<h2 id="ln链接命令"><a href="#ln链接命令" class="headerlink" title="ln链接命令"></a>ln链接命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ln -s [源文件] [目标文件]</span><br><span class="line"># -s软链接，不带-s是硬链接，硬链接等于是copy了一份文件，软链接相当于window的快捷方式。</span><br><span class="line"># 硬链接不能对目录使用，删除源文件，硬链接可以正常使用，软连接不可以。</span><br></pre></td></tr></table></figure>
+<h2 id="wget命令"><a href="#wget命令" class="headerlink" title="wget命令"></a>wget命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># 拉取文件</span><br></pre></td></tr></table></figure>
+<h2 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h2><p>tar -zxvf 用于解压  .tar.gz 后缀结尾的</p>
+<p>tar -xvf 用于解压   .tar后缀结尾的</p>
+<h2 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 创建空白文件</span><br><span class="line">touch filename</span><br></pre></td></tr></table></figure>
+<h2 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h2><p>后台不挂断执行，执行某个脚本，并将脚本的执行打印日志追加写入到某个文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup xxx.sh &gt;&gt; /usr/local/node/output.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure></p>
+<p>jboss:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 启动指定部署目录：</span><br><span class="line">nohup ./run.sh -c web38b -b 0.0.0.0  &gt;/dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<blockquote>
+<p>/dev/null redirects standard output (stdout) to /dev/null, which discards it.<br>(The &gt;&gt; seems sort of superfluous, since &gt;&gt; means append while &gt; means truncate and write, and either appending to or writing to /dev/null has the same net effect. I usually just use &gt; for that reason.)<br>2&gt;&amp;1 redirects standard error (2) to standard output (1), which then discards it as well since standard output has already been redirected.</p>
+</blockquote>
+</blockquote>
+<h2 id="更改所有子文件和子目录所有者权限"><a href="#更改所有子文件和子目录所有者权限" class="headerlink" title="更改所有子文件和子目录所有者权限"></a>更改所有子文件和子目录所有者权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod -R 777 fileDir</span><br></pre></td></tr></table></figure>
+<h2 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h2><p>curl -H “Content-Type:application/json” -X POST -d ‘json data’ URL<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -H &quot;Content-Type:application/json&quot; -X POST -d &apos;&#123;&quot;user&quot;: &quot;admin&quot;, &quot;passwd&quot;:&quot;12345678&quot;&#125;&apos; http://127.0.0.1:8000/login</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -d &quot;user=admin&amp;passwd=12345678&quot; http://127.0.0.1:8080/login</span><br></pre></td></tr></table></figure>
+<p>监控某个网站的网页响应下载时间：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o /dev/null -s -w ‘%&#123;time_total&#125;’ https://www.fengorz.me</span><br></pre></td></tr></table></figure></p>
+<p>更多用法参考：<a href="https://www.cnblogs.com/taosim/articles/4092572.html" target="_blank" rel="noopener">https://www.cnblogs.com/taosim/articles/4092572.html</a></p>
+<h2 id="df命令详解"><a href="#df命令详解" class="headerlink" title="df命令详解"></a>df命令详解</h2><p>whereis<br>which<br>xargs</p>
+<h2 id="https-blog-csdn-net-wzzfeitian-article-details-40985549"><a href="#https-blog-csdn-net-wzzfeitian-article-details-40985549" class="headerlink" title="https://blog.csdn.net/wzzfeitian/article/details/40985549"></a><a href="https://blog.csdn.net/wzzfeitian/article/details/40985549" target="_blank" rel="noopener">https://blog.csdn.net/wzzfeitian/article/details/40985549</a></h2><p>标准输出重定向</p>
+<h2 id="标准输出重定向到空，相当于忽略输出"><a href="#标准输出重定向到空，相当于忽略输出" class="headerlink" title="标准输出重定向到空，相当于忽略输出"></a>标准输出重定向到空，相当于忽略输出</h2><h2 id="查看防火墙，放开端口"><a href="#查看防火墙，放开端口" class="headerlink" title="查看防火墙，放开端口"></a>查看防火墙，放开端口</h2><h2 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h2><h2 id="killall"><a href="#killall" class="headerlink" title="killall"></a>killall</h2><p>结束所有进程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall -9 picName</span><br></pre></td></tr></table></figure></p>
+<p>##线上日志文件查看</p>
+<h3 id="查看文件内容more命令"><a href="#查看文件内容more命令" class="headerlink" title="查看文件内容more命令"></a>查看文件内容more命令</h3><p><a href="https://www.runoob.com/linux/linux-comm-more.html" target="_blank" rel="noopener">https://www.runoob.com/linux/linux-comm-more.html</a></p>
+<h3 id="less命令"><a href="#less命令" class="headerlink" title="less命令"></a>less命令</h3><p><a href="https://www.runoob.com/linux/linux-comm-less.html" target="_blank" rel="noopener">https://www.runoob.com/linux/linux-comm-less.html</a></p>
+<h2 id="解压war包"><a href="#解压war包" class="headerlink" title="解压war包"></a>解压war包</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 解压到当前目录</span><br><span class="line">jar -xvf</span><br><span class="line"># 解压到指定目录</span><br><span class="line">unzip pay.war -d /home/zookeeper1/test/pay</span><br></pre></td></tr></table></figure>
+<h2 id="du-Linux查看磁盘存储空间文件大小"><a href="#du-Linux查看磁盘存储空间文件大小" class="headerlink" title="du Linux查看磁盘存储空间文件大小"></a>du Linux查看磁盘存储空间文件大小</h2><p><a href="https://blog.csdn.net/zzldm/article/details/82804557" target="_blank" rel="noopener">https://blog.csdn.net/zzldm/article/details/82804557</a></p>
+<p>查看对应目录大小<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -sh 路径</span><br></pre></td></tr></table></figure></p>
+<h2 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h2><p>Linux sed 命令是利用脚本来处理文本文件。</p>
+<p>sed 可依照脚本的指令来处理、编辑文本文件。</p>
+<p>Sed 主要用来自动编辑一个或多个文件、简化对文件的反复操作、编写转换程序等。</p>
+<p><a href="https://www.runoob.com/linux/linux-comm-sed.html" target="_blank" rel="noopener">https://www.runoob.com/linux/linux-comm-sed.html</a></p>
+<h2 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h2><p>从本地复制到远程：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">scp local_file remote_username@remote_ip:remote_folder </span><br><span class="line">或者 </span><br><span class="line">scp local_file remote_username@remote_ip:remote_file </span><br><span class="line">或者 scp local_file remote_ip:remote_folder </span><br><span class="line">或者 </span><br><span class="line">scp local_file remote_ip:remote_file</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://www.runoob.com/linux/linux-comm-scp.html" target="_blank" rel="noopener">https://www.runoob.com/linux/linux-comm-scp.html</a></p>
+<h2 id="远程调用shell命令"><a href="#远程调用shell命令" class="headerlink" title="远程调用shell命令"></a>远程调用shell命令</h2><p><a href="https://www.cnblogs.com/ilfmonday/p/ShellRemote.html" target="_blank" rel="noopener">https://www.cnblogs.com/ilfmonday/p/ShellRemote.html</a></p>
+<h2 id="Linux下如何查看版本信息"><a href="#Linux下如何查看版本信息" class="headerlink" title="Linux下如何查看版本信息"></a>Linux下如何查看版本信息</h2><p><a href="https://www.cnblogs.com/williamjie/p/10271945.html" target="_blank" rel="noopener">https://www.cnblogs.com/williamjie/p/10271945.html</a></p>
+<h2 id="sleep"><a href="#sleep" class="headerlink" title="sleep"></a>sleep</h2><p>睡眠一段时间（5秒）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sleep 5s</span><br></pre></td></tr></table></figure></p>
+<h2 id="利用管道kill掉监听端口的进程"><a href="#利用管道kill掉监听端口的进程" class="headerlink" title="利用管道kill掉监听端口的进程"></a>利用管道kill掉监听端口的进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -9 `lsof -i -n -P | grep ? | awk &apos;&#123;print $2&#125;&apos;`</span><br></pre></td></tr></table></figure>
+<p>将问号换成对应的端口号</p>
+<h2 id="tldr"><a href="#tldr" class="headerlink" title="tldr"></a>tldr</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="top-查看内存状态"><a href="#top-查看内存状态" class="headerlink" title="top(查看内存状态)"></a>top(查看内存状态)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top -i（不显示任何闲置(Idle)或无用(Zombie)的行程）</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.jianshu.com/p/255b54b5445f" target="_blank" rel="noopener">https://www.jianshu.com/p/255b54b5445f</a></p>
+<h2 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h2><blockquote>
+<p>查看日志使用tail是不会显示行号的，如果要具体比对某些行，可以使用</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat -n xxx</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -652,7 +662,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">118</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
