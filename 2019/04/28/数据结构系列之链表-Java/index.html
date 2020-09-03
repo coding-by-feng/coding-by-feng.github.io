@@ -21,7 +21,7 @@
   </script>
 
   <meta name="description" content="学习方法学完一个基础知识点后主动刷leetcode对应的题，根据标签专项刷对应的题。leetcode链表专题 链表分别都对应了那些Java类？ java.util.ArrayList java.util.LinkedList java.util.concurrent.CopyOnWriteArrayList  单向链表单向链表包含两个域：  信息域（上图的data，存放结点数据） 指针域（上图的n">
-<meta name="keywords" content="Java,数据结构">
+<meta name="keywords" content="Java,数据结构,链表">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构系列之链表（Java）">
 <meta property="og:url" content="http://yoursite.com/2019/04/28/数据结构系列之链表-Java/index.html">
@@ -42,7 +42,8 @@
 <meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/q0mXuS.png">
 <meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/PJEkBp.png">
 <meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/eyY1Zv.png">
-<meta property="og:updated_time" content="2020-09-01T07:02:32.477Z">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/X64NBw.png">
+<meta property="og:updated_time" content="2020-09-03T11:52:48.428Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构系列之链表（Java）">
 <meta name="twitter:description" content="学习方法学完一个基础知识点后主动刷leetcode对应的题，根据标签专项刷对应的题。leetcode链表专题 链表分别都对应了那些Java类？ java.util.ArrayList java.util.LinkedList java.util.concurrent.CopyOnWriteArrayList  单向链表单向链表包含两个域：  信息域（上图的data，存放结点数据） 指针域（上图的n">
@@ -211,7 +212,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-01 15:02:32" itemprop="dateModified" datetime="2020-09-01T15:02:32+08:00">2020-09-01</time>
+                <time title="Modified: 2020-09-03 19:52:48" itemprop="dateModified" datetime="2020-09-03T19:52:48+08:00">2020-09-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -276,7 +277,11 @@
 <p>可见空双链表插入第一个结点时，判断尾结点是否为空，如果为空是在first头结点插入，否则是插入到尾部结点之后，如图：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/zhs4xu.png" alt><br>当再次插入新结点时，如图：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/q0mXuS.png" alt></p>
 <h2 id="循环双链表"><a href="#循环双链表" class="headerlink" title="循环双链表"></a>循环双链表</h2><p>空循环双链表：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/PJEkBp.png" alt><br>插入新结点：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/eyY1Zv.png" alt></p>
 <h2 id="排序双链表"><a href="#排序双链表" class="headerlink" title="排序双链表"></a>排序双链表</h2><p>元素对象可以实现Comoarable接口，通过<code>compareTo</code>方法在插入元素的时候做对比。</p>
-<h2 id="静态链表？"><a href="#静态链表？" class="headerlink" title="静态链表？"></a>静态链表？</h2><h2 id="链表的利与弊"><a href="#链表的利与弊" class="headerlink" title="链表的利与弊"></a>链表的利与弊</h2><p>使用链表的好处：</p>
+<h2 id="静态链表"><a href="#静态链表" class="headerlink" title="静态链表"></a>静态链表</h2><p>分配一整片连续的内存空间，各个结点集中安置。如图（图片来源王道考研）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/X64NBw.png" alt></p>
+<blockquote>
+<p>静态链表内部也是要基于数组来实现。</p>
+</blockquote>
+<h2 id="链表的利与弊"><a href="#链表的利与弊" class="headerlink" title="链表的利与弊"></a>链表的利与弊</h2><p>使用链表的好处：</p>
 <ul>
 <li>链表在初始化时仅需要分配一个元素的存储空间，在内存分配上可以是不连续的内存，也不需要做任何内存复制和重新分配的操作，在访问单个元素的时间开销会更少。</li>
 <li>链表在插入和删除结点方面相较于顺序表是十分高效的，因此链表比较适合那些插入删除频繁的场景使用。</li>
@@ -292,6 +297,7 @@
           <div class="post-tags">
               <a href="/tags/Java/" rel="tag"># Java</a>
               <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+              <a href="/tags/链表/" rel="tag"># 链表</a>
           </div>
 
         
@@ -365,7 +371,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#学习方法"><span class="nav-number">1.</span> <span class="nav-text">学习方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表分别都对应了那些Java类？"><span class="nav-number">2.</span> <span class="nav-text">链表分别都对应了那些Java类？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单向链表"><span class="nav-number">3.</span> <span class="nav-text">单向链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在链表表头插入新结点"><span class="nav-number">3.1.</span> <span class="nav-text">在链表表头插入新结点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在链表中间插入新结点"><span class="nav-number">3.2.</span> <span class="nav-text">在链表中间插入新结点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#带头结点和尾结点的单链表"><span class="nav-number">3.3.</span> <span class="nav-text">带头结点和尾结点的单链表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#尾部插入"><span class="nav-number">3.3.1.</span> <span class="nav-text">尾部插入</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环单链表"><span class="nav-number">3.4.</span> <span class="nav-text">循环单链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单链表-vs-顺序表"><span class="nav-number">3.5.</span> <span class="nav-text">单链表 vs 顺序表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单链表的弊端"><span class="nav-number">3.6.</span> <span class="nav-text">单链表的弊端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双向链表"><span class="nav-number">4.</span> <span class="nav-text">双向链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#java-util-LinkedList双链表的实现逻辑"><span class="nav-number">4.1.</span> <span class="nav-text">java.util.LinkedList双链表的实现逻辑</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环双链表"><span class="nav-number">5.</span> <span class="nav-text">循环双链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排序双链表"><span class="nav-number">6.</span> <span class="nav-text">排序双链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态链表？"><span class="nav-number">7.</span> <span class="nav-text">静态链表？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表的利与弊"><span class="nav-number">8.</span> <span class="nav-text">链表的利与弊</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#学习方法"><span class="nav-number">1.</span> <span class="nav-text">学习方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表分别都对应了那些Java类？"><span class="nav-number">2.</span> <span class="nav-text">链表分别都对应了那些Java类？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单向链表"><span class="nav-number">3.</span> <span class="nav-text">单向链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在链表表头插入新结点"><span class="nav-number">3.1.</span> <span class="nav-text">在链表表头插入新结点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在链表中间插入新结点"><span class="nav-number">3.2.</span> <span class="nav-text">在链表中间插入新结点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#带头结点和尾结点的单链表"><span class="nav-number">3.3.</span> <span class="nav-text">带头结点和尾结点的单链表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#尾部插入"><span class="nav-number">3.3.1.</span> <span class="nav-text">尾部插入</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环单链表"><span class="nav-number">3.4.</span> <span class="nav-text">循环单链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单链表-vs-顺序表"><span class="nav-number">3.5.</span> <span class="nav-text">单链表 vs 顺序表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单链表的弊端"><span class="nav-number">3.6.</span> <span class="nav-text">单链表的弊端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双向链表"><span class="nav-number">4.</span> <span class="nav-text">双向链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#java-util-LinkedList双链表的实现逻辑"><span class="nav-number">4.1.</span> <span class="nav-text">java.util.LinkedList双链表的实现逻辑</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环双链表"><span class="nav-number">5.</span> <span class="nav-text">循环双链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排序双链表"><span class="nav-number">6.</span> <span class="nav-text">排序双链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态链表"><span class="nav-number">7.</span> <span class="nav-text">静态链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表的利与弊"><span class="nav-number">8.</span> <span class="nav-text">链表的利与弊</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -379,7 +385,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">118</span>
+          <span class="site-state-item-count">119</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -392,7 +398,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">82</span>
+        <span class="site-state-item-count">83</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

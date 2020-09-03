@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="http://note.youdao.com/noteshare?id=5a758a5214a793176ed9c543a2011217 Basic Knowledgehttps://www.baeldung.com/tag/java-concurrency/https://www.baeldung.com/java-concurrent-locks Overview of the java.ut">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-28T15:18:10.239Z">
+<meta property="og:updated_time" content="2020-09-03T11:55:40.211Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java系列之多线程并发-长篇">
 <meta name="twitter:description" content="http://note.youdao.com/noteshare?id=5a758a5214a793176ed9c543a2011217 Basic Knowledgehttps://www.baeldung.com/tag/java-concurrency/https://www.baeldung.com/java-concurrent-locks Overview of the java.ut">
@@ -196,7 +196,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-28 23:18:10" itemprop="dateModified" datetime="2020-08-28T23:18:10+08:00">2020-08-28</time>
+                <time title="Modified: 2020-09-03 19:55:40" itemprop="dateModified" datetime="2020-09-03T19:55:40+08:00">2020-09-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -258,6 +258,7 @@
 <h2 id="ThreadPoolExecutor-四种处理策略"><a href="#ThreadPoolExecutor-四种处理策略" class="headerlink" title="ThreadPoolExecutor 四种处理策略"></a>ThreadPoolExecutor 四种处理策略</h2><p>ThreadPoolExecutor.AbortPolicy()  抛出java.util.concurrent.RejectedExecutionException异常<br>ThreadPoolExecutor.CallerRunsPolicy() 重试添加当前的任务，他会自动重复调用execute()方法<br>ThreadPoolExecutor.DiscardOldestPolicy() 抛弃旧的任务<br>ThreadPoolExecutor.DiscardPolicy() 抛弃当前的任务 </p>
 <h2 id="锁对象的声明"><a href="#锁对象的声明" class="headerlink" title="锁对象的声明"></a>锁对象的声明</h2><p>如果只是简单的一个锁对象，没有类额外的对象状态变更的话，可以将锁声明为final：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 来自org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter</span><br><span class="line">// Spring Security token校验机制</span><br><span class="line">private final Object delegateMonitor = new Object();</span><br></pre></td></tr></table></figure></p>
 <h2 id="乐观锁-vs-悲观锁（PCC）"><a href="#乐观锁-vs-悲观锁（PCC）" class="headerlink" title="乐观锁 vs 悲观锁（PCC）"></a>乐观锁 vs 悲观锁（PCC）</h2><p><a href="http://www.imooc.com/article/285147" target="_blank" rel="noopener">http://www.imooc.com/article/285147</a></p>
+<h2 id="多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？"><a href="#多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？" class="headerlink" title="多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？"></a>多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？</h2><h2 id="为什么要写成-final-ReentrantLock-lock-this-lock"><a href="#为什么要写成-final-ReentrantLock-lock-this-lock" class="headerlink" title="为什么要写成 final ReentrantLock lock = this.lock; ?"></a>为什么要写成 final ReentrantLock lock = this.lock; ?</h2><p><a href="https://blog.csdn.net/zqz_zqz/article/details/79438502" target="_blank" rel="noopener">https://blog.csdn.net/zqz_zqz/article/details/79438502</a></p>
 
     </div>
 
@@ -341,7 +342,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Knowledge"><span class="nav-number">1.</span> <span class="nav-text">Basic Knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview-of-the-java-util-concurrent"><span class="nav-number">1.1.</span> <span class="nav-text">Overview of the java.util.concurrent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Semaphores-in-Java-API"><span class="nav-number">1.2.</span> <span class="nav-text">Semaphores in Java API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多线程知识的要点"><span class="nav-number">1.3.</span> <span class="nav-text">多线程知识的要点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#硬件内存架构"><span class="nav-number">1.3.1.</span> <span class="nav-text">硬件内存架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java内存模型（JMM）"><span class="nav-number">1.3.2.</span> <span class="nav-text">Java内存模型（JMM）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ThreadPoolExecutor-四种处理策略"><span class="nav-number">1.4.</span> <span class="nav-text">ThreadPoolExecutor 四种处理策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁对象的声明"><span class="nav-number">1.5.</span> <span class="nav-text">锁对象的声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#乐观锁-vs-悲观锁（PCC）"><span class="nav-number">1.6.</span> <span class="nav-text">乐观锁 vs 悲观锁（PCC）</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Knowledge"><span class="nav-number">1.</span> <span class="nav-text">Basic Knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview-of-the-java-util-concurrent"><span class="nav-number">1.1.</span> <span class="nav-text">Overview of the java.util.concurrent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Semaphores-in-Java-API"><span class="nav-number">1.2.</span> <span class="nav-text">Semaphores in Java API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多线程知识的要点"><span class="nav-number">1.3.</span> <span class="nav-text">多线程知识的要点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#硬件内存架构"><span class="nav-number">1.3.1.</span> <span class="nav-text">硬件内存架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java内存模型（JMM）"><span class="nav-number">1.3.2.</span> <span class="nav-text">Java内存模型（JMM）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ThreadPoolExecutor-四种处理策略"><span class="nav-number">1.4.</span> <span class="nav-text">ThreadPoolExecutor 四种处理策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁对象的声明"><span class="nav-number">1.5.</span> <span class="nav-text">锁对象的声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#乐观锁-vs-悲观锁（PCC）"><span class="nav-number">1.6.</span> <span class="nav-text">乐观锁 vs 悲观锁（PCC）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？"><span class="nav-number">1.7.</span> <span class="nav-text">多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要写成-final-ReentrantLock-lock-this-lock"><span class="nav-number">1.8.</span> <span class="nav-text">为什么要写成 final ReentrantLock lock = this.lock; ?</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -355,7 +356,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">118</span>
+          <span class="site-state-item-count">119</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -368,7 +369,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">82</span>
+        <span class="site-state-item-count">83</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
