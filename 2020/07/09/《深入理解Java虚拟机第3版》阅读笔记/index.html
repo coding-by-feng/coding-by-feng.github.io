@@ -43,7 +43,7 @@
 <meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/9wrqFn.png">
 <meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/UcHrpK.png">
 <meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/F3rNln.png">
-<meta property="og:updated_time" content="2020-09-02T07:00:24.597Z">
+<meta property="og:updated_time" content="2020-09-04T07:46:01.996Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《深入理解Java虚拟机第3版》阅读笔记">
 <meta name="twitter:description" content="这篇笔记总结自周志明老师的《深入理解Java虚拟机第3版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载。  虚拟机概述中间语言翻译（从Java翻译到机器码） 从中间语言翻译到机器码  通过C语言翻译（初JVM）通过将字节码class翻译成C语言，比如定义iadd这个字节码是相加的助记符，然后通过c语言来解析字节码中的iadd就是相加，并指向对应的c语言相加的c程序来做实际运算，这">
@@ -212,7 +212,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-02 15:00:24" itemprop="dateModified" datetime="2020-09-02T15:00:24+08:00">2020-09-02</time>
+                <time title="Modified: 2020-09-04 15:46:01" itemprop="dateModified" datetime="2020-09-04T15:46:01+08:00">2020-09-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -270,9 +270,9 @@
 <h3 id="方法区（”非堆”、Non-Heap）"><a href="#方法区（”非堆”、Non-Heap）" class="headerlink" title="方法区（”非堆”、Non-Heap）"></a>方法区（”非堆”、Non-Heap）</h3><p>和Java堆一样，是各个线程共享的内存区域，它用于存储已被虚拟机加载的<code>类型信息</code>、<code>常量</code>、<code>静态变量</code>、<code>即时编译器编译后的代码缓存</code>等数据。<br>虽然《Java虚拟机规范》中把方法区描述为堆的一个逻辑部分，但是它却有一个别名叫作“非堆”(Non-Heap) ，目的是与Java堆区分开来。</p>
 <h4 id="永久代（Permanent-Generation）的落寞，元空间（Meta-space）的登场"><a href="#永久代（Permanent-Generation）的落寞，元空间（Meta-space）的登场" class="headerlink" title="永久代（Permanent Generation）的落寞，元空间（Meta-space）的登场"></a>永久代（Permanent Generation）的落寞，元空间（Meta-space）的登场</h4><p>Java 8之前，很多人习惯将方法区叫称为”永久代”，因为仅仅只有当时的HotSpot使用永久代来实现方法区，很多其他的虚拟机并不存在永久代的概念，《Java虚拟机规范》也对方法区的实现没有约束，所以方法区不等同于永久代。</p>
 <blockquote>
-<p>HotSpot使用永久代来实现方法区，实际上导致了Java应用更容易出现内存溢出，其<code>-XX: MaxPermSize</code>可以设置永久代的上限，即使不设置也有默认大小。<br>而J9和JRockit就没有此类内存限制，除非触碰进程可用内存上限，这个是由系统控制。</p>
+<p>HotSpot使用永久代来实现方法区，实际上导致了Java应用更容易出现内存溢出，其<code>-XX: MaxPermSize</code>可以设置永久代的上限，即使不设置也有默认大小。 &gt; 而J9和JRockit就没有此类内存限制，除非触碰进程可用内存上限，这个是由系统控制。</p>
 </blockquote>
-<p>所以到了JDK 6时，HotSpot就逐步放弃永久代，开始采用<code>本地内存（Native Memory）</code>来实现方法区了，到了JDK 8就完全放弃永久代了，改用在本地内存中实现的<code>元空间（Meta-space）</code>，把字符串常量池、静态变量、类型信息等都移到元空间了。<br>垃圾收集器在方法区的回收行为出现得是比较少的，这个区域的内存回收只要是<strong><em>针对常量池和回收和对类型的卸载</em></strong>。</p>
+<p>所以到了JDK 6时，HotSpot就逐步放弃永久代，开始采用<code>本地内存（Native Memory）</code>来实现方法区了，到了JDK 8就完全放弃永久代了，改用在本地内存中实现的<code>元空间（Meta-space）</code>，把字符串常量池、静态变量、类型信息等都移到元空间了。<br>垃圾收集器在方法区的回收行为出现得是比较少的，这个区域的内存回收只要是<strong><em>针对常量池的回收和对类型的卸载</em></strong>。</p>
 <h4 id="运行时常量池（Runtime-Constant-Pool）"><a href="#运行时常量池（Runtime-Constant-Pool）" class="headerlink" title="运行时常量池（Runtime Constant Pool）"></a>运行时常量池（Runtime Constant Pool）</h4><p>运行时常量池是方法区的一部分。Class文件中除了有类的版本、字段、方法、接口等描述信息外，还有一项信息是常量池表(Constant Pool Table)，用于存放编译期生成的各种字面量与符号引用，这部分内容将在类加载后存放到方法区的运行时常量池中。<br>Java虚拟机对于Class文件每一部分(自然也包括常量池)的格式都有严格规定，如每一个字节用于存储哪种数据都必须符合规范上的要求才会被虚拟机认可、加载和执行，但对于运行时常量池，《Java虚拟机规范》并没有做任何细节的要求。<br>运行时常量池相较于<code>Class文件常量池</code>具有动态性，运行期间可以将新的常量放入运行时常量池中，比如<code>String.intern</code>。<br>因为运行时常量池属于方法区，自然也就受到OutOfMemoryError异常的约束。</p>
 <h4 id="直接内存（Direct-Memory）"><a href="#直接内存（Direct-Memory）" class="headerlink" title="直接内存（Direct Memory）"></a>直接内存（Direct Memory）</h4><p>直接内存并不是虚拟机运行时数据区的一部分，也不是《Java虚拟机规范》中定义的内存区域。但是这部分内存也被频繁地使用，而且也可能导致OutOfMemoryError异常出现。<br>在JDK 1.4中新加入了NIO (New Input/Output)类，引入了一种基于通道(Channel)与缓冲区(Buffer) 的I/O方式，它可以使用Native函数库直接分配堆外内存，然后通过一个存储在Java堆里面的DirectByteBuffer对象作为这块内存的引用进行操作。这样能在一些场景中显著提高性能，因为避免了在Java堆和Native堆中来回复制数据，直接内存当然也是受到物理总内存的约束。</p>
 <blockquote>
@@ -311,7 +311,26 @@
 <blockquote>
 <p>kill -3 or -9 都不会打heap dump，kill -9 java_pid来不及做任何事情就被干掉了，-3会打印thread dump 但是不是heap dump。</p>
 </blockquote>
-<h5 id="GC-Roots"><a href="#GC-Roots" class="headerlink" title="GC Roots"></a>GC Roots</h5><h4 id="虚拟机栈和本地方法栈溢出"><a href="#虚拟机栈和本地方法栈溢出" class="headerlink" title="虚拟机栈和本地方法栈溢出"></a>虚拟机栈和本地方法栈溢出</h4><h4 id="方法区和运行时常量池溢出"><a href="#方法区和运行时常量池溢出" class="headerlink" title="方法区和运行时常量池溢出"></a>方法区和运行时常量池溢出</h4><h4 id="本机直接内存溢出"><a href="#本机直接内存溢出" class="headerlink" title="本机直接内存溢出"></a>本机直接内存溢出</h4><h1 id="垃圾收集器与内存分配策略-1"><a href="#垃圾收集器与内存分配策略-1" class="headerlink" title="垃圾收集器与内存分配策略"></a>垃圾收集器与内存分配策略</h1><h2 id="对象已死？"><a href="#对象已死？" class="headerlink" title="对象已死？"></a>对象已死？</h2><h3 id="引用计数算法"><a href="#引用计数算法" class="headerlink" title="引用计数算法"></a>引用计数算法</h3><h3 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h3><h4 id="GC-Roots-1"><a href="#GC-Roots-1" class="headerlink" title="GC Roots"></a>GC Roots</h4><h4 id="三色标记法（Tri-color-Marking）"><a href="#三色标记法（Tri-color-Marking）" class="headerlink" title="三色标记法（Tri-color Marking）"></a>三色标记法（Tri-color Marking）</h4><p>白色、黑色、灰色</p>
+<h5 id="GC-Roots"><a href="#GC-Roots" class="headerlink" title="GC Roots"></a>GC Roots</h5><h4 id="虚拟机栈和本地方法栈溢出"><a href="#虚拟机栈和本地方法栈溢出" class="headerlink" title="虚拟机栈和本地方法栈溢出"></a>虚拟机栈和本地方法栈溢出</h4><p>HotSpot不区分虚拟机栈和本地方法栈，栈容量由<code>-Xss</code>参数设定。</p>
+<ul>
+<li>1)如果线程请求的栈深度大于虚拟机所允许的最大深度，将抛出StackOverflowError异常。</li>
+<li>2)如果虚拟机的栈内存允许动态扩展，当扩展栈容量无法申请到足够的内存时，将拋出OutOfMemoryError异常 。</li>
+</ul>
+<p>模拟栈溢出：</p>
+<ul>
+<li>使用-Xss参数减少栈内存容量。</li>
+<li>定义了大量的本地变量，增大此<code>方法帧</code>中<code>本地变量表</code>的长度。</li>
+<li>通过不断建立线程的方式，在HotSpot上也是可以产生内存溢出异常的（但是这样产生的内存溢出异常和栈空间是否足够并不存在任何直接的关系，主要取决于操作系统本身的内存使用状态，在这种情况下，给每个线程的栈分配的内存越大，反而越容易产生内存溢出异常）。<br>HotSpot虚拟机提供了参数可以控制Java堆和方法区这两部分的内存的最大值，系统的内存分配需要减去最大堆容量，再减去最大方法区容量，由于程序计数器消耗内存很小，可以忽略掉，如果把直接内存和虚拟机进程本身耗费的内存也去掉的话，剩下的内存就由虚拟机栈和本地方法栈来分配了。因此为每个线程分配到的栈内存越大，可以建立的线程数量自然就越少，建立线程时就越容易把剩下的内存耗尽。</li>
+</ul>
+<blockquote>
+<p>无论是由于栈帧太大还是虚拟机栈容量太小，当新的栈帧内存无法分配的时候，HotSpot 虚拟机抛出的都是StackOverflowError异常。</p>
+</blockquote>
+<h4 id="方法区和运行时常量池溢出"><a href="#方法区和运行时常量池溢出" class="headerlink" title="方法区和运行时常量池溢出"></a>方法区和运行时常量池溢出</h4><p>在JDK 8以后，永久代便完全退出了历史舞台，元空间作为其替代者登场。在默认设置下，方法区的溢出的溢出已经相对不会那么容易出现了。<br>HotSpot提供了一些参数用于防御元空间溢出问题：<br>-XX: MaxMetaspaceSize: 设置元空间最大值，默认是-1，即不限制，或者说只受限于本地内存大小。<br>-XX: MetaspaceSize: 指定元空间的初始空间大小，以字节为单位，达到该值就会触发垃圾收集进行类型卸载，同时收集器会对该值进行调整:如果释放了大量的空间，就适当降低该值;如果释放了很少的空间，那么在不超过-XX:<br>MaxMetaspaceSize (如果设置了的话)的情况下，适当提高该值。<br>-XX: MinMetaspaceFreeRatio: 作用是在垃圾收集之后控制最小的元空间剩余容量的百分比，可减少因为元空间不足导致的垃圾收集的频率。类似的还有-XX: Max-MetaspaceFreeRatio, 用于控制最大的元空间剩余容量的百分比。</p>
+<h4 id="本机直接内存溢出"><a href="#本机直接内存溢出" class="headerlink" title="本机直接内存溢出"></a>本机直接内存溢出</h4><p>直接内存(Direct Memory)的容量大小可通过<code>-XX : MaxDirectMemorySize</code>参数来指定，如果不去指定，则默认与Java堆最大值(由-Xmx指定) 一致。<br>越过了DirectByteBuffer类直接通过反射获取Unsafe实例进行内存分配(Unsafe类的getUnsafe()方法指定只有引导类加载器才会返回实例，体现了设计者希望只有虚拟机标准类库里面的类才能使用Unsafe的功能，在JDK 10时才将Unsafe的部分功能通过VarHandle开放给外部使用)，因为虽然使用DirectByteBuffer分配内存也会拋出内存溢出异常，但它抛出异常时并没有真正向操作系统申请分配内存，而是通过计算得知内存无法分配就会在代码里手动抛出溢出异常，真正申请分配内存的方法是Unsafe:allocateMemory()。</p>
+<blockquote>
+<p>由直接内存导致的内存溢出，一个明显的特征是在Heap Dump文件中不会看见有什么明显的异常情况，如果读者发现内存溢出之后产生的Dump文件很小，而程序中又直接或间接使用了DirectMemory(典型的间接使用就是NIO)，那就可以考虑重点检查一下直接内存方面的原因了。</p>
+</blockquote>
+<h1 id="垃圾收集器与内存分配策略-1"><a href="#垃圾收集器与内存分配策略-1" class="headerlink" title="垃圾收集器与内存分配策略"></a>垃圾收集器与内存分配策略</h1><h2 id="对象已死？"><a href="#对象已死？" class="headerlink" title="对象已死？"></a>对象已死？</h2><h3 id="引用计数算法"><a href="#引用计数算法" class="headerlink" title="引用计数算法"></a>引用计数算法</h3><h3 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h3><h4 id="GC-Roots-1"><a href="#GC-Roots-1" class="headerlink" title="GC Roots"></a>GC Roots</h4><h4 id="三色标记法（Tri-color-Marking）"><a href="#三色标记法（Tri-color-Marking）" class="headerlink" title="三色标记法（Tri-color Marking）"></a>三色标记法（Tri-color Marking）</h4><p>白色、黑色、灰色</p>
 <h5 id="并发出现对象消失问题"><a href="#并发出现对象消失问题" class="headerlink" title="并发出现对象消失问题"></a>并发出现对象消失问题</h5><p>两种解决方案：增量更新（Incremental Update）、原始快照（Snapshot At The Begging，SATB）。</p>
 <h2 id="经典垃圾收集器"><a href="#经典垃圾收集器" class="headerlink" title="经典垃圾收集器"></a>经典垃圾收集器</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/WLBBDC.png" alt></p>
 <h3 id="Serial收集器"><a href="#Serial收集器" class="headerlink" title="Serial收集器"></a>Serial收集器</h3><p>这是最古老，最基础的垃圾收集器，只会使用一个处理器单线程去做垃圾收集，而且它在进行垃圾收集期间，会停掉所有的用户工作线程，这是非常糟糕的用户体验。(Stop The World)<br>Serial/Serial Old收集器工作流程：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/lqCCw4.png" alt><br>（图片出自来自《深入理解Java虚拟机第3版》）<br>Serial虽然有上述这么大的弊端，但是历代JVM一直致力于Serial的优化改进，直至如今，Serial依然是HotSpot的默认新生代收集器，因为其在单线程的环境下相较而言简单高效，而且垃圾收集的时间甚至可以缩短到十几、几十毫秒。</p>
@@ -423,7 +442,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -436,7 +455,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-count">85</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

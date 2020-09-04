@@ -163,6 +163,203 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Redis汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/15/Redis汇总/" class="post-title-link" itemprop="url">Redis汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-15 21:36:09" itemprop="dateCreated datePublished" datetime="2019-10-15T21:36:09+08:00">2019-10-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-23 16:42:20" itemprop="dateModified" datetime="2020-07-23T16:42:20+08:00">2020-07-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/redis/" itemprop="url" rel="index"><span itemprop="name">redis</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="那些数据适合存储进去-todo"><a href="#那些数据适合存储进去-todo" class="headerlink" title="那些数据适合存储进去? todo"></a>那些数据适合存储进去? todo</h2><pre><code>维护的增删改查应不应该放弃使用缓存（只是为了不出现一种情况，就是修改了数据库，缓存依然还是老的数据）
+另外还要考虑到维护的时候增删改其实使用的频率是不多的，所有没必要使用缓存，当然，高频率增删改的除外。
+使用到缓存的一般是可以是高频率的查询
+</code></pre><h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="redis数据持久化，一般重启不丢失"><a href="#redis数据持久化，一般重启不丢失" class="headerlink" title="redis数据持久化，一般重启不丢失"></a>redis数据持久化，一般重启不丢失</h2><p><a href="https://redis.io/topics/persistence" target="_blank" rel="noopener">https://redis.io/topics/persistence</a><br>会默认开启RDB 持久化</p>
+<h2 id="Redis的数据类型"><a href="#Redis的数据类型" class="headerlink" title="Redis的数据类型"></a>Redis的数据类型</h2><ol>
+<li>字符串（String）</li>
+<li>字符串列表（list）</li>
+<li>有序字符串集合（sorted set）</li>
+<li>哈希（hash）</li>
+<li>字符串集合（set）</li>
+</ol>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p><a href="https://www.runoob.com/redis/redis-commands.html" target="_blank" rel="noopener">https://www.runoob.com/redis/redis-commands.html</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">查询键keys * 查询所有的键,会遍历所有的键值,复杂度O(n)</span><br><span class="line">flushall</span><br><span class="line">incr num</span><br><span class="line">decr num</span><br><span class="line">incrby num 5</span><br><span class="line">decrby num 3</span><br><span class="line">append num str</span><br><span class="line">hset myhash keyname value</span><br><span class="line">hmset myhashs key1 v1 key2 v2</span><br><span class="line">hget myhashs key1</span><br><span class="line">hmget myhashs key1 key2</span><br><span class="line">hgetall myhashs</span><br><span class="line">hdel myhashs key1 key2</span><br><span class="line">hlen myhashs</span><br><span class="line">hkeys myhashs</span><br><span class="line">hvals myhashs</span><br><span class="line">lpush mylist a b c （左侧添加进去）</span><br><span class="line">rpush mylist 1 2 3 （右侧添加进去）</span><br><span class="line">lrange mylist 0 -1 (负数是倒数第n)</span><br><span class="line">lpop mylist （弹出首个）</span><br><span class="line">rpop mylist（弹出尾个）</span><br><span class="line">llen mylist</span><br><span class="line">lpushx mylist x （插入到头部）</span><br><span class="line">rpushx mylist x（插入到尾部）</span><br><span class="line">lrem mylist 2 3 (从头到尾删除2个值为3的元素)</span><br><span class="line">lrem mylist -2 3 (从尾到头删除2个值为3的元素)</span><br><span class="line">lrem mylist 0 3 （删除所有值为3的元素）</span><br><span class="line">lset mylist 3 mmm（在下标为3的位置插入mmm）</span><br><span class="line">linsert mylist before mmm haha（在第一个mmm之前插入haha）</span><br><span class="line">linsert mylist after mmm xixi（在第一个mmm之后插入xixi）</span><br><span class="line">rpoplpush mylist1 mylist2 （mylist1弹出首个元素给到mylist2）</span><br><span class="line">sadd myset a b c</span><br><span class="line">sismember myset a（判断是否成员）</span><br><span class="line">sdiff myset1 myset2（差集）</span><br><span class="line">sinter myset1 myset2（交集）</span><br><span class="line">sunion set1 set2 （并集）</span><br><span class="line">smembers myset</span><br><span class="line">scard myset</span><br></pre></td></tr></table></figure></p>
+<h3 id="过期时间"><a href="#过期时间" class="headerlink" title="过期时间"></a>过期时间</h3><p><a href="https://www.cnblogs.com/xiaoxiongcanguan/p/9937433.html?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="noopener">https://www.cnblogs.com/xiaoxiongcanguan/p/9937433.html?utm_source=tuicool&amp;utm_medium=referral</a></p>
+<h2 id="redis-cli"><a href="#redis-cli" class="headerlink" title="redis-cli"></a>redis-cli</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h 地址 -p 端口号</span><br></pre></td></tr></table></figure>
+<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="required-a-bean-of-type-‘org-springframework-cache-CacheManager’-that-could-not-be-found"><a href="#required-a-bean-of-type-‘org-springframework-cache-CacheManager’-that-could-not-be-found" class="headerlink" title="required a bean of type ‘org.springframework.cache.CacheManager’ that could not be found."></a>required a bean of type ‘org.springframework.cache.CacheManager’ that could not be found.</h2><p>需要再spring.foctories添加org.springframework.boot.autoconfigure.EnableAutoConfiguration配置，<br>至少需要配置RedisTemplate</p>
+<h2 id="MISCONF-Redis-is-configured-to-save-RDB-snapshots-but-it-is-currently-not-able-to-persist-on-disk-Commands-that-may-modify-the-data-set-are-disabled-because-this-instance-is-configured-to-report-errors-during-writes-if-RDB-snapshotting-fails-stop-writes-on-bgsave-error-option-Please-check-the-Redis-logs-for-details-about-the-RDB-error"><a href="#MISCONF-Redis-is-configured-to-save-RDB-snapshots-but-it-is-currently-not-able-to-persist-on-disk-Commands-that-may-modify-the-data-set-are-disabled-because-this-instance-is-configured-to-report-errors-during-writes-if-RDB-snapshotting-fails-stop-writes-on-bgsave-error-option-Please-check-the-Redis-logs-for-details-about-the-RDB-error" class="headerlink" title="MISCONF Redis is configured to save RDB snapshots, but it is currently not able to persist on disk. Commands that may modify the data set are disabled, because this instance is configured to report errors during writes if RDB snapshotting fails (stop-writes-on-bgsave-error option). Please check the Redis logs for details about the RDB error."></a>MISCONF Redis is configured to save RDB snapshots, but it is currently not able to persist on disk. Commands that may modify the data set are disabled, because this instance is configured to report errors during writes if RDB snapshotting fails (stop-writes-on-bgsave-error option). Please check the Redis logs for details about the RDB error.</h2><p>网上说：关闭配置文件里面的stop-writes-on-bgsave-error，将其配置为no，然后重启redis，但是改成no之后刚开始能生效，隔一段时间之后还是会报这个错，所以问题的根源应该不是这个。</p>
+<h2 id="Redis系列之一台机器启动多个服务"><a href="#Redis系列之一台机器启动多个服务" class="headerlink" title="Redis系列之一台机器启动多个服务"></a>Redis系列之一台机器启动多个服务</h2><h4 id="复制多个redis-conf"><a href="#复制多个redis-conf" class="headerlink" title="复制多个redis.conf"></a>复制多个redis.conf</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/local/redis/etc/redis.conf /usr/local/redis/etc/redis02.conf</span><br></pre></td></tr></table></figure>
+<p>修改redis02.conf内容防止冲突，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pidfile /var/run/redis_6379.pid</span><br><span class="line">port 6379</span><br><span class="line">logfile /var/log/redis/redis_6379.log</span><br><span class="line">dir /var/lib/redis/637￿9</span><br></pre></td></tr></table></figure></p>
+<p>dir注意要新建对应目录</p>
+<h4 id="复制多个redis-server"><a href="#复制多个redis-server" class="headerlink" title="复制多个redis-server"></a>复制多个redis-server</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /etc/init.d/redis-server /etc/init.d/redis-server02</span><br></pre></td></tr></table></figure>
+<p>修改redis-service02里面的内容，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DAEMON_ARGS=/usr/local/redis/etc/redis02.conf</span><br><span class="line">NAME=redis-server02</span><br><span class="line">DESC=redis-server02</span><br><span class="line">PIDFILE=/var/run/redis/redis02.pid</span><br></pre></td></tr></table></figure></p>
+<h4 id="然后启动redis-service02"><a href="#然后启动redis-service02" class="headerlink" title="然后启动redis-service02"></a>然后启动redis-service02</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./redis-serivce02 start</span><br></pre></td></tr></table></figure>
+<h2 id="MySQL操作成功之后Redis操作失败的回滚问题"><a href="#MySQL操作成功之后Redis操作失败的回滚问题" class="headerlink" title="MySQL操作成功之后Redis操作失败的回滚问题"></a>MySQL操作成功之后Redis操作失败的回滚问题</h2><p>在项目中有个需求，需要保证MySQL数据库和Redis缓存数据的一致性。<br>一般增删改都是先操作MySQL数据库，成功之后再操作Redis，但这里有个问题，如果MySQL操作成功了，但Redis突然出现异常，操作失败，如何回滚MySQL操作。<br>使用注解@Transactional只会回滚MySQL异常的情况，Redis本身也不具备回滚功能，在MySQL操作成功的情况下，@Transactional注解会认为方法并没有异常，会继续执行而不回滚，这样就导致了MySQL和Redis不一致的情况。<br>为了避免这种情况，每次操作Redis之后，都会判断Redis有没有操作成功，操作失败则进行手动回滚，加一行代码：TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();  配合@Transactional注解即可解决问题。</p>
+<h1 id="redis缓存设计"><a href="#redis缓存设计" class="headerlink" title="redis缓存设计"></a>redis缓存设计</h1><h2 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h2><ul>
+<li>注意纳入redis管控的JavaBean一定要实现Serializable接口，这样才能序列化。JavaBean的子属性如果是JavaBean也都要实现Serializable接口。</li>
+</ul>
+<h1 id="Redisson实现分布式锁"><a href="#Redisson实现分布式锁" class="headerlink" title="Redisson实现分布式锁"></a>Redisson实现分布式锁</h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Spring系列之SpringSecurity/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/15/Spring系列之SpringSecurity/" class="post-title-link" itemprop="url">Spring系列之SpringSecurity</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-15 21:23:15" itemprop="dateCreated datePublished" datetime="2019-10-15T21:23:15+08:00">2019-10-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-21 16:49:58" itemprop="dateModified" datetime="2020-07-21T16:49:58+08:00">2020-07-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/SpringSecurity/" itemprop="url" rel="index"><span itemprop="name">SpringSecurity</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="OAuth2标准研究-todo"><a href="#OAuth2标准研究-todo" class="headerlink" title="OAuth2标准研究 todo"></a>OAuth2标准研究 todo</h2><h2 id="AuthorizationServerConfigurerAdapter-vsWebSecurityConfigurerAdapter-todo"><a href="#AuthorizationServerConfigurerAdapter-vsWebSecurityConfigurerAdapter-todo" class="headerlink" title="AuthorizationServerConfigurerAdapter vsWebSecurityConfigurerAdapter todo"></a>AuthorizationServerConfigurerAdapter vsWebSecurityConfigurerAdapter todo</h2><h2 id="判断是否超时的逻辑-todo"><a href="#判断是否超时的逻辑-todo" class="headerlink" title="判断是否超时的逻辑 todo"></a>判断是否超时的逻辑 todo</h2><h2 id="CORS-todo"><a href="#CORS-todo" class="headerlink" title="CORS todo"></a>CORS todo</h2><h2 id="JSR-250-todo"><a href="#JSR-250-todo" class="headerlink" title="JSR-250 todo"></a>JSR-250 todo</h2><h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="很好的基础教程"><a href="#很好的基础教程" class="headerlink" title="很好的基础教程"></a>很好的基础教程</h2><p><a href="https://www.baeldung.com/security-spring" target="_blank" rel="noopener">Security with Spring</a></p>
+<h2 id="token值在哪里生成？怎么生成？"><a href="#token值在哪里生成？怎么生成？" class="headerlink" title="token值在哪里生成？怎么生成？"></a>token值在哪里生成？怎么生成？</h2><p>默认鉴权生成token的url是”/oauth/token”，在TokenEndpoint里面生成。<br>SpringSecurity默认的token生成url是：<a href="http://hostname:port/oauth/token" target="_blank" rel="noopener">http://hostname:port/oauth/token</a><br>但是要进入到真正的TokenEndpoint里面还需要经过一道道关卡：<br>0 = {WebAsyncManagerIntegrationFilter@13114}<br>1 = {SecurityContextPersistenceFilter@13113}<br>2 = {HeaderWriterFilter@13112}<br>3 = {LogoutFilter@13111}<br>4 = {ClientCredentialsTokenEndpointFilter@13110}<br>5 = {BasicAuthenticationFilter@13108}<br>6 = {RequestCacheAwareFilter@13248}<br>7 = {SecurityContextHolderAwareRequestFilter@13247}<br>8 = {AnonymousAuthenticationFilter@13246}<br>9 = {SessionManagementFilter@13245}<br>10 = {ExceptionTranslationFilter@13244}<br>11 = {FilterSecurityInterceptor@13243} </p>
+<p>0 = {OrderedGatewayFilter@13342} “OrderedGatewayFilter{delegate=GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RemoveCachedBodyFilter@25a2c4dc}, order=-2147483648}”<br>1 = {OrderedGatewayFilter@13343} “OrderedGatewayFilter{delegate=GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.AdaptCachedBodyGlobalFilter@62dfe152}, order=-2147482648}”<br>2 = {OrderedGatewayFilter@13344} “OrderedGatewayFilter{delegate=GatewayFilterAdapter{delegate=me.fengorz.kiwi.gateway.filter.GenericRequestGlobalFilter@430f0c63}, order=-1000}”<br>3 = {OrderedGatewayFilter@13345} “OrderedGatewayFilter{delegate=GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyWriteResponseFilter@1e75af65}, order=-1}”<br>4 = {OrderedGatewayFilter@13346} “OrderedGatewayFilter{delegate=GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardPathFilter@2bee1c13}, order=0}”<br>5 = {OrderedGatewayFilter@13347} “OrderedGatewayFilter{delegate=GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.GatewayMetricsFilter@71098fb3}, order=0}”<br>6 = {OrderedGatewayFilter@13936} “OrderedGatewayFilter{delegate=me.fengorz.kiwi.gateway.filter.ValidateCodeGatewayFilter$$Lambda$854/120561697@1f06c463, order=1}”<br>7 = {OrderedGatewayFilter@14156} “OrderedGatewayFilter{delegate=me.fengorz.kiwi.gateway.filter.PasswordDecoderGatewayFilter$$Lambda$855/473170143@13f576a8, order=2}”<br>8 = {OrderedGatewayFilter@13349} “OrderedGatewayFilter{delegate=GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter@29d81c22}, order=10000}”<br>9 = {OrderedGatewayFilter@13350} “OrderedGatewayFilter{delegate=GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.LoadBalancerClientFilter@25a52a60}, order=10100}”<br>10 = {OrderedGatewayFilter@13351} “OrderedGatewayFilter{delegate=GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.WebsocketRoutingFilter@1859b996}, order=2147483646}”<br>11 = {OrderedGatewayFilter@13352} “OrderedGatewayFilter{delegate=GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyRoutingFilter@15549dd7}, order=2147483647}”<br>12 = {OrderedGatewayFilter@13353} “OrderedGatewayFilter{delegate=GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardRoutingFilter@18d396eb}, order=2147483647}”</p>
+<p>最终默认情况下是通过DefaultTokenServices里面的createAccessToken方法调用到RedisTokenStore的storeAccessToken方法对token一系列的详细信息存储到redis里面。</p>
+<h2 id="Spring-Security默认的过滤器栈"><a href="#Spring-Security默认的过滤器栈" class="headerlink" title="Spring Security默认的过滤器栈"></a>Spring Security默认的过滤器栈</h2><p>0 = {WebAsyncManagerIntegrationFilter@12983}<br>1 = {SecurityContextPersistenceFilter@12982}<br>2 = {HeaderWriterFilter@12981}<br>3 = {LogoutFilter@12980}<br>4 = {ClientCredentialsTokenEndpointFilter@12979}<br>5 = {BasicAuthenticationFilter@12977}<br>6 = {RequestCacheAwareFilter@13387}<br>7 = {SecurityContextHolderAwareRequestFilter@13386}<br>8 = {AnonymousAuthenticationFilter@13385}<br>9 = {SessionManagementFilter@13384}<br>10 = {ExceptionTranslationFilter@13383}<br>11 = {FilterSecurityInterceptor@13382} </p>
+<h2 id="AuthorizationServerSecurityConfigurer"><a href="#AuthorizationServerSecurityConfigurer" class="headerlink" title="AuthorizationServerSecurityConfigurer"></a>AuthorizationServerSecurityConfigurer</h2><p>allowFormAuthenticationForClients()：<br>在BasicAuthenticationFilter之前添加clientCredentialsTokenEndpointFilter。</p>
+<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="maven依赖出现了不同版本的TokenEndpoint"><a href="#maven依赖出现了不同版本的TokenEndpoint" class="headerlink" title="maven依赖出现了不同版本的TokenEndpoint"></a>maven依赖出现了不同版本的TokenEndpoint</h2><p>原因是Spring自己的依赖冲突了，在父工程根目录的dependencyManagement里面添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--稳定版本，替代spring security bom内置--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.security.oauth&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-security-oauth2&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;$&#123;security.oauth.version&#125;&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="权限校验的配置不能冲突"><a href="#权限校验的配置不能冲突" class="headerlink" title="权限校验的配置不能冲突"></a>权限校验的配置不能冲突</h2><p>比如我在某个配置类配置了：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/wH4Lai.png" alt><br>这样会导致全局的权限放开失效：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 直接放行URL</span><br><span class="line">ignore:</span><br><span class="line">  urls:</span><br><span class="line">    - /EnhancerTokenEndpoint/**</span><br></pre></td></tr></table></figure></p>
+<p>全局的安全配置一般放在common-security模块：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/cTim2v.png" alt></p>
+<h2 id="Spring-Security默认不会打印debug日志"><a href="#Spring-Security默认不会打印debug日志" class="headerlink" title="Spring Security默认不会打印debug日志"></a>Spring Security默认不会打印debug日志</h2><p>可通过配置类打开：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public void configure(WebSecurity web) throws Exception &#123;</span><br><span class="line">    web.debug(true);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>但是这种配置类打印的error日志不全，很多时候一些深层次的报错是不会打印出来的，因为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">catch (AuthenticationException failed) &#123;</span><br><span class="line">	SecurityContextHolder.clearContext();</span><br><span class="line"></span><br><span class="line">	if (debug) &#123;</span><br><span class="line">		this.logger.debug(&quot;Authentication request for failed: &quot; + failed);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	this.rememberMeServices.loginFail(request, response);</span><br><span class="line"></span><br><span class="line">	onUnsuccessfulAuthentication(request, response, failed);</span><br><span class="line"></span><br><span class="line">	if (this.ignoreFailure) &#123;</span><br><span class="line">		chain.doFilter(request, response);</span><br><span class="line">	&#125;</span><br><span class="line">	else &#123;</span><br><span class="line">		this.authenticationEntryPoint.commence(request, response, failed);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	return;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>类似这样的代码都有判断if(debug),这种事因为spring security默认用的是logback-classic，需要在classpath加上logback-spring.xml日志打印配置文件。</p>
+<h2 id="通过postman调用接口token验证不通过"><a href="#通过postman调用接口token验证不通过" class="headerlink" title="通过postman调用接口token验证不通过"></a>通过postman调用接口token验证不通过</h2><p>我有二个微服务应用，一个是可以正常验证通过，另一个不能，这种问题只能跟源码分析了，最开始发现问题的端倪是：<br>接口请求之后，SpringSecurity会自动将严重的token转发给<a href="http://localhost:9991/auth/oauth/token在内部做验证，通过的话再继续走业务接口。" target="_blank" rel="noopener">http://localhost:9991/auth/oauth/token在内部做验证，通过的话再继续走业务接口。</a><br>在<a href="http://localhost:9991/auth/oauth/token验证接口需要经过一些列的过滤器，上面有提到。" target="_blank" rel="noopener">http://localhost:9991/auth/oauth/token验证接口需要经过一些列的过滤器，上面有提到。</a><br>在BasicAuthenticationFilter的doFilterInternal方法中对：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String header = request.getHeader(&quot;Authorization&quot;);</span><br></pre></td></tr></table></figure></p>
+<p>这个Authorization进行解密，异常的应用解密出来是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tokens = &#123;String[2]@15312&#125; </span><br><span class="line"> 0 = &quot;null&quot;</span><br><span class="line"> 1 = &quot;5951061b-856f-47cf-8f1b-dc34f975438c&quot;</span><br></pre></td></tr></table></figure></p>
+<p>这里null就出现问题了，因为正常的那个不会是null，所以要研究一下转发到<a href="http://localhost:9991/auth/oauth/token之前塞进Header里面的Authorization是怎么来的？" target="_blank" rel="noopener">http://localhost:9991/auth/oauth/token之前塞进Header里面的Authorization是怎么来的？</a><br>于是只能先从SpringSecurity的过滤器栈中每个过滤器跟起，最终发现是在OAuth2AuthenticationProcessingFilter的doFilter方法的这一行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Authentication authResult = authenticationManager.authenticate(authentication);</span><br></pre></td></tr></table></figure></p>
+<p>发现了这里的authentication里面的getCredentials()返回是null，这才导致了上面转发到<a href="http://localhost:9991/auth/oauth/token验证token的时候出现0" target="_blank" rel="noopener">http://localhost:9991/auth/oauth/token验证token的时候出现0</a> = “null”，继续跟踪getCredentials()的来源，然后发现credentials是依赖于RemoteTokenServices的clientId属性，getPrincipal()依赖的是clientSecret属性，接着跟一下RemoteTokenServices是在哪里被注入到Spring的，发现其注入如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">         @Bean</span><br><span class="line">public RemoteTokenServices remoteTokenServices() &#123;</span><br><span class="line">	RemoteTokenServices services = new RemoteTokenServices();</span><br><span class="line">	services.setCheckTokenEndpointUrl(this.resource.getTokenInfoUri());</span><br><span class="line">	services.setClientId(this.resource.getClientId());</span><br><span class="line">	services.setClientSecret(this.resource.getClientSecret());</span><br><span class="line">	return services;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>this.resource，属性如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@ConfigurationProperties(prefix = &quot;security.oauth2.resource&quot;)</span><br><span class="line">public class ResourceServerProperties implements BeanFactoryAware, InitializingBean &#123;</span><br><span class="line"></span><br><span class="line">	@JsonIgnore</span><br><span class="line">	private final String clientId;</span><br><span class="line"></span><br><span class="line">	@JsonIgnore</span><br><span class="line">	private final String clientSecret;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这就和明确了，yml或者properties没有配置这二个对应的属性，于是配置上，这里采用了jasypt的加密方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">security:</span><br><span class="line">  oauth2:</span><br><span class="line">    client:</span><br><span class="line">      client-id: ENC(wORgugqWfXlIuzbal/3pjXTNXij/RSpo)</span><br><span class="line">      client-secret: ENC(rMd1buB3iI+si+W99eB+QFa3QburIEmY)</span><br><span class="line">      scope: server</span><br></pre></td></tr></table></figure></p>
+<p>本来以为这个就正常了，结果报了新的错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Caused by: java.lang.IllegalArgumentException: Authorities must be either a String or a Collection</span><br></pre></td></tr></table></figure></p>
+<p>debug了一下，发现上面的client-id和client-secret是注入成功的，那么异常应该是出现在其他地方，继续跟进。<br>最终发现，是在EnhancerUserAuthenticationConverter这个token认证转换器中的extractAuthentication方法报错，报错原因是因为admin用户没有赋权，在这段代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">private Collection&lt;? extends GrantedAuthority&gt; getAuthorities(Map&lt;String, ?&gt; map) &#123;</span><br><span class="line">    Object authorities = map.get(AUTHORITIES);</span><br><span class="line"></span><br><span class="line">    List&lt;String&gt; userNames = this.filterIgnorePropertiesConfig.getUserNames();</span><br><span class="line">    if (CollUtil.contains(userNames, map.get(SecurityConstants.DETAILS_USERNAME))) &#123;</span><br><span class="line">        authorities = CommonConstants.EMPTY;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (authorities instanceof String) &#123;</span><br><span class="line">        return AuthorityUtils.commaSeparatedStringToAuthorityList((String) authorities);</span><br><span class="line">    &#125;</span><br><span class="line">    if (authorities instanceof Collection) &#123;</span><br><span class="line">        return AuthorityUtils.commaSeparatedStringToAuthorityList(StringUtils</span><br><span class="line">                .collectionToCommaDelimitedString((Collection&lt;?&gt;) authorities));</span><br><span class="line">    &#125;</span><br><span class="line">    throw new IllegalArgumentException(&quot;Authorities must be either a String or a Collection&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样如果直接写死代码忽略admin用户的话代码就太硬了，于是通过yml配置映射到配置独享filterIgnorePropertiesConfig，这样子比较灵活。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/18/github-hexo-next-快速搭建偏亮的个人博客/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -507,212 +704,10 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/22/显示器选购指南/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/22/显示器选购指南/" class="post-title-link" itemprop="url">显示器选购指南</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-11-22 03:00:18" itemprop="dateCreated datePublished" datetime="2019-11-22T03:00:18+08:00">2019-11-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-16 20:58:54" itemprop="dateModified" datetime="2020-07-16T20:58:54+08:00">2020-07-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/显示器/" itemprop="url" rel="index"><span itemprop="name">显示器</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="LG27UK850体验总结"><a href="#LG27UK850体验总结" class="headerlink" title="LG27UK850体验总结"></a>LG27UK850体验总结</h1><pre><code>本来我都不想浪费时间来写下这个总结的，因为一贯都很懒，但是有个事情激发了我的动力，入手了LG27UK850之后，本来还想在微信群里面分享一波，那个微信群本来是三五个好友的撩骚群，但是在天朝特色的环境下，曾经最活跃的好群，慢慢的变成了各自炫耀自己仅有的一点点成绩的地方，在卑微的虚荣心驱使之下，影响到我们的独善其身，这也是我现在慢慢得想淡化静默一些群的原因。
-在我分享了一张刚买的显示器照片之后，果然不出我的意料，有二个朋友回复的是，&quot;辣鸡，LG泛白严重&quot;，&quot;内心毫无波动&quot;等，诸如此类的回复。我在寻思，也许是多年的好友，才能够肆无忌惮的各种踩，也许是有好友出自内心的提醒，毕竟忠言逆耳利于行，而又或许，虚荣心在作祟？不过都无所谓，我将仔细分析一下我这次的体验，冷暖自知。
-此外，我TM昨晚刚下单，今天中午就降价100块，狗东一定是在针对我。
-</code></pre><p>先说明一下我为什么要买显示器以及选中了LG27UK850的原因：</p>
-<ol>
-<li>我是MBP18，MBP18四个Type-C都支持Thunderbolt3</li>
-<li>我的扩展坞没有DP接口，只有一个HDMI1.4，1.4它不香了，无法支持4k/60Hz，所以如果我使用原有的扩展坞的话的话，那么买的显示器如果没有Type-C接口，将支持不了4k/60Hz，而我又测试了一下HDMI1.4，明显感觉掉帧和卡顿，又或者我需要买那种Type-C转DP的线。</li>
-<li>同时这块显示器电源之后用Type-C来输入的话，可以给MBP反向充电</li>
-<li>可以通过Type-C CtoC连接，这样一来就是基于DP来传输的，速率上杠杠的。</li>
-<li>有了Type-C直连，我就可以减少有线的很多连接和转接头，有时候我比较喜欢简约美。</li>
-<li>为什么我不选择戴尔U2718Q，网上对于戴尔显示器的显示效果确实好评声音高于LG，但是我对比了二款显示器，价位戴尔高几百块，当然这个不是重点，主要戴尔U2718Q没有Type-C口，而其他各种参数他们基本一致，抛开品控不说，苹果的显示器也都是和LG合作的，所以上车LG，我不是很方。</li>
-<li>我是真的迫不及待想要体验用上大屏 or 双屏，这样会更好能够利用好我的时间，提交效率。</li>
-<li>每天上班都是用MBP，十足十的低头族，加上经常看手机，脖子已经吃不消了，搞不好还容易驼背圆肩什么的，大屏显示器它势在必得！</li>
-</ol>
-<h1 id="弊端"><a href="#弊端" class="headerlink" title="弊端"></a>弊端</h1><ul>
-<li>旋转屏幕之后不会自动感应旋转画面，需要在系统额外设置，之前我一直以为是会自动旋转画面的。</li>
-<li>朋友说的泛白，肉眼看上去，确实没有MBP屏幕那样的恰到好处，加上我本身自己是高度近视，眼镜其实已经用了很久了，貌似是有点点泛白的感觉，但是不做设计，感觉我自己没有这方面的极致追求。</li>
-<li>我看到网上有人说反向充电会充不满，但是我自己试了一个下午，一直都是100%，所以不存在这个问题。</li>
-<li>LG原装里面送的Type-C线不是雷电3，我看没有雷电标记，也就是普通的Type-C先，郁闷。。。</li>
-<li>睡眠之后通过鼠标or键盘重新唤醒，需要等好几秒，如果待机很久，比如一整个晚上，会出现无法唤醒，必须打开笔记本盖子，才能唤醒，这个应该是MBP彻底休眠了。。。</li>
-<li>亮度已经调整为最低，但是实际上还是偏亮，需要辅助性软件或者对比度也调低，才能找到合适的亮度，可能我本人眼睛也不适合看亮的东西。</li>
-</ul>
-<h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><p>显示器传输接口DP、HDMI（1.0和2.0）、VGA（上古时代的产品）、DVI（也是时代的遗物）  </p>
-<h2 id="DP"><a href="#DP" class="headerlink" title="DP"></a>DP</h2><p>DisplayPort接口</p>
-<h2 id="HDMI"><a href="#HDMI" class="headerlink" title="HDMI"></a>HDMI</h2><p>HDMI现在最新版本已经是2.x了，只有2.0之后的版本才支持4k+60p，最新2.1版本支持 8K/60Hz、4K/120Hz 视频、Dynamic HDR（动态HDR，对于一些电影、游戏或图片的较灰暗的画面貌似有更好的纠正显示效果），将频宽大幅提升到 48Gbps。</p>
-<h2 id="DP-VS-HDMI"><a href="#DP-VS-HDMI" class="headerlink" title="DP VS HDMI"></a>DP VS HDMI</h2><ul>
-<li>DP的最新版本是1.4，发布于2016年3月，1.5版本迟迟没有发布</li>
-<li>HDMI最新版本为2.1，发布于2017年11月<br>查看网上对于两者的比较，基本得出的结论大概是这样：<br>如果是电脑显示器，优先选择DP。HDMI主要是影音应用的，带宽不如DP。<br>如果论专业度，首选DP吧，虽然HDMI与DP都支持4K*2K，但DP的宽带会更高。<br>但是我个人一眼扫过去他们二者的数据比较，感觉单从数据来看，可能差不多已经是不相上下了。</li>
-</ul>
-<h2 id="Thunderbolt3"><a href="#Thunderbolt3" class="headerlink" title="Thunderbolt3"></a>Thunderbolt3</h2><p>雷电三的数据线都是带有雷电标记的，如：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/4AsmkY.png" alt="image"><br>MBP2018一共有四个Type-C接口，都是支持雷电3的</p>
-<h2 id="Thunderbolt3、USB-3-1-Gen2、-Type-C的区别"><a href="#Thunderbolt3、USB-3-1-Gen2、-Type-C的区别" class="headerlink" title="Thunderbolt3、USB 3.1 Gen2、 Type-C的区别"></a>Thunderbolt3、USB 3.1 Gen2、 Type-C的区别</h2><p>想要弄清楚这两种电缆的区别，首先就需要先理清雷电3、USB 3.1、Type-C这三个名词的概念。其实，雷电3（Thunderbolt 3）和USB 3.1都是数据传输协议。<br>不同传输标准区别主要在于传输速率。拿USB 3.1来说，还分为USB 3.1 Gen1和USB 3.1 Gen2，USB 3.1 Gen1的最大传输速率为5Gb/s，USB3.1 Gen2最大传输速率为10Gb/s。<br>而Type-C则是一种接口规格，除此之外还有Type-A、Type-B等其他接口规格。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/OzaYIT.png" alt="image"><br>而用户容易把雷电3和USB Type-C搞混淆的原因之一，就是两种电缆均采用了Type-C接口规格，看起来几乎完全相同。现在为了更好的区分两者，苹果最新的雷电3数据线上都会带有雷电标志，所以很重要的区别是线本身的电缆不一样。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/9b8HMD.png" alt="image"><br>雷电3和USB Type-C虽然有相同的接口，却与不同的传输协议配对，分别是雷电3（Thunderbolt 3）和USB 3.1。<br>一些 Thunderbolt 3 连接线可以作为 USB 3.1 Type-C 连接线使用，但不是所有的线缆都可以。而 USB 3.1 Type-C 连接线，却永远无法当做 Thunderbolt 3 连接线使用，就算大家都是相同的 USB-C 接口也不行。同时，并不是所有的 USB Type-C 线缆都能胜任规范中的最高 100W 传输功率，无论是 Thunderbolt 3 还是 USB 3.1 Type-C 都不一定能够达到。</p>
-<p>USB Type-C 接口其实本身并不支持视频输出，但是它拥有替代模式，通过转接到其他芯片上来实现不同功能，它实际使用的是DP标准的信号传输，好处是可以通过一根线解决显示器的画面输出和供电问题。</p>
-<h2 id="为什么LG送的Type-C非雷电3可以做传输？"><a href="#为什么LG送的Type-C非雷电3可以做传输？" class="headerlink" title="为什么LG送的Type-C非雷电3可以做传输？"></a>为什么LG送的Type-C非雷电3可以做传输？</h2><p>我用自己MBP的电源充电线连接显示器，显示无信号连接，显然不起作用，但是用LG附带的Type-C线就可以，询问客户说是普通的线。<br>于是我搜了苹果原装雷电3数据线，TM要两百多，LG难怪不送雷电3的线，然后我发现了双Type-C原来还可以这么玩：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/X2FuqL.png" alt="image"><br>难怪显示器用Type-C的线能够给MBP反向充电。<br>翻了半天，没找到合理的科普，暂且搁置。</p>
-<h1 id="坏点测试网站"><a href="#坏点测试网站" class="headerlink" title="坏点测试网站"></a>坏点测试网站</h1><p><a href="http://pingmu.zh-ang.com/" target="_blank" rel="noopener">http://pingmu.zh-ang.com/</a></p>
-<h1 id="下面附上我的测试结果"><a href="#下面附上我的测试结果" class="headerlink" title="下面附上我的测试结果"></a>下面附上我的测试结果</h1><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/pLSliT.png" alt="image"><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/LL5L5z.png" alt="image"><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/lBaLO9.png" alt="image"><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/8ZhCcI.png" alt="image"><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/56Xsiu.png" alt="image"><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/NrtREc.png" alt="image"><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/l2YypC.png" alt="image"></p>
-<blockquote>
-<p>下面是一些显示器选购的参数</p>
-</blockquote>
-<h1 id="色域"><a href="#色域" class="headerlink" title="色域"></a>色域</h1><ul>
-<li>sRGB</li>
-<li>NTSC</li>
-</ul>
-<h1 id="色差"><a href="#色差" class="headerlink" title="色差"></a>色差</h1><h1 id="分辨率-尺寸"><a href="#分辨率-尺寸" class="headerlink" title="分辨率 尺寸"></a>分辨率 尺寸</h1><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/Jhr774.png" alt="image"><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/UNfhPV.png" alt="image"></p>
-<h1 id="刷新率-灰阶响应时间"><a href="#刷新率-灰阶响应时间" class="headerlink" title="刷新率 灰阶响应时间"></a>刷新率 灰阶响应时间</h1><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/aXNYhn.png" alt="image"></p>
-<ul>
-<li>IPS：漏光听说可能会比较严重</li>
-<li>TN：色彩太差，尽量不考虑，</li>
-</ul>
-<h1 id="带鱼屏"><a href="#带鱼屏" class="headerlink" title="带鱼屏"></a>带鱼屏</h1><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/wbAnv9.png" alt="image"><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/I7TEW7.png" alt="image"></p>
-<h1 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h1><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/uw7LCF.png" alt="image"><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/XepCvX.png" alt="image"><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/YP7wN7.png" alt="image"><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/IYBayE.png" alt="image"></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/PDLjPX.png" alt="image"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/02/Vue系列之表严肃Vue视频教程笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/02/Vue系列之表严肃Vue视频教程笔记/" class="post-title-link" itemprop="url">Vue系列之表严肃Vue视频教程笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-02 21:29:06" itemprop="dateCreated datePublished" datetime="2019-12-02T21:29:06+08:00">2019-12-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-16 20:58:54" itemprop="dateModified" datetime="2020-07-16T20:58:54+08:00">2020-07-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>参考自表严肃的视频教程 <a href="https://www.bilibili.com/video/av13450835?p=4" target="_blank" rel="noopener">https://www.bilibili.com/video/av13450835?p=4</a></p>
-</blockquote>
-<h1 id="常用feature"><a href="#常用feature" class="headerlink" title="常用feature"></a>常用feature</h1><h2 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;span v-for=&quot;(role) in scope.row.roleList&quot;&gt;</span><br><span class="line">                &lt;el-tag&gt;&#123;&#123;role.roleName&#125;&#125; &lt;/el-tag&gt;</span><br><span class="line">              &lt;/span&gt;</span><br></pre></td></tr></table></figure>
-<p>chrome的控制台可以动态直接通过js的api给页面update数据，比如：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/JOPVFM.png" alt></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -778,7 +773,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -791,7 +786,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-count">85</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
