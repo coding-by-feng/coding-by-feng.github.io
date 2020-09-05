@@ -163,6 +163,78 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/13/kiwi-microservice项目架构技术记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/13/kiwi-microservice项目架构技术记录/" class="post-title-link" itemprop="url">kiwi-microservice项目架构技术记录</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-05-13 22:52:48 / Modified: 22:57:17" itemprop="dateCreated datePublished" datetime="2020-05-13T22:52:48+08:00">2020-05-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/kiwi/" itemprop="url" rel="index"><span itemprop="name">kiwi</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="运行启动"><a href="#运行启动" class="headerlink" title="运行启动"></a>运行启动</h1><h2 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h2><ul>
+<li>项目的maven打包要先去掉根目录（父模块）的pom.xml的modules标签，然后先install根模块(kiwi-microservice)</li>
+<li>然后再单独install kiwi-cloud-service模块</li>
+<li>最后如果想要一次性用maven命令操作其他所有模块再把modules标签放开注释即可通过根目录的pom.xml来操作子模块</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/09/Spring系列之SpringCloud微服务架构/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -478,86 +550,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/25/Spring系列之SpringWebFlux/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/25/Spring系列之SpringWebFlux/" class="post-title-link" itemprop="url">Spring系列之SpringWebFlux</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-04-25 21:16:57 / Modified: 23:17:52" itemprop="dateCreated datePublished" datetime="2020-04-25T21:16:57+08:00">2020-04-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/Spring-WebFlux/" itemprop="url" rel="index"><span itemprop="name">Spring WebFlux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="Http请求的总入口"><a href="#Http请求的总入口" class="headerlink" title="Http请求的总入口"></a>Http请求的总入口</h2><p>org.springframework.web.reactive.DispatcherHandler.handle</p>
-<h2 id="HandlerFunction-vs-RouterFunction"><a href="#HandlerFunction-vs-RouterFunction" class="headerlink" title="HandlerFunction vs RouterFunction"></a>HandlerFunction vs RouterFunction</h2><p>参考自：<a href="https://www.baeldung.com/spring-5-functional-web" target="_blank" rel="noopener">https://www.baeldung.com/spring-5-functional-web</a></p>
-<h3 id="HandlerFunction"><a href="#HandlerFunction" class="headerlink" title="HandlerFunction"></a>HandlerFunction</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">public interface HandlerFunction&lt;T extends ServerResponse&gt; &#123;</span><br><span class="line">    Mono&lt;T&gt; handle(ServerRequest request);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个接口的实现其实类似servlet，如果和标准的Servlet.service(ServletRequest req, ServletResponse res)比对的话，HandlerFunction返回的是一个响应，而不是将和Servlet一样，将ServerResponse作为参数，这样子几乎没有副作用，而且更方便测试和重用。</p>
-<h3 id="RouterFunction"><a href="#RouterFunction" class="headerlink" title="RouterFunction"></a>RouterFunction</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">public interface RouterFunction&lt;T extends ServerResponse&gt; &#123;</span><br><span class="line">    Mono&lt;HandlerFunction&lt;T&gt;&gt; route(ServerRequest request);</span><br><span class="line">    // ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static &lt;T extends ServerResponse&gt; RouterFunction&lt;T&gt; route(</span><br><span class="line">  RequestPredicate predicate,</span><br><span class="line">  HandlerFunction&lt;T&gt; handlerFunction)</span><br></pre></td></tr></table></figure>
-<p>通常使用RouterFunctions.route()来绑定路由和HandlerFunction的实现，可以结合WebTestClient来做测试。</p>
-<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="CSRF-Token-has-been-associated-to-this-client"><a href="#CSRF-Token-has-been-associated-to-this-client" class="headerlink" title="CSRF Token has been associated to this client"></a>CSRF Token has been associated to this client</h2><p>今天出现了个奇葩的前端调用SpringGateway网关的错误，网上搜寻了片刻发现没有别人有过和我类似的案例。<br>于是我打算从HttpServlet总入口跟进问题，但是我忘了SpringGateway默认是使用SpringWebFlux的，和SpringMVC没有什么关系了。。。<br>然后全局搜索一下Spring的源码”CSRF Token has been associated to this client”，才意识到要换个入口来跟踪问题。</p>
-<p>然而当我把入口换成org.springframework.web.reactive.DispatcherHandler去跟踪发现也不能进入断点，经常一番搜索和研究（因为我对WebFlux基本没用过）<br>发现是WebFlux的安全校验配置没有放开，为了测试我方面，我暂时先这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@EnableWebFluxSecurity</span><br><span class="line">public class SecurityConfig &#123;</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) &#123;</span><br><span class="line">        return http</span><br><span class="line">                .authorizeExchange()</span><br><span class="line">                .anyExchange()</span><br><span class="line">                .permitAll()</span><br><span class="line">                .and()</span><br><span class="line">                .csrf()</span><br><span class="line">                .disable()</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>总结得出：当挖掘源码还不能解决的问题，只能硬着头皮翻遍网上的解决方案，如若还不行就只能去通读官方的文档了，当然，有时间和条件还是要先通读官方文档再来上手。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -627,7 +619,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">121</span>
+          <span class="site-state-item-count">122</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -691,11 +683,71 @@
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
 <script src="/js/schemes/pisces.js"></script>
 <script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
 
 
 
@@ -715,9 +767,11 @@
 
 
 
+    <div id="pjax">
   
 
   
 
+    </div>
 </body>
 </html>

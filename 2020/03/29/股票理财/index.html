@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/yzNpW3.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/vXPOJ9.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/BIJHIz.png">
-<meta property="og:updated_time" content="2020-09-03T15:24:12.193Z">
+<meta property="og:updated_time" content="2020-09-05T13:47:18.036Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="股票理财">
 <meta name="twitter:description" content="这篇笔记总结自李哥说理财的股票教程，以及其他网上知识点收集，只是我自己的个人复习笔记。  经济运作体系经济机器是怎样运行的 非农时间什么是非农，通常说的是美国每月公布的非农业就业人口数据，在金融市场里非农会导致数据的波荡，这个波荡的数据会引起投资者的骚动。非农数据，包括美国非农就业率，非农业就业人数与失业率这三个数值，反映了美国非农业部门的就业状况的数据指标。这三个数据每个月第一个周五北京时间（">
@@ -206,7 +206,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-03 23:24:12" itemprop="dateModified" datetime="2020-09-03T23:24:12+08:00">2020-09-03</time>
+                <time title="Modified: 2020-09-05 21:47:18" itemprop="dateModified" datetime="2020-09-05T21:47:18+08:00">2020-09-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -248,6 +248,7 @@
 <li>生存环境是否激烈</li>
 <li>经营模式是否简单</li>
 <li>竞争分析</li>
+<li>财务报表分析</li>
 </ul>
 <h2 id="股票（公司）指标"><a href="#股票（公司）指标" class="headerlink" title="股票（公司）指标"></a>股票（公司）指标</h2><h3 id="最重要的两个指标"><a href="#最重要的两个指标" class="headerlink" title="最重要的两个指标"></a>最重要的两个指标</h3><p>股市价格常被看作宏观经济的晴雨表，影响股票价格的因素可以有：</p>
 <ul>
@@ -405,7 +406,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">121</span>
+          <span class="site-state-item-count">122</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -469,11 +470,71 @@
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
 <script src="/js/schemes/pisces.js"></script>
 <script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
 
 
 
@@ -493,9 +554,11 @@
 
 
 
+    <div id="pjax">
   
 
   
 
+    </div>
 </body>
 </html>
