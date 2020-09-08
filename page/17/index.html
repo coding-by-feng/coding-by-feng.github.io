@@ -163,6 +163,93 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/18/jenkins汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/18/jenkins汇总/" class="post-title-link" itemprop="url">jenkins汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-18 09:28:39" itemprop="dateCreated datePublished" datetime="2020-02-18T09:28:39+08:00">2020-02-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-14 19:58:44" itemprop="dateModified" datetime="2020-05-14T19:58:44+08:00">2020-05-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jenkins/" itemprop="url" rel="index"><span itemprop="name">jenkins</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="密码保存地方"><a href="#密码保存地方" class="headerlink" title="密码保存地方"></a>密码保存地方</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This may also be found at: /var/jenkins_home/secrets/initialAdminPassword</span><br></pre></td></tr></table></figure>
+<h2 id="插件安装加速"><a href="#插件安装加速" class="headerlink" title="插件安装加速"></a>插件安装加速</h2><h3 id="修改update-center-json地址"><a href="#修改update-center-json地址" class="headerlink" title="修改update-center.json地址"></a>修改update-center.json地址</h3><p>在/home/jenkins目录找到文件 hudson.model.UpdateCenter.xml（如果没找到就搜索一下文件名）</p>
+<p>将原来的<br><code>https://updates.jenkins.io/update-center.json</code><br>改成<br><code>http://mirror.xmission.com/jenkins/updates/update-center.json</code></p>
+<p>重启jenkins</p>
+<p><a href="http://ip:9090/restart" target="_blank" rel="noopener">http://ip:9090/restart</a></p>
+<h3 id="修改default-json"><a href="#修改default-json" class="headerlink" title="修改default.json"></a>修改default.json</h3><p>在jenkins安装目录的updates/下，先按英文冒号进入命令行模式输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1,$s/http:\/\/updates.jenkins-ci.org\/download/https:\/\/mirrors.tuna.tsinghua.edu.cn\/jenkins/g</span><br></pre></td></tr></table></figure></p>
+<p>回车之后再次进入命令行模式输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1,$s/http:\/\/www.google.com/https:\/\/www.baidu.com/g</span><br></pre></td></tr></table></figure></p>
+<p>再回车，保存重启即可。</p>
+<p><a href="https://www.cnblogs.com/yoyoketang/p/12115569.html" target="_blank" rel="noopener">https://www.cnblogs.com/yoyoketang/p/12115569.html</a></p>
+<h2 id="从界面安装插件"><a href="#从界面安装插件" class="headerlink" title="从界面安装插件"></a>从界面安装插件</h2><p><a href="https://www.jianshu.com/p/3b5ebe85c034" target="_blank" rel="noopener">https://www.jianshu.com/p/3b5ebe85c034</a></p>
+<h2 id="重启Jenkies"><a href="#重启Jenkies" class="headerlink" title="重启Jenkies"></a>重启Jenkies</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/restart</span><br></pre></td></tr></table></figure>
+<h2 id="重新加载配置信息"><a href="#重新加载配置信息" class="headerlink" title="重新加载配置信息"></a>重新加载配置信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/reload</span><br></pre></td></tr></table></figure>
+<h2 id="关闭Jenkins"><a href="#关闭Jenkins" class="headerlink" title="关闭Jenkins"></a>关闭Jenkins</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/exit</span><br></pre></td></tr></table></figure>
+<h1 id="jenkins自动部署SpringCloud微服务"><a href="#jenkins自动部署SpringCloud微服务" class="headerlink" title="jenkins自动部署SpringCloud微服务"></a>jenkins自动部署SpringCloud微服务</h1><p><a href="https://blog.csdn.net/sunhuansheng/article/details/100719021" target="_blank" rel="noopener">https://blog.csdn.net/sunhuansheng/article/details/100719021</a><br>-更改插件加速<br>-安装maven intergration plugin</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/13/kiwi-microservice项目架构技术记录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -440,116 +527,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/26/原油宝事件简单分析/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/26/原油宝事件简单分析/" class="post-title-link" itemprop="url">原油宝事件简单分析</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-26 21:49:30" itemprop="dateCreated datePublished" datetime="2020-04-26T21:49:30+08:00">2020-04-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-01 09:56:30" itemprop="dateModified" datetime="2020-05-01T09:56:30+08:00">2020-05-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/理财/" itemprop="url" rel="index"><span itemprop="name">理财</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="期货交易原理"><a href="#期货交易原理" class="headerlink" title="期货交易原理"></a>期货交易原理</h2><p>期货一般是买方（多方）&lt;=&gt;卖方（空方）</p>
-<p>双方指定在未来的某个时间一手交钱一手交货，前提是双方签订之日都交保证金（比如这一单的10%）</p>
-<h4 id="期货平仓机制"><a href="#期货平仓机制" class="headerlink" title="期货平仓机制"></a>期货平仓机制</h4><p>空方卖给多方按照合约的价格P1和时间的交易过程叫【开仓】</p>
-<p>如果出现异常情况不能【开仓】，那么就会启动【平仓】操作：多方把合约还给空方，此时采用另外一个价格P2（该价格随着市场的波动变化）【平仓】，【强制平仓】可以及时止损。</p>
-<p>综上所述：</p>
-<p>如果P1&lt;P2，多方就赚了，空方亏了，因为多方在过去的时间以低价位拿到货，而在交易时日时，平仓的时候空方要重新拿回来合约要以更高的价格结算；</p>
-<p>如果P1&gt;P2，反之，多方亏了，空方赚了。</p>
-<h4 id="期货保证金交易制度"><a href="#期货保证金交易制度" class="headerlink" title="期货保证金交易制度"></a>期货保证金交易制度</h4><h5 id="假如油价在拟定合约后上涨的情况"><a href="#假如油价在拟定合约后上涨的情况" class="headerlink" title="假如油价在拟定合约后上涨的情况"></a>假如油价在拟定合约后上涨的情况</h5><p>期货市场的【平仓保证金交易制度】（假如以10%结算）：</p>
-<table>
-<thead>
-<tr>
-<th>交易阶段</th>
-<th>买方（多方）保证金账户</th>
-<th>卖方（空方）保证金账户</th>
-<th>输方的资金流入</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>期货合约拟定（总价比如20000$）</td>
-<td>2000$</td>
-<td>2000$</td>
-<td>0$</td>
-</tr>
-<tr>
-<td>临近交货时日价格变动之后（假如油价上涨8个点，总价25000）</td>
-<td>2500$（从空方划走500$）</td>
-<td>2500$（保证金不足，要再充值1500元）</td>
-<td>1500$</td>
-</tr>
-</tbody>
-</table>
-<p>如果有一方因为交不起保证金的情况下，交易所就会强行平仓，这样一来，【原本的空方就要变成买房来重新买回来之前的合约，不过是以更高的价位买入，也就是上文提到的P2】</p>
-<h5 id="假如油价在拟定合约后下跌的情况"><a href="#假如油价在拟定合约后下跌的情况" class="headerlink" title="假如油价在拟定合约后下跌的情况"></a>假如油价在拟定合约后下跌的情况</h5><p>保证金在下跌的情况，合约签订时计算好的保证金已经交足，所以保证金账户余额里面就一直是充足的，无需追加保证金。【应该是这样】</p>
-<p>单看价格下跌，其实如果是直接期货交易完成，对于两方来说是无伤大雅，但是不要忘了，期货是要实货交易的，这就是原油宝问题的致命之处。</p>
-<h4 id="原油宝事件的致命问题"><a href="#原油宝事件的致命问题" class="headerlink" title="原油宝事件的致命问题"></a>原油宝事件的致命问题</h4><p>如果说按照合约规定，到期后在一定的短时间内，多方（原油宝客户 约等于 中行）去美国的油库提油，那么问题不大，可惜没有这个如果，中行没有能力在短时间内拿出设备和运载工具去提油！</p>
-<p>既然无法真实交易，那么交易所会自动强行平仓，这下麻烦大了，按照当前负油价，那么原油宝客户方一下子从多方变成空方，空方此时卖原油是要倒贴钱的啊！</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -619,7 +596,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">122</span>
+          <span class="site-state-item-count">123</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -632,7 +609,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

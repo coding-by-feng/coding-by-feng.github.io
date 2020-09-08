@@ -163,6 +163,99 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/oracle系列之常用操作命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/07/oracle系列之常用操作命令/" class="post-title-link" itemprop="url">oracle系列之常用操作命令</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-04-07 10:34:12" itemprop="dateCreated datePublished" datetime="2019-04-07T10:34:12+08:00">2019-04-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-29 15:22:29" itemprop="dateModified" datetime="2020-03-29T15:22:29+08:00">2020-03-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/oracle/" itemprop="url" rel="index"><span itemprop="name">oracle</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="将a表的某些列插入b表的某些列"><a href="#将a表的某些列插入b表的某些列" class="headerlink" title="将a表的某些列插入b表的某些列"></a>将a表的某些列插入b表的某些列</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into a(ac1,ac2) select bc1,bc2 from b where ...;</span><br></pre></td></tr></table></figure>
+<h2 id="重命名表"><a href="#重命名表" class="headerlink" title="重命名表"></a>重命名表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name RENAME TO new_table_name；</span><br></pre></td></tr></table></figure>
+<h2 id="重命名字段"><a href="#重命名字段" class="headerlink" title="重命名字段"></a>重命名字段</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name RENAME COLUMN column_name TO new_column_name;</span><br></pre></td></tr></table></figure>
+<h2 id="修改字段类型"><a href="#修改字段类型" class="headerlink" title="修改字段类型"></a>修改字段类型</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE tableName modify(columnName 类型);</span><br></pre></td></tr></table></figure>
+<h2 id="增加多个字段"><a href="#增加多个字段" class="headerlink" title="增加多个字段"></a>增加多个字段</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alter table test1 add (name varchar2(30) default ‘无名氏’ not null,</span><br><span class="line">age integer default 22 not null,</span><br><span class="line">has_money number(9,2));</span><br></pre></td></tr></table></figure>
+<h2 id="主键操作"><a href="#主键操作" class="headerlink" title="主键操作"></a>主键操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--设置主键</span><br><span class="line">alter table jack add constraint pk_id primary key(object_id);</span><br></pre></td></tr></table></figure>
+<h2 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop table tn;</span><br></pre></td></tr></table></figure>
+<h2 id="查询表所属表空间"><a href="#查询表所属表空间" class="headerlink" title="查询表所属表空间"></a>查询表所属表空间</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select tablespace_name, table_name</span><br><span class="line">  from user_tables</span><br><span class="line"> where table_name = &apos;EOMS_OUTER_PROJECT&apos;;</span><br></pre></td></tr></table></figure>
+<h2 id="查询索引所在表空间"><a href="#查询索引所在表空间" class="headerlink" title="查询索引所在表空间"></a>查询索引所在表空间</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select index_name,tablespace_name from dba_indexes where index_name=&apos;INDEX_PS&apos;;</span><br></pre></td></tr></table></figure>
+<h2 id="查询表的建表DDL"><a href="#查询表的建表DDL" class="headerlink" title="查询表的建表DDL"></a>查询表的建表DDL</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select dbms_metadata.get_ddl(&apos;TABLE&apos;,&apos;TABLE_NAME&apos;,&apos;DB_USER&apos;) from dual;</span><br></pre></td></tr></table></figure>
+<h2 id="查看所有表空间大小以及使用情况"><a href="#查看所有表空间大小以及使用情况" class="headerlink" title="查看所有表空间大小以及使用情况"></a>查看所有表空间大小以及使用情况</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">SELECT Upper(F.TABLESPACE_NAME) &quot;表空间名&quot;,</span><br><span class="line">       D.TOT_GROOTTE_MB &quot;表空间大小(M)&quot;,</span><br><span class="line">       D.TOT_GROOTTE_MB - F.TOTAL_BYTES &quot;已使用空间(M)&quot;,</span><br><span class="line">       To_char(Round((D.TOT_GROOTTE_MB - F.TOTAL_BYTES) / D.TOT_GROOTTE_MB * 100,</span><br><span class="line">                     2),</span><br><span class="line">               &apos;990.99&apos;) || &apos;%&apos; &quot;使用比&quot;,</span><br><span class="line">       F.TOTAL_BYTES &quot;空闲空间(M)&quot;,</span><br><span class="line">       F.MAX_BYTES &quot;最大块(M)&quot;</span><br><span class="line">  FROM (SELECT TABLESPACE_NAME,</span><br><span class="line">               Round(Sum(BYTES) / (1024 * 1024), 2) TOTAL_BYTES,</span><br><span class="line">               Round(Max(BYTES) / (1024 * 1024), 2) MAX_BYTES</span><br><span class="line">          FROM SYS.DBA_FREE_SPACE</span><br><span class="line">         GROUP BY TABLESPACE_NAME) F,</span><br><span class="line">       (SELECT DD.TABLESPACE_NAME,</span><br><span class="line">               Round(Sum(DD.BYTES) / (1024 * 1024), 2) TOT_GROOTTE_MB</span><br><span class="line">          FROM SYS.DBA_DATA_FILES DD</span><br><span class="line">         GROUP BY DD.TABLESPACE_NAME) D</span><br><span class="line"> WHERE D.TABLESPACE_NAME = F.TABLESPACE_NAME</span><br><span class="line"> ORDER BY &quot;使用比&quot; desc;</span><br></pre></td></tr></table></figure>
+<h2 id="指定表空间查询所有表名"><a href="#指定表空间查询所有表名" class="headerlink" title="指定表空间查询所有表名"></a>指定表空间查询所有表名</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Select Table_Name, Tablespace_Name</span><br><span class="line">From Dba_Tables</span><br><span class="line">Where Tablespace_Name = &apos;USERS&apos;;</span><br></pre></td></tr></table></figure>
+<h2 id="通过指定表空间查询所属表的占用空间"><a href="#通过指定表空间查询所属表的占用空间" class="headerlink" title="通过指定表空间查询所属表的占用空间"></a>通过指定表空间查询所属表的占用空间</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select segment_name, bytes/1024||&apos;KB&apos; &quot;占用空间&quot;</span><br><span class="line">from user_segments </span><br><span class="line">where segment_type=&apos;TABLE&apos; and tablespace_name=&apos;USERS&apos; order by segment_name asc;</span><br></pre></td></tr></table></figure>
+<h2 id="删除列"><a href="#删除列" class="headerlink" title="删除列"></a>删除列</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name DROP COLUMN column_name;</span><br></pre></td></tr></table></figure>
+<h2 id="查询所有表及其所使用的表空间"><a href="#查询所有表及其所使用的表空间" class="headerlink" title="查询所有表及其所使用的表空间"></a>查询所有表及其所使用的表空间</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select table_name 表名 ,tablespace_name 所使用表空间 from user_tables t where t.TABLE_NAME=&apos;T_PRE_AI_ACTIVITY&apos;;</span><br></pre></td></tr></table></figure>
+<h2 id="查询所有表空间大小"><a href="#查询所有表空间大小" class="headerlink" title="查询所有表空间大小"></a>查询所有表空间大小</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT t.tablespace_name, round(SUM(bytes / (1024 * 1024)), 0) ts_size</span><br><span class="line">  FROM dba_tablespaces t, dba_data_files d</span><br><span class="line"> WHERE t.tablespace_name = d.tablespace_name</span><br><span class="line"> GROUP BY t.tablespace_name;</span><br></pre></td></tr></table></figure>
+<h2 id="查询版本"><a href="#查询版本" class="headerlink" title="查询版本"></a>查询版本</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from v$version;</span><br></pre></td></tr></table></figure>
+<h2 id="查看长时间未commit会话，10秒未commit"><a href="#查看长时间未commit会话，10秒未commit" class="headerlink" title="查看长时间未commit会话，10秒未commit"></a>查看长时间未commit会话，10秒未commit</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">SELECT A.SID,</span><br><span class="line">       A.SERIAL#,</span><br><span class="line">       A.USERNAME,</span><br><span class="line">       A.EVENT,</span><br><span class="line">       A.WAIT_CLASS,</span><br><span class="line">       A.SECONDS_IN_WAIT,</span><br><span class="line">       b.LOCKED_MODE,</span><br><span class="line">       C.OWNER,</span><br><span class="line">       C.OBJECT_NAME,</span><br><span class="line">       C.OBJECT_TYPE</span><br><span class="line">  FROM V$SESSION A</span><br><span class="line"> INNER JOIN V$LOCKED_OBJECT B ON A.SID = b.SESSION_ID</span><br><span class="line"> INNER JOIN DBA_OBJECTS C ON B.OBJECT_ID = c.OBJECT_ID</span><br><span class="line"> WHERE A.WAIT_CLASS = &apos;Idle&apos;</span><br><span class="line">   AND A.SECONDS_IN_WAIT &gt; 10</span><br></pre></td></tr></table></figure>
+<h2 id="查看锁主的记录rowid"><a href="#查看锁主的记录rowid" class="headerlink" title="查看锁主的记录rowid"></a>查看锁主的记录rowid</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">SELECT SID,</span><br><span class="line">       SERIAL#,</span><br><span class="line">       AUDSID,</span><br><span class="line">       PADDR,</span><br><span class="line">       USER#,</span><br><span class="line">       USERNAME,</span><br><span class="line">       EVENT,</span><br><span class="line">       WAIT_CLASS,</span><br><span class="line">       SECONDS_IN_WAIT,</span><br><span class="line">       ROW_WAIT_OBJ#,</span><br><span class="line">       ROW_WAIT_FILE#,</span><br><span class="line">       ROW_WAIT_BLOCK#,</span><br><span class="line">       ROW_WAIT_ROW#,</span><br><span class="line">       BLOCKING_SESSION_STATUS,</span><br><span class="line">       BLOCKING_INSTANCE,</span><br><span class="line">       BLOCKING_SESSION,</span><br><span class="line">       C.OWNER,</span><br><span class="line">       C.OBJECT_NAME,</span><br><span class="line">       C.OBJECT_TYPE,</span><br><span class="line">       dbms_rowid.rowid_create(1,</span><br><span class="line">                               ROW_WAIT_OBJ#,</span><br><span class="line">                               ROW_WAIT_FILE#,</span><br><span class="line">                               ROW_WAIT_BLOCK#,</span><br><span class="line">                               ROW_WAIT_ROW#)</span><br><span class="line">  FROM V$SESSION A</span><br><span class="line"> INNER JOIN V$LOCKED_OBJECT B ON A.SID = b.SESSION_ID</span><br><span class="line"> INNER JOIN DBA_OBJECTS C ON B.OBJECT_ID = c.OBJECT_ID</span><br><span class="line"> WHERE BLOCKING_SESSION IS NOT NULL;</span><br></pre></td></tr></table></figure>
+<h2 id="oracle命令行导入SQL脚本"><a href="#oracle命令行导入SQL脚本" class="headerlink" title="oracle命令行导入SQL脚本"></a>oracle命令行导入SQL脚本</h2><p>使用@导入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt;@/home/oracle/a.sql;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/lombok汇总/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -498,77 +591,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/Java系列之TodoItem/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/29/Java系列之TodoItem/" class="post-title-link" itemprop="url">Java系列之TodoItem</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-03-29 11:32:37 / Modified: 11:40:56" itemprop="dateCreated datePublished" datetime="2020-03-29T11:32:37+08:00">2020-03-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="jad命令-todo"><a href="#jad命令-todo" class="headerlink" title="jad命令 todo"></a>jad命令 todo</h2><h2 id="java-flight-recorder-todo"><a href="#java-flight-recorder-todo" class="headerlink" title="java flight recorder todo"></a>java flight recorder todo</h2><h2 id="arthas-trace-todo"><a href="#arthas-trace-todo" class="headerlink" title="arthas trace todo"></a>arthas trace todo</h2><h2 id="依赖注入jcp标准jsr330-todo"><a href="#依赖注入jcp标准jsr330-todo" class="headerlink" title="依赖注入jcp标准jsr330 todo"></a>依赖注入jcp标准jsr330 todo</h2><h2 id="synchronizedMap-todo"><a href="#synchronizedMap-todo" class="headerlink" title="synchronizedMap todo"></a>synchronizedMap todo</h2><h2 id="JNDI的两种写法-todo"><a href="#JNDI的两种写法-todo" class="headerlink" title="JNDI的两种写法 todo"></a>JNDI的两种写法 todo</h2><h2 id="Throwable和Exception-todo"><a href="#Throwable和Exception-todo" class="headerlink" title="Throwable和Exception todo"></a>Throwable和Exception todo</h2><h2 id="静态常量放类和接口的取舍-todo"><a href="#静态常量放类和接口的取舍-todo" class="headerlink" title="静态常量放类和接口的取舍 todo"></a>静态常量放类和接口的取舍 todo</h2><p>建议常量类，尽管接口能够提供一点点遍历，但是多接口继承的情况下可能会冲突（虽然常量接口不可能会被继承），至于性能方面哪方更强，有待研究。。</p>
-<h2 id="Map集合的initialCapacity和load-factor-todo"><a href="#Map集合的initialCapacity和load-factor-todo" class="headerlink" title="Map集合的initialCapacity和load factor todo"></a>Map集合的initialCapacity和load factor todo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new HashMap&lt;&gt;(1); // 入参为1的意义何在？</span><br></pre></td></tr></table></figure>
-<h2 id="Collectors以及Collectors和Stream的联合用法-todo"><a href="#Collectors以及Collectors和Stream的联合用法-todo" class="headerlink" title="Collectors以及Collectors和Stream的联合用法 todo"></a>Collectors以及Collectors和Stream的联合用法 todo</h2><h2 id="FastList和ArrayList区别-todo"><a href="#FastList和ArrayList区别-todo" class="headerlink" title="FastList和ArrayList区别 todo"></a>FastList和ArrayList区别 todo</h2><h2 id="序列化和反序列化-todo"><a href="#序列化和反序列化-todo" class="headerlink" title="序列化和反序列化 todo"></a>序列化和反序列化 todo</h2><p>序列化原理？<br>如果序列化出去的数据存在redis或者数据库，原来的bean对象做修改，比如增加属性等，再反序列化的时候会不会报错？</p>
-<h2 id="有没有java较有知名度的upms-todo"><a href="#有没有java较有知名度的upms-todo" class="headerlink" title="有没有java较有知名度的upms todo"></a>有没有java较有知名度的upms todo</h2><h2 id="只读的Map和List-todo"><a href="#只读的Map和List-todo" class="headerlink" title="只读的Map和List todo"></a>只读的Map和List todo</h2><h2 id="jmap-histo-todo"><a href="#jmap-histo-todo" class="headerlink" title="jmap histo todo"></a>jmap histo todo</h2><h2 id="Java微服务值内存占用高解决方法"><a href="#Java微服务值内存占用高解决方法" class="headerlink" title="Java微服务值内存占用高解决方法"></a>Java微服务值内存占用高解决方法</h2><p>可以从几个方向出发：</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -638,7 +660,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">122</span>
+          <span class="site-state-item-count">123</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -651,7 +673,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
