@@ -42,7 +42,7 @@
 <meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/gHQzZs.png">
 <meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/YVIozT.png">
 <meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/cbwuMz.png">
-<meta property="og:updated_time" content="2020-09-08T03:50:41.843Z">
+<meta property="og:updated_time" content="2020-09-08T13:07:57.523Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构系列之队列">
 <meta name="twitter:description" content="队列的定义队列是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作，和栈一样，队列是一种操作受限制的线性表。进行插入操作的端称为队尾，进行删除操作的端称为队头。队列的特点就是先进先出(First In First Out)。 顺序队列建立顺序队列结构必须为其静态分配或动态申请一片连续的存储空间，并设置两个指针进行管理。一个是队头指针fr">
@@ -211,7 +211,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-08 11:50:41" itemprop="dateModified" datetime="2020-09-08T11:50:41+08:00">2020-09-08</time>
+                <time title="Modified: 2020-09-08 21:07:57" itemprop="dateModified" datetime="2020-09-08T21:07:57+08:00">2020-09-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -256,7 +256,8 @@
 <li>有序链表</li>
 <li>也可以使用二叉树（二叉堆）实现</li>
 </ul>
-<h2 id="双端队列？"><a href="#双端队列？" class="headerlink" title="双端队列？"></a>双端队列？</h2><h2 id="队列的应用"><a href="#队列的应用" class="headerlink" title="队列的应用"></a>队列的应用</h2><ul>
+<h2 id="双端队列"><a href="#双端队列" class="headerlink" title="双端队列"></a>双端队列</h2><p>双端队列可以在队列任意一端入队和出队。此外，经常还会有一个查看（Peek）操作，返回该端的数据而不将其出队。</p>
+<h2 id="队列的应用"><a href="#队列的应用" class="headerlink" title="队列的应用"></a>队列的应用</h2><ul>
 <li>异步数据的处理、传输；</li>
 <li>短信群体发送 应用的发布订阅模式；</li>
 <li>模拟真实的订单服务、售票，以及其他先到先服务的场景。</li>
@@ -357,7 +358,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#队列的定义"><span class="nav-number">1.</span> <span class="nav-text">队列的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序队列"><span class="nav-number">2.</span> <span class="nav-text">顺序队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#“下溢”现象"><span class="nav-number">2.1.</span> <span class="nav-text">“下溢”现象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#“真上溢”现象"><span class="nav-number">2.2.</span> <span class="nav-text">“真上溢”现象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#“假上溢”现象"><span class="nav-number">2.3.</span> <span class="nav-text">“假上溢”现象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环队列"><span class="nav-number">3.</span> <span class="nav-text">循环队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链式队列"><span class="nav-number">4.</span> <span class="nav-text">链式队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优先队列"><span class="nav-number">5.</span> <span class="nav-text">优先队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双端队列？"><span class="nav-number">6.</span> <span class="nav-text">双端队列？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#队列的应用"><span class="nav-number">7.</span> <span class="nav-text">队列的应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中的队列"><span class="nav-number">8.</span> <span class="nav-text">Java中的队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#非阻塞队列"><span class="nav-number">8.1.</span> <span class="nav-text">非阻塞队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阻塞队列"><span class="nav-number">8.2.</span> <span class="nav-text">阻塞队列</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#队列的定义"><span class="nav-number">1.</span> <span class="nav-text">队列的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序队列"><span class="nav-number">2.</span> <span class="nav-text">顺序队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#“下溢”现象"><span class="nav-number">2.1.</span> <span class="nav-text">“下溢”现象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#“真上溢”现象"><span class="nav-number">2.2.</span> <span class="nav-text">“真上溢”现象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#“假上溢”现象"><span class="nav-number">2.3.</span> <span class="nav-text">“假上溢”现象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环队列"><span class="nav-number">3.</span> <span class="nav-text">循环队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链式队列"><span class="nav-number">4.</span> <span class="nav-text">链式队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优先队列"><span class="nav-number">5.</span> <span class="nav-text">优先队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双端队列"><span class="nav-number">6.</span> <span class="nav-text">双端队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#队列的应用"><span class="nav-number">7.</span> <span class="nav-text">队列的应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中的队列"><span class="nav-number">8.</span> <span class="nav-text">Java中的队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#非阻塞队列"><span class="nav-number">8.1.</span> <span class="nav-text">非阻塞队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阻塞队列"><span class="nav-number">8.2.</span> <span class="nav-text">阻塞队列</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
