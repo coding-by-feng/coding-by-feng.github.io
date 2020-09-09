@@ -163,6 +163,102 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/12/Mysql系列之性能优化与问题定位/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/12/Mysql系列之性能优化与问题定位/" class="post-title-link" itemprop="url">Mysql系列之性能优化与问题定位</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-12 10:42:53" itemprop="dateCreated datePublished" datetime="2019-12-12T10:42:53+08:00">2019-12-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-23 14:55:58" itemprop="dateModified" datetime="2020-05-23T14:55:58+08:00">2020-05-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Server-Status-Variables"><a href="#Server-Status-Variables" class="headerlink" title="Server Status Variables"></a>Server Status Variables</h1><h2 id="设置事务自动提交"><a href="#设置事务自动提交" class="headerlink" title="设置事务自动提交"></a>设置事务自动提交</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 查看是否开启自动提交事务</span><br><span class="line">SHOW VARIABLES LIKE &apos;AUTOCOMMIT&apos;;</span><br><span class="line">select @@AUTOCOMMIT;</span><br></pre></td></tr></table></figure>
+<h1 id="设计优化"><a href="#设计优化" class="headerlink" title="设计优化"></a>设计优化</h1><h2 id="tinyint和char-1-性能对比"><a href="#tinyint和char-1-性能对比" class="headerlink" title="tinyint和char(1)性能对比"></a>tinyint和char(1)性能对比</h2><p><a href="https://blog.csdn.net/yzj5208/article/details/81214780?utm_source=blogxgwz6" target="_blank" rel="noopener">https://blog.csdn.net/yzj5208/article/details/81214780?utm_source=blogxgwz6</a></p>
+<h1 id="锁表、线程溢出常见处理方法"><a href="#锁表、线程溢出常见处理方法" class="headerlink" title="锁表、线程溢出常见处理方法"></a>锁表、线程溢出常见处理方法</h1><p>查询当前的线程信息，mysql会把当前正在运行的mysql线程信息实时更新到processlist表。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">show processlist; # 查询当前100条；等同于select * from information_schema.processlist;</span><br><span class="line">show full processlist; # 查询全部；</span><br><span class="line"># 查询非睡眠状态的连接</span><br><span class="line">select p.*</span><br><span class="line">from information_schema.processlist p</span><br><span class="line">where p.COMMAND != &apos;Sleep&apos;;</span><br><span class="line"># 查询并发最大连接数</span><br><span class="line">show variables like &apos;%max_connections%&apos;;</span><br><span class="line"># 查看当前线程连接数量信息 </span><br><span class="line">show status like &apos;Threads%&apos;;</span><br></pre></td></tr></table></figure></p>
+<h2 id="慢查询"><a href="#慢查询" class="headerlink" title="慢查询"></a>慢查询</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 查找当前正在执行超过1分钟的线程信息</span><br><span class="line">select * from information_schema.processlist where command != &apos;Sleep&apos; and time &gt; 60 order by time desc;</span><br><span class="line"># 不要轻易kill，注意看是否是system user或者是maxscale等代理监控的用户</span><br><span class="line"># 确定是慢查询的时候，可以执行kill id的操作</span><br><span class="line"># 命令行查看慢查询</span><br><span class="line">mysql -ureader -pread -e &apos;show full processlist&apos; | grep &quot;select &quot;</span><br></pre></td></tr></table></figure>
+<p>参考：<a href="https://www.jianshu.com/p/93cae0b3db3b" target="_blank" rel="noopener">https://www.jianshu.com/p/93cae0b3db3b</a></p>
+<h2 id="事务等待超时一般会抛出异常："><a href="#事务等待超时一般会抛出异常：" class="headerlink" title="事务等待超时一般会抛出异常："></a>事务等待超时一般会抛出异常：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error updating database.  Cause: com.mysql.cj.jdbc.exceptions.MySQLTransactionRollbackException: Lock wait timeout exceeded; try restarting transaction</span><br></pre></td></tr></table></figure>
+<h2 id="设置事务超时时间："><a href="#设置事务超时时间：" class="headerlink" title="设置事务超时时间："></a>设置事务超时时间：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 查询事务超时变量值</span><br><span class="line">SHOW GLOBAL VARIABLES LIKE &apos;innodb_lock_wait_timeout&apos;;</span><br><span class="line"># 设置事务超时时间</span><br><span class="line">SET GLOBAL innodb_lock_wait_timeout=120;</span><br></pre></td></tr></table></figure>
+<h2 id="设置线程等待时间"><a href="#设置线程等待时间" class="headerlink" title="设置线程等待时间"></a>设置线程等待时间</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SET wait_timeout = 10;</span><br><span class="line">SET global wait_timeout = 10;</span><br><span class="line">show global variables like &apos;wait_timeout&apos;;</span><br><span class="line">show variables like &apos;wait_timeout&apos;;</span><br></pre></td></tr></table></figure>
+<h2 id="事务锁、死锁处理方法"><a href="#事务锁、死锁处理方法" class="headerlink" title="事务锁、死锁处理方法"></a>事务锁、死锁处理方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select * from information_schema.innodb_trx; # 当前运行的所有事务</span><br><span class="line">select * from information_schema.innodb_locks; # 当前出现的锁</span><br><span class="line">select * from information_schema.innodb_lock_waits; # 锁等待的对应关系</span><br></pre></td></tr></table></figure>
+<h2 id="查找一直在锁等待的线程"><a href="#查找一直在锁等待的线程" class="headerlink" title="查找一直在锁等待的线程"></a>查找一直在锁等待的线程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select trx_mysql_thread_id from information_schema.innodb_trx it </span><br><span class="line">JOIN information_schema.INNODB_LOCK_WAITS ilw </span><br><span class="line">on ilw.blocking_trx_id = it.trx_id;</span><br><span class="line"></span><br><span class="line">kill tid;</span><br></pre></td></tr></table></figure>
+<h2 id="开启慢查询日志"><a href="#开启慢查询日志" class="headerlink" title="开启慢查询日志"></a>开启慢查询日志</h2><p>参考：<a href="https://www.cnblogs.com/saneri/p/6656161.html" title="标题" target="_blank" rel="noopener">https://www.cnblogs.com/saneri/p/6656161.html</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">slow_query_log 慢查询开启状态，ON开启，OFF关闭</span><br><span class="line">slow_query_log_file 慢查询日志存放的位置（这个目录需要MySQL的运行帐号的可写权限，一般设置为MySQL的数据存放目录）</span><br><span class="line">long_query_time 查询超过多少秒才记录</span><br><span class="line">log_queries_not_using_indexes：未使用索引的查询也被记录到慢查询日志中（可选项）</span><br><span class="line">log_output：日志存储方式。log_output=&apos;FILE&apos;表示将日志存入文件，默认值是&apos;FILE&apos;。log_output=&apos;TABLE&apos;表示将日志存入数据库，这样日志信息就会被写入到mysql.slow_log表中。MySQL数据&lt;br&gt;库支持同时两种日志存储方式，配置的时候以逗号隔开即可，如：log_output=&apos;FILE,TABLE&apos;。日志记录到系统的专用日志表中，要比记录到文件耗费更多的系统资源，因此对于需要启用慢查询日志，又需&lt;br&gt;要能够获得更高的系统性能，那么建议优先记录到文件。</span><br></pre></td></tr></table></figure></p>
+<h4 id="生产环境的慢查询日志分析命令mysqldumpslow"><a href="#生产环境的慢查询日志分析命令mysqldumpslow" class="headerlink" title="生产环境的慢查询日志分析命令mysqldumpslow"></a>生产环境的慢查询日志分析命令mysqldumpslow</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">比如:</span><br><span class="line">得到返回记录集最多的10个SQL。</span><br><span class="line">mysqldumpslow -s r -t 10 /database/mysql/mysql06_slow.log</span><br><span class="line"> </span><br><span class="line">得到访问次数最多的10个SQL</span><br><span class="line">mysqldumpslow -s c -t 10 /database/mysql/mysql06_slow.log</span><br><span class="line"> </span><br><span class="line">得到按照时间排序的前10条里面含有左连接的查询语句。</span><br><span class="line">mysqldumpslow -s t -t 10 -g “left join” /database/mysql/mysql06_slow.log</span><br><span class="line"> </span><br><span class="line">另外建议在使用这些命令时结合 | 和more 使用 ，否则有可能出现刷屏的情况。</span><br><span class="line">mysqldumpslow -s r -t 20 /mysqldata/mysql/mysql06-slow.log | more</span><br></pre></td></tr></table></figure>
+<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="Access-denied-for-user-‘root’-’localhost’-using-password-YES"><a href="#Access-denied-for-user-‘root’-’localhost’-using-password-YES" class="headerlink" title="Access denied for user ‘root’@’localhost’ (using password: YES)"></a>Access denied for user ‘root’@’localhost’ (using password: YES)</h2><ul>
+<li>Open &amp; Edit /etc/my.cnf or /etc/mysql/my.cnf, depending on your distro.</li>
+<li>Add skip-grant-tables under [mysqld]</li>
+<li>Restart Mysql</li>
+<li>You should be able to login to mysql now using the below command mysql -u root -p</li>
+<li>Run mysql&gt; flush privileges;</li>
+<li>Set new password by ALTER USER ‘root’@’localhost’ IDENTIFIED BY ‘NewPassword’;</li>
+<li>Go back to /etc/my.cnf and remove/comment skip-grant-tables</li>
+<li>Restart Mysql</li>
+<li>Now you will be able to login with the new password mysql -u root -p</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/17/Element-ui汇总/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -680,83 +776,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/01/CSS备忘录/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/01/CSS备忘录/" class="post-title-link" itemprop="url">CSS备忘录</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-01 21:53:23" itemprop="dateCreated datePublished" datetime="2020-05-01T21:53:23+08:00">2020-05-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-19 16:04:55" itemprop="dateModified" datetime="2020-05-19T16:04:55+08:00">2020-05-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="固定在div的右下角"><a href="#固定在div的右下角" class="headerlink" title="固定在div的右下角"></a>固定在div的右下角</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">position:absolute;</span><br><span class="line">right:5px;</span><br><span class="line">bottom:5px;</span><br></pre></td></tr></table></figure>
-<h2 id="下外边框距离（和底部的div拉开距离）"><a href="#下外边框距离（和底部的div拉开距离）" class="headerlink" title="下外边框距离（和底部的div拉开距离）"></a>下外边框距离（和底部的div拉开距离）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">margin-bottom: 10px</span><br></pre></td></tr></table></figure>
-<h2 id="靠边"><a href="#靠边" class="headerlink" title="靠边"></a>靠边</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.pull-right &#123;</span><br><span class="line">  float: right !important;</span><br><span class="line">&#125;</span><br><span class="line">.pull-left &#123;</span><br><span class="line">  float: left !important;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="字体加粗"><a href="#字体加粗" class="headerlink" title="字体加粗"></a>字体加粗</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;b&gt;&lt;/b&gt;</span><br><span class="line">&lt;strong&gt;&lt;/strong&gt;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -826,7 +845,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">123</span>
+          <span class="site-state-item-count">124</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

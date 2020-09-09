@@ -163,6 +163,399 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/01/Idea汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/01/Idea汇总/" class="post-title-link" itemprop="url">Idea汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-01 21:10:40" itemprop="dateCreated datePublished" datetime="2019-12-01T21:10:40+08:00">2019-12-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-30 10:48:35" itemprop="dateModified" datetime="2020-07-30T10:48:35+08:00">2020-07-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Idea/" itemprop="url" rel="index"><span itemprop="name">Idea</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>有部分内容来自网络，一般都有注明出处，如若侵权，请联系我删除，谢谢！<br>文章的图片来自github的图床，图片链接存在github图床（<a href="https://raw.githubusercontent.com），该地址可能需要翻墙才能访问，所以图片可能存在加载不成功的情况。" target="_blank" rel="noopener">https://raw.githubusercontent.com），该地址可能需要翻墙才能访问，所以图片可能存在加载不成功的情况。</a></p>
+</blockquote>
+<h1 id="HOTKEY"><a href="#HOTKEY" class="headerlink" title="HOTKEY"></a>HOTKEY</h1><h2 id="Usage-Search（使用查询）"><a href="#Usage-Search（使用查询）" class="headerlink" title="Usage Search（使用查询）"></a>Usage Search（使用查询）</h2><table>
+<thead>
+<tr>
+<th>key</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cmd+opt+F7</td>
+<td>搜索文件中用法，以弹窗方式显示</td>
+</tr>
+<tr>
+<td>opt+F7</td>
+<td>全局搜索引用</td>
+</tr>
+<tr>
+<td>cmd+shift+F7</td>
+<td>高亮显示当前代码域使用到的地方</td>
+</tr>
+<tr>
+<td>F3 or shift+F3</td>
+<td>搜索当前文件的模式下，按向下 or F3跳到下一处，按向上 or shift+F3跳到上一处</td>
+</tr>
+<tr>
+<td>tab or tab+shift</td>
+<td>在ctrl+shift+f全局搜索的时候，可以通过tab和来移动输入聚焦，可以脱离鼠标来选择右上角的File mask</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Editing（编辑）"><a href="#Editing（编辑）" class="headerlink" title="Editing（编辑）"></a>Editing（编辑）</h2><table>
+<thead>
+<tr>
+<th>key</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cmd+P</td>
+<td>显示方法的参数，这个方法的强大之处在于，展示了参数之后，在写入传参的时候，弹框会一直存在，让参数更加直观</td>
+</tr>
+<tr>
+<td>cmd++</td>
+<td>展开折叠的代码</td>
+</tr>
+<tr>
+<td>cmd+-</td>
+<td>折叠代码</td>
+</tr>
+<tr>
+<td>shift+上下方向键</td>
+<td>有时候用vim插件的jk上下移动太慢了，而且又不能明确知道要用emacsIdeas调整到哪里，可以用idea自带的shift+上下方向键来快速上下移动代码</td>
+</tr>
+</tbody>
+</table>
+<h2 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h2><table>
+<thead>
+<tr>
+<th>key</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cmd+shift+F8</td>
+<td>查看断点信息</td>
+</tr>
+<tr>
+<td>shift+F7</td>
+<td>智能步入，断点所在行上有多个方法调用，会弹出进入哪个方法</td>
+</tr>
+<tr>
+<td>^+F5</td>
+<td>重启debug服务</td>
+</tr>
+<tr>
+<td>cmd+F2</td>
+<td>终止debug服务</td>
+</tr>
+<tr>
+<td>^+cmd+W</td>
+<td>将Add to Watches绑定快捷键，可以快速查看变量或者表达式的值</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Spring-Boot-微服务"><a href="#Spring-Boot-微服务" class="headerlink" title="Spring Boot 微服务"></a>Spring Boot 微服务</h2><p>cmd+8 弹出多个微服务的启动控制窗口，可以通过上下左右移动快速定位到某个微服务，通过快捷键^+shiftF10 Runing,或者通过^+shift+F9 Debuging</p>
+<h2 id="General（通用）"><a href="#General（通用）" class="headerlink" title="General（通用）"></a>General（通用）</h2><table>
+<thead>
+<tr>
+<th>key</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^+cmd+F</td>
+<td>切换全屏模式</td>
+</tr>
+<tr>
+<td>^+cmd+C</td>
+<td>清理控制台的日志之类的，需要再keymap里面设置Other</td>
+<td>Clear All</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Refactoring（重构）"><a href="#Refactoring（重构）" class="headerlink" title="Refactoring（重构）"></a>Refactoring（重构）</h2><table>
+<thead>
+<tr>
+<th>key</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F5</td>
+<td>复制文件到指定包路径</td>
+</tr>
+<tr>
+<td>F6</td>
+<td>移动文件到指定包路径</td>
+</tr>
+<tr>
+<td>opt+cmd+t</td>
+<td>surround with 快捷得用各种模板语法包括代码（这个很强大`）</td>
+</tr>
+<tr>
+<td>opt+cmd+m</td>
+<td>提取代码为方法</td>
+</tr>
+<tr>
+<td>opt+cmd+c</td>
+<td>提出代码为常量</td>
+</tr>
+<tr>
+<td>opt+cmd+v</td>
+<td>提出代码为变量</td>
+</tr>
+<tr>
+<td>opt+cmd+f</td>
+<td>提出代码为成员变量</td>
+</tr>
+<tr>
+<td>opt+cmd+p</td>
+<td>提出代码为方法的形参</td>
+</tr>
+<tr>
+<td>opt+cmd+o</td>
+<td>快速去掉多余的import</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Navigation（导航）"><a href="#Navigation（导航）" class="headerlink" title="Navigation（导航）"></a>Navigation（导航）</h2><table>
+<thead>
+<tr>
+<th>key</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>alt+F1</td>
+<td>跳转到当前代码文件很多相关的功能（强大）</td>
+</tr>
+<tr>
+<td>cmd+u</td>
+<td>前往当前光标所在方法的父类的方法 / 接口定义</td>
+</tr>
+<tr>
+<td>cmd+b</td>
+<td>进入定义处</td>
+</tr>
+<tr>
+<td>cmd+opt+b</td>
+<td>进入实现处</td>
+</tr>
+<tr>
+<td>cmd+o</td>
+<td>查询当前类可以继承实现的所有方法</td>
+</tr>
+<tr>
+<td>cmd+F12</td>
+<td>展示当前文件的结果大纲（可用于查询变量、方法等）</td>
+</tr>
+<tr>
+<td>^+shift+B</td>
+<td>跳转到类型声明处，可以直接从类变量跳到对应的类里面</td>
+</tr>
+<tr>
+<td>F12</td>
+<td>返回前一个工具窗口</td>
+</tr>
+<tr>
+<td>shift+esc</td>
+<td>隐藏当前或最后一个活动的窗口，且光标进入代码文件窗口</td>
+</tr>
+<tr>
+<td>opt+F1</td>
+<td>显示当前文件选择目标弹出层，弹出层中有很多目标可以进行选择（如在代码编辑窗口可以选择显示该文件的 Finder）</td>
+</tr>
+<tr>
+<td>⌃H</td>
+<td>显示当前类的层次结构(在类的任何地方可以快速跳转到父类、父接口、子类)</td>
+</tr>
+<tr>
+<td>^+opt+H</td>
+<td>显示所有调用的层次结构</td>
+</tr>
+<tr>
+<td>^+h</td>
+<td>显示类的所有子类型的相关内容</td>
+</tr>
+<tr>
+<td>shift+F4</td>
+<td>在新窗口打开文件</td>
+</tr>
+<tr>
+<td>^+F2</td>
+<td>可以快速跳到idea的菜单栏，然后通过方向键和enter，可以快速进行一下菜单栏的操作，这个快捷键适合其他软件</td>
+</tr>
+<tr>
+<td>^+opt+cmd+N</td>
+<td>跳到next method，这个是我自定义的</td>
+</tr>
+<tr>
+<td>^+opt+cmd+P</td>
+<td>跳到previous method，这个是我自定义的</td>
+</tr>
+<tr>
+<td>跳到光标所在方法的方法名</td>
+<td>先^+opt+cmd+N再^+opt+cmd+P，如果是最后一个方法就反之</td>
+</tr>
+</tbody>
+</table>
+<h2 id="后缀补全"><a href="#后缀补全" class="headerlink" title="后缀补全"></a>后缀补全</h2><h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><p>声明变量或者调用方法之后输入<code>.var</code>，可以自动生成前面的变量声明</p>
+<h3 id="null"><a href="#null" class="headerlink" title="null"></a>null</h3><p>某个变量或者表达式之后输入<code>.null</code>，自动生成if空判断</p>
+<h3 id="nn"><a href="#nn" class="headerlink" title="nn"></a>nn</h3><p>某个变量或者表达式之后输入<code>.nn</code>，自动生成if不为空判断</p>
+<h3 id="not"><a href="#not" class="headerlink" title="not"></a>not</h3><p>某个变量或者表达式之后输入<code>.not</code>，自动生成取反</p>
+<h3 id="还有for、return、if、opt等等常用的"><a href="#还有for、return、if、opt等等常用的" class="headerlink" title="还有for、return、if、opt等等常用的"></a>还有for、return、if、opt等等常用的</h3><h1 id="PLUGIN-插件"><a href="#PLUGIN-插件" class="headerlink" title="PLUGIN(插件)"></a>PLUGIN(插件)</h1><h2 id="emacsIdeas-最强大没有之一"><a href="#emacsIdeas-最强大没有之一" class="headerlink" title="emacsIdeas 最强大没有之一"></a>emacsIdeas 最强大没有之一</h2><blockquote>
+<p>注意如果和IdeaVim一同使用的话，类似^+W的快捷键要更改，不然会和IdeaVim的屏幕分割快捷键冲突了</p>
+</blockquote>
+<h4 id="jump"><a href="#jump" class="headerlink" title="jump"></a>jump</h4><ul>
+<li>Plug-ins | emacsIDEAs | AceJumpSelect       选中当前位置到某个字符</li>
+<li>Plug-ins | emacsIDEAs | HighlightPrevSymbol 高亮跳到上一个一样的字符</li>
+<li>Plug-ins | emacsIDEAs | HighlightNextSymbol 高亮跳到下一个一样的字符</li>
+</ul>
+<h4 id="emacsIdeas-copy"><a href="#emacsIdeas-copy" class="headerlink" title="emacsIdeas copy"></a>emacsIdeas copy</h4><ul>
+<li>Plug-ins | emacsIDEAs | AceJumpCopy.Block       复制特定代码块到当前光标(可以是函数里面的整个形参定义)</li>
+<li>Plug-ins | emacsIDEAs | AceJumpCopy.Line        复制特定行到当前光标</li>
+<li>Plug-ins | emacsIDEAs | AceJumpCopy.Quote       复制特定的引用到当前光标，比如某个引号里面的内容</li>
+<li>Plug-ins | emacsIDEAs | AceJumpCopy.String      复制特定的代码到当前光标，一般是某块前后由空格隔开的代码</li>
+<li>Plug-ins | emacsIDEAs | AceJumpCopy.ToLineEnd   从当前位置复制到行尾</li>
+<li>Plug-ins | emacsIDEAs | AceJumpCopy.ToLineStart 从当前位置复制到行首</li>
+<li>Plug-ins | emacsIDEAs | AceJumpCopy.Paragraph   复制某个特定段落，比如类的某段注释</li>
+<li>Plug-ins | emacsIDEAs | AceJumpCopy.Group       复制某块代码，可以使某个判断的条件+整个花括号{}里面的内容 </li>
+</ul>
+<h4 id="emacsIdeas-delete"><a href="#emacsIdeas-delete" class="headerlink" title="emacsIdeas delete"></a>emacsIdeas delete</h4><ul>
+<li>Plug-ins | emacsIDEAs | AceJumpCut                  从当前位置剪切到某个位置</li>
+<li>Plug-ins | emacsIDEAs | AceJumpDelete.Block         删除特定的代码块 </li>
+<li>Plug-ins | emacsIDEAs | AceJumpDelete.Line          删除特定的代码行</li>
+<li>Plug-ins | emacsIDEAs | AceJumpDelete.Quote         删除特定的引用代码，比如某个引号里面的内容</li>
+<li>Plug-ins | emacsIDEAs | AceJumpDelete.String        删除特定的二个空格之间的字符 </li>
+<li>Plug-ins | emacsIDEAs | AceJumpDelete.Word          删除特定的某个变量方法名（紧挨在一起的代码标识）</li>
+<li>Plug-ins | emacsIDEAs | AceJumpDelete.ToLineEnd     从当前位置删除到行尾</li>
+<li>Plug-ins | emacsIDEAs | AceJumpDelete.ToLineStart   从当前位置删除到行首</li>
+<li>Plug-ins | emacsIDEAs | AceJumpDelete.Paragraph     删除某个特定段落，比如类的某段注释</li>
+</ul>
+<h4 id="emacsIdeas-cut"><a href="#emacsIdeas-cut" class="headerlink" title="emacsIdeas cut"></a>emacsIdeas cut</h4><ul>
+<li>Plug-ins | emacsIDEAs | AceJumpCut  从光标当前位置剪切到某个位置</li>
+</ul>
+<h4 id="emacsIdeas-more"><a href="#emacsIdeas-more" class="headerlink" title="emacsIdeas more"></a>emacsIdeas more</h4><p>AceJumpMove模式，各种快捷键的变种和上面的一样.etc.</p>
+<h2 id="ideaVim"><a href="#ideaVim" class="headerlink" title="ideaVim"></a>ideaVim</h2><p>yy 复制当值当前行，或者选中后y复制，然后输入数字n，再输入p，代表连续粘贴n次。<br>gg 快速移动到文件的开头<br>G  快速移动到文件的结尾</p>
+<h2 id="CamelCase"><a href="#CamelCase" class="headerlink" title="CamelCase"></a>CamelCase</h2><p>opt+shift+u 可以对字符进行驼峰式的不同格式变换，非常实用。</p>
+<h2 id="Grep-Console"><a href="#Grep-Console" class="headerlink" title="Grep Console"></a>Grep Console</h2><p>安装该日志插件，控制台的日志输出可以更加直观，还可以自定义颜色。</p>
+<h2 id="spring-assistant-yml或者properties文件编写提示"><a href="#spring-assistant-yml或者properties文件编写提示" class="headerlink" title="spring assistant(yml或者properties文件编写提示)"></a>spring assistant(yml或者properties文件编写提示)</h2><p>编写yml配置文件的时候，可以自动提示，但是这个自动提示貌似自会提示Spring Boot的基础配置，如果是在配置中心的话，其他的第三方依赖配置要在配置中心引入其spring-boot-starter的依赖才能自动提示对应的配置。</p>
+<p><strong><em>如果对应的依赖引入了之后还不会自动提示，那就需要再idea的模块配置里面将自定义的配置文件加入到配置文件的类别中，如下图:</em></strong><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/EpjOSE.png" alt><br>选择右边的第一个Configuration Files，因为通常配置中心新增的都不会是Bootstrap类别的配置文件，如下图，然后点击下面的绿色按钮，也就是最后一个按钮<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/RWKXhb.png" alt><br>再点击下面的+号，选择对一个的yml或者properties，然后确认就ok了。</p>
+<h2 id="RestfulToolkit"><a href="#RestfulToolkit" class="headerlink" title="RestfulToolkit"></a>RestfulToolkit</h2><p>这个插件可以自动收集项目的Restful风格的接口，还可以在idea里面直接填写参数调用接口</p>
+<h2 id="MyBatis-Log-Plugin"><a href="#MyBatis-Log-Plugin" class="headerlink" title="MyBatis Log Plugin"></a>MyBatis Log Plugin</h2><p>自动打印Mybatis的每一个SQL，有时候我们要抽取SQL不是很方便</p>
+<h2 id="Free-Mybatis-plugin"><a href="#Free-Mybatis-plugin" class="headerlink" title="Free Mybatis plugin"></a>Free Mybatis plugin</h2><p>Mapper与Mapper XML映射之间的调整，方便代码的跟踪查看。<br>而且还可以自动通过Mapper的方法矫正或者生成Mapper.xml的每个xml节点</p>
+<h2 id="ignore（版本控制忽略文件的好插件）支持各种文件忽略的配置"><a href="#ignore（版本控制忽略文件的好插件）支持各种文件忽略的配置" class="headerlink" title=".ignore（版本控制忽略文件的好插件）支持各种文件忽略的配置"></a>.ignore（版本控制忽略文件的好插件）支持各种文件忽略的配置</h2><p><a href="https://blog.csdn.net/byy8023/article/details/82259155" target="_blank" rel="noopener">https://blog.csdn.net/byy8023/article/details/82259155</a></p>
+<h3 id="可以根据项目的引用的构建工具能来针对性忽略"><a href="#可以根据项目的引用的构建工具能来针对性忽略" class="headerlink" title="可以根据项目的引用的构建工具能来针对性忽略"></a>可以根据项目的引用的构建工具能来针对性忽略</h3><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/A8xyJA.png" alt><br>比如我的项目选择了JetBrains、MacOS、Java、Maven、Example user template</p>
+<h3 id="如果出现-gitgnore忽略了某些要被纳入版本控制的文件或目录比如："><a href="#如果出现-gitgnore忽略了某些要被纳入版本控制的文件或目录比如：" class="headerlink" title="如果出现.gitgnore忽略了某些要被纳入版本控制的文件或目录比如："></a>如果出现.gitgnore忽略了某些要被纳入版本控制的文件或目录比如：</h3><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/rXGSPh.png" alt><br>直接删除掉想要重新纳入版本控制的目录或文件即可</p>
+<h3 id="maven的target反复被纳入版本控制"><a href="#maven的target反复被纳入版本控制" class="headerlink" title="maven的target反复被纳入版本控制"></a>maven的target反复被纳入版本控制</h3><p>这个是因为之前target目录已经被版本控制了，需要先关闭idea的自动编译，然后mvn clean一下，再提交所有删除的target文件，然后恢复自动编译配置。</p>
+<p>前提是.gitignore文件里面配置了Maven的忽略目录</p>
+<h2 id="JUnitGenerator-V2-0"><a href="#JUnitGenerator-V2-0" class="headerlink" title="JUnitGenerator V2.0"></a>JUnitGenerator V2.0</h2><p>选中代码中的类名，按cmd+shift+T，可以生成自定义测试类。<br><a href="https://blog.51cto.com/12066352/2134091" target="_blank" rel="noopener">https://blog.51cto.com/12066352/2134091</a></p>
+<h2 id="jclasslib-Bytecode-viewer"><a href="#jclasslib-Bytecode-viewer" class="headerlink" title="jclasslib Bytecode viewer"></a>jclasslib Bytecode viewer</h2><p>查看分析字节码的插件</p>
+<h1 id="Others-其他"><a href="#Others-其他" class="headerlink" title="Others(其他)"></a>Others(其他)</h1><h2 id="修改包名要注意的地方"><a href="#修改包名要注意的地方" class="headerlink" title="修改包名要注意的地方"></a>修改包名要注意的地方</h2><p>修改了包名之后注意在编译输出的目录要清空之前的老的class，不然可能会引起意想不到的冲突。</p>
+<h2 id="有没有更加智能化的API注释查看方法，比如鼠标-cmd的方式就完整地将注释都展示出来？"><a href="#有没有更加智能化的API注释查看方法，比如鼠标-cmd的方式就完整地将注释都展示出来？" class="headerlink" title="有没有更加智能化的API注释查看方法，比如鼠标+cmd的方式就完整地将注释都展示出来？"></a>有没有更加智能化的API注释查看方法，比如鼠标+cmd的方式就完整地将注释都展示出来？</h2><p>ctrl+J<br>可以搜索keymap需改热键，Quick Documentation</p>
+<h2 id="debug的时候变量的多种不同的View"><a href="#debug的时候变量的多种不同的View" class="headerlink" title="debug的时候变量的多种不同的View"></a>debug的时候变量的多种不同的View</h2><p>在Variables右键要跟踪的变量,可以view text，或者view as 其他类型.</p>
+<h2 id="Performance-enhancements（性能增加）"><a href="#Performance-enhancements（性能增加）" class="headerlink" title="Performance enhancements（性能增加）"></a>Performance enhancements（性能增加）</h2><p>idea吃内存确实是有点恐怖，对于调大内存，网上基本都是说调整idea.vmoptions里面的这三个参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-Xms1024m</span><br><span class="line">-Xmx3000m</span><br><span class="line">-XX:ReservedCodeCacheSize=1024m</span><br></pre></td></tr></table></figure></p>
+<p>但是我自己是基于2019.02的版本，发现即使调整了之后重启，idea右下角的内存显示还是原来的Max。<br>其实要这样调整才能真正生效：<br>Help-&gt;Edit Custom VM Options<br>打开这个会发现里面的配置还是原来的，在这里更改再重启，右下角的内存Max才会变大，才能生效。</p>
+<h2 id="cmd-shift-A按第二次的时候老是换出Terminal"><a href="#cmd-shift-A按第二次的时候老是换出Terminal" class="headerlink" title="cmd+shift+A按第二次的时候老是换出Terminal"></a>cmd+shift+A按第二次的时候老是换出Terminal</h2><p><a href="https://intellij-support.jetbrains.com/hc/en-us/articles/360005137400-Cmd-Shift-A-hotkey-opens-Terminal-with-apropos-search-instead-of-the-Find-Action-dialog" target="_blank" rel="noopener">https://intellij-support.jetbrains.com/hc/en-us/articles/360005137400-Cmd-Shift-A-hotkey-opens-Terminal-with-apropos-search-instead-of-the-Find-Action-dialog</a></p>
+<h2 id="Bug"><a href="#Bug" class="headerlink" title="Bug"></a>Bug</h2><p>有时候会出现复制进来的新文件编译之后没有被输出到target对应的目录，应该是idea潜在的bug，如果点击重新加载文件索引太慢了，一般重启一下重新编译可以解决。</p>
+<h2 id="search（搜索）"><a href="#search（搜索）" class="headerlink" title="search（搜索）"></a>search（搜索）</h2><p>全局搜索的时候记得利用好Scope，比如要搜索某个模块，某所最近更改的内容，搜索版本控制的所有更改等等。</p>
+<h2 id="Services"><a href="#Services" class="headerlink" title="Services"></a>Services</h2><p>cmd+8可以将多个SpringBoot的服务（微服务）整一个打开控制，可以结合其他快捷键进行启动、重启和停止，不过第一次使用需要再右下角的弹框中点击确认。<br>此外在Spring Cloud多个微服务的情况下，还可以将不同的微服务分组然后统一对某个组别进行run、debug或者静默断点等操作。</p>
+<h2 id="使用lombok跟踪bean属性调用栈"><a href="#使用lombok跟踪bean属性调用栈" class="headerlink" title="使用lombok跟踪bean属性调用栈"></a>使用lombok跟踪bean属性调用栈</h2><p>opt+F7依然可以看到getter和setter的调用栈。</p>
+<h2 id="SpringBoot-Application的热加载"><a href="#SpringBoot-Application的热加载" class="headerlink" title="SpringBoot Application的热加载"></a>SpringBoot Application的热加载</h2><p>要在debug模式下，设置Hot swap classes and update trigger file if failed，就可以自动热加载class了。</p>
+<h2 id="idea的svn的删除操作"><a href="#idea的svn的删除操作" class="headerlink" title="idea的svn的删除操作"></a>idea的svn的删除操作</h2><p>本地删除之后要在，Locally Deleted Files中点击Remove from VCS，然后再回来上面的Default Changelist去执行Commit删除。</p>
+<h2 id="折叠显示文件"><a href="#折叠显示文件" class="headerlink" title="折叠显示文件"></a>折叠显示文件</h2><p>可以在设置中搜索Soft-Wrap，根据文件格式配置是否折叠显示超过屏幕的行，也可以通过快捷键绑定折叠当前文件。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/dPTK3g.png" alt></p>
+<h2 id="提交代码前要先Optimize-Imports一下"><a href="#提交代码前要先Optimize-Imports一下" class="headerlink" title="提交代码前要先Optimize Imports一下"></a>提交代码前要先Optimize Imports一下</h2><p>可以cmd+9，在Default Changelist上Optimize Imports（opt+cmd+O）,这样就不会优化到其他没有修改到的代码，只操作自己改过的代码。</p>
+<h2 id="Run-Debug-Configurations中Build和Build-Project的区别"><a href="#Run-Debug-Configurations中Build和Build-Project的区别" class="headerlink" title="Run/Debug Configurations中Build和Build Project的区别"></a>Run/Debug Configurations中Build和Build Project的区别</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/sSnMvO.png" alt><br>Build只会编译配置依赖的模块，Build Project会编译模块依赖的所有项目，将编译器交给Maven代工的话注意要选择Build Project。</p>
+<h1 id="all-shortcut"><a href="#all-shortcut" class="headerlink" title="all shortcut"></a>all shortcut</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">新建文件的时候可以这样操作来脱离鼠标：</span><br><span class="line">cmd+1跳到Project目录上下移动到目标目录，然后cmd+shift+A跳出Action，输入new+文件类型或者手动选择文件类型就可以了。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">option+cmd+c 抽取局部字符串为静态变量</span><br><span class="line">cmd+shift+方向键  可以控制模态框的大小，和左右移动编辑区的内容</span><br><span class="line">ctrl+j  展示API文档</span><br><span class="line">ctrl+shift+F,[words 打钩可以搜索是否为单词]</span><br><span class="line">command+D,</span><br><span class="line">commond+F12(file structure)</span><br><span class="line">command+shift+N(search file&apos;s name and global)</span><br><span class="line">commond+option+shift+N(search method d variable global)</span><br><span class="line">shirt + option + (向上箭头)/（向下箭头）(move codes up or down)</span><br><span class="line">Command + Option + L(Format code)</span><br><span class="line">option+enter（add javadoc）</span><br><span class="line">option+command+b(jump into the class impl)</span><br><span class="line">command+e(recent file)</span><br><span class="line">command+shift+a(search action)</span><br><span class="line">command+number(window tab jump)</span><br><span class="line">shift(ctrl)+command+del(last(next) edit location)</span><br><span class="line">F11，command+F11，ctrl+number(alphabet)(bookmarks)</span><br><span class="line">option+shift+F(add to favorites)</span><br><span class="line">shift+option+U(toggle case)</span><br><span class="line">command+1,esc(switch between file navigate and edit area)</span><br><span class="line">option+F7(find usage)</span><br><span class="line">shift+option+方向(move caret to next word)</span><br><span class="line">command+方向(move to first or end of line)</span><br><span class="line">ctrl+command+G(sellect all occurrences) HOT</span><br><span class="line">F2(Quickly locate the wrong line)</span><br><span class="line">option+command+V(generate locate variable)</span><br><span class="line">shift+command+enter(generate some code)</span><br><span class="line">option+enter(generate some method)</span><br><span class="line">command+R(replace)</span><br><span class="line">shift+F6(rename)</span><br><span class="line">option+command+V(Extract Variable)</span><br><span class="line">option+command+C(Extract static Variable) HOT</span><br><span class="line">option+command+F(Extract field Variable)</span><br><span class="line">option+command+P(Extract field Variable into method)</span><br><span class="line">option+command+M(Extract some code to be a new method)HOT</span><br><span class="line">shift+command+F8(show all breakPoints)</span><br><span class="line">shift+command+V(copy history)</span><br><span class="line">shift+option+command+U(show maven dependencies)</span><br><span class="line">option+command+U(show class inherit) HOT</span><br><span class="line">ctrl+option+H(call method or be called history)</span><br><span class="line">ctrl+N(Generate anything)</span><br><span class="line">ctrl+w(select something)</span><br><span class="line">ctrl+&lt; or &gt; (move up or down next method) HOT</span><br><span class="line">cmd+option+T (surround) HOT</span><br></pre></td></tr></table></figure>
+<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="编译出现莫名其妙的找不到符号的Error"><a href="#编译出现莫名其妙的找不到符号的Error" class="headerlink" title="编译出现莫名其妙的找不到符号的Error"></a>编译出现莫名其妙的找不到符号的Error</h2><p>如果找不到符号的错误行数，刚好式同包下的某个类找不到符号报错，那么可能式idea的类编译顺序冲突了，找到报错行上引用到的类，先单独编译应用到的类，再编译报错的类，最后编译整个项目就可以了。</p>
+<h2 id="非静默模式下断点失效"><a href="#非静默模式下断点失效" class="headerlink" title="非静默模式下断点失效"></a>非静默模式下断点失效</h2><p>断点处提示：idea debug no executable code found<br>这个一般是class和idea的代码不一致导致的。<br>解决办法：<br>1、invalidate Caches/Restart<br>2、rebuild Project<br>3、class的输出路径正确<br>4、我自己是因为jboss的On ‘update’ action 被设置成了Restart Server，热部署应该改为：Update classes and resources</p>
+<h2 id="某个jar依赖冲突问题的解决"><a href="#某个jar依赖冲突问题的解决" class="headerlink" title="某个jar依赖冲突问题的解决"></a>某个jar依赖冲突问题的解决</h2><p>公司项目中cglib的包依赖了二个log4j的包，导致控制台启动会报错。 删除项目输出目录下的lib，设置依赖jar的scope为provided。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/7vAT8L.png" alt><br>然后重新部署启动就可以了。</p>
+<h2 id="debug启动微服务莫名其妙卡住的情况"><a href="#debug启动微服务莫名其妙卡住的情况" class="headerlink" title="debug启动微服务莫名其妙卡住的情况"></a>debug启动微服务莫名其妙卡住的情况</h2><p>竟然是因为我在某个方法的声明上打了断点，然后我静默断点时就可以debug启动微服务了：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/Qtfqng.png" alt><br>于是我果断把断点去掉，然后再检查一遍有没有打到方法声明上的断点，全都取消之后重启debug就可以了。</p>
+<h2 id="记录Idea关于Maven依赖的一个致命Bug"><a href="#记录Idea关于Maven依赖的一个致命Bug" class="headerlink" title="记录Idea关于Maven依赖的一个致命Bug"></a>记录Idea关于Maven依赖的一个致命Bug</h2><blockquote>
+<p>基于版本2019.3.4</p>
+</blockquote>
+<p>公司的微服务架构的用的Maven管理依赖，关于流程flowable的的模块ngbip-flow及其几个子模块我放在一个单独的文件夹下面；</p>
+<p>另外的一个项目也是基于微服务架构依赖ngbip-flow及其几个子模块，然后由于启动报了个莫名其妙的错误，于是我删掉了项目对公司自研的所有依赖，重新引入；</p>
+<p>但是这个时候idea移动将ngbip-flow的几个模块的依赖强制指向了上面提到的单独的文件夹下面的ngbip-flow几个子模块的代码文件，不走maven去依赖了，我TM是不同的文件夹（不同的工作区间啊，打开的是不同的idea窗口）；</p>
+<p>最后的硬核解决方法是，将原来的单独文件夹重命名个名字，这个时候另外的项目一下子就自动重新引入ngbip-flow的maven依赖，不会强制走开发机的其他文件夹下面的依赖，然后我再把文件夹名字改回来即可。</p>
+<h2 id="Maven代码不能指向本地工程module代码"><a href="#Maven代码不能指向本地工程module代码" class="headerlink" title="Maven代码不能指向本地工程module代码"></a>Maven代码不能指向本地工程module代码</h2><p>如果出现idea的Modules已经存在，但是代码不能通过Maven依赖到已经引入的module时（此时Maven管理界面可能会出现已经引入的model的maven可视化没有出现），这个时候在工程的Modules删除重新引入应该就可以了。</p>
+<h2 id="Idea出现所有引导到的类报错，连jdk的基础类也报错的情况"><a href="#Idea出现所有引导到的类报错，连jdk的基础类也报错的情况" class="headerlink" title="Idea出现所有引导到的类报错，连jdk的基础类也报错的情况"></a>Idea出现所有引导到的类报错，连jdk的基础类也报错的情况</h2><p>可能是不了心设置了Editor-&gt;File Type中忽略了*.class导致的。<br>如果是项目引入自己项目的代码也报错，可以删掉模块重新import。</p>
+<h2 id="Idea关闭写代码形参提示（会导致变卡）"><a href="#Idea关闭写代码形参提示（会导致变卡）" class="headerlink" title="Idea关闭写代码形参提示（会导致变卡）"></a>Idea关闭写代码形参提示（会导致变卡）</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/RVmJT6.png" alt="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/RVmJT6.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/04/Java-Bean-Validation-Basics/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -650,100 +1043,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/24/从eclipse转到idea的过程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/02/24/从eclipse转到idea的过程/" class="post-title-link" itemprop="url">从eclipse转到idea的过程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-02-24 22:51:27" itemprop="dateCreated datePublished" datetime="2019-02-24T22:51:27+08:00">2019-02-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-27 16:05:45" itemprop="dateModified" datetime="2020-07-27T16:05:45+08:00">2020-07-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Idea/" itemprop="url" rel="index"><span itemprop="name">Idea</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Idea/eclipse/" itemprop="url" rel="index"><span itemprop="name">eclipse</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>这篇文章会比较乱，因为我不想做太多系列细分，就是单纯地把我从eclipse转到idea的经过写出来而已，公司的项目一直采用的&gt;是eclipse+maven+jboss的环境开发的，版本控制通过svn控制，这年代还用svn做控制确实有点更不上时代了，转的过程有点麻烦，但是最终我还是顺利用上idea，只是目前还不太习惯。想入坑idea很早之前就有这个想法了，eclipse我们公司一直都在用很古老的一个版本，隐藏的bug且不说，时不时的卡顿就够影响效率的了。</p>
-</blockquote>
-<h2 id="idea的subversion巨坑"><a href="#idea的subversion巨坑" class="headerlink" title="idea的subversion巨坑"></a>idea的subversion巨坑</h2><p>转idea遇到第一个大难题就是svn版本控制的转换，我司采用svn+ssh协议，还是秘钥文件+密码验证的。以前使用的一直是入职就分给我的一个ssh的秘钥文件eclipse专用的，还附带了一个ppk后缀的秘钥文件，但是ppk那个一直没有派上用途。idea的svn用户认证可能存在bug，我和在elipse上做了类似的svn地址和用户+秘钥文件的配置之后一直无法脸上代码仓库，一直无限弹出让我输入密码。搞得我一度想放弃。<br>后来在查了下，ssh+svn协议原则上是先通过ssh登录svn服务端的机器，等于先打通一条数据流通的渠道，然后svn的交互依赖于这条ssh的通道上面。一直依赖我都是直接在eclipse做svn的操作，没有考虑太多，于是我好奇用我的svn账号密码+ppk秘钥文件去登录svn指向ip的服务器，果然成功了，既然能登上去，说明idea只是没有正确通过ssh登录到svn服务器上而已，<strong><em>通过搜索我才知道，原来的ppk文件是putty的专用格式秘钥文件，而openssh一般采用pem，于是刻不容缓，我又查了下ppk转pem的方法，然后顺利转换到pem文件，在idea的preferences-&gt;Version Control-&gt;Subversion-&gt;SSH上面的Private key指向到新的pem秘钥文件，then connect svn server success，注意其他关于svn的设置先还原，保持默认即可。</em></strong></p>
-<h2 id="ssh-svn可以通过SSH-tunnel的方式连接"><a href="#ssh-svn可以通过SSH-tunnel的方式连接" class="headerlink" title="ssh+svn可以通过SSH tunnel的方式连接"></a>ssh+svn可以通过SSH tunnel的方式连接</h2><p>之前一定用pem秘钥的方式，有次突然抽风不能用了，于是改用SSH tunnel的方式。Subversion-&gt;SSH，勾选Subversion config，SSH tunnel用默认的：</p>
-<p>但是要先记住ssh的pem秘钥通过命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add -k /Users/zhanshifeng/Documents/ccssoftDocument/eclipse/zhanshifeng.pem</span><br></pre></td></tr></table></figure></p>
-<p>输入密码然后即可永久记住，测试是否可以登录成功：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh zhanshifeng@199.3.0.10</span><br></pre></td></tr></table></figure></p>
-<h2 id="不复存在的workspace"><a href="#不复存在的workspace" class="headerlink" title="不复存在的workspace"></a>不复存在的workspace</h2><p>使用eclipse的开发者转到idea最不习惯的地方之一就是idea没有eclipse对应的workspace，我们公司是采用maven来控制jar依赖的,<br>通过maven实现多个子工程（project-anything）继承一个父工程(project-parent)，父工程的依赖jar可以被子工程共用。我直接粗暴得将所有模块的根目录直接check out到新的目录（idea-all-project），然后选择idea的import project，因为eclipse不存在workspace的概念，所以我直接import idea-all-project这个跟目录，因为根目录也有一个pom.xml指向了project-parent，project-parent会因为子模块继承了它，它回去自动匹配到所哟偶子模块，只要在引入的时候勾选了项目是由maven做jar管控。<br>其实，很多时候如果存在子模块，或者其他模块不在所引入的目录之下可以通过project structure里面的modules去增减想要的模块。从这种角度上来讲，其实任何一个目录都是一个workspace，也可以说任何一个module都是workspace。</p>
-<h2 id="maven管控的企业级j2ee应用架构"><a href="#maven管控的企业级j2ee应用架构" class="headerlink" title="maven管控的企业级j2ee应用架构"></a>maven管控的企业级j2ee应用架构</h2><p>我们的整个应用架构可以这样分级。架构类似采用金字塔三角形管控。工程application-all的pom.xml中引入apache的maven-ear-plugin插件，这个EAR插件主要用于生成Java EE Enterprise Archive (EAR)文件，即将各种组件打包到一起生成一个ear文件。此外，EAR插件也用于生成EAR的部署描述符文件application.xml。<br>application-all通过maven-ear-plugin指向了子模块console-web-all，console-web-all采用了maven-war-plugin插件,maven-war-plugin顾名思义，是将底下所有依赖的资源打包成一个war包，war被ear包含。</p>
-<h2 id="在idea中将ear部署到jboss中"><a href="#在idea中将ear部署到jboss中" class="headerlink" title="在idea中将ear部署到jboss中"></a>在idea中将ear部署到jboss中</h2><p>一直依赖我都以为，jboss是启动的时候自动加载他对应的部署目录下面的应用，使用了idea之后，才发现，idea中maven项目是默认将资源部署到maven目录架构对应的target中的。。idea会去先启动jboss，jboss只有启动成功之后，才通过它的EARDeployer，传给部署器一个资源目录，然后jboss加载部署资源还是部署。<br><strong><em>部署ear到jboss的时候有一点要特别注意的。由于我们项目采用ear管控war，所以需要一些额外的配置操作，开发过程中建议部署Artifacts中的exploded，exploded是被分解的意思，翻译成中文我也不知道叫什么合适，总之开发模式采用这个比较好。我还在Project Structure的Artifacts对ear exploded的资源输出目录手动加了个ear后缀，不加应该也没关系，还是我又强迫症，然后在war exploded的资源输出目录手动加了war后缀，还有对资源输出做了一些配置调整，最后成功部署到jboss。</em></strong></p>
-<h2 id="不习惯的subservion操作模式"><a href="#不习惯的subservion操作模式" class="headerlink" title="不习惯的subservion操作模式"></a>不习惯的subservion操作模式</h2><p>用惯eclipse的svn插件就知道，eclipse的资源同步功能非常实用，然后idea乍眼一看貌似是没有这个类似的功能的，这让我很抓狂，后来通过摸索找到了可以基本代替之的办法。<br><strong><em>idea底部有个Version Control栏，其tool bar上有个Local Changes，打开这个刷新，可以看到本地改了那些代码，Local Changes旁边的Incoming可以看到别人新提交我没有更新下来的代码，Repository可以看到所有人的操作记录，还可以在Local Changes左边的tool bar对一些文件做一些辅助性的操作，比如搁置，忽略版本控制，还原等操作，实用性可以说五五开吧，虽然还是很不习惯。其他的基本操作基本会无师自通的。</em></strong></p>
-<h2 id="强大无比的各种快捷键"><a href="#强大无比的各种快捷键" class="headerlink" title="强大无比的各种快捷键"></a>强大无比的各种快捷键</h2><p>几个自动生成代码的快剪辑区别：</p>
-<h2 id="Bookmarks的排序功能"><a href="#Bookmarks的排序功能" class="headerlink" title="Bookmarks的排序功能"></a>Bookmarks的排序功能</h2><p>shift+F11，可以对书签进行上下移动排序，大赞！</p>
-<h2 id="输出控制台乱码解决"><a href="#输出控制台乱码解决" class="headerlink" title="输出控制台乱码解决"></a>输出控制台乱码解决</h2><p>在Server的VM options参数中加入以下配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-Dfile.encoding=UTF-8</span><br></pre></td></tr></table></figure></p>
-<h2 id="代码审计，代码分析，FindBugs-Plugin"><a href="#代码审计，代码分析，FindBugs-Plugin" class="headerlink" title="代码审计，代码分析，FindBugs Plugin"></a>代码审计，代码分析，FindBugs Plugin</h2><h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><blockquote>
-<p>shift+方向怎么改成选中？<br>在vim命令行模式下按v+方向，用这种方式更好。</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -813,7 +1112,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">123</span>
+          <span class="site-state-item-count">124</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
