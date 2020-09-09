@@ -163,121 +163,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/05/数据结构系列之队列/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/05/数据结构系列之队列/" class="post-title-link" itemprop="url">数据结构系列之队列</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-09-05 22:16:36" itemprop="dateCreated datePublished" datetime="2020-09-05T22:16:36+08:00">2020-09-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-08 21:07:57" itemprop="dateModified" datetime="2020-09-08T21:07:57+08:00">2020-09-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="队列的定义"><a href="#队列的定义" class="headerlink" title="队列的定义"></a>队列的定义</h2><p>队列是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作，和栈一样，队列是一种操作受限制的线性表。进行插入操作的端称为队尾，进行删除操作的端称为队头。队列的特点就是先进先出(First In First Out)。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/pRoXuq.png" alt></p>
-<h2 id="顺序队列"><a href="#顺序队列" class="headerlink" title="顺序队列"></a>顺序队列</h2><p>建立顺序队列结构必须为其静态分配或动态申请一片连续的存储空间，并设置两个指针进行管理。一个是队头指针front，它指向队头元素；另一个是队尾指针rear，它指向下一个入队元素的存储位置。</p>
-<blockquote>
-<p>如果没有两个指针，入队操作直接执行顺序表尾部插入操作，其时间复杂度为O(1)，出队操作直接执行顺序表头部删除操作，其时间复杂度为O(n)，<br>增加了front和rear指针，出队操作的时间复杂度也是O(1)了。</p>
-</blockquote>
-<p>空队列：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/VOhvX9.png" alt><br>往队列里面插入A：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/Tvnv7J.png" alt><br>继续插入元素：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/DFz5Ix.png" alt><br>将A和B出队：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/SKuBUa.png" alt><br>继续将D、E、F、G入队：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/Bh2zXE.png" alt><br>由于队列暂时”已满”，G将无法入队，但是此时front前面实际上还有未被利用的空间，这称为<code>&quot;假上溢&quot;现象</code>。<br>之所以出现这样”假溢出”现象是因为顺序表队列的存储单元没有重复利用机制，而解决该问题的最合适的方式就是将顺序队列设计为循环结构。</p>
-<h3 id="“下溢”现象"><a href="#“下溢”现象" class="headerlink" title="“下溢”现象"></a>“下溢”现象</h3><p>当队列为空时，做出队运算产生的溢出现象。“下溢”是正常现象，常用作程序控制转移的条件。</p>
-<h3 id="“真上溢”现象"><a href="#“真上溢”现象" class="headerlink" title="“真上溢”现象"></a>“真上溢”现象</h3><p>当队列满时，做进栈运算产生空间溢出的现象。“真上溢”是一种出错状态，应设法避免。</p>
-<h3 id="“假上溢”现象"><a href="#“假上溢”现象" class="headerlink" title="“假上溢”现象"></a>“假上溢”现象</h3><p>由于入队和出队操作中，头尾指针只增加不减小，致使被删元素的空间永远无法重新利用。当队列中实际的元素个数远远小于向量空间的规模时，也可能由于尾指针已超越向量空间的上界而不能做入队操作。该现象称为”假上溢”现象，如上面的图解。</p>
-<h2 id="循环队列"><a href="#循环队列" class="headerlink" title="循环队列"></a>循环队列</h2><p>循环队列就是将顺序队列设计为在逻辑结构上首尾相接的循环结构，使队列空间能重复使用，往往对队列的使用方法稍加改进：无论插入或删除，一旦rear指针增1或front指针增1时超出了所分配的队列空间，就让它指向这片连续空间的起始位置。自己真从MaxSize-1增1变到0，可用取余运算<code>(rear+1)%MaxSize</code>和<code>(front+1)%MaxSize</code>来实现（如果front和rear是从1开始的，则无需+1）。<br>这实际上是把队列空间想象成一个环形空间，环形空间中的存储单元循环使用，用这种方法管理的队列也就称为循环队列。除了一些简单应用之外，真正实用的队列是循环队列。<br>向循环队列插入A：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/id3Re7.png" alt><br>继续插入B、C（每次入队rear都在增1）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/L9wzvj.png" alt><br>将A、B、C出队（每次出队front都在增1）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/JVFghB.png" alt><br>重新插入A、B、C（此时队列出现”假上溢”现象，使用<code>(rear+1)%MaxSize</code>计算rear）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/M40vAU.png" alt><br>继续将A、B、C出队（此时队列出现”假上溢”现象，使用<code>(front+1)%MaxSize</code>计算front）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/rQlZy9.png" alt><br>重新插入直至队列出现”真上溢”现象，然后可以动态对循环队列进行扩展（并按照原来队列的次序复制元素数组）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/gHQzZs.png" alt></p>
-<h2 id="链式队列"><a href="#链式队列" class="headerlink" title="链式队列"></a>链式队列</h2><p>基于链表的队列，要动态创建和删除节点，效率较低，但是可以动态增长，可以使用带头指针front和尾指针rear的单链表实现，front直接指向队头的第一个元素，rear指向队尾的最后一个元素。<br>队列采用的FIFO(first in first out)，新元素（等待进入队列的元素）总是被插入到链表的尾部，而读取的时候总是从链表的头部开始读取。每次读取一个元素，释放一个元素。所谓的动态创建，动态释放。因而也不存在溢出等问题。由于链表由结构体间接而成，遍历也方便。<br>空链式队列：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/YVIozT.png" alt><br>插入元素（入队）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/cbwuMz.png" alt><br>出队和入队都分别改变front和rear的指向即可。</p>
-<h2 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h2><p>在某些情况下，有些应用系统要求不仅需要按照“先来先服务”的原则进行，而且还需按照任务的重要或紧急程度进行排队处理，此时就需要使用到优先队列。比如在操作系统中进行进程调度管理，每个进程都具备一个优先级值以表示进程的紧急程度，优先级高的进行先执行，同等级进程按照先进先出的原则排队处理，此时操作系统使用的便是优先队列管理和调度进程。<br>优先队列也是一种特殊的数据结构，队列中的每个元素都有一个优先级，按照排序可分类为：</p>
-<ul>
-<li>降序优先级队列：每次出队的是队列当前具有最高优先级的元素。</li>
-<li>升序优先级队列：每次出队的是队列当前具有最低优先级的元素。</li>
-</ul>
-<p>优先队列的实现可以有三种方案：</p>
-<ul>
-<li>有序数组</li>
-<li>有序链表</li>
-<li>也可以使用二叉树（二叉堆）实现</li>
-</ul>
-<h2 id="双端队列"><a href="#双端队列" class="headerlink" title="双端队列"></a>双端队列</h2><p>双端队列可以在队列任意一端入队和出队。此外，经常还会有一个查看（Peek）操作，返回该端的数据而不将其出队。</p>
-<h2 id="队列的应用"><a href="#队列的应用" class="headerlink" title="队列的应用"></a>队列的应用</h2><ul>
-<li>异步数据的处理、传输；</li>
-<li>短信群体发送 应用的发布订阅模式；</li>
-<li>模拟真实的订单服务、售票，以及其他先到先服务的场景。</li>
-</ul>
-<h2 id="Java中的队列"><a href="#Java中的队列" class="headerlink" title="Java中的队列"></a>Java中的队列</h2><h3 id="非阻塞队列"><a href="#非阻塞队列" class="headerlink" title="非阻塞队列"></a>非阻塞队列</h3><ul>
-<li>PriorityQueue</li>
-<li>ConcurrentLinkedQueue</li>
-</ul>
-<h3 id="阻塞队列"><a href="#阻塞队列" class="headerlink" title="阻塞队列"></a>阻塞队列</h3><ul>
-<li>ArrayBlockingQueue</li>
-<li>LinkedBlockingQueue</li>
-<li>PriorityBlockingQueue</li>
-<li>DelayQueue</li>
-<li>SynchronousQueue</li>
-</ul>
-<blockquote>
-<p>参考来源：<a href="https://blog.csdn.net/javazejian/article/details/53375004" target="_blank" rel="noopener">某篇博客</a>、<a href="https://baike.baidu.com/item/%E9%98%9F%E5%88%97/14580481" target="_blank" rel="noopener">百度百科</a>等。</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/09/《深入理解Java虚拟机第3版》阅读笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -309,7 +194,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-08 18:22:33" itemprop="dateModified" datetime="2020-09-08T18:22:33+08:00">2020-09-08</time>
+                <time title="Modified: 2020-09-09 11:48:44" itemprop="dateModified" datetime="2020-09-09T11:48:44+08:00">2020-09-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -463,7 +348,38 @@
 <h4 id="废弃的常量和不再使用的类型"><a href="#废弃的常量和不再使用的类型" class="headerlink" title="废弃的常量和不再使用的类型"></a>废弃的常量和不再使用的类型</h4><p>回收废弃常量与回收Java堆中的对象非常类似。举个常量池中字面量回收的例子，假如一个字符串“java”曾经进入常量池中，但是当前系统又没有任何一个字符串对象的值是“java”,换句话说，已经没有任何字符串对象引用常量池中的“java”常量，且虚拟机中也没有其他地方引用这个字面量。如果在这时发生内存回收，而且垃圾收集器判断确有必要的话，这个“java”常量就将会被系统清理出常量池。<br>常量池中其他类(接口)、方法、字段的符号引用也与此类似。<br>判定一个类型是否属于“不再被使用的类”的条件就比较苛刻了。需要同时满足下面三个条件:</p>
 <ul>
 <li>该类所有的实例都已经被回收，也就是Java堆中不存在该类及其任何派生子类的实例。</li>
+<li>该类对应的java.lang.Class对象没有在任何地方被引用，无法在任何地方通过反射访问该类的方法。</li>
+<li>加载该类的类加载器已经被回收。</li>
 </ul>
+<p>关于对类型进行回收HotSpot虚拟机提供了一些参数做控制：</p>
+<ul>
+<li>-verbose: class</li>
+<li>-XX: +TraceClassLoading</li>
+<li>-XX: +TraceClassUnLoading（需要FastDebug版的虚拟机支持）</li>
+</ul>
+<h2 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h2><p>从如何判定对象消亡的角度出发，垃圾收集算法可以划分为：</p>
+<ul>
+<li>“引用计数式垃圾收集”(Reference Counting GC)（直接垃圾收集）</li>
+<li>“追踪式垃圾收集”(Tracing GC)（间接垃圾收集）</li>
+</ul>
+<h3 id="分代收集理论"><a href="#分代收集理论" class="headerlink" title="分代收集理论"></a>分代收集理论</h3><ul>
+<li>弱分代假说(Weak Generational Hypothesis)：绝大多数对象都是朝生夕灭的。</li>
+<li>强分代假说(Strong Generational Hypothesis)：熬过越多次垃圾收集过程的对象就越难以消亡。</li>
+</ul>
+<p>收集器应该将Java堆划分出不同的区域，然后将回收对象依据其年龄(年龄即对象熬过垃圾收集过程的次数)分配到不同的区域之中存储。显而易见，如果一个区域中大多数对象都是朝生夕灭，难以熬过垃圾收集过程的话，那么把它们集中放在一起，每次回收时只关注如何保留少量存活而不是去标记那些大量将要被回收的对象，就能以较低代价回收到大量的空间;如果剩下的都是难以消亡的对象，那把它们集中放在一块，虚拟机便可以使用较低的频率来回收这个区域，这就同时兼顾了垃圾收集的时间开销和内存的空间有效利用。</p>
+<p>在Java堆划分出不同的区域之后，垃圾收集器才可以每次只回收其中某一个或者某些部分的区域。<br>回收类型划分：</p>
+<ul>
+<li>Minor GC</li>
+<li>Major GC</li>
+<li>Full GC</li>
+</ul>
+<p>针对不同的区域安排与里面存储对象存亡特征相匹配的垃圾收集算法：</p>
+<ul>
+<li>标记-复制算法</li>
+<li>标记-清除算法</li>
+<li>标记-整理算法</li>
+</ul>
+<h4 id="新生代与老年代"><a href="#新生代与老年代" class="headerlink" title="新生代与老年代"></a>新生代与老年代</h4><p>现在的商用Java虚拟机里，设计者一般至少会把Java堆划分为新生代(Young Generation)和老年代(Old Generation)两个区域。<br>在新生代中，每次垃圾收集时都发现有大批对象死去，而每次回收后存活的少量对象，将会逐步晋升到老年代中存放。<br>但是存在一个明显的问题：对象不是孤立的，对象之间会存在跨代引用。  </p>
 <h4 id="三色标记法（Tri-color-Marking）"><a href="#三色标记法（Tri-color-Marking）" class="headerlink" title="三色标记法（Tri-color Marking）"></a>三色标记法（Tri-color Marking）</h4><p>白色、黑色、灰色</p>
 <h5 id="并发出现对象消失问题"><a href="#并发出现对象消失问题" class="headerlink" title="并发出现对象消失问题"></a>并发出现对象消失问题</h5><p>两种解决方案：增量更新（Incremental Update）、原始快照（Snapshot At The Begging，SATB）。</p>
 <h2 id="经典垃圾收集器"><a href="#经典垃圾收集器" class="headerlink" title="经典垃圾收集器"></a>经典垃圾收集器</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/WLBBDC.png" alt></p>
@@ -478,6 +394,255 @@
 <li><code>-XX: GCTimeRatio</code>：直接设置吞吐量大小。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/F3rNln.png" alt></li>
 <li><code>-XX: +UseAdaptiveSizePolicy</code>：开关参数，开启之后虚拟机会根据当前系统运行情况收集性能监控信息，动态调整其它一些参数以提供最合适的停顿时间或者最大的吞吐量（<code>自适应的调节策略</code>）。</li>
 </ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/05/English系列之名词从句/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/05/English系列之名词从句/" class="post-title-link" itemprop="url">English系列之名词从句</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-09-05 20:15:17" itemprop="dateCreated datePublished" datetime="2020-09-05T20:15:17+08:00">2020-09-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-09 10:27:26" itemprop="dateModified" datetime="2020-09-09T10:27:26+08:00">2020-09-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>这篇笔记摘选自《英语语法新思维中级教程第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。</p>
+</blockquote>
+<h2 id="简单句与名词从句"><a href="#简单句与名词从句" class="headerlink" title="简单句与名词从句"></a>简单句与名词从句</h2><h3 id="何谓名词从句？"><a href="#何谓名词从句？" class="headerlink" title="何谓名词从句？"></a>何谓名词从句？</h3><p>在英语中，名词或名词短语主要充当四种句子成分：主语、宾语、表语和同位语，如果把句子当作名词来用，分别充当另一句话的主语、宾语、表语或同位语。<br>构成了四种从句：主语从句、宾语从句、表语从句和同位语从句，因为这四种从句在本质上相当于名词，所以将其统称为名词从句。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/js3epz.png" alt></p>
+<blockquote>
+<p>相当于名词的句子有三类：陈述句、一般疑问句以及特殊疑问句。</p>
+</blockquote>
+<h3 id="陈述句作句子成分"><a href="#陈述句作句子成分" class="headerlink" title="陈述句作句子成分"></a>陈述句作句子成分</h3><h4 id="要在陈述句句首加上that"><a href="#要在陈述句句首加上that" class="headerlink" title="要在陈述句句首加上that"></a>要在陈述句句首加上that</h4><p>当把一个完整的陈述句当作名词来使用时，需要在陈述句句首加that，然后可使“that+陈述句”这一结构分别充当另一个句子的主语、宾语、表语或同位语等四种成分，即构成主语从句、宾语从句、表语从句或同位语从句。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/1kNWSL.png" alt></p>
+<h4 id="为什么要加that？"><a href="#为什么要加that？" class="headerlink" title="为什么要加that？"></a>为什么要加that？</h4><p>That English is important（主语从句）is an undoubted fact（谓语部分）.<br>假如把that去掉，上句就变成“English is important is an undoubted fact.”。<br>这句话就有两个中心谓语部分，即is important和is an undoubted fact。但是，在英语中，句子的核心意思主要是靠谓语部分来表达的，一个句子只表达一个核心意思（因为我们说话要一句一句地说），也就只能有一个谓语部分。现在这个句子有两个谓语部分，读者就会纳闷：你要表达的意思到底是“某个东西重要（something is important）”，还是要说“某个东西是事实（something is an undoubted fact）”？<br>为了避免混淆，在句首加上一个标志that，这里的that就相当于一个指路牌，它的出现就等于是在告诉读者：that后面紧接着的句子是要作为另一个句子的某一个成分来使用的，不是要表达的核心意思。因此，当读者读到“That English is important…”，他就会知道这个句子的核心意思并没有讲出来，他一定会期待着句子接下来的中心意思。当他读到“…is an undoubted fact”时，他知道了，句子要表达的意思是“英语很重要，这是一个毋庸置疑的事实”，而不是要说“英语很重要”。<br>英语很重要，这是一个毋庸置疑的事实。</p>
+<p>1） The criminal confessed his sins harmed many people.<br>2） The criminal confessed that his sins harmed many people.<br>对于例句2），因为有了that的存在，我们能轻而易举地判断出the criminal confessed是主句，而his sins harmed many people是宾语从句，所以我们的大脑就不会做出像例句1）那样的错误断句，因而缩短了理解的时间。<br>这名罪犯承认，他的罪行伤害了很多人。</p>
+<p>He said no word at the meeting was strange.<br>对于这个句子，很多读者自然会将其当作宾语从句理解：“He said that no word at the meeting was strange.”。此时句子的意思是：他说，会上人们的发言都很正常，并没有什么奇怪的。<br>但是，如果在句首添加一个that而将其改写为“ That he said no word at the meeting was strange.”。<br>此时则要理解成：他在会上一言不发，这真让人觉得有些蹊跷。</p>
+<blockquote>
+<p>那么为什么宾语从句中的that可以省去呢？这是因为对于宾语从句，主句的谓语已经出现，谓语后面所接的成分自然是宾语，所以在不影响句子意思的情况下，可以把that省去。</p>
+</blockquote>
+<p>比如“I think you are right.”或“I think that you are right.”都可以。<br>但是，像上面的例句<code>The criminal confessed that his sins harmed many people.</code>，即使是宾语从句，that也不宜省去。</p>
+<h3 id="一般疑问句作句子成分"><a href="#一般疑问句作句子成分" class="headerlink" title="一般疑问句作句子成分"></a>一般疑问句作句子成分</h3><h4 id="用whether或if引导"><a href="#用whether或if引导" class="headerlink" title="用whether或if引导"></a>用whether或if引导</h4><p>当把一个一般疑问句当作名词来使用时，<strong><em>需要先将疑问句的倒装语序变成陈述句语序</em></strong>，并在句首加上whether或if（if只用在宾语从句中）来引导，以保留原句的疑问意义。<br>然后， 用“whether+陈述句”这一结构分别充当另一个句子的主语、宾语、表语或同位语等四种成分，即构成主语从句、宾语从句、表语从句或同位语从句等四种名词从句。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/K3NI0I.png" alt></p>
+<h4 id="if还是whether？"><a href="#if还是whether？" class="headerlink" title="if还是whether？"></a>if还是whether？</h4><p>对于if和whether这两个连词，其用法有以下区别：</p>
+<ul>
+<li>if一般只用于引导宾语从句，而whether可引导包括宾语从句在内的其他名词从句。<br>If he comes or not makes no difference. <em><br>这个句子不妥，应改为“Whether he comes or not makes no difference.”。这里是主语从句，应由whether引导。<br>他来不来无关紧要。<br>The question is if he will come. </em><br>这个句子不妥，应改为“The question is whether he will come.”。这里是表语从句，应由whether引导。<br>问题是他是否会来。</li>
+<li>if不和or not直接连用，即一般不说if or not，但可以说if…or not。而whether没有此限制。<br>I don’t know if or not he comes. *<br>I don’t know whether or not he comes.<br>例句1）错误，因为if和or not不能直接连用，即不能说 成if or not。例句2）正确。<br>我不知道他是否会来。</li>
+</ul>
+<h3 id="特殊疑问句作句子成分"><a href="#特殊疑问句作句子成分" class="headerlink" title="特殊疑问句作句子成分"></a>特殊疑问句作句子成分</h3><h4 id="变倒装语序为陈述句语序"><a href="#变倒装语序为陈述句语序" class="headerlink" title="变倒装语序为陈述句语序"></a>变倒装语序为陈述句语序</h4><p>当把一个特殊疑问句当作名词来使用时，<strong><em>需要先将疑问句的倒装语序变成陈述句语序</em></strong>，然后分别充当另一个句子的主语、宾语、表语或同位语等四种成分，即构成主语从句、宾语从句、表语从句或同位语从句等四种名词从句。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/RyjbNf.png" alt></p>
+<h4 id="特殊疑问词作主语，无需调整句子语序"><a href="#特殊疑问词作主语，无需调整句子语序" class="headerlink" title="特殊疑问词作主语，无需调整句子语序"></a>特殊疑问词作主语，无需调整句子语序</h4><p>如果特殊疑问词在句中作主语，则特殊疑问句无需调整语序而直接作成分，因为此时的问句即是一个陈述句语序。<br>1） Who will chair the meeting?<br>2） Who will chair the meeting has not yet been decided.<br>在例句1）中，特殊疑问词who作主语，此时整个问句“Who will chair the meeting?”是一个“主语+谓语”结构的陈述句语序，因此用该问句作成分时，无需调整语序，而直接在例句2）中充当主语，构成一个主语从句。<br>1）谁将会主持这个会议？<br>2）谁将会主持这个会议，目前还没有决定。</p>
+<h3 id="引导名词从句的连接词"><a href="#引导名词从句的连接词" class="headerlink" title="引导名词从句的连接词"></a>引导名词从句的连接词</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/JDxvF5.png" alt></p>
+<h2 id="简单句与主语从句"><a href="#简单句与主语从句" class="headerlink" title="简单句与主语从句"></a>简单句与主语从句</h2><h3 id="陈述句作主语"><a href="#陈述句作主语" class="headerlink" title="陈述句作主语"></a>陈述句作主语</h3><p>把“that+陈述句”这一结构放在主语的位置即构成主语从句。<br>That the seas are being overfished has been known for years.<br>这里that引导的从句that the seas are being overfished是一个主语从句，直接置于主语的位置。<br>海洋正在被人类过度捕捞，多年以来这已是尽人皆知的。</p>
+<p>That English is important is an undoubted fact.英语很重要，这是一个毋庸置疑的事实。<br>That he doesn’t understand English is obvious.很显然，他不懂英语。<br>That the world is round is a fact.地球是圆的，这是一个事实。<br>对于陈述句作主语，更常见的是用it作形式主语置于句首，而将主语从句放在句末。因此上面各句可分别改为：<br>It has been known for years that the seas are being overfished.<br>It is an undoubted fact that English is important.<br>It is obvious that he doesn’t understand English.<br>It is a fact that the world is round.</p>
+<p><strong><em>下列都是常见的主语从句句型（重点内容）：</em></strong></p>
+<h4 id="It-is-过去分词-that从句"><a href="#It-is-过去分词-that从句" class="headerlink" title="It is+过去分词+that从句"></a>It is+过去分词+that从句</h4><p>It’s reported that…（据报道……）<br>It’s believed that…（人们相信……）<br>It is generally thought that…（人们普遍认为……）<br>It should be noted that…（应当注意……）<br>It has been found that…（现已发现……）<br>It must be pointed out that…（必须指出……）<br>类似动词还有say，expect，know，estimate和forecast等。</p>
+<p>As a child and as an adult as well, Bill Gates was untidy. It has been said that in order to counteract this, Mary drew up weekly clothing plans for him.<br>不论是在小时候还是长大成人以后，比尔·盖茨都是不修边幅的。据说为了让他改掉这个习惯，玛丽专门为他制定了一周的着装计划。</p>
+<h4 id="It-is-形容词-that从句"><a href="#It-is-形容词-that从句" class="headerlink" title="It is+形容词+that从句"></a>It is+形容词+that从句</h4><p>It is clear that…（显然……）<br>It is possible that…（很可能……）<br>It is likely that…（很可能……）<br>It is natural that…（很自然……）<br>It is certain that…（可以相信……）<br>It is strange that…（奇怪的是……）<br>It is fortunate that…（幸运的是……）<br>It is necessary that…（有必要……）</p>
+<p>It is true that English is becoming an international language.<br>的确，英语正日益成为一门国际通用语言。</p>
+<h4 id="It-is-名词短语-that从句"><a href="#It-is-名词短语-that从句" class="headerlink" title="It is+名词短语+that从句"></a>It is+名词短语+that从句</h4><p>常用的名词有：a pity，a shame，an honor，a good idea和no wonder等等。<br>It is a pity that…（可惜的是……）<br>It is a fact that…（事实是……）<br>It is good news that…（……真是太好了）<br>It is a good thing that…（……真是件好事）<br>It is no wonder that…（难怪……）<br>It is a shame that…（遗憾的是……；……真是太不像话了）<br>It is an honor that…（真荣幸……）<br>It is common knowledge that…（……是常识）<br>It is my belief that…（我相信……）<br>It is a miracle that…（……真是奇迹）</p>
+<p>It is common knowledge that the whale is not a fish. 鲸鱼不是鱼类，这是一个常识。<br>It is a shame that you did not pass the test. 你没通过这次考试，真遗憾。</p>
+<h3 id="一般疑问句作主语"><a href="#一般疑问句作主语" class="headerlink" title="一般疑问句作主语"></a>一般疑问句作主语</h3><p>一般疑问句作主语时，要把一般疑问句变成陈述句，并且用whether来引导，然后充当句子的主语，即构成主语从句。<br>Whether he comes or not makes no difference to me. 他来不来对我来说无所谓。</p>
+<h3 id="特殊疑问句作主语"><a href="#特殊疑问句作主语" class="headerlink" title="特殊疑问句作主语"></a>特殊疑问句作主语</h3><p>What we need is a wholly new kind of police force.<br>这里的特殊疑问词what是作need的宾语，所以需将原来的倒装句what do we need调整为陈述句语序what we need，然后作主句的主语，即构成主语从句。<br>我们需要的是一个全新的警察机构。</p>
+<p>When the meeting is to be held has not yet been decided.<br>这里的特殊疑问词when是作从句的时间状语，所以需将原来的倒装句when is the meeting to be held调整为陈述句语序when the meeting is to be held，然后作主句的主语，即构成主语从句。<br>会议何时举行还没决定。</p>
+<p>How a person masters his fate is more important than what his fate is.<br>这里的特殊疑问词how是作从句的方式状语，所以需将原来的倒装句how does a person master his fate调整为陈述句语序how a person masters his fate，然后作主句的主语，即构成主语从句。<br>对于一个人来说，重要的是如何掌握自己的命运，而不是被动地接受命运的安排。</p>
+<p>September 11, 2001 started out as an ordinary day, but what happened that morning will be forever etched（铭刻） in our memories.<br>这里的特殊疑问词what是作从句的主语，所以无需调整语序，而直接将疑问句what happened that morning作主句的主语，即构成主语从句。<br>2001年9月11日那天和平日一样到来，但是那天早晨发生的事情将永远铭刻在人们的记忆里。</p>
+<h2 id="简单句与宾语从句"><a href="#简单句与宾语从句" class="headerlink" title="简单句与宾语从句"></a>简单句与宾语从句</h2><h3 id="陈述句作宾语"><a href="#陈述句作宾语" class="headerlink" title="陈述句作宾语"></a>陈述句作宾语</h3><p>把“that+陈述句”这一结构放在宾语的位置即构成宾语从句。<br>We know (that) the world is round.<br>我们知道，地球是圆的。</p>
+<blockquote>
+<p>只有宾语从句中的that才可以省去（在不影响对句意的理解的情况下），而主语从句、表语从句和同位语从句中的that一般不能省去。</p>
+</blockquote>
+<h3 id="一般疑问句作宾语"><a href="#一般疑问句作宾语" class="headerlink" title="一般疑问句作宾语"></a>一般疑问句作宾语</h3><p>把“whether / if+陈述句”这一结构放在宾语的位置即构成宾语从句。<br>I don’t know if/whether he needs my help.<br>我不知道他是否需要我的帮助。</p>
+<p>No one knew whether or not interest rates would rise.<br>这里原来的一般疑问句是would interest rates rise，变成陈述句语序后成为interest rates would rise，然后为了保留疑问的意义又添加了whether or not，构成宾语从句。一般不说if or not，所以这里的连词不宜用if。</p>
+<h3 id="特殊疑问句作宾语"><a href="#特殊疑问句作宾语" class="headerlink" title="特殊疑问句作宾语"></a>特殊疑问句作宾语</h3><p>把特殊疑问句变成陈述句语序后放在宾语的位置即构成宾语从句。<br>I have not decided whom I should vote for.<br>这里的特殊疑问词whom是作vote for的宾语，所以需将原来的倒装句whom should I vote for调整为陈述句语序whom I should vote for，然后作主句谓语decided的宾语，即构成宾语从句。<br>我还没有决定该投谁一票。</p>
+<p>No one knows exactly how speech began.<br>这里的特殊疑问词how是作began的方式状语，所以需将原来的倒装句how did speech begin调整为陈述句语序how speech began，然后作主句谓语knows的宾语，即构成宾语从句。<br>没有人确切地知道语言是如何产生的。</p>
+<h2 id="简单句与表语从句"><a href="#简单句与表语从句" class="headerlink" title="简单句与表语从句"></a>简单句与表语从句</h2><h3 id="陈述句作表语"><a href="#陈述句作表语" class="headerlink" title="陈述句作表语"></a>陈述句作表语</h3><p>把“that+陈述句”这一结构放在表语的位置即构成表语从句。<br>My idea is that the child should be sent to school.<br>我的看法是，应该把这个孩子送去上学。</p>
+<h3 id="一般疑问句作表语"><a href="#一般疑问句作表语" class="headerlink" title="一般疑问句作表语"></a>一般疑问句作表语</h3><p>把“whether+陈述句”这一结构放在表语的位置即构成表语从句。<br>My concern is whether he comes or not.<br>我关心的是他到底来不来。</p>
+<h3 id="特殊疑问句作表语"><a href="#特殊疑问句作表语" class="headerlink" title="特殊疑问句作表语"></a>特殊疑问句作表语</h3><p>把特殊疑问句变成陈述句语序后放在表语的位置即构成表语从句。<br>Change is what keeps us fresh and innovative. Change is what keeps us from getting stale . Change is what keeps us young.<br>变革能使我们保持思维敏锐，富有创造性。变革能防止我们思想僵化。变革能使我们永葆青春。<br>Yesterday is history. Tomorrow is a mystery. Today is a gift. That’s why it’s called the present!<br>昨天是历史。明天是一个谜。今天是一个礼物。因此它才被称为present!<br>The point is when you will become rich.<br>问题的关键是你何时才能有钱。</p>
+<h2 id="简单句与同位语从句"><a href="#简单句与同位语从句" class="headerlink" title="简单句与同位语从句"></a>简单句与同位语从句</h2><p>所谓同位语，就是用来补充说明名词的成分。被补充说明的名词，叫作先行词。当用一个完整的句子来补充说明名词时，即构成同位语从句。所以，同位语从句都位于一个名词的后面，便构成了“名词+连词+同位语从句”这样的结构。</p>
+<h3 id="陈述句作同位语"><a href="#陈述句作同位语" class="headerlink" title="陈述句作同位语"></a>陈述句作同位语</h3><p>把“that陈述句”这一结构放在同位语的位置即构成同位语从句。<br>He was prepared to prove his theory that two different weights would fall to the ground at the same time.<br>这里的先行词是his theory，同位语从句是that two different weights would fall to the ground at the same time。<br>他准备证明他的这一理论：两个重量不同的物体将同时落地。</p>
+<p>The fact that he succeeded in the experiment pleased everybody.<br>这里的先行词是the fact，同位语从句是that he succeeded in the experiment。<br>他的实验取得了成功，这让大家很高兴。</p>
+<p>The rumor that Tom was a thief turned out to be untrue.<br>这里的先行词是the rumor，同位语从句是that Tom was a thief。<br>有谣传说汤姆是小偷，结果证明是假的。</p>
+<blockquote>
+<p>同位语从句可能与其修饰的名词被其他成分隔开。</p>
+</blockquote>
+<p>They spread the lie everywhere that Tom was guilty of theft.<br>这里的先行词the lie与同位语从句that Tom was guilty of theft被状语everywhere隔开。<br>他们到处散布谣言说汤姆犯有盗窃罪。</p>
+<p>A saying goes that practice makes perfect.<br>这里的先行词a saying与同位语从句that practice makes perfect被谓语goes隔开。<br>俗话说，熟能生巧。</p>
+<h3 id="一般疑问句作同位语"><a href="#一般疑问句作同位语" class="headerlink" title="一般疑问句作同位语"></a>一般疑问句作同位语</h3><p>把“whether+陈述句”这一结构放在同位语的位置即构成同位语从句。<br>They are faced with the problem whether they should continue to work .<br>他们面临这样一个问题：他们是否应该继续工作。</p>
+<h3 id="特殊疑问句作同位语"><a href="#特殊疑问句作同位语" class="headerlink" title="特殊疑问句作同位语"></a>特殊疑问句作同位语</h3><p>把特殊疑问句变成陈述句语序后放在同位语的位置即构成同位语从句。<br>There arose the question where we could get the loan.<br>现在的问题是我们去哪里弄到这笔贷款。</p>
+<p>I have no idea when he will return.<br>我不知道他什么时候回来。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/05/数据结构系列之队列/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/05/数据结构系列之队列/" class="post-title-link" itemprop="url">数据结构系列之队列</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-09-05 22:16:36" itemprop="dateCreated datePublished" datetime="2020-09-05T22:16:36+08:00">2020-09-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-08 21:07:57" itemprop="dateModified" datetime="2020-09-08T21:07:57+08:00">2020-09-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="队列的定义"><a href="#队列的定义" class="headerlink" title="队列的定义"></a>队列的定义</h2><p>队列是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作，和栈一样，队列是一种操作受限制的线性表。进行插入操作的端称为队尾，进行删除操作的端称为队头。队列的特点就是先进先出(First In First Out)。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/pRoXuq.png" alt></p>
+<h2 id="顺序队列"><a href="#顺序队列" class="headerlink" title="顺序队列"></a>顺序队列</h2><p>建立顺序队列结构必须为其静态分配或动态申请一片连续的存储空间，并设置两个指针进行管理。一个是队头指针front，它指向队头元素；另一个是队尾指针rear，它指向下一个入队元素的存储位置。</p>
+<blockquote>
+<p>如果没有两个指针，入队操作直接执行顺序表尾部插入操作，其时间复杂度为O(1)，出队操作直接执行顺序表头部删除操作，其时间复杂度为O(n)，<br>增加了front和rear指针，出队操作的时间复杂度也是O(1)了。</p>
+</blockquote>
+<p>空队列：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/VOhvX9.png" alt><br>往队列里面插入A：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/Tvnv7J.png" alt><br>继续插入元素：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/DFz5Ix.png" alt><br>将A和B出队：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/SKuBUa.png" alt><br>继续将D、E、F、G入队：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/Bh2zXE.png" alt><br>由于队列暂时”已满”，G将无法入队，但是此时front前面实际上还有未被利用的空间，这称为<code>&quot;假上溢&quot;现象</code>。<br>之所以出现这样”假溢出”现象是因为顺序表队列的存储单元没有重复利用机制，而解决该问题的最合适的方式就是将顺序队列设计为循环结构。</p>
+<h3 id="“下溢”现象"><a href="#“下溢”现象" class="headerlink" title="“下溢”现象"></a>“下溢”现象</h3><p>当队列为空时，做出队运算产生的溢出现象。“下溢”是正常现象，常用作程序控制转移的条件。</p>
+<h3 id="“真上溢”现象"><a href="#“真上溢”现象" class="headerlink" title="“真上溢”现象"></a>“真上溢”现象</h3><p>当队列满时，做进栈运算产生空间溢出的现象。“真上溢”是一种出错状态，应设法避免。</p>
+<h3 id="“假上溢”现象"><a href="#“假上溢”现象" class="headerlink" title="“假上溢”现象"></a>“假上溢”现象</h3><p>由于入队和出队操作中，头尾指针只增加不减小，致使被删元素的空间永远无法重新利用。当队列中实际的元素个数远远小于向量空间的规模时，也可能由于尾指针已超越向量空间的上界而不能做入队操作。该现象称为”假上溢”现象，如上面的图解。</p>
+<h2 id="循环队列"><a href="#循环队列" class="headerlink" title="循环队列"></a>循环队列</h2><p>循环队列就是将顺序队列设计为在逻辑结构上首尾相接的循环结构，使队列空间能重复使用，往往对队列的使用方法稍加改进：无论插入或删除，一旦rear指针增1或front指针增1时超出了所分配的队列空间，就让它指向这片连续空间的起始位置。自己真从MaxSize-1增1变到0，可用取余运算<code>(rear+1)%MaxSize</code>和<code>(front+1)%MaxSize</code>来实现（如果front和rear是从1开始的，则无需+1）。<br>这实际上是把队列空间想象成一个环形空间，环形空间中的存储单元循环使用，用这种方法管理的队列也就称为循环队列。除了一些简单应用之外，真正实用的队列是循环队列。<br>向循环队列插入A：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/id3Re7.png" alt><br>继续插入B、C（每次入队rear都在增1）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/L9wzvj.png" alt><br>将A、B、C出队（每次出队front都在增1）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/JVFghB.png" alt><br>重新插入A、B、C（此时队列出现”假上溢”现象，使用<code>(rear+1)%MaxSize</code>计算rear）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/M40vAU.png" alt><br>继续将A、B、C出队（此时队列出现”假上溢”现象，使用<code>(front+1)%MaxSize</code>计算front）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/rQlZy9.png" alt><br>重新插入直至队列出现”真上溢”现象，然后可以动态对循环队列进行扩展（并按照原来队列的次序复制元素数组）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/gHQzZs.png" alt></p>
+<h2 id="链式队列"><a href="#链式队列" class="headerlink" title="链式队列"></a>链式队列</h2><p>基于链表的队列，要动态创建和删除节点，效率较低，但是可以动态增长，可以使用带头指针front和尾指针rear的单链表实现，front直接指向队头的第一个元素，rear指向队尾的最后一个元素。<br>队列采用的FIFO(first in first out)，新元素（等待进入队列的元素）总是被插入到链表的尾部，而读取的时候总是从链表的头部开始读取。每次读取一个元素，释放一个元素。所谓的动态创建，动态释放。因而也不存在溢出等问题。由于链表由结构体间接而成，遍历也方便。<br>空链式队列：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/YVIozT.png" alt><br>插入元素（入队）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/cbwuMz.png" alt><br>出队和入队都分别改变front和rear的指向即可。</p>
+<h2 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h2><p>在某些情况下，有些应用系统要求不仅需要按照“先来先服务”的原则进行，而且还需按照任务的重要或紧急程度进行排队处理，此时就需要使用到优先队列。比如在操作系统中进行进程调度管理，每个进程都具备一个优先级值以表示进程的紧急程度，优先级高的进行先执行，同等级进程按照先进先出的原则排队处理，此时操作系统使用的便是优先队列管理和调度进程。<br>优先队列也是一种特殊的数据结构，队列中的每个元素都有一个优先级，按照排序可分类为：</p>
+<ul>
+<li>降序优先级队列：每次出队的是队列当前具有最高优先级的元素。</li>
+<li>升序优先级队列：每次出队的是队列当前具有最低优先级的元素。</li>
+</ul>
+<p>优先队列的实现可以有三种方案：</p>
+<ul>
+<li>有序数组</li>
+<li>有序链表</li>
+<li>也可以使用二叉树（二叉堆）实现</li>
+</ul>
+<h2 id="双端队列"><a href="#双端队列" class="headerlink" title="双端队列"></a>双端队列</h2><p>双端队列可以在队列任意一端入队和出队。此外，经常还会有一个查看（Peek）操作，返回该端的数据而不将其出队。</p>
+<h2 id="队列的应用"><a href="#队列的应用" class="headerlink" title="队列的应用"></a>队列的应用</h2><ul>
+<li>异步数据的处理、传输；</li>
+<li>短信群体发送 应用的发布订阅模式；</li>
+<li>模拟真实的订单服务、售票，以及其他先到先服务的场景。</li>
+</ul>
+<h2 id="Java中的队列"><a href="#Java中的队列" class="headerlink" title="Java中的队列"></a>Java中的队列</h2><h3 id="非阻塞队列"><a href="#非阻塞队列" class="headerlink" title="非阻塞队列"></a>非阻塞队列</h3><ul>
+<li>PriorityQueue</li>
+<li>ConcurrentLinkedQueue</li>
+</ul>
+<h3 id="阻塞队列"><a href="#阻塞队列" class="headerlink" title="阻塞队列"></a>阻塞队列</h3><ul>
+<li>ArrayBlockingQueue</li>
+<li>LinkedBlockingQueue</li>
+<li>PriorityBlockingQueue</li>
+<li>DelayQueue</li>
+<li>SynchronousQueue</li>
+</ul>
+<blockquote>
+<p>参考来源：<a href="https://blog.csdn.net/javazejian/article/details/53375004" target="_blank" rel="noopener">某篇博客</a>、<a href="https://baike.baidu.com/item/%E9%98%9F%E5%88%97/14580481" target="_blank" rel="noopener">百度百科</a>等。</p>
+</blockquote>
 
       
     </div>
@@ -717,134 +882,6 @@
 <h2 id="Jackson-Convert-Error-Cannot-construct-instance-of-java-time-LocalDateTime"><a href="#Jackson-Convert-Error-Cannot-construct-instance-of-java-time-LocalDateTime" class="headerlink" title="Jackson Convert Error: Cannot construct instance of java.time.LocalDateTime"></a>Jackson Convert Error: Cannot construct instance of <code>java.time.LocalDateTime</code></h2><p>LocalDateTime属性加上注解<br>@JsonDeserialize(using = LocalDateTimeDeserializer.class)<br>@JsonSerialize(using = LocalDateTimeSerializer.class)</p>
 <h2 id="Thread-sleep-使用-TimeUnit-XXX-sleep-x-代替（可读性更好）"><a href="#Thread-sleep-使用-TimeUnit-XXX-sleep-x-代替（可读性更好）" class="headerlink" title="Thread.sleep 使用 TimeUnit.XXX.sleep(x) 代替（可读性更好）"></a>Thread.sleep 使用 TimeUnit.XXX.sleep(x) 代替（可读性更好）</h2><p><a href="https://stackoverflow.com/questions/9587673/thread-sleep-vs-timeunit-seconds-sleep" target="_blank" rel="noopener">https://stackoverflow.com/questions/9587673/thread-sleep-vs-timeunit-seconds-sleep</a></p>
 <h2 id="音频格式转换"><a href="#音频格式转换" class="headerlink" title="音频格式转换"></a>音频格式转换</h2><p>使用<a href="http://www.sauronsoftware.it/projects/jave/manual.php#2" target="_blank" rel="noopener">JAVE 音频转换包</a>库</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/07/English之时态系列-进行时态-思维特征/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/07/English之时态系列-进行时态-思维特征/" class="post-title-link" itemprop="url">English之时态系列-进行时态（思维特征)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-06-07 19:39:21" itemprop="dateCreated datePublished" datetime="2020-06-07T19:39:21+08:00">2020-06-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-08 17:15:47" itemprop="dateModified" datetime="2020-09-08T17:15:47+08:00">2020-09-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>这篇笔记摘选自《英语语法新思维初级教程第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。</p>
-</blockquote>
-<h2 id="进行时态的核心含义"><a href="#进行时态的核心含义" class="headerlink" title="进行时态的核心含义"></a>进行时态的核心含义</h2><ol>
-<li>事件具有持续性（ongoing）：进行时态首先表示的是一个事件或活动在某个特定的时间正在持续；</li>
-<li>事件具有短暂性（temporary）：即表明事件的持续时间是有限的。如果是无限的，即表达一个长期的、恒久的含义，那么就该用一般现在时态了；</li>
-<li>事件未完成（incomplete）：进行体既然强调动作的持续性，那么就表明这个动作还没有结束。</li>
-</ol>
-<h2 id="进行体动作与一般动作对比"><a href="#进行体动作与一般动作对比" class="headerlink" title="进行体动作与一般动作对比"></a>进行体动作与一般动作对比</h2><h3 id="活动与状态的对比"><a href="#活动与状态的对比" class="headerlink" title="活动与状态的对比"></a>活动与状态的对比</h3><p>进行体表示具体的活动，而一般时态往往与状态有关。<br>1） I am thinking about the answer.<br>2） I think the answer is 144.<br>在例句1）中，进行时态表明think是用于“动态”的意义，相当于consider，此时表示思考活动。在例句2）中，一般时态表明think 是用于“静态”的意义，相当于说have an opinion，此时表示思维状态。</p>
-<h3 id="发生在说话那一刻的一个动作与一个习惯的对比"><a href="#发生在说话那一刻的一个动作与一个习惯的对比" class="headerlink" title="发生在说话那一刻的一个动作与一个习惯的对比"></a>发生在说话那一刻的一个动作与一个习惯的对比</h3><p>进行体表示发生在说话时刻的一个动作，而一般时态则表示一个习惯。<br>1） Why are you wearing glasses?<br>2） Why do you wear glasses?<br>在例句1）中，进行时态表示一个当下的具体动作， 即“在说话的时刻，对方正戴着眼镜”。在例句2）中，一般现在时态表示一个习惯动作，即使在说话的时刻，对方没有戴眼镜，也可以说这句话。</p>
-<h3 id="具体事件与概括描述的对比"><a href="#具体事件与概括描述的对比" class="headerlink" title="具体事件与概括描述的对比"></a>具体事件与概括描述的对比</h3><p>进行体总是十分具体的，而一般动作可用于概括的叙述。<br>1） Weeds are growing like wildfire（in my garden）.<br>2） Weeds grow like wildfire.<br>在例句1）中，进行时态往往会表达目前所见到的一个具体场景，比如这里说我们家花园里杂草的长势情况。在例句2）中，一般时态通常表示一个一般情形，比如这里是说，一般情况下杂草长得很快，是泛泛地在谈杂草的生长特点，而并没有具体所指。</p>
-<h3 id="暂时的事件与长期的状态对比"><a href="#暂时的事件与长期的状态对比" class="headerlink" title="暂时的事件与长期的状态对比"></a>暂时的事件与长期的状态对比</h3><p>进行体表示暂时的事件，而一般时态则往往表示一个长期的状态。<br>1） Joan is singing well.<br>2） Joan sings well.<br>在例句1）中，进行时态表示，在某一特定的场合，也就是在说话的时刻，琼唱歌发挥得很好，或者指她在某一特定的演出中的唱歌表演。说明的是一次具体的演唱活动。在例句2）中，一般现在时态则是强调琼有一副好嗓子，是一种比较永久的属性，相当于一个状态的表达，而不是指具体的演唱活动。</p>
-<h3 id="未完成与完成对比"><a href="#未完成与完成对比" class="headerlink" title="未完成与完成对比"></a>未完成与完成对比</h3><p>过去进行时表示动作未完成，一般过去时表示动作已完成。<br>1） He was drowning in the lake, so the lifeguard raced into the water.<br>2） He drowned in the lake.<br>在例句1）中，进行时态表示drown的动作尚未完成，即他当时正在溺水，而并没有死，还在挣扎。所以，才有了下文说the lifeguard raced into the water。在例句2）中，一般过去时态表示一个完成的过去动作，即他溺水且不再挣扎了——溺水身亡了。<br>1） 他当时在湖里溺水了，于是一名救生员立即跳进水里（把他救了起来）。<br>2） 他在湖里淹死了。</p>
-<h3 id="事件可变化与不变化的对比"><a href="#事件可变化与不变化的对比" class="headerlink" title="事件可变化与不变化的对比"></a>事件可变化与不变化的对比</h3><p>过去进行时表示事件已经开始进行，并随着时间的推移在继续，因此它允许有变化；而一般过去时把事件看作一个整体，没有变化的余地。<br>1） He was calling Mary when I came in.<br>2） He called Mary when I came in.<br>在例句1）中，“打电话”在先，“我进来”在后。过去进行时表示“打电话”先于“我进来”，并且在“我”进来之后，他可能还在继续打电话，也可能立即结束打电话。即“打电话”这一事件可以有变化。在例句2）中，“我进来”在先，“打电话”在后。一般过去时把“打电话”这一事件作为一个整体，只是说明“他给玛丽打了个电话”，而不能说明这个事件是继续进行的还是立即停止了。</p>
-<h2 id="不适于用进行体的情形"><a href="#不适于用进行体的情形" class="headerlink" title="不适于用进行体的情形"></a>不适于用进行体的情形</h2><p>进行时态包含这样两个意义：一是事件的持续性（ongoing），二是事件的短暂性，即有限的持续性。进行时强调的是动作在一段时间里的持续性，因此这一活动必须是连续不断的。如果把动作分割开了看，则违背了进行时态的核心意义——持续性，所以不能用进行时态。我们在下列两种情况下就会把动作分割开：一是谈到在一段时间内做了不同的事情，二是说明某件事发生的次数。因此，这两种情形都不能使用各种进行时态。</p>
-<h3 id="不用进行时谈不能在同一时间内同时做的不同事情"><a href="#不用进行时谈不能在同一时间内同时做的不同事情" class="headerlink" title="不用进行时谈不能在同一时间内同时做的不同事情"></a>不用进行时谈不能在同一时间内同时做的不同事情</h3><p>下列两件不同的事情不能用于进行时态：<br>I am painting the room and cooking dinner. <em><br>同时在做两件不同的事情，这违背了进行时态的持续性 的特点。而要说：<br>I am painting the room and after that I will cook dinner.<br>我正在粉刷房间，之后我就去做饭。<br>即使是几件同样的事情在同时做，也不能用进行时态。比如我们不能说：<br>Tom was washing three cars. </em><br>这个句子给人的感觉是汤姆有三只手，他是用三只手同时在擦洗三辆车，但这显然不符合通常的情况。所以，这个句子听起来很怪，而被认为不正确。 我们应该直接说：<br>Tom was washing cars. 汤姆在洗车。<br>如果要说明具体有几辆车，则要用一般过去时说成：<br>Tom washed three cars. 汤姆洗了三辆车。<br>当然，如果是两个可以同时进行的动作，则两个都可用进行时态表示：<br>She was knitting and listening to the radio.<br>这里的knit和listen虽然是两件不同的事情，但二者可以同时进行，所以可以用于进行时态。<br>她一边编织一边听收音机。</p>
-<h3 id="不用进行时谈活动的次数"><a href="#不用进行时谈活动的次数" class="headerlink" title="不用进行时谈活动的次数"></a>不用进行时谈活动的次数</h3><p>当我们说到做一件事情的次数，此时也是把动作割裂开来了，因而与进行时态的“持续性”的特点发生了语义冲突，所以不能用进行时态表达。<br>I was ringing the bell six times. *<br>而可以直接用一般过去时说：<br>I rang the bell six times. 我按了六次铃。</p>
-<h2 id="进行时态与动词体"><a href="#进行时态与动词体" class="headerlink" title="进行时态与动词体"></a>进行时态与动词体</h2><blockquote>
-<p>根据动词词义的特点，我们可以把动词分为静态动词（stative verb）和动态动词（dynamic verb）。动态动词又可以进一步分为短暂动词（punctual verb）和延续动词（durative verb）。因此，从词义的角度，我们可以把动词分为静态动词、短暂动词和延续动词。</p>
-</blockquote>
-<h3 id="静态动词"><a href="#静态动词" class="headerlink" title="静态动词"></a>静态动词</h3><p>静态动词与变化无关，它们描述的是一个稳定的状况（situations that are relatively constant over time），这种状况会或长或短地持续下去。一般来说，静态动词可包括下列几类：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/TiW5Nc.png" alt><br>We understand the questions. 我们理解这些问题。<br>And we know the answers. 而且我们知道答案。<br>We like our English class. 我们喜欢英语课。</p>
-<h3 id="短暂动词"><a href="#短暂动词" class="headerlink" title="短暂动词"></a>短暂动词</h3><p>短暂动词往往表示一个不能持续的或持续时间极短的动作（acts which do not extend through time），往往与“时间点（point in time）”有联系。比如kick, hit和smash等。<br>He kicked the ball. 他踢了球。<br>It hit the window. 它（球）打中了窗户。<br>And it smashed the glass. 它（球）把玻璃打碎了。</p>
-<h3 id="延续动词"><a href="#延续动词" class="headerlink" title="延续动词"></a>延续动词</h3><p>与短暂动词相对，延续动词表示一个可以持续的活动或过程 （activities or processes），用来描述一个可以延续的场景（describe situations that typically extend through time）。比如run, swim, walk, work, write, become, change, grow和learn等等。</p>
-<h3 id="延续状态、短暂动作与延续动作"><a href="#延续状态、短暂动作与延续动作" class="headerlink" title="延续状态、短暂动作与延续动作"></a>延续状态、短暂动作与延续动作</h3><p>从最一般的意义上来说，短暂动词往往与一个场景的改变有联系， 而延续动词则是与一个场景的维持不变相关。借用哲学术语来说，延续动词相当于一个“量变”的过程，是一个状态的维持；而短暂动词则相当于发生了“质变”，是从一种状态变到另一种状态。<br>我们每天的生活中都要经历延续动作与短暂动作的转换。比如我们每天要“上床睡觉”：<br>go to bed 就是一个短暂动作，表示一个状态的改变——人从床下到床上了。 然后我们就“睡着”了：<br>fall asleep 这同样是一个短暂动作，表示一个状态的改变——人从醒着转为睡着了。然后我们就“一直睡着”：<br>be asleep 这两个表达都是延续状态，是维持一直睡着的状态。然后我们早晨“醒来”：<br>学习英语的时态，我们就必须对英语的状态与动作以及短暂动词与 延续动词等的区分要非常敏感（在完成进行时中，我们还需要进行更细致的动词体的区分），只有这样才可能正确地使用时态。</p>
-<p>Up! Get up now！ 起来！起床了！<br>Get up, Cousin, we are going to the zoo. 起床了，表弟！我们今天要去动物园！<br>这两个例句中都用get up，就是因为都是表示起床这个“动作”的，而不是表示已经起来的“状态”。</p>
-<p>如果要表示起床的“状态”，比如这时你说“我起来了，我已经起床了”，这就是一个状态表达。我们要说成：<br>I’m up. 而不能说成： I get up.<em><br>在英文里说“I get up.”</em>这样的短句是没有意思的，因为我们无法找到一个合适的语境来使用这个句子。没有合适的使用语境的原因就在于，get up表示的是一个短暂动作，只能发生在某一时刻，而不能用于表示延续的状态。但是be up表示状态，就能很好地表示我“起床了”这样 的延续状态。除非get up加上时间状语，这样来表示一个习惯动作。比如说：<br>I often get up very late on Sundays. 我周日常常晚起。</p>
-<p>再比如，在汉语里我们常说“我来找某某人”，这里的“我来”该怎么 说呢？此时，同样要注意状态与动作的区分。如果用状态表达，可以说成：<br>I am here to visit Mr. Zhang Mansheng. 我来找张满胜老师。<br>这里的am here就表示“我人现在在这里”的一个状态，所以用的是一般现在时态。但是如果你用了动词come，就不能用一般现在时态说成：<br>I come here to visit Mr. Zhang Mansheng. *<br>因为你“来（come）”这个短暂动作在你说话时已经结束了，所以我们要改用其他时态来表达。我们可以用一般过去时，说成：<br>I came here to visit Mr. Zhang Mansheng. 或者是现在完成时，说成：<br>I’ve come here to visit Mr. Zhang Mansheng.</p>
-<p>这时，前台接待人员一般会问你：“你和他约好的吗？”这句话该如何表达呢？<strong><em>我们同样要考虑是用“状态”还是用“动作”，因为这关系到不同时态的使用。</em></strong><br>用“状态”表达，我们要用一般现在时态，说成：<br>Do you have an appointment with him?<br>这里用的是静态动词have。若是用“动作”表达，则要用现在完成时态，说成：<br>Have you made an appointment with him?<br>这里我们用的是动态动词make。</p>
-<h3 id="延续动词与进行时态"><a href="#延续动词与进行时态" class="headerlink" title="延续动词与进行时态"></a>延续动词与进行时态</h3><p>延续动词与进行体连用最自然，因为进行体的核心意义是表示“动作有限的延续性”，延续动词也是表示动作的延续性，因此二者在语义上非常吻合。</p>
-<h3 id="短暂动词与进行时态"><a href="#短暂动词与进行时态" class="headerlink" title="短暂动词与进行时态"></a>短暂动词与进行时态</h3><p>虽然短暂动词不具有延续性，或者说其延续性较差，这似乎与进行体的核心意义“动作有限的延续性”相矛盾。但是短暂动词可以与进行体连用，不过意思会有所改变。进行体赋予短暂动词“反复 （repetition）”的意义。具体来说，短暂动词用于进行时态，往往表示的是一系列重复的动作，而不是一个单一动作。<br>He is nodding his head in agreement. 他不断地点头表示同意。<br>Henry is kicking the soccer ball around the backyard. 亨利正在后院里踢足球。<br>Someone is coughing. 有人在咳嗽。<br>谓语动词nod, kick和cough都是典型的短暂动词，这里用于进行时态表示的是重复动作，即不断地“点头”、“踢球”和“咳嗽”。</p>
-<p>用于进行体的短暂动词也可以表示一个事件的开始。比如：<br>Joe is realizing his mistakes. 乔开始意识到自己的错误。</p>
-<p>或者有其他特殊的含义。比如：<br>I am starting the car.<br>这里的短暂动词start用于进行体，我们要朝着动作“延续”性的方向来解释——这句话给人的感觉是这辆汽车很难发动，说话人正试图努力地把它发动起来。<br>我正在发动这辆车。</p>
-<h3 id="静态动词与进行时态"><a href="#静态动词与进行时态" class="headerlink" title="静态动词与进行时态"></a>静态动词与进行时态</h3><p>一般来说，静态动词不能用于进行体，原因在于：进行体在语法方面表示一个动作在有限时间内的持续，而静态动词从词汇方面表达的是一种稳定的状态，二者之间存在着基本的语义冲突。<br>比如我们不能说： I am knowing the answer. *<br>因为这里的know就是一个稳定的状态，不是表示一个动作在有限时间内的持续。<br>但是，常见的静态动词在用于进行时态后往往具有特殊的含义。</p>
-<h4 id="施动与受动"><a href="#施动与受动" class="headerlink" title="施动与受动"></a>施动与受动</h4><p>我们可以从句子的主语与谓语动作之间的关系，来判断某个动词用于某一特定意义时是否可以用进行时态。谓语动作是主语有意识地发出的，即句子的主语是施动者，此时谓语一般都可以用进行时态。反之，如果主语并非有意识地发出谓语动作，而只是被动的接受者即受动者，此时谓语一般都不能用进行时态。因为进行时态主要只用于有意识的动作。因此在英文中，一些表示无意识的、自发的动作（spontaneous action）的动词，如人们的心理活动（know, understand和believe等）、感情状态（like, love和hate等）以及其他静态动词，均不能用于进行时态。<br>首先，我们来看taste, smell, feel, look和appear这些感官动词。当它们用作系动词时，句子的主语都是受动者，所以不能用进行时态；当它们用作非系动词时，此时句子的主语通常是施动者，所以一般可以用于进行时态。请比较：<br>1） The chef is tasting the soup.<br>2） And it tastes good.</p>
-<p>在例句1）中，taste不是系动词，而是一个及物动词，表示“品尝”的动作。此时句子的主语chef是施动者，即有意识地发出taste 这个动作的人，所以可以用于进行时态。在例句2）中，taste是系动词，表示“尝起来”，是一个状态。此时句子的主语it（指the soup）并非施动者，即it并没有发出taste这个动作（只有人才可以taste〈品尝〉），而是受动者，所以这里的taste不能用进行时态，即我们不能说“It is tasting good.”*<br>1） 厨师正在尝这汤的味道。<br>2） 它味道不错。<br>值得注意的是，区分施动者还是受动者并不是根据主语是人还是物，并不是说“人”作句子的主语就一定是施动者，关键还是要看主语是否是“有意识地”发出某个动作。比如：<br>I taste ginger in these spring rolls.（在这些春卷里，我尝到了生姜的味道。）</p>
-<blockquote>
-<p>这里的主语是I，即人称主语，但I并不是施动者，因为这 里的谓语taste并不是I“有意识”地发出的。怎么知道不是“有意识”的呢？ 这要看taste的意思。这里的taste并不是表示“品尝”这个动作，而是表 示“尝到……的味道”这样的状态。从整个句子的意思来看，“我”并不是 有意识地“品尝”ginger（生姜），而是无意识地“尝到了”生姜的味道。 所以，这里的主语I是一个受动者，因此该句不能用进行时态说成“I am tasting ginger in these spring rolls.”*</p>
-</blockquote>
-<p>其实我们 区分了taste这个动词三个不同方面的含义。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/XCGH4k.png" alt><br>在英语中，与“味觉”有关的这三方面含义（即系动词、表示过程的 及物动词和表示结果的及物动词）都集中在taste这个词身上了，相当于 taste“身兼三职”。 在英文中，表示“嗅觉”的三方面含义也是集中在一个词smell身上。<br>1） He is smelling the chicken.<br>2） And it smells nice.<br>3） I smell something burning in the kitchen.<br>在例句1）中，smell不是系动词，而是一个及物动词，表示“闻”的动作。此时句子的主语he是施动者，即有意识地发出smell这个动作，所以可以用于进行时态。在例句2）中，smell是系动词，表示“闻 起来”，是一个状态。此时句子的主语it（指the chicken）并非施动者， 即it并没有发出smell这个动作，而是受动者，所以这里的smell不能用进行时态，即我们不能说“It is smelling nice.”<em>在例句3）中，smell不是系动词，而是一个及物动词，表示“闻到，嗅出”的结果，是一个状态。此时句子的主语I不是施动者，即并非有意识地发出smell这个动作，而是被动地接受了一个结果，所以不能用于进行时态，即我们不能说“I am smelling something burning in the kitchen.”</em></p>
-<p>视觉、听觉上也是如此：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/xwrVVY.png" alt><br>1） I am looking at the picture.<br>2） It looks beautiful.<br>3） I see the picture.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/mvvUbP.png" alt><br>1） I am listening to the music.<br>2） It sounds nice. </p>
-<h2 id="3）-I-hear-the-music"><a href="#3）-I-hear-the-music" class="headerlink" title="3） I hear the music."></a>3） I hear the music.</h2><p>综上所述，表示人的五官感觉的动词可能有三方面含义： </p>
-<ul>
-<li>一是系动词； </li>
-<li>二是表示结果，此时表示的是一个状态，而不是主语有意识地发出的动作；</li>
-<li>三是表示动作的过程，此时是主语有意识的动作。 </li>
-</ul>
-<p>与“味觉”有关的这三方面含义集中在taste一词身上，相当于taste“身兼三职”；<br>与“嗅觉”有关的这三方面含义集中在smell一词身上，相当于smell“身兼三职”；<br>对于“视觉”，用look作系动词和表示动作的过程，用see表示结果；<br>对于“听觉”，用sound作系动词，用hear表示结果，用listen表示动作 的过程；</p>
-<p>I am hearing Prof. Smith’s lectures.<br>这里的hear不是“听见”的意思，即不表示结果，否则不能用于进行时态；而是表示主语I有意识地去“参加”某个活动，即主语是施动者，所以可以用于进行时态。该句中的hearing相当于attending，整个句子的意思表示“我目前正在听史密斯教授的课”。这里的进行时态表示“重复性”和“临时性”，即“听课”这一活动可能持续一个学期或一两个月。这里就是hear用于进行时态产生了特殊含义的例证。</p>
-<p>1） I am seeing my doctor tomorrow.<br>2） I see what you mean.</p>
-<p>在例句1）中，see不是“看见”的意思，即不表示结果，否则不能用于进行时态；而是表示主语I有意识地去“约见”，即主语是施动者，所以可以用于进行时态。这里就是see用于进行时态产生了特殊含义的例证。在例句2）中，see不是“看见”的意思，而是表示“理解，明白”，相当于understand，表示的是一种状态，而非主语I有意识的动作， 所以不能用于进行时态，即不能说“I am seeing what you mean.”*</p>
-<h3 id="延续状态（be-adj-）与进行时态"><a href="#延续状态（be-adj-）与进行时态" class="headerlink" title="延续状态（be+adj.）与进行时态"></a>延续状态（be+adj.）与进行时态</h3><p>英语中的延续状态一般都是由be动词接一个形容词或名词构成的。 我们在这里主要讨论形容词的情形。<br>正如动词可以有静态与动态之分一样，英文中的形容词也可分为静态形容词（stative adjective）和动态形容词（dynamic adjective）。 静态形容词：是指某一事物或现象所具有的长时期内难以自然改变的性质特征或状态。英文中的形容词主要是这样的静态形容词，如： tall, red, long, big, beautiful和important等。 动态形容词：是指某一事物或现象所具有的随时可以被改变的性质特征或状态。这些形容词主要是用来描写人的性格特征的，最常用的有：brave, calm, careful, careless, clever, cruel, foolish, friendly, funny, impatient, lazy, kind, naughty, nice, noisy, patient, polite, rude, shy, silly, stubborn和stupid等。<br>静态形容词不能用于进行时态。 动态形容词可以用于进行时态，来描述主语的一个暂时的性质状态或特征，而非其本身所固有的或持久的特征。此时主语是施动者，所以有时表示主语“有意如此”的含义。例如：<br>1） He’s being rude.<br>2） He’s rude.<br>在例句1）中，静态动词be能用于进行时态，即is being， 是因为其后的形容词rude是一个动态形容词，being rude就像一个进行的动作一样，表示主语he在说话时刻的暂时的表现。也许他一般情况下并不“粗鲁（rude）”，只是此时此刻表现得很“粗鲁”，即“粗鲁”并不是他一贯的性格特点。在例句2）中，一般时态is rude则表示主语he惯有的性格特点是“粗鲁”，而不是他说话时刻的行为表现。也许在说话的时刻，他表现得很有礼貌，但我们依然可以说“He is rude.”。而这时他装得很有礼貌的样子，我们就可以说“He is being polite.”。<br>1） 他现在的样子显得很粗鲁。<br>2） 他这人一向很粗鲁。</p>
-<p>1） Fred is being silly.<br>2） Fred is silly.<br>在例句1）中，动态形容词silly用于进行时态，表示的是弗雷德在说话时刻的行为表现，意思是“弗雷德现在表现得傻里傻气的”，相当于说“Fred is acting in a silly manner.”。这里的主语Fred是一个施动者。在例句2）中，一般时态is silly则表示主语Fred惯有的性格特点是“傻里傻气的”，而不是说话时刻的行为表现。也许在说话的时刻，他表现得很精明（He may be behaving quite sensibly at the moment of speaking.）。我们依然可以说“Fred is silly.”。这里的主语Fred并不是一个施动者。<br>1） 弗雷德现在正犯傻。<br>2） 弗雷德一向很傻气。</p>
-<p>动态形容词用于进行时态往往让表达显得非常生动，给人一个具体的、生动的场景。</p>
-<p>The peddler is being rude. 那小贩变得粗鲁起来。<br>She is being careful at this moment. 此刻她正表现得小心翼翼。<br>She was being stupid. Actually she had already known the whole story.当时她在装傻，其实她早已知道了事情的经过。</p>
 
       
     </div>
