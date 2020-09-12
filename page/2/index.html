@@ -163,6 +163,121 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/05/数据结构系列之队列-Java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/05/数据结构系列之队列-Java/" class="post-title-link" itemprop="url">数据结构系列之队列（Java）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-09-05 22:16:36" itemprop="dateCreated datePublished" datetime="2020-09-05T22:16:36+08:00">2020-09-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-09 21:37:30" itemprop="dateModified" datetime="2020-09-09T21:37:30+08:00">2020-09-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="队列的定义"><a href="#队列的定义" class="headerlink" title="队列的定义"></a>队列的定义</h2><p>队列是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作，和栈一样，队列是一种操作受限制的线性表。进行插入操作的端称为队尾，进行删除操作的端称为队头。队列的特点就是先进先出(First In First Out)。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/pRoXuq.png" alt></p>
+<h2 id="顺序队列"><a href="#顺序队列" class="headerlink" title="顺序队列"></a>顺序队列</h2><p>建立顺序队列结构必须为其静态分配或动态申请一片连续的存储空间，并设置两个指针进行管理。一个是队头指针front，它指向队头元素；另一个是队尾指针rear，它指向下一个入队元素的存储位置。</p>
+<blockquote>
+<p>如果没有两个指针，入队操作直接执行顺序表尾部插入操作，其时间复杂度为O(1)，出队操作直接执行顺序表头部删除操作，其时间复杂度为O(n)，<br>增加了front和rear指针，出队操作的时间复杂度也是O(1)了。</p>
+</blockquote>
+<p>空队列：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/VOhvX9.png" alt><br>往队列里面插入A：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/Tvnv7J.png" alt><br>继续插入元素：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/DFz5Ix.png" alt><br>将A和B出队：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/SKuBUa.png" alt><br>继续将D、E、F、G入队：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/Bh2zXE.png" alt><br>由于队列暂时”已满”，G将无法入队，但是此时front前面实际上还有未被利用的空间，这称为<code>&quot;假上溢&quot;现象</code>。<br>之所以出现这样”假溢出”现象是因为顺序表队列的存储单元没有重复利用机制，而解决该问题的最合适的方式就是将顺序队列设计为循环结构。</p>
+<h3 id="“下溢”现象"><a href="#“下溢”现象" class="headerlink" title="“下溢”现象"></a>“下溢”现象</h3><p>当队列为空时，做出队运算产生的溢出现象。“下溢”是正常现象，常用作程序控制转移的条件。</p>
+<h3 id="“真上溢”现象"><a href="#“真上溢”现象" class="headerlink" title="“真上溢”现象"></a>“真上溢”现象</h3><p>当队列满时，做进栈运算产生空间溢出的现象。“真上溢”是一种出错状态，应设法避免。</p>
+<h3 id="“假上溢”现象"><a href="#“假上溢”现象" class="headerlink" title="“假上溢”现象"></a>“假上溢”现象</h3><p>由于入队和出队操作中，头尾指针只增加不减小，致使被删元素的空间永远无法重新利用。当队列中实际的元素个数远远小于向量空间的规模时，也可能由于尾指针已超越向量空间的上界而不能做入队操作。该现象称为”假上溢”现象，如上面的图解。</p>
+<h2 id="循环队列"><a href="#循环队列" class="headerlink" title="循环队列"></a>循环队列</h2><p>循环队列就是将顺序队列设计为在逻辑结构上首尾相接的循环结构，使队列空间能重复使用，往往对队列的使用方法稍加改进：无论插入或删除，一旦rear指针增1或front指针增1时超出了所分配的队列空间，就让它指向这片连续空间的起始位置。自己真从MaxSize-1增1变到0，可用取余运算<code>(rear+1)%MaxSize</code>和<code>(front+1)%MaxSize</code>来实现（如果front和rear是从1开始的，则无需+1）。<br>这实际上是把队列空间想象成一个环形空间，环形空间中的存储单元循环使用，用这种方法管理的队列也就称为循环队列。除了一些简单应用之外，真正实用的队列是循环队列。<br>向循环队列插入A：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/id3Re7.png" alt><br>继续插入B、C（每次入队rear都在增1）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/L9wzvj.png" alt><br>将A、B、C出队（每次出队front都在增1）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/JVFghB.png" alt><br>重新插入A、B、C（此时队列出现”假上溢”现象，使用<code>(rear+1)%MaxSize</code>计算rear）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/M40vAU.png" alt><br>继续将A、B、C出队（此时队列出现”假上溢”现象，使用<code>(front+1)%MaxSize</code>计算front）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/rQlZy9.png" alt><br>重新插入直至队列出现”真上溢”现象，然后可以动态对循环队列进行扩展（并按照原来队列的次序复制元素数组）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/gHQzZs.png" alt></p>
+<h2 id="链式队列"><a href="#链式队列" class="headerlink" title="链式队列"></a>链式队列</h2><p>基于链表的队列，要动态创建和删除节点，效率较低，但是可以动态增长，可以使用带头指针front和尾指针rear的单链表实现，front直接指向队头的第一个元素，rear指向队尾的最后一个元素。<br>队列采用的FIFO(first in first out)，新元素（等待进入队列的元素）总是被插入到链表的尾部，而读取的时候总是从链表的头部开始读取。每次读取一个元素，释放一个元素。所谓的动态创建，动态释放。因而也不存在溢出等问题。由于链表由结构体间接而成，遍历也方便。<br>空链式队列：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/YVIozT.png" alt><br>插入元素（入队）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/cbwuMz.png" alt><br>出队和入队都分别改变front和rear的指向即可。</p>
+<h2 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h2><p>在某些情况下，有些应用系统要求不仅需要按照“先来先服务”的原则进行，而且还需按照任务的重要或紧急程度进行排队处理，此时就需要使用到优先队列。比如在操作系统中进行进程调度管理，每个进程都具备一个优先级值以表示进程的紧急程度，优先级高的进行先执行，同等级进程按照先进先出的原则排队处理，此时操作系统使用的便是优先队列管理和调度进程。<br>优先队列也是一种特殊的数据结构，队列中的每个元素都有一个优先级，按照排序可分类为：</p>
+<ul>
+<li>降序优先级队列：每次出队的是队列当前具有最高优先级的元素。</li>
+<li>升序优先级队列：每次出队的是队列当前具有最低优先级的元素。</li>
+</ul>
+<p>优先队列的实现可以有三种方案：</p>
+<ul>
+<li>有序数组</li>
+<li>有序链表</li>
+<li>也可以使用二叉树（二叉堆）实现</li>
+</ul>
+<h2 id="双端队列"><a href="#双端队列" class="headerlink" title="双端队列"></a>双端队列</h2><p>双端队列可以在队列任意一端入队和出队。此外，经常还会有一个查看（Peek）操作，返回该端的数据而不将其出队。</p>
+<h2 id="队列的应用"><a href="#队列的应用" class="headerlink" title="队列的应用"></a>队列的应用</h2><ul>
+<li>异步数据的处理、传输；</li>
+<li>短信群体发送 应用的发布订阅模式；</li>
+<li>模拟真实的订单服务、售票，以及其他先到先服务的场景。</li>
+</ul>
+<h2 id="Java中的队列"><a href="#Java中的队列" class="headerlink" title="Java中的队列"></a>Java中的队列</h2><h3 id="非阻塞队列"><a href="#非阻塞队列" class="headerlink" title="非阻塞队列"></a>非阻塞队列</h3><ul>
+<li>PriorityQueue</li>
+<li>ConcurrentLinkedQueue</li>
+</ul>
+<h3 id="阻塞队列"><a href="#阻塞队列" class="headerlink" title="阻塞队列"></a>阻塞队列</h3><ul>
+<li>ArrayBlockingQueue</li>
+<li>LinkedBlockingQueue</li>
+<li>PriorityBlockingQueue</li>
+<li>DelayQueue</li>
+<li>SynchronousQueue</li>
+</ul>
+<blockquote>
+<p>参考来源：<a href="https://blog.csdn.net/javazejian/article/details/53375004" target="_blank" rel="noopener">某篇博客</a>、<a href="https://baike.baidu.com/item/%E9%98%9F%E5%88%97/14580481" target="_blank" rel="noopener">百度百科</a>等。</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Interview汇总/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -645,113 +760,6 @@
 <p>1） Fred is being silly.<br>2） Fred is silly.<br>在例句1）中，动态形容词silly用于进行时态，表示的是弗雷德在说话时刻的行为表现，意思是“弗雷德现在表现得傻里傻气的”，相当于说“Fred is acting in a silly manner.”。这里的主语Fred是一个施动者。在例句2）中，一般时态is silly则表示主语Fred惯有的性格特点是“傻里傻气的”，而不是说话时刻的行为表现。也许在说话的时刻，他表现得很精明（He may be behaving quite sensibly at the moment of speaking.）。我们依然可以说“Fred is silly.”。这里的主语Fred并不是一个施动者。<br>1） 弗雷德现在正犯傻。<br>2） 弗雷德一向很傻气。</p>
 <p>动态形容词用于进行时态往往让表达显得非常生动，给人一个具体的、生动的场景。</p>
 <p>The peddler is being rude. 那小贩变得粗鲁起来。<br>She is being careful at this moment. 此刻她正表现得小心翼翼。<br>She was being stupid. Actually she had already known the whole story.当时她在装傻，其实她早已知道了事情的经过。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/07/English之时态系列-进行时态-将来进行时/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/07/English之时态系列-进行时态-将来进行时/" class="post-title-link" itemprop="url">English之时态系列-进行时态（将来进行时）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-06-07 18:36:16" itemprop="dateCreated datePublished" datetime="2020-06-07T18:36:16+08:00">2020-06-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-08 17:15:47" itemprop="dateModified" datetime="2020-09-08T17:15:47+08:00">2020-09-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>这篇笔记摘选自《英语语法新思维初级教程第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。</p>
-</blockquote>
-<h2 id="典型用法：将来某一特定时刻正在持续的事"><a href="#典型用法：将来某一特定时刻正在持续的事" class="headerlink" title="典型用法：将来某一特定时刻正在持续的事"></a>典型用法：将来某一特定时刻正在持续的事</h2><p><strong><em>将来进行时态的典型用法，就是想象自己或其他人在将来某一特定时刻（at a particular time in future）正在做某事。</em></strong>比如下面的两个朋友在谈论休假的事：<br>A: When do you leave for Hainan?<br>B: Tomorrow. Just think, two days from now I will be lying on the beach in the sun.<br>A: Sounds great!<br>在上文中，说话人B用了will be lying这一动词变化形式，表示想象自己后天就正躺在海滩上的情景，这样的表达很生动。</p>
-<p>Don’t telephone me after eight tomorrow—I’ll be having a meeting.<br>明天8点钟以后不要给我打电话，因为那时我正在开会。</p>
-<p>Wait until seven o’clock so that they won’t still be eating.<br>等到7点钟再过去吧，这样他们那时就不会还在吃饭了。</p>
-<h2 id="口语用法：将来计划好的事"><a href="#口语用法：将来计划好的事" class="headerlink" title="口语用法：将来计划好的事"></a>口语用法：将来计划好的事</h2><p><strong><em>在日常的口语中，我们常用will be doing来谈一个将来计划好的事情。</em></strong><br>Professor Smith will be giving a lecture on American literature tomorrow evening.<br>这里的将来进行时态表示确定好的安排。<br>明晚史密斯教授将会举行有关美国文学的讲座。<br>现在进行时态be doing也可以表示计划好的事。比如上面这个句子也可以说成：<br>Professor Smith is giving a lecture on American literature tomorrow evening. </p>
-<blockquote>
-<p>此时，两者的区别不是很大。因此，表示将来安排好的事情，两种时态可以换用。</p>
-</blockquote>
-<p>不过，二者还是有下列两点不同： </p>
-<blockquote>
-<p>现在进行时只表示最近的将来；而将来进行时既可以表示最近的将来，也可以表示较远的将来。</p>
-</blockquote>
-<p>I am meeting him tomorrow. 我明天要见他。<br>I will be meeting him tomorrow/next year. 我明天/明年要见他。</p>
-<blockquote>
-<p>现在进行时表示最近将来的动作时，必须有确定的表示将来的时间状语；而将来进行时则没有这种限制。</p>
-</blockquote>
-<p>1） He’s working in this room next Monday.<br>2） He’ll be working in this room.<br>在例句1）中，如果没有表示将来的时间状语next Monday，则该句一般理解成正在进行的活动，表示“他现正在这个房间里工作”。在例句2）中，虽然没有表示将来的时间状语，但依然可以表示将来的活动。</p>
-<h2 id="少见用法：表示背景动作——提供另外一个短动作发生的事件背景"><a href="#少见用法：表示背景动作——提供另外一个短动作发生的事件背景" class="headerlink" title="少见用法：表示背景动作——提供另外一个短动作发生的事件背景"></a>少见用法：表示背景动作——提供另外一个短动作发生的事件背景</h2><p>同过去进行时的用法类似，将来进行时可以表示一个背景动作，来描述在这个背景动作下，将会发生的另外一个短暂动作。<br>They probably will be watching TV when we get there.<br>用将来进行时表示一个长的背景动作，比如“看电视”， 而我们“到达”是在他们看电视的过程中的某一将来的时间点发生的动作。主句的进行时表示动作较长，从句的现在时表示将来的某一短动作。<br>等我们一会儿到那里时，他们可能正在看电视。<br>Will your friends be waiting for you at the airport when you arrive?<br>你一会到达机场时，你的朋友们会在那接你吗？</p>
-<h2 id="难点用法1：用在疑问句中，表示客气地询问"><a href="#难点用法1：用在疑问句中，表示客气地询问" class="headerlink" title="难点用法1：用在疑问句中，表示客气地询问"></a>难点用法1：用在疑问句中，表示客气地询问</h2><blockquote>
-<p>许多美国电影和美国人口语中好像爱用进行时态，但动作又似乎并不是正在进行着，这样的表达有什么特别的意义吗？如在电影 You’ve Got Mail［注：这是由汤姆·汉克斯（Tom Hanks）和梅格·瑞 安（Meg Ryan）主演的一部美国影片，中文译名为《网上情缘》］中， 书店营业员George问Joe付款方式，用的是“How will you be paying for this？”。Joe答Cash。为何不直接用“How will you pay for this？”。这是一种习惯还是一种思维？</p>
-</blockquote>
-<p>这一问题涉及将来进行时态（如will be paying）的意义及其与一般将来时态（如will pay）的区别。我们注意到，上面的营业员用的是将来进行时态will be paying来询问顾客的付款方式，而不是一般将来时态will pay。<br>这个问题其实引出了“将来进行时态（will be doing）”的一种很有用的用法，即我们用它来“礼貌地询问”，显得比一般将来时will do更委婉客气。这是因为will be doing常表示很客观地询问事实，并不想干涉对方的决定；而will do往往带有各种感情色彩，如请求、命令、指示、质问甚至威胁等等。<br>所以，上述的will be paying就是表示一种客气的询问。我们知道这是发生在书店营业员和顾客之间的对话，店员乔治（George）当然应该要很有礼貌地向顾客提出询问，所以在此场景中他选用了将来进行时“How will you be paying for this?”这一礼貌的询问句式。若他说“How will you pay for this?”则显得比较生硬，不够礼貌，会让顾客感觉对方是在质问自己。<br>will be doing都是出现在服务人员向顾客询问信息的场景中。当然，这种礼貌询问的表达方式不只是出现在公司与客户之间，它同样适用于人与人之间的询问与关心。<br>比如，一位演员在问及导演有关角色的分配时，他是这样礼貌地提问的：<br>Who will I be acting with?<br>这里他同样用了礼貌的提问形式will be acting，表示自己只是在客观地打听事实，而不是要干涉导演的安排，因而这样询问显得委婉礼貌。</p>
-<p><strong><em>will be doing用在疑问句中表示客气地询问。但我们也要注意，这并不是说以后我们就不用will do来提问了，而一律用 will be doing代替will do。will do往往带有各种感情色彩，比如表达“请求”，此时我们就得用will do，而一般不用will be doing。</em></strong><br>比如“你能借给我10美元吗？”这句话，一般不说：<br>Will you be lending me ten dollars?*<br>这里的will不是在客观地询问事实，而是表示一种请求，所以，我们要说：<br>Will you lend me ten dollars?<br>如果我们是要客观地询问事实，宜用will be doing来提问； 而若是其他语气，比如请求或命令等，我们则要用will do来提问。</p>
-<p>1） Will you be staying in this evening?<br>2） Will you stay in this evening?<br>在例句1）中，用will be doing是表示礼貌地、客观地询问，只是想了解你今晚的打算，并没有干涉的意思。所以我们可译成“今晚你不出去吧？”在例句2）中，用will do，含有感情色彩，如请求、指示或命令。所以这句话可以根据说话者的语气译成“今晚你别出去了，好吗？”（请求），或者“今晚你不要出去了行不行?!”（命令）。</p>
-<h2 id="难点用法2：用来表示客观的将来，以避免与表示“意愿”的will-do混淆"><a href="#难点用法2：用来表示客观的将来，以避免与表示“意愿”的will-do混淆" class="headerlink" title="难点用法2：用来表示客观的将来，以避免与表示“意愿”的will do混淆"></a>难点用法2：用来表示客观的将来，以避免与表示“意愿”的will do混淆</h2><p>A: It’s already 10 o’clock. I guess Bob and Amy won’t be coming to the party.<br>B: They called at nine to say that they’d been held up.<br>上面这个对话中的将来进行时态won’t be coming并非像我们通常理解的那样，表示“在将来某一特定的时刻正在做某事”，即并不是进行时态要表达的典型语义。<br>那为什么要用won’t be coming这种较为复杂的形式呢？句中为什么不用更为简单的谓语形式won’t come呢？可不可以用won’t come？两者有何区别？<br>这里涉及情态动词will的意义和用法问题。我们知道，will可以用来表示意愿（willingness）和意图 （intention）等情态语义，所以will do往往表示主观意愿，如will do 有“蓄意为之”的含义，而won’t do则有“不愿意为之”的含义。但将来进行时态will be doing则是表示客观的将来时间，侧重于对将来事件的客观陈述，表示在正常情况下预计要发生的事件，而不表达个人意图。总而言之，will be doing较客观，will do较主观，所以我们用will be doing 来表示客观的将来时间，以避免与表示主观意愿的will do混淆。<br>说话人用won’t be coming是想强调鲍勃和埃米可能是因为其他事情耽误了而“来不了”这一客观事实，而不是主观意愿上的“不愿来”。下文紧接着就说明了他们来不了的原因是they had been held up（他们有事耽误了）。如果说“Bob and Amy won’t come to the party.”。因为won’t do的意思往往相当于refuse to do，表示“拒绝做，不愿意做”。所以，对于这句话，人们一般会理解为“鲍勃和埃米不愿意来参加聚会”。而在原文中，说话人其实是在强调客观将来的时间——“来不了”，而不是“不愿来”。所以，我们看到，这里一个won’t be coming， 一个won’t come，两者的意思大相径庭。<br>A：现在已经10点了，我猜鲍勃和埃米不会来参加聚会了。<br>B：他们9点钟时打过电话，说有事耽误了。</p>
-<h2 id="will-be-doing的五种意思"><a href="#will-be-doing的五种意思" class="headerlink" title="will be doing的五种意思"></a>will be doing的五种意思</h2><ol>
-<li>想象自己或其他人在将来某一特定的时刻正在做某事； </li>
-<li>表示计划好的事； </li>
-<li>表示背景动作，提供另外一个短动作发生的事件背景； </li>
-<li>用在疑问句中，表示客气的询问。这一用法在口语中尤为常见； </li>
-<li>用will be doing来表示客观的将来，以避免与表示“意愿”的will do 混淆。</li>
-</ol>
 
       
     </div>
