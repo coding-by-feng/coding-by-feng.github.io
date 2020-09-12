@@ -29,7 +29,11 @@
 <meta property="og:description" content="树的定义树是由n个有限节点组成一个具有层次关系的集合。把它叫做“树”是因为它看起来像一棵倒挂的树，也就是说它是根朝上，而叶朝下的。当n=0时，称为空树。 树的特点 每个节点都只有有限个子节点或无子节点； 没有父节点的节点称为根节点； 每一个非根节点有且只有一个父节点； 除了根节点外，每个子节点可以分为多个不相交的子树； 树里面没有环路(cycle)。   树的术语 根节点： 根节点没有父节点，树中">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/pbMQ0p.png">
-<meta property="og:updated_time" content="2020-09-12T05:48:48.673Z">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/r9NLTh.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/MKUYFS.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/g7pm5P.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/pjgSLj.png">
+<meta property="og:updated_time" content="2020-09-12T13:33:27.922Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构系列之树（Java）">
 <meta name="twitter:description" content="树的定义树是由n个有限节点组成一个具有层次关系的集合。把它叫做“树”是因为它看起来像一棵倒挂的树，也就是说它是根朝上，而叶朝下的。当n=0时，称为空树。 树的特点 每个节点都只有有限个子节点或无子节点； 没有父节点的节点称为根节点； 每一个非根节点有且只有一个父节点； 除了根节点外，每个子节点可以分为多个不相交的子树； 树里面没有环路(cycle)。   树的术语 根节点： 根节点没有父节点，树中">
@@ -198,7 +202,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-12 13:48:48" itemprop="dateModified" datetime="2020-09-12T13:48:48+08:00">2020-09-12</time>
+                <time title="Modified: 2020-09-12 21:33:27" itemprop="dateModified" datetime="2020-09-12T21:33:27+08:00">2020-09-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -245,7 +249,29 @@
 <li>森林：由m（m&gt;=0）棵互不相交的树的集合称为森林；</li>
 <li>子孙：以某节点为根的子树中任一节点都称为该节点的子孙。</li>
 </ul>
-<h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><h3 id="二叉查找树（排序二叉树、Binary-Seary-Tree、二叉搜索树、有序二叉树）"><a href="#二叉查找树（排序二叉树、Binary-Seary-Tree、二叉搜索树、有序二叉树）" class="headerlink" title="二叉查找树（排序二叉树、Binary Seary Tree、二叉搜索树、有序二叉树）"></a>二叉查找树（排序二叉树、Binary Seary Tree、二叉搜索树、有序二叉树）</h3><h3 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h3><h4 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h4><h2 id="霍夫曼树"><a href="#霍夫曼树" class="headerlink" title="霍夫曼树"></a>霍夫曼树</h2><h2 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h2>
+<h2 id="有序树"><a href="#有序树" class="headerlink" title="有序树"></a>有序树</h2><h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><p>二叉树（Binary tree）是每个节点最多只有两个分支（即不存在分支度大于2的节点）的树结构，是n(n≥0)个结点组成的有限集合：</p>
+<ul>
+<li>n=0时称为空二叉树；</li>
+<li>n&gt;0的二叉树由一个根结点和两棵互不相交的子树组合而成，通常分支被称作“左子树”或“右子树”，二叉树的分支具有左右次序，不能随意颠倒。</li>
+</ul>
+<h4 id="二叉树的五种形态"><a href="#二叉树的五种形态" class="headerlink" title="二叉树的五种形态"></a>二叉树的五种形态</h4><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/r9NLTh.png" alt></p>
+<h4 id="三个节点的二叉树有多少种？"><a href="#三个节点的二叉树有多少种？" class="headerlink" title="三个节点的二叉树有多少种？"></a>三个节点的二叉树有多少种？</h4><p>五种。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/MKUYFS.png" alt></p>
+<h4 id="二叉树的性质"><a href="#二叉树的性质" class="headerlink" title="二叉树的性质"></a>二叉树的性质</h4><ul>
+<li>二叉树的第i层上至多有$2^{i-1}(i≥1)$个节点；</li>
+<li>深度为h的二叉树中至多含有2^{h}-1个节点;</li>
+</ul>
+<h4 id="完全二叉树（Complete-Binary-Tree）"><a href="#完全二叉树（Complete-Binary-Tree）" class="headerlink" title="完全二叉树（Complete Binary Tree）"></a>完全二叉树（Complete Binary Tree）</h4><p>假设二叉树的深度为h，除第h层外，其它各层<code>[1～h-1]</code>的结点数都达到最大个数，第h层所有的结点都连续集中在最左边，这就是完全二叉树<br>换句话说，在一颗二叉树中，若除最后一层外的其余层都是满的，并且最后一层要么是满的，要么在右边缺少<strong><em>连续</em></strong>一个或若干节点，则此二叉树为完全二叉树。<br>比如，下面三棵树都是完全二叉树：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/g7pm5P.png" alt></p>
+<h5 id="完全二叉树的性质"><a href="#完全二叉树的性质" class="headerlink" title="完全二叉树的性质"></a>完全二叉树的性质</h5><ul>
+<li>若<code>i≤[n/2]</code>， 则结点i为分支结点，否则为叶子结点。</li>
+<li>叶子结点只可能在层次最大的两层上出现。对于最大层次的叶子结点，都依次排在最左边的位置上。</li>
+<li>度为1的结点若存在，则最多只能只有一个，且是编号最大的分支节点，其孩子结点一定是左结点。</li>
+</ul>
+<h5 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h5><p>一棵高度为h的满二叉树（Full Binary Tree）是具有$2^{h}−1(h≥0)$个结点的二叉树。满二叉树的最大特点是每一层次的结点数都达到最大值。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/pjgSLj.png" alt></p>
+<blockquote>
+<p>对于编号为i的结点，若存在，其双亲的编号为<code>i/2</code>,左孩子为<code>2i</code>,右孩子为<code>2i+1</code>。</p>
+</blockquote>
+<h4 id="二叉树的存储结构"><a href="#二叉树的存储结构" class="headerlink" title="二叉树的存储结构"></a>二叉树的存储结构</h4><p>二叉树可以用数组或链接串列来存储，主要采用的是链式存储结构，至于顺序存储结构仅适用于完全二叉树或满二叉树，若是满二叉树就能紧凑排列而不浪费空间。</p>
+<h5 id="二叉链表存储结构"><a href="#二叉链表存储结构" class="headerlink" title="二叉链表存储结构"></a>二叉链表存储结构</h5><h5 id="顺序存储结构"><a href="#顺序存储结构" class="headerlink" title="顺序存储结构"></a>顺序存储结构</h5><h4 id="二叉查找树（二叉排序树、Binary-Seary-Tree、二叉搜索树、有序二叉树）"><a href="#二叉查找树（二叉排序树、Binary-Seary-Tree、二叉搜索树、有序二叉树）" class="headerlink" title="二叉查找树（二叉排序树、Binary Seary Tree、二叉搜索树、有序二叉树）"></a>二叉查找树（二叉排序树、Binary Seary Tree、二叉搜索树、有序二叉树）</h4><h3 id="霍夫曼树"><a href="#霍夫曼树" class="headerlink" title="霍夫曼树"></a>霍夫曼树</h3><h3 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h3><h2 id="无序树"><a href="#无序树" class="headerlink" title="无序树"></a>无序树</h2>
     </div>
 
     
@@ -327,7 +353,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#树的定义"><span class="nav-number">1.</span> <span class="nav-text">树的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树的特点"><span class="nav-number">2.</span> <span class="nav-text">树的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树的术语"><span class="nav-number">3.</span> <span class="nav-text">树的术语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树"><span class="nav-number">4.</span> <span class="nav-text">二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉查找树（排序二叉树、Binary-Seary-Tree、二叉搜索树、有序二叉树）"><span class="nav-number">4.1.</span> <span class="nav-text">二叉查找树（排序二叉树、Binary Seary Tree、二叉搜索树、有序二叉树）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完全二叉树"><span class="nav-number">4.2.</span> <span class="nav-text">完全二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#满二叉树"><span class="nav-number">4.2.1.</span> <span class="nav-text">满二叉树</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#霍夫曼树"><span class="nav-number">5.</span> <span class="nav-text">霍夫曼树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B树"><span class="nav-number">6.</span> <span class="nav-text">B树</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#树的定义"><span class="nav-number">1.</span> <span class="nav-text">树的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树的特点"><span class="nav-number">2.</span> <span class="nav-text">树的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树的术语"><span class="nav-number">3.</span> <span class="nav-text">树的术语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有序树"><span class="nav-number">4.</span> <span class="nav-text">有序树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉树"><span class="nav-number">4.1.</span> <span class="nav-text">二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的五种形态"><span class="nav-number">4.1.1.</span> <span class="nav-text">二叉树的五种形态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三个节点的二叉树有多少种？"><span class="nav-number">4.1.2.</span> <span class="nav-text">三个节点的二叉树有多少种？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的性质"><span class="nav-number">4.1.3.</span> <span class="nav-text">二叉树的性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#完全二叉树（Complete-Binary-Tree）"><span class="nav-number">4.1.4.</span> <span class="nav-text">完全二叉树（Complete Binary Tree）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#完全二叉树的性质"><span class="nav-number">4.1.4.1.</span> <span class="nav-text">完全二叉树的性质</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#满二叉树"><span class="nav-number">4.1.4.2.</span> <span class="nav-text">满二叉树</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的存储结构"><span class="nav-number">4.1.5.</span> <span class="nav-text">二叉树的存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#二叉链表存储结构"><span class="nav-number">4.1.5.1.</span> <span class="nav-text">二叉链表存储结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#顺序存储结构"><span class="nav-number">4.1.5.2.</span> <span class="nav-text">顺序存储结构</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉查找树（二叉排序树、Binary-Seary-Tree、二叉搜索树、有序二叉树）"><span class="nav-number">4.1.6.</span> <span class="nav-text">二叉查找树（二叉排序树、Binary Seary Tree、二叉搜索树、有序二叉树）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#霍夫曼树"><span class="nav-number">4.2.</span> <span class="nav-text">霍夫曼树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B树"><span class="nav-number">4.3.</span> <span class="nav-text">B树</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无序树"><span class="nav-number">5.</span> <span class="nav-text">无序树</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -430,6 +456,63 @@
 
 
   
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
