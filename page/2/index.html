@@ -163,6 +163,115 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Interview汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/15/Interview汇总/" class="post-title-link" itemprop="url">Interview汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-15 21:21:25" itemprop="dateCreated datePublished" datetime="2019-10-15T21:21:25+08:00">2019-10-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-09 11:54:28" itemprop="dateModified" datetime="2020-09-09T11:54:28+08:00">2020-09-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/interview/" itemprop="url" rel="index"><span itemprop="name">interview</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="公司的新版微服务架构用到的技术栈"><a href="#公司的新版微服务架构用到的技术栈" class="headerlink" title="公司的新版微服务架构用到的技术栈"></a>公司的新版微服务架构用到的技术栈</h2><h1 id="CS"><a href="#CS" class="headerlink" title="CS"></a>CS</h1><h2 id="32位和64位系统底层的本质区别是什么？"><a href="#32位和64位系统底层的本质区别是什么？" class="headerlink" title="32位和64位系统底层的本质区别是什么？"></a>32位和64位系统底层的本质区别是什么？</h2><h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><p><a href="https://juejin.im/post/5e37b8ea6fb9a030080ca2df" target="_blank" rel="noopener">2020年2月面试题100+大全（合适各级Java人员）</a></p>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="通过new-String-“test”-与-“test”-与运行时常量池的关系"><a href="#通过new-String-“test”-与-“test”-与运行时常量池的关系" class="headerlink" title="通过new String(“test”) 与 “test” 与运行时常量池的关系"></a>通过new String(“test”) 与 “test” 与运行时常量池的关系</h3><ul>
+<li>String a = “aaa”;（保存在常量池中的）</li>
+<li>String b = new String(“aaa”);（new创建的对象会存放在堆内存中）</li>
+</ul>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><h3 id="ArrayList-vs-LinkedList-vs-SynchronizedList-vs-CopyOnWriteArrayList"><a href="#ArrayList-vs-LinkedList-vs-SynchronizedList-vs-CopyOnWriteArrayList" class="headerlink" title="ArrayList vs LinkedList vs SynchronizedList vs CopyOnWriteArrayList"></a>ArrayList vs LinkedList vs SynchronizedList vs CopyOnWriteArrayList</h3><h4 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h4><p>ArrayList底层使用的是数组实现，也就是基于顺序表的原理，是线程不安全的。<br>默认初始化的时候，其内部的数组是一个静态的空数组：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">private static final int DEFAULT_CAPACITY = 10;</span><br><span class="line">private static final Object[] EMPTY_ELEMENTDATA = &#123;&#125;;</span><br><span class="line">private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = &#123;&#125;;</span><br><span class="line">transient Object[] elementData; // non-private to simplify nested class access</span><br><span class="line">private int size;</span><br><span class="line">public ArrayList() &#123;</span><br><span class="line">    this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>也可以在初始化的时候指定默认容量，或者指定默认要承接的集合数据：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public ArrayList(int initialCapacity) &#123;</span><br><span class="line">    if (initialCapacity &gt; 0) &#123;</span><br><span class="line">        this.elementData = new Object[initialCapacity];</span><br><span class="line">    &#125; else if (initialCapacity == 0) &#123;</span><br><span class="line">        this.elementData = EMPTY_ELEMENTDATA;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        throw new IllegalArgumentException(&quot;Illegal Capacity: &quot;+</span><br><span class="line">                                           initialCapacity);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public ArrayList(Collection&lt;? extends E&gt; c) &#123;</span><br><span class="line">    elementData = c.toArray();</span><br><span class="line">    if ((size = elementData.length) != 0) &#123;</span><br><span class="line">        // c.toArray might (incorrectly) not return Object[] (see 6260652)</span><br><span class="line">        if (elementData.getClass() != Object[].class)</span><br><span class="line">            elementData = Arrays.copyOf(elementData, size, Object[].class);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        // replace with empty array.</span><br><span class="line">        this.elementData = EMPTY_ELEMENTDATA;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当数组为空或者数组长度不够进行扩容的长度增长因子一般是1.5（但是要注意极端情况下，扩容到大于<code>Integer.MAX_VALUE-8</code>，会默认增长到ArrayList的最大长度<code>Integer.MAX_VALUE</code>，超过最大长度将抛出OutOfMemoryError异常）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">private void grow(int minCapacity) &#123;</span><br><span class="line">    // overflow-conscious code</span><br><span class="line">    int oldCapacity = elementData.length;</span><br><span class="line">    int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);</span><br><span class="line">    if (newCapacity - minCapacity &lt; 0)</span><br><span class="line">        newCapacity = minCapacity;</span><br><span class="line">    if (newCapacity - MAX_ARRAY_SIZE &gt; 0)</span><br><span class="line">        newCapacity = hugeCapacity(minCapacity);</span><br><span class="line">    // minCapacity is usually close to size, so this is a win:</span><br><span class="line">    elementData = Arrays.copyOf(elementData, newCapacity);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>ArrayList因为其扩容因子是<code>1.5</code>，其内部的数组会预留出一定的空间，所以从资源利用的角度来讲，这存在一定程度的浪费。<br>正因为是基于顺序表原来实现，ArrayList元素的物理存储地址是连续的，在其内部数组中间插入或者删除元素的话，其后面的所有元素都要进行移位，所以性能开销会相对较大。</p>
+</blockquote>
+<h4 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h4><p>LinkedList底层使用的是双链表来实现的，它默认初始化之后有着头尾两个空结点，同样也是线程不安全的。<br>可见空双链表插入第一个结点时，判断尾结点是否为空，如果为空是在first头结点插入，否则是插入到尾部结点之后。</p>
+<blockquote>
+<p>LinkedList得益于双链表的数据结构优势，在对单个元素的插入和删除操作上，一般性能开销会相对较小，但是在单个元素的访问上，会表现较差。</p>
+</blockquote>
+<h4 id="快速失败迭代器（fail-fast-Iterator）"><a href="#快速失败迭代器（fail-fast-Iterator）" class="headerlink" title="快速失败迭代器（fail-fast Iterator）"></a>快速失败迭代器（fail-fast Iterator）</h4><p>ArrayList、LinkedList等很多常用集合的Iterator实现中，都是通过快速失败检查机制来检查数据是否在外部不被期望的情况下修改了，常见的快速失败检查都是通过如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">final void checkForComodification() &#123;</span><br><span class="line">    if (modCount != expectedModCount)</span><br><span class="line">        throw new ConcurrentModificationException();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>异常时通过判断expectedModCount是否等于modCount，如果不相等就抛出异常。</p>
+<ul>
+<li>expectedModCount：被期望的修改次数，在Iterator初始化的时候被赋值，<code>int expectedModCount = modCount;</code>，在调用迭代器的remove方法时会被更新。</li>
+<li>modCount：真实的修改次数，每次调用add()，remove()方法（非迭代器的方法）会导致modCount+1。</li>
+</ul>
+<p>迭代器在调用<code>next()</code>和<code>remove()</code>都会做<code>ConcurrentModificationException</code>的异常检测。</p>
+<blockquote>
+<p>所以，当集合是使用迭代器Iterator来遍历的时候，删除集合的元素记得用迭代器的<code>remove()</code>方法。</p>
+</blockquote>
+<h4 id="SynchronizedList（线程安全）"><a href="#SynchronizedList（线程安全）" class="headerlink" title="SynchronizedList（线程安全）"></a>SynchronizedList（线程安全）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 线程安全List的创建方式</span><br><span class="line">List&lt;Object&gt; syncArrayList = Collections.synchronizedList(new ArrayList&lt;&gt;());</span><br><span class="line">List&lt;Object&gt; syncLinkedList = Collections.synchronizedList(new LinkedList&lt;&gt;());</span><br></pre></td></tr></table></figure>
+<p>线程安全实现原理：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">final Object mutex;     // Object on which to synchronize</span><br></pre></td></tr></table></figure></p>
+<p>其内部具有线程安全问题的方法都被互斥量加了锁：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public int size() &#123;</span><br><span class="line">    synchronized (mutex) &#123;return c.size();&#125;</span><br><span class="line">&#125;</span><br><span class="line">public boolean add(E e) &#123;</span><br><span class="line">    synchronized (mutex) &#123;return c.add(e);&#125;</span><br><span class="line">&#125;</span><br><span class="line">public boolean remove(Object o) &#123;</span><br><span class="line">    synchronized (mutex) &#123;return c.remove(o);&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="CopyOnWriteArrayList"><a href="#CopyOnWriteArrayList" class="headerlink" title="CopyOnWriteArrayList"></a>CopyOnWriteArrayList</h4><p>CopyOnWriteArrayList和ArrayList类似，其内部也是基于数组实现的，但是还额外多出了一个可重入锁：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/** The lock protecting all mutators */</span><br><span class="line">final transient ReentrantLock lock = new ReentrantLock();</span><br><span class="line">/** The array, accessed only via getArray/setArray. */</span><br><span class="line">private transient volatile Object[] array;</span><br></pre></td></tr></table></figure></p>
+<p>因为加了transient修饰，所以其数据不支持序列化。<br>另外其内部存储数据的数组是通过volatile修饰的，避免了线程安全的问题。<br>插入和删除操作也加了锁机制：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">public boolean add(E e) &#123;</span><br><span class="line">    final ReentrantLock lock = this.lock;</span><br><span class="line">    lock.lock();</span><br><span class="line">    try &#123;</span><br><span class="line">        Object[] elements = getArray();</span><br><span class="line">        int len = elements.length;</span><br><span class="line">        Object[] newElements = Arrays.copyOf(elements, len + 1);</span><br><span class="line">        newElements[len] = e;</span><br><span class="line">        setArray(newElements);</span><br><span class="line">        return true;</span><br><span class="line">    &#125; finally &#123;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public E remove(int index) &#123;</span><br><span class="line">    final ReentrantLock lock = this.lock;</span><br><span class="line">    lock.lock();</span><br><span class="line">    try &#123;</span><br><span class="line">        Object[] elements = getArray();</span><br><span class="line">        int len = elements.length;</span><br><span class="line">        E oldValue = get(elements, index);</span><br><span class="line">        int numMoved = len - index - 1;</span><br><span class="line">        if (numMoved == 0)</span><br><span class="line">            setArray(Arrays.copyOf(elements, len - 1));</span><br><span class="line">        else &#123;</span><br><span class="line">            Object[] newElements = new Object[len - 1];</span><br><span class="line">            System.arraycopy(elements, 0, newElements, 0, index);</span><br><span class="line">            System.arraycopy(elements, index + 1, newElements, index,</span><br><span class="line">                             numMoved);</span><br><span class="line">            setArray(newElements);</span><br><span class="line">        &#125;</span><br><span class="line">        return oldValue;</span><br><span class="line">    &#125; finally &#123;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>SynchronizedList是通过对读写方法使用synchronized修饰来实现同步的，即便只是多个线程在读数据，也不能进行，如果是读比较多的场景下，会性能不高，所以适合读写均匀的情况。<br>而CopyOnWriteArrayList是读写分离的，只对写操作加锁，但是每次写操作(添加和删除元素等)时都会复制出一个新数组，完成修改后，然后将新数组设置到旧数组的引用上，所以在写比较多的情况下，会有很大的性能开销，所以适合读比较多的应用场景。</p>
+</blockquote>
+<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="B-树和二叉树的区别"><a href="#B-树和二叉树的区别" class="headerlink" title="B+树和二叉树的区别"></a>B+树和二叉树的区别</h2><h2 id="红黑树和跳表"><a href="#红黑树和跳表" class="headerlink" title="红黑树和跳表"></a>红黑树和跳表</h2><h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="一个接口太多事务操作是否要使用批量事务"><a href="#一个接口太多事务操作是否要使用批量事务" class="headerlink" title="一个接口太多事务操作是否要使用批量事务"></a>一个接口太多事务操作是否要使用批量事务</h2><h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="OLAP和OLTP"><a href="#OLAP和OLTP" class="headerlink" title="OLAP和OLTP"></a>OLAP和OLTP</h2><h2 id="冗余字段"><a href="#冗余字段" class="headerlink" title="冗余字段"></a>冗余字段</h2><p>微服务架构加上前后端分离的情况下。后端接口很多时候会出现太多联表查询的情况。其实可以数据库存储空间大小允许的情况下，留出一些关键字段的冗余字段来代替联表查询。甚至可以将一些数据拆分出来查询封装成比较合适的数据JSON结构，然后可以将需要连表查询的逻辑放到前端去计算拼接，这样一来可以减少服务器和数据库的压力，同时前端做这部分的计算能力其实也是绰绰有余了，毕竟目前相对来说这是一个用户端性能过剩的时代。</p>
+<p>尽可能多的冗余字段也可以为一定业务场景带来便捷的查询，没必要一味得遵循数据库三方式。</p>
+<h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><h2 id="redis如何清理过期key"><a href="#redis如何清理过期key" class="headerlink" title="redis如何清理过期key"></a>redis如何清理过期key</h2><h2 id="redis内存不足时的策略"><a href="#redis内存不足时的策略" class="headerlink" title="redis内存不足时的策略"></a>redis内存不足时的策略</h2><h2 id="缓存更新的套路"><a href="#缓存更新的套路" class="headerlink" title="缓存更新的套路"></a>缓存更新的套路</h2><p><a href="https://coolshell.cn/articles/17416.html[](https://coolshell.cn/articles/17416.html" target="_blank" rel="noopener">https://coolshell.cn/articles/17416.html[](https://coolshell.cn/articles/17416.html</a> “”)</p>
+<h3 id="Cache-Aside-Pattern"><a href="#Cache-Aside-Pattern" class="headerlink" title="Cache Aside Pattern"></a>Cache Aside Pattern</h3><h3 id="Read-Write-Through-Pattern"><a href="#Read-Write-Through-Pattern" class="headerlink" title="Read/Write Through Pattern"></a>Read/Write Through Pattern</h3><h3 id="Write-Behind-Caching-Pattern"><a href="#Write-Behind-Caching-Pattern" class="headerlink" title="Write Behind Caching Pattern"></a>Write Behind Caching Pattern</h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/05/English系列之名词从句/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -658,93 +767,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/07/English之时态系列-进行时态-过去进行时/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/07/English之时态系列-进行时态-过去进行时/" class="post-title-link" itemprop="url">English之时态系列-进行时态（过去进行时）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-06-07 16:45:20" itemprop="dateCreated datePublished" datetime="2020-06-07T16:45:20+08:00">2020-06-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-08 17:15:47" itemprop="dateModified" datetime="2020-09-08T17:15:47+08:00">2020-09-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>这篇笔记摘选自《英语语法新思维初级教程第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。</p>
-</blockquote>
-<h2 id="常见用法：用来设置故事的背景"><a href="#常见用法：用来设置故事的背景" class="headerlink" title="常见用法：用来设置故事的背景"></a>常见用法：用来设置故事的背景</h2><p><strong><em>在讲故事时，我们往往会用到过去进行时态（the past continuous tense） was/were doing来设置故事发生的过去背景（We often use the past continuous tense to “set the scene” in stories.）这是因为进行时态往往表示一个持续的活动场景，所以用它来铺垫故事的背景，往往会给读者一种身临其境的感觉。</em></strong></p>
-<p>It was getting darker. The rain was beating on the windows. The wind was rising. A wood fire was burning on the hearth, and a cat was sleeping in front of it. A girl was playing the piano and was singing softly to herself. Suddenly, there was a knock on the door…<br>上文中就是用了一系列过去进行时（was getting, was beating, was rising, was burning, was sleeping, was playing和 was singing）来进行故事背景的铺垫——屋外是风雨交加的恶劣天气， 而屋内是温馨、舒适和祥和的气氛，这两者形成了鲜明的对比. 然后“传来了敲门声”——这一切都烘托出了一种略带恐怖的氛围。</p>
-<p>James Bond was driving through town. It was raining. The wind was blowing hard. Nobody was walking in the streets. Suddenly, Bond saw the killer in a telephone box…<br>上面这种通过描写一系列过去进行的动作来渲染故事背景的过去进行时用法，多见于文学作品中。在日常生活的叙事中，我们更多的是把“过去进行时”和“一般过去时”配合使用（past continuous tense+simple past tense）。此时，过去进行时通常表示一个历时较长的体现“背景”的动作或状态；而一般过去时则表示在此“背景”下发生的一个短暂的动作或状态。简言之，长动作用过去进行时，短动作用一般过去时，以此表示在过去进行时的动作的持续期间，发生了另一个短暂动作。这两个动作之间用when或while连接。</p>
-<p>比如我们这样告诉别人自己曾经的“恐怖”经历：<br>I was walking along the street late last night when suddenly I heard footsteps behind me. Somebody was following me. I was frightened and I started to run.<br>这句中的walk表示“一直在走”，显然是长动作，所以要用过去进行时；hear表示“听到了”，显然是短动作，所以用了一般过去时。这里表示在was walking这个持续动作的背景下发生了短暂动作heard。</p>
-<h3 id="动作长短的相对性及其与时态的关系"><a href="#动作长短的相对性及其与时态的关系" class="headerlink" title="动作长短的相对性及其与时态的关系"></a>动作长短的相对性及其与时态的关系</h3><p>I was watching TV when the telephone rang.<br>我当时正在看电视， 突然电话铃响了。 在这个句子里，“看电视（watching TV）”可能持续几个小时， 而“电话铃响”可能就持续几秒钟（a few seconds）。但在下面这个句子里：<br>I was walking past the car when it exploded.<br>汽车爆炸时我正好刚走过。在这里，walking past the car可能只持续了几秒钟（a few seconds），而exploded则更短，可能也就几毫秒（a few milliseconds）。<br><strong><em>总之，动作的长短是指具体句子里的两个动作的相对长短。相对短的动作用一般过去时，相对长的动作用过去进行时</em></strong>。若时态用错，句意可能就要发生改变。比如：<br>I was cooking dinner last night when I cut my finger. 我昨晚做晚饭的时候，不小心把手指给切了。<br>I was telephoning Harry when she arrived. 她到的时候，我正在给哈里打电话。<br>若是违反了这一英语思维规律，比如在下面的句子中，我们把短动作cut也用过去进行时，说成：<br>…when I was cutting my finger.<br>那意思就变成“当我在砍手指的时候……”，此时cutting就变成一个长动作了。相信一个正常人是不会说出这样的话的，更不会做出cutting fingers这样的行为。<br>再比如，我们把长动作telephone改用一般过去时，请比较：<br>1） I was telephoning Harry when she arrived.<br>2） I telephoned Harry when she arrived.<br>在例句1）中，telephone是一个延续动作，arrive是短暂 动作。用进行时telephoning是表明在“我”打电话的过程中，她到了，即先telephone，后arrive。在例句2）中，telephone和arrive都用一般过去时，都变成了短暂动作。此时，是表明“我”打电话是发生在她来了之后，即先arrive，后telephone。<br>1） 她到的时候我正在给哈里打电话。<br>2） 她到了之后，我再给哈里打电话。</p>
-<h3 id="when和while的区别"><a href="#when和while的区别" class="headerlink" title="when和while的区别"></a>when和while的区别</h3><p><strong><em>我们还看到，过去进行时与一般过去时的这种搭配使用主要由when或while连接，但两者有以下区别：<br>when的后面接短动作，用一般过去时（when+short action, simple past tense），或者接长动作，用过去进行时（when+long action, past continuous tense）； while的后面只能接长动作，用过去进行时（while+long action, past continuous tense）。</em></strong><br>I was walking past the car when it exploded.<br>The car exploded when I was walking past it.<br>The car exploded while I was walking past it.<br>不能说： I was walking past the car while it exploded. *<br>因为这里的exploded是一个短暂动词，不能和while搭配。</p>
-<h2 id="少见用法：两个过去同时在持续的动作"><a href="#少见用法：两个过去同时在持续的动作" class="headerlink" title="少见用法：两个过去同时在持续的动作"></a>少见用法：两个过去同时在持续的动作</h2><p>如果句中有两个相对长短的动作，那么长动作用过去进行时，短动作用一般过去时。但是，若句中的两个动作都是较长的动作，则两个动作都用过去进行时，表示两个过去同时在持续的动作。<br>While I was studying in my dorm, my roommates were talking loudly with their friends. 我在宿舍里学习的时候，我的室友在大声地和他们的朋友们说话。<br>While I was studying last night, my wife was watchingTV. 我昨晚学习的时候，我的妻子在看电视。</p>
-<h2 id="典型用法：描述一件过去特定时刻正在发生的事情"><a href="#典型用法：描述一件过去特定时刻正在发生的事情" class="headerlink" title="典型用法：描述一件过去特定时刻正在发生的事情"></a>典型用法：描述一件过去特定时刻正在发生的事情</h2><p>过去进行时还可以用来描述一件在过去的特定时刻正在发生的事情，这是各种进行时的典型用法。<br>I was discussing my thesis with my director at this time last night. （特定时刻）</p>
-<p>A: What were you doing at 10 o’clock last night?<br>B: I was having dinner with my friends.</p>
-<h2 id="口语用法：表示委婉的请求或建议"><a href="#口语用法：表示委婉的请求或建议" class="headerlink" title="口语用法：表示委婉的请求或建议"></a>口语用法：表示委婉的请求或建议</h2><p>在口语表达中，我们还常常用过去进行时来表示委婉的请求或建议，这时并不表示过去时间的动作。这尤其适用于表示态度的动词，如 wonder, hope和think等，这些动词用过去进行时（was wondering）或现在进行时（is wondering），均表示现在的一种愿望或态度，给人一种探询式的、犹豫不决的印象，因而显得很礼貌。</p>
-<p>I was wondering if you’d like to lend me your car.<br>I was wondering if you could lend me your car.<br>I was hoping that you’d like to lend me your car.<br>I was thinking that you’d like to lend me your car.<br>我希望你能把车借给我。<br>I hope to borrow your car.<br>I wonder if you can lend me your car.<br>则由于比较直截了当地表达了自己的态度，因而显得欠礼貌。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -814,7 +836,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">124</span>
+          <span class="site-state-item-count">125</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -827,7 +849,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-count">87</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -878,71 +900,11 @@
 
   
   <script src="/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
 <script src="/js/schemes/pisces.js"></script>
 <script src="/js/next-boot.js"></script>
-  <script>
-var pjax = new Pjax({
-  selectors: [
-    'head title',
-    '#page-configurations',
-    '.content-wrap',
-    '.post-toc-wrap',
-    '.languages',
-    '#pjax'
-  ],
-  switches: {
-    '.post-toc-wrap': Pjax.switches.innerHTML
-  },
-  analytics: false,
-  cacheBust: false,
-  scrollTo : !CONFIG.bookmark.enable
-});
-
-window.addEventListener('pjax:success', () => {
-  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
-    var code = element.text || element.textContent || element.innerHTML || '';
-    var parent = element.parentNode;
-    parent.removeChild(element);
-    var script = document.createElement('script');
-    if (element.id) {
-      script.id = element.id;
-    }
-    if (element.className) {
-      script.className = element.className;
-    }
-    if (element.type) {
-      script.type = element.type;
-    }
-    if (element.src) {
-      script.src = element.src;
-      // Force synchronous loading of peripheral JS.
-      script.async = false;
-    }
-    if (element.dataset.pjax !== undefined) {
-      script.dataset.pjax = '';
-    }
-    if (code !== '') {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
-  });
-  NexT.boot.refresh();
-  // Define Motion Sequence & Bootstrap Motion.
-  if (CONFIG.motion.enable) {
-    NexT.motion.integrator
-      .init()
-      .add(NexT.motion.middleWares.subMenu)
-      .add(NexT.motion.middleWares.postList)
-      .bootstrap();
-  }
-  NexT.utils.updateSidebarPosition();
-});
-</script>
-
 
 
 
@@ -962,11 +924,9 @@ window.addEventListener('pjax:success', () => {
 
 
 
-    <div id="pjax">
   
 
   
 
-    </div>
 </body>
 </html>
