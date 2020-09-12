@@ -20,13 +20,13 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="队列的定义队列是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作，和栈一样，队列是一种操作受限制的线性表。进行插入操作的端称为队尾，进行删除操作的端称为队头。队列的特点就是先进先出(First In First Out)。 顺序队列建立顺序队列结构必须为其静态分配或动态申请一片连续的存储空间，并设置两个指针进行管理。一个是队头指针fr">
+  <meta name="description" content="leetcode队列专题 队列的定义队列是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作，和栈一样，队列是一种操作受限制的线性表。进行插入操作的端称为队尾，进行删除操作的端称为队头。队列的特点就是先进先出(First In First Out)。 顺序队列建立顺序队列结构必须为其静态分配或动态申请一片连续的存储空间，并设置两个指针进">
 <meta name="keywords" content="Java,数据结构,队列">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构系列之队列（Java）">
 <meta property="og:url" content="http://yoursite.com/2020/09/05/数据结构系列之队列-Java/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="队列的定义队列是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作，和栈一样，队列是一种操作受限制的线性表。进行插入操作的端称为队尾，进行删除操作的端称为队头。队列的特点就是先进先出(First In First Out)。 顺序队列建立顺序队列结构必须为其静态分配或动态申请一片连续的存储空间，并设置两个指针进行管理。一个是队头指针fr">
+<meta property="og:description" content="leetcode队列专题 队列的定义队列是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作，和栈一样，队列是一种操作受限制的线性表。进行插入操作的端称为队尾，进行删除操作的端称为队头。队列的特点就是先进先出(First In First Out)。 顺序队列建立顺序队列结构必须为其静态分配或动态申请一片连续的存储空间，并设置两个指针进">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/pRoXuq.png">
 <meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/VOhvX9.png">
@@ -42,10 +42,10 @@
 <meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/gHQzZs.png">
 <meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/YVIozT.png">
 <meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/cbwuMz.png">
-<meta property="og:updated_time" content="2020-09-09T13:37:30.687Z">
+<meta property="og:updated_time" content="2020-09-12T13:35:49.463Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构系列之队列（Java）">
-<meta name="twitter:description" content="队列的定义队列是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作，和栈一样，队列是一种操作受限制的线性表。进行插入操作的端称为队尾，进行删除操作的端称为队头。队列的特点就是先进先出(First In First Out)。 顺序队列建立顺序队列结构必须为其静态分配或动态申请一片连续的存储空间，并设置两个指针进行管理。一个是队头指针fr">
+<meta name="twitter:description" content="leetcode队列专题 队列的定义队列是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作，和栈一样，队列是一种操作受限制的线性表。进行插入操作的端称为队尾，进行删除操作的端称为队头。队列的特点就是先进先出(First In First Out)。 顺序队列建立顺序队列结构必须为其静态分配或动态申请一片连续的存储空间，并设置两个指针进">
 <meta name="twitter:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/pRoXuq.png">
 
 <link rel="canonical" href="http://yoursite.com/2020/09/05/数据结构系列之队列-Java/">
@@ -211,7 +211,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-09 21:37:30" itemprop="dateModified" datetime="2020-09-09T21:37:30+08:00">2020-09-09</time>
+                <time title="Modified: 2020-09-12 21:35:49" itemprop="dateModified" datetime="2020-09-12T21:35:49+08:00">2020-09-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -234,7 +234,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="队列的定义"><a href="#队列的定义" class="headerlink" title="队列的定义"></a>队列的定义</h2><p>队列是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作，和栈一样，队列是一种操作受限制的线性表。进行插入操作的端称为队尾，进行删除操作的端称为队头。队列的特点就是先进先出(First In First Out)。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/pRoXuq.png" alt></p>
+        <p><a href="https://leetcode-cn.com/tag/queue/" target="_blank" rel="noopener">leetcode队列专题</a></p>
+<h2 id="队列的定义"><a href="#队列的定义" class="headerlink" title="队列的定义"></a>队列的定义</h2><p>队列是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作，和栈一样，队列是一种操作受限制的线性表。进行插入操作的端称为队尾，进行删除操作的端称为队头。队列的特点就是先进先出(First In First Out)。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/pRoXuq.png" alt></p>
 <h2 id="顺序队列"><a href="#顺序队列" class="headerlink" title="顺序队列"></a>顺序队列</h2><p>建立顺序队列结构必须为其静态分配或动态申请一片连续的存储空间，并设置两个指针进行管理。一个是队头指针front，它指向队头元素；另一个是队尾指针rear，它指向下一个入队元素的存储位置。</p>
 <blockquote>
 <p>如果没有两个指针，入队操作直接执行顺序表尾部插入操作，其时间复杂度为O(1)，出队操作直接执行顺序表头部删除操作，其时间复杂度为O(n)，<br>增加了front和rear指针，出队操作的时间复杂度也是O(1)了。</p>
