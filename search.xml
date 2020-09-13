@@ -2954,12 +2954,9 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       </tags>
   </entry>
   <entry>
-    <title>Idea汇总</title>
+    <title>Java系列之Idea</title>
     <url>/2019/12/01/Idea%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<blockquote>
-<p>有部分内容来自网络，一般都有注明出处，如若侵权，请联系我删除，谢谢！<br>文章的图片来自github的图床，图片链接存在github图床（<a href="https://raw.githubusercontent.com），该地址可能需要翻墙才能访问，所以图片可能存在加载不成功的情况。" target="_blank" rel="noopener">https://raw.githubusercontent.com），该地址可能需要翻墙才能访问，所以图片可能存在加载不成功的情况。</a></p>
-</blockquote>
-<h1 id="HOTKEY"><a href="#HOTKEY" class="headerlink" title="HOTKEY"></a>HOTKEY</h1><h2 id="Usage-Search（使用查询）"><a href="#Usage-Search（使用查询）" class="headerlink" title="Usage Search（使用查询）"></a>Usage Search（使用查询）</h2><table>
+    <content><![CDATA[<h1 id="HOTKEY"><a href="#HOTKEY" class="headerlink" title="HOTKEY"></a>HOTKEY</h1><h2 id="Usage-Search（使用查询）"><a href="#Usage-Search（使用查询）" class="headerlink" title="Usage Search（使用查询）"></a>Usage Search（使用查询）</h2><table>
 <thead>
 <tr>
 <th>key</th>
@@ -3062,6 +3059,10 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 <td>^+cmd+C</td>
 <td>清理控制台的日志之类的，需要再keymap里面设置Other</td>
 <td>Clear All</td>
+</tr>
+<tr>
+<td>opt+F12</td>
+<td>打开或关闭Terminal</td>
 </tr>
 </tbody>
 </table>
@@ -3276,11 +3277,15 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 <h2 id="Maven代码不能指向本地工程module代码"><a href="#Maven代码不能指向本地工程module代码" class="headerlink" title="Maven代码不能指向本地工程module代码"></a>Maven代码不能指向本地工程module代码</h2><p>如果出现idea的Modules已经存在，但是代码不能通过Maven依赖到已经引入的module时（此时Maven管理界面可能会出现已经引入的model的maven可视化没有出现），这个时候在工程的Modules删除重新引入应该就可以了。</p>
 <h2 id="Idea出现所有引导到的类报错，连jdk的基础类也报错的情况"><a href="#Idea出现所有引导到的类报错，连jdk的基础类也报错的情况" class="headerlink" title="Idea出现所有引导到的类报错，连jdk的基础类也报错的情况"></a>Idea出现所有引导到的类报错，连jdk的基础类也报错的情况</h2><p>可能是不了心设置了Editor-&gt;File Type中忽略了*.class导致的。<br>如果是项目引入自己项目的代码也报错，可以删掉模块重新import。</p>
 <h2 id="Idea关闭写代码形参提示（会导致变卡）"><a href="#Idea关闭写代码形参提示（会导致变卡）" class="headerlink" title="Idea关闭写代码形参提示（会导致变卡）"></a>Idea关闭写代码形参提示（会导致变卡）</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/RVmJT6.png" alt="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/RVmJT6.png"></p>
+<blockquote>
+<p>有部分内容来自网络，一般都有注明出处，如若侵权，请联系我删除，谢谢！</p>
+</blockquote>
 ]]></content>
       <categories>
         <category>Idea</category>
       </categories>
       <tags>
+        <tag>Java</tag>
         <tag>Idea</tag>
       </tags>
   </entry>
@@ -6241,43 +6246,6 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       </tags>
   </entry>
   <entry>
-    <title>学海无涯苦作舟</title>
-    <url>/2020/08/04/%E5%AD%A6%E6%B5%B7%E6%97%A0%E6%B6%AF%E8%8B%A6%E4%BD%9C%E8%88%9F/</url>
-    <content><![CDATA[<h1 id="专业方法和技巧"><a href="#专业方法和技巧" class="headerlink" title="专业方法和技巧"></a>专业方法和技巧</h1><h2 id="第一原理（第一性原理、第一思维方式）"><a href="#第一原理（第一性原理、第一思维方式）" class="headerlink" title="第一原理（第一性原理、第一思维方式）"></a>第一原理（第一性原理、第一思维方式）</h2><p><a href="https://wiki.mbalib.com/wiki/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86" target="_blank" rel="noopener">https://wiki.mbalib.com/wiki/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86</a><br>“我们运用第一性原理，而不是比较思维去思考问题是非常重要的。我们在生活中总是倾向于比较，对别人已经做过或者正在做的事情我们也都去做，这样发展的结果只能产生细小的迭代发展。第一性原理的思想方式是用物理学的角度看待世界，也就是说一层层拨开事物表象，看到里面的本质，再从本质一层层往上走。”这是马斯克眼中的“第一性原理思维模型”——回溯事物的本质，重新思考怎么做。</p>
-<h2 id="费曼4步学习法"><a href="#费曼4步学习法" class="headerlink" title="费曼4步学习法"></a>费曼4步学习法</h2><h2 id="艾宾浩斯记忆曲线"><a href="#艾宾浩斯记忆曲线" class="headerlink" title="艾宾浩斯记忆曲线"></a>艾宾浩斯记忆曲线</h2><p>遗忘曲线（Forgetting curve）是用于表述记忆中的中长期记忆的遗忘率的一种曲线。这一曲线最早由心理学家赫尔曼·艾宾浩斯通过自己的实验提出。在这一实验中，艾宾浩斯使用了一些毫无意义的字母组合。通过记忆这些字母组合，并在一系列时间间隔后检查遗忘率，得到了这一曲线。因此，这一曲线又叫艾宾浩斯遗忘曲线。<br>记忆曲线大概如下：</p>
-<ul>
-<li>20分钟后，42%被遗忘掉，58%被记住。</li>
-<li>1小时后，56%被遗忘掉，44%被记住。</li>
-<li>1天后，74%被遗忘掉，26%被记住。</li>
-<li>1周后，77%被遗忘掉，23%被记住。</li>
-<li>1个月后，79%被遗忘掉，21%被记住。</li>
-</ul>
-<blockquote>
-<p>Anki Notes这个软件就是根据这个原理设计的。</p>
-</blockquote>
-<h2 id="罗斯福专业法"><a href="#罗斯福专业法" class="headerlink" title="罗斯福专业法"></a>罗斯福专业法</h2><h2 id="达芬奇笔记"><a href="#达芬奇笔记" class="headerlink" title="达芬奇笔记"></a>达芬奇笔记</h2><h1 id="一些个专有名词"><a href="#一些个专有名词" class="headerlink" title="一些个专有名词"></a>一些个专有名词</h1><h2 id="边际效益"><a href="#边际效益" class="headerlink" title="边际效益"></a>边际效益</h2><p><a href="https://baike.baidu.com/item/%E8%BE%B9%E9%99%85%E6%95%88%E7%9B%8A/2414098?fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/%E8%BE%B9%E9%99%85%E6%95%88%E7%9B%8A/2414098?fr=aladdin</a></p>
-<h2 id="方法论-VS-世界观"><a href="#方法论-VS-世界观" class="headerlink" title="方法论 VS 世界观"></a>方法论 VS 世界观</h2><p><strong><em>它是人们用什么样的方式、方法来观察事物和处理问题。概括地说，世界观主要说明世界“是什么”的问题，方法论主要说明“怎么办”的问题。</em></strong><br>方法论是一种以解决问题为目标的理论体系或系统，通常涉及对问题阶段、任务、工具、方法技巧的论述。方法论会对一系列具体的方法进行分析研究、系统总结并最终提出较为一般性的原则。<br><a href="https://baike.baidu.com/item/%E6%96%B9%E6%B3%95%E8%AE%BA/82748?fr=aladdin" target="_blank" rel="noopener">方法论的百度百科</a></p>
-<h1 id="成语-amp-词语"><a href="#成语-amp-词语" class="headerlink" title="成语&amp;词语"></a>成语&amp;词语</h1><ul>
-<li>睚眦必报</li>
-<li>兼听则明，偏听则暗</li>
-<li>触类旁通</li>
-<li>高光时刻</li>
-<li>窸窸窣窣</li>
-<li>侧足而立</li>
-<li>相悖</li>
-<li>商榷</li>
-<li>结痂</li>
-<li>一骑绝尘</li>
-</ul>
-<h1 id="权威书籍"><a href="#权威书籍" class="headerlink" title="权威书籍"></a>权威书籍</h1><h2 id="《金字塔原理》"><a href="#《金字塔原理》" class="headerlink" title="《金字塔原理》"></a>《金字塔原理》</h2><h2 id="《罗伯特议事规则》"><a href="#《罗伯特议事规则》" class="headerlink" title="《罗伯特议事规则》"></a>《罗伯特议事规则》</h2>]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>English系列-思维练习错题笔记</title>
     <url>/2020/08/05/English%E7%B3%BB%E5%88%97-%E6%80%9D%E7%BB%B4%E7%BB%83%E4%B9%A0%E9%94%99%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<p>Yesterday I had a phone call from Clint. I was very surprised. I <strong>__</strong> （write） to him many times but he <strong>__</strong> （never, reply） to my letters.<br>答案：had written, had never replied<br>解析：两个或两个以上相继发生的动作，用and或but按动作发生的先后顺序连接，此时要用一般过去时，而不用过去完成时。过去完成时则强调主语在过去的某一时刻“回顾”更早的动作。具体来说，如果在谈论过去某一事件时，又想到在这之前已发生的某事，就要用过去完成时态。   </p>
@@ -6958,7 +6926,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 <li>树的度：树中最大的节点度称为树的度（如上图树的度=Root的度=L1_C的度）；</li>
 <li>叶节点（终端节点）：度为0的节点（如上图L2_*的所有节点）；</li>
 <li>父节点：若一个节点含有子节点，则这个节点称为其子节点的父节点；</li>
-<li>子节点：一个结点的子树的根节点称为其孩子结点；</li>
+<li>子节点：一个节点的子树的根节点称为其孩子节点；</li>
 <li>兄弟节点：具有相同父节点的节点互称为兄弟节点；</li>
 <li>树的层（节点的层）：从根开始定义起，根为第1层，根的子节点为第2层，以此类推；</li>
 <li>分支节点（非终端节点）：度不为零的节点；</li>
@@ -6968,10 +6936,10 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 <li>森林：由m（m&gt;=0）棵互不相交的树的集合称为森林；</li>
 <li>子孙：以某节点为根的子树中任一节点都称为该节点的子孙。</li>
 </ul>
-<h2 id="有序树"><a href="#有序树" class="headerlink" title="有序树"></a>有序树</h2><h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><p>二叉树（Binary tree）是每个节点最多只有两个分支（即不存在分支度大于2的节点）的树结构，是n(n≥0)个结点组成的有限集合：</p>
+<h2 id="有序树"><a href="#有序树" class="headerlink" title="有序树"></a>有序树</h2><h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><p>二叉树（Binary tree）是每个节点最多只有两个分支（即不存在分支度大于2的节点）的树结构，是n(n≥0)个节点组成的有限集合：</p>
 <ul>
 <li>n=0时称为空二叉树；</li>
-<li>n&gt;0的二叉树由一个根结点和两棵互不相交的子树组合而成，通常分支被称作“左子树”或“右子树”，二叉树的分支具有左右次序，不能随意颠倒。</li>
+<li>n&gt;0的二叉树由一个根节点和两棵互不相交的子树组合而成，通常分支被称作“左子树”或“右子树”，二叉树的分支具有左右次序，不能随意颠倒。</li>
 </ul>
 <h4 id="二叉树的五种形态"><a href="#二叉树的五种形态" class="headerlink" title="二叉树的五种形态"></a>二叉树的五种形态</h4><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/r9NLTh.png" alt></p>
 <h4 id="三个节点的二叉树有多少种？"><a href="#三个节点的二叉树有多少种？" class="headerlink" title="三个节点的二叉树有多少种？"></a>三个节点的二叉树有多少种？</h4><p>五种。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/MKUYFS.png" alt></p>
@@ -6979,18 +6947,23 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 <li>二叉树的第i层上至多有$2^{i-1}(i≥1)$个节点；</li>
 <li>深度为h的二叉树中至多含有2^{h}-1个节点;</li>
 </ul>
-<h4 id="完全二叉树（Complete-Binary-Tree）"><a href="#完全二叉树（Complete-Binary-Tree）" class="headerlink" title="完全二叉树（Complete Binary Tree）"></a>完全二叉树（Complete Binary Tree）</h4><p>假设二叉树的深度为h，除第h层外，其它各层<code>[1～h-1]</code>的结点数都达到最大个数，第h层所有的结点都连续集中在最左边，这就是完全二叉树<br>换句话说，在一颗二叉树中，若除最后一层外的其余层都是满的，并且最后一层要么是满的，要么在右边缺少<strong><em>连续</em></strong>一个或若干节点，则此二叉树为完全二叉树。<br>比如，下面三棵树都是完全二叉树：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/g7pm5P.png" alt></p>
+<h4 id="完全二叉树（Complete-Binary-Tree）"><a href="#完全二叉树（Complete-Binary-Tree）" class="headerlink" title="完全二叉树（Complete Binary Tree）"></a>完全二叉树（Complete Binary Tree）</h4><p>假设二叉树的深度为h，除第h层外，其它各层<code>[1～h-1]</code>的节点数都达到最大个数，第h层所有的节点都连续集中在最左边，这就是完全二叉树<br>换句话说，在一颗二叉树中，若除最后一层外的其余层都是满的，并且最后一层要么是满的，要么在右边缺少<strong><em>连续</em></strong>一个或若干节点，则此二叉树为完全二叉树。<br>比如，下面三棵树都是完全二叉树：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/g7pm5P.png" alt></p>
 <h5 id="完全二叉树的性质"><a href="#完全二叉树的性质" class="headerlink" title="完全二叉树的性质"></a>完全二叉树的性质</h5><ul>
-<li>若<code>i≤[n/2]</code>， 则结点i为分支结点，否则为叶子结点。</li>
-<li>叶子结点只可能在层次最大的两层上出现。对于最大层次的叶子结点，都依次排在最左边的位置上。</li>
-<li>度为1的结点若存在，则最多只能只有一个，且是编号最大的分支节点，其孩子结点一定是左结点。</li>
+<li>若<code>i≤[n/2]</code>， 则节点i为分支节点，否则为叶子节点。</li>
+<li>叶子节点只可能在层次最大的两层上出现。对于最大层次的叶子节点，都依次排在最左边的位置上。</li>
+<li>度为1的节点若存在，则最多只能只有一个，且是编号最大的分支节点，其孩子节点一定是左节点。</li>
 </ul>
-<h5 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h5><p>一棵高度为h的满二叉树（Full Binary Tree）是具有$2^{h}−1(h≥0)$个结点的二叉树。满二叉树的最大特点是每一层次的结点数都达到最大值。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/pjgSLj.png" alt></p>
+<h5 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h5><p>一棵高度为h的满二叉树（Full Binary Tree）是具有$2^{h}−1(h≥0)$个节点的二叉树。满二叉树的最大特点是每一层次的节点数都达到最大值。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/pjgSLj.png" alt></p>
 <blockquote>
-<p>对于编号为i的结点，若存在，其双亲的编号为<code>i/2</code>,左孩子为<code>2i</code>,右孩子为<code>2i+1</code>。</p>
+<p>对于编号为i的节点，若存在，其双亲的编号为<code>i/2</code>,左孩子为<code>2i</code>,右孩子为<code>2i+1</code>。</p>
 </blockquote>
 <h4 id="二叉树的存储结构"><a href="#二叉树的存储结构" class="headerlink" title="二叉树的存储结构"></a>二叉树的存储结构</h4><p>二叉树可以用数组或链接串列来存储，主要采用的是链式存储结构，至于顺序存储结构仅适用于完全二叉树或满二叉树，若是满二叉树就能紧凑排列而不浪费空间。</p>
-<h5 id="二叉链表存储结构"><a href="#二叉链表存储结构" class="headerlink" title="二叉链表存储结构"></a>二叉链表存储结构</h5><h5 id="顺序存储结构"><a href="#顺序存储结构" class="headerlink" title="顺序存储结构"></a>顺序存储结构</h5><h4 id="二叉查找树（二叉排序树、Binary-Seary-Tree、二叉搜索树、有序二叉树）"><a href="#二叉查找树（二叉排序树、Binary-Seary-Tree、二叉搜索树、有序二叉树）" class="headerlink" title="二叉查找树（二叉排序树、Binary Seary Tree、二叉搜索树、有序二叉树）"></a>二叉查找树（二叉排序树、Binary Seary Tree、二叉搜索树、有序二叉树）</h4><h3 id="霍夫曼树"><a href="#霍夫曼树" class="headerlink" title="霍夫曼树"></a>霍夫曼树</h3><h3 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h3><h2 id="无序树"><a href="#无序树" class="headerlink" title="无序树"></a>无序树</h2>]]></content>
+<h5 id="顺序存储结构"><a href="#顺序存储结构" class="headerlink" title="顺序存储结构"></a>顺序存储结构</h5><p>用一组连续的存储单元依次自上而下、自左至右存储完全二叉树上的结点元素。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/2AJIGM.png" alt><br>但是如果二叉树树是非完全二叉树的情况下，就必须使用顺序表的空元素来代替，如：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/27x3Tt.png" alt><br>这样的话，在非完全二叉树的情况下，采用顺序存储结构的二叉树就有很大弊端了，可能会造成很大空间的浪费，比如这种类型的树：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/1XluNE.png" alt><br>因此，非完全二叉树还是要使用链式存储结构来实现，这也是最常见的实现二叉树的存储结构。</p>
+<h5 id="二叉树的链式存储结构"><a href="#二叉树的链式存储结构" class="headerlink" title="二叉树的链式存储结构"></a>二叉树的链式存储结构</h5><ul>
+<li>双指针链式存储结构<br>双指针链式结构主要由一个数据域和两个分别指向左、右孩子的指针组成。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/Ir7nGG.png" alt><br>从图中可以看出，采用双指针链式存储结构，每个节点只存储了到其孩子节点的单向关系，而没有存储到父节点的关系，这样的话，每次要获取父节点时将消耗较多的时间，因为需要从root根节点开始查找，花费的时间是遍历部分二叉树的时间。</li>
+<li>三指针链式存储结构<br>三指针链式结构主要是在双指针的基础上多添加了一个指向父节点的域，这样我们就存储了父节点与孩子节点的双向关系，当然这样也增加了一定的空间开销。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/hvHTKU.png" alt></li>
+</ul>
+<h4 id="二叉查找树（二叉排序树、Binary-Seary-Tree、二叉搜索树、有序二叉树）"><a href="#二叉查找树（二叉排序树、Binary-Seary-Tree、二叉搜索树、有序二叉树）" class="headerlink" title="二叉查找树（二叉排序树、Binary Seary Tree、二叉搜索树、有序二叉树）"></a>二叉查找树（二叉排序树、Binary Seary Tree、二叉搜索树、有序二叉树）</h4><h3 id="霍夫曼树"><a href="#霍夫曼树" class="headerlink" title="霍夫曼树"></a>霍夫曼树</h3><h3 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h3><h2 id="无序树"><a href="#无序树" class="headerlink" title="无序树"></a>无序树</h2>]]></content>
       <categories>
         <category>数据结构</category>
       </categories>
@@ -7235,6 +7208,44 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       </categories>
       <tags>
         <tag>English</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大杂烩</title>
+    <url>/2020/08/04/%E5%A4%A7%E6%9D%82%E7%83%A9/</url>
+    <content><![CDATA[<h1 id="专业方法和技巧"><a href="#专业方法和技巧" class="headerlink" title="专业方法和技巧"></a>专业方法和技巧</h1><h2 id="第一原理（第一性原理、第一思维方式）"><a href="#第一原理（第一性原理、第一思维方式）" class="headerlink" title="第一原理（第一性原理、第一思维方式）"></a>第一原理（第一性原理、第一思维方式）</h2><p><a href="https://wiki.mbalib.com/wiki/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86" target="_blank" rel="noopener">https://wiki.mbalib.com/wiki/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86</a><br>“我们运用第一性原理，而不是比较思维去思考问题是非常重要的。我们在生活中总是倾向于比较，对别人已经做过或者正在做的事情我们也都去做，这样发展的结果只能产生细小的迭代发展。第一性原理的思想方式是用物理学的角度看待世界，也就是说一层层拨开事物表象，看到里面的本质，再从本质一层层往上走。”这是马斯克眼中的“第一性原理思维模型”——回溯事物的本质，重新思考怎么做。</p>
+<h2 id="费曼4步学习法"><a href="#费曼4步学习法" class="headerlink" title="费曼4步学习法"></a>费曼4步学习法</h2><h2 id="艾宾浩斯记忆曲线"><a href="#艾宾浩斯记忆曲线" class="headerlink" title="艾宾浩斯记忆曲线"></a>艾宾浩斯记忆曲线</h2><p>遗忘曲线（Forgetting curve）是用于表述记忆中的中长期记忆的遗忘率的一种曲线。这一曲线最早由心理学家赫尔曼·艾宾浩斯通过自己的实验提出。在这一实验中，艾宾浩斯使用了一些毫无意义的字母组合。通过记忆这些字母组合，并在一系列时间间隔后检查遗忘率，得到了这一曲线。因此，这一曲线又叫艾宾浩斯遗忘曲线。<br>记忆曲线大概如下：</p>
+<ul>
+<li>20分钟后，42%被遗忘掉，58%被记住。</li>
+<li>1小时后，56%被遗忘掉，44%被记住。</li>
+<li>1天后，74%被遗忘掉，26%被记住。</li>
+<li>1周后，77%被遗忘掉，23%被记住。</li>
+<li>1个月后，79%被遗忘掉，21%被记住。</li>
+</ul>
+<blockquote>
+<p>Anki Notes这个软件就是根据这个原理设计的。</p>
+</blockquote>
+<h2 id="罗斯福专业法"><a href="#罗斯福专业法" class="headerlink" title="罗斯福专业法"></a>罗斯福专业法</h2><h2 id="达芬奇笔记"><a href="#达芬奇笔记" class="headerlink" title="达芬奇笔记"></a>达芬奇笔记</h2><h1 id="一些个专有名词"><a href="#一些个专有名词" class="headerlink" title="一些个专有名词"></a>一些个专有名词</h1><h2 id="边际效益"><a href="#边际效益" class="headerlink" title="边际效益"></a>边际效益</h2><p><a href="https://baike.baidu.com/item/%E8%BE%B9%E9%99%85%E6%95%88%E7%9B%8A/2414098?fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/%E8%BE%B9%E9%99%85%E6%95%88%E7%9B%8A/2414098?fr=aladdin</a></p>
+<h2 id="方法论-VS-世界观"><a href="#方法论-VS-世界观" class="headerlink" title="方法论 VS 世界观"></a>方法论 VS 世界观</h2><p><strong><em>它是人们用什么样的方式、方法来观察事物和处理问题。概括地说，世界观主要说明世界“是什么”的问题，方法论主要说明“怎么办”的问题。</em></strong><br>方法论是一种以解决问题为目标的理论体系或系统，通常涉及对问题阶段、任务、工具、方法技巧的论述。方法论会对一系列具体的方法进行分析研究、系统总结并最终提出较为一般性的原则。<br><a href="https://baike.baidu.com/item/%E6%96%B9%E6%B3%95%E8%AE%BA/82748?fr=aladdin" target="_blank" rel="noopener">方法论的百度百科</a></p>
+<h1 id="成语-amp-词语"><a href="#成语-amp-词语" class="headerlink" title="成语&amp;词语"></a>成语&amp;词语</h1><ul>
+<li>睚眦必报</li>
+<li>兼听则明，偏听则暗</li>
+<li>触类旁通</li>
+<li>高光时刻</li>
+<li>窸窸窣窣</li>
+<li>侧足而立</li>
+<li>相悖</li>
+<li>商榷</li>
+<li>结痂</li>
+<li>一骑绝尘</li>
+<li>罄竹难书</li>
+</ul>
+<h1 id="权威书籍"><a href="#权威书籍" class="headerlink" title="权威书籍"></a>权威书籍</h1><h2 id="《金字塔原理》"><a href="#《金字塔原理》" class="headerlink" title="《金字塔原理》"></a>《金字塔原理》</h2><h2 id="《罗伯特议事规则》"><a href="#《罗伯特议事规则》" class="headerlink" title="《罗伯特议事规则》"></a>《罗伯特议事规则》</h2>]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
       </tags>
   </entry>
 </search>
