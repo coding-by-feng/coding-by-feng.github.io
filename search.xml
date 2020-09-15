@@ -1829,7 +1829,8 @@ public class Apple {
 <h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="B-树和二叉树的区别"><a href="#B-树和二叉树的区别" class="headerlink" title="B+树和二叉树的区别"></a>B+树和二叉树的区别</h2><h2 id="红黑树和跳表"><a href="#红黑树和跳表" class="headerlink" title="红黑树和跳表"></a>红黑树和跳表</h2><h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="一个接口太多事务操作是否要使用批量事务"><a href="#一个接口太多事务操作是否要使用批量事务" class="headerlink" title="一个接口太多事务操作是否要使用批量事务"></a>一个接口太多事务操作是否要使用批量事务</h2><h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="OLAP和OLTP"><a href="#OLAP和OLTP" class="headerlink" title="OLAP和OLTP"></a>OLAP和OLTP</h2><h2 id="冗余字段"><a href="#冗余字段" class="headerlink" title="冗余字段"></a>冗余字段</h2><p>微服务架构加上前后端分离的情况下。后端接口很多时候会出现太多联表查询的情况。其实可以数据库存储空间大小允许的情况下，留出一些关键字段的冗余字段来代替联表查询。甚至可以将一些数据拆分出来查询封装成比较合适的数据JSON结构，然后可以将需要连表查询的逻辑放到前端去计算拼接，这样一来可以减少服务器和数据库的压力，同时前端做这部分的计算能力其实也是绰绰有余了，毕竟目前相对来说这是一个用户端性能过剩的时代。</p>
 <p>尽可能多的冗余字段也可以为一定业务场景带来便捷的查询，没必要一味得遵循数据库三方式。</p>
 <h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><h2 id="redis如何清理过期key"><a href="#redis如何清理过期key" class="headerlink" title="redis如何清理过期key"></a>redis如何清理过期key</h2><h2 id="redis内存不足时的策略"><a href="#redis内存不足时的策略" class="headerlink" title="redis内存不足时的策略"></a>redis内存不足时的策略</h2><h2 id="缓存更新的套路"><a href="#缓存更新的套路" class="headerlink" title="缓存更新的套路"></a>缓存更新的套路</h2><p><a href="https://coolshell.cn/articles/17416.html[](https://coolshell.cn/articles/17416.html" target="_blank" rel="noopener">https://coolshell.cn/articles/17416.html[](https://coolshell.cn/articles/17416.html</a> “”)</p>
-<h3 id="Cache-Aside-Pattern"><a href="#Cache-Aside-Pattern" class="headerlink" title="Cache Aside Pattern"></a>Cache Aside Pattern</h3><h3 id="Read-Write-Through-Pattern"><a href="#Read-Write-Through-Pattern" class="headerlink" title="Read/Write Through Pattern"></a>Read/Write Through Pattern</h3><h3 id="Write-Behind-Caching-Pattern"><a href="#Write-Behind-Caching-Pattern" class="headerlink" title="Write Behind Caching Pattern"></a>Write Behind Caching Pattern</h3>]]></content>
+<h3 id="Cache-Aside-Pattern"><a href="#Cache-Aside-Pattern" class="headerlink" title="Cache Aside Pattern"></a>Cache Aside Pattern</h3><h3 id="Read-Write-Through-Pattern"><a href="#Read-Write-Through-Pattern" class="headerlink" title="Read/Write Through Pattern"></a>Read/Write Through Pattern</h3><h3 id="Write-Behind-Caching-Pattern"><a href="#Write-Behind-Caching-Pattern" class="headerlink" title="Write Behind Caching Pattern"></a>Write Behind Caching Pattern</h3><h1 id="Combo"><a href="#Combo" class="headerlink" title="Combo"></a>Combo</h1><h2 id="后端架构"><a href="#后端架构" class="headerlink" title="后端架构"></a>后端架构</h2><p>每一个单一表的对应Service类里面有且只能有一个Mapper，这也遵守了类的单一责任原则。</p>
+]]></content>
       <categories>
         <category>interview</category>
       </categories>
@@ -3451,19 +3452,19 @@ public class Apple {
 </tr>
 <tr>
 <td>opt+cmd+c</td>
-<td>提出代码为常量</td>
+<td>提取代码为常量</td>
 </tr>
 <tr>
 <td>opt+cmd+v</td>
-<td>提出代码为变量</td>
+<td>提取代码为变量</td>
 </tr>
 <tr>
 <td>opt+cmd+f</td>
-<td>提出代码为成员变量</td>
+<td>提取代码为成员变量</td>
 </tr>
 <tr>
 <td>opt+cmd+p</td>
-<td>提出代码为方法的形参</td>
+<td>提取代码为方法的形参</td>
 </tr>
 <tr>
 <td>opt+cmd+o</td>
@@ -7001,7 +7002,41 @@ public class Apple {
 <li>双指针链式存储结构<br>双指针链式结构主要由一个数据域和两个分别指向左、右孩子的指针组成。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/Ir7nGG.png" alt><br>从图中可以看出，采用双指针链式存储结构，每个节点只存储了到其孩子节点的单向关系，而没有存储到父节点的关系，这样的话，每次要获取父节点时将消耗较多的时间，因为需要从root根节点开始查找，花费的时间是遍历部分二叉树的时间。</li>
 <li>三指针链式存储结构<br>三指针链式结构主要是在双指针的基础上多添加了一个指向父节点的域，这样我们就存储了父节点与孩子节点的双向关系，当然这样也增加了一定的空间开销。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/hvHTKU.png" alt></li>
 </ul>
-<h4 id="二叉查找树（二叉排序树、Binary-Seary-Tree、二叉搜索树、有序二叉树）"><a href="#二叉查找树（二叉排序树、Binary-Seary-Tree、二叉搜索树、有序二叉树）" class="headerlink" title="二叉查找树（二叉排序树、Binary Seary Tree、二叉搜索树、有序二叉树）"></a>二叉查找树（二叉排序树、Binary Seary Tree、二叉搜索树、有序二叉树）</h4><h3 id="霍夫曼树"><a href="#霍夫曼树" class="headerlink" title="霍夫曼树"></a>霍夫曼树</h3><h3 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h3><h2 id="无序树"><a href="#无序树" class="headerlink" title="无序树"></a>无序树</h2>]]></content>
+<h4 id="二叉查找树（二叉排序树、二叉搜索树、Binary-Seary-Tree）"><a href="#二叉查找树（二叉排序树、二叉搜索树、Binary-Seary-Tree）" class="headerlink" title="二叉查找树（二叉排序树、二叉搜索树、Binary Seary Tree）"></a>二叉查找树（二叉排序树、二叉搜索树、Binary Seary Tree）</h4><p>二叉查找树的特性是，对于树种的每个结点T,它的左子树中所有项的值小T中的值，而它的右子树中所有项的值都大于T中的值。</p>
+<blockquote>
+<p>它既有链表的快速插入与删除操作的特点，又有数组快速查找的优势。</p>
+</blockquote>
+<h4 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h4><h5 id="先序（先根次序）遍历"><a href="#先序（先根次序）遍历" class="headerlink" title="先序（先根次序）遍历"></a>先序（先根次序）遍历</h5><ul>
+<li>访问根节点</li>
+<li>先序遍历左子树</li>
+<li>先序遍历右子树</li>
+</ul>
+<p>比如以下二叉树的访问次序是：1、2、4、5、3<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/T6UmeX.png" alt></p>
+<h6 id="先根遍历的递归实现"><a href="#先根遍历的递归实现" class="headerlink" title="先根遍历的递归实现"></a>先根遍历的递归实现</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">private String preOrder(BinaryNode&lt;T&gt; node)&#123;</span><br><span class="line">    if (node!=null) &#123;</span><br><span class="line">        //先访问根结点</span><br><span class="line">        peek(node);</span><br><span class="line">        //遍历左子树</span><br><span class="line">        preOrder(node.left);</span><br><span class="line">        //遍历右子树</span><br><span class="line">        preOrder(node.right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>也可以使用非递归实现，比如使用栈。</p>
+</blockquote>
+<h5 id="中序（中根次序）遍历"><a href="#中序（中根次序）遍历" class="headerlink" title="中序（中根次序）遍历"></a>中序（中根次序）遍历</h5><ul>
+<li>中序遍历左子树</li>
+<li>遍历根节点</li>
+<li>中序遍历右子树</li>
+</ul>
+<p>比如以下二叉树遍历顺序是a、b、c，也就是4、2、5、1、3、6：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/8xLHgi.png" alt></p>
+<h6 id="中序遍历的递归实现"><a href="#中序遍历的递归实现" class="headerlink" title="中序遍历的递归实现"></a>中序遍历的递归实现</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">private String inOrder(BinaryNode&lt;T&gt; node)&#123;</span><br><span class="line">    if (node!=null) &#123;</span><br><span class="line">        //遍历左子树</span><br><span class="line">        inOrder(node.left);</span><br><span class="line">        //先访问根结点</span><br><span class="line">        peek(node);</span><br><span class="line">        //遍历右子树</span><br><span class="line">        inOrder(node.right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>同样也可以使用栈来实现。</p>
+</blockquote>
+<h5 id="后序（后根次序）遍历"><a href="#后序（后根次序）遍历" class="headerlink" title="后序（后根次序）遍历"></a>后序（后根次序）遍历</h5><ul>
+<li>后序遍历左子树</li>
+<li>后序遍历右子树</li>
+<li>访问根节点</li>
+</ul>
+<p>比如以下二叉树遍历顺序是a、b、c，也就是4、5、2、1、6、3、1：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/kysHQi.png" alt></p>
+<h6 id="中序遍历的递归实现-1"><a href="#中序遍历的递归实现-1" class="headerlink" title="中序遍历的递归实现"></a>中序遍历的递归实现</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">private String inOrder(BinaryNode&lt;T&gt; node)&#123;</span><br><span class="line">    if (node!=null) &#123;</span><br><span class="line">        //遍历左子树</span><br><span class="line">        inOrder(node.left);</span><br><span class="line">        //先访问根结点</span><br><span class="line">        peek(node);</span><br><span class="line">        //遍历右子树</span><br><span class="line">        inOrder(node.right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>同样也可以使用栈来实现。</p>
+</blockquote>
+<h3 id="霍夫曼树"><a href="#霍夫曼树" class="headerlink" title="霍夫曼树"></a>霍夫曼树</h3><h3 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h3><h2 id="无序树"><a href="#无序树" class="headerlink" title="无序树"></a>无序树</h2>]]></content>
       <categories>
         <category>数据结构</category>
       </categories>
