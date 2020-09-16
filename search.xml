@@ -1830,6 +1830,7 @@ public class Apple {
 <p>尽可能多的冗余字段也可以为一定业务场景带来便捷的查询，没必要一味得遵循数据库三方式。</p>
 <h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><h2 id="redis如何清理过期key"><a href="#redis如何清理过期key" class="headerlink" title="redis如何清理过期key"></a>redis如何清理过期key</h2><h2 id="redis内存不足时的策略"><a href="#redis内存不足时的策略" class="headerlink" title="redis内存不足时的策略"></a>redis内存不足时的策略</h2><h2 id="缓存更新的套路"><a href="#缓存更新的套路" class="headerlink" title="缓存更新的套路"></a>缓存更新的套路</h2><p><a href="https://coolshell.cn/articles/17416.html[](https://coolshell.cn/articles/17416.html" target="_blank" rel="noopener">https://coolshell.cn/articles/17416.html[](https://coolshell.cn/articles/17416.html</a> “”)</p>
 <h3 id="Cache-Aside-Pattern"><a href="#Cache-Aside-Pattern" class="headerlink" title="Cache Aside Pattern"></a>Cache Aside Pattern</h3><h3 id="Read-Write-Through-Pattern"><a href="#Read-Write-Through-Pattern" class="headerlink" title="Read/Write Through Pattern"></a>Read/Write Through Pattern</h3><h3 id="Write-Behind-Caching-Pattern"><a href="#Write-Behind-Caching-Pattern" class="headerlink" title="Write Behind Caching Pattern"></a>Write Behind Caching Pattern</h3><h1 id="Combo"><a href="#Combo" class="headerlink" title="Combo"></a>Combo</h1><h2 id="后端架构"><a href="#后端架构" class="headerlink" title="后端架构"></a>后端架构</h2><p>每一个单一表的对应Service类里面有且只能有一个Mapper，这也遵守了类的单一责任原则。</p>
+<h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><p>类似DO、DTO、VO这种有可能要做传输的类一定不要忘记实现Serializable，和唯一标识化serialVersionUID。</p>
 ]]></content>
       <categories>
         <category>interview</category>
@@ -6997,12 +6998,12 @@ public class Apple {
 <p>对于编号为i的节点，若存在，其双亲的编号为<code>i/2</code>,左孩子为<code>2i</code>,右孩子为<code>2i+1</code>。</p>
 </blockquote>
 <h4 id="二叉树的存储结构"><a href="#二叉树的存储结构" class="headerlink" title="二叉树的存储结构"></a>二叉树的存储结构</h4><p>二叉树可以用数组或链接串列来存储，主要采用的是链式存储结构，至于顺序存储结构仅适用于完全二叉树或满二叉树，若是满二叉树就能紧凑排列而不浪费空间。</p>
-<h5 id="顺序存储结构"><a href="#顺序存储结构" class="headerlink" title="顺序存储结构"></a>顺序存储结构</h5><p>用一组连续的存储单元依次自上而下、自左至右存储完全二叉树上的结点元素。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/2AJIGM.png" alt><br>但是如果二叉树树是非完全二叉树的情况下，就必须使用顺序表的空元素来代替，如：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/27x3Tt.png" alt><br>这样的话，在非完全二叉树的情况下，采用顺序存储结构的二叉树就有很大弊端了，可能会造成很大空间的浪费，比如这种类型的树：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/1XluNE.png" alt><br>因此，非完全二叉树还是要使用链式存储结构来实现，这也是最常见的实现二叉树的存储结构。</p>
+<h5 id="顺序存储结构"><a href="#顺序存储结构" class="headerlink" title="顺序存储结构"></a>顺序存储结构</h5><p>用一组连续的存储单元依次自上而下、自左至右存储完全二叉树上的节点元素。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/2AJIGM.png" alt><br>但是如果二叉树树是非完全二叉树的情况下，就必须使用顺序表的空元素来代替，如：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/27x3Tt.png" alt><br>这样的话，在非完全二叉树的情况下，采用顺序存储结构的二叉树就有很大弊端了，可能会造成很大空间的浪费，比如这种类型的树：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/1XluNE.png" alt><br>因此，非完全二叉树还是要使用链式存储结构来实现，这也是最常见的实现二叉树的存储结构。</p>
 <h5 id="二叉树的链式存储结构"><a href="#二叉树的链式存储结构" class="headerlink" title="二叉树的链式存储结构"></a>二叉树的链式存储结构</h5><ul>
 <li>双指针链式存储结构<br>双指针链式结构主要由一个数据域和两个分别指向左、右孩子的指针组成。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/Ir7nGG.png" alt><br>从图中可以看出，采用双指针链式存储结构，每个节点只存储了到其孩子节点的单向关系，而没有存储到父节点的关系，这样的话，每次要获取父节点时将消耗较多的时间，因为需要从root根节点开始查找，花费的时间是遍历部分二叉树的时间。</li>
 <li>三指针链式存储结构<br>三指针链式结构主要是在双指针的基础上多添加了一个指向父节点的域，这样我们就存储了父节点与孩子节点的双向关系，当然这样也增加了一定的空间开销。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/hvHTKU.png" alt></li>
 </ul>
-<h4 id="二叉查找树（二叉排序树、二叉搜索树、Binary-Seary-Tree）"><a href="#二叉查找树（二叉排序树、二叉搜索树、Binary-Seary-Tree）" class="headerlink" title="二叉查找树（二叉排序树、二叉搜索树、Binary Seary Tree）"></a>二叉查找树（二叉排序树、二叉搜索树、Binary Seary Tree）</h4><p>二叉查找树的特性是，对于树种的每个结点T,它的左子树中所有项的值小T中的值，而它的右子树中所有项的值都大于T中的值。</p>
+<h4 id="二叉查找树（二叉排序树、二叉搜索树、Binary-Seary-Tree）"><a href="#二叉查找树（二叉排序树、二叉搜索树、Binary-Seary-Tree）" class="headerlink" title="二叉查找树（二叉排序树、二叉搜索树、Binary Seary Tree）"></a>二叉查找树（二叉排序树、二叉搜索树、Binary Seary Tree）</h4><p>二叉查找树的特性是，对于树种的每个节点T,它的左子树中所有项的值小T中的值，而它的右子树中所有项的值都大于T中的值。</p>
 <blockquote>
 <p>它既有链表的快速插入与删除操作的特点，又有数组快速查找的优势。</p>
 </blockquote>
@@ -7012,7 +7013,7 @@ public class Apple {
 <li>先序遍历右子树</li>
 </ul>
 <p>比如以下二叉树的访问次序是：1、2、4、5、3<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/T6UmeX.png" alt></p>
-<h6 id="先根遍历的递归实现"><a href="#先根遍历的递归实现" class="headerlink" title="先根遍历的递归实现"></a>先根遍历的递归实现</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">private String preOrder(BinaryNode&lt;T&gt; node)&#123;</span><br><span class="line">    if (node!=null) &#123;</span><br><span class="line">        //先访问根结点</span><br><span class="line">        peek(node);</span><br><span class="line">        //遍历左子树</span><br><span class="line">        preOrder(node.left);</span><br><span class="line">        //遍历右子树</span><br><span class="line">        preOrder(node.right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="先根遍历的递归实现"><a href="#先根遍历的递归实现" class="headerlink" title="先根遍历的递归实现"></a>先根遍历的递归实现</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">private String preOrder(BinaryNode&lt;T&gt; node)&#123;</span><br><span class="line">    if (node!=null) &#123;</span><br><span class="line">        //先访问根节点</span><br><span class="line">        peek(node);</span><br><span class="line">        //遍历左子树</span><br><span class="line">        preOrder(node.left);</span><br><span class="line">        //遍历右子树</span><br><span class="line">        preOrder(node.right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>也可以使用非递归实现，比如使用栈。</p>
 </blockquote>
@@ -7022,20 +7023,66 @@ public class Apple {
 <li>中序遍历右子树</li>
 </ul>
 <p>比如以下二叉树遍历顺序是a、b、c，也就是4、2、5、1、3、6：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/8xLHgi.png" alt></p>
-<h6 id="中序遍历的递归实现"><a href="#中序遍历的递归实现" class="headerlink" title="中序遍历的递归实现"></a>中序遍历的递归实现</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">private String inOrder(BinaryNode&lt;T&gt; node)&#123;</span><br><span class="line">    if (node!=null) &#123;</span><br><span class="line">        //遍历左子树</span><br><span class="line">        inOrder(node.left);</span><br><span class="line">        //先访问根结点</span><br><span class="line">        peek(node);</span><br><span class="line">        //遍历右子树</span><br><span class="line">        inOrder(node.right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>同样也可以使用栈来实现。</p>
+<h6 id="中序遍历的递归实现"><a href="#中序遍历的递归实现" class="headerlink" title="中序遍历的递归实现"></a>中序遍历的递归实现</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">private String inOrder(BinaryNode&lt;T&gt; node)&#123;</span><br><span class="line">    if (node!=null) &#123;</span><br><span class="line">        //遍历左子树</span><br><span class="line">        inOrder(node.left);</span><br><span class="line">        //先访问根节点</span><br><span class="line">        peek(node);</span><br><span class="line">        //遍历右子树</span><br><span class="line">        inOrder(node.right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="中序遍历的非递归实现"><a href="#中序遍历的非递归实现" class="headerlink" title="中序遍历的非递归实现"></a>中序遍历的非递归实现</h6><blockquote>
+<p>可以使用栈来实现。</p>
 </blockquote>
+<p>遍历思想：</p>
+<ul>
+<li>1、初始时依次扫描根节点的所有左侧节点并将它们进栈;</li>
+<li>2、出栈一个节点，访问它;</li>
+<li>3、扫描该节点的右节点并将其进栈;</li>
+<li>4、依次扫描右节点的所有左侧节点并一一进栈;</li>
+<li>5、反复该过程直到栈空为止。</li>
+</ul>
+<p>比如以下树，进出栈顺序为：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/oy8slf.png" alt></p>
+<ul>
+<li>进栈：1、2、4、7（遍历思想第1步）；</li>
+<li>出栈：7；（栈中：：1、2、4，遍历思想第2步）</li>
+<li>访问7所在节点，尝试拿到其右节点压入栈，但是此时为空，不能递归空节点是否有左节点（遍历思想上面的第3步）；</li>
+<li>出栈：4；（栈中：1、2，遍历思想第2步）</li>
+<li>遍历思想第3步，此时为空；</li>
+<li>出栈：2；（栈中：1，遍历思想第2步）</li>
+<li>遍历思想第3步，发现其右节点；</li>
+<li>进栈：5；（栈中：1、5）</li>
+<li>遍历思想第4步，此时为空；</li>
+<li>出栈：5；（栈中：1，遍历思想第2步）</li>
+<li>遍历思想第3步，此时为空；</li>
+<li>出栈：1（遍历思想第2步）</li>
+<li>遍历思想第3步，此时发现右节点，进栈3（栈中：3）；</li>
+<li>遍历思想第4步，此时发现左节点，进栈6（栈中：3、6）；</li>
+<li>重复第2步2次，致词结束。</li>
+</ul>
+<p>所以不难发现，其实真个过程只是在遍历思想的5步中循环，从第3步到第4步，只要访问想要的节点为空就退回到上一步然后继续往后走，直至栈空。</p>
+<blockquote>
+<p>BOILERPLATE：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">void inOrder(TreeNode node)&#123;</span><br><span class="line">    Stack stack = new Stack();</span><br><span class="line">    Object e = node;</span><br><span class="line">    while(e != null || !stack.isEmpty())&#123;</span><br><span class="line">        if(e != null)&#123;</span><br><span class="line">            stack.push(e);</span><br><span class="line">            e = e.left;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            e = stack.pop();</span><br><span class="line">            peek(e);</span><br><span class="line">            e = e.right;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="后序（后根次序）遍历"><a href="#后序（后根次序）遍历" class="headerlink" title="后序（后根次序）遍历"></a>后序（后根次序）遍历</h5><ul>
 <li>后序遍历左子树</li>
 <li>后序遍历右子树</li>
 <li>访问根节点</li>
 </ul>
 <p>比如以下二叉树遍历顺序是a、b、c，也就是4、5、2、1、6、3、1：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/kysHQi.png" alt></p>
-<h6 id="中序遍历的递归实现-1"><a href="#中序遍历的递归实现-1" class="headerlink" title="中序遍历的递归实现"></a>中序遍历的递归实现</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">private String inOrder(BinaryNode&lt;T&gt; node)&#123;</span><br><span class="line">    if (node!=null) &#123;</span><br><span class="line">        //遍历左子树</span><br><span class="line">        inOrder(node.left);</span><br><span class="line">        //先访问根结点</span><br><span class="line">        peek(node);</span><br><span class="line">        //遍历右子树</span><br><span class="line">        inOrder(node.right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="后序遍历的递归实现"><a href="#后序遍历的递归实现" class="headerlink" title="后序遍历的递归实现"></a>后序遍历的递归实现</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">private String postOrder(BinaryNode&lt;T&gt; node)&#123;</span><br><span class="line">    if (node!=null) &#123;</span><br><span class="line">        //遍历左子树</span><br><span class="line">        postOrder(node.left);</span><br><span class="line">        //遍历右子树</span><br><span class="line">        postOrder(node.right);</span><br><span class="line">        //先访问根节点</span><br><span class="line">        peek(node);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>同样也可以使用栈来实现。</p>
 </blockquote>
+<h5 id="层次遍历"><a href="#层次遍历" class="headerlink" title="层次遍历"></a>层次遍历</h5><blockquote>
+<p>使用队列来实现。</p>
+</blockquote>
+<p>遍历思想：</p>
+<ul>
+<li>1、初始将根入队并访问根结点，然后出队;</li>
+<li>2、若有左子树，则将左子树的根入队;</li>
+<li>3、若有右子树，则将右子树的根入队;</li>
+<li>4、然后出队，访问该结点;</li>
+<li>5、反复该过程直到队列空为止。</li>
+</ul>
+<blockquote>
+<p>BOILERPLATE：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h3 id="霍夫曼树"><a href="#霍夫曼树" class="headerlink" title="霍夫曼树"></a>霍夫曼树</h3><h3 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h3><h2 id="无序树"><a href="#无序树" class="headerlink" title="无序树"></a>无序树</h2>]]></content>
       <categories>
         <category>数据结构</category>
