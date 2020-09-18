@@ -42,7 +42,8 @@
 <meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/8xLHgi.png">
 <meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/oy8slf.png">
 <meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/kysHQi.png">
-<meta property="og:updated_time" content="2020-09-16T13:08:53.471Z">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/EmDKEi.png">
+<meta property="og:updated_time" content="2020-09-18T06:25:32.556Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构系列之树（Java）">
 <meta name="twitter:description" content="leetcode树专题 树的定义树是由n个有限节点组成一个具有层次关系的集合。把它叫做“树”是因为它看起来像一棵倒挂的树，也就是说它是根朝上，而叶朝下的。当n=0时，称为空树。 树的特点 每个节点都只有有限个子节点或无子节点； 没有父节点的节点称为根节点； 每一个非根节点有且只有一个父节点； 除了根节点外，每个子节点可以分为多个不相交的子树； 树里面没有环路(cycle)。   树的术语 根节点：">
@@ -211,7 +212,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-16 21:08:53" itemprop="dateModified" datetime="2020-09-16T21:08:53+08:00">2020-09-16</time>
+                <time title="Modified: 2020-09-18 14:25:32" itemprop="dateModified" datetime="2020-09-18T14:25:32+08:00">2020-09-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -365,7 +366,13 @@
 <blockquote>
 <p>BOILERPLATE：</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void levelOrder(BiTree root)&#123;</span><br><span class="line">    queue.push(root);</span><br><span class="line">    BiTree node;</span><br><span class="line">    while(!queue.isEmpty())&#123;</span><br><span class="line">        node = queue.pop();</span><br><span class="line">        peek(node);</span><br><span class="line">        if(node.left != null) queue.push(node.left);</span><br><span class="line">        if(node.right != null) queue.push(node.right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="遍历序列确定唯一二叉树"><a href="#遍历序列确定唯一二叉树" class="headerlink" title="遍历序列确定唯一二叉树"></a>遍历序列确定唯一二叉树</h5><p>后序或者先序遍历序列+中序遍历序列，可以确定一颗唯一二叉树。<br>比如：</p>
+<ul>
+<li>先序遍历序列（1、2、4、5、3、6）</li>
+<li>中序遍历序列（4、2、5、1、6、3）</li>
+</ul>
+<p>其对应的树如下：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/EmDKEi.png" alt></p>
 <h3 id="霍夫曼树"><a href="#霍夫曼树" class="headerlink" title="霍夫曼树"></a>霍夫曼树</h3><h3 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h3><h2 id="无序树"><a href="#无序树" class="headerlink" title="无序树"></a>无序树</h2>
     </div>
 
@@ -389,7 +396,10 @@
     <a href="/2020/09/09/English系列之定语从句/" rel="prev" title="English系列之定语从句">
       <i class="fa fa-chevron-left"></i> English系列之定语从句
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/09/18/数据结构系列之图-Java/" rel="next" title="数据结构系列之图-Java">
+      数据结构系列之图-Java <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -448,7 +458,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#树的定义"><span class="nav-number">1.</span> <span class="nav-text">树的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树的特点"><span class="nav-number">2.</span> <span class="nav-text">树的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树的术语"><span class="nav-number">3.</span> <span class="nav-text">树的术语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有序树"><span class="nav-number">4.</span> <span class="nav-text">有序树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉树"><span class="nav-number">4.1.</span> <span class="nav-text">二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的五种形态"><span class="nav-number">4.1.1.</span> <span class="nav-text">二叉树的五种形态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三个节点的二叉树有多少种？"><span class="nav-number">4.1.2.</span> <span class="nav-text">三个节点的二叉树有多少种？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的性质"><span class="nav-number">4.1.3.</span> <span class="nav-text">二叉树的性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#完全二叉树（Complete-Binary-Tree）"><span class="nav-number">4.1.4.</span> <span class="nav-text">完全二叉树（Complete Binary Tree）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#完全二叉树的性质"><span class="nav-number">4.1.4.1.</span> <span class="nav-text">完全二叉树的性质</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#满二叉树"><span class="nav-number">4.1.4.2.</span> <span class="nav-text">满二叉树</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的存储结构"><span class="nav-number">4.1.5.</span> <span class="nav-text">二叉树的存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#顺序存储结构"><span class="nav-number">4.1.5.1.</span> <span class="nav-text">顺序存储结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二叉树的链式存储结构"><span class="nav-number">4.1.5.2.</span> <span class="nav-text">二叉树的链式存储结构</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉查找树（二叉排序树、二叉搜索树、Binary-Seary-Tree）"><span class="nav-number">4.1.6.</span> <span class="nav-text">二叉查找树（二叉排序树、二叉搜索树、Binary Seary Tree）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的遍历"><span class="nav-number">4.1.7.</span> <span class="nav-text">二叉树的遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#先序（先根次序）遍历"><span class="nav-number">4.1.7.1.</span> <span class="nav-text">先序（先根次序）遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#先根遍历的递归实现"><span class="nav-number">4.1.7.1.1.</span> <span class="nav-text">先根遍历的递归实现</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#中序（中根次序）遍历"><span class="nav-number">4.1.7.2.</span> <span class="nav-text">中序（中根次序）遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#中序遍历的递归实现"><span class="nav-number">4.1.7.2.1.</span> <span class="nav-text">中序遍历的递归实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#中序遍历的非递归实现"><span class="nav-number">4.1.7.2.2.</span> <span class="nav-text">中序遍历的非递归实现</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#后序（后根次序）遍历"><span class="nav-number">4.1.7.3.</span> <span class="nav-text">后序（后根次序）遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#后序遍历的递归实现"><span class="nav-number">4.1.7.3.1.</span> <span class="nav-text">后序遍历的递归实现</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#层次遍历"><span class="nav-number">4.1.7.4.</span> <span class="nav-text">层次遍历</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#霍夫曼树"><span class="nav-number">4.2.</span> <span class="nav-text">霍夫曼树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B树"><span class="nav-number">4.3.</span> <span class="nav-text">B树</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无序树"><span class="nav-number">5.</span> <span class="nav-text">无序树</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#树的定义"><span class="nav-number">1.</span> <span class="nav-text">树的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树的特点"><span class="nav-number">2.</span> <span class="nav-text">树的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树的术语"><span class="nav-number">3.</span> <span class="nav-text">树的术语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有序树"><span class="nav-number">4.</span> <span class="nav-text">有序树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉树"><span class="nav-number">4.1.</span> <span class="nav-text">二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的五种形态"><span class="nav-number">4.1.1.</span> <span class="nav-text">二叉树的五种形态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三个节点的二叉树有多少种？"><span class="nav-number">4.1.2.</span> <span class="nav-text">三个节点的二叉树有多少种？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的性质"><span class="nav-number">4.1.3.</span> <span class="nav-text">二叉树的性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#完全二叉树（Complete-Binary-Tree）"><span class="nav-number">4.1.4.</span> <span class="nav-text">完全二叉树（Complete Binary Tree）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#完全二叉树的性质"><span class="nav-number">4.1.4.1.</span> <span class="nav-text">完全二叉树的性质</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#满二叉树"><span class="nav-number">4.1.4.2.</span> <span class="nav-text">满二叉树</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的存储结构"><span class="nav-number">4.1.5.</span> <span class="nav-text">二叉树的存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#顺序存储结构"><span class="nav-number">4.1.5.1.</span> <span class="nav-text">顺序存储结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二叉树的链式存储结构"><span class="nav-number">4.1.5.2.</span> <span class="nav-text">二叉树的链式存储结构</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉查找树（二叉排序树、二叉搜索树、Binary-Seary-Tree）"><span class="nav-number">4.1.6.</span> <span class="nav-text">二叉查找树（二叉排序树、二叉搜索树、Binary Seary Tree）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的遍历"><span class="nav-number">4.1.7.</span> <span class="nav-text">二叉树的遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#先序（先根次序）遍历"><span class="nav-number">4.1.7.1.</span> <span class="nav-text">先序（先根次序）遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#先根遍历的递归实现"><span class="nav-number">4.1.7.1.1.</span> <span class="nav-text">先根遍历的递归实现</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#中序（中根次序）遍历"><span class="nav-number">4.1.7.2.</span> <span class="nav-text">中序（中根次序）遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#中序遍历的递归实现"><span class="nav-number">4.1.7.2.1.</span> <span class="nav-text">中序遍历的递归实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#中序遍历的非递归实现"><span class="nav-number">4.1.7.2.2.</span> <span class="nav-text">中序遍历的非递归实现</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#后序（后根次序）遍历"><span class="nav-number">4.1.7.3.</span> <span class="nav-text">后序（后根次序）遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#后序遍历的递归实现"><span class="nav-number">4.1.7.3.1.</span> <span class="nav-text">后序遍历的递归实现</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#层次遍历"><span class="nav-number">4.1.7.4.</span> <span class="nav-text">层次遍历</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#遍历序列确定唯一二叉树"><span class="nav-number">4.1.7.5.</span> <span class="nav-text">遍历序列确定唯一二叉树</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#霍夫曼树"><span class="nav-number">4.2.</span> <span class="nav-text">霍夫曼树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B树"><span class="nav-number">4.3.</span> <span class="nav-text">B树</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无序树"><span class="nav-number">5.</span> <span class="nav-text">无序树</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -462,7 +472,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">125</span>
+          <span class="site-state-item-count">126</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -475,7 +485,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">87</span>
+        <span class="site-state-item-count">88</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

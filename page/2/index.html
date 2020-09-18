@@ -163,7 +163,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/Markdown汇总/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/11/数据结构系列之树-Java/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -177,7 +177,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/03/29/Markdown汇总/" class="post-title-link" itemprop="url">Markdown汇总</a>
+            <a href="/2020/09/11/数据结构系列之树-Java/" class="post-title-link" itemprop="url">数据结构系列之树（Java）</a>
         </h2>
 
         <div class="post-meta">
@@ -187,14 +187,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-03-29 10:38:18" itemprop="dateCreated datePublished" datetime="2020-03-29T10:38:18+08:00">2020-03-29</time>
+              <time title="Created: 2020-09-11 21:33:45" itemprop="dateCreated datePublished" datetime="2020-09-11T21:33:45+08:00">2020-09-11</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-12 20:46:47" itemprop="dateModified" datetime="2020-09-12T20:46:47+08:00">2020-09-12</time>
+                <time title="Modified: 2020-09-18 14:25:32" itemprop="dateModified" datetime="2020-09-18T14:25:32+08:00">2020-09-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -202,7 +202,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Markdown/" itemprop="url" rel="index"><span itemprop="name">Markdown</span></a>
+                  <a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
                 </span>
             </span>
 
@@ -217,92 +217,246 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><h2 id="标记"><a href="#标记" class="headerlink" title="标记"></a>标记</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">**这是加粗的文字**</span><br><span class="line">*这是倾斜的文字*`</span><br><span class="line">***这是斜体加粗的文字***</span><br><span class="line">~~这是加删除线的文字~~</span><br><span class="line">&gt;这是引用的内容</span><br><span class="line">==背景高亮==</span><br></pre></td></tr></table></figure>
-<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">----</span><br><span class="line">***</span><br><span class="line">*****</span><br></pre></td></tr></table></figure>
-<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![图片alt](图片地址 &apos;&apos;图片title&apos;&apos;)</span><br></pre></td></tr></table></figure>
-<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[超链接名](超链接地址 &quot;超链接title&quot;)</span><br></pre></td></tr></table></figure>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h4 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- 列表内容</span><br><span class="line">+ 列表内容</span><br><span class="line">* 列表内容</span><br><span class="line"></span><br><span class="line">注意：- + * 跟内容之间都要有一个空格</span><br></pre></td></tr></table></figure>
-<h4 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 列表内容</span><br><span class="line">2. 列表内容</span><br><span class="line">3. 列表内容</span><br><span class="line"></span><br><span class="line">注意：序号跟内容之间要有空格</span><br></pre></td></tr></table></figure>
-<h4 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h4><p>上一级和下一级之间敲三个空格即可</p>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><h4 id="极简方式"><a href="#极简方式" class="headerlink" title="极简方式"></a>极简方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">name | 价格 |  数量  </span><br><span class="line">-|-|-</span><br><span class="line">香蕉 | $1 | 5 </span><br><span class="line">苹果 | $1 | 6 </span><br><span class="line">草莓 | $1 | 7</span><br></pre></td></tr></table></figure>
-<p>表格效果：</p>
-<table>
-<thead>
-<tr>
-<th>name</th>
-<th>价格</th>
-<th>数量  </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>香蕉</td>
-<td>$1</td>
-<td>5 </td>
-</tr>
-<tr>
-<td>苹果</td>
-<td>$1</td>
-<td>6 </td>
-</tr>
-<tr>
-<td>草莓</td>
-<td>$1</td>
-<td>7 </td>
-</tr>
-</tbody>
-</table>
-<h4 id="原生居中写法"><a href="#原生居中写法" class="headerlink" title="原生居中写法"></a>原生居中写法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name | 111 | 222 | 333 | 444</span><br><span class="line">:-: | :-: | :-: | :-: | :-:</span><br><span class="line">aaa | bbb | ccc | ddd | eee</span><br><span class="line">fff | ggg| hhh | iii | 000</span><br></pre></td></tr></table></figure>
-<p>表格效果：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">name</th>
-<th style="text-align:center">111</th>
-<th style="text-align:center">222</th>
-<th style="text-align:center">333</th>
-<th style="text-align:center">444</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">aaa</td>
-<td style="text-align:center">bbb</td>
-<td style="text-align:center">ccc</td>
-<td style="text-align:center">ddd</td>
-<td style="text-align:center">eee</td>
-</tr>
-<tr>
-<td style="text-align:center">fff</td>
-<td style="text-align:center">ggg</td>
-<td style="text-align:center">hhh</td>
-<td style="text-align:center">iii</td>
-<td style="text-align:center">000</td>
-</tr>
-</tbody>
-</table>
-<h2 id="行内代码块"><a href="#行内代码块" class="headerlink" title="行内代码块"></a>行内代码块</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`XXX`</span><br></pre></td></tr></table></figure>
-<h2 id="数学公式"><a href="#数学公式" class="headerlink" title="数学公式"></a>数学公式</h2><blockquote>
-<p>hexo注意要在主题配置文件_config.yml开启数学公式，关键配置是<code>mathjax</code>，以及要在博客加上配置<code>mathjax: true</code>。<br><a href="https://www.dazhuanlan.com/2019/10/21/5dacaedf4c643/?__cf_chl_jschl_tk__=dbc59d7a95e168226de74bd7fb3f80049375667b-1599913232-0-ATRRQpbKWNHowP0aILxN9t1A-MuQZS0tEBq2UNjUnfkCIMHxl4V7L0r47JKN_4w4V8TIRlaU3dg1sUQfWL2Oy3T3ewydLyGZJYacN1keb9ZQK6qoE79HKmIpXydOUrtI7xlMG3LdCKnhupB7UfIXHduDp3qBsgdib-Tq9wx9gr4fklBx3Bsf4fPA4G5jUu4uXKa1xca88H6t0gBMyhli8_o6CbHJJmN93bQiAWJa2MgApOKLZ147wBgaW2mI0JATcc3_HaPC1x91pKLLoZLIEFRUYrWiPtvt1QnQF2g7zwDDz5CJK0SoFms0PPTVB1Obcw" target="_blank" rel="noopener">参考来源</a></p>
-</blockquote>
-<ul>
-<li>行内公式使用<code>$公式XXX$</code>包起来。</li>
-<li>行间公式使用<code>$$公式XXX$$</code>包起来。</li>
+          <p><a href="https://leetcode-cn.com/tag/tree/" target="_blank" rel="noopener">leetcode树专题</a></p>
+<h2 id="树的定义"><a href="#树的定义" class="headerlink" title="树的定义"></a>树的定义</h2><p>树是由n个有限节点组成一个具有层次关系的集合。把它叫做“树”是因为它看起来像一棵倒挂的树，也就是说它是根朝上，而叶朝下的。<br>当n=0时，称为空树。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/pbMQ0p.png" alt></p>
+<h2 id="树的特点"><a href="#树的特点" class="headerlink" title="树的特点"></a>树的特点</h2><ul>
+<li>每个节点都只有有限个子节点或无子节点；</li>
+<li>没有父节点的节点称为根节点；</li>
+<li>每一个非根节点有且只有一个父节点；</li>
+<li>除了根节点外，每个子节点可以分为多个不相交的子树；</li>
+<li>树里面没有环路(cycle)。 </li>
 </ul>
-<h3 id="n次方（上标）"><a href="#n次方（上标）" class="headerlink" title="n次方（上标）"></a>n次方（上标）</h3><p>如：x的2次方<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x^&#123;2&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>行内效果：$x^{2}$</li>
-<li>行间效果：$$x^{2}$$</li>
+<h2 id="树的术语"><a href="#树的术语" class="headerlink" title="树的术语"></a>树的术语</h2><ul>
+<li>根节点： 根节点没有父节点，树中最多有一个根节点（如上图的Root）；</li>
+<li>节点的度：一个节点含有的子树的个数称为该节点的度（如上图的Root的度为3，L2_*所有节点的度为0）；</li>
+<li>树的度：树中最大的节点度称为树的度（如上图树的度=Root的度=L1_C的度）；</li>
+<li>叶节点（终端节点）：度为0的节点（如上图L2_*的所有节点）；</li>
+<li>父节点：若一个节点含有子节点，则这个节点称为其子节点的父节点；</li>
+<li>子节点：一个节点的子树的根节点称为其孩子节点；</li>
+<li>兄弟节点：具有相同父节点的节点互称为兄弟节点；</li>
+<li>树的层（节点的层）：从根开始定义起，根为第1层，根的子节点为第2层，以此类推；</li>
+<li>分支节点（非终端节点）：度不为零的节点；</li>
+<li>深度：对于任意节点n,n的深度为从根到n的唯一路径长，根的深度为0；</li>
+<li>高度：对于任意节点n,n的高度为从n到其子孙中的最长路径，所有树叶的高度为0；</li>
+<li>节点的祖先：从根到该节点所经分支上的所有节点；</li>
+<li>森林：由m（m&gt;=0）棵互不相交的树的集合称为森林；</li>
+<li>子孙：以某节点为根的子树中任一节点都称为该节点的子孙。</li>
 </ul>
-<h3 id="下标"><a href="#下标" class="headerlink" title="下标"></a>下标</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n_&#123;i-1&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="有序树"><a href="#有序树" class="headerlink" title="有序树"></a>有序树</h2><h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><p>二叉树（Binary tree）是每个节点最多只有两个分支（即不存在分支度大于2的节点）的树结构，是n(n≥0)个节点组成的有限集合：</p>
 <ul>
-<li>行内效果：$n_{i-1}$</li>
-<li>行间效果：$$n_{i-1}$$</li>
+<li>n=0时称为空二叉树；</li>
+<li>n&gt;0的二叉树由一个根节点和两棵互不相交的子树组合而成，通常分支被称作“左子树”或“右子树”，二叉树的分支具有左右次序，不能随意颠倒。</li>
 </ul>
-<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><h2 id="markdown-here"><a href="#markdown-here" class="headerlink" title="markdown-here"></a>markdown-here</h2><p>谷歌插件，神器，将md一键转富文本！</p>
+<h4 id="二叉树的五种形态"><a href="#二叉树的五种形态" class="headerlink" title="二叉树的五种形态"></a>二叉树的五种形态</h4><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/r9NLTh.png" alt></p>
+<h4 id="三个节点的二叉树有多少种？"><a href="#三个节点的二叉树有多少种？" class="headerlink" title="三个节点的二叉树有多少种？"></a>三个节点的二叉树有多少种？</h4><p>五种。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/MKUYFS.png" alt></p>
+<h4 id="二叉树的性质"><a href="#二叉树的性质" class="headerlink" title="二叉树的性质"></a>二叉树的性质</h4><ul>
+<li>二叉树的第i层上至多有$2^{i-1}(i≥1)$个节点；</li>
+<li>深度为h的二叉树中至多含有2^{h}-1个节点;</li>
+</ul>
+<h4 id="完全二叉树（Complete-Binary-Tree）"><a href="#完全二叉树（Complete-Binary-Tree）" class="headerlink" title="完全二叉树（Complete Binary Tree）"></a>完全二叉树（Complete Binary Tree）</h4><p>假设二叉树的深度为h，除第h层外，其它各层<code>[1～h-1]</code>的节点数都达到最大个数，第h层所有的节点都连续集中在最左边，这就是完全二叉树<br>换句话说，在一颗二叉树中，若除最后一层外的其余层都是满的，并且最后一层要么是满的，要么在右边缺少<strong><em>连续</em></strong>一个或若干节点，则此二叉树为完全二叉树。<br>比如，下面三棵树都是完全二叉树：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/g7pm5P.png" alt></p>
+<h5 id="完全二叉树的性质"><a href="#完全二叉树的性质" class="headerlink" title="完全二叉树的性质"></a>完全二叉树的性质</h5><ul>
+<li>若<code>i≤[n/2]</code>， 则节点i为分支节点，否则为叶子节点。</li>
+<li>叶子节点只可能在层次最大的两层上出现。对于最大层次的叶子节点，都依次排在最左边的位置上。</li>
+<li>度为1的节点若存在，则最多只能只有一个，且是编号最大的分支节点，其孩子节点一定是左节点。</li>
+</ul>
+<h5 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h5><p>一棵高度为h的满二叉树（Full Binary Tree）是具有$2^{h}−1(h≥0)$个节点的二叉树。满二叉树的最大特点是每一层次的节点数都达到最大值。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/pjgSLj.png" alt></p>
 <blockquote>
-<p><a href="https://www.jianshu.com/p/ebe52d2d468f" target="_blank" rel="noopener">参考来源1</a></p>
+<p>对于编号为i的节点，若存在，其双亲的编号为<code>i/2</code>,左孩子为<code>2i</code>,右孩子为<code>2i+1</code>。</p>
 </blockquote>
+<h4 id="二叉树的存储结构"><a href="#二叉树的存储结构" class="headerlink" title="二叉树的存储结构"></a>二叉树的存储结构</h4><p>二叉树可以用数组或链接串列来存储，主要采用的是链式存储结构，至于顺序存储结构仅适用于完全二叉树或满二叉树，若是满二叉树就能紧凑排列而不浪费空间。</p>
+<h5 id="顺序存储结构"><a href="#顺序存储结构" class="headerlink" title="顺序存储结构"></a>顺序存储结构</h5><p>用一组连续的存储单元依次自上而下、自左至右存储完全二叉树上的节点元素。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/2AJIGM.png" alt><br>但是如果二叉树树是非完全二叉树的情况下，就必须使用顺序表的空元素来代替，如：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/27x3Tt.png" alt><br>这样的话，在非完全二叉树的情况下，采用顺序存储结构的二叉树就有很大弊端了，可能会造成很大空间的浪费，比如这种类型的树：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/1XluNE.png" alt><br>因此，非完全二叉树还是要使用链式存储结构来实现，这也是最常见的实现二叉树的存储结构。</p>
+<h5 id="二叉树的链式存储结构"><a href="#二叉树的链式存储结构" class="headerlink" title="二叉树的链式存储结构"></a>二叉树的链式存储结构</h5><ul>
+<li>双指针链式存储结构<br>双指针链式结构主要由一个数据域和两个分别指向左、右孩子的指针组成。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/Ir7nGG.png" alt><br>从图中可以看出，采用双指针链式存储结构，每个节点只存储了到其孩子节点的单向关系，而没有存储到父节点的关系，这样的话，每次要获取父节点时将消耗较多的时间，因为需要从root根节点开始查找，花费的时间是遍历部分二叉树的时间。</li>
+<li>三指针链式存储结构<br>三指针链式结构主要是在双指针的基础上多添加了一个指向父节点的域，这样我们就存储了父节点与孩子节点的双向关系，当然这样也增加了一定的空间开销。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/hvHTKU.png" alt></li>
+</ul>
+<h4 id="二叉查找树（二叉排序树、二叉搜索树、Binary-Seary-Tree）"><a href="#二叉查找树（二叉排序树、二叉搜索树、Binary-Seary-Tree）" class="headerlink" title="二叉查找树（二叉排序树、二叉搜索树、Binary Seary Tree）"></a>二叉查找树（二叉排序树、二叉搜索树、Binary Seary Tree）</h4><p>二叉查找树的特性是，对于树种的每个节点T,它的左子树中所有项的值小T中的值，而它的右子树中所有项的值都大于T中的值。</p>
+<blockquote>
+<p>它既有链表的快速插入与删除操作的特点，又有数组快速查找的优势。</p>
+</blockquote>
+<h4 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h4><h5 id="先序（先根次序）遍历"><a href="#先序（先根次序）遍历" class="headerlink" title="先序（先根次序）遍历"></a>先序（先根次序）遍历</h5><ul>
+<li>访问根节点</li>
+<li>先序遍历左子树</li>
+<li>先序遍历右子树</li>
+</ul>
+<p>比如以下二叉树的访问次序是：1、2、4、5、3<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/T6UmeX.png" alt></p>
+<h6 id="先根遍历的递归实现"><a href="#先根遍历的递归实现" class="headerlink" title="先根遍历的递归实现"></a>先根遍历的递归实现</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">private String preOrder(BinaryNode&lt;T&gt; node)&#123;</span><br><span class="line">    if (node!=null) &#123;</span><br><span class="line">        //先访问根节点</span><br><span class="line">        peek(node);</span><br><span class="line">        //遍历左子树</span><br><span class="line">        preOrder(node.left);</span><br><span class="line">        //遍历右子树</span><br><span class="line">        preOrder(node.right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>也可以使用非递归实现，比如使用栈。</p>
+</blockquote>
+<h5 id="中序（中根次序）遍历"><a href="#中序（中根次序）遍历" class="headerlink" title="中序（中根次序）遍历"></a>中序（中根次序）遍历</h5><ul>
+<li>中序遍历左子树</li>
+<li>遍历根节点</li>
+<li>中序遍历右子树</li>
+</ul>
+<p>比如以下二叉树遍历顺序是a、b、c，也就是4、2、5、1、3、6：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/8xLHgi.png" alt></p>
+<h6 id="中序遍历的递归实现"><a href="#中序遍历的递归实现" class="headerlink" title="中序遍历的递归实现"></a>中序遍历的递归实现</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">private String inOrder(BinaryNode&lt;T&gt; node)&#123;</span><br><span class="line">    if (node!=null) &#123;</span><br><span class="line">        //遍历左子树</span><br><span class="line">        inOrder(node.left);</span><br><span class="line">        //先访问根节点</span><br><span class="line">        peek(node);</span><br><span class="line">        //遍历右子树</span><br><span class="line">        inOrder(node.right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="中序遍历的非递归实现"><a href="#中序遍历的非递归实现" class="headerlink" title="中序遍历的非递归实现"></a>中序遍历的非递归实现</h6><blockquote>
+<p>可以使用栈来实现。</p>
+</blockquote>
+<p>遍历思想：</p>
+<ul>
+<li>1、初始时依次扫描根节点的所有左侧节点并将它们进栈;</li>
+<li>2、出栈一个节点，访问它;</li>
+<li>3、扫描该节点的右节点并将其进栈;</li>
+<li>4、依次扫描右节点的所有左侧节点并一一进栈;</li>
+<li>5、反复该过程直到栈空为止。</li>
+</ul>
+<p>比如以下树，进出栈顺序为：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/oy8slf.png" alt></p>
+<ul>
+<li>进栈：1、2、4、7（遍历思想第1步）；</li>
+<li>出栈：7；（栈中：：1、2、4，遍历思想第2步）</li>
+<li>访问7所在节点，尝试拿到其右节点压入栈，但是此时为空，不能递归空节点是否有左节点（遍历思想上面的第3步）；</li>
+<li>出栈：4；（栈中：1、2，遍历思想第2步）</li>
+<li>遍历思想第3步，此时为空；</li>
+<li>出栈：2；（栈中：1，遍历思想第2步）</li>
+<li>遍历思想第3步，发现其右节点；</li>
+<li>进栈：5；（栈中：1、5）</li>
+<li>遍历思想第4步，此时为空；</li>
+<li>出栈：5；（栈中：1，遍历思想第2步）</li>
+<li>遍历思想第3步，此时为空；</li>
+<li>出栈：1（遍历思想第2步）</li>
+<li>遍历思想第3步，此时发现右节点，进栈3（栈中：3）；</li>
+<li>遍历思想第4步，此时发现左节点，进栈6（栈中：3、6）；</li>
+<li>重复第2步2次，致词结束。</li>
+</ul>
+<p>所以不难发现，其实真个过程只是在遍历思想的5步中循环，从第3步到第4步，只要访问想要的节点为空就退回到上一步然后继续往后走，直至栈空。</p>
+<blockquote>
+<p>BOILERPLATE：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">void inOrder(TreeNode node)&#123;</span><br><span class="line">    Stack stack = new Stack();</span><br><span class="line">    Object e = node;</span><br><span class="line">    while(e != null || !stack.isEmpty())&#123;</span><br><span class="line">        if(e != null)&#123;</span><br><span class="line">            stack.push(e);</span><br><span class="line">            e = e.left;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            e = stack.pop();</span><br><span class="line">            peek(e);</span><br><span class="line">            e = e.right;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="后序（后根次序）遍历"><a href="#后序（后根次序）遍历" class="headerlink" title="后序（后根次序）遍历"></a>后序（后根次序）遍历</h5><ul>
+<li>后序遍历左子树</li>
+<li>后序遍历右子树</li>
+<li>访问根节点</li>
+</ul>
+<p>比如以下二叉树遍历顺序是a、b、c，也就是4、5、2、1、6、3、1：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/kysHQi.png" alt></p>
+<h6 id="后序遍历的递归实现"><a href="#后序遍历的递归实现" class="headerlink" title="后序遍历的递归实现"></a>后序遍历的递归实现</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">private String postOrder(BinaryNode&lt;T&gt; node)&#123;</span><br><span class="line">    if (node!=null) &#123;</span><br><span class="line">        //遍历左子树</span><br><span class="line">        postOrder(node.left);</span><br><span class="line">        //遍历右子树</span><br><span class="line">        postOrder(node.right);</span><br><span class="line">        //先访问根节点</span><br><span class="line">        peek(node);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>同样也可以使用栈来实现。</p>
+</blockquote>
+<h5 id="层次遍历"><a href="#层次遍历" class="headerlink" title="层次遍历"></a>层次遍历</h5><blockquote>
+<p>使用队列来实现。</p>
+</blockquote>
+<p>遍历思想：</p>
+<ul>
+<li>1、初始将根入队并访问根结点，然后出队;</li>
+<li>2、若有左子树，则将左子树的根入队;</li>
+<li>3、若有右子树，则将右子树的根入队;</li>
+<li>4、然后出队，访问该结点;</li>
+<li>5、反复该过程直到队列空为止。</li>
+</ul>
+<blockquote>
+<p>BOILERPLATE：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void levelOrder(BiTree root)&#123;</span><br><span class="line">    queue.push(root);</span><br><span class="line">    BiTree node;</span><br><span class="line">    while(!queue.isEmpty())&#123;</span><br><span class="line">        node = queue.pop();</span><br><span class="line">        peek(node);</span><br><span class="line">        if(node.left != null) queue.push(node.left);</span><br><span class="line">        if(node.right != null) queue.push(node.right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="遍历序列确定唯一二叉树"><a href="#遍历序列确定唯一二叉树" class="headerlink" title="遍历序列确定唯一二叉树"></a>遍历序列确定唯一二叉树</h5><p>后序或者先序遍历序列+中序遍历序列，可以确定一颗唯一二叉树。<br>比如：</p>
+<ul>
+<li>先序遍历序列（1、2、4、5、3、6）</li>
+<li>中序遍历序列（4、2、5、1、6、3）</li>
+</ul>
+<p>其对应的树如下：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/EmDKEi.png" alt></p>
+<h3 id="霍夫曼树"><a href="#霍夫曼树" class="headerlink" title="霍夫曼树"></a>霍夫曼树</h3><h3 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h3><h2 id="无序树"><a href="#无序树" class="headerlink" title="无序树"></a>无序树</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/05/English系列-思维练习错题笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/05/English系列-思维练习错题笔记/" class="post-title-link" itemprop="url">English系列-思维练习错题笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-05 22:47:26" itemprop="dateCreated datePublished" datetime="2020-08-05T22:47:26+08:00">2020-08-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-18 13:56:54" itemprop="dateModified" datetime="2020-09-18T13:56:54+08:00">2020-09-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Yesterday I had a phone call from Clint. I was very surprised. I <strong>__</strong> （write） to him many times but he <strong>__</strong> （never, reply） to my letters.<br>答案：had written, had never replied<br>解析：两个或两个以上相继发生的动作，用and或but按动作发生的先后顺序连接，此时要用一般过去时，而不用过去完成时。过去完成时则强调主语在过去的某一时刻“回顾”更早的动作。具体来说，如果在谈论过去某一事件时，又想到在这之前已发生的某事，就要用过去完成时态。   </p>
+<p>A: I need to find a dermatologist.（皮肤科医生） You’re familiar with Dr. Smith. Do you recommend her?<br>B: Well, I <strong>__</strong> （see） by her a few times. And the best I can say for her is she has interesting magazines in her waiting room.<br>答案：have been seen<br>解析：在英语中，“动作表达”的完成时态强调最近发生的事件，而“状态表达”的完成时态强调“较远的过去”经历。   </p>
+<p>It’s reported that by the end of this month the output of cement in the factory <strong>__</strong> （rise） by about 10%.<br>答案：will have risen<br>解析：将来完成时是以“将来”作为“坐标时间”，来表示开始于将来之前（可能是过去、现在或将来）的动作持续到将来。但动作开始的时间并不重要，关键是说话人要站在将来的某一时间来谈某一动作的完成情况。</p>
+<p>I have entered the university for two years.<br>答案：错误，应改为：I have been in the university for two years，或者用一般过去时态说成：I entered the university two years ago.</p>
+<p>He has left his native place for three years.<br>答案：“单一事件”完成时的肯定句不与持续的时间状语连用，动词leave（left的原形）是非延续性动词，不能跟一段时间状语（否定句除外）。</p>
+<p>A: Are you glad you came to China?<br>B: Yes. Indeed. 我本来是要考虑去Tokyo or Singapore, but 我从不后 悔我的决定。<br>答案：I’d considered going to Tokyo or Singapore, but I’ve never regretted my decision.<br>解析：表示“非真实”的过去，主要是指intend，mean，hope，want，plan，suppose，expect， think，propose和wish等动词用于过去完成时，可表示过去未能实现的计划、设想、意图或希望等。   </p>
+<p>George would certainly have attended the proceedings <strong>__</strong>.<br>A. had he not had a flat tire<br>B. had the tire no flattened itself<br>C. if the flat tire hadn’t happened<br>D. if he didn’t get a flat tire<br>答案：A</p>
+<p>If Greek civilization <strong>__</strong> all of Europe, English wouldn’t contain so many Greek words.<br>A. hadn’t influenced<br>B. doesn’t influence<br>C. hasn’t influenced<br>D. didn’t influence<br>答案：A</p>
+<p>Nelson <strong>__</strong> the fight, with a little more training and a better manager.<br>A. would win<br>B. had won<br>C. could have won<br>D. won<br>答案：C<br>解析：尼尔森本可以赢得这场战斗，但需要更多的训练和更好的教练。</p>
+<p>He would rather <strong>__</strong> than worked last night.<br>A. have slept<br>B. has slept<br>C. sleep<br>D. slept<br>答案：A<br>解析：本题考查 would rather have done 的虚拟句型，本题相当于“He would rather have slept than have worked last night.” ，后边的 have 被省去了。</p>
+<p>If the climate had been more favorable, the crops <strong>__</strong> still better.<br>A. would have grown<br>B. would be growing<br>C. would be grown<br>D. will grow<br>答案：A</p>
+<p>These facts suggested that women <strong>__</strong> in opportunity for physical exercise by cultural taboos.<br>A. should been limited<br>B. had been limited<br>C. be limited<br>D. have been limited<br>答案：B<br>解析：这里的 suggested 是“表明，显示”而不是“建议”的意思，因而不用虚拟语气。</p>
+<p>The result has turned still worse than it <strong>__</strong><br>A. would otherwise have been<br>B. would be otherwise<br>C. has otherwise been<br>D. had otherwise been<br>答案：A<br>解析：这里有 otherwise ，表明要用虚拟，且是虚拟的主句形式。另根据句意判断，这里是表示过去虚拟，故要用 would have done 形式，所以 A 正确。</p>
+<p>We (could, might) go to that new restaurant opposite the cinema.<br>答案：could<br>解析：用于表示委婉的“建议”，此时，could并不表示过去。</p>
+<p>You (could, may) be right, but I still don’t agree with you!<br>答案：may<br>解析：could更加的委婉和客观，因为后面的but I still don’t agree with you，所有要用may，即使两者可能性程度都很低。</p>
+<p>The situation was bad but it (could be, may have been, could have been) worse.<br>答案：could have been</p>
+<p>Thank you very much for buying me flowers. You <strong>__</strong> (buy) me flowers.<br>错误答案：couldn’t have bought<br>正确答案：shouldn’t have bought<br>解析：虽然could用于表示委婉的“建议，但是couldn’t就失去了委婉的含义了。</p>
+<p>Mary was a talented violinist at the age of ten. She <strong>__</strong> (play) the violin very well when she was ten.<br>错误答案：must have played<br>正确答案：could play<br>解析：这里要表达的是过去的能力（过去的潜能）</p>
+<p>Our worrying so much was a waste of time.=We <strong>__</strong> (worry) so much.<br>错误答案：shouldn’t worry<br>正确答案：needn’t have worried<br>解析：这里的need是情态动词。表示“没必要做……”</p>
+<p>It’s possible that the last person to leave didn’t lock the door.=The last person to leave <strong>__</strong> (lock) the door.<br>错误答案：could haven’t locked<br>正确答案：may not have locked<br>解析：过去推测，在否定句中，can’t/couldn’t要比may not/might not的否定语气强烈。</p>
+<p>She paid him and walked off. Then she realized that he <strong>__</strong> (not, be) a deaf mute. How did she know? He must have heard her initial instructions or he <strong>__</strong> (not, know) where to take her.<br>正确答案：can’t have been    wouldn’t have known<br>解析：can’t在此表示不可能，后者是过去虚拟语气</p>
+<p>The boss has promised that every player in NBA <strong>__</strong> have a rise in income.<br>A. would B. might C. shall D. should<br>正确答案：C<br>解析：shall用于第二、三人称的陈述句中，可以表示说话人的许诺。</p>
+<p>He was a good swimmer so he <strong>__</strong> swim to the river bank when the boat sank.<br>A. could B. might C. succeeded to D. was able to<br>正确答案：D<br>解析：was able to才是表达过去具体的能力，could只能表达过去潜在的能力。</p>
+<p>He did very badly on the exam. He <strong>__</strong> harder.<br>A. must study B. must have studied C. should study D. should have studied<br>正确答案：D<br>解析：</p>
+<p>He <strong>__</strong> pull down a bull and acknowledged as a man with superman strength.<br>A. used to be able to B. would be able to C. should be able to D. might be able to<br>正确答案：A<br>解析：为什么C不可以？</p>
+<p>This book falls overdue a week; I must be fined.<br>这本书过期一周了，我肯定会被罚款。</p>
+<p>He looked <strong>__</strong>.<br>A. nervously<br>B. around nervous<br>C. around nervously<br>正确答案：C<br>解析：C。look作系动词时，意为“看起来”，后面接形容词作表语。look作行为动词时，意为“看”，lookC。look作系动词时，意为“看起来”，后面接形容词作表语。look作行为动词时，意为“看”，look around意为“朝周围看”，可以被副词nervously修饰，充当其方式状语。</p>
+<p>In 1952 Ernest Hemingway published The Old Man and the Sea, <strong>__</strong>.<br>A. won him the Nobel Prize for Literature in 1954<br>B. and the Nobel Prize for Literature won in 1954<br>C. in 1954 won the Nobel Prize for Literature for this work<br>D. a work that won him the Nobel Prize for Literature in 1954<br>正确答案：D<br>解析：本题考查双宾语结构：win sb. sth.。这里D选项中 a work是作为同位语，补充说明The Old Man and the Sea。然后在work后边接一个定语从句。 精品译文：在1952年，欧内斯特·海明威发表了小说《老人与海》，这部作品为他赢得了1954年的诺贝尔文学奖。</p>
+<p>The question is <strong>__</strong> can be put into practice.<br>A. how you have learned<br>B. how that you have learned<br>C. that why you have learned<br>D. how what you have learned<br>正确答案：D<br>解析：D。这是从句的嵌套结构。首先是how引导一个表语从句，然后在此从句中，嵌套一个what引导的主语从句。其中what充当从句谓语learned的宾语。</p>
 
       
     </div>
@@ -322,7 +476,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/30/Java系列之零碎笔记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Interview汇总/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -336,7 +490,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/30/Java系列之零碎笔记/" class="post-title-link" itemprop="url">Java系列之零碎笔记</a>
+            <a href="/2019/10/15/Interview汇总/" class="post-title-link" itemprop="url">Interview汇总</a>
         </h2>
 
         <div class="post-meta">
@@ -346,14 +500,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2019-11-30 21:12:21" itemprop="dateCreated datePublished" datetime="2019-11-30T21:12:21+08:00">2019-11-30</time>
+              <time title="Created: 2019-10-15 21:21:25" itemprop="dateCreated datePublished" datetime="2019-10-15T21:21:25+08:00">2019-10-15</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-12 20:13:47" itemprop="dateModified" datetime="2020-09-12T20:13:47+08:00">2020-09-12</time>
+                <time title="Modified: 2020-09-18 10:46:47" itemprop="dateModified" datetime="2020-09-18T10:46:47+08:00">2020-09-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -361,7 +515,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                  <a href="/categories/interview/" itemprop="url" rel="index"><span itemprop="name">interview</span></a>
                 </span>
             </span>
 
@@ -376,64 +530,186 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="Java8-新特性"><a href="#Java8-新特性" class="headerlink" title="Java8 新特性"></a>Java8 新特性</h2><p><a href="https://www.cnblogs.com/dzy521/p/10077132.html" target="_blank" rel="noopener">https://www.cnblogs.com/dzy521/p/10077132.html</a></p>
-<h3 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a>Stream</h3><p>由于Stream的起始点是基于Array来初始化，集合List可以直接通过parallelStream方法来启动一个Stream</p>
-<h4 id="flatMap-vs-map"><a href="#flatMap-vs-map" class="headerlink" title="flatMap vs map"></a>flatMap vs map</h4><p>前者在结构之后是直接返回被扁平后的流对象，后者还是返回包装好原来元素的流对象</p>
-<h3 id="java8注解新特性"><a href="#java8注解新特性" class="headerlink" title="java8注解新特性"></a>java8注解新特性</h3><ol>
-<li>增加二个注解类型（ElementType.TYPE_USE 和 ElementType.TYPE_PARAMETER）<br> 意思是可以声明在任何类型声明的地方，比如lombok的@NonNull的几个用例：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@NonNull String str;</span><br></pre></td></tr></table></figure>
+          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="公司的新版微服务架构用到的技术栈"><a href="#公司的新版微服务架构用到的技术栈" class="headerlink" title="公司的新版微服务架构用到的技术栈"></a>公司的新版微服务架构用到的技术栈</h2><h1 id="CS"><a href="#CS" class="headerlink" title="CS"></a>CS</h1><h2 id="32位和64位系统底层的本质区别是什么？"><a href="#32位和64位系统底层的本质区别是什么？" class="headerlink" title="32位和64位系统底层的本质区别是什么？"></a>32位和64位系统底层的本质区别是什么？</h2><h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><p><a href="https://juejin.im/post/5e37b8ea6fb9a030080ca2df" target="_blank" rel="noopener">2020年2月面试题100+大全（合适各级Java人员）</a></p>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="通过new-String-“test”-与-“test”-与运行时常量池的关系"><a href="#通过new-String-“test”-与-“test”-与运行时常量池的关系" class="headerlink" title="通过new String(“test”) 与 “test” 与运行时常量池的关系"></a>通过new String(“test”) 与 “test” 与运行时常量池的关系</h3><ul>
+<li>String a = “aaa”;（保存在常量池中的）</li>
+<li>String b = new String(“aaa”);（new创建的对象会存放在堆内存中）</li>
+</ul>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><h3 id="ArrayList-vs-LinkedList-vs-SynchronizedList-vs-CopyOnWriteArrayList"><a href="#ArrayList-vs-LinkedList-vs-SynchronizedList-vs-CopyOnWriteArrayList" class="headerlink" title="ArrayList vs LinkedList vs SynchronizedList vs CopyOnWriteArrayList"></a>ArrayList vs LinkedList vs SynchronizedList vs CopyOnWriteArrayList</h3><h4 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h4><p>ArrayList底层使用的是数组实现，也就是基于顺序表的原理，是线程不安全的。<br>默认初始化的时候，其内部的数组是一个静态的空数组：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">private static final int DEFAULT_CAPACITY = 10;</span><br><span class="line">private static final Object[] EMPTY_ELEMENTDATA = &#123;&#125;;</span><br><span class="line">private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = &#123;&#125;;</span><br><span class="line">transient Object[] elementData; // non-private to simplify nested class access</span><br><span class="line">private int size;</span><br><span class="line">public ArrayList() &#123;</span><br><span class="line">    this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>也可以在初始化的时候指定默认容量，或者指定默认要承接的集合数据：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public ArrayList(int initialCapacity) &#123;</span><br><span class="line">    if (initialCapacity &gt; 0) &#123;</span><br><span class="line">        this.elementData = new Object[initialCapacity];</span><br><span class="line">    &#125; else if (initialCapacity == 0) &#123;</span><br><span class="line">        this.elementData = EMPTY_ELEMENTDATA;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        throw new IllegalArgumentException(&quot;Illegal Capacity: &quot;+</span><br><span class="line">                                           initialCapacity);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public ArrayList(Collection&lt;? extends E&gt; c) &#123;</span><br><span class="line">    elementData = c.toArray();</span><br><span class="line">    if ((size = elementData.length) != 0) &#123;</span><br><span class="line">        // c.toArray might (incorrectly) not return Object[] (see 6260652)</span><br><span class="line">        if (elementData.getClass() != Object[].class)</span><br><span class="line">            elementData = Arrays.copyOf(elementData, size, Object[].class);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        // replace with empty array.</span><br><span class="line">        this.elementData = EMPTY_ELEMENTDATA;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当数组为空或者数组长度不够进行扩容的长度增长因子一般是1.5（但是要注意极端情况下，扩容到大于<code>Integer.MAX_VALUE-8</code>，会默认增长到ArrayList的最大长度<code>Integer.MAX_VALUE</code>，超过最大长度将抛出OutOfMemoryError异常）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">private void grow(int minCapacity) &#123;</span><br><span class="line">    // overflow-conscious code</span><br><span class="line">    int oldCapacity = elementData.length;</span><br><span class="line">    int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);</span><br><span class="line">    if (newCapacity - minCapacity &lt; 0)</span><br><span class="line">        newCapacity = minCapacity;</span><br><span class="line">    if (newCapacity - MAX_ARRAY_SIZE &gt; 0)</span><br><span class="line">        newCapacity = hugeCapacity(minCapacity);</span><br><span class="line">    // minCapacity is usually close to size, so this is a win:</span><br><span class="line">    elementData = Arrays.copyOf(elementData, newCapacity);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>ArrayList因为其扩容因子是<code>1.5</code>，其内部的数组会预留出一定的空间，所以从资源利用的角度来讲，这存在一定程度的浪费。<br>正因为是基于顺序表原来实现，ArrayList元素的物理存储地址是连续的，在其内部数组中间插入或者删除元素的话，其后面的所有元素都要进行移位，所以性能开销会相对较大。</p>
+</blockquote>
+<h4 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h4><p>LinkedList底层使用的是双链表来实现的，它默认初始化之后有着头尾两个空结点，同样也是线程不安全的。<br>可见空双链表插入第一个结点时，判断尾结点是否为空，如果为空是在first头结点插入，否则是插入到尾部结点之后。</p>
+<blockquote>
+<p>LinkedList得益于双链表的数据结构优势，在对单个元素的插入和删除操作上，一般性能开销会相对较小，但是在单个元素的访问上，会表现较差。</p>
+</blockquote>
+<h4 id="快速失败迭代器（fail-fast-Iterator）"><a href="#快速失败迭代器（fail-fast-Iterator）" class="headerlink" title="快速失败迭代器（fail-fast Iterator）"></a>快速失败迭代器（fail-fast Iterator）</h4><p>ArrayList、LinkedList等很多常用集合的Iterator实现中，都是通过快速失败检查机制来检查数据是否在外部不被期望的情况下修改了，常见的快速失败检查都是通过如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">final void checkForComodification() &#123;</span><br><span class="line">    if (modCount != expectedModCount)</span><br><span class="line">        throw new ConcurrentModificationException();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>异常时通过判断expectedModCount是否等于modCount，如果不相等就抛出异常。</p>
+<ul>
+<li>expectedModCount：被期望的修改次数，在Iterator初始化的时候被赋值，<code>int expectedModCount = modCount;</code>，在调用迭代器的remove方法时会被更新。</li>
+<li>modCount：真实的修改次数，每次调用add()，remove()方法（非迭代器的方法）会导致modCount+1。</li>
+</ul>
+<p>迭代器在调用<code>next()</code>和<code>remove()</code>都会做<code>ConcurrentModificationException</code>的异常检测。</p>
+<blockquote>
+<p>所以，当集合是使用迭代器Iterator来遍历的时候，删除集合的元素记得用迭代器的<code>remove()</code>方法。</p>
+</blockquote>
+<h4 id="SynchronizedList（线程安全）"><a href="#SynchronizedList（线程安全）" class="headerlink" title="SynchronizedList（线程安全）"></a>SynchronizedList（线程安全）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 线程安全List的创建方式</span><br><span class="line">List&lt;Object&gt; syncArrayList = Collections.synchronizedList(new ArrayList&lt;&gt;());</span><br><span class="line">List&lt;Object&gt; syncLinkedList = Collections.synchronizedList(new LinkedList&lt;&gt;());</span><br></pre></td></tr></table></figure>
+<p>线程安全实现原理：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">final Object mutex;     // Object on which to synchronize</span><br></pre></td></tr></table></figure></p>
+<p>其内部具有线程安全问题的方法都被互斥量加了锁：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public int size() &#123;</span><br><span class="line">    synchronized (mutex) &#123;return c.size();&#125;</span><br><span class="line">&#125;</span><br><span class="line">public boolean add(E e) &#123;</span><br><span class="line">    synchronized (mutex) &#123;return c.add(e);&#125;</span><br><span class="line">&#125;</span><br><span class="line">public boolean remove(Object o) &#123;</span><br><span class="line">    synchronized (mutex) &#123;return c.remove(o);&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="CopyOnWriteArrayList"><a href="#CopyOnWriteArrayList" class="headerlink" title="CopyOnWriteArrayList"></a>CopyOnWriteArrayList</h4><p>CopyOnWriteArrayList和ArrayList类似，其内部也是基于数组实现的，但是还额外多出了一个可重入锁：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/** The lock protecting all mutators */</span><br><span class="line">final transient ReentrantLock lock = new ReentrantLock();</span><br><span class="line">/** The array, accessed only via getArray/setArray. */</span><br><span class="line">private transient volatile Object[] array;</span><br></pre></td></tr></table></figure></p>
+<p>因为加了transient修饰，所以其数据不支持序列化。<br>另外其内部存储数据的数组是通过volatile修饰的，避免了线程安全的问题。<br>插入和删除操作也加了锁机制：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">public boolean add(E e) &#123;</span><br><span class="line">    final ReentrantLock lock = this.lock;</span><br><span class="line">    lock.lock();</span><br><span class="line">    try &#123;</span><br><span class="line">        Object[] elements = getArray();</span><br><span class="line">        int len = elements.length;</span><br><span class="line">        Object[] newElements = Arrays.copyOf(elements, len + 1);</span><br><span class="line">        newElements[len] = e;</span><br><span class="line">        setArray(newElements);</span><br><span class="line">        return true;</span><br><span class="line">    &#125; finally &#123;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public E remove(int index) &#123;</span><br><span class="line">    final ReentrantLock lock = this.lock;</span><br><span class="line">    lock.lock();</span><br><span class="line">    try &#123;</span><br><span class="line">        Object[] elements = getArray();</span><br><span class="line">        int len = elements.length;</span><br><span class="line">        E oldValue = get(elements, index);</span><br><span class="line">        int numMoved = len - index - 1;</span><br><span class="line">        if (numMoved == 0)</span><br><span class="line">            setArray(Arrays.copyOf(elements, len - 1));</span><br><span class="line">        else &#123;</span><br><span class="line">            Object[] newElements = new Object[len - 1];</span><br><span class="line">            System.arraycopy(elements, 0, newElements, 0, index);</span><br><span class="line">            System.arraycopy(elements, index + 1, newElements, index,</span><br><span class="line">                             numMoved);</span><br><span class="line">            setArray(newElements);</span><br><span class="line">        &#125;</span><br><span class="line">        return oldValue;</span><br><span class="line">    &#125; finally &#123;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>SynchronizedList是通过对读写方法使用synchronized修饰来实现同步的，即便只是多个线程在读数据，也不能进行，如果是读比较多的场景下，会性能不高，所以适合读写均匀的情况。<br>而CopyOnWriteArrayList是读写分离的，只对写操作加锁，但是每次写操作(添加和删除元素等)时都会复制出一个新数组，完成修改后，然后将新数组设置到旧数组的引用上，所以在写比较多的情况下，会有很大的性能开销，所以适合读比较多的应用场景。</p>
+</blockquote>
+<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="B-树和二叉树的区别"><a href="#B-树和二叉树的区别" class="headerlink" title="B+树和二叉树的区别"></a>B+树和二叉树的区别</h2><h2 id="红黑树和跳表"><a href="#红黑树和跳表" class="headerlink" title="红黑树和跳表"></a>红黑树和跳表</h2><h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="一个接口太多事务操作是否要使用批量事务"><a href="#一个接口太多事务操作是否要使用批量事务" class="headerlink" title="一个接口太多事务操作是否要使用批量事务"></a>一个接口太多事务操作是否要使用批量事务</h2><h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="OLAP和OLTP"><a href="#OLAP和OLTP" class="headerlink" title="OLAP和OLTP"></a>OLAP和OLTP</h2><h2 id="冗余字段"><a href="#冗余字段" class="headerlink" title="冗余字段"></a>冗余字段</h2><p>微服务架构加上前后端分离的情况下。后端接口很多时候会出现太多联表查询的情况。其实可以数据库存储空间大小允许的情况下，留出一些关键字段的冗余字段来代替联表查询。甚至可以将一些数据拆分出来查询封装成比较合适的数据JSON结构，然后可以将需要连表查询的逻辑放到前端去计算拼接，这样一来可以减少服务器和数据库的压力，同时前端做这部分的计算能力其实也是绰绰有余了，毕竟目前相对来说这是一个用户端性能过剩的时代。</p>
+<p>尽可能多的冗余字段也可以为一定业务场景带来便捷的查询，没必要一味得遵循数据库三方式。</p>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>必要时，时间字段也要上索引，索引一般是建立在字段值重复性比较少的，很多时候，时间字段基本不会重复，而且查询排序经常用到。</p>
+<h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><h2 id="redis如何清理过期key"><a href="#redis如何清理过期key" class="headerlink" title="redis如何清理过期key"></a>redis如何清理过期key</h2><h2 id="redis内存不足时的策略"><a href="#redis内存不足时的策略" class="headerlink" title="redis内存不足时的策略"></a>redis内存不足时的策略</h2><h2 id="缓存更新的套路"><a href="#缓存更新的套路" class="headerlink" title="缓存更新的套路"></a>缓存更新的套路</h2><p><a href="https://coolshell.cn/articles/17416.html[](https://coolshell.cn/articles/17416.html" target="_blank" rel="noopener">https://coolshell.cn/articles/17416.html[](https://coolshell.cn/articles/17416.html</a> “”)</p>
+<h3 id="Cache-Aside-Pattern"><a href="#Cache-Aside-Pattern" class="headerlink" title="Cache Aside Pattern"></a>Cache Aside Pattern</h3><h3 id="Read-Write-Through-Pattern"><a href="#Read-Write-Through-Pattern" class="headerlink" title="Read/Write Through Pattern"></a>Read/Write Through Pattern</h3><h3 id="Write-Behind-Caching-Pattern"><a href="#Write-Behind-Caching-Pattern" class="headerlink" title="Write Behind Caching Pattern"></a>Write Behind Caching Pattern</h3><h1 id="Combo"><a href="#Combo" class="headerlink" title="Combo"></a>Combo</h1><h2 id="后端架构"><a href="#后端架构" class="headerlink" title="后端架构"></a>后端架构</h2><p>每一个单一表的对应Service类里面有且只能有一个Mapper，这也遵守了类的单一责任原则。</p>
+<h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><p>类似DO、DTO、VO这种有可能要做传输的类一定不要忘记实现Serializable，和唯一标识化serialVersionUID。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/17/Docker汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/17/Docker汇总/" class="post-title-link" itemprop="url">Docker汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-17 09:38:28" itemprop="dateCreated datePublished" datetime="2020-01-17T09:38:28+08:00">2020-01-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-17 10:29:58" itemprop="dateModified" datetime="2020-09-17T10:29:58+08:00">2020-09-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html" target="_blank" rel="noopener">参考1</a><br><a href="https://www.jianshu.com/p/ca1623ac7723" target="_blank" rel="noopener">参考2</a></p>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><p><a href="https://www.runoob.com/docker/docker-command-manual.html" target="_blank" rel="noopener">命令大全</a></p>
+<h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><h3 id="列出所有容器"><a href="#列出所有容器" class="headerlink" title="列出所有容器"></a>列出所有容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container ls</span><br></pre></td></tr></table></figure>
+<h3 id="查看所有容易，包括关闭的"><a href="#查看所有容易，包括关闭的" class="headerlink" title="查看所有容易，包括关闭的"></a>查看所有容易，包括关闭的</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker container ls --all</span><br><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+<h3 id="删除具体的容器，根据container-id"><a href="#删除具体的容器，根据container-id" class="headerlink" title="删除具体的容器，根据container id"></a>删除具体的容器，根据container id</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container rm c8faeffaaa62</span><br></pre></td></tr></table></figure>
+<h3 id="查看容器IP"><a href="#查看容器IP" class="headerlink" title="查看容器IP"></a>查看容器IP</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect 容器ID | grep IPAddress</span><br></pre></td></tr></table></figure>
+<h3 id="启动某个容器"><a href="#启动某个容器" class="headerlink" title="启动某个容器"></a>启动某个容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart 1b4671904bfa</span><br></pre></td></tr></table></figure>
+<h3 id="查看容器内存使用情况（支持多个同时查）"><a href="#查看容器内存使用情况（支持多个同时查）" class="headerlink" title="查看容器内存使用情况（支持多个同时查）"></a>查看容器内存使用情况（支持多个同时查）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stats containerName1 containerName2</span><br></pre></td></tr></table></figure>
+<h3 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs -f 122482b4b37f</span><br></pre></td></tr></table></figure>
+<h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo docker exec -it containerName bash</span><br><span class="line">sudo docker attach 44fc0f0582d9</span><br></pre></td></tr></table></figure>
+<h3 id="docker限制容器的内存使用"><a href="#docker限制容器的内存使用" class="headerlink" title="docker限制容器的内存使用"></a>docker限制容器的内存使用</h3><p><a href="https://blog.csdn.net/qq_37611270/article/details/97243704" target="_blank" rel="noopener">https://blog.csdn.net/qq_37611270/article/details/97243704</a></p>
+<h2 id="状态信息"><a href="#状态信息" class="headerlink" title="状态信息"></a>状态信息</h2><h2 id="列出docker-name"><a href="#列出docker-name" class="headerlink" title="列出docker name"></a>列出docker name</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker inspect -f=&apos;&#123;&#123;.Name&#125;&#125;&apos; $(sudo docker ps -a -q)</span><br></pre></td></tr></table></figure>
+<h3 id="列出docker-ip"><a href="#列出docker-ip" class="headerlink" title="列出docker ip"></a>列出docker ip</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker inspect -f=&apos;&#123;&#123;.NetworkSettings.IPAddress&#125;&#125;&apos; $(sudo docker ps -a -q)</span><br></pre></td></tr></table></figure>
+<h3 id="列出所有容器对应的名称，端口，及ip"><a href="#列出所有容器对应的名称，端口，及ip" class="headerlink" title="列出所有容器对应的名称，端口，及ip"></a>列出所有容器对应的名称，端口，及ip</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect -f=&apos;&#123;&#123;.Name&#125;&#125; &#123;&#123;.NetworkSettings.IPAddress&#125;&#125; &#123;&#123;.HostConfig.PortBindings&#125;&#125;&apos; $(docker ps -aq)</span><br></pre></td></tr></table></figure>
+<h3 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status docker</span><br></pre></td></tr></table></figure>
+<h2 id="数据卷"><a href="#数据卷" class="headerlink" title="数据卷"></a>数据卷</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker inspect 容器id</span><br><span class="line"># 可以查看容器信息  “HostConfig下的Binds 可以看到数据卷绑定  Mounts下Souce和Destination也可以看到数据卷绑定信息”</span><br></pre></td></tr></table></figure>
+<h1 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h1><p><a href="https://www.cnblogs.com/sablier/p/11605606.html" target="_blank" rel="noopener">参考</a><br>目录映射时，容器里面的目录会在容器启动的时候自动创建。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 3306:3306 --name mysql \</span><br><span class="line">-v /usr/local/docker/mysql/conf:/etc/mysql \</span><br><span class="line">-v /usr/local/docker/mysql/logs:/var/log/mysql \</span><br><span class="line">-v /usr/local/docker/mysql/data:/var/lib/mysql \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=raubbhWy \</span><br><span class="line">-d mysql:5.7</span><br></pre></td></tr></table></figure></p>
+<p>进入docker本地连接mysql客户端<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo docker exec -it mysql bash</span><br><span class="line">mysql -uroot -p123456</span><br></pre></td></tr></table></figure></p>
+<h1 id="Fastdfs"><a href="#Fastdfs" class="headerlink" title="Fastdfs"></a>Fastdfs</h1><p><a href="https://hub.docker.com/r/season/fastdfs" target="_blank" rel="noopener">season/fastdfs</a><br><a href="http://www.zuidaima.com/blog/4653383732808704.htm" target="_blank" rel="noopener">参考1</a><br><a href="https://blog.502.li/archives/docker-deploy-fastdfs.html" target="_blank" rel="noopener">参考2</a><br><a href="https://v3u.cn/a_id_78" target="_blank" rel="noopener">参考3</a></p>
+<h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><p><a href="https://www.runoob.com/docker/docker-install-redis.html" target="_blank" rel="noopener">https://www.runoob.com/docker/docker-install-redis.html</a></p>
+<h1 id="rabbitmq"><a href="#rabbitmq" class="headerlink" title="rabbitmq"></a>rabbitmq</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull rabbitmq:management</span><br><span class="line">docker run -d --hostname my-rabbit --name some-rabbit -p 15555:15672 rabbitmq:management</span><br></pre></td></tr></table></figure>
+<p>默认账号密码：guest和guest</p>
+<h1 id="docker跑SpringCloud微服务"><a href="#docker跑SpringCloud微服务" class="headerlink" title="docker跑SpringCloud微服务"></a>docker跑SpringCloud微服务</h1><h1 id="dockerfile-maven"><a href="#dockerfile-maven" class="headerlink" title="dockerfile-maven"></a>dockerfile-maven</h1><h1 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h1><p>在Docker中创建镜像最常用的方式，就是使用Dockerfile。Dockerfile是一个Docker镜像的描述文件，我们可以理解成火箭发射的A、B、C、D…的步骤。Dockerfile其内部包含了一条条的指令，每一条指令构建一层，因此每一条指令的内容，就是描述该层应当如何构建。<br><a href="https://www.runoob.com/docker/docker-dockerfile.html" target="_blank" rel="noopener">Dockerfile基础知识</a><br><a href="https://www.cnblogs.com/lingfengblogs/p/11093246.html" target="_blank" rel="noopener">Dockerfile命令大全</a></p>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="EXPOSE"><a href="#EXPOSE" class="headerlink" title="EXPOSE"></a>EXPOSE</h3><p><a href="https://blog.csdn.net/qq_17639365/article/details/86655177" target="_blank" rel="noopener">https://blog.csdn.net/qq_17639365/article/details/86655177</a></p>
+<h3 id="VOLUME"><a href="#VOLUME" class="headerlink" title="VOLUME"></a>VOLUME</h3><p><a href="https://www.cnblogs.com/ExMan/p/12017896.html" target="_blank" rel="noopener">https://www.cnblogs.com/ExMan/p/12017896.html</a></p>
+<ul>
+<li>通过docker run命令的-v标识创建的挂载点只能对创建的容器有效。</li>
+<li>通过dockerfile的 VOLUME 指令可以在镜像中创建挂载点，这样只要通过该镜像创建的容器都有了挂载点。</li>
+<li>还有一个区别是，通过 VOLUME 指令创建的挂载点，无法指定主机上对应的目录，是自动生成的。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#test</span><br><span class="line">FROM ubuntu</span><br><span class="line">MAINTAINER hello1</span><br><span class="line">VOLUME [&quot;/data1&quot;,&quot;/data2&quot;]</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@NonNull List&lt;String&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 非负数</span><br><span class="line">Arrays&lt;@NonNegative Integer&gt; sort</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@Encrypted File file</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void divideInteger(int a, int b) throws @ZeroDivisor ArithmeticException</span><br></pre></td></tr></table></figure>
-<ol>
-<li>允许重复注解</li>
-</ol>
-<h3 id="参数名称的反射获取"><a href="#参数名称的反射获取" class="headerlink" title="参数名称的反射获取"></a>参数名称的反射获取</h3><p>Java 8终于将这个特性规范化，在语言层面（使用反射API和Parameter.getName()方法）和字节码层面（使用新的javac编译器以及-parameters参数）提供支持.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">&#125;</span><br><span class="line">@Test</span><br><span class="line">@SneakyThrows</span><br><span class="line">public void test1() &#123;</span><br><span class="line">    Method method = GeneratorTest.class.getMethod(&quot;main&quot;, String[].class);</span><br><span class="line">    for (Parameter parameter : method.getParameters()) &#123;</span><br><span class="line">        System.out.println(parameter.getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>打印结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">args</span><br></pre></td></tr></table></figure></p>
-<h3 id="Iterable-forEach"><a href="#Iterable-forEach" class="headerlink" title="Iterable.forEach"></a>Iterable.forEach</h3><p>在逻辑稍微复杂一旦的循环体里面不建议使用，至少要在外部方法声明处抛出个异常都不行，简单的循环可以使用。</p>
-<h3 id="FunctionalInterface（函数式接口）"><a href="#FunctionalInterface（函数式接口）" class="headerlink" title="@FunctionalInterface（函数式接口）"></a>@FunctionalInterface（函数式接口）</h3><p><a href="http://www.manongjc.com/article/46188.html" target="_blank" rel="noopener">http://www.manongjc.com/article/46188.html</a></p>
-<h3 id="parallelStream-vs-stream"><a href="#parallelStream-vs-stream" class="headerlink" title="parallelStream() vs stream()"></a>parallelStream() vs stream()</h3><p>前者是并行执行流，如果对执行结果的顺序没有要求，建议使用并行执行的parallelStream()，可以提高流执行的性能。</p>
-<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><h3 id="transient"><a href="#transient" class="headerlink" title="transient"></a>transient</h3><p><a href="https://baijiahao.baidu.com/s?id=1636557218432721275&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">https://baijiahao.baidu.com/s?id=1636557218432721275&amp;wfr=spider&amp;for=pc</a></p>
-<h3 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void.class // 罕见又骚气的用法</span><br></pre></td></tr></table></figure>
-<h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public &lt;T&gt; T readObjectData(ByteBuffer buffer, Class&lt;T&gt; type) &#123;</span><br><span class="line">...</span><br><span class="line">T retVal = (T) summaries;</span><br><span class="line">return retVal;</span><br></pre></td></tr></table></figure>
-<p>我在stackoverflow发现一个很好的解析：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public &lt;T&gt; T readObjectData(...</span><br><span class="line">        ^  ^</span><br><span class="line">        |  + Return type</span><br><span class="line">        + Generic type argument</span><br></pre></td></tr></table></figure></p>
-<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><h3 id="Unimagined"><a href="#Unimagined" class="headerlink" title="Unimagined"></a>Unimagined</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 一个集合并入到另一个集合的安全写法</span><br><span class="line">Collections.addAll(Collection&lt;? super T&gt; c, T... elements);</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Collections.singletonMap(...);</span><br></pre></td></tr></table></figure>
-<h3 id="快速失败机制（fast-fail）"><a href="#快速失败机制（fast-fail）" class="headerlink" title="快速失败机制（fast-fail）"></a>快速失败机制（fast-fail）</h3><p>集合常见的快速失败检查都是通过如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">final void checkForComodification() &#123;</span><br><span class="line">    if (modCount != expectedModCount)</span><br><span class="line">        throw new ConcurrentModificationException();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="来自网上的Java集合体系图"><a href="#来自网上的Java集合体系图" class="headerlink" title="来自网上的Java集合体系图"></a>来自网上的Java集合体系图</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/FIG9fa.png" alt><br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/36r68I.png" alt></p>
-<h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><h3 id="一些自定义常用异常可以抽成公用的静态final异常，如："><a href="#一些自定义常用异常可以抽成公用的静态final异常，如：" class="headerlink" title="一些自定义常用异常可以抽成公用的静态final异常，如："></a>一些自定义常用异常可以抽成公用的静态final异常，如：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public final class PrematureCloseException extends IOException &#123;</span><br><span class="line"></span><br><span class="line">	public static final PrematureCloseException BEFORE_RESPONSE_SENDING_REQUEST =</span><br><span class="line">			new PrematureCloseException(&quot;Connection has been closed BEFORE response, while sending request body&quot;);</span><br><span class="line"></span><br><span class="line">	public static final PrematureCloseException BEFORE_RESPONSE =</span><br><span class="line">			new PrematureCloseException(&quot;Connection prematurely closed BEFORE response&quot;);</span><br><span class="line"></span><br><span class="line">	public static final PrematureCloseException DURING_RESPONSE =</span><br><span class="line">			new PrematureCloseException(&quot;Connection prematurely closed DURING response&quot;);</span><br><span class="line"></span><br><span class="line">	PrematureCloseException(String message) &#123;</span><br><span class="line">		super(message);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public synchronized Throwable fillInStackTrace() &#123;</span><br><span class="line">		// omit stacktrace for this exception</span><br><span class="line">		return this;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="一些运行时异常可以用Spring内置的断言API比较高逼格"><a href="#一些运行时异常可以用Spring内置的断言API比较高逼格" class="headerlink" title="一些运行时异常可以用Spring内置的断言API比较高逼格"></a>一些运行时异常可以用Spring内置的断言API比较高逼格</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Assert.notNull etc.</span><br></pre></td></tr></table></figure>
-<h2 id="非null判断的优雅写法"><a href="#非null判断的优雅写法" class="headerlink" title="非null判断的优雅写法"></a>非null判断的优雅写法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Objects.requireNonNull(obj);</span><br></pre></td></tr></table></figure>
-<h2 id="try资源句式"><a href="#try资源句式" class="headerlink" title="try资源句式"></a>try资源句式</h2><p>如果代码调用的类是实现java.lang.AutoCloseable的，用try资源句式来释放关闭资源这样代码就优雅多了。</p>
-<h2 id="PropertyDescriptor"><a href="#PropertyDescriptor" class="headerlink" title="PropertyDescriptor"></a>PropertyDescriptor</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PropertyDescriptor descriptor = new PropertyDescriptor(&quot;propertyName&quot;, param.getClass());</span><br><span class="line">Method getPropertyMethod = descriptor.getReadMethod();</span><br><span class="line">property = (Integer) getPropertyMethod.invoke(param);</span><br></pre></td></tr></table></figure>
-<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><h3 id="String-format"><a href="#String-format" class="headerlink" title="String.format"></a>String.format</h3><p><a href="https://blog.csdn.net/u010137760/article/details/82869637" target="_blank" rel="noopener">https://blog.csdn.net/u010137760/article/details/82869637</a></p>
-<h3 id="String-intern"><a href="#String-intern" class="headerlink" title="String.intern"></a>String.intern</h3><p><a href="https://www.cnblogs.com/Yintianhao/p/12273714.html" target="_blank" rel="noopener">https://www.cnblogs.com/Yintianhao/p/12273714.html</a></p>
-<h2 id="n次方写法"><a href="#n次方写法" class="headerlink" title="n次方写法"></a>n次方写法</h2><p>在Java中一个数的N次方不可以写成：a^0这种形式，算得的数不正确；<br>正确的写法为Math.pow(a,0);</p>
-<hr>
-<h1 id="避坑"><a href="#避坑" class="headerlink" title="避坑"></a>避坑</h1><h2 id="代码格式"><a href="#代码格式" class="headerlink" title="代码格式"></a>代码格式</h2><p>一个团队你的代码格式一定要统一，不然代码冲突时，比对代码非常麻烦。</p>
-<h2 id="Service与Controller的交互"><a href="#Service与Controller的交互" class="headerlink" title="Service与Controller的交互"></a>Service与Controller的交互</h2><p>Service最终返回给Controller层的数据如果比较复杂，尽量不要用Map，可以封装成DTO，而且这样一来还可以结合JSR303或者其各种扩展，对DTO进行优雅的数据校验。</p>
-<h2 id="减少箭头型代码"><a href="#减少箭头型代码" class="headerlink" title="减少箭头型代码"></a>减少箭头型代码</h2><p><a href="https://blog.csdn.net/weixin_33858485/article/details/88768985" target="_blank" rel="noopener">https://blog.csdn.net/weixin_33858485/article/details/88768985</a><br>但是个人认为，一味的追求箭头代码也会有弊端，比如这样:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Task task = monTask.getTask();</span><br><span class="line">if (task == null) &#123;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">MonAssignTaskExample monAssignTaskExample = new MonAssignTaskExample();</span><br><span class="line">monAssignTaskExample.createCriteria().andTaskIdEqualTo(task.getTaskId()).andDealObjectIdEqualTo(task.getDealObjectId())</span><br><span class="line">        .andIsFinishEqualTo(&quot;N&quot;);</span><br><span class="line">List&lt;MonAssignTask&gt; monAssignTasks = this.baseMonAssignTaskBO.selectByExample(monAssignTaskExample);</span><br><span class="line">if (ObjectUtils.isEmpty(monAssignTasks)) &#123;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">for (MonAssignTask monAssignTask : monAssignTasks) &#123;</span><br><span class="line">    // do something</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这样写固然是可以减少箭头代码，但是如若这段代码下面今后要添加一些额外的业务逻辑，这些业务逻辑与task是否为null没有必要的联系，<br>那么可能会因为task==null退出了整个函数，导致额外的业务逻辑不被执行。</p>
-<h2 id="Utils-工具类的命名"><a href="#Utils-工具类的命名" class="headerlink" title="Utils 工具类的命名"></a>Utils 工具类的命名</h2><p>每次在使用工具类的时候，总是会出现一个类名出现N个工具类比如：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/xLpjyO.png" alt="image"><br>而且自己也会有自定义的Utils类，为了更好地区分，我喜欢在Utils类价格前缀Enhanced，这样找自己的工具类就方便多了，比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EnhancedBeanUtils</span><br></pre></td></tr></table></figure></p>
-<h2 id="Deprecated"><a href="#Deprecated" class="headerlink" title="@Deprecated"></a>@Deprecated</h2><p>有些被封装的业务方法或者工具类方法如果有做修改，增加了方法的升级版，老旧的方法可以用@Deprecated标记为过时，防止新业务逻辑用到废弃的API。</p>
-<h2 id="魔法值应该尽量避免"><a href="#魔法值应该尽量避免" class="headerlink" title="魔法值应该尽量避免"></a>魔法值应该尽量避免</h2><p>阿里巴巴说java规范里面说杜绝一切魔法值，但是我觉得也不用可以完全追求零魔法值，我认为需要用常量代替魔法值的有以下这些：</p>
-<ol>
-<li>使用频率高的，或者被频繁调用的逻辑块中的魔法值。</li>
-<li>可读性很差的魔法值和表达式，应该禁止，最好都声明成可读性较好的常量或者变量。</li>
-</ol>
-<h2 id="多余的super"><a href="#多余的super" class="headerlink" title="多余的super();"></a>多余的super();</h2><p>在看公司的上古代码发现这种写法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public CreateRepairBillThread(SaInterfaceAccept accept) &#123;</span><br><span class="line">	super();</span><br><span class="line">	this.accept = accept;</span><br><span class="line">	this.timeout = timeout * 60L * 1000L;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这里面super();是一句多余的代码，因为子类的构造器会默认先调用父类无参构造器。</p>
-<hr>
-<h1 id="Combo"><a href="#Combo" class="headerlink" title="Combo"></a>Combo</h1><h2 id="过时类的坑"><a href="#过时类的坑" class="headerlink" title="过时类的坑"></a>过时类的坑</h2><p>从eclipse迁移到idea之后在本地跑服务的时候，反射调用方法老旧的代码遇到一个巨坑，抛出异常是wrong number of arguments。</p>
-<p>根据网上的方法，将invoke方法的入参中数组转为Object都不行，折腾了半天，发现代码中抛出了一个过时的异常，我突发奇想，将这个过时的异常类去掉，结果run success了，真的是惨痛的教训，过时的类和方法，能不用，千万别用。下面上代码：<br>报错代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public static Object invoke(Object obj, String methodName, Object[] params) throws Exception &#123;</span><br><span class="line">		Method method = methodByName(obj.getClass(), methodName);</span><br><span class="line">    	if (method == null)</span><br><span class="line">    		method = methodByName(obj.getClass().getSuperclass(), methodName);</span><br><span class="line">    	if (method != null) &#123;</span><br><span class="line">    		return method.invoke(obj, params);</span><br><span class="line">    	&#125; else &#123;</span><br><span class="line">    		throw new MethodNotFoundException(methodName);</span><br><span class="line">    	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>修改后的代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public static Object invoke(Object obj, String methodName, Object[] params) throws InvocationTargetException, IllegalAccessException, BOException &#123;</span><br><span class="line">   Method method = methodByName(obj.getClass(), methodName);</span><br><span class="line">       if (method == null)</span><br><span class="line">          method = methodByName(obj.getClass().getSuperclass(), methodName);</span><br><span class="line">       if (method != null) &#123;</span><br><span class="line">          return method.invoke(obj, params);</span><br><span class="line">       &#125; else &#123;</span><br><span class="line">          //之前抛出的异常已经过时，在jdk新版本环境会报错，优化了一下。</span><br><span class="line">          throw new BOException(&quot;方法&quot;+methodName+&quot;没找到&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">&#125;`</span><br></pre></td></tr></table></figure></p>
-<h2 id="jar"><a href="#jar" class="headerlink" title="jar"></a>jar</h2><h3 id="Mac中jar运行之后窗口无法粘贴"><a href="#Mac中jar运行之后窗口无法粘贴" class="headerlink" title="Mac中jar运行之后窗口无法粘贴"></a>Mac中jar运行之后窗口无法粘贴</h3><p>有些情况下需要使用windows的复制粘贴快捷键才能生效</p>
-<h3 id="jar指定目录的所有classes去打包"><a href="#jar指定目录的所有classes去打包" class="headerlink" title="jar指定目录的所有classes去打包"></a>jar指定目录的所有classes去打包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar cvf test.jar -C unwoven-classes .</span><br></pre></td></tr></table></figure>
-<h2 id="Jackson-Convert-Error-Cannot-construct-instance-of-java-time-LocalDateTime"><a href="#Jackson-Convert-Error-Cannot-construct-instance-of-java-time-LocalDateTime" class="headerlink" title="Jackson Convert Error: Cannot construct instance of java.time.LocalDateTime"></a>Jackson Convert Error: Cannot construct instance of <code>java.time.LocalDateTime</code></h2><p>LocalDateTime属性加上注解<br>@JsonDeserialize(using = LocalDateTimeDeserializer.class)<br>@JsonSerialize(using = LocalDateTimeSerializer.class)</p>
-<h2 id="Thread-sleep-使用-TimeUnit-XXX-sleep-x-代替（可读性更好）"><a href="#Thread-sleep-使用-TimeUnit-XXX-sleep-x-代替（可读性更好）" class="headerlink" title="Thread.sleep 使用 TimeUnit.XXX.sleep(x) 代替（可读性更好）"></a>Thread.sleep 使用 TimeUnit.XXX.sleep(x) 代替（可读性更好）</h2><p><a href="https://stackoverflow.com/questions/9587673/thread-sleep-vs-timeunit-seconds-sleep" target="_blank" rel="noopener">https://stackoverflow.com/questions/9587673/thread-sleep-vs-timeunit-seconds-sleep</a></p>
-<h2 id="音频格式转换"><a href="#音频格式转换" class="headerlink" title="音频格式转换"></a>音频格式转换</h2><p>使用<a href="http://www.sauronsoftware.it/projects/jave/manual.php#2" target="_blank" rel="noopener">JAVE 音频转换包</a>库</p>
+</ul>
+<p>上面的dockfile文件通过VOLUME指令指定了两个挂载点 /data1 和 /data2.</p>
+<p>我们通过docker inspect 查看通过该dockerfile创建的镜像生成的容器，可以看到如下信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&quot;Mounts&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;Name&quot;: &quot;d411f6b8f17f4418629d4e5a1ab69679dee369b39e13bb68bed77aa4a0d12d21&quot;,</span><br><span class="line">            &quot;Source&quot;: &quot;/var/lib/docker/volumes/d411f6b8f17f4418629d4e5a1ab69679dee369b39e13bb68bed77aa4a0d12d21/_data&quot;,</span><br><span class="line">            &quot;Destination&quot;: &quot;/data1&quot;,</span><br><span class="line">            &quot;Driver&quot;: &quot;local&quot;,</span><br><span class="line">            &quot;Mode&quot;: &quot;&quot;,</span><br><span class="line">            &quot;RW&quot;: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;Name&quot;: &quot;6d3badcf47c4ac5955deda6f6ae56f4aaf1037a871275f46220c14ebd762fc36&quot;,</span><br><span class="line">            &quot;Source&quot;: &quot;/var/lib/docker/volumes/6d3badcf47c4ac5955deda6f6ae56f4aaf1037a871275f46220c14ebd762fc36/_data&quot;,</span><br><span class="line">            &quot;Destination&quot;: &quot;/data2&quot;,</span><br><span class="line">            &quot;Driver&quot;: &quot;local&quot;,</span><br><span class="line">            &quot;Mode&quot;: &quot;&quot;,</span><br><span class="line">            &quot;RW&quot;: true</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br></pre></td></tr></table></figure></p>
+<h2 id="apt-get更换国内源解决Dockerfile构建速度过慢"><a href="#apt-get更换国内源解决Dockerfile构建速度过慢" class="headerlink" title="apt-get更换国内源解决Dockerfile构建速度过慢"></a>apt-get更换国内源解决Dockerfile构建速度过慢</h2><p>ubuntu和debian的镜像源都要换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RUN  sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list</span><br><span class="line">RUN  sed -i &apos;s/deb.debian.org/mirrors.ustc.edu.cn/g&apos; /etc/apt/sources.list</span><br><span class="line">RUN  apt-get clean</span><br><span class="line">RUN  apt-get update</span><br></pre></td></tr></table></figure></p>
+<p>或者：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FROM ubuntu:20.04</span><br><span class="line">RUN sed -i &apos;s/ports.ubuntu.com/mirror.tuna.tsinghua.edu.cn/g&apos; /etc/apt/sources.list</span><br><span class="line">RUN apt-get install vim</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://www.cnblogs.com/dakewei/p/12783717.html" target="_blank" rel="noopener">https://www.cnblogs.com/dakewei/p/12783717.html</a></p>
+<h3 id="163的镜像"><a href="#163的镜像" class="headerlink" title="163的镜像"></a>163的镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#更新apt-get源 使用163的源</span><br><span class="line">RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+<h1 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker-compose"></a>docker-compose</h1><p><a href="https://www.jianshu.com/p/90bf0e231e5a" target="_blank" rel="noopener">docker-compose.yml文件详解</a><br><a href="https://www.runoob.com/docker/docker-compose.html" target="_blank" rel="noopener">基础</a><br><a href="https://www.cnblogs.com/williamjie/p/9103327.html" target="_blank" rel="noopener">参考1</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<p>如果从github拉下来安装之后无法执行docker-compose命令的话，可以采用本机电脑下载之后上传到服务器，在chmod修改可执行权限就可以了。</p>
+<h2 id="命令-1"><a href="#命令-1" class="headerlink" title="命令"></a>命令</h2><h3 id="后台执行"><a href="#后台执行" class="headerlink" title="后台执行"></a>后台执行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+<h2 id="docker-compose中解决depends-on无效问题"><a href="#docker-compose中解决depends-on无效问题" class="headerlink" title="docker-compose中解决depends_on无效问题"></a>docker-compose中解决depends_on无效问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RUN apt-get -q update &amp;&amp; apt-get -qy install netcat</span><br><span class="line"># docker-compose.yml 加上下面</span><br><span class="line">command: sh -c &apos;./wait-for.sh kiwi-microservice-local:5001/actuator/info -- echo kiwi-word-biz already started&apos;</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.zyiz.net/tech/detail-98533.html" target="_blank" rel="noopener">http://www.zyiz.net/tech/detail-98533.html</a><br><a href="https://github.com/Eficode/wait-for" target="_blank" rel="noopener">https://github.com/Eficode/wait-for</a></p>
+<h1 id="Mac上跑docker"><a href="#Mac上跑docker" class="headerlink" title="Mac上跑docker"></a>Mac上跑docker</h1><p><a href="https://www.runoob.com/docker/macos-docker-install.html" target="_blank" rel="noopener">https://www.runoob.com/docker/macos-docker-install.html</a></p>
+<h1 id="docker-service的配置"><a href="#docker-service的配置" class="headerlink" title="docker.service的配置"></a>docker.service的配置</h1><p><a href="https://www.cnblogs.com/nihaorz/p/12131873.html" target="_blank" rel="noopener">https://www.cnblogs.com/nihaorz/p/12131873.html</a></p>
+<h1 id="更换国内的镜像"><a href="#更换国内的镜像" class="headerlink" title="更换国内的镜像"></a>更换国内的镜像</h1><p><a href="https://blog.csdn.net/u012081441/article/details/104553145/" target="_blank" rel="noopener">https://blog.csdn.net/u012081441/article/details/104553145/</a><br><a href="https://blog.csdn.net/s_lisheng/article/details/79871086" target="_blank" rel="noopener">https://blog.csdn.net/s_lisheng/article/details/79871086</a></p>
+<h1 id="在docker跑nginx的vue项目"><a href="#在docker跑nginx的vue项目" class="headerlink" title="在docker跑nginx的vue项目"></a>在docker跑nginx的vue项目</h1><p><a href="https://www.jianshu.com/p/422b61100273" target="_blank" rel="noopener">https://www.jianshu.com/p/422b61100273</a></p>
+<h2 id="nginx80端口被占用修改"><a href="#nginx80端口被占用修改" class="headerlink" title="nginx80端口被占用修改"></a>nginx80端口被占用修改</h2><p><a href="https://jingyan.baidu.com/article/3aed632efb150a701080912f.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/3aed632efb150a701080912f.html</a></p>
+<h2 id="各种配置"><a href="#各种配置" class="headerlink" title="各种配置"></a>各种配置</h2><p><a href="https://www.jqhtml.com/34815.html" target="_blank" rel="noopener">https://www.jqhtml.com/34815.html</a></p>
+<h1 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker network ls</span><br><span class="line">docker network inspect bridge</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.cnblogs.com/chenpython123/p/10823879.html" target="_blank" rel="noopener">https://www.cnblogs.com/chenpython123/p/10823879.html</a></p>
+<h1 id="Docker根据名称查询容器ID镜像ID并停止删除"><a href="#Docker根据名称查询容器ID镜像ID并停止删除" class="headerlink" title="Docker根据名称查询容器ID镜像ID并停止删除"></a>Docker根据名称查询容器ID镜像ID并停止删除</h1><p><a href="https://blog.csdn.net/zimou5581/article/details/94012682" target="_blank" rel="noopener">https://blog.csdn.net/zimou5581/article/details/94012682</a></p>
+<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="bash-vi-command-not-found"><a href="#bash-vi-command-not-found" class="headerlink" title="bash: vi: command not found"></a>bash: vi: command not found</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it &lt;container&gt; bash</span><br><span class="line">apt-get update</span><br><span class="line">apt-get install vim</span><br></pre></td></tr></table></figure>
+<h2 id="Error-response-from-daemon-Get-https-registry-1-docker-io-v2-net-http-TLS-handshake-timeout"><a href="#Error-response-from-daemon-Get-https-registry-1-docker-io-v2-net-http-TLS-handshake-timeout" class="headerlink" title="Error response from daemon: Get https://registry-1.docker.io/v2/: net/http: TLS handshake timeout"></a>Error response from daemon: Get <a href="https://registry-1.docker.io/v2/" target="_blank" rel="noopener">https://registry-1.docker.io/v2/</a>: net/http: TLS handshake timeout</h2><p><a href="https://blog.csdn.net/BigData_Mining/article/details/87869147" target="_blank" rel="noopener">网上的解决方案</a></p>
+<h2 id="Current-command-vanished-from-the-unit-file-execution-of-the-command-list-won’t-be-resumed"><a href="#Current-command-vanished-from-the-unit-file-execution-of-the-command-list-won’t-be-resumed" class="headerlink" title="Current command vanished from the unit file, execution of the command list won’t be resumed."></a>Current command vanished from the unit file, execution of the command list won’t be resumed.</h2><p>可能是有docker的相关进程没有杀干净。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef|grep docker</span><br><span class="line">kill -9 pid</span><br></pre></td></tr></table></figure></p>
+<h2 id="远程2375连接不上"><a href="#远程2375连接不上" class="headerlink" title="远程2375连接不上"></a>远程2375连接不上</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/lib/systemd/system/docker.service</span><br></pre></td></tr></table></figure>
+<p>vim进入命令行模式输入?ExecStart，找到如下一行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ExecStart=/usr/bin/dockerd -H unix://var/run/docker.sock \</span><br></pre></td></tr></table></figure></p>
+<p>在后面加上-H tcp://0.0.0.0:2375<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock -H tcp://0.0.0.0:2375</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service docker restart</span><br></pre></td></tr></table></figure>
+<p>之后要注意重启之前的容器。</p>
+<h2 id="ERROR-Version-in-“-docker-compose-yml”-is-invalid-You-might-be-seeing-this-error-because-you’re-using-the-wrong-Compose-file-version-Either-specify-a-supported-version-e-g-“2-2”-or-“3-3”"><a href="#ERROR-Version-in-“-docker-compose-yml”-is-invalid-You-might-be-seeing-this-error-because-you’re-using-the-wrong-Compose-file-version-Either-specify-a-supported-version-e-g-“2-2”-or-“3-3”" class="headerlink" title="ERROR: Version in “./docker-compose.yml” is invalid. You might be seeing this error because you’re using the wrong Compose file version. Either specify a supported version (e.g “2.2” or “3.3”)"></a>ERROR: Version in “./docker-compose.yml” is invalid. You might be seeing this error because you’re using the wrong Compose file version. Either specify a supported version (e.g “2.2” or “3.3”)</h2><p>把docker-compose.yml里面的version改一下，改成2.2或3.3（根据提示改）</p>
+<h2 id="docker-启动-nginx-访问不了的问题"><a href="#docker-启动-nginx-访问不了的问题" class="headerlink" title="docker 启动 nginx 访问不了的问题"></a>docker 启动 nginx 访问不了的问题</h2><p>如果容器的nginx服务没有启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#  进入容器</span><br><span class="line">/usr/sbin/nginx</span><br><span class="line"># 看下报什么错</span><br></pre></td></tr></table></figure></p>
+<h2 id="vue-config-js设置代理之后，nginx反向代理-404"><a href="#vue-config-js设置代理之后，nginx反向代理-404" class="headerlink" title="vue.config.js设置代理之后，nginx反向代理 404"></a>vue.config.js设置代理之后，nginx反向代理 404</h2><p><a href="https://zhuanlan.zhihu.com/p/60833019" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/60833019</a><br>/etc/nginx/conf.d/default.conf</p>
+<p>nginx关键配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">root /usr/share/nginx/html;</span><br><span class="line">index index.html index.htm;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /auth &#123;</span><br><span class="line">	proxy_pass http://kiwi-microservice:9991;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /wordBiz &#123;</span><br><span class="line">    proxy_pass http://kiwi-microservice:9991;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /code &#123;</span><br><span class="line">    proxy_pass http://kiwi-microservice:9991;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Published-ports-are-discarded-when-using-host-network-mode"><a href="#Published-ports-are-discarded-when-using-host-network-mode" class="headerlink" title="Published ports are discarded when using host network mode"></a>Published ports are discarded when using host network mode</h2><p>host的网络模式不能-p映射端口</p>
+<h2 id="OCI-runtime-exec-failed-exec-failed-container-linux-go-349-starting-container-process-caused-“exec-”bash-”-executable-file-not-found-in-PATH”-unknown"><a href="#OCI-runtime-exec-failed-exec-failed-container-linux-go-349-starting-container-process-caused-“exec-”bash-”-executable-file-not-found-in-PATH”-unknown" class="headerlink" title="OCI runtime exec failed: exec failed: container_linux.go:349: starting container process caused “exec: \”bash\”: executable file not found in $PATH”: unknown"></a>OCI runtime exec failed: exec failed: container_linux.go:349: starting container process caused “exec: \”bash\”: executable file not found in $PATH”: unknown</h2><p>三种模式选择一种试试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it 1e33b26152e1 /bin/sh</span><br><span class="line">docker exec -it 1e33b26152e1 bash</span><br><span class="line">docker exec -it 1e33b26152e1 sh</span><br></pre></td></tr></table></figure></p>
+<h2 id="mkdir-can’t-create-directory-‘-tmp’-File-exists"><a href="#mkdir-can’t-create-directory-‘-tmp’-File-exists" class="headerlink" title="mkdir: can’t create directory ‘/tmp’: File exists"></a>mkdir: can’t create directory ‘/tmp’: File exists</h2><p>Dockerfile里面RUN命令创建文件夹的时候注意不要和系统同路径，不然会报错。</p>
 
       
     </div>
@@ -453,7 +729,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/09/《深入理解Java虚拟机第3版》阅读笔记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Vue系列之基础知识/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -467,7 +743,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/07/09/《深入理解Java虚拟机第3版》阅读笔记/" class="post-title-link" itemprop="url">《深入理解Java虚拟机第3版》阅读笔记</a>
+            <a href="/2019/10/15/Vue系列之基础知识/" class="post-title-link" itemprop="url">Vue系列之基础知识</a>
         </h2>
 
         <div class="post-meta">
@@ -477,14 +753,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-07-09 09:55:12" itemprop="dateCreated datePublished" datetime="2020-07-09T09:55:12+08:00">2020-07-09</time>
+              <time title="Created: 2019-10-15 21:11:24" itemprop="dateCreated datePublished" datetime="2019-10-15T21:11:24+08:00">2019-10-15</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-11 21:21:07" itemprop="dateModified" datetime="2020-09-11T21:21:07+08:00">2020-09-11</time>
+                <time title="Modified: 2020-09-17 09:11:57" itemprop="dateModified" datetime="2020-09-17T09:11:57+08:00">2020-09-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -492,7 +768,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                  <a href="/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
                 </span>
             </span>
 
@@ -507,466 +783,74 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <blockquote>
-<p>这篇笔记总结自周志明老师的《深入理解Java虚拟机第3版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。<br>思维导图版本<a href="http://www.xmind.net/m/MfZ5zm" target="_blank" rel="noopener">点击这里</a></p>
+          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="eslint-plugin-vue-todo"><a href="#eslint-plugin-vue-todo" class="headerlink" title="eslint-plugin-vue todo"></a>eslint-plugin-vue todo</h2><h2 id="调试技巧-todo"><a href="#调试技巧-todo" class="headerlink" title="调试技巧 todo"></a>调试技巧 todo</h2><h2 id="前端加密的库CryptoJS使用demo-todo"><a href="#前端加密的库CryptoJS使用demo-todo" class="headerlink" title="前端加密的库CryptoJS使用demo todo"></a>前端加密的库CryptoJS使用demo todo</h2><p>以及相同的流行的库有什么？</p>
+<h2 id="Vue的生命周期-todo"><a href="#Vue的生命周期-todo" class="headerlink" title="Vue的生命周期 todo"></a>Vue的生命周期 todo</h2><h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="Vue-js-devtools灰色状态"><a href="#Vue-js-devtools灰色状态" class="headerlink" title="Vue.js devtools灰色状态"></a>Vue.js devtools灰色状态</h2><p>首先要确保编译的控制台没有error,在Sources里面有源码可以debug。</p>
+<h2 id="Invalid-prop-type-check-failed-for-prop-“queryForm”-Expected-Array-got-Promise"><a href="#Invalid-prop-type-check-failed-for-prop-“queryForm”-Expected-Array-got-Promise" class="headerlink" title="Invalid prop: type check failed for prop “queryForm”. Expected Array, got Promise"></a>Invalid prop: type check failed for prop “queryForm”. Expected Array, got Promise</h2><p>原因是因为prop “queryForm”，期待拿到的是一个Array数组对象，但是传进去的却是一个Promise对象，所以抛出这个报错，类似的错误一般会有：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Vue warn]: Invalid prop: type check failed for prop &quot;data&quot;. Expected Array, got String.</span><br></pre></td></tr></table></figure></p>
+<h2 id="Vue中监听路由参数变化的方法"><a href="#Vue中监听路由参数变化的方法" class="headerlink" title="Vue中监听路由参数变化的方法"></a>Vue中监听路由参数变化的方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">      $route()&#123;</span><br><span class="line">        this.pjtid = this.$route.query.pjtid</span><br><span class="line">      &#125;,</span><br><span class="line">      pjtid() &#123;</span><br><span class="line">        this.pjtdetail()</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>还可以监听url的前后变化：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$route (to, from) &#123;</span><br><span class="line">      this.init()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="VueRouter进不去组件的原因"><a href="#VueRouter进不去组件的原因" class="headerlink" title="VueRouter进不去组件的原因"></a>VueRouter进不去组件的原因</h2><blockquote>
+<p>有可能是父路径的path忘记以/开头了，比如：</p>
 </blockquote>
-<h1 id="虚拟机概述"><a href="#虚拟机概述" class="headerlink" title="虚拟机概述"></a>虚拟机概述</h1><h2 id="中间语言翻译（从Java翻译到机器码）"><a href="#中间语言翻译（从Java翻译到机器码）" class="headerlink" title="中间语言翻译（从Java翻译到机器码）"></a>中间语言翻译（从Java翻译到机器码）</h2><blockquote>
-<p>从中间语言翻译到机器码</p>
-</blockquote>
-<h3 id="通过C语言翻译（初JVM）"><a href="#通过C语言翻译（初JVM）" class="headerlink" title="通过C语言翻译（初JVM）"></a>通过C语言翻译（初JVM）</h3><p>通过将字节码class翻译成C语言，比如定义iadd这个字节码是相加的助记符，然后通过c语言来解析字节码中的iadd就是相加，并指向对应的c语言相加的c程序来做实际运算，这样子的话，这个解析字节码的C程序就是所谓的JVM，最简陋效率最低的初代JVM</p>
-<h3 id="直接翻译为机器码"><a href="#直接翻译为机器码" class="headerlink" title="直接翻译为机器码"></a>直接翻译为机器码</h3><h4 id="CS-IP"><a href="#CS-IP" class="headerlink" title="CS:IP"></a>CS:IP</h4><p>CS与IPO这是物理CPU内部的两个寄存器。对于一台物理机器而言，这两个寄存器是最重要的寄存器，因为CPU在取指令时便完全依靠这两个寄存器。CS寄存器保存段地址，IP保存偏移地址。CS和IP这两个寄存器的值能够唯一确定内存中的一个地址，CPU在执行机器指令之前，便通过这两个寄存器定位到目标内存位置，并将该位置处的机器指令取出来进行运算。函数跳转的本质其实便是修改CS和IP这两个寄存器的内容，使其指向到目标函数所在内存的首地址，这样CPU便能执行目标函数了。Java虚拟机要想让物理CPU直接执行Java程序所对应的目标机器码，也得修改这两个寄存器才能实现。</p>
-<p>在C语言中，能够使用语法糖来修改CS:IP段寄存器，这样C程序就能直接动态执行机器码。<br>既然都能在C语言中直接动态执行机器码了（可以简单理解为：C语言的变量里面可以复制解析出来的机器码，然后直接执行），我们只要将中间语言指令直接翻译为机器码，然后让CS:IP直接指向这段机器码执行，这也是现代JVM最重要的的基本原理之一。</p>
-<h3 id="本地编译"><a href="#本地编译" class="headerlink" title="本地编译"></a>本地编译</h3><p>中间语言（Java）与同样属于高级语言的C语言相比，它们实现相同的功能，C语言编译后所生成的机器码，也比中间语言直接翻译成的机器码，在数量上要精简很多，所以单从这个角度来讲，C语言的执行效率当然是要更高一些。<br>中间语言由于其本身不能直接被CPU执行，为了能够被CPU执行，中间语言在完成同样一个功能时，需要准备更多便于自我管理的上下文环境，最后才能执行目标机器指令。准备上下文环境最终也是依靠机器码去实现，因此中间语言最终便生成了更多机器码，当然执行效率就降低了。<br>为了提高性能，JVM提供了一种机制能够将中间语言(字节码)直接编译为本地机器指令。例如安卓和部分JVM所实现的AOT ( ahead of time )特性便是这方面的尝试，但是这种方式并没有减少机器指令的数量级问题。<br>除此之外，JVM的大牛们在JIT (即时编译)、内存分配也进行了大量的优化，使JVM能够对热点代码进行大幅度指令优化，正是由于JVM可以在运行期基于上下文链路进行各种优化，因此优化后的指令质量甚至比C/C++编译岀的指令质量更高，以及部分Java程序性能甚至反超C/C++程序。如果离开了这些动态优化，Java程序的执行效率是无论如何也提不上去的。</p>
-<h2 id="神奇的指令"><a href="#神奇的指令" class="headerlink" title="神奇的指令"></a>神奇的指令</h2><p>Java虚拟机其实是”读不懂”Java代码的，不过也并非所有的虚拟机都不懂得面向对象的语言，JavaScript执行引擎就是个例外一JS脚本不需要编译就能被JS引擎直接执行。<br>Java所谓的中间语言就是Java字节码指令集，指令集一般是计算机硬件才有的东西，而作者却在软件层面定义了一套同样的东西。但是，软件本身不具备执行程序的能力，软件最终还得依靠硬件指令才能完成逻辑计算。因此，一套好的软件指令必须不能超出硬件指令所能表达的计算能力，同时又要对硬件指令进行高度抽象与概括。换言之，如果你定义了一套与硬件指令集完全一模一样的软件指令集，那大家还用你干嘛呀，不如直接用硬件指令得了。</p>
-<hr>
-<h1 id="Java技术的未来"><a href="#Java技术的未来" class="headerlink" title="Java技术的未来"></a>Java技术的未来</h1><h2 id="无语言倾向"><a href="#无语言倾向" class="headerlink" title="无语言倾向"></a>无语言倾向</h2><h3 id="GraalJVM"><a href="#GraalJVM" class="headerlink" title="GraalJVM"></a>GraalJVM</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/0eyudF.png" alt></p>
-<h3 id="新一代即时编译器"><a href="#新一代即时编译器" class="headerlink" title="新一代即时编译器"></a>新一代即时编译器</h3><p>HotSpot虚拟机中含有两个即使编译器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">export default [&#123;</span><br><span class="line">  path: &apos;index&apos;,</span><br><span class="line">  component: $ =&gt; import(&apos;@/page/index/Index&apos;)</span><br><span class="line">&#125;, &#123;</span><br><span class="line">  path: &apos;vocabulary&apos;,</span><br><span class="line">  component: $ =&gt; import(&apos;@/page/word/Search&apos;),</span><br><span class="line">  children: [&#123;</span><br><span class="line">    path: &apos;detail&apos;,</span><br><span class="line">    component: $ =&gt; import(&apos;@/page/word/Detail&apos;)</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    path: &apos;starList&apos;,</span><br><span class="line">    component: $ =&gt; import(&apos;@/page/word/StarList&apos;)</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    path: &apos;starListDetail&apos;,</span><br><span class="line">    component: $ =&gt; import(&apos;@/page/word/StarListDetail&apos;)</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+<p>这样子的话浏览器访问<a href="http://localhost:8080/#/index会出现空白!" target="_blank" rel="noopener">http://localhost:8080/#/index会出现空白!</a></p>
+<h2 id="filters-调用到this对象的data、methods"><a href="#filters-调用到this对象的data、methods" class="headerlink" title="filters 调用到this对象的data、methods"></a>filters 调用到this对象的data、methods</h2><p><a href="https://blog.csdn.net/ee_11eeeeee/article/details/102961376" target="_blank" rel="noopener">https://blog.csdn.net/ee_11eeeeee/article/details/102961376</a></p>
+<h2 id="Avoid-mutating-a-prop-directly-since-the-value-will-be-overwritten-whenever"><a href="#Avoid-mutating-a-prop-directly-since-the-value-will-be-overwritten-whenever" class="headerlink" title="Avoid mutating a prop directly since the value will be overwritten whenever"></a>Avoid mutating a prop directly since the value will be overwritten whenever</h2><p>props从父组件传递数据到子组件，不能子组件更改修改父组件，单向传递，用临时局部变量代替。</p>
+<h2 id="ios手机点击输入框页面放大，输入框失焦后，页面不复原，仍保持放大状态"><a href="#ios手机点击输入框页面放大，输入框失焦后，页面不复原，仍保持放大状态" class="headerlink" title="ios手机点击输入框页面放大，输入框失焦后，页面不复原，仍保持放大状态"></a>ios手机点击输入框页面放大，输入框失焦后，页面不复原，仍保持放大状态</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="重要备忘"><a href="#重要备忘" class="headerlink" title="重要备忘"></a>重要备忘</h2><ul>
+<li>在标签的属性与vue的变量或者方法绑定中，千万记得不要使用this.开头，这样子会读取到标签本身的属性值的</li>
+<li>vue的html标签如果属性绑定调用的是方法返回的，注意要在方法名后面加上()，不然可能会被解析为变量名</li>
+<li>引入js的单个或这个静态的方法或变量，一定要加{}，比如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123;BILL_BUTTON_CONFIGS&#125; from &apos;./buttonConfig&apos;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>不能是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import BILL_BUTTON_CONFIGS from &apos;./buttonConfig&apos;</span><br></pre></td></tr></table></figure></p>
+<p>不然里面的BILL_BUTTON_CONFIGS常量使用会undefined</p>
 <ul>
-<li>编译耗时短但是输出代码优化程度较低的客户端编译器（C1）。</li>
-<li>编译耗时长但输出代码优化质量较高的服务端编译器（C2）。</li>
+<li>v-bind绑定是可以使用三目运算符的<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:class=&quot;taskVO.selected?&apos;selected&apos;:&apos;&apos;&quot;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<p>JDK10之后，HotSpot加入了一个全新的即时编译器，Graal编译器(可以通过相应的JVM参数配置启动，以C2代替者的身份登场，目前还是处于”实验状态”)。<br>Graal能够做比C2更加复杂的优化，如“部分逃逸分析”(Partial Escape Analysis)，也拥有比C2更容易使用激进预测性优化(Aggressive Speculative Optimization)的策略，支持自定义的预测性假设等。</p>
-<h3 id="向Native迈进"><a href="#向Native迈进" class="headerlink" title="向Native迈进"></a>向Native迈进</h3><p>最新的基本版本的JDK已经推出跨进程的、可以面向用户程序的类型信息共享(Application Class Data Sharing, AppCDS,允许把加载解析后的类型信息缓存起来，从而提升下次启动速度。</p>
-<h4 id="Substrate-VM"><a href="#Substrate-VM" class="headerlink" title="Substrate VM"></a>Substrate VM</h4><p>Substrate VM在内存占用和启动时间比HotSpot强5到50倍：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/eoIO68.png" alt><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/yutz7e.png" alt></p>
-<h2 id="实战：自己编译JDK"><a href="#实战：自己编译JDK" class="headerlink" title="实战：自己编译JDK"></a>实战：自己编译JDK</h2><h3 id="OpenJDK-vs-OracleJDK"><a href="#OpenJDK-vs-OracleJDK" class="headerlink" title="OpenJDK vs OracleJDK"></a>OpenJDK vs OracleJDK</h3><p>实际上，JDK11之后，两者的公用源码已经占比很高了：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/BzIIY0.png" alt></p>
-<h1 id="自动内存管理"><a href="#自动内存管理" class="headerlink" title="自动内存管理"></a>自动内存管理</h1><h2 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/LxyOJy.png" alt></p>
-<h3 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h3><p>程序计数器(Program Counter Register)是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。在Java虚拟机的<code>概念模型</code>里，字节解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。<br>每个线程都有一个独立的程序计数器，各线程之间的计数器互不影响（因为Java多线程是采用线程轮流切换来实现的，多核处理器中的单个处理器一次只能执行某个线程中的某条指令，切换之后各自的计数器能够恢复到各自接下来的执行位置）。<br>所以，<strong><em>程序计数器是线程私有的。</em></strong></p>
-<h3 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a>Java虚拟机栈</h3><p><strong><em>Java虚拟机栈一样是线程私有的，生命周期与线程相同。</em></strong><br>虚拟机栈描述的是Java方法执行的线程内存模型，每个方法被执行的时候，Java虚拟机都会同步创建一一个<code>栈帧(Stack Frame)</code>用于存储局部变量表、操作数栈、动态连接、方法出口等信息。每一个方法被调用直至执行完毕的过程，就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。<br>广为流传的所谓”堆”和”栈”内存划分说话中的”栈”就是指虚拟机栈，或者是指虚拟机栈中的局部变量表部分。</p>
-<h4 id="栈帧？"><a href="#栈帧？" class="headerlink" title="栈帧？"></a>栈帧？</h4><h4 id="局部变量表"><a href="#局部变量表" class="headerlink" title="局部变量表"></a>局部变量表</h4><p>局部变量表存放了编译期可知的各种Java虚拟机基本数据类型(boolean、byte、char、 short、 int、 float、 long、 double) 、对象引用(reference类型，它并不等同于对象本身，可能是一个指向对象起始地址的<code>引用指针</code>，或者叫<code>直接指针</code>；也可能是指向一个代表对象的<code>句柄</code>或者其他与此对象相关的位置)和returnAddress类型(指向了一条字节码指令的地址)<br>这些数据类型在局部变量表中的存储空间以局部变量槽(Slot)来表示，其中64位长度的1ong和double类型的数据会占用两个变量槽，其余的数据类型只占用一个。局部变量表所需的内存空间在编译期间完成分配，当进入-一个方法时，这个方法需要在栈帧中分配多大的局部变量空间是完全确定的，在方法运行期间不会改变局部变量表的大小。（“大小”是指变量槽的数量，变量槽占用32个比特还是64个比特由虚拟机决定）。</p>
-<h4 id="StackOverFlowError和OutOfMemoryError（Java虚拟机规范）"><a href="#StackOverFlowError和OutOfMemoryError（Java虚拟机规范）" class="headerlink" title="StackOverFlowError和OutOfMemoryError（Java虚拟机规范）"></a>StackOverFlowError和OutOfMemoryError（Java虚拟机规范）</h4><ul>
-<li>如果线程请求的栈深度大于虚拟机所允许的深度，将拋出StackOverflowError异常; </li>
-<li>如果Java虚拟机栈容量可以动态扩展，当栈扩展时无法申请到足够的内存会拋出OutOfMemoryError异常。</li>
-</ul>
-<h4 id="操作数栈？"><a href="#操作数栈？" class="headerlink" title="操作数栈？"></a>操作数栈？</h4><h3 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h3><p>本地方法栈（Native Method Stacks）为虚拟机调用本地方法而服务，就像虚拟机栈服务于Java方法的调用一样。<br>虚拟机可以对本地方法栈自由实现，《Java虚拟机规范》对这没有强制约束（HotSpot将虚拟机栈和本地方法栈合并了）。</p>
-<h3 id="Java堆（Heap、GC堆）"><a href="#Java堆（Heap、GC堆）" class="headerlink" title="Java堆（Heap、GC堆）"></a>Java堆（Heap、GC堆）</h3><p>Java堆是虚拟机内存管理中最大的一块（线程共享）。<br>当前主流虚拟机都可以通过参数扩展堆的大小（<code>-Xmx</code>、<code>-Xms</code>），如果内存不足或者堆无法再扩展了，就会抛出OutOfMemoryError。</p>
-<h3 id="方法区（”非堆”、Non-Heap）"><a href="#方法区（”非堆”、Non-Heap）" class="headerlink" title="方法区（”非堆”、Non-Heap）"></a>方法区（”非堆”、Non-Heap）</h3><p>和Java堆一样，是各个线程共享的内存区域，它用于存储已被虚拟机加载的<code>类型信息</code>、<code>常量</code>、<code>静态变量</code>、<code>即时编译器编译后的代码缓存</code>等数据。<br>虽然《Java虚拟机规范》中把方法区描述为堆的一个逻辑部分，但是它却有一个别名叫作“非堆”(Non-Heap) ，目的是与Java堆区分开来。</p>
-<h4 id="永久代（Permanent-Generation）的落寞，元空间（Meta-space）的登场"><a href="#永久代（Permanent-Generation）的落寞，元空间（Meta-space）的登场" class="headerlink" title="永久代（Permanent Generation）的落寞，元空间（Meta-space）的登场"></a>永久代（Permanent Generation）的落寞，元空间（Meta-space）的登场</h4><p>Java 8之前，很多人习惯将方法区叫称为”永久代”，因为仅仅只有当时的HotSpot使用永久代来实现方法区，很多其他的虚拟机并不存在永久代的概念，《Java虚拟机规范》也对方法区的实现没有约束，所以方法区不等同于永久代。</p>
-<blockquote>
-<p>HotSpot使用永久代来实现方法区，实际上导致了Java应用更容易出现内存溢出，其<code>-XX: MaxPermSize</code>可以设置永久代的上限，即使不设置也有默认大小。 &gt; 而J9和JRockit就没有此类内存限制，除非触碰进程可用内存上限，这个是由系统控制。</p>
-</blockquote>
-<p>所以到了JDK 6时，HotSpot就逐步放弃永久代，开始采用<code>本地内存（Native Memory）</code>来实现方法区了，到了JDK 8就完全放弃永久代了，改用在本地内存中实现的<code>元空间（Meta-space）</code>，把字符串常量池、静态变量、类型信息等都移到元空间了。<br>垃圾收集器在方法区的回收行为出现得是比较少的，这个区域的内存回收只要是<strong><em>针对常量池的回收和对类型的卸载</em></strong>。</p>
-<h4 id="运行时常量池（Runtime-Constant-Pool）"><a href="#运行时常量池（Runtime-Constant-Pool）" class="headerlink" title="运行时常量池（Runtime Constant Pool）"></a>运行时常量池（Runtime Constant Pool）</h4><p>运行时常量池是方法区的一部分。Class文件中除了有类的版本、字段、方法、接口等描述信息外，还有一项信息是常量池表(Constant Pool Table)，用于存放编译期生成的各种字面量与符号引用，这部分内容将在类加载后存放到方法区的运行时常量池中。<br>Java虚拟机对于Class文件每一部分(自然也包括常量池)的格式都有严格规定，如每一个字节用于存储哪种数据都必须符合规范上的要求才会被虚拟机认可、加载和执行，但对于运行时常量池，《Java虚拟机规范》并没有做任何细节的要求。<br>运行时常量池相较于<code>Class文件常量池</code>具有动态性，运行期间可以将新的常量放入运行时常量池中，比如<code>String.intern</code>。<br>因为运行时常量池属于方法区，自然也就受到OutOfMemoryError异常的约束。</p>
-<h4 id="直接内存（Direct-Memory）"><a href="#直接内存（Direct-Memory）" class="headerlink" title="直接内存（Direct Memory）"></a>直接内存（Direct Memory）</h4><p>直接内存并不是虚拟机运行时数据区的一部分，也不是《Java虚拟机规范》中定义的内存区域。但是这部分内存也被频繁地使用，而且也可能导致OutOfMemoryError异常出现。<br>在JDK 1.4中新加入了NIO (New Input/Output)类，引入了一种基于通道(Channel)与缓冲区(Buffer) 的I/O方式，它可以使用Native函数库直接分配堆外内存，然后通过一个存储在Java堆里面的DirectByteBuffer对象作为这块内存的引用进行操作。这样能在一些场景中显著提高性能，因为避免了在Java堆和Native堆中来回复制数据，直接内存当然也是受到物理总内存的约束。</p>
-<blockquote>
-<p>所以在设置<code>-Xmx</code>等参数时，除了考虑运行时数据区里的各大内存区域，还要考虑到直接内存。 </p>
-</blockquote>
-<h2 id="垃圾收集器与内存分配策略"><a href="#垃圾收集器与内存分配策略" class="headerlink" title="垃圾收集器与内存分配策略"></a>垃圾收集器与内存分配策略</h2><h3 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h3><p>对象内存分配的方式（选择哪种分配方式由Java堆是否规整决定，而Java堆是否规整又由所采用的垃圾收集器是否带有空间压缩整理(Compact) 的能力决定）：</p>
-<ul>
-<li>指针碰撞（Bump The Pointer）：当使用Serial、ParNew等带压缩整理过程的收集器时（简单高效）。</li>
-<li>空闲列表（Free List）：当使用CMS这种基于清除(Sweep)算法的收集器时（较为复杂，实际上，在空闲列表中如果还能够拿到一大块子内存的话，CMS的实现还采用了一种可以继续使用指针碰撞的方式，叫做Linear Allocation Buffer）。</li>
-</ul>
-<h4 id="并发情况下的内存分配线程安全问题"><a href="#并发情况下的内存分配线程安全问题" class="headerlink" title="并发情况下的内存分配线程安全问题"></a>并发情况下的内存分配线程安全问题</h4><p>并发条件下，可能出现正在给对象A分配内存，指针还没来得及修改，对象B又同时使用了原来的指针来分配内存的情况，解决这个问题的方案：</p>
-<ul>
-<li>采用CAS配上失败重试的方式保证更新操作的原子性；</li>
-<li>把内存分配的动作按照线程划分，在不同的空间之中进行，即每个线程在Java堆中预先分配一小块内存，称为本地线程分配缓冲(Thread Local Allocation Buffer, TLAB)，线程在各自的本地缓冲区中分配内存，只有本地缓冲区用完了，分配新的缓存区时才需要同步锁定。</li>
-</ul>
-<p>可以通过<code>-XX: +/-UseTLAB</code>参数来设定使用哪种方案。</p>
-<h3 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h3><p>对象在堆内存中的存储布局：</p>
-<h4 id="对象头（Header）"><a href="#对象头（Header）" class="headerlink" title="对象头（Header）"></a>对象头（Header）</h4><p>HotSpot对象头包含两类信息：</p>
-<ul>
-<li>存储对象自身的运行时数据：<code>哈希码（HashCode）</code>、<code>GC分代年龄</code>、<code>锁状态标志</code>、<code>线程持有的锁</code>、<code>偏向线程ID</code>、<code>偏向时间戳</code>等，官方称之为”Mark Word”。<br>MarkWord被设计成一一个有着动态定义的数据结构，以便在极小的空间内存储尽量多的数据，根据对象的状态复用自己的存储空间。例如在32位的HotSpot虚拟机中，如对象未被同步锁锁定的状态下，Mark Word的32个比特存储空间中的25个比特用于存储对象哈希码，4个比特用于存储对象分代年龄，2个比特用于存储锁标志位，1个比特固定为0，在其他状态(轻量级锁定、重量级锁定、GC标记、可偏向) 下对象的存储内容。如下图：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/YAJQr9.png" alt></li>
-<li>类型指针：即对象指向 它的类型元数据的指针，Java虚拟机通过这个指针来确定该对象是哪个类的实例。并不是所有的虚拟机实现都必须在对象数据上保留类型指针。</li>
-</ul>
-<h4 id="实例数据（Instance-Data）"><a href="#实例数据（Instance-Data）" class="headerlink" title="实例数据（Instance Data）"></a>实例数据（Instance Data）</h4><p>这部分是对象真正存储的有效信息，即程序代码里定义的各种类型的字段内容，无论是从父类继承下来的，还是在子类中定义的字段都必须记录在此。<br>这部分的存储顺序会受到虚拟机分配策略参数<code>-XX: FieldsAllocationStyle</code>参数和字段在Java源码中定义顺序的影响。<br>HotSpot虛拟机默认的分配顺序为longs/doubles、ints、 shorts/chars、 bytes/booleans、oops(Ordinary Object Pointers, OOPs)，从以上默认的分配策略中可以看到，相同宽度的字段总是被分配到一起存放，在满足这个前提条件的情况下，在父类中定义的变量会出现在子类之前。<br>如果HotSpot虛拟机的<code>+XX: CompactPields</code>参数值为true(默认就为true)，那子类之中较窄的变量也允许插入父类变量的空隙之中，以节省出一点点空间。</p>
-<h4 id="对齐填充（Padding）"><a href="#对齐填充（Padding）" class="headerlink" title="对齐填充（Padding）"></a>对齐填充（Padding）</h4><p>不是一定存在的，只是起到占位符的作用。<br>由于HotSpot虚拟机的自动内存管理系统要求对象起始地址必须是8字节的整数倍，换句话说就是任何对象的大小都必须是8字节的整数倍。对象头部分已经被精心设计成正好是8字节的倍数(1倍或者2倍)，因此，如果对象实例数据部分没有对齐的话，就需要通过对齐填充来补全。</p>
-<h3 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h3><p>Java程序会通过栈上的reference类型数据来操作堆上的具体对象。</p>
-<h4 id="句柄和直接指针两种方式"><a href="#句柄和直接指针两种方式" class="headerlink" title="句柄和直接指针两种方式"></a>句柄和直接指针两种方式</h4><ul>
-<li>句柄方式：Java堆中将可能会划分出一块内存来作为句柄池，reference中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与类型数据各自具体的地址信息。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/A1pFdi.png" alt></li>
-<li>直接指针：Java堆中对象的内存布局就必须考虑如何放置访问类型数据的相关信息，reference中存储的直接就是对象地址，如果只是访问对象本身的话，就不需要多一次间接访问的开销。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/ycOjxS.png" alt></li>
-</ul>
-<blockquote>
-<p>使用句柄来访问的最大好处就是reference中存储的是稳定句柄地址，在对象被移动(垃圾收集时移动对象是非常普遍的行为)时只会改变句柄中的实例数据指针，而reference本身不需要被修改。<br>使用直接指针来访问最大的好处就是速度更快，它节省了-次指针定位的时间开销，由于对象访问在Java中非常频繁，因此这类开销积少成多也是一项极为可观的执行成本。</p>
-</blockquote>
-<h3 id="实战：OutOfMemoryError异常"><a href="#实战：OutOfMemoryError异常" class="headerlink" title="实战：OutOfMemoryError异常"></a>实战：OutOfMemoryError异常</h3><p>在《Java虚拟机规范》的规定里，除了程序计数器外，虚拟机内存的其他几个运行时区域都有发生OutOfMemoryError (OOM)异常的可能。</p>
-<h4 id="Java堆溢出"><a href="#Java堆溢出" class="headerlink" title="Java堆溢出"></a>Java堆溢出</h4><p>要先确认是内存泄露（Memory Leak）还是内存溢出（Memory Overflow）。</p>
-<h5 id="Java内存（映像）分析工具（hprof文件分析工具）"><a href="#Java内存（映像）分析工具（hprof文件分析工具）" class="headerlink" title="Java内存（映像）分析工具（hprof文件分析工具）"></a>Java内存（映像）分析工具（hprof文件分析工具）</h5><p>JVM堆转储快照文件（hprof文件）查看分析时，可以指定heapDumpPath：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/export/Domains/rcsv-fm.wd.local/server1/logs</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>kill -3 or -9 都不会打heap dump，kill -9 java_pid来不及做任何事情就被干掉了，-3会打印thread dump 但是不是heap dump。</p>
-</blockquote>
-<h5 id="GC-Roots"><a href="#GC-Roots" class="headerlink" title="GC Roots"></a>GC Roots</h5><h4 id="虚拟机栈和本地方法栈溢出"><a href="#虚拟机栈和本地方法栈溢出" class="headerlink" title="虚拟机栈和本地方法栈溢出"></a>虚拟机栈和本地方法栈溢出</h4><p>HotSpot不区分虚拟机栈和本地方法栈，栈容量由<code>-Xss</code>参数设定。</p>
-<ul>
-<li>1)如果线程请求的栈深度大于虚拟机所允许的最大深度，将抛出StackOverflowError异常。</li>
-<li>2)如果虚拟机的栈内存允许动态扩展，当扩展栈容量无法申请到足够的内存时，将拋出OutOfMemoryError异常 。</li>
-</ul>
-<p>模拟栈溢出：</p>
-<ul>
-<li>使用-Xss参数减少栈内存容量。</li>
-<li>定义了大量的本地变量，增大此<code>方法帧</code>中<code>本地变量表</code>的长度。</li>
-<li>通过不断建立线程的方式，在HotSpot上也是可以产生内存溢出异常的（但是这样产生的内存溢出异常和栈空间是否足够并不存在任何直接的关系，主要取决于操作系统本身的内存使用状态，在这种情况下，给每个线程的栈分配的内存越大，反而越容易产生内存溢出异常）。<br>HotSpot虚拟机提供了参数可以控制Java堆和方法区这两部分的内存的最大值，系统的内存分配需要减去最大堆容量，再减去最大方法区容量，由于程序计数器消耗内存很小，可以忽略掉，如果把直接内存和虚拟机进程本身耗费的内存也去掉的话，剩下的内存就由虚拟机栈和本地方法栈来分配了。因此为每个线程分配到的栈内存越大，可以建立的线程数量自然就越少，建立线程时就越容易把剩下的内存耗尽。</li>
-</ul>
-<blockquote>
-<p>无论是由于栈帧太大还是虚拟机栈容量太小，当新的栈帧内存无法分配的时候，HotSpot 虚拟机抛出的都是StackOverflowError异常。</p>
-</blockquote>
-<h4 id="方法区和运行时常量池溢出"><a href="#方法区和运行时常量池溢出" class="headerlink" title="方法区和运行时常量池溢出"></a>方法区和运行时常量池溢出</h4><p>在JDK 8以后，永久代便完全退出了历史舞台，元空间作为其替代者登场。在默认设置下，方法区的溢出的溢出已经相对不会那么容易出现了。<br>HotSpot提供了一些参数用于防御元空间溢出问题：<br>-XX: MaxMetaspaceSize: 设置元空间最大值，默认是-1，即不限制，或者说只受限于本地内存大小。<br>-XX: MetaspaceSize: 指定元空间的初始空间大小，以字节为单位，达到该值就会触发垃圾收集进行类型卸载，同时收集器会对该值进行调整:如果释放了大量的空间，就适当降低该值;如果释放了很少的空间，那么在不超过-XX:<br>MaxMetaspaceSize (如果设置了的话)的情况下，适当提高该值。<br>-XX: MinMetaspaceFreeRatio: 作用是在垃圾收集之后控制最小的元空间剩余容量的百分比，可减少因为元空间不足导致的垃圾收集的频率。类似的还有-XX: Max-MetaspaceFreeRatio, 用于控制最大的元空间剩余容量的百分比。</p>
-<h4 id="本机直接内存溢出"><a href="#本机直接内存溢出" class="headerlink" title="本机直接内存溢出"></a>本机直接内存溢出</h4><p>直接内存(Direct Memory)的容量大小可通过<code>-XX : MaxDirectMemorySize</code>参数来指定，如果不去指定，则默认与Java堆最大值(由-Xmx指定) 一致。<br>越过了DirectByteBuffer类直接通过反射获取Unsafe实例进行内存分配(Unsafe类的getUnsafe()方法指定只有引导类加载器才会返回实例，体现了设计者希望只有虚拟机标准类库里面的类才能使用Unsafe的功能，在JDK 10时才将Unsafe的部分功能通过VarHandle开放给外部使用)，因为虽然使用DirectByteBuffer分配内存也会拋出内存溢出异常，但它抛出异常时并没有真正向操作系统申请分配内存，而是通过计算得知内存无法分配就会在代码里手动抛出溢出异常，真正申请分配内存的方法是Unsafe:allocateMemory()。</p>
-<blockquote>
-<p>由直接内存导致的内存溢出，一个明显的特征是在Heap Dump文件中不会看见有什么明显的异常情况，如果读者发现内存溢出之后产生的Dump文件很小，而程序中又直接或间接使用了DirectMemory(典型的间接使用就是NIO)，那就可以考虑重点检查一下直接内存方面的原因了。</p>
-</blockquote>
-<h1 id="垃圾收集器与内存分配策略-1"><a href="#垃圾收集器与内存分配策略-1" class="headerlink" title="垃圾收集器与内存分配策略"></a>垃圾收集器与内存分配策略</h1><ul>
-<li>程序计数器、虚拟机栈、本地方法栈的垃圾回收：<br>这3个区域随线程而生，随线程而灭，栈中的栈帧随着方法的进入和退出而有条不紊地执行着出栈和入栈操作。每一个栈帧中分配多少内存基本上是在类结构确定下来时就已知的(尽管在运行期会由即时编译器进行一些优化，但在基于概念模型的讨论里，大体上可以认为是编译期可知的)，因此这几个区域的内存分配和回收都具备确定性，在这几个区域内就不需要过多考虑如何回收的问题，当方法结束或者线程结束时，内存自然就跟随着回收了。</li>
-<li>Java堆和方法区的垃圾回收：<br>两个区域则有着很显著的不确定性，一个接口的多个实现类需要的内存可能会不一样，一个方法所执行的不同条件分支所需要的内存也可能不一样，只有处于运行期间，我们才能知道程序究竟会创建哪些对象，创建多少个对象，这部分内存的分配和回收是动态的。垃圾收集器所关注的正是这部分内存该如何管理。 </li>
-</ul>
-<h2 id="对象已死？"><a href="#对象已死？" class="headerlink" title="对象已死？"></a>对象已死？</h2><blockquote>
-<p>垃圾收集器在对Java堆进行回收前，第一件事情就是要确定这些对象之中哪些还“存活”着，哪些已经“死去”(“死去”即不可能再被任何途径使用的对象)了。</p>
-</blockquote>
-<h3 id="引用计数算法"><a href="#引用计数算法" class="headerlink" title="引用计数算法"></a>引用计数算法</h3><p>在对象中添加一一个引用计数器，每当有一个地方引用它时，计数器值就加一；当引用失效时，计数器值就减一，任何时刻计数器为零的对象就是不可能再被使用的。<br>但是，在Java领域，至少主流的Java虚拟机里面都没有选用引用计数算法来管理内存，主要原因是，这个看似简单的算法有很多例外情况要考虑，必须要配合大量额外处理才能保证正确地工作，譬如单纯的引用计数就很难解决对象之间相互循环引用的问题。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 单纯的引用计数就很难解决对象之间相互循环引用的问题。</span><br><span class="line"> * @Author zhanshifeng</span><br><span class="line"> * @Date 2020/9/8 4:53 PM</span><br><span class="line"> */</span><br><span class="line">public class ReferenceCountingGC &#123;</span><br><span class="line"></span><br><span class="line">    public Object instance;</span><br><span class="line">    private static final int _1MB = 1024 * 1024;</span><br><span class="line">    private byte[] bigSize = new byte[2 * _1MB];</span><br><span class="line"></span><br><span class="line">    public static void testGC() &#123;</span><br><span class="line">        ReferenceCountingGC a = new ReferenceCountingGC();</span><br><span class="line">        ReferenceCountingGC b = new ReferenceCountingGC();</span><br><span class="line">        a.instance = b;</span><br><span class="line">        b.instance = a;</span><br><span class="line">        a = null;</span><br><span class="line">        b = null;</span><br><span class="line"></span><br><span class="line">        // 如果JVM单纯引用计数的话，a和b是不能被回收的，但是实际上是回收了。</span><br><span class="line">        System.gc();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        testGC();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="可达性分析算法（Reachability-Analysis）"><a href="#可达性分析算法（Reachability-Analysis）" class="headerlink" title="可达性分析算法（Reachability Analysis）"></a>可达性分析算法（Reachability Analysis）</h3><h4 id="GC-Roots-1"><a href="#GC-Roots-1" class="headerlink" title="GC Roots"></a>GC Roots</h4><p>这个算法的基本思路就是通过一系列称为<code>GCRoots</code>的根对象作为起始节点集，从这些节点开始，根据引用关系向下搜索，搜索过程所走过的路径称为“引用链”(Reference Chain)，如果某个对象到GC Roots间没有任何引用链相连，或者用图论的话来说就是从GCRoots到这个对象不可达时，则证明此对象是不可能再被使用的。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/ecAOJD.png" alt><br>固定可作为GC Roots的对象包括以下几种:</p>
-<ul>
-<li>在虚拟机栈(栈帧中的本地变量表)中引用的对象，譬如各个线程被调用的方法堆栈中使用到的参数、局部变量、临时变量等。</li>
-<li>在方法区中类静态属性引用的对象，譬如Java类的引用类型静态变量。</li>
-<li>在方法区中常量引用的对象，譬如字符串常量池(String Table)里的引用。</li>
-<li>在本地方法栈中JNI (即通常所说的Native方法)引用的对象。</li>
-<li>Java虚拟机内部的引用，如基本数据类型对应的Class对象，一些常驻的异常对象(比如NullPointExcepiton、 OutOfMemoryError)等，还有系统类加载器。</li>
-<li>所有被同步锁(synchronized关键字) 持有的对象。</li>
-<li>反映Java虚拟机内部情况的JMXBean、 JVMTI中注册的回调、本地代码缓存等。</li>
-</ul>
-<blockquote>
-<p>目前最新的几款垃圾收集器无一例外都具备了局部回收的特征，为了避免GCRoots包含过多对象而过度膨胀，它们在实现上也做出了各种优化处理。</p>
-</blockquote>
-<h3 id="对象的引用？"><a href="#对象的引用？" class="headerlink" title="对象的引用？"></a>对象的引用？</h3><ul>
-<li>强引用（Strongly Reference）是最传统的“引用”的定义，是指在程序代码之中普遍存在的引用赋值，即类似“Object obj=new Object() ‘这种引用关系。无论任何情况下，只要强引用关系还存在，垃圾收集器就永远不会回收掉被引用的对象。</li>
-<li>软引用（Soft Reference）是用来描述一些还有用，但非必须的对象。只被软引用关联着的对象，在系统将要发生内存溢出异常前，会把这些对象列进回收范围之中进行第二次回收，如果这次回收还没有足够的内存，才会抛出内存溢出异常。在JDK 1.2版之后提供了SoftReference类来实现软引用。</li>
-<li>弱引用（Weak Reference）也是用来描述那些非必须对象，但是它的强度比软引用更弱一些，被弱引用关联的对象只能生存到下一次垃圾收集发生为止。当垃圾收集器开始工作，无论当前内存是否足够，都会回收掉只被弱引用关联的对象。在JDK 1.2版之后提供了WeakReference类来实现弱引用。</li>
-<li>虚引用也称为“幽灵引用”或者“幻影引用”（Phantom Reference），它是最弱的一种引用关系。一个对象是否有虚引用的存在，完全不会对其生存时间构成影响，也无法通过虚引用来取得一个对象实例。为一个对象设置虚引用关联的唯一目的只是为了能在这个对象被收集器回收时收到一个系统通知。在JDK1.2版之后提供了PhantomReference类来实现虚引用。</li>
-</ul>
-<h3 id="生存与死亡？"><a href="#生存与死亡？" class="headerlink" title="生存与死亡？"></a>生存与死亡？</h3><p>即使在可达性分析算法中判定为不可达的对象，也不是“非死不可”的，这时候它们暂时还处于“缓刑”阶段，要真正宣告一个对象死亡，至少要经历两次标记过程：如果对象在进行可达性分析后发现没有与GC Roots相连接的引用链，那它将会被第一次标记， 随后进行一次筛选，筛选的条件是此对象是否有必要执行finalize(方法。假如对象没有覆盖finalize()方法，或者finalize(方法已经被虚拟机调用过，那么虚拟机将这两种情况都视为“没有必要执行”。如果这个对象被判定为确有必要执行finalize方法，那么该对象将会被放置在一个名为F-Queue的队列之中，并在稍后由一条由虚拟机自动建立的、低调度优先级的Finalizer线程去执行它们的finalize()方法。这里所说的“执行”是指虚拟机会触发这个方法开始运行，但并不承诺一定会等待它运行结束。这样做的原因是，如果某个对象的finalize()方法执行缓慢，或者更极端地发生了死循环，将很可能导致F-Queue队列中的其他对象永久处于等待，甚至导致整个内存回收子系统的崩溃。<br>finalize()方法是对象逃脱死亡命运的最后一次机会，稍后收集器将对F-Queue中的对象进行第二次小规模的标记，如果对象要在finalize()中成功拯救自己一只要重新与引用链上的任何-一个对象建立关联即可，譬如把自己(this关键字) 赋值给某个类变量或者对象的成员变量，那在第二次标记时它将被移出“即将回收”的集合，如果对象这时候还没有逃脱，那基本上它就真的要被回收了。</p>
-<blockquote>
-<p>尽管如此，但是一定要避免使用finalize()，这个方法不确定性太大了，无法保证其被调用的顺序。</p>
-</blockquote>
-<h3 id="回收方法区"><a href="#回收方法区" class="headerlink" title="回收方法区"></a>回收方法区</h3><p>《Java虚拟机规范》中提到过可以不要求虚拟机在方法区中实现垃圾收集，事实上也确实有未实现或未能完整实现方法区类型卸载的收集器存在(如JDK 11时期的ZGC收集器就不支持类卸载)， 方法区垃圾收集的“性价比”通常也是比较低的:在Java堆中，尤其是在新生代中，对常规应用进行一次垃圾收集通常可以回收70%至99%的内存空间，相比之下，方法区回收囿于苛刻的判定条件，其区域垃圾收集的回收成果往往远低于此。<br>方法区的垃圾回收两部分内容：</p>
-<h4 id="废弃的常量和不再使用的类型"><a href="#废弃的常量和不再使用的类型" class="headerlink" title="废弃的常量和不再使用的类型"></a>废弃的常量和不再使用的类型</h4><p>回收废弃常量与回收Java堆中的对象非常类似。举个常量池中字面量回收的例子，假如一个字符串“java”曾经进入常量池中，但是当前系统又没有任何一个字符串对象的值是“java”,换句话说，已经没有任何字符串对象引用常量池中的“java”常量，且虚拟机中也没有其他地方引用这个字面量。如果在这时发生内存回收，而且垃圾收集器判断确有必要的话，这个“java”常量就将会被系统清理出常量池。<br>常量池中其他类(接口)、方法、字段的符号引用也与此类似。<br>判定一个类型是否属于“不再被使用的类”的条件就比较苛刻了。需要同时满足下面三个条件:</p>
-<ul>
-<li>该类所有的实例都已经被回收，也就是Java堆中不存在该类及其任何派生子类的实例。</li>
-<li>该类对应的java.lang.Class对象没有在任何地方被引用，无法在任何地方通过反射访问该类的方法。</li>
-<li>加载该类的类加载器已经被回收。</li>
-</ul>
-<p>关于对类型进行回收HotSpot虚拟机提供了一些参数做控制：</p>
-<ul>
-<li>-verbose: class</li>
-<li>-XX: +TraceClassLoading</li>
-<li>-XX: +TraceClassUnLoading（需要FastDebug版的虚拟机支持）</li>
-</ul>
-<h2 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h2><p>从如何判定对象消亡的角度出发，垃圾收集算法可以划分为：</p>
-<ul>
-<li>“引用计数式垃圾收集”(Reference Counting GC)（直接垃圾收集）</li>
-<li>“追踪式垃圾收集”(Tracing GC)（间接垃圾收集）</li>
-</ul>
-<h3 id="分代收集理论"><a href="#分代收集理论" class="headerlink" title="分代收集理论"></a>分代收集理论</h3><ul>
-<li>弱分代假说(Weak Generational Hypothesis)：绝大多数对象都是朝生夕灭的。</li>
-<li>强分代假说(Strong Generational Hypothesis)：熬过越多次垃圾收集过程的对象就越难以消亡。</li>
-</ul>
-<p>收集器应该将Java堆划分出不同的区域，然后将回收对象依据其年龄(年龄即对象熬过垃圾收集过程的次数)分配到不同的区域之中存储。显而易见，如果一个区域中大多数对象都是朝生夕灭，难以熬过垃圾收集过程的话，那么把它们集中放在一起，每次回收时只关注如何保留少量存活而不是去标记那些大量将要被回收的对象，就能以较低代价回收到大量的空间;如果剩下的都是难以消亡的对象，那把它们集中放在一块，虚拟机便可以使用较低的频率来回收这个区域，这就同时兼顾了垃圾收集的时间开销和内存的空间有效利用。</p>
-<p>在Java堆划分出不同的区域之后，垃圾收集器才可以每次只回收其中某一个或者某些部分的区域。<br>部分收集（Partial GC）类型划分：</p>
-<ul>
-<li>新生代收集（Minor GC/Young GC）：针对Java堆里面新生代的垃圾收集。</li>
-<li>老年代收集（Major GC/Old GC）：针对Java堆里面老年代的垃圾收集，Major GC有些文献用来代表整堆收集，可能会混淆，目前只有CMS收集器会有单独收集老年代的行为。</li>
-<li>混合收集（Mixed GC）：针对Java对里面的整个新生代和部分老年代的垃圾收集，目前只有G1收集器会有这种行为。</li>
-</ul>
-<p>整堆收集（Full GC）：针对整个Java堆和方法区的垃圾收集。</p>
-<p>针对不同的区域安排与里面存储对象存亡特征相匹配的垃圾收集算法：</p>
-<ul>
-<li>标记-复制算法</li>
-<li>标记-清除算法</li>
-<li>标记-整理算法</li>
-</ul>
-<h4 id="新生代与老年代"><a href="#新生代与老年代" class="headerlink" title="新生代与老年代"></a>新生代与老年代</h4><p>现在的商用Java虚拟机里，设计者一般至少会把Java堆划分为新生代(Young Generation)和老年代(Old Generation)两个区域。<br>在新生代中，每次垃圾收集时都发现有大批对象死去，而每次回收后存活的少量对象，将会逐步晋升到老年代中存放。<br>但是存在一个明显的问题：<strong><em>对象不是孤立的，对象之间会存在跨代引用。</em></strong></p>
-<p>假如要现在进行一次只局限于新生代区域内的收集(Minor GC)，但新生代中的对象是完全有可能被老年代所引用的，为了找出该区域中的存活对象，不得不在固定的GCRoots之外，再额外遍历整个老年代中所有对象来确保可达性分析结果的正确性，反过来也是一样以。遍历整个老年代所有对象的方案虽然理论上可行，但无疑会为内存回收带来很大的性能负担。因此可以对分代收集理论添加第三条经验法则:</p>
-<ul>
-<li>跨代引用假说(Intergenerational Reference Hypothesis)<br>跨代引用相对于同代引用来说仅占极少数。这其实是可根据前两条假说逻辑推理得出的隐含推论：存在互相引用关系的两个对象，是应该倾向于同时生存或者同时消亡的。<br>如果某个新生代对象存在跨代引用，由于老年代对象难以消亡，该引用会使得新生代对象在收集时同样得以存活，进而在年龄增长之后晋升到老年代中，这时跨代引用也随即被消除了。<br>依据这条假说，我们就不应再为了少量的跨代引用去扫描整个老年代，也不必浪费空间专门记录每一一个对象是否存在及存在哪些跨代引用，只需在新生代上建立一个全局的数据结构(该结构被称为“记忆集”，Remembered Set)， 这个结构把老年代划分成若干小块，标识出老年代的哪-块内存会存在跨代引用。此后当发生Minor GC时，只有包含了跨代引用的小块内存里的对象才会被加入到GCRoots进行扫描。虽然这种方法需要在对象改变引用关系(如将自己或者某个属性赋值)时维护记录数据的正确性，会增加一些运行时 的开销，但比起收集时扫描整个老年代来说仍然是划算的。</li>
-</ul>
-<h3 id="标记-清除算法（Mark-Sweep）"><a href="#标记-清除算法（Mark-Sweep）" class="headerlink" title="标记-清除算法（Mark-Sweep）"></a>标记-清除算法（Mark-Sweep）</h3><p>最基础的垃圾收集算法，算法分为“标记”和“清除”两个阶段:首先标记出所有需要回收的对象，在标记完成后，统一回收掉所有被标记的对象，也可以反过来，标记存活的对象，统一回收所有未被标记的对象。<br>标记-清除算法的缺点：</p>
-<ul>
-<li>第一个是执行效率不稳定，如果Java堆中包含大量对象，而且其中大部分是需要被回收的，这时必须进行大量标记和清除的动作，导致标记和清除两个过程的执行效率都随对象数量增长而降低;</li>
-<li>第二个是内存空间的碎片化问题，标记、清除之后会产生大量不连续的内存碎片，空间碎片太多可能会导致当以后在程序运行过程中需要分配较大对象时无法找到足够的连续内存而不得不提前触发另一次垃圾收集动作。</li>
-</ul>
-<p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/Wkxl6l.png" alt></p>
-<h3 id="标记-复制算法"><a href="#标记-复制算法" class="headerlink" title="标记-复制算法"></a>标记-复制算法</h3><h4 id="半区复制"><a href="#半区复制" class="headerlink" title="半区复制"></a>半区复制</h4><p>为了解决标记清除算法面对大量可回收对象时执行效率低的问题，有人提出了一种称为“半区复制”(Semispace Copying)的垃圾收集算法，它将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。如果内存中多数对象都是存活的，这种算法将会产生大量的内存间复制的开销，但对于多数对象都是可回收的情况，算法需要复制的就是占少数的存活对象，而且每次都是针对整个半区进行内存回收，分配内存时也就不用考虑有空间碎片的复杂情况，只要移动堆顶指针，按顺序分配即可。这样实现简单，运行高效，不过其缺陷也显而易见，这种复制回收算法的代价是将可用内存缩小为了原来的一半，另一半等同于空置不用。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/mLYIu0.png" alt><br>新生代中的对象有98%熬不过第一轮收集。因此并不需要按照1 : 1的比例来划分新生代的内存空间，现在的商用Java虚拟机大多都优先采用了这种收集算法去回收新生代。</p>
-<h4 id="Appel式回收"><a href="#Appel式回收" class="headerlink" title="Appel式回收"></a>Appel式回收</h4><p>之后有人继续提出了一种更优化的半区复制分代策略，现在称为“Appel式回收”。HotSpot虛拟机的Serial、ParNew等新生代收集器均采用了这种策略来设计新生代的内存布局”。<br>Appel式回收的具体做法是把新生代分为一块较大的<code>Eden空间</code>和两块较小的<code>Survivor空间</code>，每次分配内存只使用Eden和其中一块Survivor。发生垃圾搜集时，将Eden和Survivor中仍然存活的对象一次性复制到另外一块Survivor空间上，然后直接清理掉Eden和已用过的那块Survivor空间。HotSpot虚拟机默认Eden和Survivor的大小比例是8 : 1，也即<strong><em>每次新生代中可用内存空间为整个新生代容量的90%(Eden的80%加上一个Survivor的10%)，只有一个Survivor空间，即10%的新生代是会被“浪费”的。</em></strong><br>当然，98%的对象可被回收仅仅是“普通场景”下测得的数据，任何人都没有办法百分百保证每次回收都只有不多于10%的对象存活，因此Appel式回收还有一个充当罕<br>见情况的“逃生门”的安全设计，当Survivor空间不足以容纳一次Minor GC之后存活的对象时，就需要依赖其他内存区域(实际上大多就是老年代)进行<code>分配担保(Handle Promotion)</code>。</p>
-<h3 id="标记-整理算法（Mark-Compact）"><a href="#标记-整理算法（Mark-Compact）" class="headerlink" title="标记-整理算法（Mark-Compact）"></a>标记-整理算法（Mark-Compact）</h3><p>标记复制算法在对象存活率较高时就要进行较多的复制操作，效率将会降低。更关键的是，如果不想浪费50%的空间，就需要有额外的空间进行分配担保，以应对被使用的内存中所有对象都100%存活的极端情况，所以在老年代一般不能直接选用这种算法。<br>针对老年代对象的存亡特征，1974年Edward Lueders提出了另外一种有针对性的“标记-整理”(Mark Compact)算法，其中的标记过程仍然与“标记-清除”算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向内存空间一端移动，然后直接清理掉边界以外的内存。<br>标记-清除算法与标记-整理算法的本质差异在于：</p>
-<ul>
-<li>前者是一种非移动式的回收算法；</li>
-<li>而后者是移动式的。</li>
-</ul>
-<p>移动回收后的存活对象是一项优缺点并存的风险决策。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/xGECtR.png" alt></p>
-<ul>
-<li>如果移动存活的对象太多，这将是一笔很大的开销，而且这种移动操作要强制暂停用户的应用程序才能进行（最新的ZGC和Shenandoah收集器使用读屏障(Read Barrier)技术实现了整理过程与用户线程的并发执行）。</li>
-<li>如果完全不考虑移动和整理存活对象的话，弥散于堆中的存活对象导致的空间碎片化问题就只能依赖更为复杂的内存分配器和内存访问器来解决。<br>譬如通过“分区空闲分配链表’’来解决内存分配问题(计算机硬盘存储大文件就不要求物理连续的磁盘空间，能够在碎片化的硬盘上存储和访问就是通过硬盘分区表实现的)。<br>内存的访问是用户程序最频繁的操作，在这个环节上增加了额外的负担，势必会直接影响应用程序的吞吐量。</li>
-</ul>
-<p>基于以上两点，是否移动对象都存在弊端，移动则内存回收时会更复杂，不移动则内存分配时会更复杂。从垃圾收集的停顿时间来看，不移动对象停顿时间会更短，甚至可以不需要停顿，但是从整个程序的吞吐量来看，移动对象会更划算。这里的吞吐量的实质是赋值器(Mutator, 可以理解为使用垃圾收集的用户程序)与收集器的效率总和。即使不移动对象会使得收集器的效率提升一些，但因内存分配和访问相比垃圾收集频率要高得多，这部分的耗时增加，总吞吐量仍然是下降的。<br>HotSpot虚拟机里面关注吞吐量的Parallel Scavenge收集器是基于标记整理算法的，而关注延迟的CMS收集器则是基于标记-清除算法的，这也从侧面印证这点。<br>另外，还有一种“和稀泥式”解决方案可以不在内存分配和访问上增加太大额外负担，做法是让虚拟机平时多数时间都采用标记清除算法，暂时容忍内存碎片的存在，直到内存空间的碎片化程度已经大到影响对象分配时，再采用标记-整理算法收集一次，以获得规整的内存空间。</p>
-<blockquote>
-<p>前面提到的基于标记-清除算法的CMS收集器面临空间碎片过多时采用的就是这种处理办法。</p>
-</blockquote>
-<h4 id="三色标记法（Tri-color-Marking）"><a href="#三色标记法（Tri-color-Marking）" class="headerlink" title="三色标记法（Tri-color Marking）"></a>三色标记法（Tri-color Marking）</h4><p>白色、黑色、灰色</p>
-<h5 id="并发出现对象消失问题"><a href="#并发出现对象消失问题" class="headerlink" title="并发出现对象消失问题"></a>并发出现对象消失问题</h5><p>两种解决方案：增量更新（Incremental Update）、原始快照（Snapshot At The Begging，SATB）。</p>
-<h2 id="经典垃圾收集器"><a href="#经典垃圾收集器" class="headerlink" title="经典垃圾收集器"></a>经典垃圾收集器</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/WLBBDC.png" alt><br>如果两个收集器存在连线，则它们可以搭配使用。<br>上图连线关系不是一成不变的，在JDK 8时将Serial+CMS、ParNew+Serial Old这两个组合声明为废弃(JEP 173)，并在JDK 9中完全取消了这些组合的支持(JEP 214)。</p>
-<h3 id="Serial收集器"><a href="#Serial收集器" class="headerlink" title="Serial收集器"></a>Serial收集器</h3><p>这是最古老，最基础的垃圾收集器，只会使用一个处理器单线程去做垃圾收集，而且它在进行垃圾收集期间，会停掉所有的用户工作线程，这是非常糟糕的用户体验。(Stop The World)<br>Serial/Serial Old收集器工作流程：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/lqCCw4.png" alt><br>Serial虽然有上述这么大的弊端，但是历代JVM一直致力于Serial的优化改进，直至如今，Serial依然是HotSpot的默认新生代收集器，因为其在单线程的环境下相较而言简单高效，而且垃圾收集的时间甚至可以缩短到十几、几十毫秒。</p>
-<h3 id="ParNew收集器"><a href="#ParNew收集器" class="headerlink" title="ParNew收集器"></a>ParNew收集器</h3><p>是Serial的多线程并行版本，具体实现和Serial收集器完全一致。<br>ParNew收集器工作流程：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/gh4KtY.png" alt></p>
-<p>JDK5发布时推出了划时代意义的CMS收集器，是HotSpot第一款支持并发的垃圾收集器，其首次实现垃圾收集器与用户线程（基本上）同时工作。<br>ParNew是HotSpot JVM中第一款退役的收集器。</p>
-<h4 id="垃圾收集并行-vs-并发"><a href="#垃圾收集并行-vs-并发" class="headerlink" title="垃圾收集并行 vs 并发"></a>垃圾收集并行 vs 并发</h4><ul>
-<li>并行(Parallel) ：并行描述的是多条垃圾收集器线程之间的关系，说明同一时间有多条这样的线程在协同工作，通常默认此时用户线程是处于等待状态。</li>
-<li>并发(Concurrent) ：并发描述的是垃圾收集器线程与用户线程之间的关系，说明同一时间垃圾收集器线程与用户线程都在运行。由于用户线程并未被冻结，所以程序仍然能响应服务请求，但由于垃圾收集器线程占用了一部分系统资源，此时应用程序的处理的吞吐量将受到一定影响。</li>
-</ul>
-<h3 id="Parallel-Scavenge收集器（吞吐量优先收集器）"><a href="#Parallel-Scavenge收集器（吞吐量优先收集器）" class="headerlink" title="Parallel Scavenge收集器（吞吐量优先收集器）"></a>Parallel Scavenge收集器（吞吐量优先收集器）</h3><p>这是一款新生代收集器，同样是基于标记-复制算法实现的，也是能够并行收集的多线程收集器。<br>Parallel Scavenge的目标是要达到一个可控的吞吐量。</p>
-<h4 id="吞吐量"><a href="#吞吐量" class="headerlink" title="吞吐量"></a>吞吐量</h4><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/9wrqFn.png" alt><br>高吞吐量可以更好地利用处理器资源，更快完成用户的任务。</p>
-<h4 id="Parallel-Scavenge精确控制吞吐量的参数"><a href="#Parallel-Scavenge精确控制吞吐量的参数" class="headerlink" title="Parallel Scavenge精确控制吞吐量的参数"></a>Parallel Scavenge精确控制吞吐量的参数</h4><ul>
-<li><code>-XX: MaxGCPauseMills</code>：最大垃圾收集停顿时间（并非越小越好，它与吞吐量是互斥的关系）。<br>这个参数允许的值是一个大于0的毫秒数，收集器将尽力保证内存回收花费的时间不超过用户设定值。不过不要异想天开地认为如果把这个参数的值设置得更小点就能使得系统的垃圾收集速度变得更快，垃圾收集停顿时间缩短是以牺牲吞吐量和新生代空间为代价换取的:系统把新生代调得小-些，收集300MB新生代肯定比收集500MB快，但这也直接导致垃圾收集发生得更频繁，原来10秒收集一次、每次停顿100毫秒，现在变成5秒收集一次、每次停顿70毫秒。停顿时间的确在下降，但吞吐量也降下来了。</li>
-<li><code>-XX: GCTimeRatio</code>：直接设置吞吐量大小。<br>这个参数的值则应当是一个大于0小于100的整数，也就是垃圾收集时间占总时间的比率，相当于吞吐量的倒数。譬如把此参数设置为19，那允许的最大垃圾收集时间就占总时间的5%(即1/(1+19))，默认值为99，即允许最大1%(即1/(1+99))的垃圾收集时间。</li>
-<li><code>-XX: +UseAdaptiveSizePolicy</code>：开关参数，开启之后虚拟机会根据当前系统运行情况收集性能监控信息，动态调整其它一些参数以提供最合适的停顿时间或者最大的吞吐量（<code>自适应的调节策略</code>）。</li>
-</ul>
-<h3 id="Serial-Old收集器"><a href="#Serial-Old收集器" class="headerlink" title="Serial Old收集器"></a>Serial Old收集器</h3><p>Serial Old是Serial收集器的老年代版本，它同样是一个单线程收集器，使用标记-整理算法。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/cQDTyf.png" alt></p>
-<h3 id="Parallel-Old收集器"><a href="#Parallel-Old收集器" class="headerlink" title="Parallel Old收集器"></a>Parallel Old收集器</h3><p>Parallel Old是Parallel Scavenge收集器的老年代版本，支持多线程并发收集，基于标记-整理算法实现。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/09/English系列之定语从句/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/09/English系列之定语从句/" class="post-title-link" itemprop="url">English系列之定语从句</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-09-09 20:51:52" itemprop="dateCreated datePublished" datetime="2020-09-09T20:51:52+08:00">2020-09-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-11 17:02:41" itemprop="dateModified" datetime="2020-09-11T17:02:41+08:00">2020-09-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="定语从句概述"><a href="#定语从句概述" class="headerlink" title="定语从句概述"></a>定语从句概述</h2><h3 id="形容词作定语与从句作定语比较"><a href="#形容词作定语与从句作定语比较" class="headerlink" title="形容词作定语与从句作定语比较"></a>形容词作定语与从句作定语比较</h3><p>当要表达复杂的意思时，往往需要借助于定语从句来完成，即要用定语从句来修饰某个名词或名词短语。比如当我们说“我不喜欢懒人”，这时只需要用一个形容词lazy来作定语就可以。<br>I don’t like lazy people.<br>如果要表达稍微复杂一点的意思，比如说“我不喜欢不守信用的人”，这时，简单地用形容词作定语就无能为力了，就要借助于一个句子来修饰名词，用作名词的定语，对名词进行限制。<br>I don’t like people who never keep their word.<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/KmgSIt.png" alt></p>
-<h3 id="定语从句的两个重要概念：先行词和关系词"><a href="#定语从句的两个重要概念：先行词和关系词" class="headerlink" title="定语从句的两个重要概念：先行词和关系词"></a>定语从句的两个重要概念：先行词和关系词</h3><p>被定语从句所修饰的对象称为先行词。<br>重复指代先行词、起连接主句和从句的作用，并且在定语从句中充当一定成分的连接词称为关系词。<br>关系词有两个作用：</p>
-<ul>
-<li>代词的作用： 重复指代先行词并且在定语从句中充当一定成分。</li>
-<li>连接作用：即连接主句和从句。</li>
-</ul>
-<h2 id="关系词在定语从句中充当的成分"><a href="#关系词在定语从句中充当的成分" class="headerlink" title="关系词在定语从句中充当的成分"></a>关系词在定语从句中充当的成分</h2><h3 id="关系词用作从句的主语"><a href="#关系词用作从句的主语" class="headerlink" title="关系词用作从句的主语"></a>关系词用作从句的主语</h3><p>比较简单句和定语从句，看看一个简单句如何变成定语从句。<br><strong><em>The woman</em></strong> is a famous dancer and she lives next door.<br>这个句中有一个“重复元素”，这里的she指代 the woman，即两句之间有一个交叉点，而通过这个交叉点建立起两句之间的联系。现在要用she lives next door来作定语修饰the woman，以告诉对方哪位女士是舞蹈演员。而在定语从句中，指代“人”的关系词要用who。<br>因此，上句可改写成：<br>The woman is a famous dancer who (=and she) lives next door.<br>这里的关系词who既取代了代词she也取代了连词and， 即who既具有代词的作用也起着连接的作用。另外，定语从句一般要紧跟在它所修饰的名词后面。因此，上一句又可进一步改写成：<br>The woman who lives next door is a famous dancer.<br>由此看到，关系词who既指代the woman，同时又在从句中作主语，而且还替换了and，起着连词的作用。<br>这位女士是一名著名的舞蹈演员，她就住在我家隔壁。</p>
-<p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/ONSgS8.png" alt><br>这里的关系词who取代and they，来引导定语从句who have a good sense of humor，修饰名词guys。<br>我喜欢有幽默感的男士。</p>
-<p>在变换过程中药注意三点：</p>
-<ul>
-<li>用关系词who代替人称代词（如she或they）后，定语从句里就不能再保留这些代词了。比如不能说：<br>The woman who she lives next door is a famous dancer. <em><br>I like guys who they have a good sense of humor. </em></li>
-<li>事实上，定语从句可以修饰一个主句当中的任何一个名词。但是，我们关注的往往是关系词在定语从句中所充当的成分，不关心定语从句是修饰主句的哪个名词。</li>
-<li>定语从句的谓语动词形式是由关系词所指代的先行词来决定的，而不是取决于关系词本身。定语从句who lives next door中的who指代的woman是单数名词，故谓语用单数的lives；而定语从句who have a good sense of humor中的who指代的guys是复数名词，故谓语用复数的have。</li>
-</ul>
-<p>Anger is a thief who steals away the nice moments .<br>愤怒就如同一个窃贼，盗取了我们的幸福时光。<br>He who is not handsome at twenty, nor strong at thirty, nor rich at forty, nor wise at fifty , will never be handsome, strong, rich, or wise.<br>一个人若在20岁时不俊美、30岁时不健康、40岁时不富有、50岁时不明智，那么他将永远不会拥有这些。<br>There is this difference between happiness and wisdom: the person who thinks himself the happiest man really is so; but the person who thinks himself the wisest is generally the greatest fool.<br>幸福与智慧区别于此：认为自己是最幸福的，他真的就是最幸福的；而认为自己是最有智慧的，他却往往是最大的傻瓜。<br>The world is a book, and those who do not travel read only one page.<br>世界犹如一本书，而那些从不出门旅行的人仅仅读了这本书的一页。<br>Of course I am not talking about easy-come-easy-go friendship. I’m talking about friends who care deeply about each other, who support each other, who make life worth living.<br>当然了，我这里所说的友谊不是那种“来得快去得也快”的泛泛之交，而是那种彼此之间能真正互相关心的朋友，能够互相支持的朋友，能够让你的人生更有意义的朋友。</p>
-<h3 id="关系词用作从句中动词的宾语"><a href="#关系词用作从句中动词的宾语" class="headerlink" title="关系词用作从句中动词的宾语"></a>关系词用作从句中动词的宾语</h3><p>关系词除了在定语从句中作主语外，还可以在从句中作宾语。而且，还可以进一步区分为从句动词的宾语和从句介词的宾语。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/8WGhly.png" alt><br>在例句1）中，这里的him指代名词短语a friend，可以用关系词who来替代him，充当动词trust的宾语。又因为who有连词的作用，所以此时and就要去掉了，如例句2）所示。另一方面，关系词who要置于从句的开头，所以要把who移到I的前面，原句从而变成了下面的例句3）：<br>3）I’d really like to find a friend who I can trust completely.<br>我想找一个我完全能够信任的人做朋友。</p>
-<p>He is the best grammar teacher who I have ever seen.<br>他是我见过的最好的语法老师。</p>
-<p>It’s hard to have a friend who you can trust completely.<br>很难有一个你能完全信任的朋友。</p>
-<h3 id="关系词用作从句中介词的宾语"><a href="#关系词用作从句中介词的宾语" class="headerlink" title="关系词用作从句中介词的宾语"></a>关系词用作从句中介词的宾语</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/YGRKuS.png" alt><br>这里的who充当介词with的宾语。<br>我这里说的朋友，是指那些你几乎可以把一切与之分享的人。</p>
-<p>I hope I never have a boss who I can’t talk to about my problems.<br>这里的who充当介词to的宾语。<br>我不希望有一个无法与其谈论我的问题的老板。</p>
-<p>I’d prefer someone who I have something in common with — who I can talk to easily.<br>这里的关系词who分别充当介词with和to的宾语。<br>我喜欢那些与我有共同点的人，这样易交流。</p>
-<h3 id="作宾语的关系词可以省去"><a href="#作宾语的关系词可以省去" class="headerlink" title="作宾语的关系词可以省去"></a>作宾语的关系词可以省去</h3><p>作宾语的关系词可以省去，不论关系词是作动词的宾语还是作介词的宾语都可以省去。比如以上讨论过的相关例句，可以分别改写成：<br>I’d really like to find a friend ( ) I can trust completely.<br>I hope I never have a boss ( ) I can’t talk to about my problems.</p>
-<blockquote>
-<p>在从句中作主语的关系词无法省去。比如不能说：</p>
-</blockquote>
-<p>I like guys ( ) have a good sense of humor. *</p>
-<h2 id="关系代词与先行词的搭配关系"><a href="#关系代词与先行词的搭配关系" class="headerlink" title="关系代词与先行词的搭配关系"></a>关系代词与先行词的搭配关系</h2><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/gScElI.png" alt></p>
-<h3 id="先行词指“人”，用关系代词who或whom"><a href="#先行词指“人”，用关系代词who或whom" class="headerlink" title="先行词指“人”，用关系代词who或whom"></a>先行词指“人”，用关系代词who或whom</h3><h3 id="who和whom的区别"><a href="#who和whom的区别" class="headerlink" title="who和whom的区别"></a>who和whom的区别</h3><ul>
-<li>who的前面不能与介词搭配使用<br>因为who是主格形式，所以在介词的后面不能用who，比如不说with who<em>，而说with whom。<br>I’m talking about friends who you can share almost everything with.<br>不能说“I’m talking about friends with who you can share almost everything. </em>”。<br>而应该说“I’m talking about friends with whom you can share almost everything.”。<br>主格形式的who除了作定语从句的主语外，还可以充当定语从句的宾语或表语。</li>
-<li>whom在定语从句中不能作主语，但可作宾语或表语<br>A rich person is not one who has the most, but is one who needs the least.<br>这里的who作从句的主语，所以不能用whom，不说whom has…*。<br>一个富有的人，不是因为他拥有的最多，而是因为他需要的最少。</li>
-</ul>
-<p>Only the people who have the patience to do simple things perfectly will acquire the skill to do difficult things easily.<br>这里的who作从句的主语，所以不能用whom，不说whom have…*。<br>只有有耐心圆满完成简单工作的人，才能够轻而易举地完成困难的事。</p>
-<blockquote>
-<p>总之，who可以作主语，也可以代替whom作宾语或表语，但不能用在介词后面。而因为whom是宾格形式，所以不能作主语。</p>
-</blockquote>
-<h3 id="表示人或物的所有关系，用whose"><a href="#表示人或物的所有关系，用whose" class="headerlink" title="表示人或物的所有关系，用whose"></a>表示人或物的所有关系，用whose</h3><p>whose表示所有关系，其作用就如同物主代词my，your，her，his，their和our，whose的后面要接名词。whose可指人也可指物。“whose+名词”在从句中可作主语、动词的宾语或介词的宾语。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/7KbXpL.png" alt><br>例句2）里的whose代替了例句1）里的his，指friend，即表示人。<br>我认识一个朋友，他哥哥是一名流行歌手。</p>
-<p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/FzNNnM.png" alt><br>例句2）里whose代替了例句1）里的its，指schoolroom，即表示物。<br>这些孩子就坐在窗玻璃都打破了的教室里上课。</p>
-<p>When I looked through the window, I saw a girl whose beauty took my breath away.<br>这里的whose beauty作从句的主语，whose指人即a girl。<br>当我朝窗外看去，猛然看见一个美女，其美貌让我惊讶不已。</p>
-<p>It was a meeting whose importance I did not realize at the time.<br>这里的whose importance作从句动词realize的宾语，whose指物即a meeting。<br>这个会议的重要性当时我并没有意识到。</p>
-<h3 id="先行词指“物”，用关系代词which"><a href="#先行词指“物”，用关系代词which" class="headerlink" title="先行词指“物”，用关系代词which"></a>先行词指“物”，用关系代词which</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/z263sW.png" alt><br>这里的先行词是sentences，表示“物”，因此不能用who。要用which代替they，指代sentences，告诉对方“我们正在学习什么类型的句子”。<br>我们正在学习带有定语从句的句子。</p>
-<p>关系词which所指代的先行词比较复杂，它除了可以指单个的名词外，还可以指代短语甚至是从句。</p>
-<h4 id="先行词是单个的名词"><a href="#先行词是单个的名词" class="headerlink" title="先行词是单个的名词"></a>先行词是单个的名词</h4><p>Anger is a wind which blows out the lamp of the mind.<br>先行词是wind，即which指单个的名词。<br>愤怒是吹灭心灵之灯的风。</p>
-<p>Perhaps it is human to appreciate little that which we have and to long for that which we have not.<br>先行词是that，即which指单个的名词。<br>或许，“不惜已获，贪求不得”是人类共同的弱点吧。</p>
-<h4 id="先行词是一个短语"><a href="#先行词是一个短语" class="headerlink" title="先行词是一个短语"></a>先行词是一个短语</h4><p>which可以指代一个短语。<br>He likes climbing mountains, which is a good exercise.<br>先行词是主句中的一个动名词短语climbing mountains。<br>他喜欢爬山，这是一项很好的运动。</p>
-<h4 id="先行词是一个句子"><a href="#先行词是一个句子" class="headerlink" title="先行词是一个句子"></a>先行词是一个句子</h4><p>which可以指代前面的整个句子。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/sLf9DC.png" alt><br>汤姆迟到了，这让我很吃惊。</p>
-<p>He tore up my photo, which upset me.<br>全句“he tore up my photo”作which的先行词。<br>他把我的照片给撕了，这让我很生气。</p>
-<h3 id="that可以指代“人”，也可以指代“物”"><a href="#that可以指代“人”，也可以指代“物”" class="headerlink" title="that可以指代“人”，也可以指代“物”"></a>that可以指代“人”，也可以指代“物”</h3><p>关系代词that的意义和用法主要有以下三点：</p>
-<ul>
-<li>that既可指“人”也可指“物”，指“物”时可以替换which，指“人”时可以替换who；</li>
-<li>that不用在非限制性定语从句中；</li>
-<li>that不能用于介词的后面（同who一样）。</li>
-</ul>
-<p>Too many people spend money which they haven’t earned, to buy things which they don’t want, to impress people who they don’t like.<br>可以用that替换其中的which和who而将这句话改写成“Too many people spend money that they haven’t earned, to buy things that they don’t want, to impress people that they don’t like.”。<br>这里that的先行词有“物（money和things）”，也有“人（people）”。<br>作宾语的关系词可以省去，因此这句话也可说成“Too many people spend money ( ) they haven’t earned, to buy things ( ) they don’t want, to impress people ( ) they don’t like.”。<br>太多的人花他们还没挣到的钱，买他们不想要的东西，取悦他们不喜欢的人。</p>
-<p>that与which和who在用法上的区别：</p>
-<ul>
-<li>先行词中同时出现“人”和“物”时，用that<br>The writer and his novels that the article deals with are quite familiar to us.<br>这里的先行词是the writer and his novels，即同时有“人（writer）”和“物（his novels）”，所以要选用that引导定语从句。<br>这篇文章里所说的这个作家以及他的小说，我们都比较熟悉。</li>
-<li>先行词为指“物”的all，little，few，much，none和the first时, 用that<br>All that glitters is not gold.<br>这里的先行词是all，所以用that来引导定语从句。另外要注意的是，<strong><em>这里有一个半否定的问题：all…not要译成“并非都是”，不能译成全否定的“所有都不”。</em></strong><br>闪光的并非都是金子。<br>The book contains little that is useful.<br>这里的先行词是表示否定意义的代词little（几乎没有什么），所以用that来引导定语从句。<br>这本书里几乎没有有用的东西。<br>There is not much that can be done.<br>这里的先行词是代词much，所以用that来引导定语从句。<br>这没有什么可以做的了。<br>As long as you stand up to the difficulties, there are none that cannot be overcome.<br>这里的先行词是代词none，所以用that来引导定语从句。<br>只要你勇敢地去面对困难，就没有什么克服不了的。</li>
-<li>先行词是不定代词something，anything，nothing和everything时，一般用that</li>
-<li>先行词被any，only，all，every，no，some，much，few，little，序数词，形容词的最高级，the only，the one，the very，the right和the last等成分修饰时，用that<br>Tell us all things that you know.<br>把你知道的都告诉我们。<br>The very problem that I want to solve is like this.<br>我想解决的问题就像这个一样。<br>He is the only man that can speak four foreign languages in our company.<br>他是我们公司唯一一个会说四种外语的人。</li>
-<li>that不用在非限制性定语从句中<br>I became a single mother overnight, which is nothing like becoming famous overnight.<br>我在一夜之间成了单亲妈妈，这跟一夜成名可完全不同。<br>不能说“I became a single mother overnight, that is nothing like becoming famous overnight. *”。</li>
-<li>that不能用于介词后面<br>The world in which we live is made up of matter. 我们所生活的世界是由物质组成的。<br>或：The world which we live in is made up of matter.<br>或：The world that we live in is made up of matter.<br>但不能说“The world in that we live is made up of matter. *”。</li>
-</ul>
-<h2 id="关系副词的用法"><a href="#关系副词的用法" class="headerlink" title="关系副词的用法"></a>关系副词的用法</h2><h3 id="when的用法"><a href="#when的用法" class="headerlink" title="when的用法"></a>when的用法</h3><h4 id="先行词指时间"><a href="#先行词指时间" class="headerlink" title="先行词指时间"></a>先行词指时间</h4><p>when可以引导限制性和非限制性定语从句，其先行词必须是表示时间的名词，如day，year或time等。<br>I’ll never forget the day when I met you.<br>这里的先行词是表示时间的名词day，所以用when引导定语从句。when作从句的时间状语，修饰谓语动词met。<br>我永远不会忘记我们见面的那一天。</p>
-<p>My favorite season is spring, when the earth seems born again.<br>这里是when引导的非限制性定语从句，先行词是表示时间的名词spring。<br>到了春天，万物复苏，所以春天是我最喜欢的季节。</p>
-<p>We will put off the outing until next week, when we won’t be so busy.<br>这里是when引导的非限制性定语从句，先行词是表示时间的短语next week。<br>我们要把出游推迟到下周，到时我们就不会这么忙了。</p>
-<p>The day may soon come when we don’t bother to go to office but just work at home.<br>也许在不久的将来，我们就不必去办公室上班了，而就在家里工作。</p>
-<h4 id="关系副词when在从句中作时间状语"><a href="#关系副词when在从句中作时间状语" class="headerlink" title="关系副词when在从句中作时间状语"></a>关系副词when在从句中作时间状语</h4><p>when是在定语从句中作时间状语。换句话说，若定语从句不是缺少状语，而是缺少主语或宾语，那么即使先行词是表示时间的名词，也不能用when而要用which或that来引导定语从句。因为用when来引导定语从句的前提条件是：when必须在其引导的定语从句中作时间状语。<br>1） I’ll never forget the time which I spent on campus.<br>2） I’ll never forget the day when we first met in the park.<br>在例句1）中，由于定语从句中的谓语spent缺宾语，因此关系词要充当这一宾语，故要用which。<br>在例句2）中，定语从句不缺主语或宾语，而是缺少时间状语，故关系词用when，这里when作时间状语，修饰met。<br>1）我永远不会忘记在大学校园里度过的时光。<br>2）我永远不会忘记我们第一次在公园里相遇的那一天。</p>
-<p>The day, which began brightly, ended with a violent storm.<br>这里的先行词是day，表示时间。由于定语从句缺少主语，所以用关系代词which引导定语从句，which作从句的主语，而不用关系副词when，因为关系副词无法作主语，只能作状语。<br>那天，开始的时候还是阳光明媚，后来就下起了暴风雨。</p>
-<h3 id="where的用法"><a href="#where的用法" class="headerlink" title="where的用法"></a>where的用法</h3><h4 id="where的先行词指地点"><a href="#where的先行词指地点" class="headerlink" title="where的先行词指地点"></a>where的先行词指地点</h4><p>where引导定语从句，其先行词一般是表示地点的名词，如place和house等。<br>A: Since you work in the theater, can’t you get me a free ticket now and then?<br>B: Certainly if you bring me a few notes now and then from the bank where you work!<br>这里的先行词bank表示地点，where在从句中充当地点状语（定语从句中不缺主语或宾语），修饰work。<br>A：既然你在剧院工作，那你就不能时常给我弄些免费的票吗？<br>B：当然可以，只要你能够从你工作的那家银行里时常给我弄些票子出来。</p>
-<p>This is the town where I spent my childhood.<br>这就是我度过童年的小镇。</p>
-<h4 id="关系副词where在从句中作地点状语"><a href="#关系副词where在从句中作地点状语" class="headerlink" title="关系副词where在从句中作地点状语"></a>关系副词where在从句中作地点状语</h4><p>与when类似，并不是先行词是表示地点的名词时，都得由where来引导定语从句，这得看关系词在从句中充当的成分。若定语从句缺主语或宾语，则要用which或that引导定语从句。<br>1） This is the town where I spent my childhood.<br>2） This is the town which I told you about before.<br>在例句1）中，定语从句不缺少主语或宾语，而是缺少地点状语，故关系词用where。where作地点状语，修饰spent。<br>在例句2）里，由于定语从句中的谓语部分told you about缺少宾语，因此关系词要充当这一宾语，故要用which。<br>1）这就是我度过童年的小城。<br>2）这就是我以前告诉过你的小城。</p>
-<p>I’ve never been to Beijing, but it’s the place <strong>__</strong>.<br>A. where I’d like to visit<br>B. in which I’d like to visit<br>C. I most want to visit<br>D. that I want to visit it most<br>本题考查定语从句关系词的选择。这句话中尽管先行词是表示地点的名词place，但由于从句中的谓语visit缺少宾语，所以不能选A，而C才是正确答案。这里相当于省去了关系词that或which，因此原句应该是that / which I most want to visit。<br>我从未到过北京，但北京却是我最想游览的地方。</p>
-<h3 id="why的用法"><a href="#why的用法" class="headerlink" title="why的用法"></a>why的用法</h3><p>why用来表示原因，只引导限制性定语从句，先行词是reason等表示原因的名词。<br>This is the reason why I didn’t come here.<br>此处的why相当于for which。<br>这就是我没来的原因。</p>
-<h2 id="限制性与非限制性定语从句"><a href="#限制性与非限制性定语从句" class="headerlink" title="限制性与非限制性定语从句"></a>限制性与非限制性定语从句</h2><p>在限制性定语从句中，先行词和关系词之间不用逗号隔开，而非限制性定语从句则需要逗号隔开。</p>
-<h3 id="限制性定语从句——不用逗号隔开"><a href="#限制性定语从句——不用逗号隔开" class="headerlink" title="限制性定语从句——不用逗号隔开"></a>限制性定语从句——不用逗号隔开</h3><p>限制性定语从句是用来对一个名词提供必要的信息（a defining relative clause defines or gives essential information about a noun），以说明定语从句所修饰的先行词的身份或性质，或用来限制先行词所指的范围。若去掉限制性定语从句，则主句部分的含义不明确，或意义不完整，所以不能用逗号来分隔先行词和定语从句。<br>比如“I don’t like people.”，这句话的意思不明确，句意不完整，因此其后面必须加一个限制性定语从句，才能使句意完整。比如：<br>I don’t like people who are never on time. 我不喜欢不守时的人。<br>I don’t like people who never keep their word. 我不喜欢不守信用的人。<br>以上句子黑体部分的定语从句都用来说明people的性质，是必不可少的信息，因此不能加逗号将其变为非限制性定语从句。</p>
-<p>There are two factors which determine an individual’s intelligence.<br>这里若只是说“There are two factors.”，则句意不够完整，现在有了限制性定语从句which determine an individual’s intelligence来限制、修饰名词factors，就使得句意更明确。<br>决定人的智力的因素有两个。</p>
-<p>He is a man who is of value to the people.<br>这里若只是说“He is a man.”，则句意不完整，现在有了限制性定语从句who is of value to the people来限制修饰名词man，就使得句意完整而明确。<br>他是一个有利于人民的人。</p>
-<h3 id="非限制性定语从句——用逗号隔开"><a href="#非限制性定语从句——用逗号隔开" class="headerlink" title="非限制性定语从句——用逗号隔开"></a>非限制性定语从句——用逗号隔开</h3><p>非限制性定语从句用来提供附加的而非必要的信息，只是对先行词做进一步的解释、补充或说明（a non-defining relative clause gives optional information about a noun）。若去掉此定语从句，整个主句的意义一样很明确，不会引起误解和歧义。</p>
-<h4 id="专有名词"><a href="#专有名词" class="headerlink" title="专有名词"></a>专有名词</h4><p>如果定语从句修饰一个专有名词，一般要用逗号分隔先行词与定语从句，也就是说要使用非限制性定语从句。这是因为专有名词本身的意思已经很完整，不需要限制，用定语从句只是对它进行补充说明。<br>My mother, who is 50 this year , lives with me now.<br>这里的先行词my mother就是一个专有名词，其后的定语从句who is 50 this year只能是作为非限制性的定语从句来提供附加信息，不能使用限制性定语从句。若说“My mother who is 50 this year lives with me now.”，则言外之意为“我有好几个母亲，目前和我住在一起的是今年50岁的那位母亲”。<br>我母亲今年50岁了，现在和我生活在一起。</p>
-<p>I asked my mother, who is 80 , whether she’d ever seen snow in Iraq before, and her answer was no.<br>我问我已经80岁的妈妈，她以前在伊拉克是否见过雪，她回答说没见过。</p>
-<p>Einstein, who was a great Jewish scientist, created the theory of relativity.<br>爱因斯坦这位伟大的犹太科学家创立了相对论。</p>
-<p>Hawaii, which consists of eight principal islands, is a favorite vacation spot.<br>夏威夷包含八个主要岛屿，是一个度假胜地。</p>
-<h4 id="类指名词"><a href="#类指名词" class="headerlink" title="类指名词"></a>类指名词</h4><p>普通名词若是用来表示类指，即表示的是一类事物，而非具体的某一个事物，此时，其后也宜用非限制性定语从句。<br>1） An elephant, which is the earth’s largest land mammal , has few natural enemies other than human beings.<br>2） One of the elephants which we saw at the zoo had only one tusk.<br>例句1）中的an elephant是类指或泛指，即表示“大象”这类动物，而不是指称具体的某一头大象。<br>例句2）中的one of the elephants则不是类指概念，而是具体指代某一头大象，即“我们在动物园看到的那头大象”。<br>1）大象作为陆地上体形最大的哺乳类动物，很少有天敌，除了人类之外。<br>2）我们在动物园看到有一头大象只有一颗象牙。</p>
-<h3 id="用或不用逗号，句意有差别"><a href="#用或不用逗号，句意有差别" class="headerlink" title="用或不用逗号，句意有差别"></a>用或不用逗号，句意有差别</h3><p>还有一类句子，用限制性或非限制性定语从句都可以，但强调的意义不一样，即句意不同。<br>1） He has a daughter who works in a hospital.<br>2） He has a daughter, who works in a hospital.</p>
-<p>1） The cab drivers who knew about the traffic jam took another road.<br>2） The cab drivers, who knew about the traffic jam, took another road.<br>例句1）的言外之意是“不知道的司机则没有换路线，只有部分司机换行驶路线了”。<br>例句2）的言外之意是“全部司机都知道，都换了行驶路线”。<br>1）知道那里堵车的出租车司机换了另一条路。<br>2）出租车司机知道那里堵车了，他们都换了另一条路。</p>
-<h3 id="非限制性定语从句的翻译"><a href="#非限制性定语从句的翻译" class="headerlink" title="非限制性定语从句的翻译"></a>非限制性定语从句的翻译</h3><p>限制性定语从句一般翻译成定语的形式“……的”，而非限制性定语从句往往会译成各种状语形式。<br>The food, which wasn’t in the fridge , all went off.<br>食物都坏了，因为没有放在冰箱里。（译成原因状语从句）</p>
-<p>The Ambassador gave a dinner to the scientists, with whom he especially wished to talk.<br>大使宴请了那些科学家，因为他特别想与他们交谈一下。（译成原因状语从句）</p>
-<p>The people were desperate for work, any work, which could support their family.<br>人们急于找到工作，什么工作都行，只要能养家糊口。（译成条件状语从句）</p>
-<p>The millionaire had another house built, which he didn’t need at all.<br>那位百万富翁又建了一幢房子，尽管他并不需要。（译成让步状语从句）</p>
-<p>They tried to stamp out the revolt, which spread all the more furiously throughout the country.<br>起义依然声势浩大地遍布全国，尽管他们试图镇压。（译成让步状语从句）</p>
-<h2 id="定语从句与同位语从句的区分"><a href="#定语从句与同位语从句的区分" class="headerlink" title="定语从句与同位语从句的区分"></a>定语从句与同位语从句的区分</h2><p>二者在结构上有相似性，都是“名词that从句”，这里的名词都称作先行词。</p>
-<h3 id="从结构上区分：that是否作成分"><a href="#从结构上区分：that是否作成分" class="headerlink" title="从结构上区分：that是否作成分"></a>从结构上区分：that是否作成分</h3><p>that在定语从句中要充当成分，比如作从句的主语或宾语；而that在同位语从句中不充当任何成分，仅起连词的作用。<br>换句话说，定语从句的结构是“名词+that+不完整的句子”，而同位语从句的结构是“名词that+完整的陈述句”。<br>1） The rumor that he spread everywhere turned out to be untrue.<br>2） The rumor that Tom was a thief turned out to be untrue.<br>例句 1）中的that在从句中充当spread的宾语，故此处为定语从句。<br>例句2）中 的that在从句中不充当任何成分，因为从句“Tom was a thief”是一个完整的句子，不缺少任何成分。故其为同位语从句，作the rumor的同位语，补充说明the rumor的具体内容。<br>1）他到处散布的那个谣言，结果证明是假的。<br>2）有谣传说汤姆是小偷，结果证明是假的。</p>
-<p>1） The fact that we talked about is very important.<br>2） The fact that he succeeded in the experiment pleased everybody.<br>例句1）中的that作talked about的宾语，故此处为定语从句。<br>例句2）中的that不充当成分，因为“he succeeded in the experiment”是一个完整的陈述句，故其为同位语从句。<br>1）我们讨论的这些情况很重要。<br>2）他的实验取得了成功，这让大家很高兴。</p>
-<h3 id="从意义上区分：that引导的从句的意义不同"><a href="#从意义上区分：that引导的从句的意义不同" class="headerlink" title="从意义上区分：that引导的从句的意义不同"></a>从意义上区分：that引导的从句的意义不同</h3><p>定语从句相当于形容词, 对先行词起修饰、描述和限制的作用；同位语从句相当于一个名词，是对其前面名词内容的具体表述，二者是同位关系。<br>1） The news that you heard is not true.<br>2） The news that Lincoln was murdered at a theater is true.<br>例句1）中的定语从句that you heard并不是表示news的内容，只是在限制news所指的范围，即“你听到的那个消息”。<br>例句2）中的同位语从句that Lincoln was murdered at a theater是表示news的具体 内容，在意义上与news构成同位关系。<br>1）你听到的那个消息并不是真实的。<br>2）有消息说林肯是在一个剧院被刺杀的，这是真的。</p>
-<p>1） The fact that you pointed out made me interested.<br>2） The fact that there are no lives on the moon is known to us all.<br>例句1）中的定语从句that you pointed out并不是表示fact的内容，只是在限制fact的所指范围，即“你指出的这个事实”。<br>例句2）中的同位语从句that there are no lives on the moon是表示fact的具体内容，在意义上与fact构成同位关系。<br>1）你指出的这一点，我很感兴趣。<br>2）众所周知，月球上并没有生命存在。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/22/English系列-自然拼读/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/22/English系列-自然拼读/" class="post-title-link" itemprop="url">English系列-自然拼读</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-07-22 16:51:35" itemprop="dateCreated datePublished" datetime="2020-07-22T16:51:35+08:00">2020-07-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-10 10:02:46" itemprop="dateModified" datetime="2020-09-10T10:02:46+08:00">2020-09-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="单词结尾的s什么时候读-“s”-与-“z”"><a href="#单词结尾的s什么时候读-“s”-与-“z”" class="headerlink" title="单词结尾的s什么时候读 “s” 与 “z”"></a>单词结尾的s什么时候读 “s” 与 “z”</h2><ul>
-<li>做动词时结尾读”z”</li>
-<li>做形容词、副词、名词时结尾读”s”</li>
-</ul>
-<p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/aXaxF4.png" alt><br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/kwz7k7.png" alt><br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/G9b1HK.png" alt><br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/s6UeVk.png" alt><br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/qJ0Dzb.png" alt><br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/odIBhw.png" alt><br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/q8mAhm.png" alt></p>
-<blockquote>
-<p>参考来源<a href="https://www.zhihu.com/zvideo/1268214408456630272" target="_blank" rel="noopener">知乎</a></p>
-</blockquote>
-<h1 id="字母组合发音"><a href="#字母组合发音" class="headerlink" title="字母组合发音"></a>字母组合发音</h1><h2 id="ar"><a href="#ar" class="headerlink" title="ar"></a>ar</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/ɑː/</span><br></pre></td></tr></table></figure>
-<p>garbage</p>
+<h2 id="log打印"><a href="#log打印" class="headerlink" title="log打印"></a>log打印</h2><p>如果变量打印前面加了字符串拼接的话，chrome是不会自动打印变量的具体内容的！</p>
+<h2 id="API-in-common-use"><a href="#API-in-common-use" class="headerlink" title="API in common use"></a>API in common use</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">v:bind:attribute</span><br><span class="line">v-html</span><br><span class="line">v-on:click</span><br><span class="line">v-on:dblclick</span><br><span class="line">v-on:mousemove</span><br><span class="line"></span><br><span class="line">v-on:可以用@代替</span><br></pre></td></tr></table></figure>
+<h2 id="vue-import"><a href="#vue-import" class="headerlink" title="vue import @"></a>vue import @</h2><p>@ 等价于 /src 这个目录，避免写麻烦又易错的相对路径</p>
+<h2 id="使用Vue-prototype实现全局变量"><a href="#使用Vue-prototype实现全局变量" class="headerlink" title="使用Vue.prototype实现全局变量"></a>使用Vue.prototype实现全局变量</h2><p>当你在main.js里声明了Vue.prototype.a = 1后，因为你的每一个vue组件都是一个Vue对象的实例，所以即使你没有在组件内部使用data(){return{……}}声明a，你依然可以在组件中通过this.a来访问。</p>
+<h2 id="Template-Literals（模板对象）-in-ES6"><a href="#Template-Literals（模板对象）-in-ES6" class="headerlink" title="Template Literals（模板对象） in ES6"></a>Template Literals（模板对象） in ES6</h2><p>如在es5中拼凑字符串需要+’’以及变量名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var name = &apos;Your name is &apos; + first + &apos; &apos; + last + &apos;.&apos;;</span><br><span class="line">var url = &apos;http://localhost:3000/api/messages/&apos; + id;</span><br></pre></td></tr></table></figure></p>
+<p>在es6中新增添了${}的使用方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var name = `Your name is $&#123;first&#125; $&#123;last&#125;. `;</span><br><span class="line">var url = `http://localhost:3000/api/messages/$&#123;id&#125;`;</span><br></pre></td></tr></table></figure></p>
+<h2 id="no-undef"><a href="#no-undef" class="headerlink" title="no-undef"></a>no-undef</h2><p>“extends”: “eslint:recommended”配置文件中的属性启用此规则。<br>此规则可以帮助您查找由变量和参数名称拼写错误或意外隐式全局变量（例如，var在for循环初始值设定项中遗忘关键字）导致的潜在ReferenceErrors 。</p>
+<h2 id="style-scoped"><a href="#style-scoped" class="headerlink" title="style scoped"></a>style scoped</h2><p>在Vue组件中，为了使样式私有化（模块化），不对全局造成污染，可以在style标签上添加scoped属性以表示它的只属于当下的模块，局部有效。如果一个项目中的所有vue组件style标签全部加上了scoped，相当于实现了样式的私有化。如果引用了第三方组件，需要在当前组件中局部修改第三方组件的样式，而又不想去除scoped属性造成组件之间的样式污染。</p>
+<h2 id="v-model-vs-model"><a href="#v-model-vs-model" class="headerlink" title="v-model vs :model"></a>v-model vs :model</h2><p>v-model是vue内置的控件和变量之间双向数据绑定的指令，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--input输入框，值会在&lt;p&gt;标签打印出来--&gt;</span><br><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">     &lt;input type=&quot;text&quot; v-model=&quot;message&quot; placeholder=&quot;请输入&quot;&gt;</span><br><span class="line">    &lt;p&gt;输入的内容是: &#123;&#123;message&#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var  vue=new Vue(&#123;</span><br><span class="line">        el:&apos;#app&apos;,</span><br><span class="line">        data:&#123;</span><br><span class="line">           message:&apos;&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>:model相当于v-bind:model的缩写，<br>    v-bind动态绑定指令，默认情况下控件自带属性的值是固定的。<br>    这种只是将父组件的数据传递到了子组件，并没有实现子组件和父组件数据的双向绑定。<br>    当然引用类型除外，子组件改变引用类型的数据的话，父组件也会改变的。</p>
+<p>用v-bind和v-on指令实现v-model，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--input输入框--&gt;</span><br><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;!--把message字段的值作为input标签的value属性值，同时监听输入事件，实时更新message的值--&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; @input=&quot;handleInput($event)&quot;  placeholder=&quot;请输入&quot;  v-bind:value=&quot;message&quot;&gt;</span><br><span class="line">    &lt;p&gt;输入的内容是: &#123;&#123;message&#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var  vue=new Vue(&#123;</span><br><span class="line">        el:&apos;#app&apos;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            message:&apos;&apos;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line">            handleInput: function (event) &#123;</span><br><span class="line">                console.info(&quot;控制台打印event详情&quot;)</span><br><span class="line">                console.info(event)</span><br><span class="line">                console.info(event.toLocaleString());</span><br><span class="line">                this.message=event.target.value;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="XML-DOM自带的validate方法"><a href="#XML-DOM自带的validate方法" class="headerlink" title="XML DOM自带的validate方法"></a>XML DOM自带的validate方法</h2><p>查看js源码发现，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">export interface IXMLDOMSchemaCollection &#123;</span><br><span class="line">        length: number;</span><br><span class="line">        namespaceURI(index: number): string;</span><br><span class="line">        validateOnLoad: boolean;</span><br><span class="line"></span><br><span class="line">        add(namespaceURI: string, schema: string|IXMLDOMNode): void;</span><br><span class="line">        addCollection(collection: IXMLDOMSchemaCollection): void;</span><br><span class="line">        get(namespaceURI: string): IXMLDOMNode;</span><br><span class="line">        getDeclaration(node: IXMLDOMNode): ISchemaItem;</span><br><span class="line">        getSchema(namespaceURI: string): ISchema;</span><br><span class="line">        remove(namespaceURI: string): void;</span><br><span class="line">        validate(): void;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>因此，在vue的代码中，form对象可以直接调用validate()，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">handleLogin () &#123;</span><br><span class="line">  this.$refs.loginForm.validate(valid =&gt; &#123;</span><br><span class="line">    if (valid) &#123;</span><br><span class="line">      this.$store.dispatch(&quot;LoginByUsername&quot;, this.loginForm).then(() =&gt; &#123;</span><br><span class="line">        this.$router.push(&#123; path: this.tagWel.value &#125;);</span><br><span class="line">      &#125;).catch(()=&gt;&#123;</span><br><span class="line">        this.refreshCode()</span><br><span class="line">      &#125;)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="vue中this-router-push-路由传值和获取的两种常见方法"><a href="#vue中this-router-push-路由传值和获取的两种常见方法" class="headerlink" title="vue中this.$router.push()路由传值和获取的两种常见方法"></a>vue中this.$router.push()路由传值和获取的两种常见方法</h2><p><a href="https://www.cnblogs.com/toonezhr/p/10325457.html" target="_blank" rel="noopener">https://www.cnblogs.com/toonezhr/p/10325457.html</a></p>
+<h2 id="Vue-extend-new-Vue-Vue-component-render"><a href="#Vue-extend-new-Vue-Vue-component-render" class="headerlink" title="Vue.extend, new Vue(), Vue.component(), render"></a>Vue.extend, new Vue(), Vue.component(), render</h2><p><a href="https://www.jianshu.com/p/ae319db5b456" target="_blank" rel="noopener">https://www.jianshu.com/p/ae319db5b456</a></p>
+<h2 id="vue-sync修饰符"><a href="#vue-sync修饰符" class="headerlink" title="vue sync修饰符"></a>vue sync修饰符</h2><p>vue 修饰符sync的功能是：当一个子组件改变了一个 prop 的值时，这个变化也会同步到父组件中所绑定。<br><a href="https://www.jianshu.com/p/6b062af8cf01" target="_blank" rel="noopener">https://www.jianshu.com/p/6b062af8cf01</a></p>
+<h2 id="常用属性"><a href="#常用属性" class="headerlink" title="常用属性"></a>常用属性</h2><p>vm.$el<br>获取Vue实例关联的DOM元素；</p>
+<p>vm.$data<br>获取Vue实例的data选项（对象）</p>
+<p>vm.$options<br>获取Vue实例的自定义属性（如vm.$options.methods,获取Vue实例的自定义属性methods）</p>
+<p>vm.$refs<br>获取页面中所有含有ref属性的DOM元素（如vm.$refs.hello，获取页面中含有属性ref = “hello”的DOM元素，如果有多个元素，那么只返回最后一个）<br><a href="https://www.jianshu.com/p/f6f3f00cd923" target="_blank" rel="noopener">https://www.jianshu.com/p/f6f3f00cd923</a></p>
+<h2 id="vue-use和vue-prototype的区别"><a href="#vue-use和vue-prototype的区别" class="headerlink" title="vue.use和vue.prototype的区别"></a>vue.use和vue.prototype的区别</h2><h2 id="watch、mounted、computed、created的区别-todo"><a href="#watch、mounted、computed、created的区别-todo" class="headerlink" title="watch、mounted、computed、created的区别 todo"></a>watch、mounted、computed、created的区别 todo</h2><h3 id="created和mounted的区别"><a href="#created和mounted的区别" class="headerlink" title="created和mounted的区别"></a>created和mounted的区别</h3><p>created:在模板渲染成html前调用，即通常初始化某些属性值，然后再渲染成视图。</p>
+<p>mounted:在模板渲染成html后调用，通常是初始化页面完成后，再对html的dom节点。</p>
+<h4 id="二者的执行顺序"><a href="#二者的执行顺序" class="headerlink" title="二者的执行顺序"></a>二者的执行顺序</h4><p>嵌套组件中两者的执行顺序不同。</p>
+<p>父组件 created</p>
+<p>子组件 created</p>
+<p>子组件 mounted</p>
+<p>父组件 mounted</p>
+<h3 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h3><h4 id="watch的高级用法"><a href="#watch的高级用法" class="headerlink" title="watch的高级用法"></a>watch的高级用法</h4><p>监听变量originList的变化，如果变化了调用init方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mounted () &#123;</span><br><span class="line">    this.$watch(&quot;originList&quot;, this.init)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="gt-import-“-components-common-Empty”-这是什么写法？"><a href="#gt-import-“-components-common-Empty”-这是什么写法？" class="headerlink" title="$=&gt;import(“@/components/common/Empty”)这是什么写法？"></a>$=&gt;import(“@/components/common/Empty”)这是什么写法？</h2><h2 id="this-options"><a href="#this-options" class="headerlink" title="this.$options"></a>this.$options</h2><p>通过this.$options调用方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">his.$options.methods.getPicData.call(this)</span><br></pre></td></tr></table></figure></p>
+<p>带参数的调用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$options.methods.getPicData.call(this,data)</span><br></pre></td></tr></table></figure></p>
+<h2 id="this-emit-Vue子组件向父组件传值"><a href="#this-emit-Vue子组件向父组件传值" class="headerlink" title="this.$emit()/Vue子组件向父组件传值"></a>this.$emit()/Vue子组件向父组件传值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$emit(&apos;refreshCodeTreeFun&apos;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;vercode-info ref=&quot;vercodeInfo&quot; v-if=&quot;showVercodeTable&quot;</span><br><span class="line">				:parent-id=&quot;parentId&quot;</span><br><span class="line">				:current-id=&quot;currentId&quot;</span><br><span class="line">				:parent-name=&quot;parentName&quot;</span><br><span class="line">				:default-node-type=&quot;defaultNodeType&quot;</span><br><span class="line">				:specialty-name=&quot;specialtyName&quot;</span><br><span class="line">				:specialty-id=&quot;specialtyId&quot;</span><br><span class="line">				@refreshCodeTreeFun=&quot;refreshCodeTreeFun&quot;&gt;&lt;/vercode-info&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">refreshCodeTreeFun () &#123;</span><br><span class="line">			this.showCodeTree = false</span><br><span class="line">			setTimeout(() =&gt; &#123;</span><br><span class="line">				this.showCodeTree = true</span><br><span class="line">			&#125;, 1)</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="ref属性"><a href="#ref属性" class="headerlink" title="ref属性"></a>ref属性</h2><p>ref 被用来给元素或子组件注册引用信息。引用信息将会注册在父组件的 $refs 对象上。</p>
+<p>$refs 是所有注册过的ref的一个集合。</p>
+<h2 id="vue语法-（模版字符串）"><a href="#vue语法-（模版字符串）" class="headerlink" title="vue语法 ${ }（模版字符串）"></a>vue语法 <code>${ }</code>（模版字符串）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">const name = &apos;小缘&apos;</span><br><span class="line">const age = 14</span><br><span class="line">console.info(`大家好，我叫$&#123;name&#125;，今年$&#123;age&#125;岁了`)</span><br><span class="line">// 等价于</span><br><span class="line">console.info(&apos;大家好，我叫&apos; + name + &apos;，今年&apos; + age + &apos;岁了&apos;)</span><br><span class="line"> </span><br><span class="line">// 最大的优势是支持换行字符串</span><br><span class="line">const url = &apos;//baidu.com&apos;</span><br><span class="line">const text = &apos;百度一下，你就知道&apos;</span><br><span class="line">const html = `</span><br><span class="line">  &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">    &lt;a href=&quot;$&#123;url&#125;&quot;&gt;$&#123;text&#125;&lt;/a&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">`</span><br><span class="line">————————————————</span><br><span class="line">版权声明：本文为CSDN博主「Hzsilvana」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</span><br><span class="line">原文链接：https://blog.csdn.net/weixin_42776027/java/article/details/101197879</span><br></pre></td></tr></table></figure>
+<h2 id="自定义setter方法，调用时一并返回对象"><a href="#自定义setter方法，调用时一并返回对象" class="headerlink" title="自定义setter方法，调用时一并返回对象"></a>自定义setter方法，调用时一并返回对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">export const createQueryFieldEnhance = function () &#123;</span><br><span class="line">	let field = &#123;</span><br><span class="line">		type: &apos;&apos;, propertyName: &apos;&apos;, fieldName: &apos;&apos;, dataSource: [], dataSourceCode: &apos;&apos;, isMultiple: false,</span><br><span class="line">		setType (type) &#123;</span><br><span class="line">			this.type = type</span><br><span class="line">			return this</span><br><span class="line">		&#125;,</span><br><span class="line">		setPropertyName (propertyName) &#123;</span><br><span class="line">			this.propertyName = propertyName</span><br><span class="line">			return this</span><br><span class="line">		&#125;,</span><br><span class="line">		setFieldName (fieldName) &#123;</span><br><span class="line">			this.fieldName = fieldName</span><br><span class="line">			return this</span><br><span class="line">		&#125;,</span><br><span class="line">		setDataSource (dataSource) &#123;</span><br><span class="line">			this.dataSource = dataSource</span><br><span class="line">			return this</span><br><span class="line">		&#125;,</span><br><span class="line">		setDataSourceCode (dataSourceCode) &#123;</span><br><span class="line">			this.dataSourceCode = dataSourceCode</span><br><span class="line">			return this</span><br><span class="line">		&#125;,</span><br><span class="line">		setIsMultiple (isMultiple) &#123;</span><br><span class="line">			this.isMultiple = isMultiple</span><br><span class="line">			return this</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return field</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="vue组件之间通信的6种方式"><a href="#vue组件之间通信的6种方式" class="headerlink" title="vue组件之间通信的6种方式"></a>vue组件之间通信的6种方式</h2><h3 id="emit-on"><a href="#emit-on" class="headerlink" title="$emit / $on"></a>$emit / $on</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$emit(事件名,数据);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">async mounted ()&#123;</span><br><span class="line">    this.$on(&quot;refresh&quot;, $=&gt;&#123;</span><br><span class="line">        // xxx</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="输入框Input监听回车"><a href="#输入框Input监听回车" class="headerlink" title="输入框Input监听回车"></a>输入框Input监听回车</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-input v-model=&quot;name&quot; @keyup.enter.native=&quot;onSubmit&quot; placeholder=&quot;User Name&quot;&gt;&lt;/el-input&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="vue监听浏览器窗口的变化"><a href="#vue监听浏览器窗口的变化" class="headerlink" title="vue监听浏览器窗口的变化"></a>vue监听浏览器窗口的变化</h2><p><a href="https://blog.csdn.net/weixin_34049948/article/details/86021903" target="_blank" rel="noopener">https://blog.csdn.net/weixin_34049948/article/details/86021903</a></p>
+<h1 id="Tool"><a href="#Tool" class="headerlink" title="Tool"></a>Tool</h1><p><a href="http://www.html2jade.org/" target="_blank" rel="noopener">html和pug之间的转换</a></p>
+<h2 id="倒计时组件"><a href="#倒计时组件" class="headerlink" title="倒计时组件"></a>倒计时组件</h2><p><a href="https://www.cnblogs.com/haoning/p/11686674.html" target="_blank" rel="noopener">https://www.cnblogs.com/haoning/p/11686674.html</a></p>
 
       
     </div>
@@ -985,7 +869,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1051,7 +935,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">125</span>
+          <span class="site-state-item-count">126</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1064,7 +948,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">87</span>
+        <span class="site-state-item-count">88</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
