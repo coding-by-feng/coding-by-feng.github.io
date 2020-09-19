@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/FIG9fa.png">
 <meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/36r68I.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/xLpjyO.png">
-<meta property="og:updated_time" content="2020-09-18T09:45:48.262Z">
+<meta property="og:updated_time" content="2020-09-18T12:49:39.817Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java系列之零碎笔记">
 <meta name="twitter:description" content="基础Java8 新特性https://www.cnblogs.com/dzy521/p/10077132.html Stream由于Stream的起始点是基于Array来初始化，集合List可以直接通过parallelStream方法来启动一个Stream flatMap vs map前者在结构之后是直接返回被扁平后的流对象，后者还是返回包装好原来元素的流对象 java8注解新特性 增加二个注解类">
@@ -200,7 +200,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-18 17:45:48" itemprop="dateModified" datetime="2020-09-18T17:45:48+08:00">2020-09-18</time>
+                <time title="Modified: 2020-09-18 20:49:39" itemprop="dateModified" datetime="2020-09-18T20:49:39+08:00">2020-09-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -252,9 +252,9 @@
 <p>上面的字节码文件中出现了一次<code>monitorenter</code>和二次<code>monitorexit</code>。</p>
 <blockquote>
 <p>两次<code>monitorexit</code>指令的原因是为了保证抛异常的情况下也能释放锁，所以javac为同步代码块添加了一个隐式的try-finally，在finally中会调用<code>monitorexit</code>命令释放锁。</p>
+</blockquote>
 <h3 id="transient"><a href="#transient" class="headerlink" title="transient"></a>transient</h3><p><a href="https://baijiahao.baidu.com/s?id=1636557218432721275&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">https://baijiahao.baidu.com/s?id=1636557218432721275&amp;wfr=spider&amp;for=pc</a></p>
 <h3 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void.class // 罕见又骚气的用法</span><br></pre></td></tr></table></figure>
-</blockquote>
 <h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public &lt;T&gt; T readObjectData(ByteBuffer buffer, Class&lt;T&gt; type) &#123;</span><br><span class="line">...</span><br><span class="line">T retVal = (T) summaries;</span><br><span class="line">return retVal;</span><br></pre></td></tr></table></figure>
 <p>我在stackoverflow发现一个很好的解析：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public &lt;T&gt; T readObjectData(...</span><br><span class="line">        ^  ^</span><br><span class="line">        |  + Return type</span><br><span class="line">        + Generic type argument</span><br></pre></td></tr></table></figure></p>
 <h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><h3 id="Unimagined"><a href="#Unimagined" class="headerlink" title="Unimagined"></a>Unimagined</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 一个集合并入到另一个集合的安全写法</span><br><span class="line">Collections.addAll(Collection&lt;? super T&gt; c, T... elements);</span><br></pre></td></tr></table></figure>

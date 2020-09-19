@@ -2904,9 +2904,9 @@ public class Apple {
 <p>上面的字节码文件中出现了一次<code>monitorenter</code>和二次<code>monitorexit</code>。</p>
 <blockquote>
 <p>两次<code>monitorexit</code>指令的原因是为了保证抛异常的情况下也能释放锁，所以javac为同步代码块添加了一个隐式的try-finally，在finally中会调用<code>monitorexit</code>命令释放锁。</p>
+</blockquote>
 <h3 id="transient"><a href="#transient" class="headerlink" title="transient"></a>transient</h3><p><a href="https://baijiahao.baidu.com/s?id=1636557218432721275&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">https://baijiahao.baidu.com/s?id=1636557218432721275&amp;wfr=spider&amp;for=pc</a></p>
 <h3 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">void.class // 罕见又骚气的用法</span><br></pre></td></tr></table></figure>
-</blockquote>
 <h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public &lt;T&gt; T readObjectData(ByteBuffer buffer, Class&lt;T&gt; type) &#123;</span><br><span class="line">...</span><br><span class="line">T retVal = (T) summaries;</span><br><span class="line">return retVal;</span><br></pre></td></tr></table></figure>
 <p>我在stackoverflow发现一个很好的解析：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public &lt;T&gt; T readObjectData(...</span><br><span class="line">        ^  ^</span><br><span class="line">        |  + Return type</span><br><span class="line">        + Generic type argument</span><br></pre></td></tr></table></figure></p>
 <h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><h3 id="Unimagined"><a href="#Unimagined" class="headerlink" title="Unimagined"></a>Unimagined</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 一个集合并入到另一个集合的安全写法</span><br><span class="line">Collections.addAll(Collection&lt;? super T&gt; c, T... elements);</span><br></pre></td></tr></table></figure>
@@ -6889,7 +6889,10 @@ public class Apple {
   <entry>
     <title>数据结构系列之树（Java）</title>
     <url>/2020/09/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B3%BB%E5%88%97%E4%B9%8B%E6%A0%91-Java/</url>
-    <content><![CDATA[<p><a href="https://leetcode-cn.com/tag/tree/" target="_blank" rel="noopener">leetcode树专题</a></p>
+    <content><![CDATA[<blockquote>
+<p>该文章总结自网上一些个教程，转载需注明出处。</p>
+</blockquote>
+<p><a href="https://leetcode-cn.com/tag/tree/" target="_blank" rel="noopener">leetcode树专题</a></p>
 <h2 id="树的定义"><a href="#树的定义" class="headerlink" title="树的定义"></a>树的定义</h2><p>树是由n个有限节点组成一个具有层次关系的集合。把它叫做“树”是因为它看起来像一棵倒挂的树，也就是说它是根朝上，而叶朝下的。<br>当n=0时，称为空树。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/pbMQ0p.png" alt></p>
 <h2 id="树的特点"><a href="#树的特点" class="headerlink" title="树的特点"></a>树的特点</h2><ul>
 <li>每个节点都只有有限个子节点或无子节点；</li>
@@ -6955,7 +6958,8 @@ public class Apple {
 <blockquote>
 <p>也可以使用非递归实现，比如使用栈。</p>
 </blockquote>
-<h5 id="中序（中根次序）遍历"><a href="#中序（中根次序）遍历" class="headerlink" title="中序（中根次序）遍历"></a>中序（中根次序）遍历</h5><ul>
+<h5 id="中序（中根次序）遍历"><a href="#中序（中根次序）遍历" class="headerlink" title="中序（中根次序）遍历"></a>中序（中根次序）遍历</h5><p>二叉搜索树的中序遍历的序列是递增排序的序列，中序遍历的遍历次序：Left -&gt; Node -&gt; Right。</p>
+<ul>
 <li>中序遍历左子树</li>
 <li>遍历根节点</li>
 <li>中序遍历右子树</li>
@@ -7027,7 +7031,26 @@ public class Apple {
 <li>中序遍历序列（4、2、5、1、6、3）</li>
 </ul>
 <p>其对应的树如下：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/EmDKEi.png" alt></p>
-<h3 id="霍夫曼树"><a href="#霍夫曼树" class="headerlink" title="霍夫曼树"></a>霍夫曼树</h3><h3 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h3><h2 id="无序树"><a href="#无序树" class="headerlink" title="无序树"></a>无序树</h2>]]></content>
+<h4 id="线索二叉树"><a href="#线索二叉树" class="headerlink" title="线索二叉树"></a>线索二叉树</h4><p>线索化：</p>
+<ul>
+<li>若无左子树，则将左指针指向其前驱结点;</li>
+<li>若无右子树，则将右指针指向其后继结点。</li>
+</ul>
+<h5 id="线索二叉树-1"><a href="#线索二叉树-1" class="headerlink" title="线索二叉树"></a>线索二叉树</h5><p>比如先序遍历序列为<code>124536</code>的二叉树先序线索化如下图：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/oblrFJ.png" alt><br>同样是这块树的中序序列为<code>425163</code>，其对应的中序线索化如下图：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/p5lMPP.png" alt></p>
+<blockquote>
+<p>其后序线索二叉树<code>452631</code>也是同理。<br>最常用的是中序线索二叉树。<br>中序线索二叉树线索化的BOILERPLATE:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class TreeNode &#123;</span><br><span class="line">        String data;    //数据域</span><br><span class="line">        Node left;      //左节点</span><br><span class="line">        Node right;     //右节点</span><br><span class="line">        boolean isLeftToPre;  </span><br><span class="line">        boolean isRightToNext; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 方法调用传入二叉树的中序遍历后的顺序的第一个节点对象实例</span><br><span class="line">public void initInThread(TreeNode first)&#123;</span><br><span class="line">    TreeNode pre = null;</span><br><span class="line">    inThreadOrder(first, pre);</span><br><span class="line">    pre.right = null;</span><br><span class="line">    pre.isLeftToPre = true;</span><br><span class="line">&#125;</span><br><span class="line">public void inThreadOrder(TreeNode node, TreeNode pre)&#123;</span><br><span class="line">    if(node == null) return;</span><br><span class="line">    inThreadOrder(node.left, node);</span><br><span class="line">    if(node.left == null)&#123;</span><br><span class="line">        node.left = pre;</span><br><span class="line">        node.isLeftToParent = true;</span><br><span class="line">    &#125;</span><br><span class="line">    if(pre != null &amp;&amp; pre.right == null)&#123;</span><br><span class="line">        pre.right = node;</span><br><span class="line">        pre.isRightToNext = true;</span><br><span class="line">    &#125;</span><br><span class="line">    pre = node;</span><br><span class="line">    inThreadOrder(node.right, node.pre);</span><br><span class="line">&#125;</span><br><span class="line">// 寻找中序排列第一个节点，传入根节点</span><br><span class="line">publid TreeNode firstNode(TreeNode node)&#123;</span><br><span class="line">    while(!node.isLeftToPre)&#123;</span><br><span class="line">        node = node.left;</span><br><span class="line">    &#125;</span><br><span class="line">    return node;</span><br><span class="line">&#125;</span><br><span class="line">// 寻找中序排序之后的后继节点</span><br><span class="line">publid TreeNode nextNode(TressNode node)&#123;</span><br><span class="line">    if(!node.isRightToNext)&#123;</span><br><span class="line">        return firstNode(node.right);</span><br><span class="line">    &#125;</span><br><span class="line">    return node.right;</span><br><span class="line">&#125;</span><br><span class="line">// 所以，中序线索化遍历某可树可以这么实现：</span><br><span class="line">// 传入树的根节点，简单明了</span><br><span class="line">public void inOrder(TreeNode root)&#123;</span><br><span class="line">    for(TreeNode temp = firstNode(root); temp != null; temp = nextNode(temp))&#123;</span><br><span class="line">        peek(temp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="线索二叉树数据结构特点"><a href="#线索二叉树数据结构特点" class="headerlink" title="线索二叉树数据结构特点"></a>线索二叉树数据结构特点</h6><p>其节点数据结构增加两个Boolean类型的标志域（成员变量）：</p>
+<ul>
+<li>isLeftToPre<code>true</code>时代表其左孩子节点指向其前驱节点，反之代表其左孩子节点指向其后继节点。</li>
+<li>isRightToNext：当为<code>true</code>时代表其右孩子节点指向其前驱结点，反之代表其右孩子节点指向其后继节点。   </li>
+</ul>
+<h3 id="霍夫曼树"><a href="#霍夫曼树" class="headerlink" title="霍夫曼树"></a>霍夫曼树</h3><h3 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h3><h2 id="无序树"><a href="#无序树" class="headerlink" title="无序树"></a>无序树</h2><blockquote>
+<p>参考来源<a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91" target="_blank" rel="noopener">维基百科</a>、<a href="https://www.bilibili.com/video/BV1b7411N798?p=42" target="_blank" rel="noopener">王道考研</a>等</p>
+</blockquote>
+]]></content>
       <categories>
         <category>数据结构</category>
       </categories>
@@ -7144,7 +7167,7 @@ public class Apple {
       </tags>
   </entry>
   <entry>
-    <title>数据结构系列之图-Java</title>
+    <title>数据结构系列之图（Java）</title>
     <url>/2020/09/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B3%BB%E5%88%97%E4%B9%8B%E5%9B%BE-Java/</url>
     <content><![CDATA[<h3 id="广度优先搜索（Breadth-First-Search、BFS）"><a href="#广度优先搜索（Breadth-First-Search、BFS）" class="headerlink" title="广度优先搜索（Breadth-First-Search、BFS）"></a>广度优先搜索（Breadth-First-Search、BFS）</h3><p>BFS与树的层次遍历有点类似，其具体过程如下：</p>
 <ul>
@@ -7155,7 +7178,7 @@ public class Apple {
 </ul>
 <p>如果仅仅是树的层次遍历来实现BFS的话，无法满足只访问未被访问过的这一约束，比如如下的图：</p>
 <p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/ihab4j.png" alt></p>
-<p>因此其实现额外需要一个<code>队列</code>和<code>辅助性的数组</code>。</p>
+<p>因此其实现原理需要额外的一个<code>队列</code>和一个<code>辅助性的数组</code>。</p>
 <blockquote>
 <p>BOILERPLATE:</p>
 </blockquote>
