@@ -163,6 +163,245 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/30/Java系列之零碎笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/30/Java系列之零碎笔记/" class="post-title-link" itemprop="url">Java系列之零碎笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-30 21:12:21" itemprop="dateCreated datePublished" datetime="2019-11-30T21:12:21+08:00">2019-11-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-18 20:49:39" itemprop="dateModified" datetime="2020-09-18T20:49:39+08:00">2020-09-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="Java8-新特性"><a href="#Java8-新特性" class="headerlink" title="Java8 新特性"></a>Java8 新特性</h2><p><a href="https://www.cnblogs.com/dzy521/p/10077132.html" target="_blank" rel="noopener">https://www.cnblogs.com/dzy521/p/10077132.html</a></p>
+<h3 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a>Stream</h3><p>由于Stream的起始点是基于Array来初始化，集合List可以直接通过parallelStream方法来启动一个Stream</p>
+<h4 id="flatMap-vs-map"><a href="#flatMap-vs-map" class="headerlink" title="flatMap vs map"></a>flatMap vs map</h4><p>前者在结构之后是直接返回被扁平后的流对象，后者还是返回包装好原来元素的流对象</p>
+<h3 id="java8注解新特性"><a href="#java8注解新特性" class="headerlink" title="java8注解新特性"></a>java8注解新特性</h3><ol>
+<li>增加二个注解类型（ElementType.TYPE_USE 和 ElementType.TYPE_PARAMETER）<br> 意思是可以声明在任何类型声明的地方，比如lombok的@NonNull的几个用例：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@NonNull String str;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@NonNull List&lt;String&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 非负数</span><br><span class="line">Arrays&lt;@NonNegative Integer&gt; sort</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@Encrypted File file</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void divideInteger(int a, int b) throws @ZeroDivisor ArithmeticException</span><br></pre></td></tr></table></figure>
+<ol>
+<li>允许重复注解</li>
+</ol>
+<h3 id="参数名称的反射获取"><a href="#参数名称的反射获取" class="headerlink" title="参数名称的反射获取"></a>参数名称的反射获取</h3><p>Java 8终于将这个特性规范化，在语言层面（使用反射API和Parameter.getName()方法）和字节码层面（使用新的javac编译器以及-parameters参数）提供支持.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">&#125;</span><br><span class="line">@Test</span><br><span class="line">@SneakyThrows</span><br><span class="line">public void test1() &#123;</span><br><span class="line">    Method method = GeneratorTest.class.getMethod(&quot;main&quot;, String[].class);</span><br><span class="line">    for (Parameter parameter : method.getParameters()) &#123;</span><br><span class="line">        System.out.println(parameter.getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>打印结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">args</span><br></pre></td></tr></table></figure></p>
+<h3 id="Iterable-forEach"><a href="#Iterable-forEach" class="headerlink" title="Iterable.forEach"></a>Iterable.forEach</h3><p>在逻辑稍微复杂一旦的循环体里面不建议使用，至少要在外部方法声明处抛出个异常都不行，简单的循环可以使用。</p>
+<h3 id="FunctionalInterface（函数式接口）"><a href="#FunctionalInterface（函数式接口）" class="headerlink" title="@FunctionalInterface（函数式接口）"></a>@FunctionalInterface（函数式接口）</h3><p><a href="http://www.manongjc.com/article/46188.html" target="_blank" rel="noopener">http://www.manongjc.com/article/46188.html</a></p>
+<h3 id="parallelStream-vs-stream"><a href="#parallelStream-vs-stream" class="headerlink" title="parallelStream() vs stream()"></a>parallelStream() vs stream()</h3><p>前者是并行执行流，如果对执行结果的顺序没有要求，建议使用并行执行的parallelStream()，可以提高流执行的性能。</p>
+<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><h3 id="synchronized"><a href="#synchronized" class="headerlink" title="synchronized"></a>synchronized</h3><p>以某个代码片段为例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public void fizz(Runnable printFizz) throws InterruptedException &#123;</span><br><span class="line">    while (i &lt;= n) &#123;</span><br><span class="line">        synchronized (this) &#123;</span><br><span class="line">            if (i % 3 == 0 &amp;&amp; i % 5 != 0) &#123;</span><br><span class="line">                printFizz.run();</span><br><span class="line">                i++;</span><br><span class="line">                this.notifyAll();</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                this.wait();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用javap -v命令查看其class文件，得到如下的字节码命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">public void fizz(java.lang.Runnable) throws java.lang.InterruptedException;</span><br><span class="line">    descriptor: (Ljava/lang/Runnable;)V</span><br><span class="line">    flags: ACC_PUBLIC</span><br><span class="line">    Code:</span><br><span class="line">      stack=3, locals=4, args_size=2</span><br><span class="line">         0: aload_0</span><br><span class="line">         1: getfield      #2                  // Field i:I</span><br><span class="line">         4: aload_0</span><br><span class="line">         5: getfield      #3                  // Field n:I</span><br><span class="line">         8: if_icmpgt     73</span><br><span class="line">        11: aload_0</span><br><span class="line">        12: dup</span><br><span class="line">        13: astore_2</span><br><span class="line">        14: monitorenter                      // 在这里锁住</span><br><span class="line">        15: aload_0</span><br><span class="line">        16: getfield      #2                  // Field i:I</span><br><span class="line">        19: iconst_3</span><br><span class="line">        20: irem</span><br><span class="line">        21: ifne          56</span><br><span class="line">        24: aload_0</span><br><span class="line">        25: getfield      #2                  // Field i:I</span><br><span class="line">        28: iconst_5</span><br><span class="line">        29: irem</span><br><span class="line">        30: ifeq          56</span><br><span class="line">        33: aload_1</span><br><span class="line">        34: invokeinterface #4,  1            // InterfaceMethod java/lang/Runnable.run:()V</span><br><span class="line">        39: aload_0</span><br><span class="line">        40: dup</span><br><span class="line">        41: getfield      #2                  // Field i:I</span><br><span class="line">        44: iconst_1</span><br><span class="line">        45: iadd</span><br><span class="line">        46: putfield      #2                  // Field i:I</span><br><span class="line">        49: aload_0</span><br><span class="line">        50: invokevirtual #5                  // Method java/lang/Object.notifyAll:()V</span><br><span class="line">        53: goto          60</span><br><span class="line">        56: aload_0</span><br><span class="line">        57: invokevirtual #6                  // Method java/lang/Object.wait:()V</span><br><span class="line">        60: aload_2</span><br><span class="line">        61: monitorexit                       // 在这里第一次释放锁</span><br><span class="line">        62: goto          70</span><br><span class="line">        65: astore_3</span><br><span class="line">        66: aload_2</span><br><span class="line">        67: monitorexit                       // 这里会再次释放锁</span><br><span class="line">        68: aload_3</span><br><span class="line">        69: athrow</span><br><span class="line">        70: goto          0</span><br><span class="line">        73: return</span><br><span class="line">      Exception table:</span><br><span class="line">         from    to  target type</span><br><span class="line">            15    62    65   any</span><br><span class="line">            65    68    65   any</span><br><span class="line">      LineNumberTable:</span><br><span class="line">        line 47: 0</span><br><span class="line">        line 48: 11</span><br><span class="line">        line 49: 15</span><br><span class="line">        line 50: 33</span><br><span class="line">        line 51: 39</span><br><span class="line">        line 52: 49</span><br><span class="line">        line 54: 56</span><br><span class="line">        line 56: 60</span><br><span class="line">        line 58: 73</span><br><span class="line">      LocalVariableTable:</span><br><span class="line">        Start  Length  Slot  Name   Signature</span><br><span class="line">            0      74     0  this   Lme/fengorz/leetcode/concurrency/fizz_buzz_multithreaded/FizzBuzz;</span><br><span class="line">            0      74     1 printFizz   Ljava/lang/Runnable;</span><br><span class="line">      StackMapTable: number_of_entries = 6</span><br><span class="line">        frame_type = 0 /* same */</span><br><span class="line">        frame_type = 252 /* append */</span><br><span class="line">          offset_delta = 55</span><br><span class="line">          locals = [ class java/lang/Object ]</span><br><span class="line">        frame_type = 3 /* same */</span><br><span class="line">        frame_type = 68 /* same_locals_1_stack_item */</span><br><span class="line">          stack = [ class java/lang/Throwable ]</span><br><span class="line">        frame_type = 250 /* chop */</span><br><span class="line">          offset_delta = 4</span><br><span class="line">        frame_type = 2 /* same */</span><br><span class="line">    Exceptions:</span><br><span class="line">      throws java.lang.InterruptedException</span><br></pre></td></tr></table></figure></p>
+<p>发现上面有两条关键字节码<code>monitorenter</code>和<code>monitorexit</code>：</p>
+<ul>
+<li>每个对象有一个监视器锁（monitor）。当monitor被占用时就会处于锁定状态，线程执行<code>monitorenter</code>指令时尝试获取monitor的所有权。</li>
+<li>而monitorexit会释放锁</li>
+</ul>
+<p>上面的字节码文件中出现了一次<code>monitorenter</code>和二次<code>monitorexit</code>。</p>
+<blockquote>
+<p>两次<code>monitorexit</code>指令的原因是为了保证抛异常的情况下也能释放锁，所以javac为同步代码块添加了一个隐式的try-finally，在finally中会调用<code>monitorexit</code>命令释放锁。</p>
+</blockquote>
+<h3 id="transient"><a href="#transient" class="headerlink" title="transient"></a>transient</h3><p><a href="https://baijiahao.baidu.com/s?id=1636557218432721275&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">https://baijiahao.baidu.com/s?id=1636557218432721275&amp;wfr=spider&amp;for=pc</a></p>
+<h3 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void.class // 罕见又骚气的用法</span><br></pre></td></tr></table></figure>
+<h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public &lt;T&gt; T readObjectData(ByteBuffer buffer, Class&lt;T&gt; type) &#123;</span><br><span class="line">...</span><br><span class="line">T retVal = (T) summaries;</span><br><span class="line">return retVal;</span><br></pre></td></tr></table></figure>
+<p>我在stackoverflow发现一个很好的解析：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public &lt;T&gt; T readObjectData(...</span><br><span class="line">        ^  ^</span><br><span class="line">        |  + Return type</span><br><span class="line">        + Generic type argument</span><br></pre></td></tr></table></figure></p>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><h3 id="Unimagined"><a href="#Unimagined" class="headerlink" title="Unimagined"></a>Unimagined</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 一个集合并入到另一个集合的安全写法</span><br><span class="line">Collections.addAll(Collection&lt;? super T&gt; c, T... elements);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Collections.singletonMap(...);</span><br></pre></td></tr></table></figure>
+<h3 id="快速失败机制（fast-fail）"><a href="#快速失败机制（fast-fail）" class="headerlink" title="快速失败机制（fast-fail）"></a>快速失败机制（fast-fail）</h3><p>集合常见的快速失败检查都是通过如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">final void checkForComodification() &#123;</span><br><span class="line">    if (modCount != expectedModCount)</span><br><span class="line">        throw new ConcurrentModificationException();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="来自网上的Java集合体系图"><a href="#来自网上的Java集合体系图" class="headerlink" title="来自网上的Java集合体系图"></a>来自网上的Java集合体系图</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/FIG9fa.png" alt><br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/36r68I.png" alt></p>
+<h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><h3 id="一些自定义常用异常可以抽成公用的静态final异常，如："><a href="#一些自定义常用异常可以抽成公用的静态final异常，如：" class="headerlink" title="一些自定义常用异常可以抽成公用的静态final异常，如："></a>一些自定义常用异常可以抽成公用的静态final异常，如：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public final class PrematureCloseException extends IOException &#123;</span><br><span class="line"></span><br><span class="line">	public static final PrematureCloseException BEFORE_RESPONSE_SENDING_REQUEST =</span><br><span class="line">			new PrematureCloseException(&quot;Connection has been closed BEFORE response, while sending request body&quot;);</span><br><span class="line"></span><br><span class="line">	public static final PrematureCloseException BEFORE_RESPONSE =</span><br><span class="line">			new PrematureCloseException(&quot;Connection prematurely closed BEFORE response&quot;);</span><br><span class="line"></span><br><span class="line">	public static final PrematureCloseException DURING_RESPONSE =</span><br><span class="line">			new PrematureCloseException(&quot;Connection prematurely closed DURING response&quot;);</span><br><span class="line"></span><br><span class="line">	PrematureCloseException(String message) &#123;</span><br><span class="line">		super(message);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public synchronized Throwable fillInStackTrace() &#123;</span><br><span class="line">		// omit stacktrace for this exception</span><br><span class="line">		return this;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="一些运行时异常可以用Spring内置的断言API比较高逼格"><a href="#一些运行时异常可以用Spring内置的断言API比较高逼格" class="headerlink" title="一些运行时异常可以用Spring内置的断言API比较高逼格"></a>一些运行时异常可以用Spring内置的断言API比较高逼格</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Assert.notNull etc.</span><br></pre></td></tr></table></figure>
+<h2 id="非null判断的优雅写法"><a href="#非null判断的优雅写法" class="headerlink" title="非null判断的优雅写法"></a>非null判断的优雅写法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Objects.requireNonNull(obj);</span><br></pre></td></tr></table></figure>
+<h2 id="try资源句式"><a href="#try资源句式" class="headerlink" title="try资源句式"></a>try资源句式</h2><p>如果代码调用的类是实现java.lang.AutoCloseable的，用try资源句式来释放关闭资源这样代码就优雅多了。</p>
+<h2 id="PropertyDescriptor"><a href="#PropertyDescriptor" class="headerlink" title="PropertyDescriptor"></a>PropertyDescriptor</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PropertyDescriptor descriptor = new PropertyDescriptor(&quot;propertyName&quot;, param.getClass());</span><br><span class="line">Method getPropertyMethod = descriptor.getReadMethod();</span><br><span class="line">property = (Integer) getPropertyMethod.invoke(param);</span><br></pre></td></tr></table></figure>
+<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><h3 id="String-format"><a href="#String-format" class="headerlink" title="String.format"></a>String.format</h3><p><a href="https://blog.csdn.net/u010137760/article/details/82869637" target="_blank" rel="noopener">https://blog.csdn.net/u010137760/article/details/82869637</a></p>
+<h3 id="String-intern"><a href="#String-intern" class="headerlink" title="String.intern"></a>String.intern</h3><p><a href="https://www.cnblogs.com/Yintianhao/p/12273714.html" target="_blank" rel="noopener">https://www.cnblogs.com/Yintianhao/p/12273714.html</a></p>
+<h2 id="n次方写法"><a href="#n次方写法" class="headerlink" title="n次方写法"></a>n次方写法</h2><p>在Java中一个数的N次方不可以写成：a^0这种形式，算得的数不正确；<br>正确的写法为Math.pow(a,0);</p>
+<hr>
+<h1 id="避坑"><a href="#避坑" class="headerlink" title="避坑"></a>避坑</h1><h2 id="代码格式"><a href="#代码格式" class="headerlink" title="代码格式"></a>代码格式</h2><p>一个团队你的代码格式一定要统一，不然代码冲突时，比对代码非常麻烦。</p>
+<h2 id="Service与Controller的交互"><a href="#Service与Controller的交互" class="headerlink" title="Service与Controller的交互"></a>Service与Controller的交互</h2><p>Service最终返回给Controller层的数据如果比较复杂，尽量不要用Map，可以封装成DTO，而且这样一来还可以结合JSR303或者其各种扩展，对DTO进行优雅的数据校验。</p>
+<h2 id="减少箭头型代码"><a href="#减少箭头型代码" class="headerlink" title="减少箭头型代码"></a>减少箭头型代码</h2><p><a href="https://blog.csdn.net/weixin_33858485/article/details/88768985" target="_blank" rel="noopener">https://blog.csdn.net/weixin_33858485/article/details/88768985</a><br>但是个人认为，一味的追求箭头代码也会有弊端，比如这样:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Task task = monTask.getTask();</span><br><span class="line">if (task == null) &#123;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">MonAssignTaskExample monAssignTaskExample = new MonAssignTaskExample();</span><br><span class="line">monAssignTaskExample.createCriteria().andTaskIdEqualTo(task.getTaskId()).andDealObjectIdEqualTo(task.getDealObjectId())</span><br><span class="line">        .andIsFinishEqualTo(&quot;N&quot;);</span><br><span class="line">List&lt;MonAssignTask&gt; monAssignTasks = this.baseMonAssignTaskBO.selectByExample(monAssignTaskExample);</span><br><span class="line">if (ObjectUtils.isEmpty(monAssignTasks)) &#123;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">for (MonAssignTask monAssignTask : monAssignTasks) &#123;</span><br><span class="line">    // do something</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样写固然是可以减少箭头代码，但是如若这段代码下面今后要添加一些额外的业务逻辑，这些业务逻辑与task是否为null没有必要的联系，<br>那么可能会因为task==null退出了整个函数，导致额外的业务逻辑不被执行。</p>
+<h2 id="Utils-工具类的命名"><a href="#Utils-工具类的命名" class="headerlink" title="Utils 工具类的命名"></a>Utils 工具类的命名</h2><p>每次在使用工具类的时候，总是会出现一个类名出现N个工具类比如：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/xLpjyO.png" alt="image"><br>而且自己也会有自定义的Utils类，为了更好地区分，我喜欢在Utils类价格前缀Enhanced，这样找自己的工具类就方便多了，比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EnhancedBeanUtils</span><br></pre></td></tr></table></figure></p>
+<h2 id="Deprecated"><a href="#Deprecated" class="headerlink" title="@Deprecated"></a>@Deprecated</h2><p>有些被封装的业务方法或者工具类方法如果有做修改，增加了方法的升级版，老旧的方法可以用@Deprecated标记为过时，防止新业务逻辑用到废弃的API。</p>
+<h2 id="魔法值应该尽量避免"><a href="#魔法值应该尽量避免" class="headerlink" title="魔法值应该尽量避免"></a>魔法值应该尽量避免</h2><p>阿里巴巴说java规范里面说杜绝一切魔法值，但是我觉得也不用可以完全追求零魔法值，我认为需要用常量代替魔法值的有以下这些：</p>
+<ol>
+<li>使用频率高的，或者被频繁调用的逻辑块中的魔法值。</li>
+<li>可读性很差的魔法值和表达式，应该禁止，最好都声明成可读性较好的常量或者变量。</li>
+</ol>
+<h2 id="多余的super"><a href="#多余的super" class="headerlink" title="多余的super();"></a>多余的super();</h2><p>在看公司的上古代码发现这种写法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public CreateRepairBillThread(SaInterfaceAccept accept) &#123;</span><br><span class="line">	super();</span><br><span class="line">	this.accept = accept;</span><br><span class="line">	this.timeout = timeout * 60L * 1000L;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里面super();是一句多余的代码，因为子类的构造器会默认先调用父类无参构造器。</p>
+<hr>
+<h1 id="Combo"><a href="#Combo" class="headerlink" title="Combo"></a>Combo</h1><h2 id="过时类的坑"><a href="#过时类的坑" class="headerlink" title="过时类的坑"></a>过时类的坑</h2><p>从eclipse迁移到idea之后在本地跑服务的时候，反射调用方法老旧的代码遇到一个巨坑，抛出异常是wrong number of arguments。</p>
+<p>根据网上的方法，将invoke方法的入参中数组转为Object都不行，折腾了半天，发现代码中抛出了一个过时的异常，我突发奇想，将这个过时的异常类去掉，结果run success了，真的是惨痛的教训，过时的类和方法，能不用，千万别用。下面上代码：<br>报错代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public static Object invoke(Object obj, String methodName, Object[] params) throws Exception &#123;</span><br><span class="line">		Method method = methodByName(obj.getClass(), methodName);</span><br><span class="line">    	if (method == null)</span><br><span class="line">    		method = methodByName(obj.getClass().getSuperclass(), methodName);</span><br><span class="line">    	if (method != null) &#123;</span><br><span class="line">    		return method.invoke(obj, params);</span><br><span class="line">    	&#125; else &#123;</span><br><span class="line">    		throw new MethodNotFoundException(methodName);</span><br><span class="line">    	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>修改后的代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public static Object invoke(Object obj, String methodName, Object[] params) throws InvocationTargetException, IllegalAccessException, BOException &#123;</span><br><span class="line">   Method method = methodByName(obj.getClass(), methodName);</span><br><span class="line">       if (method == null)</span><br><span class="line">          method = methodByName(obj.getClass().getSuperclass(), methodName);</span><br><span class="line">       if (method != null) &#123;</span><br><span class="line">          return method.invoke(obj, params);</span><br><span class="line">       &#125; else &#123;</span><br><span class="line">          //之前抛出的异常已经过时，在jdk新版本环境会报错，优化了一下。</span><br><span class="line">          throw new BOException(&quot;方法&quot;+methodName+&quot;没找到&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">&#125;`</span><br></pre></td></tr></table></figure></p>
+<h2 id="jar"><a href="#jar" class="headerlink" title="jar"></a>jar</h2><h3 id="Mac中jar运行之后窗口无法粘贴"><a href="#Mac中jar运行之后窗口无法粘贴" class="headerlink" title="Mac中jar运行之后窗口无法粘贴"></a>Mac中jar运行之后窗口无法粘贴</h3><p>有些情况下需要使用windows的复制粘贴快捷键才能生效</p>
+<h3 id="jar指定目录的所有classes去打包"><a href="#jar指定目录的所有classes去打包" class="headerlink" title="jar指定目录的所有classes去打包"></a>jar指定目录的所有classes去打包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar cvf test.jar -C unwoven-classes .</span><br></pre></td></tr></table></figure>
+<h2 id="Jackson-Convert-Error-Cannot-construct-instance-of-java-time-LocalDateTime"><a href="#Jackson-Convert-Error-Cannot-construct-instance-of-java-time-LocalDateTime" class="headerlink" title="Jackson Convert Error: Cannot construct instance of java.time.LocalDateTime"></a>Jackson Convert Error: Cannot construct instance of <code>java.time.LocalDateTime</code></h2><p>LocalDateTime属性加上注解<br>@JsonDeserialize(using = LocalDateTimeDeserializer.class)<br>@JsonSerialize(using = LocalDateTimeSerializer.class)</p>
+<h2 id="Thread-sleep-使用-TimeUnit-XXX-sleep-x-代替（可读性更好）"><a href="#Thread-sleep-使用-TimeUnit-XXX-sleep-x-代替（可读性更好）" class="headerlink" title="Thread.sleep 使用 TimeUnit.XXX.sleep(x) 代替（可读性更好）"></a>Thread.sleep 使用 TimeUnit.XXX.sleep(x) 代替（可读性更好）</h2><p><a href="https://stackoverflow.com/questions/9587673/thread-sleep-vs-timeunit-seconds-sleep" target="_blank" rel="noopener">https://stackoverflow.com/questions/9587673/thread-sleep-vs-timeunit-seconds-sleep</a></p>
+<h2 id="音频格式转换"><a href="#音频格式转换" class="headerlink" title="音频格式转换"></a>音频格式转换</h2><p>使用<a href="http://www.sauronsoftware.it/projects/jave/manual.php#2" target="_blank" rel="noopener">JAVE 音频转换包</a>库</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/31/Java系列之JVM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/31/Java系列之JVM/" class="post-title-link" itemprop="url">Java系列之JVM</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-31 20:57:37" itemprop="dateCreated datePublished" datetime="2020-03-31T20:57:37+08:00">2020-03-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-18 17:37:37" itemprop="dateModified" datetime="2020-09-18T17:37:37+08:00">2020-09-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/JVM/" itemprop="url" rel="index"><span itemprop="name">JVM</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="JVM的官方规范"><a href="#JVM的官方规范" class="headerlink" title="JVM的官方规范"></a>JVM的官方规范</h2><p>《Java Virtual Machine Specification》</p>
+<h2 id="美团Java面试7连问"><a href="#美团Java面试7连问" class="headerlink" title="美团Java面试7连问"></a>美团Java面试7连问</h2><p><a href="https://zhuanlan.zhihu.com/p/114157783" target="_blank" rel="noopener">马士兵老师的讲解</a></p>
+<h3 id="对象的定位方式"><a href="#对象的定位方式" class="headerlink" title="对象的定位方式"></a>对象的定位方式</h3><h4 id="句柄方式"><a href="#句柄方式" class="headerlink" title="句柄方式"></a>句柄方式</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/QUtvd4.png" alt></p>
+<h4 id="直接指针"><a href="#直接指针" class="headerlink" title="直接指针"></a>直接指针</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/7BWN68.png" alt></p>
+<h3 id="句柄方式-vs-直接指针"><a href="#句柄方式-vs-直接指针" class="headerlink" title="句柄方式 vs 直接指针"></a>句柄方式 vs 直接指针</h3><p>后者的效率更高，但是当GC挪动对象的时候，前者效率更高。（上图中，前者GC挪动存活对象和清理垃圾对象的时候，t的指针不需要变）</p>
+<h3 id="对象怎么分配"><a href="#对象怎么分配" class="headerlink" title="对象怎么分配"></a>对象怎么分配</h3><h3 id="OOP-KLASS模型"><a href="#OOP-KLASS模型" class="headerlink" title="OOP-KLASS模型"></a>OOP-KLASS模型</h3><h2 id="Java内存模型（Java-Memory-Model-JMM）"><a href="#Java内存模型（Java-Memory-Model-JMM）" class="headerlink" title="Java内存模型（Java Memory Model/JMM）"></a>Java内存模型（Java Memory Model/JMM）</h2><p><a href="https://zhuanlan.zhihu.com/p/29881777" target="_blank" rel="noopener">Java内存模型（JMM）总结</a></p>
+<h2 id="Java三种编译方式：前端编译-JIT编译（即时编译）-AOT编译"><a href="#Java三种编译方式：前端编译-JIT编译（即时编译）-AOT编译" class="headerlink" title="Java三种编译方式：前端编译 JIT编译（即时编译） AOT编译"></a>Java三种编译方式：前端编译 JIT编译（即时编译） AOT编译</h2><p><a href="https://blog.csdn.net/tjiyu/article/details/53748965" target="_blank" rel="noopener">https://blog.csdn.net/tjiyu/article/details/53748965</a></p>
+<h2 id="JVM各种实现"><a href="#JVM各种实现" class="headerlink" title="JVM各种实现"></a>JVM各种实现</h2><p>实现JVM规范的各种虚拟机：</p>
+<ul>
+<li>Oracle的HotSpot</li>
+</ul>
+<h2 id="java的nio"><a href="#java的nio" class="headerlink" title="java的nio"></a>java的nio</h2><h2 id="Java的AOT、JIT（Just-in-time-即时编译）"><a href="#Java的AOT、JIT（Just-in-time-即时编译）" class="headerlink" title="Java的AOT、JIT（Just in time/即时编译）"></a>Java的AOT、JIT（Just in time/即时编译）</h2><h2 id="Java内存（映像）分析工具（hprof文件分析工具）"><a href="#Java内存（映像）分析工具（hprof文件分析工具）" class="headerlink" title="Java内存（映像）分析工具（hprof文件分析工具）"></a>Java内存（映像）分析工具（hprof文件分析工具）</h2><p><a href="https://youzhixueyuan.com/jvm-performance-analysis-tool.html" target="_blank" rel="noopener">https://youzhixueyuan.com/jvm-performance-analysis-tool.html</a><br>目前主流有四大工具：</p>
+<ul>
+<li>Jconsole（JDK自带，功能简单）</li>
+<li>VisualVM（JDK自带，功能强大）</li>
+<li>JProfiler（商业软件，功能强大）</li>
+<li>MAT（基于Eclipse）</li>
+</ul>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="jar"><a href="#jar" class="headerlink" title="jar"></a>jar</h3><p>list the files in the jar.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar -tf xxx.jar</span><br></pre></td></tr></table></figure></p>
+<h3 id="javap（The-Java-Class-File-Disassembler、Java-class文件反编译程序）"><a href="#javap（The-Java-Class-File-Disassembler、Java-class文件反编译程序）" class="headerlink" title="javap（The Java Class File Disassembler、Java class文件反编译程序）"></a>javap（The Java Class File Disassembler、Java class文件反编译程序）</h3><p>解压jar包，并反编译class输入到txt文件查看<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unzip Classes.jar</span><br><span class="line">find . -name &apos;*.class&apos; | xargs javap -p &gt; classes.txt</span><br></pre></td></tr></table></figure></p>
+<h3 id="查找命令所在目录"><a href="#查找命令所在目录" class="headerlink" title="查找命令所在目录"></a>查找命令所在目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">where java</span><br><span class="line">where javac</span><br><span class="line">where jar</span><br><span class="line">where jvisualvm</span><br><span class="line"># where也可以换成which</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/04/大杂烩/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -247,315 +486,6 @@
 <li>罄竹难书</li>
 </ul>
 <h1 id="权威书籍"><a href="#权威书籍" class="headerlink" title="权威书籍"></a>权威书籍</h1><h2 id="《金字塔原理》"><a href="#《金字塔原理》" class="headerlink" title="《金字塔原理》"></a>《金字塔原理》</h2><h2 id="《罗伯特议事规则》"><a href="#《罗伯特议事规则》" class="headerlink" title="《罗伯特议事规则》"></a>《罗伯特议事规则》</h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/09/《深入理解Java虚拟机第3版》阅读笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/09/《深入理解Java虚拟机第3版》阅读笔记/" class="post-title-link" itemprop="url">《深入理解Java虚拟机第3版》阅读笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-07-09 09:55:12" itemprop="dateCreated datePublished" datetime="2020-07-09T09:55:12+08:00">2020-07-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-18 15:57:34" itemprop="dateModified" datetime="2020-09-18T15:57:34+08:00">2020-09-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>这篇笔记总结自周志明老师的《深入理解Java虚拟机第3版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。<br>思维导图版本<a href="http://www.xmind.net/m/MfZ5zm" target="_blank" rel="noopener">点击这里</a></p>
-</blockquote>
-<h1 id="虚拟机概述"><a href="#虚拟机概述" class="headerlink" title="虚拟机概述"></a>虚拟机概述</h1><h2 id="中间语言翻译（从Java翻译到机器码）"><a href="#中间语言翻译（从Java翻译到机器码）" class="headerlink" title="中间语言翻译（从Java翻译到机器码）"></a>中间语言翻译（从Java翻译到机器码）</h2><blockquote>
-<p>从中间语言翻译到机器码</p>
-</blockquote>
-<h3 id="通过C语言翻译（初JVM）"><a href="#通过C语言翻译（初JVM）" class="headerlink" title="通过C语言翻译（初JVM）"></a>通过C语言翻译（初JVM）</h3><p>通过将字节码class翻译成C语言，比如定义iadd这个字节码是相加的助记符，然后通过c语言来解析字节码中的iadd就是相加，并指向对应的c语言相加的c程序来做实际运算，这样子的话，这个解析字节码的C程序就是所谓的JVM，最简陋效率最低的初代JVM</p>
-<h3 id="直接翻译为机器码"><a href="#直接翻译为机器码" class="headerlink" title="直接翻译为机器码"></a>直接翻译为机器码</h3><h4 id="CS-IP"><a href="#CS-IP" class="headerlink" title="CS:IP"></a>CS:IP</h4><p>CS与IPO这是物理CPU内部的两个寄存器。对于一台物理机器而言，这两个寄存器是最重要的寄存器，因为CPU在取指令时便完全依靠这两个寄存器。CS寄存器保存段地址，IP保存偏移地址。CS和IP这两个寄存器的值能够唯一确定内存中的一个地址，CPU在执行机器指令之前，便通过这两个寄存器定位到目标内存位置，并将该位置处的机器指令取出来进行运算。函数跳转的本质其实便是修改CS和IP这两个寄存器的内容，使其指向到目标函数所在内存的首地址，这样CPU便能执行目标函数了。Java虚拟机要想让物理CPU直接执行Java程序所对应的目标机器码，也得修改这两个寄存器才能实现。</p>
-<p>在C语言中，能够使用语法糖来修改CS:IP段寄存器，这样C程序就能直接动态执行机器码。<br>既然都能在C语言中直接动态执行机器码了（可以简单理解为：C语言的变量里面可以复制解析出来的机器码，然后直接执行），我们只要将中间语言指令直接翻译为机器码，然后让CS:IP直接指向这段机器码执行，这也是现代JVM最重要的的基本原理之一。</p>
-<h3 id="本地编译"><a href="#本地编译" class="headerlink" title="本地编译"></a>本地编译</h3><p>中间语言（Java）与同样属于高级语言的C语言相比，它们实现相同的功能，C语言编译后所生成的机器码，也比中间语言直接翻译成的机器码，在数量上要精简很多，所以单从这个角度来讲，C语言的执行效率当然是要更高一些。<br>中间语言由于其本身不能直接被CPU执行，为了能够被CPU执行，中间语言在完成同样一个功能时，需要准备更多便于自我管理的上下文环境，最后才能执行目标机器指令。准备上下文环境最终也是依靠机器码去实现，因此中间语言最终便生成了更多机器码，当然执行效率就降低了。<br>为了提高性能，JVM提供了一种机制能够将中间语言(字节码)直接编译为本地机器指令。例如安卓和部分JVM所实现的AOT ( ahead of time )特性便是这方面的尝试，但是这种方式并没有减少机器指令的数量级问题。<br>除此之外，JVM的大牛们在JIT (即时编译)、内存分配也进行了大量的优化，使JVM能够对热点代码进行大幅度指令优化，正是由于JVM可以在运行期基于上下文链路进行各种优化，因此优化后的指令质量甚至比C/C++编译岀的指令质量更高，以及部分Java程序性能甚至反超C/C++程序。如果离开了这些动态优化，Java程序的执行效率是无论如何也提不上去的。</p>
-<h2 id="神奇的指令"><a href="#神奇的指令" class="headerlink" title="神奇的指令"></a>神奇的指令</h2><p>Java虚拟机其实是”读不懂”Java代码的，不过也并非所有的虚拟机都不懂得面向对象的语言，JavaScript执行引擎就是个例外一JS脚本不需要编译就能被JS引擎直接执行。<br>Java所谓的中间语言就是Java字节码指令集，指令集一般是计算机硬件才有的东西，而作者却在软件层面定义了一套同样的东西。但是，软件本身不具备执行程序的能力，软件最终还得依靠硬件指令才能完成逻辑计算。因此，一套好的软件指令必须不能超出硬件指令所能表达的计算能力，同时又要对硬件指令进行高度抽象与概括。换言之，如果你定义了一套与硬件指令集完全一模一样的软件指令集，那大家还用你干嘛呀，不如直接用硬件指令得了。</p>
-<hr>
-<h1 id="Java技术的未来"><a href="#Java技术的未来" class="headerlink" title="Java技术的未来"></a>Java技术的未来</h1><h2 id="无语言倾向"><a href="#无语言倾向" class="headerlink" title="无语言倾向"></a>无语言倾向</h2><h3 id="GraalJVM"><a href="#GraalJVM" class="headerlink" title="GraalJVM"></a>GraalJVM</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/0eyudF.png" alt></p>
-<h3 id="新一代即时编译器"><a href="#新一代即时编译器" class="headerlink" title="新一代即时编译器"></a>新一代即时编译器</h3><p>HotSpot虚拟机中含有两个即使编译器：</p>
-<ul>
-<li>编译耗时短但是输出代码优化程度较低的客户端编译器（C1）。</li>
-<li>编译耗时长但输出代码优化质量较高的服务端编译器（C2）。</li>
-</ul>
-<p>JDK10之后，HotSpot加入了一个全新的即时编译器，Graal编译器(可以通过相应的JVM参数配置启动，以C2代替者的身份登场，目前还是处于”实验状态”)。<br>Graal能够做比C2更加复杂的优化，如“部分逃逸分析”(Partial Escape Analysis)，也拥有比C2更容易使用激进预测性优化(Aggressive Speculative Optimization)的策略，支持自定义的预测性假设等。</p>
-<h3 id="向Native迈进"><a href="#向Native迈进" class="headerlink" title="向Native迈进"></a>向Native迈进</h3><p>最新的基本版本的JDK已经推出跨进程的、可以面向用户程序的类型信息共享(Application Class Data Sharing, AppCDS,允许把加载解析后的类型信息缓存起来，从而提升下次启动速度。</p>
-<h4 id="Substrate-VM"><a href="#Substrate-VM" class="headerlink" title="Substrate VM"></a>Substrate VM</h4><p>Substrate VM在内存占用和启动时间比HotSpot强5到50倍：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/eoIO68.png" alt><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/yutz7e.png" alt></p>
-<h2 id="实战：自己编译JDK"><a href="#实战：自己编译JDK" class="headerlink" title="实战：自己编译JDK"></a>实战：自己编译JDK</h2><h3 id="OpenJDK-vs-OracleJDK"><a href="#OpenJDK-vs-OracleJDK" class="headerlink" title="OpenJDK vs OracleJDK"></a>OpenJDK vs OracleJDK</h3><p>实际上，JDK11之后，两者的公用源码已经占比很高了：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/BzIIY0.png" alt></p>
-<h1 id="自动内存管理"><a href="#自动内存管理" class="headerlink" title="自动内存管理"></a>自动内存管理</h1><h2 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/LxyOJy.png" alt></p>
-<h3 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h3><p>程序计数器(Program Counter Register)是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。在Java虚拟机的<code>概念模型</code>里，字节解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。<br>每个线程都有一个独立的程序计数器，各线程之间的计数器互不影响（因为Java多线程是采用线程轮流切换来实现的，多核处理器中的单个处理器一次只能执行某个线程中的某条指令，切换之后各自的计数器能够恢复到各自接下来的执行位置）。<br>所以，<strong><em>程序计数器是线程私有的。</em></strong></p>
-<h3 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a>Java虚拟机栈</h3><p><strong><em>Java虚拟机栈一样是线程私有的，生命周期与线程相同。</em></strong><br>虚拟机栈描述的是Java方法执行的线程内存模型，每个方法被执行的时候，Java虚拟机都会同步创建一一个<code>栈帧(Stack Frame)</code>用于存储局部变量表、操作数栈、动态连接、方法出口等信息。每一个方法被调用直至执行完毕的过程，就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。<br>广为流传的所谓”堆”和”栈”内存划分说话中的”栈”就是指虚拟机栈，或者是指虚拟机栈中的局部变量表部分。</p>
-<h4 id="栈帧？"><a href="#栈帧？" class="headerlink" title="栈帧？"></a>栈帧？</h4><h4 id="局部变量表"><a href="#局部变量表" class="headerlink" title="局部变量表"></a>局部变量表</h4><p>局部变量表存放了编译期可知的各种Java虚拟机基本数据类型(boolean、byte、char、 short、 int、 float、 long、 double) 、对象引用(reference类型，它并不等同于对象本身，可能是一个指向对象起始地址的<code>引用指针</code>，或者叫<code>直接指针</code>；也可能是指向一个代表对象的<code>句柄</code>或者其他与此对象相关的位置)和returnAddress类型(指向了一条字节码指令的地址)<br>这些数据类型在局部变量表中的存储空间以局部变量槽(Slot)来表示，其中64位长度的1ong和double类型的数据会占用两个变量槽，其余的数据类型只占用一个。局部变量表所需的内存空间在编译期间完成分配，当进入-一个方法时，这个方法需要在栈帧中分配多大的局部变量空间是完全确定的，在方法运行期间不会改变局部变量表的大小。（“大小”是指变量槽的数量，变量槽占用32个比特还是64个比特由虚拟机决定）。</p>
-<h4 id="StackOverFlowError和OutOfMemoryError（Java虚拟机规范）"><a href="#StackOverFlowError和OutOfMemoryError（Java虚拟机规范）" class="headerlink" title="StackOverFlowError和OutOfMemoryError（Java虚拟机规范）"></a>StackOverFlowError和OutOfMemoryError（Java虚拟机规范）</h4><ul>
-<li>如果线程请求的栈深度大于虚拟机所允许的深度，将拋出StackOverflowError异常; </li>
-<li>如果Java虚拟机栈容量可以动态扩展，当栈扩展时无法申请到足够的内存会拋出OutOfMemoryError异常。</li>
-</ul>
-<h4 id="操作数栈？"><a href="#操作数栈？" class="headerlink" title="操作数栈？"></a>操作数栈？</h4><h3 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h3><p>本地方法栈（Native Method Stacks）为虚拟机调用本地方法而服务，就像虚拟机栈服务于Java方法的调用一样。<br>虚拟机可以对本地方法栈自由实现，《Java虚拟机规范》对这没有强制约束（HotSpot将虚拟机栈和本地方法栈合并了）。</p>
-<h3 id="Java堆（Heap、GC堆）"><a href="#Java堆（Heap、GC堆）" class="headerlink" title="Java堆（Heap、GC堆）"></a>Java堆（Heap、GC堆）</h3><p>Java堆是虚拟机内存管理中最大的一块（线程共享）。<br>当前主流虚拟机都可以通过参数扩展堆的大小（<code>-Xmx</code>、<code>-Xms</code>），如果内存不足或者堆无法再扩展了，就会抛出OutOfMemoryError。</p>
-<h3 id="方法区（”非堆”、Non-Heap）"><a href="#方法区（”非堆”、Non-Heap）" class="headerlink" title="方法区（”非堆”、Non-Heap）"></a>方法区（”非堆”、Non-Heap）</h3><p>和Java堆一样，是各个线程共享的内存区域，它用于存储已被虚拟机加载的<code>类型信息</code>、<code>常量</code>、<code>静态变量</code>、<code>即时编译器编译后的代码缓存</code>等数据。<br>虽然《Java虚拟机规范》中把方法区描述为堆的一个逻辑部分，但是它却有一个别名叫作“非堆”(Non-Heap) ，目的是与Java堆区分开来。</p>
-<h4 id="永久代（Permanent-Generation）的落寞，元空间（Meta-space）的登场"><a href="#永久代（Permanent-Generation）的落寞，元空间（Meta-space）的登场" class="headerlink" title="永久代（Permanent Generation）的落寞，元空间（Meta-space）的登场"></a>永久代（Permanent Generation）的落寞，元空间（Meta-space）的登场</h4><p>Java 8之前，很多人习惯将方法区叫称为”永久代”，因为仅仅只有当时的HotSpot使用永久代来实现方法区，很多其他的虚拟机并不存在永久代的概念，《Java虚拟机规范》也对方法区的实现没有约束，所以方法区不等同于永久代。</p>
-<blockquote>
-<p>HotSpot使用永久代来实现方法区，实际上导致了Java应用更容易出现内存溢出，其<code>-XX: MaxPermSize</code>可以设置永久代的上限，即使不设置也有默认大小。 &gt; 而J9和JRockit就没有此类内存限制，除非触碰进程可用内存上限，这个是由系统控制。</p>
-</blockquote>
-<p>所以到了JDK 6时，HotSpot就逐步放弃永久代，开始采用<code>本地内存（Native Memory）</code>来实现方法区了，到了JDK 8就完全放弃永久代了，改用在本地内存中实现的<code>元空间（Meta-space）</code>，把字符串常量池、静态变量、类型信息等都移到元空间了。<br>垃圾收集器在方法区的回收行为出现得是比较少的，这个区域的内存回收只要是<strong><em>针对常量池的回收和对类型的卸载</em></strong>。</p>
-<h4 id="运行时常量池（Runtime-Constant-Pool）"><a href="#运行时常量池（Runtime-Constant-Pool）" class="headerlink" title="运行时常量池（Runtime Constant Pool）"></a>运行时常量池（Runtime Constant Pool）</h4><p>运行时常量池是方法区的一部分。Class文件中除了有类的版本、字段、方法、接口等描述信息外，还有一项信息是常量池表(Constant Pool Table)，用于存放编译期生成的各种字面量与符号引用，这部分内容将在类加载后存放到方法区的运行时常量池中。<br>Java虚拟机对于Class文件每一部分(自然也包括常量池)的格式都有严格规定，如每一个字节用于存储哪种数据都必须符合规范上的要求才会被虚拟机认可、加载和执行，但对于运行时常量池，《Java虚拟机规范》并没有做任何细节的要求。<br>运行时常量池相较于<code>Class文件常量池</code>具有动态性，运行期间可以将新的常量放入运行时常量池中，比如<code>String.intern</code>。<br>因为运行时常量池属于方法区，自然也就受到OutOfMemoryError异常的约束。</p>
-<h4 id="直接内存（Direct-Memory）"><a href="#直接内存（Direct-Memory）" class="headerlink" title="直接内存（Direct Memory）"></a>直接内存（Direct Memory）</h4><p>直接内存并不是虚拟机运行时数据区的一部分，也不是《Java虚拟机规范》中定义的内存区域。但是这部分内存也被频繁地使用，而且也可能导致OutOfMemoryError异常出现。<br>在JDK 1.4中新加入了NIO (New Input/Output)类，引入了一种基于通道(Channel)与缓冲区(Buffer) 的I/O方式，它可以使用Native函数库直接分配堆外内存，然后通过一个存储在Java堆里面的DirectByteBuffer对象作为这块内存的引用进行操作。这样能在一些场景中显著提高性能，因为避免了在Java堆和Native堆中来回复制数据，直接内存当然也是受到物理总内存的约束。</p>
-<blockquote>
-<p>所以在设置<code>-Xmx</code>等参数时，除了考虑运行时数据区里的各大内存区域，还要考虑到直接内存。 </p>
-</blockquote>
-<h2 id="垃圾收集器与内存分配策略"><a href="#垃圾收集器与内存分配策略" class="headerlink" title="垃圾收集器与内存分配策略"></a>垃圾收集器与内存分配策略</h2><h3 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h3><p>对象内存分配的方式（选择哪种分配方式由Java堆是否规整决定，而Java堆是否规整又由所采用的垃圾收集器是否带有空间压缩整理(Compact) 的能力决定）：</p>
-<ul>
-<li>指针碰撞（Bump The Pointer）：当使用Serial、ParNew等带压缩整理过程的收集器时（简单高效）。</li>
-<li>空闲列表（Free List）：当使用CMS这种基于清除(Sweep)算法的收集器时（较为复杂，实际上，在空闲列表中如果还能够拿到一大块子内存的话，CMS的实现还采用了一种可以继续使用指针碰撞的方式，叫做Linear Allocation Buffer）。</li>
-</ul>
-<h4 id="并发情况下的内存分配线程安全问题"><a href="#并发情况下的内存分配线程安全问题" class="headerlink" title="并发情况下的内存分配线程安全问题"></a>并发情况下的内存分配线程安全问题</h4><p>并发条件下，可能出现正在给对象A分配内存，指针还没来得及修改，对象B又同时使用了原来的指针来分配内存的情况，解决这个问题的方案：</p>
-<ul>
-<li>采用CAS配上失败重试的方式保证更新操作的原子性；</li>
-<li>把内存分配的动作按照线程划分，在不同的空间之中进行，即每个线程在Java堆中预先分配一小块内存，称为本地线程分配缓冲(Thread Local Allocation Buffer, TLAB)，线程在各自的本地缓冲区中分配内存，只有本地缓冲区用完了，分配新的缓存区时才需要同步锁定。</li>
-</ul>
-<p>可以通过<code>-XX: +/-UseTLAB</code>参数来设定使用哪种方案。</p>
-<h3 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h3><p>对象在堆内存中的存储布局：</p>
-<h4 id="对象头（Header）"><a href="#对象头（Header）" class="headerlink" title="对象头（Header）"></a>对象头（Header）</h4><p>HotSpot对象头包含两类信息：</p>
-<ul>
-<li>存储对象自身的运行时数据：<code>哈希码（HashCode）</code>、<code>GC分代年龄</code>、<code>锁状态标志</code>、<code>线程持有的锁</code>、<code>偏向线程ID</code>、<code>偏向时间戳</code>等，官方称之为”Mark Word”。<br>MarkWord被设计成一一个有着动态定义的数据结构，以便在极小的空间内存储尽量多的数据，根据对象的状态复用自己的存储空间。例如在32位的HotSpot虚拟机中，如对象未被同步锁锁定的状态下，Mark Word的32个比特存储空间中的25个比特用于存储对象哈希码，4个比特用于存储对象分代年龄，2个比特用于存储锁标志位，1个比特固定为0，在其他状态(轻量级锁定、重量级锁定、GC标记、可偏向) 下对象的存储内容。如下图：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/YAJQr9.png" alt></li>
-<li>类型指针：即对象指向 它的类型元数据的指针，Java虚拟机通过这个指针来确定该对象是哪个类的实例。并不是所有的虚拟机实现都必须在对象数据上保留类型指针。</li>
-</ul>
-<h4 id="实例数据（Instance-Data）"><a href="#实例数据（Instance-Data）" class="headerlink" title="实例数据（Instance Data）"></a>实例数据（Instance Data）</h4><p>这部分是对象真正存储的有效信息，即程序代码里定义的各种类型的字段内容，无论是从父类继承下来的，还是在子类中定义的字段都必须记录在此。<br>这部分的存储顺序会受到虚拟机分配策略参数<code>-XX: FieldsAllocationStyle</code>参数和字段在Java源码中定义顺序的影响。<br>HotSpot虛拟机默认的分配顺序为longs/doubles、ints、 shorts/chars、 bytes/booleans、oops(Ordinary Object Pointers, OOPs)，从以上默认的分配策略中可以看到，相同宽度的字段总是被分配到一起存放，在满足这个前提条件的情况下，在父类中定义的变量会出现在子类之前。<br>如果HotSpot虛拟机的<code>+XX: CompactPields</code>参数值为true(默认就为true)，那子类之中较窄的变量也允许插入父类变量的空隙之中，以节省出一点点空间。</p>
-<h4 id="对齐填充（Padding）"><a href="#对齐填充（Padding）" class="headerlink" title="对齐填充（Padding）"></a>对齐填充（Padding）</h4><p>不是一定存在的，只是起到占位符的作用。<br>由于HotSpot虚拟机的自动内存管理系统要求对象起始地址必须是8字节的整数倍，换句话说就是任何对象的大小都必须是8字节的整数倍。对象头部分已经被精心设计成正好是8字节的倍数(1倍或者2倍)，因此，如果对象实例数据部分没有对齐的话，就需要通过对齐填充来补全。</p>
-<h3 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h3><p>Java程序会通过栈上的reference类型数据来操作堆上的具体对象。</p>
-<h4 id="句柄和直接指针两种方式"><a href="#句柄和直接指针两种方式" class="headerlink" title="句柄和直接指针两种方式"></a>句柄和直接指针两种方式</h4><ul>
-<li>句柄方式：Java堆中将可能会划分出一块内存来作为句柄池，reference中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与类型数据各自具体的地址信息。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/A1pFdi.png" alt></li>
-<li>直接指针：Java堆中对象的内存布局就必须考虑如何放置访问类型数据的相关信息，reference中存储的直接就是对象地址，如果只是访问对象本身的话，就不需要多一次间接访问的开销。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/ycOjxS.png" alt></li>
-</ul>
-<blockquote>
-<p>使用句柄来访问的最大好处就是reference中存储的是稳定句柄地址，在对象被移动(垃圾收集时移动对象是非常普遍的行为)时只会改变句柄中的实例数据指针，而reference本身不需要被修改。<br>使用直接指针来访问最大的好处就是速度更快，它节省了-次指针定位的时间开销，由于对象访问在Java中非常频繁，因此这类开销积少成多也是一项极为可观的执行成本。</p>
-</blockquote>
-<h3 id="实战：OutOfMemoryError异常"><a href="#实战：OutOfMemoryError异常" class="headerlink" title="实战：OutOfMemoryError异常"></a>实战：OutOfMemoryError异常</h3><p>在《Java虚拟机规范》的规定里，除了程序计数器外，虚拟机内存的其他几个运行时区域都有发生OutOfMemoryError (OOM)异常的可能。</p>
-<h4 id="Java堆溢出"><a href="#Java堆溢出" class="headerlink" title="Java堆溢出"></a>Java堆溢出</h4><p>要先确认是内存泄露（Memory Leak）还是内存溢出（Memory Overflow）。</p>
-<h5 id="Java内存（映像）分析工具（hprof文件分析工具）"><a href="#Java内存（映像）分析工具（hprof文件分析工具）" class="headerlink" title="Java内存（映像）分析工具（hprof文件分析工具）"></a>Java内存（映像）分析工具（hprof文件分析工具）</h5><p>JVM堆转储快照文件（hprof文件）查看分析时，可以指定heapDumpPath：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/export/Domains/rcsv-fm.wd.local/server1/logs</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>kill -3 or -9 都不会打heap dump，kill -9 java_pid来不及做任何事情就被干掉了，-3会打印thread dump 但是不是heap dump。</p>
-</blockquote>
-<h5 id="GC-Roots"><a href="#GC-Roots" class="headerlink" title="GC Roots"></a>GC Roots</h5><h4 id="虚拟机栈和本地方法栈溢出"><a href="#虚拟机栈和本地方法栈溢出" class="headerlink" title="虚拟机栈和本地方法栈溢出"></a>虚拟机栈和本地方法栈溢出</h4><p>HotSpot不区分虚拟机栈和本地方法栈，栈容量由<code>-Xss</code>参数设定。</p>
-<ul>
-<li>1)如果线程请求的栈深度大于虚拟机所允许的最大深度，将抛出StackOverflowError异常。</li>
-<li>2)如果虚拟机的栈内存允许动态扩展，当扩展栈容量无法申请到足够的内存时，将拋出OutOfMemoryError异常 。</li>
-</ul>
-<p>模拟栈溢出：</p>
-<ul>
-<li>使用-Xss参数减少栈内存容量。</li>
-<li>定义了大量的本地变量，增大此<code>方法帧</code>中<code>本地变量表</code>的长度。</li>
-<li>通过不断建立线程的方式，在HotSpot上也是可以产生内存溢出异常的（但是这样产生的内存溢出异常和栈空间是否足够并不存在任何直接的关系，主要取决于操作系统本身的内存使用状态，在这种情况下，给每个线程的栈分配的内存越大，反而越容易产生内存溢出异常）。<br>HotSpot虚拟机提供了参数可以控制Java堆和方法区这两部分的内存的最大值，系统的内存分配需要减去最大堆容量，再减去最大方法区容量，由于程序计数器消耗内存很小，可以忽略掉，如果把直接内存和虚拟机进程本身耗费的内存也去掉的话，剩下的内存就由虚拟机栈和本地方法栈来分配了。因此为每个线程分配到的栈内存越大，可以建立的线程数量自然就越少，建立线程时就越容易把剩下的内存耗尽。</li>
-</ul>
-<blockquote>
-<p>无论是由于栈帧太大还是虚拟机栈容量太小，当新的栈帧内存无法分配的时候，HotSpot 虚拟机抛出的都是StackOverflowError异常。</p>
-</blockquote>
-<h4 id="方法区和运行时常量池溢出"><a href="#方法区和运行时常量池溢出" class="headerlink" title="方法区和运行时常量池溢出"></a>方法区和运行时常量池溢出</h4><p>在JDK 8以后，永久代便完全退出了历史舞台，元空间作为其替代者登场。在默认设置下，方法区的溢出的溢出已经相对不会那么容易出现了。<br>HotSpot提供了一些参数用于防御元空间溢出问题：<br>-XX: MaxMetaspaceSize: 设置元空间最大值，默认是-1，即不限制，或者说只受限于本地内存大小。<br>-XX: MetaspaceSize: 指定元空间的初始空间大小，以字节为单位，达到该值就会触发垃圾收集进行类型卸载，同时收集器会对该值进行调整:如果释放了大量的空间，就适当降低该值;如果释放了很少的空间，那么在不超过-XX:<br>MaxMetaspaceSize (如果设置了的话)的情况下，适当提高该值。<br>-XX: MinMetaspaceFreeRatio: 作用是在垃圾收集之后控制最小的元空间剩余容量的百分比，可减少因为元空间不足导致的垃圾收集的频率。类似的还有-XX: Max-MetaspaceFreeRatio, 用于控制最大的元空间剩余容量的百分比。</p>
-<h4 id="本机直接内存溢出"><a href="#本机直接内存溢出" class="headerlink" title="本机直接内存溢出"></a>本机直接内存溢出</h4><p>直接内存(Direct Memory)的容量大小可通过<code>-XX : MaxDirectMemorySize</code>参数来指定，如果不去指定，则默认与Java堆最大值(由-Xmx指定) 一致。<br>越过了DirectByteBuffer类直接通过反射获取Unsafe实例进行内存分配(Unsafe类的getUnsafe()方法指定只有引导类加载器才会返回实例，体现了设计者希望只有虚拟机标准类库里面的类才能使用Unsafe的功能，在JDK 10时才将Unsafe的部分功能通过VarHandle开放给外部使用)，因为虽然使用DirectByteBuffer分配内存也会拋出内存溢出异常，但它抛出异常时并没有真正向操作系统申请分配内存，而是通过计算得知内存无法分配就会在代码里手动抛出溢出异常，真正申请分配内存的方法是Unsafe:allocateMemory()。</p>
-<blockquote>
-<p>由直接内存导致的内存溢出，一个明显的特征是在Heap Dump文件中不会看见有什么明显的异常情况，如果读者发现内存溢出之后产生的Dump文件很小，而程序中又直接或间接使用了DirectMemory(典型的间接使用就是NIO)，那就可以考虑重点检查一下直接内存方面的原因了。</p>
-</blockquote>
-<h1 id="垃圾收集器与内存分配策略-1"><a href="#垃圾收集器与内存分配策略-1" class="headerlink" title="垃圾收集器与内存分配策略"></a>垃圾收集器与内存分配策略</h1><ul>
-<li>程序计数器、虚拟机栈、本地方法栈的垃圾回收：<br>这3个区域随线程而生，随线程而灭，栈中的栈帧随着方法的进入和退出而有条不紊地执行着出栈和入栈操作。每一个栈帧中分配多少内存基本上是在类结构确定下来时就已知的(尽管在运行期会由即时编译器进行一些优化，但在基于概念模型的讨论里，大体上可以认为是编译期可知的)，因此这几个区域的内存分配和回收都具备确定性，在这几个区域内就不需要过多考虑如何回收的问题，当方法结束或者线程结束时，内存自然就跟随着回收了。</li>
-<li>Java堆和方法区的垃圾回收：<br>两个区域则有着很显著的不确定性，一个接口的多个实现类需要的内存可能会不一样，一个方法所执行的不同条件分支所需要的内存也可能不一样，只有处于运行期间，我们才能知道程序究竟会创建哪些对象，创建多少个对象，这部分内存的分配和回收是动态的。垃圾收集器所关注的正是这部分内存该如何管理。 </li>
-</ul>
-<h2 id="对象已死？"><a href="#对象已死？" class="headerlink" title="对象已死？"></a>对象已死？</h2><blockquote>
-<p>垃圾收集器在对Java堆进行回收前，第一件事情就是要确定这些对象之中哪些还“存活”着，哪些已经“死去”(“死去”即不可能再被任何途径使用的对象)了。</p>
-</blockquote>
-<h3 id="引用计数算法"><a href="#引用计数算法" class="headerlink" title="引用计数算法"></a>引用计数算法</h3><p>在对象中添加一一个引用计数器，每当有一个地方引用它时，计数器值就加一；当引用失效时，计数器值就减一，任何时刻计数器为零的对象就是不可能再被使用的。<br>但是，在Java领域，至少主流的Java虚拟机里面都没有选用引用计数算法来管理内存，主要原因是，这个看似简单的算法有很多例外情况要考虑，必须要配合大量额外处理才能保证正确地工作，譬如单纯的引用计数就很难解决对象之间相互循环引用的问题。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 单纯的引用计数就很难解决对象之间相互循环引用的问题。</span><br><span class="line"> * @Author zhanshifeng</span><br><span class="line"> * @Date 2020/9/8 4:53 PM</span><br><span class="line"> */</span><br><span class="line">public class ReferenceCountingGC &#123;</span><br><span class="line"></span><br><span class="line">    public Object instance;</span><br><span class="line">    private static final int _1MB = 1024 * 1024;</span><br><span class="line">    private byte[] bigSize = new byte[2 * _1MB];</span><br><span class="line"></span><br><span class="line">    public static void testGC() &#123;</span><br><span class="line">        ReferenceCountingGC a = new ReferenceCountingGC();</span><br><span class="line">        ReferenceCountingGC b = new ReferenceCountingGC();</span><br><span class="line">        a.instance = b;</span><br><span class="line">        b.instance = a;</span><br><span class="line">        a = null;</span><br><span class="line">        b = null;</span><br><span class="line"></span><br><span class="line">        // 如果JVM单纯引用计数的话，a和b是不能被回收的，但是实际上是回收了。</span><br><span class="line">        System.gc();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        testGC();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="可达性分析算法（Reachability-Analysis）"><a href="#可达性分析算法（Reachability-Analysis）" class="headerlink" title="可达性分析算法（Reachability Analysis）"></a>可达性分析算法（Reachability Analysis）</h3><h4 id="GC-Roots-1"><a href="#GC-Roots-1" class="headerlink" title="GC Roots"></a>GC Roots</h4><p>这个算法的基本思路就是通过一系列称为<code>GCRoots</code>的根对象作为起始节点集，从这些节点开始，根据引用关系向下搜索，搜索过程所走过的路径称为“引用链”(Reference Chain)，如果某个对象到GC Roots间没有任何引用链相连，或者用图论的话来说就是从GCRoots到这个对象不可达时，则证明此对象是不可能再被使用的。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/ecAOJD.png" alt><br>固定可作为GC Roots的对象包括以下几种:</p>
-<ul>
-<li>在虚拟机栈(栈帧中的本地变量表)中引用的对象，譬如各个线程被调用的方法堆栈中使用到的参数、局部变量、临时变量等。</li>
-<li>在方法区中类静态属性引用的对象，譬如Java类的引用类型静态变量。</li>
-<li>在方法区中常量引用的对象，譬如字符串常量池(String Table)里的引用。</li>
-<li>在本地方法栈中JNI (即通常所说的Native方法)引用的对象。</li>
-<li>Java虚拟机内部的引用，如基本数据类型对应的Class对象，一些常驻的异常对象(比如NullPointExcepiton、 OutOfMemoryError)等，还有系统类加载器。</li>
-<li>所有被同步锁(synchronized关键字) 持有的对象。</li>
-<li>反映Java虚拟机内部情况的JMXBean、 JVMTI中注册的回调、本地代码缓存等。</li>
-</ul>
-<blockquote>
-<p>目前最新的几款垃圾收集器无一例外都具备了局部回收的特征，为了避免GCRoots包含过多对象而过度膨胀，它们在实现上也做出了各种优化处理。</p>
-</blockquote>
-<h3 id="对象的引用？"><a href="#对象的引用？" class="headerlink" title="对象的引用？"></a>对象的引用？</h3><ul>
-<li>强引用（Strongly Reference）是最传统的“引用”的定义，是指在程序代码之中普遍存在的引用赋值，即类似“Object obj=new Object() ‘这种引用关系。无论任何情况下，只要强引用关系还存在，垃圾收集器就永远不会回收掉被引用的对象。</li>
-<li>软引用（Soft Reference）是用来描述一些还有用，但非必须的对象。只被软引用关联着的对象，在系统将要发生内存溢出异常前，会把这些对象列进回收范围之中进行第二次回收，如果这次回收还没有足够的内存，才会抛出内存溢出异常。在JDK 1.2版之后提供了SoftReference类来实现软引用。</li>
-<li>弱引用（Weak Reference）也是用来描述那些非必须对象，但是它的强度比软引用更弱一些，被弱引用关联的对象只能生存到下一次垃圾收集发生为止。当垃圾收集器开始工作，无论当前内存是否足够，都会回收掉只被弱引用关联的对象。在JDK 1.2版之后提供了WeakReference类来实现弱引用。</li>
-<li>虚引用也称为“幽灵引用”或者“幻影引用”（Phantom Reference），它是最弱的一种引用关系。一个对象是否有虚引用的存在，完全不会对其生存时间构成影响，也无法通过虚引用来取得一个对象实例。为一个对象设置虚引用关联的唯一目的只是为了能在这个对象被收集器回收时收到一个系统通知。在JDK1.2版之后提供了PhantomReference类来实现虚引用。</li>
-</ul>
-<h3 id="生存与死亡？"><a href="#生存与死亡？" class="headerlink" title="生存与死亡？"></a>生存与死亡？</h3><p>即使在可达性分析算法中判定为不可达的对象，也不是“非死不可”的，这时候它们暂时还处于“缓刑”阶段，要真正宣告一个对象死亡，至少要经历两次标记过程：如果对象在进行可达性分析后发现没有与GC Roots相连接的引用链，那它将会被第一次标记， 随后进行一次筛选，筛选的条件是此对象是否有必要执行finalize(方法。假如对象没有覆盖finalize()方法，或者finalize(方法已经被虚拟机调用过，那么虚拟机将这两种情况都视为“没有必要执行”。如果这个对象被判定为确有必要执行finalize方法，那么该对象将会被放置在一个名为F-Queue的队列之中，并在稍后由一条由虚拟机自动建立的、低调度优先级的Finalizer线程去执行它们的finalize()方法。这里所说的“执行”是指虚拟机会触发这个方法开始运行，但并不承诺一定会等待它运行结束。这样做的原因是，如果某个对象的finalize()方法执行缓慢，或者更极端地发生了死循环，将很可能导致F-Queue队列中的其他对象永久处于等待，甚至导致整个内存回收子系统的崩溃。<br>finalize()方法是对象逃脱死亡命运的最后一次机会，稍后收集器将对F-Queue中的对象进行第二次小规模的标记，如果对象要在finalize()中成功拯救自己一只要重新与引用链上的任何-一个对象建立关联即可，譬如把自己(this关键字) 赋值给某个类变量或者对象的成员变量，那在第二次标记时它将被移出“即将回收”的集合，如果对象这时候还没有逃脱，那基本上它就真的要被回收了。</p>
-<blockquote>
-<p>尽管如此，但是一定要避免使用finalize()，这个方法不确定性太大了，无法保证其被调用的顺序。</p>
-</blockquote>
-<h3 id="回收方法区"><a href="#回收方法区" class="headerlink" title="回收方法区"></a>回收方法区</h3><p>《Java虚拟机规范》中提到过可以不要求虚拟机在方法区中实现垃圾收集，事实上也确实有未实现或未能完整实现方法区类型卸载的收集器存在(如JDK 11时期的ZGC收集器就不支持类卸载)， 方法区垃圾收集的“性价比”通常也是比较低的:在Java堆中，尤其是在新生代中，对常规应用进行一次垃圾收集通常可以回收70%至99%的内存空间，相比之下，方法区回收囿于苛刻的判定条件，其区域垃圾收集的回收成果往往远低于此。<br>方法区的垃圾回收两部分内容：</p>
-<h4 id="废弃的常量和不再使用的类型"><a href="#废弃的常量和不再使用的类型" class="headerlink" title="废弃的常量和不再使用的类型"></a>废弃的常量和不再使用的类型</h4><p>回收废弃常量与回收Java堆中的对象非常类似。举个常量池中字面量回收的例子，假如一个字符串“java”曾经进入常量池中，但是当前系统又没有任何一个字符串对象的值是“java”,换句话说，已经没有任何字符串对象引用常量池中的“java”常量，且虚拟机中也没有其他地方引用这个字面量。如果在这时发生内存回收，而且垃圾收集器判断确有必要的话，这个“java”常量就将会被系统清理出常量池。<br>常量池中其他类(接口)、方法、字段的符号引用也与此类似。<br>判定一个类型是否属于“不再被使用的类”的条件就比较苛刻了。需要同时满足下面三个条件:</p>
-<ul>
-<li>该类所有的实例都已经被回收，也就是Java堆中不存在该类及其任何派生子类的实例。</li>
-<li>该类对应的java.lang.Class对象没有在任何地方被引用，无法在任何地方通过反射访问该类的方法。</li>
-<li>加载该类的类加载器已经被回收。</li>
-</ul>
-<p>关于对类型进行回收HotSpot虚拟机提供了一些参数做控制：</p>
-<ul>
-<li>-verbose: class</li>
-<li>-XX: +TraceClassLoading</li>
-<li>-XX: +TraceClassUnLoading（需要FastDebug版的虚拟机支持）</li>
-</ul>
-<h2 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h2><p>从如何判定对象消亡的角度出发，垃圾收集算法可以划分为：</p>
-<ul>
-<li>“引用计数式垃圾收集”(Reference Counting GC)（直接垃圾收集）</li>
-<li>“追踪式垃圾收集”(Tracing GC)（间接垃圾收集）</li>
-</ul>
-<h3 id="分代收集理论"><a href="#分代收集理论" class="headerlink" title="分代收集理论"></a>分代收集理论</h3><ul>
-<li>弱分代假说(Weak Generational Hypothesis)：绝大多数对象都是朝生夕灭的。</li>
-<li>强分代假说(Strong Generational Hypothesis)：熬过越多次垃圾收集过程的对象就越难以消亡。</li>
-</ul>
-<p>收集器应该将Java堆划分出不同的区域，然后将回收对象依据其年龄(年龄即对象熬过垃圾收集过程的次数)分配到不同的区域之中存储。显而易见，如果一个区域中大多数对象都是朝生夕灭，难以熬过垃圾收集过程的话，那么把它们集中放在一起，每次回收时只关注如何保留少量存活而不是去标记那些大量将要被回收的对象，就能以较低代价回收到大量的空间;如果剩下的都是难以消亡的对象，那把它们集中放在一块，虚拟机便可以使用较低的频率来回收这个区域，这就同时兼顾了垃圾收集的时间开销和内存的空间有效利用。</p>
-<p>在Java堆划分出不同的区域之后，垃圾收集器才可以每次只回收其中某一个或者某些部分的区域。<br>部分收集（Partial GC）类型划分：</p>
-<ul>
-<li>新生代收集（Minor GC/Young GC）：针对Java堆里面新生代的垃圾收集。</li>
-<li>老年代收集（Major GC/Old GC）：针对Java堆里面老年代的垃圾收集，Major GC有些文献用来代表整堆收集，可能会混淆，目前只有CMS收集器会有单独收集老年代的行为。</li>
-<li>混合收集（Mixed GC）：针对Java对里面的整个新生代和部分老年代的垃圾收集，目前只有G1收集器会有这种行为。</li>
-</ul>
-<p>整堆收集（Full GC）：针对整个Java堆和方法区的垃圾收集。</p>
-<p>针对不同的区域安排与里面存储对象存亡特征相匹配的垃圾收集算法：</p>
-<ul>
-<li>标记-复制算法</li>
-<li>标记-清除算法</li>
-<li>标记-整理算法</li>
-</ul>
-<h4 id="新生代与老年代"><a href="#新生代与老年代" class="headerlink" title="新生代与老年代"></a>新生代与老年代</h4><p>现在的商用Java虚拟机里，设计者一般至少会把Java堆划分为新生代(Young Generation)和老年代(Old Generation)两个区域。<br>在新生代中，每次垃圾收集时都发现有大批对象死去，而每次回收后存活的少量对象，将会逐步晋升到老年代中存放。<br>但是存在一个明显的问题：<strong><em>对象不是孤立的，对象之间会存在跨代引用。</em></strong></p>
-<p>假如要现在进行一次只局限于新生代区域内的收集(Minor GC)，但新生代中的对象是完全有可能被老年代所引用的，为了找出该区域中的存活对象，不得不在固定的GCRoots之外，再额外遍历整个老年代中所有对象来确保可达性分析结果的正确性，反过来也是一样以。遍历整个老年代所有对象的方案虽然理论上可行，但无疑会为内存回收带来很大的性能负担。因此可以对分代收集理论添加第三条经验法则:</p>
-<ul>
-<li>跨代引用假说(Intergenerational Reference Hypothesis)<br>跨代引用相对于同代引用来说仅占极少数。这其实是可根据前两条假说逻辑推理得出的隐含推论：存在互相引用关系的两个对象，是应该倾向于同时生存或者同时消亡的。<br>如果某个新生代对象存在跨代引用，由于老年代对象难以消亡，该引用会使得新生代对象在收集时同样得以存活，进而在年龄增长之后晋升到老年代中，这时跨代引用也随即被消除了。<br>依据这条假说，我们就不应再为了少量的跨代引用去扫描整个老年代，也不必浪费空间专门记录每一一个对象是否存在及存在哪些跨代引用，只需在新生代上建立一个全局的数据结构(该结构被称为“记忆集”，Remembered Set)， 这个结构把老年代划分成若干小块，标识出老年代的哪-块内存会存在跨代引用。此后当发生Minor GC时，只有包含了跨代引用的小块内存里的对象才会被加入到GCRoots进行扫描。虽然这种方法需要在对象改变引用关系(如将自己或者某个属性赋值)时维护记录数据的正确性，会增加一些运行时 的开销，但比起收集时扫描整个老年代来说仍然是划算的。</li>
-</ul>
-<h3 id="标记-清除算法（Mark-Sweep）"><a href="#标记-清除算法（Mark-Sweep）" class="headerlink" title="标记-清除算法（Mark-Sweep）"></a>标记-清除算法（Mark-Sweep）</h3><p>最基础的垃圾收集算法，算法分为“标记”和“清除”两个阶段:首先标记出所有需要回收的对象，在标记完成后，统一回收掉所有被标记的对象，也可以反过来，标记存活的对象，统一回收所有未被标记的对象。<br>标记-清除算法的缺点：</p>
-<ul>
-<li>第一个是执行效率不稳定，如果Java堆中包含大量对象，而且其中大部分是需要被回收的，这时必须进行大量标记和清除的动作，导致标记和清除两个过程的执行效率都随对象数量增长而降低;</li>
-<li>第二个是内存空间的碎片化问题，标记、清除之后会产生大量不连续的内存碎片，空间碎片太多可能会导致当以后在程序运行过程中需要分配较大对象时无法找到足够的连续内存而不得不提前触发另一次垃圾收集动作。</li>
-</ul>
-<p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/Wkxl6l.png" alt></p>
-<h3 id="标记-复制算法"><a href="#标记-复制算法" class="headerlink" title="标记-复制算法"></a>标记-复制算法</h3><h4 id="半区复制"><a href="#半区复制" class="headerlink" title="半区复制"></a>半区复制</h4><p>为了解决标记清除算法面对大量可回收对象时执行效率低的问题，有人提出了一种称为“半区复制”(Semispace Copying)的垃圾收集算法，它将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。如果内存中多数对象都是存活的，这种算法将会产生大量的内存间复制的开销，但对于多数对象都是可回收的情况，算法需要复制的就是占少数的存活对象，而且每次都是针对整个半区进行内存回收，分配内存时也就不用考虑有空间碎片的复杂情况，只要移动堆顶指针，按顺序分配即可。这样实现简单，运行高效，不过其缺陷也显而易见，这种复制回收算法的代价是将可用内存缩小为了原来的一半，另一半等同于空置不用。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/mLYIu0.png" alt><br>新生代中的对象有98%熬不过第一轮收集。因此并不需要按照1 : 1的比例来划分新生代的内存空间，现在的商用Java虚拟机大多都优先采用了这种收集算法去回收新生代。</p>
-<h4 id="Appel式回收"><a href="#Appel式回收" class="headerlink" title="Appel式回收"></a>Appel式回收</h4><p>之后有人继续提出了一种更优化的半区复制分代策略，现在称为“Appel式回收”。HotSpot虛拟机的Serial、ParNew等新生代收集器均采用了这种策略来设计新生代的内存布局”。<br>Appel式回收的具体做法是把新生代分为一块较大的<code>Eden空间</code>和两块较小的<code>Survivor空间</code>，每次分配内存只使用Eden和其中一块Survivor。发生垃圾搜集时，将Eden和Survivor中仍然存活的对象一次性复制到另外一块Survivor空间上，然后直接清理掉Eden和已用过的那块Survivor空间。HotSpot虚拟机默认Eden和Survivor的大小比例是8 : 1，也即<strong><em>每次新生代中可用内存空间为整个新生代容量的90%(Eden的80%加上一个Survivor的10%)，只有一个Survivor空间，即10%的新生代是会被“浪费”的。</em></strong><br>当然，98%的对象可被回收仅仅是“普通场景”下测得的数据，任何人都没有办法百分百保证每次回收都只有不多于10%的对象存活，因此Appel式回收还有一个充当罕<br>见情况的“逃生门”的安全设计，当Survivor空间不足以容纳一次Minor GC之后存活的对象时，就需要依赖其他内存区域(实际上大多就是老年代)进行<code>分配担保(Handle Promotion)</code>。</p>
-<h3 id="标记-整理算法（Mark-Compact）"><a href="#标记-整理算法（Mark-Compact）" class="headerlink" title="标记-整理算法（Mark-Compact）"></a>标记-整理算法（Mark-Compact）</h3><p>标记复制算法在对象存活率较高时就要进行较多的复制操作，效率将会降低。更关键的是，如果不想浪费50%的空间，就需要有额外的空间进行分配担保，以应对被使用的内存中所有对象都100%存活的极端情况，所以在老年代一般不能直接选用这种算法。<br>针对老年代对象的存亡特征，1974年Edward Lueders提出了另外一种有针对性的“标记-整理”(Mark Compact)算法，其中的标记过程仍然与“标记-清除”算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向内存空间一端移动，然后直接清理掉边界以外的内存。<br>标记-清除算法与标记-整理算法的本质差异在于：</p>
-<ul>
-<li>前者是一种非移动式的回收算法；</li>
-<li>而后者是移动式的。</li>
-</ul>
-<p>移动回收后的存活对象是一项优缺点并存的风险决策。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/xGECtR.png" alt></p>
-<ul>
-<li>如果移动存活的对象太多，这将是一笔很大的开销，而且这种移动操作要强制暂停用户的应用程序才能进行（最新的ZGC和Shenandoah收集器使用读屏障(Read Barrier)技术实现了整理过程与用户线程的并发执行）。</li>
-<li>如果完全不考虑移动和整理存活对象的话，弥散于堆中的存活对象导致的空间碎片化问题就只能依赖更为复杂的内存分配器和内存访问器来解决。<br>譬如通过“分区空闲分配链表’’来解决内存分配问题(计算机硬盘存储大文件就不要求物理连续的磁盘空间，能够在碎片化的硬盘上存储和访问就是通过硬盘分区表实现的)。<br>内存的访问是用户程序最频繁的操作，在这个环节上增加了额外的负担，势必会直接影响应用程序的吞吐量。</li>
-</ul>
-<p>基于以上两点，是否移动对象都存在弊端，移动则内存回收时会更复杂，不移动则内存分配时会更复杂。从垃圾收集的停顿时间来看，不移动对象停顿时间会更短，甚至可以不需要停顿，但是从整个程序的吞吐量来看，移动对象会更划算。这里的吞吐量的实质是赋值器(Mutator, 可以理解为使用垃圾收集的用户程序)与收集器的效率总和。即使不移动对象会使得收集器的效率提升一些，但因内存分配和访问相比垃圾收集频率要高得多，这部分的耗时增加，总吞吐量仍然是下降的。<br>HotSpot虚拟机里面关注吞吐量的Parallel Scavenge收集器是基于标记整理算法的，而关注延迟的CMS收集器则是基于标记-清除算法的，这也从侧面印证这点。<br>另外，还有一种“和稀泥式”解决方案可以不在内存分配和访问上增加太大额外负担，做法是让虚拟机平时多数时间都采用标记清除算法，暂时容忍内存碎片的存在，直到内存空间的碎片化程度已经大到影响对象分配时，再采用标记-整理算法收集一次，以获得规整的内存空间。</p>
-<blockquote>
-<p>前面提到的基于标记-清除算法的CMS收集器面临空间碎片过多时采用的就是这种处理办法。</p>
-</blockquote>
-<h4 id="三色标记法（Tri-color-Marking）"><a href="#三色标记法（Tri-color-Marking）" class="headerlink" title="三色标记法（Tri-color Marking）"></a>三色标记法（Tri-color Marking）</h4><p>白色、黑色、灰色</p>
-<h5 id="并发出现对象消失问题"><a href="#并发出现对象消失问题" class="headerlink" title="并发出现对象消失问题"></a>并发出现对象消失问题</h5><p>两种解决方案：增量更新（Incremental Update）、原始快照（Snapshot At The Begging，SATB）。</p>
-<h2 id="经典垃圾收集器"><a href="#经典垃圾收集器" class="headerlink" title="经典垃圾收集器"></a>经典垃圾收集器</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/WLBBDC.png" alt><br>如果两个收集器存在连线，则它们可以搭配使用。<br>上图连线关系不是一成不变的，在JDK 8时将Serial+CMS、ParNew+Serial Old这两个组合声明为废弃(JEP 173)，并在JDK 9中完全取消了这些组合的支持(JEP 214)。</p>
-<h3 id="Serial收集器"><a href="#Serial收集器" class="headerlink" title="Serial收集器"></a>Serial收集器</h3><p>这是最古老，最基础的垃圾收集器，只会使用一个处理器单线程去做垃圾收集，而且它在进行垃圾收集期间，会停掉所有的用户工作线程，这是非常糟糕的用户体验。(Stop The World)<br>Serial/Serial Old收集器工作流程：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/lqCCw4.png" alt><br>Serial虽然有上述这么大的弊端，但是历代JVM一直致力于Serial的优化改进，直至如今，Serial依然是HotSpot的默认新生代收集器，因为其在单线程的环境下相较而言简单高效，而且垃圾收集的时间甚至可以缩短到十几、几十毫秒。</p>
-<h3 id="ParNew收集器"><a href="#ParNew收集器" class="headerlink" title="ParNew收集器"></a>ParNew收集器</h3><p>是Serial的多线程并行版本，具体实现和Serial收集器完全一致。<br>ParNew收集器工作流程：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/gh4KtY.png" alt></p>
-<p>JDK5发布时推出了划时代意义的CMS收集器，是HotSpot第一款支持并发的垃圾收集器，其首次实现垃圾收集器与用户线程（基本上）同时工作。<br>ParNew是HotSpot JVM中第一款退役的收集器。</p>
-<h4 id="垃圾收集并行-vs-并发"><a href="#垃圾收集并行-vs-并发" class="headerlink" title="垃圾收集并行 vs 并发"></a>垃圾收集并行 vs 并发</h4><ul>
-<li>并行(Parallel) ：并行描述的是多条垃圾收集器线程之间的关系，说明同一时间有多条这样的线程在协同工作，通常默认此时用户线程是处于等待状态。</li>
-<li>并发(Concurrent) ：并发描述的是垃圾收集器线程与用户线程之间的关系，说明同一时间垃圾收集器线程与用户线程都在运行。由于用户线程并未被冻结，所以程序仍然能响应服务请求，但由于垃圾收集器线程占用了一部分系统资源，此时应用程序的处理的吞吐量将受到一定影响。</li>
-</ul>
-<h3 id="Parallel-Scavenge收集器（吞吐量优先收集器）"><a href="#Parallel-Scavenge收集器（吞吐量优先收集器）" class="headerlink" title="Parallel Scavenge收集器（吞吐量优先收集器）"></a>Parallel Scavenge收集器（吞吐量优先收集器）</h3><p>这是一款新生代收集器，同样是基于标记-复制算法实现的，也是能够并行收集的多线程收集器。<br>Parallel Scavenge的目标是要达到一个可控的吞吐量。</p>
-<h4 id="吞吐量"><a href="#吞吐量" class="headerlink" title="吞吐量"></a>吞吐量</h4><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/9wrqFn.png" alt><br>高吞吐量可以更好地利用处理器资源，更快完成用户的任务。</p>
-<h4 id="Parallel-Scavenge精确控制吞吐量的参数"><a href="#Parallel-Scavenge精确控制吞吐量的参数" class="headerlink" title="Parallel Scavenge精确控制吞吐量的参数"></a>Parallel Scavenge精确控制吞吐量的参数</h4><ul>
-<li><code>-XX: MaxGCPauseMills</code>：最大垃圾收集停顿时间（并非越小越好，它与吞吐量是互斥的关系）。<br>这个参数允许的值是一个大于0的毫秒数，收集器将尽力保证内存回收花费的时间不超过用户设定值。不过不要异想天开地认为如果把这个参数的值设置得更小点就能使得系统的垃圾收集速度变得更快，垃圾收集停顿时间缩短是以牺牲吞吐量和新生代空间为代价换取的:系统把新生代调得小-些，收集300MB新生代肯定比收集500MB快，但这也直接导致垃圾收集发生得更频繁，原来10秒收集一次、每次停顿100毫秒，现在变成5秒收集一次、每次停顿70毫秒。停顿时间的确在下降，但吞吐量也降下来了。</li>
-<li><code>-XX: GCTimeRatio</code>：直接设置吞吐量大小。<br>这个参数的值则应当是一个大于0小于100的整数，也就是垃圾收集时间占总时间的比率，相当于吞吐量的倒数。譬如把此参数设置为19，那允许的最大垃圾收集时间就占总时间的5%(即1/(1+19))，默认值为99，即允许最大1%(即1/(1+99))的垃圾收集时间。</li>
-<li><code>-XX: +UseAdaptiveSizePolicy</code>：开关参数，开启之后虚拟机会根据当前系统运行情况收集性能监控信息，动态调整其它一些参数以提供最合适的停顿时间或者最大的吞吐量（<code>自适应的调节策略</code>）。</li>
-</ul>
-<h3 id="Serial-Old收集器"><a href="#Serial-Old收集器" class="headerlink" title="Serial Old收集器"></a>Serial Old收集器</h3><p>Serial Old是Serial收集器的老年代版本，它同样是一个单线程收集器，使用标记-整理算法。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/cQDTyf.png" alt></p>
-<h3 id="Parallel-Old收集器"><a href="#Parallel-Old收集器" class="headerlink" title="Parallel Old收集器"></a>Parallel Old收集器</h3><p>Parallel Old是Parallel Scavenge收集器的老年代版本，支持多线程并发收集，基于标记-整理算法实现。<br>在注重吞吐量或者处理器资源较为稀缺的场合，可以优先考虑Parallel Scavenge加Parallel Old收集器这个组合。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/83f7lh.png" alt></p>
-<h3 id="CMS收集器（关注停顿时间控制）（如今已经被官方声明为不推荐使用）"><a href="#CMS收集器（关注停顿时间控制）（如今已经被官方声明为不推荐使用）" class="headerlink" title="CMS收集器（关注停顿时间控制）（如今已经被官方声明为不推荐使用）"></a>CMS收集器（关注停顿时间控制）（如今已经被官方声明为不推荐使用）</h3><p>CMS (Concurrent Mark Sweep)收集器是一种以获取最短回收停顿时间为目标的收集器。<br>在较为关注服务的响应速度，希望系统停顿时间尽可能短，以给用户带来良好的交互体验的场景下，CMS收集器就非常符合这类应用的需求。<br>CMS收集器是基于<code>标记-清除算法</code>实现的:</p>
-<ul>
-<li>初始标记(CMS initial mark)（”Stop The World”）</li>
-<li>并发标记(CMS concurrent mark)（可以与用户线程一起工作）</li>
-<li>重新标记(CMS remark)（”Stop The World”）</li>
-<li>并发清除(CMS concurrent sweep)（可以与用户线程一起工作）</li>
-</ul>
-<p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/BhG3qR.png" alt></p>
-<h4 id="CMS收集器的弊端"><a href="#CMS收集器的弊端" class="headerlink" title="CMS收集器的弊端"></a>CMS收集器的弊端</h4><ul>
-<li>在并发收集的阶段势必会占用用户线程的资源，CMS默认启动的回收线程数是(处理器核心数量+3) /4，也就是说，如果处理器核心数在四个或以上，并发回收时垃圾收集线程只占用不超过25%的处理器运算资源，并且会随着处理器核心数量的增加而下降。但是当处理器核心数量不足四个时，CMS对用户程序的影响就可能变得很大。如果应用本来的处理器负载就很高，还要分出一半的运算能力去执行收集器线程，就可能导致用户程序的执行速度忽然大幅降低。</li>
-<li>无法处理<code>浮动垃圾</code>（在标记过程结束之后产生的垃圾），可以通过<code>-XX: CMSInitiatingOccu-pancyFraction</code>参数做一些调整。</li>
-<li>标记-清除算法会产生大量空间碎片。</li>
-</ul>
-<h3 id="Garbage-First收集器（关注停顿时间控制）"><a href="#Garbage-First收集器（关注停顿时间控制）" class="headerlink" title="Garbage First收集器（关注停顿时间控制）"></a>Garbage First收集器（关注停顿时间控制）</h3><p>Garbage First收集器简称G1，到了JDK 8 Update 40之后，被官方称为<code>全功能的垃圾收集器</code>（Fully-Featrued Garbage Collector）。</p>
-<ul>
-<li>G1作为CMS收集器的替代者和继承人，设计者们希望做出-款能够建立起<code>停顿时间模型</code>(Pause Prediction Model)的收集器（可通过<code>-XX: MaxGCPauseMillis</code>调整，一般停顿时间为200毫秒左右，太短的停顿会造成垃圾回收不充分，最终Full GC）。</li>
-<li>G1跳出垃圾收集分代理论，它可以面向堆内存任何部分来组成回收集(Collection Set, - 般简称CSet)进行回收，衡量标准不再是它属于哪个分代，而是哪块内存中存放的垃圾数量最多，回收收益最大，这就是G1收集器的Mixed GC模式。</li>
-<li>开创了基于Region的堆内存设计布局，还有一个Humongous区域，专门用来存储大对象。G1认为只要大小超过了一个Region容量一半的对象即可判定为大对象（可以通过参数<code>-XX: G1HeapRegionSize</code>控制），超过了整个Region容量的超级大对象，将会被存放在N个连续的Humongous Region之中。</li>
-</ul>
-<p>G1运作过程：</p>
-<ul>
-<li>初始标记(Initial Marking)</li>
-<li>并发标记(Concurrent Marking)</li>
-<li>最终标记(Final Marking) </li>
-<li>筛选回收(Live Data Counting and Evacuation)</li>
-</ul>
-<p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/xgFBnC.png" alt></p>
-
       
     </div>
 
@@ -784,147 +714,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/17/Docker汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/17/Docker汇总/" class="post-title-link" itemprop="url">Docker汇总</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-01-17 09:38:28" itemprop="dateCreated datePublished" datetime="2020-01-17T09:38:28+08:00">2020-01-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-17 10:29:58" itemprop="dateModified" datetime="2020-09-17T10:29:58+08:00">2020-09-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html" target="_blank" rel="noopener">参考1</a><br><a href="https://www.jianshu.com/p/ca1623ac7723" target="_blank" rel="noopener">参考2</a></p>
-<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><p><a href="https://www.runoob.com/docker/docker-command-manual.html" target="_blank" rel="noopener">命令大全</a></p>
-<h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><h3 id="列出所有容器"><a href="#列出所有容器" class="headerlink" title="列出所有容器"></a>列出所有容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container ls</span><br></pre></td></tr></table></figure>
-<h3 id="查看所有容易，包括关闭的"><a href="#查看所有容易，包括关闭的" class="headerlink" title="查看所有容易，包括关闭的"></a>查看所有容易，包括关闭的</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker container ls --all</span><br><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
-<h3 id="删除具体的容器，根据container-id"><a href="#删除具体的容器，根据container-id" class="headerlink" title="删除具体的容器，根据container id"></a>删除具体的容器，根据container id</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container rm c8faeffaaa62</span><br></pre></td></tr></table></figure>
-<h3 id="查看容器IP"><a href="#查看容器IP" class="headerlink" title="查看容器IP"></a>查看容器IP</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect 容器ID | grep IPAddress</span><br></pre></td></tr></table></figure>
-<h3 id="启动某个容器"><a href="#启动某个容器" class="headerlink" title="启动某个容器"></a>启动某个容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart 1b4671904bfa</span><br></pre></td></tr></table></figure>
-<h3 id="查看容器内存使用情况（支持多个同时查）"><a href="#查看容器内存使用情况（支持多个同时查）" class="headerlink" title="查看容器内存使用情况（支持多个同时查）"></a>查看容器内存使用情况（支持多个同时查）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stats containerName1 containerName2</span><br></pre></td></tr></table></figure>
-<h3 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs -f 122482b4b37f</span><br></pre></td></tr></table></figure>
-<h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo docker exec -it containerName bash</span><br><span class="line">sudo docker attach 44fc0f0582d9</span><br></pre></td></tr></table></figure>
-<h3 id="docker限制容器的内存使用"><a href="#docker限制容器的内存使用" class="headerlink" title="docker限制容器的内存使用"></a>docker限制容器的内存使用</h3><p><a href="https://blog.csdn.net/qq_37611270/article/details/97243704" target="_blank" rel="noopener">https://blog.csdn.net/qq_37611270/article/details/97243704</a></p>
-<h2 id="状态信息"><a href="#状态信息" class="headerlink" title="状态信息"></a>状态信息</h2><h2 id="列出docker-name"><a href="#列出docker-name" class="headerlink" title="列出docker name"></a>列出docker name</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker inspect -f=&apos;&#123;&#123;.Name&#125;&#125;&apos; $(sudo docker ps -a -q)</span><br></pre></td></tr></table></figure>
-<h3 id="列出docker-ip"><a href="#列出docker-ip" class="headerlink" title="列出docker ip"></a>列出docker ip</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker inspect -f=&apos;&#123;&#123;.NetworkSettings.IPAddress&#125;&#125;&apos; $(sudo docker ps -a -q)</span><br></pre></td></tr></table></figure>
-<h3 id="列出所有容器对应的名称，端口，及ip"><a href="#列出所有容器对应的名称，端口，及ip" class="headerlink" title="列出所有容器对应的名称，端口，及ip"></a>列出所有容器对应的名称，端口，及ip</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect -f=&apos;&#123;&#123;.Name&#125;&#125; &#123;&#123;.NetworkSettings.IPAddress&#125;&#125; &#123;&#123;.HostConfig.PortBindings&#125;&#125;&apos; $(docker ps -aq)</span><br></pre></td></tr></table></figure>
-<h3 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status docker</span><br></pre></td></tr></table></figure>
-<h2 id="数据卷"><a href="#数据卷" class="headerlink" title="数据卷"></a>数据卷</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker inspect 容器id</span><br><span class="line"># 可以查看容器信息  “HostConfig下的Binds 可以看到数据卷绑定  Mounts下Souce和Destination也可以看到数据卷绑定信息”</span><br></pre></td></tr></table></figure>
-<h1 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h1><p><a href="https://www.cnblogs.com/sablier/p/11605606.html" target="_blank" rel="noopener">参考</a><br>目录映射时，容器里面的目录会在容器启动的时候自动创建。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 3306:3306 --name mysql \</span><br><span class="line">-v /usr/local/docker/mysql/conf:/etc/mysql \</span><br><span class="line">-v /usr/local/docker/mysql/logs:/var/log/mysql \</span><br><span class="line">-v /usr/local/docker/mysql/data:/var/lib/mysql \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=raubbhWy \</span><br><span class="line">-d mysql:5.7</span><br></pre></td></tr></table></figure></p>
-<p>进入docker本地连接mysql客户端<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo docker exec -it mysql bash</span><br><span class="line">mysql -uroot -p123456</span><br></pre></td></tr></table></figure></p>
-<h1 id="Fastdfs"><a href="#Fastdfs" class="headerlink" title="Fastdfs"></a>Fastdfs</h1><p><a href="https://hub.docker.com/r/season/fastdfs" target="_blank" rel="noopener">season/fastdfs</a><br><a href="http://www.zuidaima.com/blog/4653383732808704.htm" target="_blank" rel="noopener">参考1</a><br><a href="https://blog.502.li/archives/docker-deploy-fastdfs.html" target="_blank" rel="noopener">参考2</a><br><a href="https://v3u.cn/a_id_78" target="_blank" rel="noopener">参考3</a></p>
-<h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><p><a href="https://www.runoob.com/docker/docker-install-redis.html" target="_blank" rel="noopener">https://www.runoob.com/docker/docker-install-redis.html</a></p>
-<h1 id="rabbitmq"><a href="#rabbitmq" class="headerlink" title="rabbitmq"></a>rabbitmq</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull rabbitmq:management</span><br><span class="line">docker run -d --hostname my-rabbit --name some-rabbit -p 15555:15672 rabbitmq:management</span><br></pre></td></tr></table></figure>
-<p>默认账号密码：guest和guest</p>
-<h1 id="docker跑SpringCloud微服务"><a href="#docker跑SpringCloud微服务" class="headerlink" title="docker跑SpringCloud微服务"></a>docker跑SpringCloud微服务</h1><h1 id="dockerfile-maven"><a href="#dockerfile-maven" class="headerlink" title="dockerfile-maven"></a>dockerfile-maven</h1><h1 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h1><p>在Docker中创建镜像最常用的方式，就是使用Dockerfile。Dockerfile是一个Docker镜像的描述文件，我们可以理解成火箭发射的A、B、C、D…的步骤。Dockerfile其内部包含了一条条的指令，每一条指令构建一层，因此每一条指令的内容，就是描述该层应当如何构建。<br><a href="https://www.runoob.com/docker/docker-dockerfile.html" target="_blank" rel="noopener">Dockerfile基础知识</a><br><a href="https://www.cnblogs.com/lingfengblogs/p/11093246.html" target="_blank" rel="noopener">Dockerfile命令大全</a></p>
-<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="EXPOSE"><a href="#EXPOSE" class="headerlink" title="EXPOSE"></a>EXPOSE</h3><p><a href="https://blog.csdn.net/qq_17639365/article/details/86655177" target="_blank" rel="noopener">https://blog.csdn.net/qq_17639365/article/details/86655177</a></p>
-<h3 id="VOLUME"><a href="#VOLUME" class="headerlink" title="VOLUME"></a>VOLUME</h3><p><a href="https://www.cnblogs.com/ExMan/p/12017896.html" target="_blank" rel="noopener">https://www.cnblogs.com/ExMan/p/12017896.html</a></p>
-<ul>
-<li>通过docker run命令的-v标识创建的挂载点只能对创建的容器有效。</li>
-<li>通过dockerfile的 VOLUME 指令可以在镜像中创建挂载点，这样只要通过该镜像创建的容器都有了挂载点。</li>
-<li>还有一个区别是，通过 VOLUME 指令创建的挂载点，无法指定主机上对应的目录，是自动生成的。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#test</span><br><span class="line">FROM ubuntu</span><br><span class="line">MAINTAINER hello1</span><br><span class="line">VOLUME [&quot;/data1&quot;,&quot;/data2&quot;]</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>上面的dockfile文件通过VOLUME指令指定了两个挂载点 /data1 和 /data2.</p>
-<p>我们通过docker inspect 查看通过该dockerfile创建的镜像生成的容器，可以看到如下信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&quot;Mounts&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;Name&quot;: &quot;d411f6b8f17f4418629d4e5a1ab69679dee369b39e13bb68bed77aa4a0d12d21&quot;,</span><br><span class="line">            &quot;Source&quot;: &quot;/var/lib/docker/volumes/d411f6b8f17f4418629d4e5a1ab69679dee369b39e13bb68bed77aa4a0d12d21/_data&quot;,</span><br><span class="line">            &quot;Destination&quot;: &quot;/data1&quot;,</span><br><span class="line">            &quot;Driver&quot;: &quot;local&quot;,</span><br><span class="line">            &quot;Mode&quot;: &quot;&quot;,</span><br><span class="line">            &quot;RW&quot;: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;Name&quot;: &quot;6d3badcf47c4ac5955deda6f6ae56f4aaf1037a871275f46220c14ebd762fc36&quot;,</span><br><span class="line">            &quot;Source&quot;: &quot;/var/lib/docker/volumes/6d3badcf47c4ac5955deda6f6ae56f4aaf1037a871275f46220c14ebd762fc36/_data&quot;,</span><br><span class="line">            &quot;Destination&quot;: &quot;/data2&quot;,</span><br><span class="line">            &quot;Driver&quot;: &quot;local&quot;,</span><br><span class="line">            &quot;Mode&quot;: &quot;&quot;,</span><br><span class="line">            &quot;RW&quot;: true</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br></pre></td></tr></table></figure></p>
-<h2 id="apt-get更换国内源解决Dockerfile构建速度过慢"><a href="#apt-get更换国内源解决Dockerfile构建速度过慢" class="headerlink" title="apt-get更换国内源解决Dockerfile构建速度过慢"></a>apt-get更换国内源解决Dockerfile构建速度过慢</h2><p>ubuntu和debian的镜像源都要换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RUN  sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list</span><br><span class="line">RUN  sed -i &apos;s/deb.debian.org/mirrors.ustc.edu.cn/g&apos; /etc/apt/sources.list</span><br><span class="line">RUN  apt-get clean</span><br><span class="line">RUN  apt-get update</span><br></pre></td></tr></table></figure></p>
-<p>或者：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FROM ubuntu:20.04</span><br><span class="line">RUN sed -i &apos;s/ports.ubuntu.com/mirror.tuna.tsinghua.edu.cn/g&apos; /etc/apt/sources.list</span><br><span class="line">RUN apt-get install vim</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://www.cnblogs.com/dakewei/p/12783717.html" target="_blank" rel="noopener">https://www.cnblogs.com/dakewei/p/12783717.html</a></p>
-<h3 id="163的镜像"><a href="#163的镜像" class="headerlink" title="163的镜像"></a>163的镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#更新apt-get源 使用163的源</span><br><span class="line">RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-<h1 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker-compose"></a>docker-compose</h1><p><a href="https://www.jianshu.com/p/90bf0e231e5a" target="_blank" rel="noopener">docker-compose.yml文件详解</a><br><a href="https://www.runoob.com/docker/docker-compose.html" target="_blank" rel="noopener">基础</a><br><a href="https://www.cnblogs.com/williamjie/p/9103327.html" target="_blank" rel="noopener">参考1</a></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
-<p>如果从github拉下来安装之后无法执行docker-compose命令的话，可以采用本机电脑下载之后上传到服务器，在chmod修改可执行权限就可以了。</p>
-<h2 id="命令-1"><a href="#命令-1" class="headerlink" title="命令"></a>命令</h2><h3 id="后台执行"><a href="#后台执行" class="headerlink" title="后台执行"></a>后台执行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
-<h2 id="docker-compose中解决depends-on无效问题"><a href="#docker-compose中解决depends-on无效问题" class="headerlink" title="docker-compose中解决depends_on无效问题"></a>docker-compose中解决depends_on无效问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RUN apt-get -q update &amp;&amp; apt-get -qy install netcat</span><br><span class="line"># docker-compose.yml 加上下面</span><br><span class="line">command: sh -c &apos;./wait-for.sh kiwi-microservice-local:5001/actuator/info -- echo kiwi-word-biz already started&apos;</span><br></pre></td></tr></table></figure>
-<p><a href="http://www.zyiz.net/tech/detail-98533.html" target="_blank" rel="noopener">http://www.zyiz.net/tech/detail-98533.html</a><br><a href="https://github.com/Eficode/wait-for" target="_blank" rel="noopener">https://github.com/Eficode/wait-for</a></p>
-<h1 id="Mac上跑docker"><a href="#Mac上跑docker" class="headerlink" title="Mac上跑docker"></a>Mac上跑docker</h1><p><a href="https://www.runoob.com/docker/macos-docker-install.html" target="_blank" rel="noopener">https://www.runoob.com/docker/macos-docker-install.html</a></p>
-<h1 id="docker-service的配置"><a href="#docker-service的配置" class="headerlink" title="docker.service的配置"></a>docker.service的配置</h1><p><a href="https://www.cnblogs.com/nihaorz/p/12131873.html" target="_blank" rel="noopener">https://www.cnblogs.com/nihaorz/p/12131873.html</a></p>
-<h1 id="更换国内的镜像"><a href="#更换国内的镜像" class="headerlink" title="更换国内的镜像"></a>更换国内的镜像</h1><p><a href="https://blog.csdn.net/u012081441/article/details/104553145/" target="_blank" rel="noopener">https://blog.csdn.net/u012081441/article/details/104553145/</a><br><a href="https://blog.csdn.net/s_lisheng/article/details/79871086" target="_blank" rel="noopener">https://blog.csdn.net/s_lisheng/article/details/79871086</a></p>
-<h1 id="在docker跑nginx的vue项目"><a href="#在docker跑nginx的vue项目" class="headerlink" title="在docker跑nginx的vue项目"></a>在docker跑nginx的vue项目</h1><p><a href="https://www.jianshu.com/p/422b61100273" target="_blank" rel="noopener">https://www.jianshu.com/p/422b61100273</a></p>
-<h2 id="nginx80端口被占用修改"><a href="#nginx80端口被占用修改" class="headerlink" title="nginx80端口被占用修改"></a>nginx80端口被占用修改</h2><p><a href="https://jingyan.baidu.com/article/3aed632efb150a701080912f.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/3aed632efb150a701080912f.html</a></p>
-<h2 id="各种配置"><a href="#各种配置" class="headerlink" title="各种配置"></a>各种配置</h2><p><a href="https://www.jqhtml.com/34815.html" target="_blank" rel="noopener">https://www.jqhtml.com/34815.html</a></p>
-<h1 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker network ls</span><br><span class="line">docker network inspect bridge</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.cnblogs.com/chenpython123/p/10823879.html" target="_blank" rel="noopener">https://www.cnblogs.com/chenpython123/p/10823879.html</a></p>
-<h1 id="Docker根据名称查询容器ID镜像ID并停止删除"><a href="#Docker根据名称查询容器ID镜像ID并停止删除" class="headerlink" title="Docker根据名称查询容器ID镜像ID并停止删除"></a>Docker根据名称查询容器ID镜像ID并停止删除</h1><p><a href="https://blog.csdn.net/zimou5581/article/details/94012682" target="_blank" rel="noopener">https://blog.csdn.net/zimou5581/article/details/94012682</a></p>
-<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="bash-vi-command-not-found"><a href="#bash-vi-command-not-found" class="headerlink" title="bash: vi: command not found"></a>bash: vi: command not found</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it &lt;container&gt; bash</span><br><span class="line">apt-get update</span><br><span class="line">apt-get install vim</span><br></pre></td></tr></table></figure>
-<h2 id="Error-response-from-daemon-Get-https-registry-1-docker-io-v2-net-http-TLS-handshake-timeout"><a href="#Error-response-from-daemon-Get-https-registry-1-docker-io-v2-net-http-TLS-handshake-timeout" class="headerlink" title="Error response from daemon: Get https://registry-1.docker.io/v2/: net/http: TLS handshake timeout"></a>Error response from daemon: Get <a href="https://registry-1.docker.io/v2/" target="_blank" rel="noopener">https://registry-1.docker.io/v2/</a>: net/http: TLS handshake timeout</h2><p><a href="https://blog.csdn.net/BigData_Mining/article/details/87869147" target="_blank" rel="noopener">网上的解决方案</a></p>
-<h2 id="Current-command-vanished-from-the-unit-file-execution-of-the-command-list-won’t-be-resumed"><a href="#Current-command-vanished-from-the-unit-file-execution-of-the-command-list-won’t-be-resumed" class="headerlink" title="Current command vanished from the unit file, execution of the command list won’t be resumed."></a>Current command vanished from the unit file, execution of the command list won’t be resumed.</h2><p>可能是有docker的相关进程没有杀干净。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef|grep docker</span><br><span class="line">kill -9 pid</span><br></pre></td></tr></table></figure></p>
-<h2 id="远程2375连接不上"><a href="#远程2375连接不上" class="headerlink" title="远程2375连接不上"></a>远程2375连接不上</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/lib/systemd/system/docker.service</span><br></pre></td></tr></table></figure>
-<p>vim进入命令行模式输入?ExecStart，找到如下一行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ExecStart=/usr/bin/dockerd -H unix://var/run/docker.sock \</span><br></pre></td></tr></table></figure></p>
-<p>在后面加上-H tcp://0.0.0.0:2375<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock -H tcp://0.0.0.0:2375</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service docker restart</span><br></pre></td></tr></table></figure>
-<p>之后要注意重启之前的容器。</p>
-<h2 id="ERROR-Version-in-“-docker-compose-yml”-is-invalid-You-might-be-seeing-this-error-because-you’re-using-the-wrong-Compose-file-version-Either-specify-a-supported-version-e-g-“2-2”-or-“3-3”"><a href="#ERROR-Version-in-“-docker-compose-yml”-is-invalid-You-might-be-seeing-this-error-because-you’re-using-the-wrong-Compose-file-version-Either-specify-a-supported-version-e-g-“2-2”-or-“3-3”" class="headerlink" title="ERROR: Version in “./docker-compose.yml” is invalid. You might be seeing this error because you’re using the wrong Compose file version. Either specify a supported version (e.g “2.2” or “3.3”)"></a>ERROR: Version in “./docker-compose.yml” is invalid. You might be seeing this error because you’re using the wrong Compose file version. Either specify a supported version (e.g “2.2” or “3.3”)</h2><p>把docker-compose.yml里面的version改一下，改成2.2或3.3（根据提示改）</p>
-<h2 id="docker-启动-nginx-访问不了的问题"><a href="#docker-启动-nginx-访问不了的问题" class="headerlink" title="docker 启动 nginx 访问不了的问题"></a>docker 启动 nginx 访问不了的问题</h2><p>如果容器的nginx服务没有启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#  进入容器</span><br><span class="line">/usr/sbin/nginx</span><br><span class="line"># 看下报什么错</span><br></pre></td></tr></table></figure></p>
-<h2 id="vue-config-js设置代理之后，nginx反向代理-404"><a href="#vue-config-js设置代理之后，nginx反向代理-404" class="headerlink" title="vue.config.js设置代理之后，nginx反向代理 404"></a>vue.config.js设置代理之后，nginx反向代理 404</h2><p><a href="https://zhuanlan.zhihu.com/p/60833019" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/60833019</a><br>/etc/nginx/conf.d/default.conf</p>
-<p>nginx关键配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">root /usr/share/nginx/html;</span><br><span class="line">index index.html index.htm;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /auth &#123;</span><br><span class="line">	proxy_pass http://kiwi-microservice:9991;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /wordBiz &#123;</span><br><span class="line">    proxy_pass http://kiwi-microservice:9991;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /code &#123;</span><br><span class="line">    proxy_pass http://kiwi-microservice:9991;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="Published-ports-are-discarded-when-using-host-network-mode"><a href="#Published-ports-are-discarded-when-using-host-network-mode" class="headerlink" title="Published ports are discarded when using host network mode"></a>Published ports are discarded when using host network mode</h2><p>host的网络模式不能-p映射端口</p>
-<h2 id="OCI-runtime-exec-failed-exec-failed-container-linux-go-349-starting-container-process-caused-“exec-”bash-”-executable-file-not-found-in-PATH”-unknown"><a href="#OCI-runtime-exec-failed-exec-failed-container-linux-go-349-starting-container-process-caused-“exec-”bash-”-executable-file-not-found-in-PATH”-unknown" class="headerlink" title="OCI runtime exec failed: exec failed: container_linux.go:349: starting container process caused “exec: \”bash\”: executable file not found in $PATH”: unknown"></a>OCI runtime exec failed: exec failed: container_linux.go:349: starting container process caused “exec: \”bash\”: executable file not found in $PATH”: unknown</h2><p>三种模式选择一种试试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it 1e33b26152e1 /bin/sh</span><br><span class="line">docker exec -it 1e33b26152e1 bash</span><br><span class="line">docker exec -it 1e33b26152e1 sh</span><br></pre></td></tr></table></figure></p>
-<h2 id="mkdir-can’t-create-directory-‘-tmp’-File-exists"><a href="#mkdir-can’t-create-directory-‘-tmp’-File-exists" class="headerlink" title="mkdir: can’t create directory ‘/tmp’: File exists"></a>mkdir: can’t create directory ‘/tmp’: File exists</h2><p>Dockerfile里面RUN命令创建文件夹的时候注意不要和系统同路径，不然会报错。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -994,7 +783,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
