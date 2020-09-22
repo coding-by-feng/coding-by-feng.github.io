@@ -163,6 +163,165 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/Markdown汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/29/Markdown汇总/" class="post-title-link" itemprop="url">Markdown汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-29 10:38:18" itemprop="dateCreated datePublished" datetime="2020-03-29T10:38:18+08:00">2020-03-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-12 20:46:47" itemprop="dateModified" datetime="2020-09-12T20:46:47+08:00">2020-09-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Markdown/" itemprop="url" rel="index"><span itemprop="name">Markdown</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><h2 id="标记"><a href="#标记" class="headerlink" title="标记"></a>标记</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">**这是加粗的文字**</span><br><span class="line">*这是倾斜的文字*`</span><br><span class="line">***这是斜体加粗的文字***</span><br><span class="line">~~这是加删除线的文字~~</span><br><span class="line">&gt;这是引用的内容</span><br><span class="line">==背景高亮==</span><br></pre></td></tr></table></figure>
+<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">----</span><br><span class="line">***</span><br><span class="line">*****</span><br></pre></td></tr></table></figure>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![图片alt](图片地址 &apos;&apos;图片title&apos;&apos;)</span><br></pre></td></tr></table></figure>
+<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[超链接名](超链接地址 &quot;超链接title&quot;)</span><br></pre></td></tr></table></figure>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h4 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- 列表内容</span><br><span class="line">+ 列表内容</span><br><span class="line">* 列表内容</span><br><span class="line"></span><br><span class="line">注意：- + * 跟内容之间都要有一个空格</span><br></pre></td></tr></table></figure>
+<h4 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 列表内容</span><br><span class="line">2. 列表内容</span><br><span class="line">3. 列表内容</span><br><span class="line"></span><br><span class="line">注意：序号跟内容之间要有空格</span><br></pre></td></tr></table></figure>
+<h4 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h4><p>上一级和下一级之间敲三个空格即可</p>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><h4 id="极简方式"><a href="#极简方式" class="headerlink" title="极简方式"></a>极简方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">name | 价格 |  数量  </span><br><span class="line">-|-|-</span><br><span class="line">香蕉 | $1 | 5 </span><br><span class="line">苹果 | $1 | 6 </span><br><span class="line">草莓 | $1 | 7</span><br></pre></td></tr></table></figure>
+<p>表格效果：</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>价格</th>
+<th>数量  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>香蕉</td>
+<td>$1</td>
+<td>5 </td>
+</tr>
+<tr>
+<td>苹果</td>
+<td>$1</td>
+<td>6 </td>
+</tr>
+<tr>
+<td>草莓</td>
+<td>$1</td>
+<td>7 </td>
+</tr>
+</tbody>
+</table>
+<h4 id="原生居中写法"><a href="#原生居中写法" class="headerlink" title="原生居中写法"></a>原生居中写法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name | 111 | 222 | 333 | 444</span><br><span class="line">:-: | :-: | :-: | :-: | :-:</span><br><span class="line">aaa | bbb | ccc | ddd | eee</span><br><span class="line">fff | ggg| hhh | iii | 000</span><br></pre></td></tr></table></figure>
+<p>表格效果：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">name</th>
+<th style="text-align:center">111</th>
+<th style="text-align:center">222</th>
+<th style="text-align:center">333</th>
+<th style="text-align:center">444</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">aaa</td>
+<td style="text-align:center">bbb</td>
+<td style="text-align:center">ccc</td>
+<td style="text-align:center">ddd</td>
+<td style="text-align:center">eee</td>
+</tr>
+<tr>
+<td style="text-align:center">fff</td>
+<td style="text-align:center">ggg</td>
+<td style="text-align:center">hhh</td>
+<td style="text-align:center">iii</td>
+<td style="text-align:center">000</td>
+</tr>
+</tbody>
+</table>
+<h2 id="行内代码块"><a href="#行内代码块" class="headerlink" title="行内代码块"></a>行内代码块</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`XXX`</span><br></pre></td></tr></table></figure>
+<h2 id="数学公式"><a href="#数学公式" class="headerlink" title="数学公式"></a>数学公式</h2><blockquote>
+<p>hexo注意要在主题配置文件_config.yml开启数学公式，关键配置是<code>mathjax</code>，以及要在博客加上配置<code>mathjax: true</code>。<br><a href="https://www.dazhuanlan.com/2019/10/21/5dacaedf4c643/?__cf_chl_jschl_tk__=dbc59d7a95e168226de74bd7fb3f80049375667b-1599913232-0-ATRRQpbKWNHowP0aILxN9t1A-MuQZS0tEBq2UNjUnfkCIMHxl4V7L0r47JKN_4w4V8TIRlaU3dg1sUQfWL2Oy3T3ewydLyGZJYacN1keb9ZQK6qoE79HKmIpXydOUrtI7xlMG3LdCKnhupB7UfIXHduDp3qBsgdib-Tq9wx9gr4fklBx3Bsf4fPA4G5jUu4uXKa1xca88H6t0gBMyhli8_o6CbHJJmN93bQiAWJa2MgApOKLZ147wBgaW2mI0JATcc3_HaPC1x91pKLLoZLIEFRUYrWiPtvt1QnQF2g7zwDDz5CJK0SoFms0PPTVB1Obcw" target="_blank" rel="noopener">参考来源</a></p>
+</blockquote>
+<ul>
+<li>行内公式使用<code>$公式XXX$</code>包起来。</li>
+<li>行间公式使用<code>$$公式XXX$$</code>包起来。</li>
+</ul>
+<h3 id="n次方（上标）"><a href="#n次方（上标）" class="headerlink" title="n次方（上标）"></a>n次方（上标）</h3><p>如：x的2次方<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x^&#123;2&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>行内效果：$x^{2}$</li>
+<li>行间效果：$$x^{2}$$</li>
+</ul>
+<h3 id="下标"><a href="#下标" class="headerlink" title="下标"></a>下标</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n_&#123;i-1&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>行内效果：$n_{i-1}$</li>
+<li>行间效果：$$n_{i-1}$$</li>
+</ul>
+<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><h2 id="markdown-here"><a href="#markdown-here" class="headerlink" title="markdown-here"></a>markdown-here</h2><p>谷歌插件，神器，将md一键转富文本！</p>
+<blockquote>
+<p><a href="https://www.jianshu.com/p/ebe52d2d468f" target="_blank" rel="noopener">参考来源1</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/22/English系列-自然拼读/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -227,140 +386,6 @@
 </blockquote>
 <h1 id="字母组合发音"><a href="#字母组合发音" class="headerlink" title="字母组合发音"></a>字母组合发音</h1><h2 id="ar"><a href="#ar" class="headerlink" title="ar"></a>ar</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/ɑː/</span><br></pre></td></tr></table></figure>
 <p>garbage</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/05/English系列之名词从句/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/05/English系列之名词从句/" class="post-title-link" itemprop="url">English系列之名词从句</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-09-05 20:15:17" itemprop="dateCreated datePublished" datetime="2020-09-05T20:15:17+08:00">2020-09-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-09 10:27:26" itemprop="dateModified" datetime="2020-09-09T10:27:26+08:00">2020-09-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>这篇笔记摘选自《英语语法新思维中级教程第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。</p>
-</blockquote>
-<h2 id="简单句与名词从句"><a href="#简单句与名词从句" class="headerlink" title="简单句与名词从句"></a>简单句与名词从句</h2><h3 id="何谓名词从句？"><a href="#何谓名词从句？" class="headerlink" title="何谓名词从句？"></a>何谓名词从句？</h3><p>在英语中，名词或名词短语主要充当四种句子成分：主语、宾语、表语和同位语，如果把句子当作名词来用，分别充当另一句话的主语、宾语、表语或同位语。<br>构成了四种从句：主语从句、宾语从句、表语从句和同位语从句，因为这四种从句在本质上相当于名词，所以将其统称为名词从句。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/js3epz.png" alt></p>
-<blockquote>
-<p>相当于名词的句子有三类：陈述句、一般疑问句以及特殊疑问句。</p>
-</blockquote>
-<h3 id="陈述句作句子成分"><a href="#陈述句作句子成分" class="headerlink" title="陈述句作句子成分"></a>陈述句作句子成分</h3><h4 id="要在陈述句句首加上that"><a href="#要在陈述句句首加上that" class="headerlink" title="要在陈述句句首加上that"></a>要在陈述句句首加上that</h4><p>当把一个完整的陈述句当作名词来使用时，需要在陈述句句首加that，然后可使“that+陈述句”这一结构分别充当另一个句子的主语、宾语、表语或同位语等四种成分，即构成主语从句、宾语从句、表语从句或同位语从句。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/1kNWSL.png" alt></p>
-<h4 id="为什么要加that？"><a href="#为什么要加that？" class="headerlink" title="为什么要加that？"></a>为什么要加that？</h4><p>That English is important（主语从句）is an undoubted fact（谓语部分）.<br>假如把that去掉，上句就变成“English is important is an undoubted fact.”。<br>这句话就有两个中心谓语部分，即is important和is an undoubted fact。但是，在英语中，句子的核心意思主要是靠谓语部分来表达的，一个句子只表达一个核心意思（因为我们说话要一句一句地说），也就只能有一个谓语部分。现在这个句子有两个谓语部分，读者就会纳闷：你要表达的意思到底是“某个东西重要（something is important）”，还是要说“某个东西是事实（something is an undoubted fact）”？<br>为了避免混淆，在句首加上一个标志that，这里的that就相当于一个指路牌，它的出现就等于是在告诉读者：that后面紧接着的句子是要作为另一个句子的某一个成分来使用的，不是要表达的核心意思。因此，当读者读到“That English is important…”，他就会知道这个句子的核心意思并没有讲出来，他一定会期待着句子接下来的中心意思。当他读到“…is an undoubted fact”时，他知道了，句子要表达的意思是“英语很重要，这是一个毋庸置疑的事实”，而不是要说“英语很重要”。<br>英语很重要，这是一个毋庸置疑的事实。</p>
-<p>1） The criminal confessed his sins harmed many people.<br>2） The criminal confessed that his sins harmed many people.<br>对于例句2），因为有了that的存在，我们能轻而易举地判断出the criminal confessed是主句，而his sins harmed many people是宾语从句，所以我们的大脑就不会做出像例句1）那样的错误断句，因而缩短了理解的时间。<br>这名罪犯承认，他的罪行伤害了很多人。</p>
-<p>He said no word at the meeting was strange.<br>对于这个句子，很多读者自然会将其当作宾语从句理解：“He said that no word at the meeting was strange.”。此时句子的意思是：他说，会上人们的发言都很正常，并没有什么奇怪的。<br>但是，如果在句首添加一个that而将其改写为“ That he said no word at the meeting was strange.”。<br>此时则要理解成：他在会上一言不发，这真让人觉得有些蹊跷。</p>
-<blockquote>
-<p>那么为什么宾语从句中的that可以省去呢？这是因为对于宾语从句，主句的谓语已经出现，谓语后面所接的成分自然是宾语，所以在不影响句子意思的情况下，可以把that省去。</p>
-</blockquote>
-<p>比如“I think you are right.”或“I think that you are right.”都可以。<br>但是，像上面的例句<code>The criminal confessed that his sins harmed many people.</code>，即使是宾语从句，that也不宜省去。</p>
-<h3 id="一般疑问句作句子成分"><a href="#一般疑问句作句子成分" class="headerlink" title="一般疑问句作句子成分"></a>一般疑问句作句子成分</h3><h4 id="用whether或if引导"><a href="#用whether或if引导" class="headerlink" title="用whether或if引导"></a>用whether或if引导</h4><p>当把一个一般疑问句当作名词来使用时，<strong><em>需要先将疑问句的倒装语序变成陈述句语序</em></strong>，并在句首加上whether或if（if只用在宾语从句中）来引导，以保留原句的疑问意义。<br>然后， 用“whether+陈述句”这一结构分别充当另一个句子的主语、宾语、表语或同位语等四种成分，即构成主语从句、宾语从句、表语从句或同位语从句等四种名词从句。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/K3NI0I.png" alt></p>
-<h4 id="if还是whether？"><a href="#if还是whether？" class="headerlink" title="if还是whether？"></a>if还是whether？</h4><p>对于if和whether这两个连词，其用法有以下区别：</p>
-<ul>
-<li>if一般只用于引导宾语从句，而whether可引导包括宾语从句在内的其他名词从句。<br>If he comes or not makes no difference. <em><br>这个句子不妥，应改为“Whether he comes or not makes no difference.”。这里是主语从句，应由whether引导。<br>他来不来无关紧要。<br>The question is if he will come. </em><br>这个句子不妥，应改为“The question is whether he will come.”。这里是表语从句，应由whether引导。<br>问题是他是否会来。</li>
-<li>if不和or not直接连用，即一般不说if or not，但可以说if…or not。而whether没有此限制。<br>I don’t know if or not he comes. *<br>I don’t know whether or not he comes.<br>例句1）错误，因为if和or not不能直接连用，即不能说 成if or not。例句2）正确。<br>我不知道他是否会来。</li>
-</ul>
-<h3 id="特殊疑问句作句子成分"><a href="#特殊疑问句作句子成分" class="headerlink" title="特殊疑问句作句子成分"></a>特殊疑问句作句子成分</h3><h4 id="变倒装语序为陈述句语序"><a href="#变倒装语序为陈述句语序" class="headerlink" title="变倒装语序为陈述句语序"></a>变倒装语序为陈述句语序</h4><p>当把一个特殊疑问句当作名词来使用时，<strong><em>需要先将疑问句的倒装语序变成陈述句语序</em></strong>，然后分别充当另一个句子的主语、宾语、表语或同位语等四种成分，即构成主语从句、宾语从句、表语从句或同位语从句等四种名词从句。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/RyjbNf.png" alt></p>
-<h4 id="特殊疑问词作主语，无需调整句子语序"><a href="#特殊疑问词作主语，无需调整句子语序" class="headerlink" title="特殊疑问词作主语，无需调整句子语序"></a>特殊疑问词作主语，无需调整句子语序</h4><p>如果特殊疑问词在句中作主语，则特殊疑问句无需调整语序而直接作成分，因为此时的问句即是一个陈述句语序。<br>1） Who will chair the meeting?<br>2） Who will chair the meeting has not yet been decided.<br>在例句1）中，特殊疑问词who作主语，此时整个问句“Who will chair the meeting?”是一个“主语+谓语”结构的陈述句语序，因此用该问句作成分时，无需调整语序，而直接在例句2）中充当主语，构成一个主语从句。<br>1）谁将会主持这个会议？<br>2）谁将会主持这个会议，目前还没有决定。</p>
-<h3 id="引导名词从句的连接词"><a href="#引导名词从句的连接词" class="headerlink" title="引导名词从句的连接词"></a>引导名词从句的连接词</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/JDxvF5.png" alt></p>
-<h2 id="简单句与主语从句"><a href="#简单句与主语从句" class="headerlink" title="简单句与主语从句"></a>简单句与主语从句</h2><h3 id="陈述句作主语"><a href="#陈述句作主语" class="headerlink" title="陈述句作主语"></a>陈述句作主语</h3><p>把“that+陈述句”这一结构放在主语的位置即构成主语从句。<br>That the seas are being overfished has been known for years.<br>这里that引导的从句that the seas are being overfished是一个主语从句，直接置于主语的位置。<br>海洋正在被人类过度捕捞，多年以来这已是尽人皆知的。</p>
-<p>That English is important is an undoubted fact.英语很重要，这是一个毋庸置疑的事实。<br>That he doesn’t understand English is obvious.很显然，他不懂英语。<br>That the world is round is a fact.地球是圆的，这是一个事实。<br>对于陈述句作主语，更常见的是用it作形式主语置于句首，而将主语从句放在句末。因此上面各句可分别改为：<br>It has been known for years that the seas are being overfished.<br>It is an undoubted fact that English is important.<br>It is obvious that he doesn’t understand English.<br>It is a fact that the world is round.</p>
-<p><strong><em>下列都是常见的主语从句句型（重点内容）：</em></strong></p>
-<h4 id="It-is-过去分词-that从句"><a href="#It-is-过去分词-that从句" class="headerlink" title="It is+过去分词+that从句"></a>It is+过去分词+that从句</h4><p>It’s reported that…（据报道……）<br>It’s believed that…（人们相信……）<br>It is generally thought that…（人们普遍认为……）<br>It should be noted that…（应当注意……）<br>It has been found that…（现已发现……）<br>It must be pointed out that…（必须指出……）<br>类似动词还有say，expect，know，estimate和forecast等。</p>
-<p>As a child and as an adult as well, Bill Gates was untidy. It has been said that in order to counteract this, Mary drew up weekly clothing plans for him.<br>不论是在小时候还是长大成人以后，比尔·盖茨都是不修边幅的。据说为了让他改掉这个习惯，玛丽专门为他制定了一周的着装计划。</p>
-<h4 id="It-is-形容词-that从句"><a href="#It-is-形容词-that从句" class="headerlink" title="It is+形容词+that从句"></a>It is+形容词+that从句</h4><p>It is clear that…（显然……）<br>It is possible that…（很可能……）<br>It is likely that…（很可能……）<br>It is natural that…（很自然……）<br>It is certain that…（可以相信……）<br>It is strange that…（奇怪的是……）<br>It is fortunate that…（幸运的是……）<br>It is necessary that…（有必要……）</p>
-<p>It is true that English is becoming an international language.<br>的确，英语正日益成为一门国际通用语言。</p>
-<h4 id="It-is-名词短语-that从句"><a href="#It-is-名词短语-that从句" class="headerlink" title="It is+名词短语+that从句"></a>It is+名词短语+that从句</h4><p>常用的名词有：a pity，a shame，an honor，a good idea和no wonder等等。<br>It is a pity that…（可惜的是……）<br>It is a fact that…（事实是……）<br>It is good news that…（……真是太好了）<br>It is a good thing that…（……真是件好事）<br>It is no wonder that…（难怪……）<br>It is a shame that…（遗憾的是……；……真是太不像话了）<br>It is an honor that…（真荣幸……）<br>It is common knowledge that…（……是常识）<br>It is my belief that…（我相信……）<br>It is a miracle that…（……真是奇迹）</p>
-<p>It is common knowledge that the whale is not a fish. 鲸鱼不是鱼类，这是一个常识。<br>It is a shame that you did not pass the test. 你没通过这次考试，真遗憾。</p>
-<h3 id="一般疑问句作主语"><a href="#一般疑问句作主语" class="headerlink" title="一般疑问句作主语"></a>一般疑问句作主语</h3><p>一般疑问句作主语时，要把一般疑问句变成陈述句，并且用whether来引导，然后充当句子的主语，即构成主语从句。<br>Whether he comes or not makes no difference to me. 他来不来对我来说无所谓。</p>
-<h3 id="特殊疑问句作主语"><a href="#特殊疑问句作主语" class="headerlink" title="特殊疑问句作主语"></a>特殊疑问句作主语</h3><p>What we need is a wholly new kind of police force.<br>这里的特殊疑问词what是作need的宾语，所以需将原来的倒装句what do we need调整为陈述句语序what we need，然后作主句的主语，即构成主语从句。<br>我们需要的是一个全新的警察机构。</p>
-<p>When the meeting is to be held has not yet been decided.<br>这里的特殊疑问词when是作从句的时间状语，所以需将原来的倒装句when is the meeting to be held调整为陈述句语序when the meeting is to be held，然后作主句的主语，即构成主语从句。<br>会议何时举行还没决定。</p>
-<p>How a person masters his fate is more important than what his fate is.<br>这里的特殊疑问词how是作从句的方式状语，所以需将原来的倒装句how does a person master his fate调整为陈述句语序how a person masters his fate，然后作主句的主语，即构成主语从句。<br>对于一个人来说，重要的是如何掌握自己的命运，而不是被动地接受命运的安排。</p>
-<p>September 11, 2001 started out as an ordinary day, but what happened that morning will be forever etched（铭刻） in our memories.<br>这里的特殊疑问词what是作从句的主语，所以无需调整语序，而直接将疑问句what happened that morning作主句的主语，即构成主语从句。<br>2001年9月11日那天和平日一样到来，但是那天早晨发生的事情将永远铭刻在人们的记忆里。</p>
-<h2 id="简单句与宾语从句"><a href="#简单句与宾语从句" class="headerlink" title="简单句与宾语从句"></a>简单句与宾语从句</h2><h3 id="陈述句作宾语"><a href="#陈述句作宾语" class="headerlink" title="陈述句作宾语"></a>陈述句作宾语</h3><p>把“that+陈述句”这一结构放在宾语的位置即构成宾语从句。<br>We know (that) the world is round.<br>我们知道，地球是圆的。</p>
-<blockquote>
-<p>只有宾语从句中的that才可以省去（在不影响对句意的理解的情况下），而主语从句、表语从句和同位语从句中的that一般不能省去。</p>
-</blockquote>
-<h3 id="一般疑问句作宾语"><a href="#一般疑问句作宾语" class="headerlink" title="一般疑问句作宾语"></a>一般疑问句作宾语</h3><p>把“whether / if+陈述句”这一结构放在宾语的位置即构成宾语从句。<br>I don’t know if/whether he needs my help.<br>我不知道他是否需要我的帮助。</p>
-<p>No one knew whether or not interest rates would rise.<br>这里原来的一般疑问句是would interest rates rise，变成陈述句语序后成为interest rates would rise，然后为了保留疑问的意义又添加了whether or not，构成宾语从句。一般不说if or not，所以这里的连词不宜用if。</p>
-<h3 id="特殊疑问句作宾语"><a href="#特殊疑问句作宾语" class="headerlink" title="特殊疑问句作宾语"></a>特殊疑问句作宾语</h3><p>把特殊疑问句变成陈述句语序后放在宾语的位置即构成宾语从句。<br>I have not decided whom I should vote for.<br>这里的特殊疑问词whom是作vote for的宾语，所以需将原来的倒装句whom should I vote for调整为陈述句语序whom I should vote for，然后作主句谓语decided的宾语，即构成宾语从句。<br>我还没有决定该投谁一票。</p>
-<p>No one knows exactly how speech began.<br>这里的特殊疑问词how是作began的方式状语，所以需将原来的倒装句how did speech begin调整为陈述句语序how speech began，然后作主句谓语knows的宾语，即构成宾语从句。<br>没有人确切地知道语言是如何产生的。</p>
-<h2 id="简单句与表语从句"><a href="#简单句与表语从句" class="headerlink" title="简单句与表语从句"></a>简单句与表语从句</h2><h3 id="陈述句作表语"><a href="#陈述句作表语" class="headerlink" title="陈述句作表语"></a>陈述句作表语</h3><p>把“that+陈述句”这一结构放在表语的位置即构成表语从句。<br>My idea is that the child should be sent to school.<br>我的看法是，应该把这个孩子送去上学。</p>
-<h3 id="一般疑问句作表语"><a href="#一般疑问句作表语" class="headerlink" title="一般疑问句作表语"></a>一般疑问句作表语</h3><p>把“whether+陈述句”这一结构放在表语的位置即构成表语从句。<br>My concern is whether he comes or not.<br>我关心的是他到底来不来。</p>
-<h3 id="特殊疑问句作表语"><a href="#特殊疑问句作表语" class="headerlink" title="特殊疑问句作表语"></a>特殊疑问句作表语</h3><p>把特殊疑问句变成陈述句语序后放在表语的位置即构成表语从句。<br>Change is what keeps us fresh and innovative. Change is what keeps us from getting stale . Change is what keeps us young.<br>变革能使我们保持思维敏锐，富有创造性。变革能防止我们思想僵化。变革能使我们永葆青春。<br>Yesterday is history. Tomorrow is a mystery. Today is a gift. That’s why it’s called the present!<br>昨天是历史。明天是一个谜。今天是一个礼物。因此它才被称为present!<br>The point is when you will become rich.<br>问题的关键是你何时才能有钱。</p>
-<h2 id="简单句与同位语从句"><a href="#简单句与同位语从句" class="headerlink" title="简单句与同位语从句"></a>简单句与同位语从句</h2><p>所谓同位语，就是用来补充说明名词的成分。被补充说明的名词，叫作先行词。当用一个完整的句子来补充说明名词时，即构成同位语从句。所以，同位语从句都位于一个名词的后面，便构成了“名词+连词+同位语从句”这样的结构。</p>
-<h3 id="陈述句作同位语"><a href="#陈述句作同位语" class="headerlink" title="陈述句作同位语"></a>陈述句作同位语</h3><p>把“that陈述句”这一结构放在同位语的位置即构成同位语从句。<br>He was prepared to prove his theory that two different weights would fall to the ground at the same time.<br>这里的先行词是his theory，同位语从句是that two different weights would fall to the ground at the same time。<br>他准备证明他的这一理论：两个重量不同的物体将同时落地。</p>
-<p>The fact that he succeeded in the experiment pleased everybody.<br>这里的先行词是the fact，同位语从句是that he succeeded in the experiment。<br>他的实验取得了成功，这让大家很高兴。</p>
-<p>The rumor that Tom was a thief turned out to be untrue.<br>这里的先行词是the rumor，同位语从句是that Tom was a thief。<br>有谣传说汤姆是小偷，结果证明是假的。</p>
-<blockquote>
-<p>同位语从句可能与其修饰的名词被其他成分隔开。</p>
-</blockquote>
-<p>They spread the lie everywhere that Tom was guilty of theft.<br>这里的先行词the lie与同位语从句that Tom was guilty of theft被状语everywhere隔开。<br>他们到处散布谣言说汤姆犯有盗窃罪。</p>
-<p>A saying goes that practice makes perfect.<br>这里的先行词a saying与同位语从句that practice makes perfect被谓语goes隔开。<br>俗话说，熟能生巧。</p>
-<h3 id="一般疑问句作同位语"><a href="#一般疑问句作同位语" class="headerlink" title="一般疑问句作同位语"></a>一般疑问句作同位语</h3><p>把“whether+陈述句”这一结构放在同位语的位置即构成同位语从句。<br>They are faced with the problem whether they should continue to work .<br>他们面临这样一个问题：他们是否应该继续工作。</p>
-<h3 id="特殊疑问句作同位语"><a href="#特殊疑问句作同位语" class="headerlink" title="特殊疑问句作同位语"></a>特殊疑问句作同位语</h3><p>把特殊疑问句变成陈述句语序后放在同位语的位置即构成同位语从句。<br>There arose the question where we could get the loan.<br>现在的问题是我们去哪里弄到这笔贷款。</p>
-<p>I have no idea when he will return.<br>我不知道他什么时候回来。</p>
 
       
     </div>
@@ -858,6 +883,61 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
