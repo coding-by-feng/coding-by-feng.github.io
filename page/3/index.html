@@ -163,6 +163,307 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/31/Java系列之JVM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/31/Java系列之JVM/" class="post-title-link" itemprop="url">Java系列之JVM</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-31 20:57:37" itemprop="dateCreated datePublished" datetime="2020-03-31T20:57:37+08:00">2020-03-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-18 17:37:37" itemprop="dateModified" datetime="2020-09-18T17:37:37+08:00">2020-09-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/JVM/" itemprop="url" rel="index"><span itemprop="name">JVM</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="JVM的官方规范"><a href="#JVM的官方规范" class="headerlink" title="JVM的官方规范"></a>JVM的官方规范</h2><p>《Java Virtual Machine Specification》</p>
+<h2 id="美团Java面试7连问"><a href="#美团Java面试7连问" class="headerlink" title="美团Java面试7连问"></a>美团Java面试7连问</h2><p><a href="https://zhuanlan.zhihu.com/p/114157783" target="_blank" rel="noopener">马士兵老师的讲解</a></p>
+<h3 id="对象的定位方式"><a href="#对象的定位方式" class="headerlink" title="对象的定位方式"></a>对象的定位方式</h3><h4 id="句柄方式"><a href="#句柄方式" class="headerlink" title="句柄方式"></a>句柄方式</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/QUtvd4.png" alt></p>
+<h4 id="直接指针"><a href="#直接指针" class="headerlink" title="直接指针"></a>直接指针</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/7BWN68.png" alt></p>
+<h3 id="句柄方式-vs-直接指针"><a href="#句柄方式-vs-直接指针" class="headerlink" title="句柄方式 vs 直接指针"></a>句柄方式 vs 直接指针</h3><p>后者的效率更高，但是当GC挪动对象的时候，前者效率更高。（上图中，前者GC挪动存活对象和清理垃圾对象的时候，t的指针不需要变）</p>
+<h3 id="对象怎么分配"><a href="#对象怎么分配" class="headerlink" title="对象怎么分配"></a>对象怎么分配</h3><h3 id="OOP-KLASS模型"><a href="#OOP-KLASS模型" class="headerlink" title="OOP-KLASS模型"></a>OOP-KLASS模型</h3><h2 id="Java内存模型（Java-Memory-Model-JMM）"><a href="#Java内存模型（Java-Memory-Model-JMM）" class="headerlink" title="Java内存模型（Java Memory Model/JMM）"></a>Java内存模型（Java Memory Model/JMM）</h2><p><a href="https://zhuanlan.zhihu.com/p/29881777" target="_blank" rel="noopener">Java内存模型（JMM）总结</a></p>
+<h2 id="Java三种编译方式：前端编译-JIT编译（即时编译）-AOT编译"><a href="#Java三种编译方式：前端编译-JIT编译（即时编译）-AOT编译" class="headerlink" title="Java三种编译方式：前端编译 JIT编译（即时编译） AOT编译"></a>Java三种编译方式：前端编译 JIT编译（即时编译） AOT编译</h2><p><a href="https://blog.csdn.net/tjiyu/article/details/53748965" target="_blank" rel="noopener">https://blog.csdn.net/tjiyu/article/details/53748965</a></p>
+<h2 id="JVM各种实现"><a href="#JVM各种实现" class="headerlink" title="JVM各种实现"></a>JVM各种实现</h2><p>实现JVM规范的各种虚拟机：</p>
+<ul>
+<li>Oracle的HotSpot</li>
+</ul>
+<h2 id="java的nio"><a href="#java的nio" class="headerlink" title="java的nio"></a>java的nio</h2><h2 id="Java的AOT、JIT（Just-in-time-即时编译）"><a href="#Java的AOT、JIT（Just-in-time-即时编译）" class="headerlink" title="Java的AOT、JIT（Just in time/即时编译）"></a>Java的AOT、JIT（Just in time/即时编译）</h2><h2 id="Java内存（映像）分析工具（hprof文件分析工具）"><a href="#Java内存（映像）分析工具（hprof文件分析工具）" class="headerlink" title="Java内存（映像）分析工具（hprof文件分析工具）"></a>Java内存（映像）分析工具（hprof文件分析工具）</h2><p><a href="https://youzhixueyuan.com/jvm-performance-analysis-tool.html" target="_blank" rel="noopener">https://youzhixueyuan.com/jvm-performance-analysis-tool.html</a><br>目前主流有四大工具：</p>
+<ul>
+<li>Jconsole（JDK自带，功能简单）</li>
+<li>VisualVM（JDK自带，功能强大）</li>
+<li>JProfiler（商业软件，功能强大）</li>
+<li>MAT（基于Eclipse）</li>
+</ul>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="jar"><a href="#jar" class="headerlink" title="jar"></a>jar</h3><p>list the files in the jar.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar -tf xxx.jar</span><br></pre></td></tr></table></figure></p>
+<h3 id="javap（The-Java-Class-File-Disassembler、Java-class文件反编译程序）"><a href="#javap（The-Java-Class-File-Disassembler、Java-class文件反编译程序）" class="headerlink" title="javap（The Java Class File Disassembler、Java class文件反编译程序）"></a>javap（The Java Class File Disassembler、Java class文件反编译程序）</h3><p>解压jar包，并反编译class输入到txt文件查看<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unzip Classes.jar</span><br><span class="line">find . -name &apos;*.class&apos; | xargs javap -p &gt; classes.txt</span><br></pre></td></tr></table></figure></p>
+<h3 id="查找命令所在目录"><a href="#查找命令所在目录" class="headerlink" title="查找命令所在目录"></a>查找命令所在目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">where java</span><br><span class="line">where javac</span><br><span class="line">where jar</span><br><span class="line">where jvisualvm</span><br><span class="line"># where也可以换成which</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/04/大杂烩/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/04/大杂烩/" class="post-title-link" itemprop="url">大杂烩</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-04 19:13:39" itemprop="dateCreated datePublished" datetime="2020-08-04T19:13:39+08:00">2020-08-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-18 16:05:52" itemprop="dateModified" datetime="2020-09-18T16:05:52+08:00">2020-09-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="专业方法和技巧"><a href="#专业方法和技巧" class="headerlink" title="专业方法和技巧"></a>专业方法和技巧</h1><h2 id="第一原理（第一性原理、第一思维方式）"><a href="#第一原理（第一性原理、第一思维方式）" class="headerlink" title="第一原理（第一性原理、第一思维方式）"></a>第一原理（第一性原理、第一思维方式）</h2><p><a href="https://wiki.mbalib.com/wiki/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86" target="_blank" rel="noopener">https://wiki.mbalib.com/wiki/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86</a><br>“我们运用第一性原理，而不是比较思维去思考问题是非常重要的。我们在生活中总是倾向于比较，对别人已经做过或者正在做的事情我们也都去做，这样发展的结果只能产生细小的迭代发展。第一性原理的思想方式是用物理学的角度看待世界，也就是说一层层拨开事物表象，看到里面的本质，再从本质一层层往上走。”这是马斯克眼中的“第一性原理思维模型”——回溯事物的本质，重新思考怎么做。</p>
+<h2 id="费曼4步学习法"><a href="#费曼4步学习法" class="headerlink" title="费曼4步学习法"></a>费曼4步学习法</h2><h2 id="艾宾浩斯记忆曲线"><a href="#艾宾浩斯记忆曲线" class="headerlink" title="艾宾浩斯记忆曲线"></a>艾宾浩斯记忆曲线</h2><p>遗忘曲线（Forgetting curve）是用于表述记忆中的中长期记忆的遗忘率的一种曲线。这一曲线最早由心理学家赫尔曼·艾宾浩斯通过自己的实验提出。在这一实验中，艾宾浩斯使用了一些毫无意义的字母组合。通过记忆这些字母组合，并在一系列时间间隔后检查遗忘率，得到了这一曲线。因此，这一曲线又叫艾宾浩斯遗忘曲线。<br>记忆曲线大概如下：</p>
+<ul>
+<li>20分钟后，42%被遗忘掉，58%被记住。</li>
+<li>1小时后，56%被遗忘掉，44%被记住。</li>
+<li>1天后，74%被遗忘掉，26%被记住。</li>
+<li>1周后，77%被遗忘掉，23%被记住。</li>
+<li>1个月后，79%被遗忘掉，21%被记住。</li>
+</ul>
+<blockquote>
+<p>Anki Notes这个软件就是根据这个原理设计的。</p>
+</blockquote>
+<h2 id="罗斯福专业法"><a href="#罗斯福专业法" class="headerlink" title="罗斯福专业法"></a>罗斯福专业法</h2><h2 id="达芬奇笔记"><a href="#达芬奇笔记" class="headerlink" title="达芬奇笔记"></a>达芬奇笔记</h2><h1 id="一些个专有名词"><a href="#一些个专有名词" class="headerlink" title="一些个专有名词"></a>一些个专有名词</h1><h2 id="边际效益"><a href="#边际效益" class="headerlink" title="边际效益"></a>边际效益</h2><p><a href="https://baike.baidu.com/item/%E8%BE%B9%E9%99%85%E6%95%88%E7%9B%8A/2414098?fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/%E8%BE%B9%E9%99%85%E6%95%88%E7%9B%8A/2414098?fr=aladdin</a></p>
+<h2 id="方法论-VS-世界观"><a href="#方法论-VS-世界观" class="headerlink" title="方法论 VS 世界观"></a>方法论 VS 世界观</h2><p><strong><em>它是人们用什么样的方式、方法来观察事物和处理问题。概括地说，世界观主要说明世界“是什么”的问题，方法论主要说明“怎么办”的问题。</em></strong><br>方法论是一种以解决问题为目标的理论体系或系统，通常涉及对问题阶段、任务、工具、方法技巧的论述。方法论会对一系列具体的方法进行分析研究、系统总结并最终提出较为一般性的原则。<br><a href="https://baike.baidu.com/item/%E6%96%B9%E6%B3%95%E8%AE%BA/82748?fr=aladdin" target="_blank" rel="noopener">方法论的百度百科</a></p>
+<h2 id="衰减平均值"><a href="#衰减平均值" class="headerlink" title="衰减平均值"></a>衰减平均值</h2><p>“衰减平均值”是指它会比普通的平均值更容易受到新数据的影响，平均值代表整体平均状态，但衰减平均值更准确地代表“最近的”平均状态。</p>
+<h2 id="人口红利"><a href="#人口红利" class="headerlink" title="人口红利"></a>人口红利</h2><p>一国人口生育率的迅速下降在造成人口老龄化加速的同时，少儿抚养比例迅速下降，劳动年龄人口比例上升，在老年人口比例达到较高水平之前，将形成一个劳动力资源相对丰富、抚养负担轻、于经济发展十分有利的“黄金时期”，人口经济学家称之为“人口红利”。</p>
+<h1 id="成语-amp-词语"><a href="#成语-amp-词语" class="headerlink" title="成语&amp;词语"></a>成语&amp;词语</h1><ul>
+<li>睚眦必报</li>
+<li>兼听则明，偏听则暗</li>
+<li>触类旁通</li>
+<li>高光时刻</li>
+<li>窸窸窣窣</li>
+<li>侧足而立</li>
+<li>相悖</li>
+<li>商榷</li>
+<li>结痂</li>
+<li>一骑绝尘</li>
+<li>罄竹难书</li>
+</ul>
+<h1 id="权威书籍"><a href="#权威书籍" class="headerlink" title="权威书籍"></a>权威书籍</h1><h2 id="《金字塔原理》"><a href="#《金字塔原理》" class="headerlink" title="《金字塔原理》"></a>《金字塔原理》</h2><h2 id="《罗伯特议事规则》"><a href="#《罗伯特议事规则》" class="headerlink" title="《罗伯特议事规则》"></a>《罗伯特议事规则》</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/05/English系列-思维练习错题笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/05/English系列-思维练习错题笔记/" class="post-title-link" itemprop="url">English系列-思维练习错题笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-05 22:47:26" itemprop="dateCreated datePublished" datetime="2020-08-05T22:47:26+08:00">2020-08-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-18 13:56:54" itemprop="dateModified" datetime="2020-09-18T13:56:54+08:00">2020-09-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Yesterday I had a phone call from Clint. I was very surprised. I <strong>__</strong> （write） to him many times but he <strong>__</strong> （never, reply） to my letters.<br>答案：had written, had never replied<br>解析：两个或两个以上相继发生的动作，用and或but按动作发生的先后顺序连接，此时要用一般过去时，而不用过去完成时。过去完成时则强调主语在过去的某一时刻“回顾”更早的动作。具体来说，如果在谈论过去某一事件时，又想到在这之前已发生的某事，就要用过去完成时态。   </p>
+<p>A: I need to find a dermatologist.（皮肤科医生） You’re familiar with Dr. Smith. Do you recommend her?<br>B: Well, I <strong>__</strong> （see） by her a few times. And the best I can say for her is she has interesting magazines in her waiting room.<br>答案：have been seen<br>解析：在英语中，“动作表达”的完成时态强调最近发生的事件，而“状态表达”的完成时态强调“较远的过去”经历。   </p>
+<p>It’s reported that by the end of this month the output of cement in the factory <strong>__</strong> （rise） by about 10%.<br>答案：will have risen<br>解析：将来完成时是以“将来”作为“坐标时间”，来表示开始于将来之前（可能是过去、现在或将来）的动作持续到将来。但动作开始的时间并不重要，关键是说话人要站在将来的某一时间来谈某一动作的完成情况。</p>
+<p>I have entered the university for two years.<br>答案：错误，应改为：I have been in the university for two years，或者用一般过去时态说成：I entered the university two years ago.</p>
+<p>He has left his native place for three years.<br>答案：“单一事件”完成时的肯定句不与持续的时间状语连用，动词leave（left的原形）是非延续性动词，不能跟一段时间状语（否定句除外）。</p>
+<p>A: Are you glad you came to China?<br>B: Yes. Indeed. 我本来是要考虑去Tokyo or Singapore, but 我从不后 悔我的决定。<br>答案：I’d considered going to Tokyo or Singapore, but I’ve never regretted my decision.<br>解析：表示“非真实”的过去，主要是指intend，mean，hope，want，plan，suppose，expect， think，propose和wish等动词用于过去完成时，可表示过去未能实现的计划、设想、意图或希望等。   </p>
+<p>George would certainly have attended the proceedings <strong>__</strong>.<br>A. had he not had a flat tire<br>B. had the tire no flattened itself<br>C. if the flat tire hadn’t happened<br>D. if he didn’t get a flat tire<br>答案：A</p>
+<p>If Greek civilization <strong>__</strong> all of Europe, English wouldn’t contain so many Greek words.<br>A. hadn’t influenced<br>B. doesn’t influence<br>C. hasn’t influenced<br>D. didn’t influence<br>答案：A</p>
+<p>Nelson <strong>__</strong> the fight, with a little more training and a better manager.<br>A. would win<br>B. had won<br>C. could have won<br>D. won<br>答案：C<br>解析：尼尔森本可以赢得这场战斗，但需要更多的训练和更好的教练。</p>
+<p>He would rather <strong>__</strong> than worked last night.<br>A. have slept<br>B. has slept<br>C. sleep<br>D. slept<br>答案：A<br>解析：本题考查 would rather have done 的虚拟句型，本题相当于“He would rather have slept than have worked last night.” ，后边的 have 被省去了。</p>
+<p>If the climate had been more favorable, the crops <strong>__</strong> still better.<br>A. would have grown<br>B. would be growing<br>C. would be grown<br>D. will grow<br>答案：A</p>
+<p>These facts suggested that women <strong>__</strong> in opportunity for physical exercise by cultural taboos.<br>A. should been limited<br>B. had been limited<br>C. be limited<br>D. have been limited<br>答案：B<br>解析：这里的 suggested 是“表明，显示”而不是“建议”的意思，因而不用虚拟语气。</p>
+<p>The result has turned still worse than it <strong>__</strong><br>A. would otherwise have been<br>B. would be otherwise<br>C. has otherwise been<br>D. had otherwise been<br>答案：A<br>解析：这里有 otherwise ，表明要用虚拟，且是虚拟的主句形式。另根据句意判断，这里是表示过去虚拟，故要用 would have done 形式，所以 A 正确。</p>
+<p>We (could, might) go to that new restaurant opposite the cinema.<br>答案：could<br>解析：用于表示委婉的“建议”，此时，could并不表示过去。</p>
+<p>You (could, may) be right, but I still don’t agree with you!<br>答案：may<br>解析：could更加的委婉和客观，因为后面的but I still don’t agree with you，所有要用may，即使两者可能性程度都很低。</p>
+<p>The situation was bad but it (could be, may have been, could have been) worse.<br>答案：could have been</p>
+<p>Thank you very much for buying me flowers. You <strong>__</strong> (buy) me flowers.<br>错误答案：couldn’t have bought<br>正确答案：shouldn’t have bought<br>解析：虽然could用于表示委婉的“建议，但是couldn’t就失去了委婉的含义了。</p>
+<p>Mary was a talented violinist at the age of ten. She <strong>__</strong> (play) the violin very well when she was ten.<br>错误答案：must have played<br>正确答案：could play<br>解析：这里要表达的是过去的能力（过去的潜能）</p>
+<p>Our worrying so much was a waste of time.=We <strong>__</strong> (worry) so much.<br>错误答案：shouldn’t worry<br>正确答案：needn’t have worried<br>解析：这里的need是情态动词。表示“没必要做……”</p>
+<p>It’s possible that the last person to leave didn’t lock the door.=The last person to leave <strong>__</strong> (lock) the door.<br>错误答案：could haven’t locked<br>正确答案：may not have locked<br>解析：过去推测，在否定句中，can’t/couldn’t要比may not/might not的否定语气强烈。</p>
+<p>She paid him and walked off. Then she realized that he <strong>__</strong> (not, be) a deaf mute. How did she know? He must have heard her initial instructions or he <strong>__</strong> (not, know) where to take her.<br>正确答案：can’t have been    wouldn’t have known<br>解析：can’t在此表示不可能，后者是过去虚拟语气</p>
+<p>The boss has promised that every player in NBA <strong>__</strong> have a rise in income.<br>A. would B. might C. shall D. should<br>正确答案：C<br>解析：shall用于第二、三人称的陈述句中，可以表示说话人的许诺。</p>
+<p>He was a good swimmer so he <strong>__</strong> swim to the river bank when the boat sank.<br>A. could B. might C. succeeded to D. was able to<br>正确答案：D<br>解析：was able to才是表达过去具体的能力，could只能表达过去潜在的能力。</p>
+<p>He did very badly on the exam. He <strong>__</strong> harder.<br>A. must study B. must have studied C. should study D. should have studied<br>正确答案：D<br>解析：</p>
+<p>He <strong>__</strong> pull down a bull and acknowledged as a man with superman strength.<br>A. used to be able to B. would be able to C. should be able to D. might be able to<br>正确答案：A<br>解析：为什么C不可以？</p>
+<p>This book falls overdue a week; I must be fined.<br>这本书过期一周了，我肯定会被罚款。</p>
+<p>He looked <strong>__</strong>.<br>A. nervously<br>B. around nervous<br>C. around nervously<br>正确答案：C<br>解析：C。look作系动词时，意为“看起来”，后面接形容词作表语。look作行为动词时，意为“看”，lookC。look作系动词时，意为“看起来”，后面接形容词作表语。look作行为动词时，意为“看”，look around意为“朝周围看”，可以被副词nervously修饰，充当其方式状语。</p>
+<p>In 1952 Ernest Hemingway published The Old Man and the Sea, <strong>__</strong>.<br>A. won him the Nobel Prize for Literature in 1954<br>B. and the Nobel Prize for Literature won in 1954<br>C. in 1954 won the Nobel Prize for Literature for this work<br>D. a work that won him the Nobel Prize for Literature in 1954<br>正确答案：D<br>解析：本题考查双宾语结构：win sb. sth.。这里D选项中 a work是作为同位语，补充说明The Old Man and the Sea。然后在work后边接一个定语从句。 精品译文：在1952年，欧内斯特·海明威发表了小说《老人与海》，这部作品为他赢得了1954年的诺贝尔文学奖。</p>
+<p>The question is <strong>__</strong> can be put into practice.<br>A. how you have learned<br>B. how that you have learned<br>C. that why you have learned<br>D. how what you have learned<br>正确答案：D<br>解析：D。这是从句的嵌套结构。首先是how引导一个表语从句，然后在此从句中，嵌套一个what引导的主语从句。其中what充当从句谓语learned的宾语。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Interview汇总/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -397,660 +698,6 @@
 <h2 id="Published-ports-are-discarded-when-using-host-network-mode"><a href="#Published-ports-are-discarded-when-using-host-network-mode" class="headerlink" title="Published ports are discarded when using host network mode"></a>Published ports are discarded when using host network mode</h2><p>host的网络模式不能-p映射端口</p>
 <h2 id="OCI-runtime-exec-failed-exec-failed-container-linux-go-349-starting-container-process-caused-“exec-”bash-”-executable-file-not-found-in-PATH”-unknown"><a href="#OCI-runtime-exec-failed-exec-failed-container-linux-go-349-starting-container-process-caused-“exec-”bash-”-executable-file-not-found-in-PATH”-unknown" class="headerlink" title="OCI runtime exec failed: exec failed: container_linux.go:349: starting container process caused “exec: \”bash\”: executable file not found in $PATH”: unknown"></a>OCI runtime exec failed: exec failed: container_linux.go:349: starting container process caused “exec: \”bash\”: executable file not found in $PATH”: unknown</h2><p>三种模式选择一种试试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it 1e33b26152e1 /bin/sh</span><br><span class="line">docker exec -it 1e33b26152e1 bash</span><br><span class="line">docker exec -it 1e33b26152e1 sh</span><br></pre></td></tr></table></figure></p>
 <h2 id="mkdir-can’t-create-directory-‘-tmp’-File-exists"><a href="#mkdir-can’t-create-directory-‘-tmp’-File-exists" class="headerlink" title="mkdir: can’t create directory ‘/tmp’: File exists"></a>mkdir: can’t create directory ‘/tmp’: File exists</h2><p>Dockerfile里面RUN命令创建文件夹的时候注意不要和系统同路径，不然会报错。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Vue系列之基础知识/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/15/Vue系列之基础知识/" class="post-title-link" itemprop="url">Vue系列之基础知识</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-10-15 21:11:24" itemprop="dateCreated datePublished" datetime="2019-10-15T21:11:24+08:00">2019-10-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-17 09:11:57" itemprop="dateModified" datetime="2020-09-17T09:11:57+08:00">2020-09-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="eslint-plugin-vue-todo"><a href="#eslint-plugin-vue-todo" class="headerlink" title="eslint-plugin-vue todo"></a>eslint-plugin-vue todo</h2><h2 id="调试技巧-todo"><a href="#调试技巧-todo" class="headerlink" title="调试技巧 todo"></a>调试技巧 todo</h2><h2 id="前端加密的库CryptoJS使用demo-todo"><a href="#前端加密的库CryptoJS使用demo-todo" class="headerlink" title="前端加密的库CryptoJS使用demo todo"></a>前端加密的库CryptoJS使用demo todo</h2><p>以及相同的流行的库有什么？</p>
-<h2 id="Vue的生命周期-todo"><a href="#Vue的生命周期-todo" class="headerlink" title="Vue的生命周期 todo"></a>Vue的生命周期 todo</h2><h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="Vue-js-devtools灰色状态"><a href="#Vue-js-devtools灰色状态" class="headerlink" title="Vue.js devtools灰色状态"></a>Vue.js devtools灰色状态</h2><p>首先要确保编译的控制台没有error,在Sources里面有源码可以debug。</p>
-<h2 id="Invalid-prop-type-check-failed-for-prop-“queryForm”-Expected-Array-got-Promise"><a href="#Invalid-prop-type-check-failed-for-prop-“queryForm”-Expected-Array-got-Promise" class="headerlink" title="Invalid prop: type check failed for prop “queryForm”. Expected Array, got Promise"></a>Invalid prop: type check failed for prop “queryForm”. Expected Array, got Promise</h2><p>原因是因为prop “queryForm”，期待拿到的是一个Array数组对象，但是传进去的却是一个Promise对象，所以抛出这个报错，类似的错误一般会有：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Vue warn]: Invalid prop: type check failed for prop &quot;data&quot;. Expected Array, got String.</span><br></pre></td></tr></table></figure></p>
-<h2 id="Vue中监听路由参数变化的方法"><a href="#Vue中监听路由参数变化的方法" class="headerlink" title="Vue中监听路由参数变化的方法"></a>Vue中监听路由参数变化的方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">      $route()&#123;</span><br><span class="line">        this.pjtid = this.$route.query.pjtid</span><br><span class="line">      &#125;,</span><br><span class="line">      pjtid() &#123;</span><br><span class="line">        this.pjtdetail()</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>还可以监听url的前后变化：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$route (to, from) &#123;</span><br><span class="line">      this.init()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="VueRouter进不去组件的原因"><a href="#VueRouter进不去组件的原因" class="headerlink" title="VueRouter进不去组件的原因"></a>VueRouter进不去组件的原因</h2><blockquote>
-<p>有可能是父路径的path忘记以/开头了，比如：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">export default [&#123;</span><br><span class="line">  path: &apos;index&apos;,</span><br><span class="line">  component: $ =&gt; import(&apos;@/page/index/Index&apos;)</span><br><span class="line">&#125;, &#123;</span><br><span class="line">  path: &apos;vocabulary&apos;,</span><br><span class="line">  component: $ =&gt; import(&apos;@/page/word/Search&apos;),</span><br><span class="line">  children: [&#123;</span><br><span class="line">    path: &apos;detail&apos;,</span><br><span class="line">    component: $ =&gt; import(&apos;@/page/word/Detail&apos;)</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    path: &apos;starList&apos;,</span><br><span class="line">    component: $ =&gt; import(&apos;@/page/word/StarList&apos;)</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    path: &apos;starListDetail&apos;,</span><br><span class="line">    component: $ =&gt; import(&apos;@/page/word/StarListDetail&apos;)</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
-<p>这样子的话浏览器访问<a href="http://localhost:8080/#/index会出现空白!" target="_blank" rel="noopener">http://localhost:8080/#/index会出现空白!</a></p>
-<h2 id="filters-调用到this对象的data、methods"><a href="#filters-调用到this对象的data、methods" class="headerlink" title="filters 调用到this对象的data、methods"></a>filters 调用到this对象的data、methods</h2><p><a href="https://blog.csdn.net/ee_11eeeeee/article/details/102961376" target="_blank" rel="noopener">https://blog.csdn.net/ee_11eeeeee/article/details/102961376</a></p>
-<h2 id="Avoid-mutating-a-prop-directly-since-the-value-will-be-overwritten-whenever"><a href="#Avoid-mutating-a-prop-directly-since-the-value-will-be-overwritten-whenever" class="headerlink" title="Avoid mutating a prop directly since the value will be overwritten whenever"></a>Avoid mutating a prop directly since the value will be overwritten whenever</h2><p>props从父组件传递数据到子组件，不能子组件更改修改父组件，单向传递，用临时局部变量代替。</p>
-<h2 id="ios手机点击输入框页面放大，输入框失焦后，页面不复原，仍保持放大状态"><a href="#ios手机点击输入框页面放大，输入框失焦后，页面不复原，仍保持放大状态" class="headerlink" title="ios手机点击输入框页面放大，输入框失焦后，页面不复原，仍保持放大状态"></a>ios手机点击输入框页面放大，输入框失焦后，页面不复原，仍保持放大状态</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot;&gt;</span><br></pre></td></tr></table></figure>
-<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="重要备忘"><a href="#重要备忘" class="headerlink" title="重要备忘"></a>重要备忘</h2><ul>
-<li>在标签的属性与vue的变量或者方法绑定中，千万记得不要使用this.开头，这样子会读取到标签本身的属性值的</li>
-<li>vue的html标签如果属性绑定调用的是方法返回的，注意要在方法名后面加上()，不然可能会被解析为变量名</li>
-<li>引入js的单个或这个静态的方法或变量，一定要加{}，比如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123;BILL_BUTTON_CONFIGS&#125; from &apos;./buttonConfig&apos;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>不能是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import BILL_BUTTON_CONFIGS from &apos;./buttonConfig&apos;</span><br></pre></td></tr></table></figure></p>
-<p>不然里面的BILL_BUTTON_CONFIGS常量使用会undefined</p>
-<ul>
-<li>v-bind绑定是可以使用三目运算符的<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:class=&quot;taskVO.selected?&apos;selected&apos;:&apos;&apos;&quot;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="log打印"><a href="#log打印" class="headerlink" title="log打印"></a>log打印</h2><p>如果变量打印前面加了字符串拼接的话，chrome是不会自动打印变量的具体内容的！</p>
-<h2 id="API-in-common-use"><a href="#API-in-common-use" class="headerlink" title="API in common use"></a>API in common use</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">v:bind:attribute</span><br><span class="line">v-html</span><br><span class="line">v-on:click</span><br><span class="line">v-on:dblclick</span><br><span class="line">v-on:mousemove</span><br><span class="line"></span><br><span class="line">v-on:可以用@代替</span><br></pre></td></tr></table></figure>
-<h2 id="vue-import"><a href="#vue-import" class="headerlink" title="vue import @"></a>vue import @</h2><p>@ 等价于 /src 这个目录，避免写麻烦又易错的相对路径</p>
-<h2 id="使用Vue-prototype实现全局变量"><a href="#使用Vue-prototype实现全局变量" class="headerlink" title="使用Vue.prototype实现全局变量"></a>使用Vue.prototype实现全局变量</h2><p>当你在main.js里声明了Vue.prototype.a = 1后，因为你的每一个vue组件都是一个Vue对象的实例，所以即使你没有在组件内部使用data(){return{……}}声明a，你依然可以在组件中通过this.a来访问。</p>
-<h2 id="Template-Literals（模板对象）-in-ES6"><a href="#Template-Literals（模板对象）-in-ES6" class="headerlink" title="Template Literals（模板对象） in ES6"></a>Template Literals（模板对象） in ES6</h2><p>如在es5中拼凑字符串需要+’’以及变量名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var name = &apos;Your name is &apos; + first + &apos; &apos; + last + &apos;.&apos;;</span><br><span class="line">var url = &apos;http://localhost:3000/api/messages/&apos; + id;</span><br></pre></td></tr></table></figure></p>
-<p>在es6中新增添了${}的使用方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var name = `Your name is $&#123;first&#125; $&#123;last&#125;. `;</span><br><span class="line">var url = `http://localhost:3000/api/messages/$&#123;id&#125;`;</span><br></pre></td></tr></table></figure></p>
-<h2 id="no-undef"><a href="#no-undef" class="headerlink" title="no-undef"></a>no-undef</h2><p>“extends”: “eslint:recommended”配置文件中的属性启用此规则。<br>此规则可以帮助您查找由变量和参数名称拼写错误或意外隐式全局变量（例如，var在for循环初始值设定项中遗忘关键字）导致的潜在ReferenceErrors 。</p>
-<h2 id="style-scoped"><a href="#style-scoped" class="headerlink" title="style scoped"></a>style scoped</h2><p>在Vue组件中，为了使样式私有化（模块化），不对全局造成污染，可以在style标签上添加scoped属性以表示它的只属于当下的模块，局部有效。如果一个项目中的所有vue组件style标签全部加上了scoped，相当于实现了样式的私有化。如果引用了第三方组件，需要在当前组件中局部修改第三方组件的样式，而又不想去除scoped属性造成组件之间的样式污染。</p>
-<h2 id="v-model-vs-model"><a href="#v-model-vs-model" class="headerlink" title="v-model vs :model"></a>v-model vs :model</h2><p>v-model是vue内置的控件和变量之间双向数据绑定的指令，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--input输入框，值会在&lt;p&gt;标签打印出来--&gt;</span><br><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">     &lt;input type=&quot;text&quot; v-model=&quot;message&quot; placeholder=&quot;请输入&quot;&gt;</span><br><span class="line">    &lt;p&gt;输入的内容是: &#123;&#123;message&#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var  vue=new Vue(&#123;</span><br><span class="line">        el:&apos;#app&apos;,</span><br><span class="line">        data:&#123;</span><br><span class="line">           message:&apos;&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>:model相当于v-bind:model的缩写，<br>    v-bind动态绑定指令，默认情况下控件自带属性的值是固定的。<br>    这种只是将父组件的数据传递到了子组件，并没有实现子组件和父组件数据的双向绑定。<br>    当然引用类型除外，子组件改变引用类型的数据的话，父组件也会改变的。</p>
-<p>用v-bind和v-on指令实现v-model，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--input输入框--&gt;</span><br><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;!--把message字段的值作为input标签的value属性值，同时监听输入事件，实时更新message的值--&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; @input=&quot;handleInput($event)&quot;  placeholder=&quot;请输入&quot;  v-bind:value=&quot;message&quot;&gt;</span><br><span class="line">    &lt;p&gt;输入的内容是: &#123;&#123;message&#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var  vue=new Vue(&#123;</span><br><span class="line">        el:&apos;#app&apos;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            message:&apos;&apos;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line">            handleInput: function (event) &#123;</span><br><span class="line">                console.info(&quot;控制台打印event详情&quot;)</span><br><span class="line">                console.info(event)</span><br><span class="line">                console.info(event.toLocaleString());</span><br><span class="line">                this.message=event.target.value;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="XML-DOM自带的validate方法"><a href="#XML-DOM自带的validate方法" class="headerlink" title="XML DOM自带的validate方法"></a>XML DOM自带的validate方法</h2><p>查看js源码发现，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">export interface IXMLDOMSchemaCollection &#123;</span><br><span class="line">        length: number;</span><br><span class="line">        namespaceURI(index: number): string;</span><br><span class="line">        validateOnLoad: boolean;</span><br><span class="line"></span><br><span class="line">        add(namespaceURI: string, schema: string|IXMLDOMNode): void;</span><br><span class="line">        addCollection(collection: IXMLDOMSchemaCollection): void;</span><br><span class="line">        get(namespaceURI: string): IXMLDOMNode;</span><br><span class="line">        getDeclaration(node: IXMLDOMNode): ISchemaItem;</span><br><span class="line">        getSchema(namespaceURI: string): ISchema;</span><br><span class="line">        remove(namespaceURI: string): void;</span><br><span class="line">        validate(): void;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p>因此，在vue的代码中，form对象可以直接调用validate()，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">handleLogin () &#123;</span><br><span class="line">  this.$refs.loginForm.validate(valid =&gt; &#123;</span><br><span class="line">    if (valid) &#123;</span><br><span class="line">      this.$store.dispatch(&quot;LoginByUsername&quot;, this.loginForm).then(() =&gt; &#123;</span><br><span class="line">        this.$router.push(&#123; path: this.tagWel.value &#125;);</span><br><span class="line">      &#125;).catch(()=&gt;&#123;</span><br><span class="line">        this.refreshCode()</span><br><span class="line">      &#125;)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="vue中this-router-push-路由传值和获取的两种常见方法"><a href="#vue中this-router-push-路由传值和获取的两种常见方法" class="headerlink" title="vue中this.$router.push()路由传值和获取的两种常见方法"></a>vue中this.$router.push()路由传值和获取的两种常见方法</h2><p><a href="https://www.cnblogs.com/toonezhr/p/10325457.html" target="_blank" rel="noopener">https://www.cnblogs.com/toonezhr/p/10325457.html</a></p>
-<h2 id="Vue-extend-new-Vue-Vue-component-render"><a href="#Vue-extend-new-Vue-Vue-component-render" class="headerlink" title="Vue.extend, new Vue(), Vue.component(), render"></a>Vue.extend, new Vue(), Vue.component(), render</h2><p><a href="https://www.jianshu.com/p/ae319db5b456" target="_blank" rel="noopener">https://www.jianshu.com/p/ae319db5b456</a></p>
-<h2 id="vue-sync修饰符"><a href="#vue-sync修饰符" class="headerlink" title="vue sync修饰符"></a>vue sync修饰符</h2><p>vue 修饰符sync的功能是：当一个子组件改变了一个 prop 的值时，这个变化也会同步到父组件中所绑定。<br><a href="https://www.jianshu.com/p/6b062af8cf01" target="_blank" rel="noopener">https://www.jianshu.com/p/6b062af8cf01</a></p>
-<h2 id="常用属性"><a href="#常用属性" class="headerlink" title="常用属性"></a>常用属性</h2><p>vm.$el<br>获取Vue实例关联的DOM元素；</p>
-<p>vm.$data<br>获取Vue实例的data选项（对象）</p>
-<p>vm.$options<br>获取Vue实例的自定义属性（如vm.$options.methods,获取Vue实例的自定义属性methods）</p>
-<p>vm.$refs<br>获取页面中所有含有ref属性的DOM元素（如vm.$refs.hello，获取页面中含有属性ref = “hello”的DOM元素，如果有多个元素，那么只返回最后一个）<br><a href="https://www.jianshu.com/p/f6f3f00cd923" target="_blank" rel="noopener">https://www.jianshu.com/p/f6f3f00cd923</a></p>
-<h2 id="vue-use和vue-prototype的区别"><a href="#vue-use和vue-prototype的区别" class="headerlink" title="vue.use和vue.prototype的区别"></a>vue.use和vue.prototype的区别</h2><h2 id="watch、mounted、computed、created的区别-todo"><a href="#watch、mounted、computed、created的区别-todo" class="headerlink" title="watch、mounted、computed、created的区别 todo"></a>watch、mounted、computed、created的区别 todo</h2><h3 id="created和mounted的区别"><a href="#created和mounted的区别" class="headerlink" title="created和mounted的区别"></a>created和mounted的区别</h3><p>created:在模板渲染成html前调用，即通常初始化某些属性值，然后再渲染成视图。</p>
-<p>mounted:在模板渲染成html后调用，通常是初始化页面完成后，再对html的dom节点。</p>
-<h4 id="二者的执行顺序"><a href="#二者的执行顺序" class="headerlink" title="二者的执行顺序"></a>二者的执行顺序</h4><p>嵌套组件中两者的执行顺序不同。</p>
-<p>父组件 created</p>
-<p>子组件 created</p>
-<p>子组件 mounted</p>
-<p>父组件 mounted</p>
-<h3 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h3><h4 id="watch的高级用法"><a href="#watch的高级用法" class="headerlink" title="watch的高级用法"></a>watch的高级用法</h4><p>监听变量originList的变化，如果变化了调用init方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mounted () &#123;</span><br><span class="line">    this.$watch(&quot;originList&quot;, this.init)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="gt-import-“-components-common-Empty”-这是什么写法？"><a href="#gt-import-“-components-common-Empty”-这是什么写法？" class="headerlink" title="$=&gt;import(“@/components/common/Empty”)这是什么写法？"></a>$=&gt;import(“@/components/common/Empty”)这是什么写法？</h2><h2 id="this-options"><a href="#this-options" class="headerlink" title="this.$options"></a>this.$options</h2><p>通过this.$options调用方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">his.$options.methods.getPicData.call(this)</span><br></pre></td></tr></table></figure></p>
-<p>带参数的调用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$options.methods.getPicData.call(this,data)</span><br></pre></td></tr></table></figure></p>
-<h2 id="this-emit-Vue子组件向父组件传值"><a href="#this-emit-Vue子组件向父组件传值" class="headerlink" title="this.$emit()/Vue子组件向父组件传值"></a>this.$emit()/Vue子组件向父组件传值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$emit(&apos;refreshCodeTreeFun&apos;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;vercode-info ref=&quot;vercodeInfo&quot; v-if=&quot;showVercodeTable&quot;</span><br><span class="line">				:parent-id=&quot;parentId&quot;</span><br><span class="line">				:current-id=&quot;currentId&quot;</span><br><span class="line">				:parent-name=&quot;parentName&quot;</span><br><span class="line">				:default-node-type=&quot;defaultNodeType&quot;</span><br><span class="line">				:specialty-name=&quot;specialtyName&quot;</span><br><span class="line">				:specialty-id=&quot;specialtyId&quot;</span><br><span class="line">				@refreshCodeTreeFun=&quot;refreshCodeTreeFun&quot;&gt;&lt;/vercode-info&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">refreshCodeTreeFun () &#123;</span><br><span class="line">			this.showCodeTree = false</span><br><span class="line">			setTimeout(() =&gt; &#123;</span><br><span class="line">				this.showCodeTree = true</span><br><span class="line">			&#125;, 1)</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="ref属性"><a href="#ref属性" class="headerlink" title="ref属性"></a>ref属性</h2><p>ref 被用来给元素或子组件注册引用信息。引用信息将会注册在父组件的 $refs 对象上。</p>
-<p>$refs 是所有注册过的ref的一个集合。</p>
-<h2 id="vue语法-（模版字符串）"><a href="#vue语法-（模版字符串）" class="headerlink" title="vue语法 ${ }（模版字符串）"></a>vue语法 <code>${ }</code>（模版字符串）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">const name = &apos;小缘&apos;</span><br><span class="line">const age = 14</span><br><span class="line">console.info(`大家好，我叫$&#123;name&#125;，今年$&#123;age&#125;岁了`)</span><br><span class="line">// 等价于</span><br><span class="line">console.info(&apos;大家好，我叫&apos; + name + &apos;，今年&apos; + age + &apos;岁了&apos;)</span><br><span class="line"> </span><br><span class="line">// 最大的优势是支持换行字符串</span><br><span class="line">const url = &apos;//baidu.com&apos;</span><br><span class="line">const text = &apos;百度一下，你就知道&apos;</span><br><span class="line">const html = `</span><br><span class="line">  &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">    &lt;a href=&quot;$&#123;url&#125;&quot;&gt;$&#123;text&#125;&lt;/a&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">`</span><br><span class="line">————————————————</span><br><span class="line">版权声明：本文为CSDN博主「Hzsilvana」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</span><br><span class="line">原文链接：https://blog.csdn.net/weixin_42776027/java/article/details/101197879</span><br></pre></td></tr></table></figure>
-<h2 id="自定义setter方法，调用时一并返回对象"><a href="#自定义setter方法，调用时一并返回对象" class="headerlink" title="自定义setter方法，调用时一并返回对象"></a>自定义setter方法，调用时一并返回对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">export const createQueryFieldEnhance = function () &#123;</span><br><span class="line">	let field = &#123;</span><br><span class="line">		type: &apos;&apos;, propertyName: &apos;&apos;, fieldName: &apos;&apos;, dataSource: [], dataSourceCode: &apos;&apos;, isMultiple: false,</span><br><span class="line">		setType (type) &#123;</span><br><span class="line">			this.type = type</span><br><span class="line">			return this</span><br><span class="line">		&#125;,</span><br><span class="line">		setPropertyName (propertyName) &#123;</span><br><span class="line">			this.propertyName = propertyName</span><br><span class="line">			return this</span><br><span class="line">		&#125;,</span><br><span class="line">		setFieldName (fieldName) &#123;</span><br><span class="line">			this.fieldName = fieldName</span><br><span class="line">			return this</span><br><span class="line">		&#125;,</span><br><span class="line">		setDataSource (dataSource) &#123;</span><br><span class="line">			this.dataSource = dataSource</span><br><span class="line">			return this</span><br><span class="line">		&#125;,</span><br><span class="line">		setDataSourceCode (dataSourceCode) &#123;</span><br><span class="line">			this.dataSourceCode = dataSourceCode</span><br><span class="line">			return this</span><br><span class="line">		&#125;,</span><br><span class="line">		setIsMultiple (isMultiple) &#123;</span><br><span class="line">			this.isMultiple = isMultiple</span><br><span class="line">			return this</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return field</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="vue组件之间通信的6种方式"><a href="#vue组件之间通信的6种方式" class="headerlink" title="vue组件之间通信的6种方式"></a>vue组件之间通信的6种方式</h2><h3 id="emit-on"><a href="#emit-on" class="headerlink" title="$emit / $on"></a>$emit / $on</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$emit(事件名,数据);</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">async mounted ()&#123;</span><br><span class="line">    this.$on(&quot;refresh&quot;, $=&gt;&#123;</span><br><span class="line">        // xxx</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="输入框Input监听回车"><a href="#输入框Input监听回车" class="headerlink" title="输入框Input监听回车"></a>输入框Input监听回车</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-input v-model=&quot;name&quot; @keyup.enter.native=&quot;onSubmit&quot; placeholder=&quot;User Name&quot;&gt;&lt;/el-input&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="vue监听浏览器窗口的变化"><a href="#vue监听浏览器窗口的变化" class="headerlink" title="vue监听浏览器窗口的变化"></a>vue监听浏览器窗口的变化</h2><p><a href="https://blog.csdn.net/weixin_34049948/article/details/86021903" target="_blank" rel="noopener">https://blog.csdn.net/weixin_34049948/article/details/86021903</a></p>
-<h1 id="Tool"><a href="#Tool" class="headerlink" title="Tool"></a>Tool</h1><p><a href="http://www.html2jade.org/" target="_blank" rel="noopener">html和pug之间的转换</a></p>
-<h2 id="倒计时组件"><a href="#倒计时组件" class="headerlink" title="倒计时组件"></a>倒计时组件</h2><p><a href="https://www.cnblogs.com/haoning/p/11686674.html" target="_blank" rel="noopener">https://www.cnblogs.com/haoning/p/11686674.html</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/01/Idea汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/01/Idea汇总/" class="post-title-link" itemprop="url">Java系列之Idea</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-01 21:10:40" itemprop="dateCreated datePublished" datetime="2019-12-01T21:10:40+08:00">2019-12-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-14 11:20:44" itemprop="dateModified" datetime="2020-09-14T11:20:44+08:00">2020-09-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Idea/" itemprop="url" rel="index"><span itemprop="name">Idea</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="HOTKEY"><a href="#HOTKEY" class="headerlink" title="HOTKEY"></a>HOTKEY</h1><h2 id="Usage-Search（使用查询）"><a href="#Usage-Search（使用查询）" class="headerlink" title="Usage Search（使用查询）"></a>Usage Search（使用查询）</h2><table>
-<thead>
-<tr>
-<th>key</th>
-<th>desc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>cmd+opt+F7</td>
-<td>搜索文件中用法，以弹窗方式显示</td>
-</tr>
-<tr>
-<td>opt+F7</td>
-<td>全局搜索引用</td>
-</tr>
-<tr>
-<td>cmd+shift+F7</td>
-<td>高亮显示当前代码域使用到的地方</td>
-</tr>
-<tr>
-<td>F3 or shift+F3</td>
-<td>搜索当前文件的模式下，按向下 or F3跳到下一处，按向上 or shift+F3跳到上一处</td>
-</tr>
-<tr>
-<td>tab or tab+shift</td>
-<td>在ctrl+shift+f全局搜索的时候，可以通过tab和来移动输入聚焦，可以脱离鼠标来选择右上角的File mask</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Editing（编辑）"><a href="#Editing（编辑）" class="headerlink" title="Editing（编辑）"></a>Editing（编辑）</h2><table>
-<thead>
-<tr>
-<th>key</th>
-<th>desc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>cmd+P</td>
-<td>显示方法的参数，这个方法的强大之处在于，展示了参数之后，在写入传参的时候，弹框会一直存在，让参数更加直观</td>
-</tr>
-<tr>
-<td>cmd++</td>
-<td>展开折叠的代码</td>
-</tr>
-<tr>
-<td>cmd+-</td>
-<td>折叠代码</td>
-</tr>
-<tr>
-<td>shift+上下方向键</td>
-<td>有时候用vim插件的jk上下移动太慢了，而且又不能明确知道要用emacsIdeas调整到哪里，可以用idea自带的shift+上下方向键来快速上下移动代码</td>
-</tr>
-</tbody>
-</table>
-<h2 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h2><table>
-<thead>
-<tr>
-<th>key</th>
-<th>desc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>cmd+shift+F8</td>
-<td>查看断点信息</td>
-</tr>
-<tr>
-<td>shift+F7</td>
-<td>智能步入，断点所在行上有多个方法调用，会弹出进入哪个方法</td>
-</tr>
-<tr>
-<td>^+F5</td>
-<td>重启debug服务</td>
-</tr>
-<tr>
-<td>cmd+F2</td>
-<td>终止debug服务</td>
-</tr>
-<tr>
-<td>^+cmd+W</td>
-<td>将Add to Watches绑定快捷键，可以快速查看变量或者表达式的值</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Spring-Boot-微服务"><a href="#Spring-Boot-微服务" class="headerlink" title="Spring Boot 微服务"></a>Spring Boot 微服务</h2><p>cmd+8 弹出多个微服务的启动控制窗口，可以通过上下左右移动快速定位到某个微服务，通过快捷键^+shiftF10 Runing,或者通过^+shift+F9 Debuging</p>
-<h2 id="General（通用）"><a href="#General（通用）" class="headerlink" title="General（通用）"></a>General（通用）</h2><table>
-<thead>
-<tr>
-<th>key</th>
-<th>desc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>^+cmd+F</td>
-<td>切换全屏模式</td>
-</tr>
-<tr>
-<td>^+cmd+C</td>
-<td>清理控制台的日志之类的，需要再keymap里面设置Other</td>
-<td>Clear All</td>
-</tr>
-<tr>
-<td>opt+F12</td>
-<td>打开或关闭Terminal</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Refactoring（重构）"><a href="#Refactoring（重构）" class="headerlink" title="Refactoring（重构）"></a>Refactoring（重构）</h2><table>
-<thead>
-<tr>
-<th>key</th>
-<th>desc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>F5</td>
-<td>复制文件到指定包路径</td>
-</tr>
-<tr>
-<td>F6</td>
-<td>移动文件到指定包路径</td>
-</tr>
-<tr>
-<td>opt+cmd+t</td>
-<td>surround with 快捷得用各种模板语法包括代码（这个很强大`）</td>
-</tr>
-<tr>
-<td>opt+cmd+m</td>
-<td>提取代码为方法</td>
-</tr>
-<tr>
-<td>opt+cmd+c</td>
-<td>提取代码为常量</td>
-</tr>
-<tr>
-<td>opt+cmd+v</td>
-<td>提取代码为变量</td>
-</tr>
-<tr>
-<td>opt+cmd+f</td>
-<td>提取代码为成员变量</td>
-</tr>
-<tr>
-<td>opt+cmd+p</td>
-<td>提取代码为方法的形参</td>
-</tr>
-<tr>
-<td>opt+cmd+o</td>
-<td>快速去掉多余的import</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Navigation（导航）"><a href="#Navigation（导航）" class="headerlink" title="Navigation（导航）"></a>Navigation（导航）</h2><table>
-<thead>
-<tr>
-<th>key</th>
-<th>desc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>alt+F1</td>
-<td>跳转到当前代码文件很多相关的功能（强大）</td>
-</tr>
-<tr>
-<td>cmd+u</td>
-<td>前往当前光标所在方法的父类的方法 / 接口定义</td>
-</tr>
-<tr>
-<td>cmd+b</td>
-<td>进入定义处</td>
-</tr>
-<tr>
-<td>cmd+opt+b</td>
-<td>进入实现处</td>
-</tr>
-<tr>
-<td>cmd+o</td>
-<td>查询当前类可以继承实现的所有方法</td>
-</tr>
-<tr>
-<td>cmd+F12</td>
-<td>展示当前文件的结果大纲（可用于查询变量、方法等）</td>
-</tr>
-<tr>
-<td>^+shift+B</td>
-<td>跳转到类型声明处，可以直接从类变量跳到对应的类里面</td>
-</tr>
-<tr>
-<td>F12</td>
-<td>返回前一个工具窗口</td>
-</tr>
-<tr>
-<td>shift+esc</td>
-<td>隐藏当前或最后一个活动的窗口，且光标进入代码文件窗口</td>
-</tr>
-<tr>
-<td>opt+F1</td>
-<td>显示当前文件选择目标弹出层，弹出层中有很多目标可以进行选择（如在代码编辑窗口可以选择显示该文件的 Finder）</td>
-</tr>
-<tr>
-<td>⌃H</td>
-<td>显示当前类的层次结构(在类的任何地方可以快速跳转到父类、父接口、子类)</td>
-</tr>
-<tr>
-<td>^+opt+H</td>
-<td>显示所有调用的层次结构</td>
-</tr>
-<tr>
-<td>^+h</td>
-<td>显示类的所有子类型的相关内容</td>
-</tr>
-<tr>
-<td>shift+F4</td>
-<td>在新窗口打开文件</td>
-</tr>
-<tr>
-<td>^+F2</td>
-<td>可以快速跳到idea的菜单栏，然后通过方向键和enter，可以快速进行一下菜单栏的操作，这个快捷键适合其他软件</td>
-</tr>
-<tr>
-<td>^+opt+cmd+N</td>
-<td>跳到next method，这个是我自定义的</td>
-</tr>
-<tr>
-<td>^+opt+cmd+P</td>
-<td>跳到previous method，这个是我自定义的</td>
-</tr>
-<tr>
-<td>跳到光标所在方法的方法名</td>
-<td>先^+opt+cmd+N再^+opt+cmd+P，如果是最后一个方法就反之</td>
-</tr>
-</tbody>
-</table>
-<h2 id="后缀补全"><a href="#后缀补全" class="headerlink" title="后缀补全"></a>后缀补全</h2><h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><p>声明变量或者调用方法之后输入<code>.var</code>，可以自动生成前面的变量声明</p>
-<h3 id="null"><a href="#null" class="headerlink" title="null"></a>null</h3><p>某个变量或者表达式之后输入<code>.null</code>，自动生成if空判断</p>
-<h3 id="nn"><a href="#nn" class="headerlink" title="nn"></a>nn</h3><p>某个变量或者表达式之后输入<code>.nn</code>，自动生成if不为空判断</p>
-<h3 id="not"><a href="#not" class="headerlink" title="not"></a>not</h3><p>某个变量或者表达式之后输入<code>.not</code>，自动生成取反</p>
-<h3 id="还有for、return、if、opt等等常用的"><a href="#还有for、return、if、opt等等常用的" class="headerlink" title="还有for、return、if、opt等等常用的"></a>还有for、return、if、opt等等常用的</h3><h1 id="PLUGIN-插件"><a href="#PLUGIN-插件" class="headerlink" title="PLUGIN(插件)"></a>PLUGIN(插件)</h1><h2 id="emacsIdeas-最强大没有之一"><a href="#emacsIdeas-最强大没有之一" class="headerlink" title="emacsIdeas 最强大没有之一"></a>emacsIdeas 最强大没有之一</h2><blockquote>
-<p>注意如果和IdeaVim一同使用的话，类似^+W的快捷键要更改，不然会和IdeaVim的屏幕分割快捷键冲突了</p>
-</blockquote>
-<h4 id="jump"><a href="#jump" class="headerlink" title="jump"></a>jump</h4><ul>
-<li>Plug-ins | emacsIDEAs | AceJumpSelect       选中当前位置到某个字符</li>
-<li>Plug-ins | emacsIDEAs | HighlightPrevSymbol 高亮跳到上一个一样的字符</li>
-<li>Plug-ins | emacsIDEAs | HighlightNextSymbol 高亮跳到下一个一样的字符</li>
-</ul>
-<h4 id="emacsIdeas-copy"><a href="#emacsIdeas-copy" class="headerlink" title="emacsIdeas copy"></a>emacsIdeas copy</h4><ul>
-<li>Plug-ins | emacsIDEAs | AceJumpCopy.Block       复制特定代码块到当前光标(可以是函数里面的整个形参定义)</li>
-<li>Plug-ins | emacsIDEAs | AceJumpCopy.Line        复制特定行到当前光标</li>
-<li>Plug-ins | emacsIDEAs | AceJumpCopy.Quote       复制特定的引用到当前光标，比如某个引号里面的内容</li>
-<li>Plug-ins | emacsIDEAs | AceJumpCopy.String      复制特定的代码到当前光标，一般是某块前后由空格隔开的代码</li>
-<li>Plug-ins | emacsIDEAs | AceJumpCopy.ToLineEnd   从当前位置复制到行尾</li>
-<li>Plug-ins | emacsIDEAs | AceJumpCopy.ToLineStart 从当前位置复制到行首</li>
-<li>Plug-ins | emacsIDEAs | AceJumpCopy.Paragraph   复制某个特定段落，比如类的某段注释</li>
-<li>Plug-ins | emacsIDEAs | AceJumpCopy.Group       复制某块代码，可以使某个判断的条件+整个花括号{}里面的内容 </li>
-</ul>
-<h4 id="emacsIdeas-delete"><a href="#emacsIdeas-delete" class="headerlink" title="emacsIdeas delete"></a>emacsIdeas delete</h4><ul>
-<li>Plug-ins | emacsIDEAs | AceJumpCut                  从当前位置剪切到某个位置</li>
-<li>Plug-ins | emacsIDEAs | AceJumpDelete.Block         删除特定的代码块 </li>
-<li>Plug-ins | emacsIDEAs | AceJumpDelete.Line          删除特定的代码行</li>
-<li>Plug-ins | emacsIDEAs | AceJumpDelete.Quote         删除特定的引用代码，比如某个引号里面的内容</li>
-<li>Plug-ins | emacsIDEAs | AceJumpDelete.String        删除特定的二个空格之间的字符 </li>
-<li>Plug-ins | emacsIDEAs | AceJumpDelete.Word          删除特定的某个变量方法名（紧挨在一起的代码标识）</li>
-<li>Plug-ins | emacsIDEAs | AceJumpDelete.ToLineEnd     从当前位置删除到行尾</li>
-<li>Plug-ins | emacsIDEAs | AceJumpDelete.ToLineStart   从当前位置删除到行首</li>
-<li>Plug-ins | emacsIDEAs | AceJumpDelete.Paragraph     删除某个特定段落，比如类的某段注释</li>
-</ul>
-<h4 id="emacsIdeas-cut"><a href="#emacsIdeas-cut" class="headerlink" title="emacsIdeas cut"></a>emacsIdeas cut</h4><ul>
-<li>Plug-ins | emacsIDEAs | AceJumpCut  从光标当前位置剪切到某个位置</li>
-</ul>
-<h4 id="emacsIdeas-more"><a href="#emacsIdeas-more" class="headerlink" title="emacsIdeas more"></a>emacsIdeas more</h4><p>AceJumpMove模式，各种快捷键的变种和上面的一样.etc.</p>
-<h2 id="ideaVim"><a href="#ideaVim" class="headerlink" title="ideaVim"></a>ideaVim</h2><p>yy 复制当值当前行，或者选中后y复制，然后输入数字n，再输入p，代表连续粘贴n次。<br>gg 快速移动到文件的开头<br>G  快速移动到文件的结尾</p>
-<h2 id="CamelCase"><a href="#CamelCase" class="headerlink" title="CamelCase"></a>CamelCase</h2><p>opt+shift+u 可以对字符进行驼峰式的不同格式变换，非常实用。</p>
-<h2 id="Grep-Console"><a href="#Grep-Console" class="headerlink" title="Grep Console"></a>Grep Console</h2><p>安装该日志插件，控制台的日志输出可以更加直观，还可以自定义颜色。</p>
-<h2 id="spring-assistant-yml或者properties文件编写提示"><a href="#spring-assistant-yml或者properties文件编写提示" class="headerlink" title="spring assistant(yml或者properties文件编写提示)"></a>spring assistant(yml或者properties文件编写提示)</h2><p>编写yml配置文件的时候，可以自动提示，但是这个自动提示貌似自会提示Spring Boot的基础配置，如果是在配置中心的话，其他的第三方依赖配置要在配置中心引入其spring-boot-starter的依赖才能自动提示对应的配置。</p>
-<p><strong><em>如果对应的依赖引入了之后还不会自动提示，那就需要再idea的模块配置里面将自定义的配置文件加入到配置文件的类别中，如下图:</em></strong><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/EpjOSE.png" alt><br>选择右边的第一个Configuration Files，因为通常配置中心新增的都不会是Bootstrap类别的配置文件，如下图，然后点击下面的绿色按钮，也就是最后一个按钮<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/RWKXhb.png" alt><br>再点击下面的+号，选择对一个的yml或者properties，然后确认就ok了。</p>
-<h2 id="RestfulToolkit"><a href="#RestfulToolkit" class="headerlink" title="RestfulToolkit"></a>RestfulToolkit</h2><p>这个插件可以自动收集项目的Restful风格的接口，还可以在idea里面直接填写参数调用接口</p>
-<h2 id="MyBatis-Log-Plugin"><a href="#MyBatis-Log-Plugin" class="headerlink" title="MyBatis Log Plugin"></a>MyBatis Log Plugin</h2><p>自动打印Mybatis的每一个SQL，有时候我们要抽取SQL不是很方便</p>
-<h2 id="Free-Mybatis-plugin"><a href="#Free-Mybatis-plugin" class="headerlink" title="Free Mybatis plugin"></a>Free Mybatis plugin</h2><p>Mapper与Mapper XML映射之间的调整，方便代码的跟踪查看。<br>而且还可以自动通过Mapper的方法矫正或者生成Mapper.xml的每个xml节点</p>
-<h2 id="ignore（版本控制忽略文件的好插件）支持各种文件忽略的配置"><a href="#ignore（版本控制忽略文件的好插件）支持各种文件忽略的配置" class="headerlink" title=".ignore（版本控制忽略文件的好插件）支持各种文件忽略的配置"></a>.ignore（版本控制忽略文件的好插件）支持各种文件忽略的配置</h2><p><a href="https://blog.csdn.net/byy8023/article/details/82259155" target="_blank" rel="noopener">https://blog.csdn.net/byy8023/article/details/82259155</a></p>
-<h3 id="可以根据项目的引用的构建工具能来针对性忽略"><a href="#可以根据项目的引用的构建工具能来针对性忽略" class="headerlink" title="可以根据项目的引用的构建工具能来针对性忽略"></a>可以根据项目的引用的构建工具能来针对性忽略</h3><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/A8xyJA.png" alt><br>比如我的项目选择了JetBrains、MacOS、Java、Maven、Example user template</p>
-<h3 id="如果出现-gitgnore忽略了某些要被纳入版本控制的文件或目录比如："><a href="#如果出现-gitgnore忽略了某些要被纳入版本控制的文件或目录比如：" class="headerlink" title="如果出现.gitgnore忽略了某些要被纳入版本控制的文件或目录比如："></a>如果出现.gitgnore忽略了某些要被纳入版本控制的文件或目录比如：</h3><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/rXGSPh.png" alt><br>直接删除掉想要重新纳入版本控制的目录或文件即可</p>
-<h3 id="maven的target反复被纳入版本控制"><a href="#maven的target反复被纳入版本控制" class="headerlink" title="maven的target反复被纳入版本控制"></a>maven的target反复被纳入版本控制</h3><p>这个是因为之前target目录已经被版本控制了，需要先关闭idea的自动编译，然后mvn clean一下，再提交所有删除的target文件，然后恢复自动编译配置。</p>
-<p>前提是.gitignore文件里面配置了Maven的忽略目录</p>
-<h2 id="JUnitGenerator-V2-0"><a href="#JUnitGenerator-V2-0" class="headerlink" title="JUnitGenerator V2.0"></a>JUnitGenerator V2.0</h2><p>选中代码中的类名，按cmd+shift+T，可以生成自定义测试类。<br><a href="https://blog.51cto.com/12066352/2134091" target="_blank" rel="noopener">https://blog.51cto.com/12066352/2134091</a></p>
-<h2 id="jclasslib-Bytecode-viewer"><a href="#jclasslib-Bytecode-viewer" class="headerlink" title="jclasslib Bytecode viewer"></a>jclasslib Bytecode viewer</h2><p>查看分析字节码的插件</p>
-<h1 id="Others-其他"><a href="#Others-其他" class="headerlink" title="Others(其他)"></a>Others(其他)</h1><h2 id="修改包名要注意的地方"><a href="#修改包名要注意的地方" class="headerlink" title="修改包名要注意的地方"></a>修改包名要注意的地方</h2><p>修改了包名之后注意在编译输出的目录要清空之前的老的class，不然可能会引起意想不到的冲突。</p>
-<h2 id="有没有更加智能化的API注释查看方法，比如鼠标-cmd的方式就完整地将注释都展示出来？"><a href="#有没有更加智能化的API注释查看方法，比如鼠标-cmd的方式就完整地将注释都展示出来？" class="headerlink" title="有没有更加智能化的API注释查看方法，比如鼠标+cmd的方式就完整地将注释都展示出来？"></a>有没有更加智能化的API注释查看方法，比如鼠标+cmd的方式就完整地将注释都展示出来？</h2><p>ctrl+J<br>可以搜索keymap需改热键，Quick Documentation</p>
-<h2 id="debug的时候变量的多种不同的View"><a href="#debug的时候变量的多种不同的View" class="headerlink" title="debug的时候变量的多种不同的View"></a>debug的时候变量的多种不同的View</h2><p>在Variables右键要跟踪的变量,可以view text，或者view as 其他类型.</p>
-<h2 id="Performance-enhancements（性能增加）"><a href="#Performance-enhancements（性能增加）" class="headerlink" title="Performance enhancements（性能增加）"></a>Performance enhancements（性能增加）</h2><p>idea吃内存确实是有点恐怖，对于调大内存，网上基本都是说调整idea.vmoptions里面的这三个参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-Xms1024m</span><br><span class="line">-Xmx3000m</span><br><span class="line">-XX:ReservedCodeCacheSize=1024m</span><br></pre></td></tr></table></figure></p>
-<p>但是我自己是基于2019.02的版本，发现即使调整了之后重启，idea右下角的内存显示还是原来的Max。<br>其实要这样调整才能真正生效：<br>Help-&gt;Edit Custom VM Options<br>打开这个会发现里面的配置还是原来的，在这里更改再重启，右下角的内存Max才会变大，才能生效。</p>
-<h2 id="cmd-shift-A按第二次的时候老是换出Terminal"><a href="#cmd-shift-A按第二次的时候老是换出Terminal" class="headerlink" title="cmd+shift+A按第二次的时候老是换出Terminal"></a>cmd+shift+A按第二次的时候老是换出Terminal</h2><p><a href="https://intellij-support.jetbrains.com/hc/en-us/articles/360005137400-Cmd-Shift-A-hotkey-opens-Terminal-with-apropos-search-instead-of-the-Find-Action-dialog" target="_blank" rel="noopener">https://intellij-support.jetbrains.com/hc/en-us/articles/360005137400-Cmd-Shift-A-hotkey-opens-Terminal-with-apropos-search-instead-of-the-Find-Action-dialog</a></p>
-<h2 id="Bug"><a href="#Bug" class="headerlink" title="Bug"></a>Bug</h2><p>有时候会出现复制进来的新文件编译之后没有被输出到target对应的目录，应该是idea潜在的bug，如果点击重新加载文件索引太慢了，一般重启一下重新编译可以解决。</p>
-<h2 id="search（搜索）"><a href="#search（搜索）" class="headerlink" title="search（搜索）"></a>search（搜索）</h2><p>全局搜索的时候记得利用好Scope，比如要搜索某个模块，某所最近更改的内容，搜索版本控制的所有更改等等。</p>
-<h2 id="Services"><a href="#Services" class="headerlink" title="Services"></a>Services</h2><p>cmd+8可以将多个SpringBoot的服务（微服务）整一个打开控制，可以结合其他快捷键进行启动、重启和停止，不过第一次使用需要再右下角的弹框中点击确认。<br>此外在Spring Cloud多个微服务的情况下，还可以将不同的微服务分组然后统一对某个组别进行run、debug或者静默断点等操作。</p>
-<h2 id="使用lombok跟踪bean属性调用栈"><a href="#使用lombok跟踪bean属性调用栈" class="headerlink" title="使用lombok跟踪bean属性调用栈"></a>使用lombok跟踪bean属性调用栈</h2><p>opt+F7依然可以看到getter和setter的调用栈。</p>
-<h2 id="SpringBoot-Application的热加载"><a href="#SpringBoot-Application的热加载" class="headerlink" title="SpringBoot Application的热加载"></a>SpringBoot Application的热加载</h2><p>要在debug模式下，设置Hot swap classes and update trigger file if failed，就可以自动热加载class了。</p>
-<h2 id="idea的svn的删除操作"><a href="#idea的svn的删除操作" class="headerlink" title="idea的svn的删除操作"></a>idea的svn的删除操作</h2><p>本地删除之后要在，Locally Deleted Files中点击Remove from VCS，然后再回来上面的Default Changelist去执行Commit删除。</p>
-<h2 id="折叠显示文件"><a href="#折叠显示文件" class="headerlink" title="折叠显示文件"></a>折叠显示文件</h2><p>可以在设置中搜索Soft-Wrap，根据文件格式配置是否折叠显示超过屏幕的行，也可以通过快捷键绑定折叠当前文件。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/dPTK3g.png" alt></p>
-<h2 id="提交代码前要先Optimize-Imports一下"><a href="#提交代码前要先Optimize-Imports一下" class="headerlink" title="提交代码前要先Optimize Imports一下"></a>提交代码前要先Optimize Imports一下</h2><p>可以cmd+9，在Default Changelist上Optimize Imports（opt+cmd+O）,这样就不会优化到其他没有修改到的代码，只操作自己改过的代码。</p>
-<h2 id="Run-Debug-Configurations中Build和Build-Project的区别"><a href="#Run-Debug-Configurations中Build和Build-Project的区别" class="headerlink" title="Run/Debug Configurations中Build和Build Project的区别"></a>Run/Debug Configurations中Build和Build Project的区别</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/sSnMvO.png" alt><br>Build只会编译配置依赖的模块，Build Project会编译模块依赖的所有项目，将编译器交给Maven代工的话注意要选择Build Project。</p>
-<h1 id="all-shortcut"><a href="#all-shortcut" class="headerlink" title="all shortcut"></a>all shortcut</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">新建文件的时候可以这样操作来脱离鼠标：</span><br><span class="line">cmd+1跳到Project目录上下移动到目标目录，然后cmd+shift+A跳出Action，输入new+文件类型或者手动选择文件类型就可以了。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">option+cmd+c 抽取局部字符串为静态变量</span><br><span class="line">cmd+shift+方向键  可以控制模态框的大小，和左右移动编辑区的内容</span><br><span class="line">ctrl+j  展示API文档</span><br><span class="line">ctrl+shift+F,[words 打钩可以搜索是否为单词]</span><br><span class="line">command+D,</span><br><span class="line">commond+F12(file structure)</span><br><span class="line">command+shift+N(search file&apos;s name and global)</span><br><span class="line">commond+option+shift+N(search method d variable global)</span><br><span class="line">shirt + option + (向上箭头)/（向下箭头）(move codes up or down)</span><br><span class="line">Command + Option + L(Format code)</span><br><span class="line">option+enter（add javadoc）</span><br><span class="line">option+command+b(jump into the class impl)</span><br><span class="line">command+e(recent file)</span><br><span class="line">command+shift+a(search action)</span><br><span class="line">command+number(window tab jump)</span><br><span class="line">shift(ctrl)+command+del(last(next) edit location)</span><br><span class="line">F11，command+F11，ctrl+number(alphabet)(bookmarks)</span><br><span class="line">option+shift+F(add to favorites)</span><br><span class="line">shift+option+U(toggle case)</span><br><span class="line">command+1,esc(switch between file navigate and edit area)</span><br><span class="line">option+F7(find usage)</span><br><span class="line">shift+option+方向(move caret to next word)</span><br><span class="line">command+方向(move to first or end of line)</span><br><span class="line">ctrl+command+G(sellect all occurrences) HOT</span><br><span class="line">F2(Quickly locate the wrong line)</span><br><span class="line">option+command+V(generate locate variable)</span><br><span class="line">shift+command+enter(generate some code)</span><br><span class="line">option+enter(generate some method)</span><br><span class="line">command+R(replace)</span><br><span class="line">shift+F6(rename)</span><br><span class="line">option+command+V(Extract Variable)</span><br><span class="line">option+command+C(Extract static Variable) HOT</span><br><span class="line">option+command+F(Extract field Variable)</span><br><span class="line">option+command+P(Extract field Variable into method)</span><br><span class="line">option+command+M(Extract some code to be a new method)HOT</span><br><span class="line">shift+command+F8(show all breakPoints)</span><br><span class="line">shift+command+V(copy history)</span><br><span class="line">shift+option+command+U(show maven dependencies)</span><br><span class="line">option+command+U(show class inherit) HOT</span><br><span class="line">ctrl+option+H(call method or be called history)</span><br><span class="line">ctrl+N(Generate anything)</span><br><span class="line">ctrl+w(select something)</span><br><span class="line">ctrl+&lt; or &gt; (move up or down next method) HOT</span><br><span class="line">cmd+option+T (surround) HOT</span><br></pre></td></tr></table></figure>
-<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="编译出现莫名其妙的找不到符号的Error"><a href="#编译出现莫名其妙的找不到符号的Error" class="headerlink" title="编译出现莫名其妙的找不到符号的Error"></a>编译出现莫名其妙的找不到符号的Error</h2><p>如果找不到符号的错误行数，刚好式同包下的某个类找不到符号报错，那么可能式idea的类编译顺序冲突了，找到报错行上引用到的类，先单独编译应用到的类，再编译报错的类，最后编译整个项目就可以了。</p>
-<h2 id="非静默模式下断点失效"><a href="#非静默模式下断点失效" class="headerlink" title="非静默模式下断点失效"></a>非静默模式下断点失效</h2><p>断点处提示：idea debug no executable code found<br>这个一般是class和idea的代码不一致导致的。<br>解决办法：<br>1、invalidate Caches/Restart<br>2、rebuild Project<br>3、class的输出路径正确<br>4、我自己是因为jboss的On ‘update’ action 被设置成了Restart Server，热部署应该改为：Update classes and resources</p>
-<h2 id="某个jar依赖冲突问题的解决"><a href="#某个jar依赖冲突问题的解决" class="headerlink" title="某个jar依赖冲突问题的解决"></a>某个jar依赖冲突问题的解决</h2><p>公司项目中cglib的包依赖了二个log4j的包，导致控制台启动会报错。 删除项目输出目录下的lib，设置依赖jar的scope为provided。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/7vAT8L.png" alt><br>然后重新部署启动就可以了。</p>
-<h2 id="debug启动微服务莫名其妙卡住的情况"><a href="#debug启动微服务莫名其妙卡住的情况" class="headerlink" title="debug启动微服务莫名其妙卡住的情况"></a>debug启动微服务莫名其妙卡住的情况</h2><p>竟然是因为我在某个方法的声明上打了断点，然后我静默断点时就可以debug启动微服务了：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/Qtfqng.png" alt><br>于是我果断把断点去掉，然后再检查一遍有没有打到方法声明上的断点，全都取消之后重启debug就可以了。</p>
-<h2 id="记录Idea关于Maven依赖的一个致命Bug"><a href="#记录Idea关于Maven依赖的一个致命Bug" class="headerlink" title="记录Idea关于Maven依赖的一个致命Bug"></a>记录Idea关于Maven依赖的一个致命Bug</h2><blockquote>
-<p>基于版本2019.3.4</p>
-</blockquote>
-<p>公司的微服务架构的用的Maven管理依赖，关于流程flowable的的模块ngbip-flow及其几个子模块我放在一个单独的文件夹下面；</p>
-<p>另外的一个项目也是基于微服务架构依赖ngbip-flow及其几个子模块，然后由于启动报了个莫名其妙的错误，于是我删掉了项目对公司自研的所有依赖，重新引入；</p>
-<p>但是这个时候idea移动将ngbip-flow的几个模块的依赖强制指向了上面提到的单独的文件夹下面的ngbip-flow几个子模块的代码文件，不走maven去依赖了，我TM是不同的文件夹（不同的工作区间啊，打开的是不同的idea窗口）；</p>
-<p>最后的硬核解决方法是，将原来的单独文件夹重命名个名字，这个时候另外的项目一下子就自动重新引入ngbip-flow的maven依赖，不会强制走开发机的其他文件夹下面的依赖，然后我再把文件夹名字改回来即可。</p>
-<h2 id="Maven代码不能指向本地工程module代码"><a href="#Maven代码不能指向本地工程module代码" class="headerlink" title="Maven代码不能指向本地工程module代码"></a>Maven代码不能指向本地工程module代码</h2><p>如果出现idea的Modules已经存在，但是代码不能通过Maven依赖到已经引入的module时（此时Maven管理界面可能会出现已经引入的model的maven可视化没有出现），这个时候在工程的Modules删除重新引入应该就可以了。</p>
-<h2 id="Idea出现所有引导到的类报错，连jdk的基础类也报错的情况"><a href="#Idea出现所有引导到的类报错，连jdk的基础类也报错的情况" class="headerlink" title="Idea出现所有引导到的类报错，连jdk的基础类也报错的情况"></a>Idea出现所有引导到的类报错，连jdk的基础类也报错的情况</h2><p>可能是不了心设置了Editor-&gt;File Type中忽略了*.class导致的。<br>如果是项目引入自己项目的代码也报错，可以删掉模块重新import。</p>
-<h2 id="Idea关闭写代码形参提示（会导致变卡）"><a href="#Idea关闭写代码形参提示（会导致变卡）" class="headerlink" title="Idea关闭写代码形参提示（会导致变卡）"></a>Idea关闭写代码形参提示（会导致变卡）</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/RVmJT6.png" alt="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/RVmJT6.png"></p>
-<blockquote>
-<p>有部分内容来自网络，一般都有注明出处，如若侵权，请联系我删除，谢谢！</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/05/数据结构系列之队列-Java/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/05/数据结构系列之队列-Java/" class="post-title-link" itemprop="url">数据结构系列之队列（Java）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-09-05 22:16:36" itemprop="dateCreated datePublished" datetime="2020-09-05T22:16:36+08:00">2020-09-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-12 21:35:49" itemprop="dateModified" datetime="2020-09-12T21:35:49+08:00">2020-09-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://leetcode-cn.com/tag/queue/" target="_blank" rel="noopener">leetcode队列专题</a></p>
-<h2 id="队列的定义"><a href="#队列的定义" class="headerlink" title="队列的定义"></a>队列的定义</h2><p>队列是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作，和栈一样，队列是一种操作受限制的线性表。进行插入操作的端称为队尾，进行删除操作的端称为队头。队列的特点就是先进先出(First In First Out)。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/pRoXuq.png" alt></p>
-<h2 id="顺序队列"><a href="#顺序队列" class="headerlink" title="顺序队列"></a>顺序队列</h2><p>建立顺序队列结构必须为其静态分配或动态申请一片连续的存储空间，并设置两个指针进行管理。一个是队头指针front，它指向队头元素；另一个是队尾指针rear，它指向下一个入队元素的存储位置。</p>
-<blockquote>
-<p>如果没有两个指针，入队操作直接执行顺序表尾部插入操作，其时间复杂度为O(1)，出队操作直接执行顺序表头部删除操作，其时间复杂度为O(n)，<br>增加了front和rear指针，出队操作的时间复杂度也是O(1)了。</p>
-</blockquote>
-<p>空队列：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/VOhvX9.png" alt><br>往队列里面插入A：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/Tvnv7J.png" alt><br>继续插入元素：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/DFz5Ix.png" alt><br>将A和B出队：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/SKuBUa.png" alt><br>继续将D、E、F、G入队：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/Bh2zXE.png" alt><br>由于队列暂时”已满”，G将无法入队，但是此时front前面实际上还有未被利用的空间，这称为<code>&quot;假上溢&quot;现象</code>。<br>之所以出现这样”假溢出”现象是因为顺序表队列的存储单元没有重复利用机制，而解决该问题的最合适的方式就是将顺序队列设计为循环结构。</p>
-<h3 id="“下溢”现象"><a href="#“下溢”现象" class="headerlink" title="“下溢”现象"></a>“下溢”现象</h3><p>当队列为空时，做出队运算产生的溢出现象。“下溢”是正常现象，常用作程序控制转移的条件。</p>
-<h3 id="“真上溢”现象"><a href="#“真上溢”现象" class="headerlink" title="“真上溢”现象"></a>“真上溢”现象</h3><p>当队列满时，做进栈运算产生空间溢出的现象。“真上溢”是一种出错状态，应设法避免。</p>
-<h3 id="“假上溢”现象"><a href="#“假上溢”现象" class="headerlink" title="“假上溢”现象"></a>“假上溢”现象</h3><p>由于入队和出队操作中，头尾指针只增加不减小，致使被删元素的空间永远无法重新利用。当队列中实际的元素个数远远小于向量空间的规模时，也可能由于尾指针已超越向量空间的上界而不能做入队操作。该现象称为”假上溢”现象，如上面的图解。</p>
-<h2 id="循环队列"><a href="#循环队列" class="headerlink" title="循环队列"></a>循环队列</h2><p>循环队列就是将顺序队列设计为在逻辑结构上首尾相接的循环结构，使队列空间能重复使用，往往对队列的使用方法稍加改进：无论插入或删除，一旦rear指针增1或front指针增1时超出了所分配的队列空间，就让它指向这片连续空间的起始位置。自己真从MaxSize-1增1变到0，可用取余运算<code>(rear+1)%MaxSize</code>和<code>(front+1)%MaxSize</code>来实现（如果front和rear是从1开始的，则无需+1）。<br>这实际上是把队列空间想象成一个环形空间，环形空间中的存储单元循环使用，用这种方法管理的队列也就称为循环队列。除了一些简单应用之外，真正实用的队列是循环队列。<br>向循环队列插入A：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/id3Re7.png" alt><br>继续插入B、C（每次入队rear都在增1）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/L9wzvj.png" alt><br>将A、B、C出队（每次出队front都在增1）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/JVFghB.png" alt><br>重新插入A、B、C（此时队列出现”假上溢”现象，使用<code>(rear+1)%MaxSize</code>计算rear）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/M40vAU.png" alt><br>继续将A、B、C出队（此时队列出现”假上溢”现象，使用<code>(front+1)%MaxSize</code>计算front）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/rQlZy9.png" alt><br>重新插入直至队列出现”真上溢”现象，然后可以动态对循环队列进行扩展（并按照原来队列的次序复制元素数组）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/gHQzZs.png" alt></p>
-<h2 id="链式队列"><a href="#链式队列" class="headerlink" title="链式队列"></a>链式队列</h2><p>基于链表的队列，要动态创建和删除节点，效率较低，但是可以动态增长，可以使用带头指针front和尾指针rear的单链表实现，front直接指向队头的第一个元素，rear指向队尾的最后一个元素。<br>队列采用的FIFO(first in first out)，新元素（等待进入队列的元素）总是被插入到链表的尾部，而读取的时候总是从链表的头部开始读取。每次读取一个元素，释放一个元素。所谓的动态创建，动态释放。因而也不存在溢出等问题。由于链表由结构体间接而成，遍历也方便。<br>空链式队列：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/YVIozT.png" alt><br>插入元素（入队）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/cbwuMz.png" alt><br>出队和入队都分别改变front和rear的指向即可。</p>
-<h2 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h2><p>在某些情况下，有些应用系统要求不仅需要按照“先来先服务”的原则进行，而且还需按照任务的重要或紧急程度进行排队处理，此时就需要使用到优先队列。比如在操作系统中进行进程调度管理，每个进程都具备一个优先级值以表示进程的紧急程度，优先级高的进行先执行，同等级进程按照先进先出的原则排队处理，此时操作系统使用的便是优先队列管理和调度进程。<br>优先队列也是一种特殊的数据结构，队列中的每个元素都有一个优先级，按照排序可分类为：</p>
-<ul>
-<li>降序优先级队列：每次出队的是队列当前具有最高优先级的元素。</li>
-<li>升序优先级队列：每次出队的是队列当前具有最低优先级的元素。</li>
-</ul>
-<p>优先队列的实现可以有三种方案：</p>
-<ul>
-<li>有序数组</li>
-<li>有序链表</li>
-<li>也可以使用二叉树（二叉堆）实现</li>
-</ul>
-<h2 id="双端队列"><a href="#双端队列" class="headerlink" title="双端队列"></a>双端队列</h2><p>双端队列可以在队列任意一端入队和出队。此外，经常还会有一个查看（Peek）操作，返回该端的数据而不将其出队。</p>
-<h2 id="队列的应用"><a href="#队列的应用" class="headerlink" title="队列的应用"></a>队列的应用</h2><ul>
-<li>异步数据的处理、传输；</li>
-<li>短信群体发送 应用的发布订阅模式；</li>
-<li>模拟真实的订单服务、售票，以及其他先到先服务的场景。</li>
-</ul>
-<h2 id="Java中的队列"><a href="#Java中的队列" class="headerlink" title="Java中的队列"></a>Java中的队列</h2><h3 id="非阻塞队列"><a href="#非阻塞队列" class="headerlink" title="非阻塞队列"></a>非阻塞队列</h3><ul>
-<li>PriorityQueue</li>
-<li>ConcurrentLinkedQueue</li>
-</ul>
-<h3 id="阻塞队列"><a href="#阻塞队列" class="headerlink" title="阻塞队列"></a>阻塞队列</h3><ul>
-<li>ArrayBlockingQueue</li>
-<li>LinkedBlockingQueue</li>
-<li>PriorityBlockingQueue</li>
-<li>DelayQueue</li>
-<li>SynchronousQueue</li>
-</ul>
-<blockquote>
-<p>参考来源：<a href="https://blog.csdn.net/javazejian/article/details/53375004" target="_blank" rel="noopener">某篇博客</a>、<a href="https://baike.baidu.com/item/%E9%98%9F%E5%88%97/14580481" target="_blank" rel="noopener">百度百科</a>等。</p>
-</blockquote>
 
       
     </div>
