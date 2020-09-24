@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="串的朴素模式匹配 较简单，略过。  KMP算法（朴素模式匹配的优化）朴素模式匹配的缺点是：每当模式串匹配失败的时候，当前的匹配指针都只是往后移动一位，也就是只是把模式串右移一位，而且主串的扫描指针（模式串中匹配到哪一位）都要经常回溯，会造成多余的开销。 假定在某个主串中要匹配google这个模式串，那么其匹配逻辑如下：  声明主串扫描指针为i； 声明模式串扫描指针为j； KMP的算法关键在于匹配失">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-22T14:31:21.356Z">
+<meta property="og:updated_time" content="2020-09-22T14:37:23.526Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构系列之串（Java）">
 <meta name="twitter:description" content="串的朴素模式匹配 较简单，略过。  KMP算法（朴素模式匹配的优化）朴素模式匹配的缺点是：每当模式串匹配失败的时候，当前的匹配指针都只是往后移动一位，也就是只是把模式串右移一位，而且主串的扫描指针（模式串中匹配到哪一位）都要经常回溯，会造成多余的开销。 假定在某个主串中要匹配google这个模式串，那么其匹配逻辑如下：  声明主串扫描指针为i； 声明模式串扫描指针为j； KMP的算法关键在于匹配失">
@@ -196,7 +196,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-22 22:31:21" itemprop="dateModified" datetime="2020-09-22T22:31:21+08:00">2020-09-22</time>
+                <time title="Modified: 2020-09-22 22:37:23" itemprop="dateModified" datetime="2020-09-22T22:37:23+08:00">2020-09-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -232,7 +232,7 @@
 <li>当j=0匹配不成功时，j不变，i++</li>
 <li>当j&gt;0匹配不成功时，j回到最后一个有可能接下来匹配成功的下标，i不变（比如模式串google，在j等于4时不匹配，那么j应该回溯到1） </li>
 </ul>
-<p>j指针的具体回溯如下，并且可以一个<code>int类型数组</code>来存储器回溯的下标。</p>
+<p>j指针的具体回溯如下，并且可以一个<code>int类型数组</code>来存储器其回溯的下标。</p>
 <ul>
 <li>若当前两个字符匹配，则i++，j++</li>
 <li>若j=0时发生不匹配，则应让i++，但是此时的next[j]=-1</li>
@@ -251,12 +251,12 @@
 <li>串的前缀：包含第一个字符，且不包含最后一个字符的子串。</li>
 <li>串的后缀：包含最后一一个字符，且不包含第一一个字符的子串。</li>
 </ul>
-<p>对于长度只有1的串来说，其前后缀都是空集。<br>当第j个字符匹配失败时，假定前面<code>1~j-1</code>个字符组成的串为S，那么，<code>next[j]=S的最长相等前后缀的长度+1</code>。</p>
+<p>对于长度只有1的串来说，其前后缀都是空集。<br>当第j个字符匹配失败时，假定前面<code>1~j-1</code>个字符组成的串为S，那么，<code>next[j]=S的最长相等前后缀的长度</code>（当下标从1开始时，需要+1）。</p>
 <blockquote>
 <p>BOILERPLATE:</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public void initNext(String pattern)&#123;</span><br><span class="line">    // 冗余出最后一个元素位，防止下标溢出</span><br><span class="line">    next = new int[pattern.length() + 1];</span><br><span class="line">    int i = 1, j = 0;</span><br><span class="line">    next[0] = j;</span><br><span class="line">    while(i &lt; pattern.length())&#123;</span><br><span class="line">        if(j == -1 || pattern.charAt(i) == pattern.charAt(j))&#123;</span><br><span class="line">            ++i;</span><br><span class="line">            ++j;</span><br><span class="line">            next[i] = j;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            j = next[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以google为例，上面的Boilerplate执行过程如下：</p>
+<p>以<code>google</code>为例，上面的Boilerplate执行过程如下：</p>
 <ul>
 <li>j==-1        i=1 j=0     next[1]=0   </li>
 <li>o!=g        i=1 j=0      j = next[0] = -1</li>

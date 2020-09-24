@@ -163,7 +163,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/20/数据结构系列之串-Java/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/09/English系列之定语从句/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -177,7 +177,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/20/数据结构系列之串-Java/" class="post-title-link" itemprop="url">数据结构系列之串（Java）</a>
+            <a href="/2020/09/09/English系列之定语从句/" class="post-title-link" itemprop="url">English系列之定语从句</a>
         </h2>
 
         <div class="post-meta">
@@ -187,14 +187,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-09-20 18:10:10" itemprop="dateCreated datePublished" datetime="2020-09-20T18:10:10+08:00">2020-09-20</time>
+              <time title="Created: 2020-09-09 20:51:52" itemprop="dateCreated datePublished" datetime="2020-09-09T20:51:52+08:00">2020-09-09</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-22 22:31:21" itemprop="dateModified" datetime="2020-09-22T22:31:21+08:00">2020-09-22</time>
+                <time title="Modified: 2020-09-24 12:10:36" itemprop="dateModified" datetime="2020-09-24T12:10:36+08:00">2020-09-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -202,7 +202,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
                 </span>
             </span>
 
@@ -217,56 +217,183 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="串的朴素模式匹配"><a href="#串的朴素模式匹配" class="headerlink" title="串的朴素模式匹配"></a>串的朴素模式匹配</h2><blockquote>
-<p>较简单，略过。</p>
+          <blockquote>
+<p>这篇笔记摘选自《英语语法新思维中级教程第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。<br>思维导图版本<a href="http://www.xmind.net/m/prykYd" target="_blank" rel="noopener">点击这里</a></p>
 </blockquote>
-<h2 id="KMP算法（朴素模式匹配的优化）"><a href="#KMP算法（朴素模式匹配的优化）" class="headerlink" title="KMP算法（朴素模式匹配的优化）"></a>KMP算法（朴素模式匹配的优化）</h2><p>朴素模式匹配的缺点是：每当模式串匹配失败的时候，当前的匹配指针都只是往后移动一位，也就是只是把模式串右移一位，而且主串的扫描指针（模式串中匹配到哪一位）都要经常回溯，会造成多余的开销。</p>
-<p>假定在某个主串中要匹配<code>google</code>这个模式串，那么其匹配逻辑如下：</p>
+<h2 id="定语从句概述"><a href="#定语从句概述" class="headerlink" title="定语从句概述"></a>定语从句概述</h2><p>在英文中，被定语从句所修饰的对象叫作antecedent，英文中对这个词的解释是a word, phrase, clause, or sentence to which a pronoun refers，即表示“代词所指代的词、短语、从句或句子”，所以先行词可以是一个词、短语、分句或者独立的句子等。</p>
+<h3 id="形容词作定语与从句作定语比较"><a href="#形容词作定语与从句作定语比较" class="headerlink" title="形容词作定语与从句作定语比较"></a>形容词作定语与从句作定语比较</h3><p>当要表达复杂的意思时，往往需要借助于定语从句来完成，即要用定语从句来修饰某个名词或名词短语。比如当我们说“我不喜欢懒人”，这时只需要用一个形容词lazy来作定语就可以。<br>I don’t like lazy people.<br>如果要表达稍微复杂一点的意思，比如说“我不喜欢不守信用的人”，这时，简单地用形容词作定语就无能为力了，就要借助于一个句子来修饰名词，用作名词的定语，对名词进行限制。<br>I don’t like people who never keep their word.<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/KmgSIt.png" alt></p>
+<h3 id="定语从句的两个重要概念：先行词和关系词"><a href="#定语从句的两个重要概念：先行词和关系词" class="headerlink" title="定语从句的两个重要概念：先行词和关系词"></a>定语从句的两个重要概念：先行词和关系词</h3><p>被定语从句所修饰的对象称为先行词。<br>重复指代先行词、起连接主句和从句的作用，并且在定语从句中充当一定成分的连接词称为关系词。<br>关系词有两个作用：</p>
 <ul>
-<li>声明主串扫描指针为i；</li>
-<li>声明模式串扫描指针为j；</li>
-<li>KMP的算法关键在于匹配失败时，j回溯，而i不回溯（下标从0开始）。</li>
-<li>当j&gt;0匹配成功时，j++，i++</li>
-<li>当j=0匹配不成功时，j不变，i++</li>
-<li>当j&gt;0匹配不成功时，j回到最后一个有可能接下来匹配成功的下标，i不变（比如模式串google，在j等于4时不匹配，那么j应该回溯到1） </li>
+<li>代词的作用： 重复指代先行词并且在定语从句中充当一定成分。</li>
+<li>连接作用：即连接主句和从句。</li>
 </ul>
-<p>j指针的具体回溯如下，并且可以一个<code>int类型数组</code>来存储器回溯的下标。</p>
+<h2 id="先行词的结构特点"><a href="#先行词的结构特点" class="headerlink" title="先行词的结构特点"></a>先行词的结构特点</h2><h3 id="先行词是一个词"><a href="#先行词是一个词" class="headerlink" title="先行词是一个词"></a>先行词是一个词</h3><p>先行词可以是一个单词，通常是名词，也可以是代词。主要包括：人称代词he（其他人称代词不可以），指示代词that/those，不定代词one等。<br>There is this difference between happiness and wisdom: he who thinks himself the happiest man really is so; but he who thinks himself the wisest is generally the greatest fool.<br>这里的两个定语从句的先行词都是代词he。注意：这里的he不是具体指某个人，而是表示泛指。一般来讲，人称代词后面是不能接定语从句的，比如我们不能说“We who think ourselves…<em>”，或“You who think yourself…</em>”等等，因为人称代词已经表达了一个完整的意思，不需要任何定语从句来修饰。但人称代词若是表示泛指，则可以接定语从句来进行修饰<br>幸福与智慧的区别在于：认为自己最幸福的人，他真的就是最幸福；而认为自己最智慧的人，却往往是最大的傻瓜。</p>
+<p>Only those who have the patience to do simple things perfectly will acquire the skill to do difficult things easily.<br>这里的those指人，作先行词，被定语从句who have the patience to do simple things perfectly所修饰。<br>只有那些有耐心将简单的事情做得完美的人，才能学会轻松地做好难事的技能。</p>
+<h3 id="先行词是一个短语"><a href="#先行词是一个短语" class="headerlink" title="先行词是一个短语"></a>先行词是一个短语</h3><p>In Europe, as elsewhere, multi-media groups have been increasingly successful groups which bring together television, radio, newspapers, magazines and publishing houses that work in relation to one another.<br>这里的关系词which指代的先行词是successful groups这个名词短语，关系词that指代的先行词是television, radio, newspapers, magazines and publishing houses这个名词短语。<br>在欧洲，像在其他地方一样，多媒体集团越来越成功了。这些集团把相互间联系密切的电视台、电台、报纸、杂志以及出版社组合到了一起。</p>
+<h3 id="先行词是一个分句"><a href="#先行词是一个分句" class="headerlink" title="先行词是一个分句"></a>先行词是一个分句</h3><p>He said that he had no time, which isn’t true.<br>这里which指代的是一个宾语从句that he had no time。<br>他说他没有时间，事实并非如此。</p>
+<h3 id="先行词是一个完整的句子"><a href="#先行词是一个完整的句子" class="headerlink" title="先行词是一个完整的句子"></a>先行词是一个完整的句子</h3><p>My girlfriend likes dancing with other guys, which really drives me crazy.<br>先行词是my girlfriend likes dancing with other guys这一完整的句子。<br>我女友喜欢和别的小伙子跳舞，这让我十分恼火。</p>
+<h2 id="先行词的位置特点"><a href="#先行词的位置特点" class="headerlink" title="先行词的位置特点"></a>先行词的位置特点</h2><h3 id="先行词-其他定语-定语从句"><a href="#先行词-其他定语-定语从句" class="headerlink" title="先行词+其他定语+定语从句"></a>先行词+其他定语+定语从句</h3><p>这种情形最常见。这是由于先行词同时带有多个定语，定语从句与其他定语相比，一般较长，结构也较复杂，因此，按照英语的“尾重原则（principle of end weight）”，结构复杂的定语从句置于其他定语后边，从而造成与先行词隔离。<br>The mineral elements from the soil that are usable by the plant must be dissolved in the soil solution before they can be taken into the root.<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/QbR3pc.png" alt><br>土壤中可供植物利用的矿物质只有先溶解在土壤中，然后才能被植物的根部吸收。</p>
+<h3 id="先行词-状语-定语从句"><a href="#先行词-状语-定语从句" class="headerlink" title="先行词+状语+定语从句"></a>先行词+状语+定语从句</h3><p>造成先行词与关系词被分隔的第二种情形，就是在先行词与关系词之间插入一个状语，这个状语一般是修饰主句的谓语动词的。<br>Never leave that until tomorrow which you can do today.<br>这里的先行词是that，定语从句是which you can do today。现在二者之间插入了一个时间状语until tomorrow来修饰leave，从而造成先行词与关系词被分隔。<br>今日事，今日毕（不要把今天能做的事情留到明天做）。</p>
+<p>If there is anything in the world that a young man should be more grateful for than another, it is the poverty which necessitates starting life under very great disadvantage.<br>这里的 关系代词that在从句中作介词for的宾语。<br>对于青年人来说，如果世上真的有什么事物是他最应该感激的，那就是贫穷，因为贫穷能促使他在非常恶劣的环境下开创生活。</p>
+<h3 id="作主语的先行词-谓语部分-定语从句"><a href="#作主语的先行词-谓语部分-定语从句" class="headerlink" title="作主语的先行词+谓语部分+定语从句"></a>作主语的先行词+谓语部分+定语从句</h3><p>先行词与关系词被分隔的第三种情形就是两者被主句谓语隔开。这是因为先行词在主句中作主语，然后它又被一个定语从句所修饰，而定语从句一般都会比主句谓语的结构复杂。因此，按照英语的“尾重原则（principle of end weight）”，结构复杂的定语从句置于主句谓语后边，从而造成关系词与先行词被隔离。<br>It can be predicted, however, that from time to time questions will arise which will require specific scientific answers.<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/FOWXxR.png" alt><br>然而，可以预见的是，将来会经常出现一些问题，这些问题需要给出专门的科学的回答。</p>
+<p>Social science is that branch of intellectual enquiry which seeks to study humans and their endeavors in the same reasoned, orderly, systematic, and dispassioned manner that natural scientists used for the study of natural phenomena.<br>社会科学是知识探索的一个分支，它力图像自然科学家研究自然现象那样，用理性的、有序的、系统的和冷静的方式研究人类及其行为。</p>
+<h2 id="定语从句中的主谓一致问题"><a href="#定语从句中的主谓一致问题" class="headerlink" title="定语从句中的主谓一致问题"></a>定语从句中的主谓一致问题</h2><blockquote>
+<p>定语从句的谓语动词是用单数还是用复数，这不取决于关系词，而是由先行词决定的。</p>
+</blockquote>
+<p>Despite【A】 much research, there are still certain elements in【B】 the life cycle of the insect that is【C】 not fully understood【D】.<br>C，应改为are。<br>这里先行词elements与关系词that被分隔，因为elements还有一个后置定语in the life cycle of the insect。显然，这种分隔属于：先行词+其他定语+定语从句。that指代elements，在从句中作主语，所以，谓语动词要用复数形式的are。</p>
+<h2 id="关系词在定语从句中充当的成分"><a href="#关系词在定语从句中充当的成分" class="headerlink" title="关系词在定语从句中充当的成分"></a>关系词在定语从句中充当的成分</h2><h3 id="关系词用作从句的主语"><a href="#关系词用作从句的主语" class="headerlink" title="关系词用作从句的主语"></a>关系词用作从句的主语</h3><p>比较简单句和定语从句，看看一个简单句如何变成定语从句。<br><strong><em>The woman</em></strong> is a famous dancer and she lives next door.<br>这个句中有一个“重复元素”，这里的she指代 the woman，即两句之间有一个交叉点，而通过这个交叉点建立起两句之间的联系。现在要用she lives next door来作定语修饰the woman，以告诉对方哪位女士是舞蹈演员。而在定语从句中，指代“人”的关系词要用who。<br>因此，上句可改写成：<br>The woman is a famous dancer who (=and she) lives next door.<br>这里的关系词who既取代了代词she也取代了连词and， 即who既具有代词的作用也起着连接的作用。另外，定语从句一般要紧跟在它所修饰的名词后面。因此，上一句又可进一步改写成：<br>The woman who lives next door is a famous dancer.<br>由此看到，关系词who既指代the woman，同时又在从句中作主语，而且还替换了and，起着连词的作用。<br>这位女士是一名著名的舞蹈演员，她就住在我家隔壁。</p>
+<p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/ONSgS8.png" alt><br>这里的关系词who取代and they，来引导定语从句who have a good sense of humor，修饰名词guys。<br>我喜欢有幽默感的男士。</p>
+<p>在变换过程中药注意三点：</p>
 <ul>
-<li>若当前两个字符匹配，则i++，j++</li>
-<li>若j=0时发生不匹配，则应让i++，但是此时的next[j]=-1</li>
-<li>若j=1时发生不匹配，则应让j回到0</li>
-<li>若j=2时发生不匹配，则应让j回到0</li>
-<li>若j=3时发生不匹配，则应让j回到0</li>
-<li>若j=4时发生不匹配，则应让j回到1</li>
-<li>若j=5时发生不匹配，则应让j回到0</li>
+<li>用关系词who代替人称代词（如she或they）后，定语从句里就不能再保留这些代词了。比如不能说：<br>The woman who she lives next door is a famous dancer. <em><br>I like guys who they have a good sense of humor. </em></li>
+<li>事实上，定语从句可以修饰一个主句当中的任何一个名词。但是，我们关注的往往是关系词在定语从句中所充当的成分，不关心定语从句是修饰主句的哪个名词。</li>
+<li>定语从句的谓语动词形式是由关系词所指代的先行词来决定的，而不是取决于关系词本身。定语从句who lives next door中的who指代的woman是单数名词，故谓语用单数的lives；而定语从句who have a good sense of humor中的who指代的guys是复数名词，故谓语用复数的have。</li>
 </ul>
-<p>数组next[0]=-1 next[1]=0 next[2]=0 next[3]=0 next[4]=1 next[5]=0</p>
+<p>Anger is a thief who steals away the nice moments .<br>愤怒就如同一个窃贼，盗取了我们的幸福时光。<br>He who is not handsome at twenty, nor strong at thirty, nor rich at forty, nor wise at fifty , will never be handsome, strong, rich, or wise.<br>一个人若在20岁时不俊美、30岁时不健康、40岁时不富有、50岁时不明智，那么他将永远不会拥有这些。<br>There is this difference between happiness and wisdom: the person who thinks himself the happiest man really is so; but the person who thinks himself the wisest is generally the greatest fool.<br>幸福与智慧区别于此：认为自己是最幸福的，他真的就是最幸福的；而认为自己是最有智慧的，他却往往是最大的傻瓜。<br>The world is a book, and those who do not travel read only one page.<br>世界犹如一本书，而那些从不出门旅行的人仅仅读了这本书的一页。<br>Of course I am not talking about easy-come-easy-go friendship. I’m talking about friends who care deeply about each other, who support each other, who make life worth living.<br>当然了，我这里所说的友谊不是那种“来得快去得也快”的泛泛之交，而是那种彼此之间能真正互相关心的朋友，能够互相支持的朋友，能够让你的人生更有意义的朋友。</p>
+<h3 id="关系词用作从句中动词的宾语"><a href="#关系词用作从句中动词的宾语" class="headerlink" title="关系词用作从句中动词的宾语"></a>关系词用作从句中动词的宾语</h3><p>关系词除了在定语从句中作主语外，还可以在从句中作宾语。而且，还可以进一步区分为从句动词的宾语和从句介词的宾语。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/8WGhly.png" alt><br>在例句1）中，这里的him指代名词短语a friend，可以用关系词who来替代him，充当动词trust的宾语。又因为who有连词的作用，所以此时and就要去掉了，如例句2）所示。另一方面，关系词who要置于从句的开头，所以要把who移到I的前面，原句从而变成了下面的例句3）：<br>3）I’d really like to find a friend who I can trust completely.<br>我想找一个我完全能够信任的人做朋友。</p>
+<p>He is the best grammar teacher who I have ever seen.<br>他是我见过的最好的语法老师。</p>
+<p>It’s hard to have a friend who you can trust completely.<br>很难有一个你能完全信任的朋友。</p>
+<h3 id="关系词用作从句中介词的宾语"><a href="#关系词用作从句中介词的宾语" class="headerlink" title="关系词用作从句中介词的宾语"></a>关系词用作从句中介词的宾语</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/YGRKuS.png" alt><br>这里的who充当介词with的宾语。<br>我这里说的朋友，是指那些你几乎可以把一切与之分享的人。</p>
+<p>I hope I never have a boss who I can’t talk to about my problems.<br>这里的who充当介词to的宾语。<br>我不希望有一个无法与其谈论我的问题的老板。</p>
+<p>I’d prefer someone who I have something in common with — who I can talk to easily.<br>这里的关系词who分别充当介词with和to的宾语。<br>我喜欢那些与我有共同点的人，这样易交流。</p>
+<h3 id="作宾语的关系词可以省去"><a href="#作宾语的关系词可以省去" class="headerlink" title="作宾语的关系词可以省去"></a>作宾语的关系词可以省去</h3><p>作宾语的关系词可以省去，不论关系词是作动词的宾语还是作介词的宾语都可以省去。比如以上讨论过的相关例句，可以分别改写成：<br>I’d really like to find a friend ( ) I can trust completely.<br>I hope I never have a boss ( ) I can’t talk to about my problems.</p>
 <blockquote>
-<p>BOILERPLATE:</p>
+<p>在从句中作主语的关系词无法省去。比如不能说：</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">private int[] next;</span><br><span class="line">public int kmp(String main, String pattern)&#123;</span><br><span class="line">    // 先构建模式串的next数组，下标从0开始</span><br><span class="line">    initNext(pattern);</span><br><span class="line">    int i=0,j=0;</span><br><span class="line">    while(i &lt; main.length() &amp;&amp; j &lt; pattern.length())&#123;</span><br><span class="line">        if(j == -1 || main.charAt(i) == pattern.charAt(j))&#123;</span><br><span class="line">            ++i;</span><br><span class="line">            ++j;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            j = next[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    if(j &gt;= pattern.length())&#123;</span><br><span class="line">        return i - pattern.length();</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="next数组的构建（fail数组）"><a href="#next数组的构建（fail数组）" class="headerlink" title="next数组的构建（fail数组）"></a>next数组的构建（fail数组）</h3><ul>
-<li>串的前缀：包含第一个字符，且不包含最后一个字符的子串。</li>
-<li>串的后缀：包含最后一一个字符，且不包含第一一个字符的子串。</li>
+<p>I like guys ( ) have a good sense of humor. *</p>
+<h2 id="关系代词与先行词的搭配关系"><a href="#关系代词与先行词的搭配关系" class="headerlink" title="关系代词与先行词的搭配关系"></a>关系代词与先行词的搭配关系</h2><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/gScElI.png" alt></p>
+<h3 id="先行词指“人”，用关系代词who或whom"><a href="#先行词指“人”，用关系代词who或whom" class="headerlink" title="先行词指“人”，用关系代词who或whom"></a>先行词指“人”，用关系代词who或whom</h3><h3 id="who和whom的区别"><a href="#who和whom的区别" class="headerlink" title="who和whom的区别"></a>who和whom的区别</h3><ul>
+<li>who的前面不能与介词搭配使用<br>因为who是主格形式，所以在介词的后面不能用who，比如不说with who<em>，而说with whom。<br>I’m talking about friends who you can share almost everything with.<br>不能说“I’m talking about friends with who you can share almost everything. </em>”。<br>而应该说“I’m talking about friends with whom you can share almost everything.”。<br>主格形式的who除了作定语从句的主语外，还可以充当定语从句的宾语或表语。</li>
+<li>whom在定语从句中不能作主语，但可作宾语或表语<br>A rich person is not one who has the most, but is one who needs the least.<br>这里的who作从句的主语，所以不能用whom，不说whom has…*。<br>一个富有的人，不是因为他拥有的最多，而是因为他需要的最少。</li>
 </ul>
-<p>对于长度只有1的串来说，其前后缀都是空集。<br>当第j个字符匹配失败时，假定前面<code>1~j-1</code>个字符组成的串为S，那么，<code>next[j]=S的最长相等前后缀的长度+1</code>。</p>
+<p>Only the people who have the patience to do simple things perfectly will acquire the skill to do difficult things easily.<br>这里的who作从句的主语，所以不能用whom，不说whom have…*。<br>只有有耐心圆满完成简单工作的人，才能够轻而易举地完成困难的事。</p>
 <blockquote>
-<p>BOILERPLATE:</p>
+<p>总之，who可以作主语，也可以代替whom作宾语或表语，但不能用在介词后面。而因为whom是宾格形式，所以不能作主语。</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public void initNext(String pattern)&#123;</span><br><span class="line">    // 冗余出最后一个元素位，防止下标溢出</span><br><span class="line">    next = new int[pattern.length() + 1];</span><br><span class="line">    int i = 1, j = 0;</span><br><span class="line">    next[0] = j;</span><br><span class="line">    while(i &lt; pattern.length())&#123;</span><br><span class="line">        if(j == -1 || pattern.charAt(i) == pattern.charAt(j))&#123;</span><br><span class="line">            ++i;</span><br><span class="line">            ++j;</span><br><span class="line">            next[i] = j;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            j = next[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以google为例，上面的Boilerplate执行过程如下：</p>
+<h3 id="表示人或物的所有关系，用whose"><a href="#表示人或物的所有关系，用whose" class="headerlink" title="表示人或物的所有关系，用whose"></a>表示人或物的所有关系，用whose</h3><p>whose表示所有关系，其作用就如同物主代词my，your，her，his，their和our，whose的后面要接名词。whose可指人也可指物。“whose+名词”在从句中可作主语、动词的宾语或介词的宾语，whose同that一样，既可以指人，也可以指物。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/7KbXpL.png" alt><br>例句2）里的whose代替了例句1）里的his，指friend，即表示人。<br>我认识一个朋友，他哥哥是一名流行歌手。</p>
+<p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/FzNNnM.png" alt><br>例句2）里whose代替了例句1）里的its，指schoolroom，即表示物。<br>这些孩子就坐在窗玻璃都打破了的教室里上课。</p>
+<p>When I looked through the window, I saw a girl whose beauty took my breath away.<br>这里的whose beauty作从句的主语，whose指人即a girl。<br>当我朝窗外看去，猛然看见一个美女，其美貌让我惊讶不已。</p>
+<p>It was a meeting whose importance I did not realize at the time.<br>这里的whose importance作从句动词realize的宾语，whose指物即a meeting。<br>这个会议的重要性当时我并没有意识到。</p>
+<h3 id="先行词指“物”，用关系代词which"><a href="#先行词指“物”，用关系代词which" class="headerlink" title="先行词指“物”，用关系代词which"></a>先行词指“物”，用关系代词which</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/z263sW.png" alt><br>这里的先行词是sentences，表示“物”，因此不能用who。要用which代替they，指代sentences，告诉对方“我们正在学习什么类型的句子”。<br>我们正在学习带有定语从句的句子。</p>
+<p>关系词which所指代的先行词比较复杂，它除了可以指单个的名词外，还可以指代短语甚至是从句。</p>
+<h4 id="先行词是单个的名词"><a href="#先行词是单个的名词" class="headerlink" title="先行词是单个的名词"></a>先行词是单个的名词</h4><p>Anger is a wind which blows out the lamp of the mind.<br>先行词是wind，即which指单个的名词。<br>愤怒是吹灭心灵之灯的风。</p>
+<p>Perhaps it is human to appreciate little that which we have and to long for that which we have not.<br>先行词是that，即which指单个的名词。<br>或许，“不惜已获，贪求不得”是人类共同的弱点吧。</p>
+<h4 id="先行词是一个短语-1"><a href="#先行词是一个短语-1" class="headerlink" title="先行词是一个短语"></a>先行词是一个短语</h4><p>which可以指代一个短语。<br>He likes climbing mountains, which is a good exercise.<br>先行词是主句中的一个动名词短语climbing mountains。<br>他喜欢爬山，这是一项很好的运动。</p>
+<h4 id="先行词是一个句子"><a href="#先行词是一个句子" class="headerlink" title="先行词是一个句子"></a>先行词是一个句子</h4><p>which可以指代前面的整个句子。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/sLf9DC.png" alt><br>汤姆迟到了，这让我很吃惊。</p>
+<p>He tore up my photo, which upset me.<br>全句“he tore up my photo”作which的先行词。<br>他把我的照片给撕了，这让我很生气。</p>
+<h3 id="that可以指代“人”，也可以指代“物”"><a href="#that可以指代“人”，也可以指代“物”" class="headerlink" title="that可以指代“人”，也可以指代“物”"></a>that可以指代“人”，也可以指代“物”</h3><p>关系代词that的意义和用法主要有以下三点：</p>
 <ul>
-<li>j==-1        i=1 j=0     next[1]=0   </li>
-<li>o!=g        i=1 j=0      j = next[0] = -1</li>
-<li>j==-1        i=2 j=0        next[2]=0</li>
-<li>o!=g        i=2 j=0        j = next[0] = -1</li>
-<li>j==-1        i=3 j=0        next[3] = 0</li>
-<li>g==g        i=4 j=1        next[4] = 1</li>
-<li>l!=o        i=4 j=1     j=next[1] = 0</li>
-<li>l!=g        i=4 j=0        j=next[0] = -1</li>
-<li>j==-1        i=5 j=0     next[5] = 0</li>
-<li>e!=g      i=6 j=1     break;</li>
+<li>that既可指“人”也可指“物”，指“物”时可以替换which，指“人”时可以替换who；</li>
+<li>that不用在非限制性定语从句中；</li>
+<li>that不能用于介词的后面（同who一样）。</li>
 </ul>
+<p>Too many people spend money which they haven’t earned, to buy things which they don’t want, to impress people who they don’t like.<br>可以用that替换其中的which和who而将这句话改写成“Too many people spend money that they haven’t earned, to buy things that they don’t want, to impress people that they don’t like.”。<br>这里that的先行词有“物（money和things）”，也有“人（people）”。<br>作宾语的关系词可以省去，因此这句话也可说成“Too many people spend money ( ) they haven’t earned, to buy things ( ) they don’t want, to impress people ( ) they don’t like.”。<br>太多的人花他们还没挣到的钱，买他们不想要的东西，取悦他们不喜欢的人。</p>
+<p>that与which和who在用法上的区别：</p>
+<ul>
+<li>先行词中同时出现“人”和“物”时，用that<br>The writer and his novels that the article deals with are quite familiar to us.<br>这里的先行词是the writer and his novels，即同时有“人（writer）”和“物（his novels）”，所以要选用that引导定语从句。<br>这篇文章里所说的这个作家以及他的小说，我们都比较熟悉。</li>
+<li>先行词为指“物”的all，little，few，much，none和the first时, 用that<br>All that glitters is not gold.<br>这里的先行词是all，所以用that来引导定语从句。另外要注意的是，<strong><em>这里有一个半否定的问题：all…not要译成“并非都是”，不能译成全否定的“所有都不”。</em></strong><br>闪光的并非都是金子。<br>The book contains little that is useful.<br>这里的先行词是表示否定意义的代词little（几乎没有什么），所以用that来引导定语从句。<br>这本书里几乎没有有用的东西。<br>There is not much that can be done.<br>这里的先行词是代词much，所以用that来引导定语从句。<br>这没有什么可以做的了。<br>As long as you stand up to the difficulties, there are none that cannot be overcome.<br>这里的先行词是代词none，所以用that来引导定语从句。<br>只要你勇敢地去面对困难，就没有什么克服不了的。</li>
+<li>先行词是不定代词something，anything，nothing和everything时，一般用that</li>
+<li>先行词被any，only，all，every，no，some，much，few，little，序数词，形容词的最高级，the only，the one，the very，the right和the last等成分修饰时，用that<br>Tell us all things that you know.<br>把你知道的都告诉我们。<br>The very problem that I want to solve is like this.<br>我想解决的问题就像这个一样。<br>He is the only man that can speak four foreign languages in our company.<br>他是我们公司唯一一个会说四种外语的人。</li>
+<li>that不用在非限制性定语从句中<br>I became a single mother overnight, which is nothing like becoming famous overnight.<br>我在一夜之间成了单亲妈妈，这跟一夜成名可完全不同。<br>不能说“I became a single mother overnight, that is nothing like becoming famous overnight. *”。</li>
+<li>that不能用于介词后面<br>The world in which we live is made up of matter. 我们所生活的世界是由物质组成的。<br>或：The world which we live in is made up of matter.<br>或：The world that we live in is made up of matter.<br>但不能说“The world in that we live is made up of matter. *”。</li>
+</ul>
+<h2 id="介词-关系代词"><a href="#介词-关系代词" class="headerlink" title="介词+关系代词"></a>介词+关系代词</h2><h3 id="看从句选介词"><a href="#看从句选介词" class="headerlink" title="看从句选介词"></a>看从句选介词</h3><h4 id="所用介词须与定语从句中的动词构成固定搭配（最常见）"><a href="#所用介词须与定语从句中的动词构成固定搭配（最常见）" class="headerlink" title="所用介词须与定语从句中的动词构成固定搭配（最常见）"></a>所用介词须与定语从句中的动词构成固定搭配（最常见）</h4><p>这里所说的动词往往是指定语从句中的谓语动词。<br>The girl with whom you work is his girlfriend.<br>关系词whom前面的介词with与定语从句中的谓语动词work构成固定搭配work with，表示“和……一起工作”。<br>He is the man on whom I think you can depend.<br>关系词whom前面的介词on与定语从句中的谓语动词depend构成固定搭配depend on，表示“依靠”。</p>
+<h4 id="看从句的形容词：所用介词须与定语从句中的形容词构成搭配（比较常见）"><a href="#看从句的形容词：所用介词须与定语从句中的形容词构成搭配（比较常见）" class="headerlink" title="看从句的形容词：所用介词须与定语从句中的形容词构成搭配（比较常见）"></a>看从句的形容词：所用介词须与定语从句中的形容词构成搭配（比较常见）</h4><p>如果定语从句的谓语不是一个实义动词，而是由be动词与某个形容词构成的，我们则要使用与该形容词搭配的介词。<br>He referred me to some reference books with which I am not very familiar.<br>关系词which前面的介词with与定语从句谓语部分中的 形容词familiar构成固定搭配be familiar with sth.，表示“对……熟悉”。<br>他让我参考的几本书我一本也不熟悉。</p>
+<p>They will pass along their fresh impressions to the youth groups in which they are active.<br>关系词which前面的介词in与定语从句谓语部分中的形容词active构成固定搭配be active in sth.，表示“积极参与”。<br>他们会把自己获得的新鲜印象与他们积极参与的青年团体分享。</p>
+<h4 id="看从句的名词：所用介词须与定语从句中的某个名词构成搭配（较少用）"><a href="#看从句的名词：所用介词须与定语从句中的某个名词构成搭配（较少用）" class="headerlink" title="看从句的名词：所用介词须与定语从句中的某个名词构成搭配（较少用）"></a>看从句的名词：所用介词须与定语从句中的某个名词构成搭配（较少用）</h4><p>Many hypersomniacs suffer from narcolepsy, for which the primary symptom is excessive daytime sleepiness.<br>这里的关系词which前面的介词for与定语从句中的名词symptom构成固定搭配symptom for，表示“是……症状”。<br>许多嗜睡的人都患有发作性嗜睡病，其早期症状就是在白天都极度想睡觉。</p>
+<h4 id="看先行词选介词"><a href="#看先行词选介词" class="headerlink" title="看先行词选介词"></a>看先行词选介词</h4><p>The ease with which Mr. Zhang cracked the complex sentence was unbelievable.<br>拆分句子如下：<br>Mr. Zhang cracked the complex sentence with ease and the ease was unbelievable.<br>把the ease was unbelievable作为主句，将Mr.Zhang cracked the complex sentence with ease作为定语从句来修饰the ease，将这两句合并起来就是：<br>The ease （Mr. Zhang cracked the complex sentence with ease） was unbelievable.<br>先行词是ease，所以我们用关系词which来指代，再将上句改写成：<br>The ease （Mr. Zhang cracked the complex sentence with which） was unbelievable.<br>关系词which应该放在从句的开头，又因为with which（就相当于 with ease）是一个固定搭配，所以要将with which一同移到句子开头，于是上句就进一步改写成：<br>The ease （with which Mr. Zhang cracked the complex sentence） was unbelievable.<br>这个复杂的句子，张老师能够如此轻而易举地分析出来，真是让人难以置信。</p>
+<blockquote>
+<p>常见的有：with ease, at the rate, in the direction, to the extent, to the degree, at the temperature, by the means, by the mode, in a culture, in practice等等。</p>
+</blockquote>
+<p>at the speed和at the rate，表示“以这种速度”。<br>The speed at which an animal lives is determined by measuring the rate at which it uses oxygen.<br>通过测定动物消耗氧气的速率可以测定该动物的生长速度。</p>
+<p>to the extent，表示“在某种程度上”。<br>When television was first introduced, the extent to which it would affect human society could not have been foreseen.<br>人们发明电视的时候，并没能预见到它会对人类社会产生多大的影响。</p>
+<p>by the means，表示“通过这种方式”。<br>Public demonstrations are an effective means by which the people can bring social inequalities to the attention of government officials.<br>by which就等于说by the means，表示“通过这种方式”，在定语从句中作状语，修饰从句的谓语。<br>公众通过游行示威这种方式，可以有效地让政府官员们注意到不平等的社会现实。</p>
+<h3 id="表示所属关系或部分与整体的关系时用介词of"><a href="#表示所属关系或部分与整体的关系时用介词of" class="headerlink" title="表示所属关系或部分与整体的关系时用介词of"></a>表示所属关系或部分与整体的关系时用介词of</h3><p>The company, of which Max Harrison was until recently the chairman, has made loss of three million pounds this year.<br>这里的of which相当于of the company，于是整个定语从 句相当于Max Harrison was until recently the chairman of the company，所以这里的of表示所属关系，即the chairman是属于这个公司的。原定语从句可以改写为：the chairman of which was Max Harrison until recently。<br>这家公司今年亏损达三百万英镑，直到前不久Max Harrison还是它的董事长。</p>
+<blockquote>
+<p>该句型的结构往往是“不定代词/数量词/形容词的比较级或最高级+of which/whom”，用来表示数量或某种特点。具体来讲，在介词of前面常出现的词包括：all, each, both, either, neither, none, little, few, many, much, some, most, any, the majority, half, several, a number, half, none以及 数字和形容词的最高级等等。<br>值得注意的是，这里of前面的成分都可以后移至定语从句中。比如上面的例句，我们既可以说10, 000 acres of which，也可以说of which 10, 000 acres。</p>
+</blockquote>
+<h3 id="固定的介宾结构"><a href="#固定的介宾结构" class="headerlink" title="固定的介宾结构"></a>固定的介宾结构</h3><p>关系代词前面的介词有时与固定的介宾短语结构有关，比如in this case, in one’s honor和with one’s help等，它们若出现在定语从句中，则会相应地变成in which case, in whose honor和with whose help。<br>He may be late, in which case we should wait for him.<br>这里的in which case就是由短语in this case变过来的，这里which指前面整个句子“he may be late”。<br>他可能要迟到，如果是这样，我们就应该等等他。</p>
+<h3 id="定语从句的倒装结构"><a href="#定语从句的倒装结构" class="headerlink" title="定语从句的倒装结构"></a>定语从句的倒装结构</h3><p>具体的结构就是“介词+关系代词+从句谓语+从句主语”，即一个将整个谓语放在主语前面的全部倒装结构。<br>This is the world out of which grows the hope, for the first time in history, of a society where there will be freedom from want and freedom from fear.<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/zjmvG7.png" alt><br>第一个定语从句out of which grows the hope, for the first time in history, of a society修饰world。在这个定语从句里有一个倒装结构和分隔结构。分隔结构是在the hope和of a society中间插入了短语for the first time in history，也就是说，如果没有这个插入语，就是the hope of a society，表示“希望建立这样一个社会”。 整个短语the hope, for the first time in history, of a society就表示“在人类历史上，首次希望建立这样一个社会”，这个名词短语是作定语从句的主语。<br>定语从句的谓语是grows，out of which在定语从句中作状语，所以整个定语从句是一个全部倒装结构。正常语序应该是：the hope, for the first time in history, of a society grows out of which （out of the world）。 第二个定语从句where there will be freedom from want and freedom from fear修饰society，说明是什么样的社会。难点是如何翻译freedom from want and freedom from fear这个短语。这里freedom from来自于形容词短语free from，表示“免除，没有”。另外，名词want表示“贫困”。因此，整个短语我们可以译成“摆脱贫困，摆脱恐惧”。</p>
+<p>The intellectual process I learned in that class is also life’s process, because every life is a great work with all the richness of its gifts and the wealth of its possibilities. When you graduate from here, you exit with thousands of pages of personal text on which are inscribed beliefs and values shaped by years of education, family interactions, relationships, experiences. And buried within those thousands of pages is your personal truth, your essence.<br>这段话来自惠普公司总裁在斯坦福大学的一次毕业典礼上对毕业生们的演讲。定语从句on which are inscribed beliefs and values shaped by years of education, family interactions, relationships, experiences修饰名词短语thousands of pages of personal text。该从句的主语是beliefs and values shaped by years of education, family interactions, relationships, experiences，谓语是are inscribed，on which作地点状语。所以，整个定语从句是一个全部倒装结构，正常语序是：beliefs and values shaped by years of education, family interactions, relationships, experiences are inscribed on which （on thousands of pages of personal text）。<br>我在那门课中所学的掌握知识的过程，也是生活的过程。因为每种人生都是一部伟大的著作，其中包含丰富的才智和美好的 可能。当你从这里毕业时，你会带着数千页的人生教科书走出校门，在这本教科书里铭刻着经过多年教育、家庭的作用、社会关系以及个人经历所形成的信念和价值观。而真实的你和你的精华就深藏在这数千页记录中。</p>
+<h3 id="“介词-关系代词-to-do”结构"><a href="#“介词-关系代词-to-do”结构" class="headerlink" title="“介词+关系代词+ to do”结构"></a>“介词+关系代词+ to do”结构</h3><p>1） The farmer used wood to build a house in which he could store grains.<br>2） The farmer used wood to build a house in which to store grains.<br>由1）句简化为2）句，先是把定语从句in which he could store grains中的主语he省去（因为he与主句主语the farmer一致，所以可以省略），然后把情态动词could替换为不定式to（因为不定式具有情态意义），于是便得到in which to store grains。<br>这位农夫用一些木材建造了一座房子，在那里储存粮食。<br>还可以进一步简化上面的例句2），就是把关系词which去掉，此时就必须把介词in移到句末去。<br>3） The farmer used wood to build a house to store grains in.</p>
+<ul>
+<li>在例句1）中，是一个定语从句（in which he could store grains）作后置定语，修饰house；</li>
+<li>在例句2）中，则是一个“半定语从句半不定式”的混合形式（in which to store grains）作后置定语，修饰house；</li>
+<li>在例句3）中，则是一个不定式（to store grains in）作后置定语，修饰house。</li>
+</ul>
+<p>在使用这一结构时应注意以下几点：</p>
+<ul>
+<li>“介词+关系代词”不能用一个关系副词来替换。比如不能说“The farmer used wood to build a house where to store grains. *”。</li>
+<li>有介词、有关系代词时，不能将介词置于句末。比如不能说“The farmer used wood to build a house which to store grains in. *”。</li>
+<li>若没有介词，我们不能采用“半定语从句半不定式”的混合形式作后置定语。比如不能说“I can’t think of anybody whom to invite.*”。而要说“I can’t think of anybody to invite.”，或者“I can’t think of anybody who I should invite.”。</li>
+</ul>
+<h2 id="关系代词as"><a href="#关系代词as" class="headerlink" title="关系代词as"></a>关系代词as</h2><h2 id="as引导非限定性定语从句"><a href="#as引导非限定性定语从句" class="headerlink" title="as引导非限定性定语从句"></a>as引导非限定性定语从句</h2><p>as引导的非限定性定语从句的特点主要有两个：</p>
+<blockquote>
+<p>1、as所指代的先行词通常都是一个完整的句子；</p>
+<p>2、as引导的定语从句位置很灵活，可以在句首、句中或句末。</p>
+</blockquote>
+<h3 id="as引导的非限定性定语从句可放在句首"><a href="#as引导的非限定性定语从句可放在句首" class="headerlink" title="as引导的非限定性定语从句可放在句首"></a>as引导的非限定性定语从句可放在句首</h3><p>as引导的非限定性定语从句可以放在句首，此时as指代后面的整个主句。换句话说，关系代词as的先行词可以出现在as后边。<br>这点不同于which及任何其他关系词，因为which及其他关系词所指代的先行词必须出现在它们的前面，因此which引导的非限定性定语从句不能放在句首。<br>As is so often pointed out, knowledge is a two-edged weapon which can be used equally for good or evil.<br>这是一个放在句首的由as引导的定语从句，此时as所指代的先行词是其后面的完整的主句，即knowledge is a two-edged weapon which can be used equally for good or evil。as在定语从句中作主语。注意：在这里我们不能说“Which is so often pointed out, …*”。</p>
+<p>1） <strong>__</strong> is known to us all, the whale is not fish but a mammal.<br>2） <strong>__</strong> is known to us all that the whale is not fish but a mammal.<br>3） <strong>__</strong> is known to us all is that the whale is not fish but a mammal.<br>在例句1）中，<strong><em>两个分句间有逗号分隔，表明这是一个放在句首的非限定性定语从句，此时只能用as。</em></strong><br>在例句2）中，两个分句间多了一个连词that，替换了例句1）中的逗号，表明这是一个主语从句，其基本的结构是“It is+过去分词+that”。<br>例句3）与例句2）相比多了一个谓语is，表明is前面的成分是主语，后面的成分是表语。在主语部分is known to us all里又有一个谓语is，这就表明充当主语的应该是一个主语从句，而且空白处填入的连词必须又能在主语从句中作主语，所以只能填What。<br>我们知道，鲸不是鱼类，而是哺乳类动物。</p>
+<h3 id="as引导的非限定性定语从句可放在句中"><a href="#as引导的非限定性定语从句可放在句中" class="headerlink" title="as引导的非限定性定语从句可放在句中"></a>as引导的非限定性定语从句可放在句中</h3><p>放在句中，往往会分隔主句中的某两个成分，因此在分析句子时要跳过这个as引导的从句，直接将从句的前后两个成分联系起来看，这样才便于理解。尽管as引导的从句放在句中，但as所指代的先行词依然是主句，只不过此时的主句是被as引导的从句分隔成了前后两部分。which引导的非限定性定语从句也可以放在句中，但which的先行词必须出现在其前面。<br>Stratford-on-Avon, as we all know, has only one industry—William Shakespeare—but there are two distinctly separate and increasingly hostile branches.<br>as引导的定语从句放在句中，隔开了主语Stratford-on- Avon与其谓语has。此时as指代的先行词依然是主句，只不过此时的主句是被as引导的从句分隔成了Stratford-on-Avon和has only one industry— William Shakespeare—but there are two distinctly separate and increasingly hostile branches两部分。as指代这个主句的同时在定语从句中作know的宾语。<br>这里若用which替换as，说成which we all know，那么which只能指代Stratford-on-Avon而不能指代整个主句。因此，which表示“我们所知道”的是Stratford-on-Avon这个城市。<br>众所周知，埃文河上的斯特拉特福德镇只有一个产业，即威廉·莎士比亚，但是存在着两个明显不同且日益敌对的分支。</p>
+<p>There is, as has been suggested, a growing body of research literature in journalism and broadcasting, but very little significant attention has been devoted to the study of the interview itself.<br>此时as所指代的先行词依然是主句，只不过此时的主句被as引导的从句分隔成了There is和a growing body of research literature in journalism and broadcasting, but very little significant attention has been devoted to the study of the interview itself两部分。<br>这里不能用which代替as，因为定语从句前面只有there is这个结构，它不是一个名词，因而无法作which的先行词。<br>正如前面已经提及的，对新闻与广播的研究文献越来越多，但是却很少有关注新闻采访本身的研究。</p>
+<h3 id="as引导的非限定性定语从句可放在句末"><a href="#as引导的非限定性定语从句可放在句末" class="headerlink" title="as引导的非限定性定语从句可放在句末"></a>as引导的非限定性定语从句可放在句末</h3><blockquote>
+<p>which引导的非限定性定语从句也常常放在句末。</p>
+</blockquote>
+<p>在as引导的定语从句中，as有“正好……”“就像……”“由……而知”的含义。</p>
+<ul>
+<li>当主句和从句在内容上一致时，或者说从句内容是顺着主句的意思说下来时，通常用as。</li>
+<li>若主句和从句在内容上不一致，或从句的内容对主句的内容起消极作用，即对主句内容起反对、排斥、否定等作用时，则多用which。</li>
+</ul>
+<p>1） She has married again, as was expected.<br>2） She has married again, which was unexpected.<br>在例句1）中，定语从句中的关键词expected表明定语从句的意思与前面主句的意思是顺接关系，所以用as比较妥当，表示“正如人们所意料的那样”。<br>在例句2）中，定语从句中的关键词unexpected表明定语从句的意思与前面主句的意思是否定、排斥的关系，所以用which比较妥当，表示“这是出乎人们意料的”。<br>1）她又结婚了，正如人们所预料的那样。<br>2）她又结婚了，这真出乎人们预料。</p>
+<p>She is very careful, as her work shows.<br>在该句中，定语从句的意思与前面主句的意思是顺接关系，所以用as比较妥当，表示“正如她的工作所显示的”。<br>她很细心，这从她的工作中就可看得出来。</p>
+<p>The young man cheated his friend of much money, which was disgraceful.<br>在该句中，定语从句中的关键词disgraceful表明定语从句的意思与前面主句的意思是否定、排斥的关系，所以用which比较妥当，表示“这真可耻”。<br>这个年轻人骗了他朋友很多钱，这真可耻。</p>
+<h3 id="as引导限定性定语从句"><a href="#as引导限定性定语从句" class="headerlink" title="as引导限定性定语从句"></a>as引导限定性定语从句</h3><p>as引导限定性定语从句只能用在一些固定结构中，即只能用在由such, the same, as修饰的先行词的后面。as在定语从句中可以作主语、宾语或表语。as的先行词可以是人，也可以是物。</p>
+<h4 id="as在定语从句中作主语"><a href="#as在定语从句中作主语" class="headerlink" title="as在定语从句中作主语"></a>as在定语从句中作主语</h4><p>He’ll repeat such points as are discussed in the book.<br>这里such…as构成结构上的呼应关系。如果没有such，则不用as引导定语从句，比如可以说成“He’ll repeat the point that are discussed in the book.”。<br>他将会重复书上讨论过的要点内容。</p>
+<p>He is not such a man as would leave his work half done.<br>也可以说成“He is not a man who would leave his work half done.”。<br>他不是那种会将工作半途而废的人。</p>
+<p>The new map of the ocean floor shows the locations of twice as any undersea volcanoes as were previously thought to exist.<br>这里as…as构成结构上的呼应关系。如果没有as，则不用as引导定语从句。as的先行词是undersea volcanoes。<br>新的洋底地图显示出海底火山的位置，火山数量是人们以前知道的两倍。</p>
+<h4 id="as在定语从句中作宾语"><a href="#as在定语从句中作宾语" class="headerlink" title="as在定语从句中作宾语"></a>as在定语从句中作宾语</h4><p>He tried to make as few mistakes as he could avoid.<br>如果没有前面的as，则不用后面的as引导定语从句。as指代先行词mistakes，并且在从句中作avoid的宾语。<br>他尽量避免犯错误。</p>
+<p>He is not the same playboy as we knew.<br>这里the same…as构成结构上的呼应关系。<br>他不再是我们所知道的那个花花公子了。</p>
+<h4 id="as在定语从句中作表语"><a href="#as在定语从句中作表语" class="headerlink" title="as在定语从句中作表语"></a>as在定语从句中作表语</h4><p>He is not such a fool as we would assume him to be.<br>as指代先行词fool，并且在从句中作be的表语。<br>他并不像我们想象的那样傻。</p>
+<h3 id="关系代词than"><a href="#关系代词than" class="headerlink" title="关系代词than"></a>关系代词than</h3><ul>
+<li>than可作关系代词引导定语从句，在从句中一般作主语（也可作宾语）；</li>
+<li>than前面的主句需有形容词的比较级形式；</li>
+<li>比较级所修饰的名词即为先行词。</li>
+</ul>
+<h4 id="than作主语"><a href="#than作主语" class="headerlink" title="than作主语"></a>than作主语</h4><p>Don’t drink more wine than is good for health.<br>不要过量饮酒。适量饮酒有益于健康。<br>Don’t give him more money than is needed, since money will burn a hole in his pocket.<br>不要多给他钱，他需要多少就给多少，因为他有钱就花光。</p>
+<h4 id="than作宾语"><a href="#than作宾语" class="headerlink" title="than作宾语"></a>than作宾语</h4><p>He soon found it easy to make more money by thieving than his father had done by a lifetime of honest work.<br>这里的more所修饰的名词money即为先行词，than指代money的同时，在从句中作谓语动词had done（即had made）的宾语。<br>很快他就发现，通过盗窃所得的钱比他老爸一辈子辛勤劳动挣来的钱要多得多。</p>
+<h2 id="关系副词的用法"><a href="#关系副词的用法" class="headerlink" title="关系副词的用法"></a>关系副词的用法</h2><h3 id="when的用法"><a href="#when的用法" class="headerlink" title="when的用法"></a>when的用法</h3><h4 id="先行词指时间"><a href="#先行词指时间" class="headerlink" title="先行词指时间"></a>先行词指时间</h4><p>when可以引导限制性和非限制性定语从句，其先行词必须是表示时间的名词，如day，year或time等。<br>I’ll never forget the day when I met you.<br>这里的先行词是表示时间的名词day，所以用when引导定语从句。when作从句的时间状语，修饰谓语动词met。<br>我永远不会忘记我们见面的那一天。</p>
+<p>My favorite season is spring, when the earth seems born again.<br>这里是when引导的非限制性定语从句，先行词是表示时间的名词spring。<br>到了春天，万物复苏，所以春天是我最喜欢的季节。</p>
+<p>We will put off the outing until next week, when we won’t be so busy.<br>这里是when引导的非限制性定语从句，先行词是表示时间的短语next week。<br>我们要把出游推迟到下周，到时我们就不会这么忙了。</p>
+<p>The day may soon come when we don’t bother to go to office but just work at home.<br>也许在不久的将来，我们就不必去办公室上班了，而就在家里工作。</p>
+<h4 id="关系副词when在从句中作时间状语"><a href="#关系副词when在从句中作时间状语" class="headerlink" title="关系副词when在从句中作时间状语"></a>关系副词when在从句中作时间状语</h4><p>when是在定语从句中作时间状语。换句话说，若定语从句不是缺少状语，而是缺少主语或宾语，那么即使先行词是表示时间的名词，也不能用when而要用which或that来引导定语从句。因为用when来引导定语从句的前提条件是：when必须在其引导的定语从句中作时间状语。<br>1） I’ll never forget the time which I spent on campus.<br>2） I’ll never forget the day when we first met in the park.<br>在例句1）中，由于定语从句中的谓语spent缺宾语，因此关系词要充当这一宾语，故要用which。<br>在例句2）中，定语从句不缺主语或宾语，而是缺少时间状语，故关系词用when，这里when作时间状语，修饰met。<br>1）我永远不会忘记在大学校园里度过的时光。<br>2）我永远不会忘记我们第一次在公园里相遇的那一天。</p>
+<p>The day, which began brightly, ended with a violent storm.<br>这里的先行词是day，表示时间。由于定语从句缺少主语，所以用关系代词which引导定语从句，which作从句的主语，而不用关系副词when，因为关系副词无法作主语，只能作状语。<br>那天，开始的时候还是阳光明媚，后来就下起了暴风雨。</p>
+<h3 id="where的用法"><a href="#where的用法" class="headerlink" title="where的用法"></a>where的用法</h3><h4 id="where的先行词指地点"><a href="#where的先行词指地点" class="headerlink" title="where的先行词指地点"></a>where的先行词指地点</h4><p>where引导定语从句，其先行词一般是表示地点的名词，如place和house等。<br>A: Since you work in the theater, can’t you get me a free ticket now and then?<br>B: Certainly if you bring me a few notes now and then from the bank where you work!<br>这里的先行词bank表示地点，where在从句中充当地点状语（定语从句中不缺主语或宾语），修饰work。<br>A：既然你在剧院工作，那你就不能时常给我弄些免费的票吗？<br>B：当然可以，只要你能够从你工作的那家银行里时常给我弄些票子出来。</p>
+<p>This is the town where I spent my childhood.<br>这就是我度过童年的小镇。</p>
+<h4 id="关系副词where在从句中作地点状语"><a href="#关系副词where在从句中作地点状语" class="headerlink" title="关系副词where在从句中作地点状语"></a>关系副词where在从句中作地点状语</h4><p>与when类似，并不是先行词是表示地点的名词时，都得由where来引导定语从句，这得看关系词在从句中充当的成分。若定语从句缺主语或宾语，则要用which或that引导定语从句。<br>1） This is the town where I spent my childhood.<br>2） This is the town which I told you about before.<br>在例句1）中，定语从句不缺少主语或宾语，而是缺少地点状语，故关系词用where。where作地点状语，修饰spent。<br>在例句2）里，由于定语从句中的谓语部分told you about缺少宾语，因此关系词要充当这一宾语，故要用which。<br>1）这就是我度过童年的小城。<br>2）这就是我以前告诉过你的小城。</p>
+<p>I’ve never been to Beijing, but it’s the place <strong>__</strong>.<br>A. where I’d like to visit<br>B. in which I’d like to visit<br>C. I most want to visit<br>D. that I want to visit it most<br>本题考查定语从句关系词的选择。这句话中尽管先行词是表示地点的名词place，但由于从句中的谓语visit缺少宾语，所以不能选A，而C才是正确答案。这里相当于省去了关系词that或which，因此原句应该是that / which I most want to visit。<br>我从未到过北京，但北京却是我最想游览的地方。</p>
+<h3 id="why的用法"><a href="#why的用法" class="headerlink" title="why的用法"></a>why的用法</h3><p>why用来表示原因，只引导限制性定语从句，先行词是reason等表示原因的名词。<br>This is the reason why I didn’t come here.<br>此处的why相当于for which。<br>这就是我没来的原因。</p>
+<h2 id="限制性与非限制性定语从句"><a href="#限制性与非限制性定语从句" class="headerlink" title="限制性与非限制性定语从句"></a>限制性与非限制性定语从句</h2><p>在限制性定语从句中，先行词和关系词之间不用逗号隔开，而非限制性定语从句则需要逗号隔开。</p>
+<h3 id="限制性定语从句——不用逗号隔开"><a href="#限制性定语从句——不用逗号隔开" class="headerlink" title="限制性定语从句——不用逗号隔开"></a>限制性定语从句——不用逗号隔开</h3><p>限制性定语从句是用来对一个名词提供必要的信息（a defining relative clause defines or gives essential information about a noun），以说明定语从句所修饰的先行词的身份或性质，或用来限制先行词所指的范围。若去掉限制性定语从句，则主句部分的含义不明确，或意义不完整，所以不能用逗号来分隔先行词和定语从句。<br>比如“I don’t like people.”，这句话的意思不明确，句意不完整，因此其后面必须加一个限制性定语从句，才能使句意完整。比如：<br>I don’t like people who are never on time. 我不喜欢不守时的人。<br>I don’t like people who never keep their word. 我不喜欢不守信用的人。<br>以上句子黑体部分的定语从句都用来说明people的性质，是必不可少的信息，因此不能加逗号将其变为非限制性定语从句。</p>
+<p>There are two factors which determine an individual’s intelligence.<br>这里若只是说“There are two factors.”，则句意不够完整，现在有了限制性定语从句which determine an individual’s intelligence来限制、修饰名词factors，就使得句意更明确。<br>决定人的智力的因素有两个。</p>
+<p>He is a man who is of value to the people.<br>这里若只是说“He is a man.”，则句意不完整，现在有了限制性定语从句who is of value to the people来限制修饰名词man，就使得句意完整而明确。<br>他是一个有利于人民的人。</p>
+<h3 id="非限制性定语从句——用逗号隔开"><a href="#非限制性定语从句——用逗号隔开" class="headerlink" title="非限制性定语从句——用逗号隔开"></a>非限制性定语从句——用逗号隔开</h3><p>非限制性定语从句用来提供附加的而非必要的信息，只是对先行词做进一步的解释、补充或说明（a non-defining relative clause gives optional information about a noun）。若去掉此定语从句，整个主句的意义一样很明确，不会引起误解和歧义。</p>
+<h4 id="专有名词"><a href="#专有名词" class="headerlink" title="专有名词"></a>专有名词</h4><p>如果定语从句修饰一个专有名词，一般要用逗号分隔先行词与定语从句，也就是说要使用非限制性定语从句。这是因为专有名词本身的意思已经很完整，不需要限制，用定语从句只是对它进行补充说明。<br>My mother, who is 50 this year , lives with me now.<br>这里的先行词my mother就是一个专有名词，其后的定语从句who is 50 this year只能是作为非限制性的定语从句来提供附加信息，不能使用限制性定语从句。若说“My mother who is 50 this year lives with me now.”，则言外之意为“我有好几个母亲，目前和我住在一起的是今年50岁的那位母亲”。<br>我母亲今年50岁了，现在和我生活在一起。</p>
+<p>I asked my mother, who is 80 , whether she’d ever seen snow in Iraq before, and her answer was no.<br>我问我已经80岁的妈妈，她以前在伊拉克是否见过雪，她回答说没见过。</p>
+<p>Einstein, who was a great Jewish scientist, created the theory of relativity.<br>爱因斯坦这位伟大的犹太科学家创立了相对论。</p>
+<p>Hawaii, which consists of eight principal islands, is a favorite vacation spot.<br>夏威夷包含八个主要岛屿，是一个度假胜地。</p>
+<h4 id="类指名词"><a href="#类指名词" class="headerlink" title="类指名词"></a>类指名词</h4><p>普通名词若是用来表示类指，即表示的是一类事物，而非具体的某一个事物，此时，其后也宜用非限制性定语从句。<br>1） An elephant, which is the earth’s largest land mammal , has few natural enemies other than human beings.<br>2） One of the elephants which we saw at the zoo had only one tusk.<br>例句1）中的an elephant是类指或泛指，即表示“大象”这类动物，而不是指称具体的某一头大象。<br>例句2）中的one of the elephants则不是类指概念，而是具体指代某一头大象，即“我们在动物园看到的那头大象”。<br>1）大象作为陆地上体形最大的哺乳类动物，很少有天敌，除了人类之外。<br>2）我们在动物园看到有一头大象只有一颗象牙。</p>
+<h3 id="用或不用逗号，句意有差别"><a href="#用或不用逗号，句意有差别" class="headerlink" title="用或不用逗号，句意有差别"></a>用或不用逗号，句意有差别</h3><p>还有一类句子，用限制性或非限制性定语从句都可以，但强调的意义不一样，即句意不同。<br>1） He has a daughter who works in a hospital.<br>2） He has a daughter, who works in a hospital.</p>
+<p>1） The cab drivers who knew about the traffic jam took another road.<br>2） The cab drivers, who knew about the traffic jam, took another road.<br>例句1）的言外之意是“不知道的司机则没有换路线，只有部分司机换行驶路线了”。<br>例句2）的言外之意是“全部司机都知道，都换了行驶路线”。<br>1）知道那里堵车的出租车司机换了另一条路。<br>2）出租车司机知道那里堵车了，他们都换了另一条路。</p>
+<h3 id="非限制性定语从句的翻译"><a href="#非限制性定语从句的翻译" class="headerlink" title="非限制性定语从句的翻译"></a>非限制性定语从句的翻译</h3><p>限制性定语从句一般翻译成定语的形式“……的”，而非限制性定语从句往往会译成各种状语形式。<br>The food, which wasn’t in the fridge , all went off.<br>食物都坏了，因为没有放在冰箱里。（译成原因状语从句）</p>
+<p>The Ambassador gave a dinner to the scientists, with whom he especially wished to talk.<br>大使宴请了那些科学家，因为他特别想与他们交谈一下。（译成原因状语从句）</p>
+<p>The people were desperate for work, any work, which could support their family.<br>人们急于找到工作，什么工作都行，只要能养家糊口。（译成条件状语从句）</p>
+<p>The millionaire had another house built, which he didn’t need at all.<br>那位百万富翁又建了一幢房子，尽管他并不需要。（译成让步状语从句）</p>
+<p>They tried to stamp out the revolt, which spread all the more furiously throughout the country.<br>起义依然声势浩大地遍布全国，尽管他们试图镇压。（译成让步状语从句）</p>
+<h2 id="定语从句与同位语从句的区分"><a href="#定语从句与同位语从句的区分" class="headerlink" title="定语从句与同位语从句的区分"></a>定语从句与同位语从句的区分</h2><p>二者在结构上有相似性，都是“名词that从句”，这里的名词都称作先行词。</p>
+<h3 id="从结构上区分：that是否作成分"><a href="#从结构上区分：that是否作成分" class="headerlink" title="从结构上区分：that是否作成分"></a>从结构上区分：that是否作成分</h3><p>that在定语从句中要充当成分，比如作从句的主语或宾语；而that在同位语从句中不充当任何成分，仅起连词的作用。<br>换句话说，定语从句的结构是“名词+that+不完整的句子”，而同位语从句的结构是“名词that+完整的陈述句”。<br>1） The rumor that he spread everywhere turned out to be untrue.<br>2） The rumor that Tom was a thief turned out to be untrue.<br>例句 1）中的that在从句中充当spread的宾语，故此处为定语从句。<br>例句2）中 的that在从句中不充当任何成分，因为从句“Tom was a thief”是一个完整的句子，不缺少任何成分。故其为同位语从句，作the rumor的同位语，补充说明the rumor的具体内容。<br>1）他到处散布的那个谣言，结果证明是假的。<br>2）有谣传说汤姆是小偷，结果证明是假的。</p>
+<p>1） The fact that we talked about is very important.<br>2） The fact that he succeeded in the experiment pleased everybody.<br>例句1）中的that作talked about的宾语，故此处为定语从句。<br>例句2）中的that不充当成分，因为“he succeeded in the experiment”是一个完整的陈述句，故其为同位语从句。<br>1）我们讨论的这些情况很重要。<br>2）他的实验取得了成功，这让大家很高兴。</p>
+<h3 id="从意义上区分：that引导的从句的意义不同"><a href="#从意义上区分：that引导的从句的意义不同" class="headerlink" title="从意义上区分：that引导的从句的意义不同"></a>从意义上区分：that引导的从句的意义不同</h3><p>定语从句相当于形容词, 对先行词起修饰、描述和限制的作用；同位语从句相当于一个名词，是对其前面名词内容的具体表述，二者是同位关系。<br>1） The news that you heard is not true.<br>2） The news that Lincoln was murdered at a theater is true.<br>例句1）中的定语从句that you heard并不是表示news的内容，只是在限制news所指的范围，即“你听到的那个消息”。<br>例句2）中的同位语从句that Lincoln was murdered at a theater是表示news的具体 内容，在意义上与news构成同位关系。<br>1）你听到的那个消息并不是真实的。<br>2）有消息说林肯是在一个剧院被刺杀的，这是真的。</p>
+<p>1） The fact that you pointed out made me interested.<br>2） The fact that there are no lives on the moon is known to us all.<br>例句1）中的定语从句that you pointed out并不是表示fact的内容，只是在限制fact的所指范围，即“你指出的这个事实”。<br>例句2）中的同位语从句that there are no lives on the moon是表示fact的具体内容，在意义上与fact构成同位关系。<br>1）你指出的这一点，我很感兴趣。<br>2）众所周知，月球上并没有生命存在。</p>
 
       
     </div>
@@ -317,7 +444,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-22 16:38:51" itemprop="dateModified" datetime="2020-09-22T16:38:51+08:00">2020-09-22</time>
+                <time title="Modified: 2020-09-23 12:07:35" itemprop="dateModified" datetime="2020-09-23T12:07:35+08:00">2020-09-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -341,7 +468,7 @@
 
       
           <blockquote>
-<p>这篇笔记总结自周志明老师的《深入理解Java虚拟机第3版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。<br>思维导图版本<a href="http://www.xmind.net/m/MfZ5zm" target="_blank" rel="noopener">点击这里</a></p>
+<p>这篇笔记总结自周志明老师的《深入理解Java虚拟机第3版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。<br>思维导图版本<a href="http://www.xmind.net/m/4drC3A" target="_blank" rel="noopener">点击这里</a></p>
 </blockquote>
 <h1 id="虚拟机概述"><a href="#虚拟机概述" class="headerlink" title="虚拟机概述"></a>虚拟机概述</h1><h2 id="中间语言翻译（从Java翻译到机器码）"><a href="#中间语言翻译（从Java翻译到机器码）" class="headerlink" title="中间语言翻译（从Java翻译到机器码）"></a>中间语言翻译（从Java翻译到机器码）</h2><blockquote>
 <p>从中间语言翻译到机器码</p>
@@ -588,6 +715,270 @@
 <li>Shenandoah (目前)是默认不使用分代收集的，换言之，不会有专门的新生代Region或者老年代Region的存在；</li>
 <li>Shenandoah摒弃 了在G1中耗费大量内存和计算资源去维护的记忆集，改用名为“连接矩阵”(ConnectionMatrix)的全局数据结构来记录跨Region的引用关系，降低了处理跨代指针时的记忆集维护消耗，也降低了<code>伪共享问题</code>的发生概率。</li>
 </ul>
+<h3 id="ZGC收集器（Z-Garbage-Collector）"><a href="#ZGC收集器（Z-Garbage-Collector）" class="headerlink" title="ZGC收集器（Z Garbage Collector）"></a>ZGC收集器（Z Garbage Collector）</h3><p>ZGC是一款在JDK 11中新加入的具有实验性质的低延迟垃圾收集器。<br>ZGC和Shenandoah的目标是高度相似的，都希望在尽可能对吞吐量影响不太大的前提下，实现在任意堆内存大小下都可以把垃圾收集的停顿时间限制在十毫秒以内的低延迟。<br>ZGC完全成熟之后，将会成为服务端、大内存、低延迟应用的首选收集器的有力竞争者。</p>
+<h2 id="选择合适的垃圾收集器"><a href="#选择合适的垃圾收集器" class="headerlink" title="选择合适的垃圾收集器"></a>选择合适的垃圾收集器</h2><h3 id="Epsilon收集器"><a href="#Epsilon收集器" class="headerlink" title="Epsilon收集器"></a>Epsilon收集器</h3><p>从JDK 10开始，为了隔离垃圾收集器与Java虚拟机解释、编译、监控等子系统的关系,RedHat提出了垃圾收集器的统一接口，即JEP 304提案，Epsilon是这个接口的有效性验证和参考实现，同时也用于需要剥离垃圾收集器影响的性能测试和压力测试。<br>近年来大型系统从传统单体应用向微服务化、无服务化方向发展的趋势已越发明显，Java在这方面比起Golang等后起之秀来确实有一些先天不足，使用率正渐渐下降。传统Java有着内存占用较大，在容器中启动时间长，即时编译需要缓慢优化等特点，这对大型应用来说并不是什么太大的问题，但对短时间、小规模的服务形式就有诸多不适。为了应对新的技术潮流，最近几个版本的JDK逐渐加入了提前编译、面向应用的类数据共享等支持。Epsilon也是有着类似的目标，如果客户应用只要运行数分钟甚至数秒，只要Java虚拟机能正确分配内存，在堆耗尽之前就会退出，那显然运行负载极小、没有任何回收行为的Epsilon便是很恰当的选择。</p>
+<h3 id="收集器的权衡"><a href="#收集器的权衡" class="headerlink" title="收集器的权衡"></a>收集器的权衡</h3><p>选择合适的垃圾收集器的因素主要有三个：</p>
+<ul>
+<li>应用程序的关注点：<ul>
+<li>吞吐量（如果是数据分析、科学计算类的任务、异步实时性追求不高的后台任务，目标是能尽快算出更多的结果，那吞吐量就是主要关注点）。 </li>
+<li>停顿时间（如果是SLA应用、服务影响时间要求高的应用、抢购服务等，那停顿时间直接影响服务质量，严重的甚至会导致事务超时，这样延迟就是主要关注点）。</li>
+<li>内存占用（如果是客户端应用或者嵌入式应用、内存资源紧张的机器，那垃圾收集的内存占用则是不可忽视的）。</li>
+</ul>
+</li>
+<li>运行应用的基础设施：<ul>
+<li>硬件规格，要涉及的系统架构是x86-32/64、SPARC还是ARM/Aarch64;</li>
+<li>处理器的数量多少，分配内存的大小;</li>
+<li>选择的操作系统是Linux、Solaris 还是Windows等。</li>
+</ul>
+</li>
+<li>使用JDK的发行商是什么?<ul>
+<li>版本号是多少?是ZingJDK/Zulu、OracleJDK、Open-DK、OpenJ9抑或是其他公司的发行版?</li>
+<li>该JDK对应了《Java虚拟机规范》的哪个版本?</li>
+</ul>
+</li>
+</ul>
+<h3 id="虚拟机和垃圾收集器日志"><a href="#虚拟机和垃圾收集器日志" class="headerlink" title="虚拟机和垃圾收集器日志"></a>虚拟机和垃圾收集器日志</h3><ul>
+<li>在JDK 9以前，HotSpot并没有提供统一的日志处理框架，虚拟机各个功能模块的日志开关分布在不同的参数上，日志级别、循环日志大小、输出格式、重定向等设置在不同功能上都要单独解决。</li>
+<li>直到JDK9,HotSpot所有功能的日志都收归到了“-Xlog”参数上，这个参数的能力也相应被极大拓展了:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-Xlog[:[selector][:[output][:[decorators][:output-options]]]]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/ieuLlX.png" alt></p>
+<blockquote>
+<p>参数详细用法可以参考周志明老师的书或者官方文档。</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/05/业界内各种权威标准/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/05/业界内各种权威标准/" class="post-title-link" itemprop="url">业界内各种权威、标准、协议</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-05 15:44:13" itemprop="dateCreated datePublished" datetime="2019-12-05T15:44:13+08:00">2019-12-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-23 11:52:58" itemprop="dateModified" datetime="2020-09-23T11:52:58+08:00">2020-09-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/标准/" itemprop="url" rel="index"><span itemprop="name">标准</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="ISO-8601"><a href="#ISO-8601" class="headerlink" title="ISO 8601"></a>ISO 8601</h1><p>国际标准化组织的时间和日期的表达方法。</p>
+<h1 id="cron-expressions"><a href="#cron-expressions" class="headerlink" title="cron expressions"></a>cron expressions</h1><p><a href="http://www.quartz-scheduler.org/documentation/quartz-2.x/tutorials/crontrigger.html" title="cron expressions教程参考" target="_blank" rel="noopener">cron expressions教程参考</a></p>
+<h1 id="GA-PRE-SNAPSHOT等各种版本含义"><a href="#GA-PRE-SNAPSHOT等各种版本含义" class="headerlink" title="GA/PRE/SNAPSHOT等各种版本含义"></a>GA/PRE/SNAPSHOT等各种版本含义</h1><ul>
+<li>GA General Availability,正式发布的版本，官方推荐使用该版本，国外很多项目都是使用GA来表示正式发布版本的</li>
+<li>PRE 预览版，主要是用来内部开发人员和测试人员测试使用，因此不建议使用</li>
+<li>SNAPSHOT 快照版，可以稳定使用，且该版本会一直进行小量的优化和改进</li>
+<li>RC (Release Candidate)：候选版本，几乎就是正式版了</li>
+<li>R (RELEASE) 正式版，等价于GA</li>
+<li>Alpha 内测版，BUG多，开发人员开发过程中使用，希腊字母α，第一，指最初版</li>
+<li>Beta 早期版本，有缺陷，无大BUG，可能加入新功能，进一步开发完善</li>
+<li>Gamma 经beta 版，完善修改，成为正式发布的候选版本（Release Candidate）</li>
+<li>Build 修正版</li>
+<li>Corporation或Enterprise：企业版</li>
+<li>Delux：豪华版</li>
+<li>DEMO：演示版，有功能限制</li>
+<li>Free：免费版</li>
+<li>Full：完全版</li>
+<li>Final：正式版</li>
+<li>Pro(professional)：专业版</li>
+<li>Plus：加强版\</li>
+<li>Retail：零售版</li>
+<li>Shareware：共享版，虽然不会要求注册但是一般也有功能限制</li>
+<li>SR：修正版</li>
+<li>Trial：试用版（一般有时间或者功能限制）</li>
+<li>M Milestone build probably not feature complete; should be vaguely stable (i.e. it’s more than just a nightly snapshot) but may still have problems.</li>
+<li>LTS（Long Term Support）：长期演进版，Ubuntu会对这一版本的支持时间更长。目前Java也在运用这种方式</li>
+</ul>
+<h1 id="计算机内存存储数据原理"><a href="#计算机内存存储数据原理" class="headerlink" title="计算机内存存储数据原理"></a>计算机内存存储数据原理</h1><p><a href="https://www.iteye.com/blog/wwty-401713" target="_blank" rel="noopener">https://www.iteye.com/blog/wwty-401713</a></p>
+<h1 id="服务级别协议（Service-Level-Agreement-SLA）"><a href="#服务级别协议（Service-Level-Agreement-SLA）" class="headerlink" title="服务级别协议（Service Level Agreement/SLA）"></a>服务级别协议（Service Level Agreement/SLA）</h1><h1 id="C-S与B-S的区别"><a href="#C-S与B-S的区别" class="headerlink" title="C/S与B/S的区别"></a>C/S与B/S的区别</h1><blockquote>
+<p><a href="https://blog.csdn.net/koudaidai/article/details/7395200" target="_blank" rel="noopener">https://blog.csdn.net/koudaidai/article/details/7395200</a></p>
+</blockquote>
+<p>Client/Server是建立在局域网的基础上的，Browser/Server是建立在广域网的基础上的。 </p>
+<ul>
+<li>C/S 一般建立在专用的网络上，小范围里的网络环境，局域网之间再通过专门服务器提供连接和数据交换服务。</li>
+<li>B/S 建立在广域网之上的，不必是专门的网络硬件环境，例如电话上网，租用设备，信息自己管理，有比C/S更强的适应范围，一般只要有操作系统和浏览器就行。</li>
+</ul>
+<h1 id="SaaS"><a href="#SaaS" class="headerlink" title="SaaS"></a>SaaS</h1><h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><h2 id="JEP-JDK-Enhancement-Proposals-JDK增强提案"><a href="#JEP-JDK-Enhancement-Proposals-JDK增强提案" class="headerlink" title="JEP(JDK Enhancement Proposals)(JDK增强提案)"></a>JEP(JDK Enhancement Proposals)(JDK增强提案)</h2><p><a href="http://openjdk.java.net/jeps/0" target="_blank" rel="noopener">http://openjdk.java.net/jeps/0</a></p>
+<h2 id="J9"><a href="#J9" class="headerlink" title="J9"></a>J9</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/20/数据结构系列之串-Java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/20/数据结构系列之串-Java/" class="post-title-link" itemprop="url">数据结构系列之串（Java）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-09-20 18:10:10" itemprop="dateCreated datePublished" datetime="2020-09-20T18:10:10+08:00">2020-09-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-22 22:37:23" itemprop="dateModified" datetime="2020-09-22T22:37:23+08:00">2020-09-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="串的朴素模式匹配"><a href="#串的朴素模式匹配" class="headerlink" title="串的朴素模式匹配"></a>串的朴素模式匹配</h2><blockquote>
+<p>较简单，略过。</p>
+</blockquote>
+<h2 id="KMP算法（朴素模式匹配的优化）"><a href="#KMP算法（朴素模式匹配的优化）" class="headerlink" title="KMP算法（朴素模式匹配的优化）"></a>KMP算法（朴素模式匹配的优化）</h2><p>朴素模式匹配的缺点是：每当模式串匹配失败的时候，当前的匹配指针都只是往后移动一位，也就是只是把模式串右移一位，而且主串的扫描指针（模式串中匹配到哪一位）都要经常回溯，会造成多余的开销。</p>
+<p>假定在某个主串中要匹配<code>google</code>这个模式串，那么其匹配逻辑如下：</p>
+<ul>
+<li>声明主串扫描指针为i；</li>
+<li>声明模式串扫描指针为j；</li>
+<li>KMP的算法关键在于匹配失败时，j回溯，而i不回溯（下标从0开始）。</li>
+<li>当j&gt;0匹配成功时，j++，i++</li>
+<li>当j=0匹配不成功时，j不变，i++</li>
+<li>当j&gt;0匹配不成功时，j回到最后一个有可能接下来匹配成功的下标，i不变（比如模式串google，在j等于4时不匹配，那么j应该回溯到1） </li>
+</ul>
+<p>j指针的具体回溯如下，并且可以一个<code>int类型数组</code>来存储器其回溯的下标。</p>
+<ul>
+<li>若当前两个字符匹配，则i++，j++</li>
+<li>若j=0时发生不匹配，则应让i++，但是此时的next[j]=-1</li>
+<li>若j=1时发生不匹配，则应让j回到0</li>
+<li>若j=2时发生不匹配，则应让j回到0</li>
+<li>若j=3时发生不匹配，则应让j回到0</li>
+<li>若j=4时发生不匹配，则应让j回到1</li>
+<li>若j=5时发生不匹配，则应让j回到0</li>
+</ul>
+<p>数组next[0]=-1 next[1]=0 next[2]=0 next[3]=0 next[4]=1 next[5]=0</p>
+<blockquote>
+<p>BOILERPLATE:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">private int[] next;</span><br><span class="line">public int kmp(String main, String pattern)&#123;</span><br><span class="line">    // 先构建模式串的next数组，下标从0开始</span><br><span class="line">    initNext(pattern);</span><br><span class="line">    int i=0,j=0;</span><br><span class="line">    while(i &lt; main.length() &amp;&amp; j &lt; pattern.length())&#123;</span><br><span class="line">        if(j == -1 || main.charAt(i) == pattern.charAt(j))&#123;</span><br><span class="line">            ++i;</span><br><span class="line">            ++j;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            j = next[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    if(j &gt;= pattern.length())&#123;</span><br><span class="line">        return i - pattern.length();</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="next数组的构建（fail数组）"><a href="#next数组的构建（fail数组）" class="headerlink" title="next数组的构建（fail数组）"></a>next数组的构建（fail数组）</h3><ul>
+<li>串的前缀：包含第一个字符，且不包含最后一个字符的子串。</li>
+<li>串的后缀：包含最后一一个字符，且不包含第一一个字符的子串。</li>
+</ul>
+<p>对于长度只有1的串来说，其前后缀都是空集。<br>当第j个字符匹配失败时，假定前面<code>1~j-1</code>个字符组成的串为S，那么，<code>next[j]=S的最长相等前后缀的长度</code>（当下标从1开始时，需要+1）。</p>
+<blockquote>
+<p>BOILERPLATE:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public void initNext(String pattern)&#123;</span><br><span class="line">    // 冗余出最后一个元素位，防止下标溢出</span><br><span class="line">    next = new int[pattern.length() + 1];</span><br><span class="line">    int i = 1, j = 0;</span><br><span class="line">    next[0] = j;</span><br><span class="line">    while(i &lt; pattern.length())&#123;</span><br><span class="line">        if(j == -1 || pattern.charAt(i) == pattern.charAt(j))&#123;</span><br><span class="line">            ++i;</span><br><span class="line">            ++j;</span><br><span class="line">            next[i] = j;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            j = next[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以<code>google</code>为例，上面的Boilerplate执行过程如下：</p>
+<ul>
+<li>j==-1        i=1 j=0     next[1]=0   </li>
+<li>o!=g        i=1 j=0      j = next[0] = -1</li>
+<li>j==-1        i=2 j=0        next[2]=0</li>
+<li>o!=g        i=2 j=0        j = next[0] = -1</li>
+<li>j==-1        i=3 j=0        next[3] = 0</li>
+<li>g==g        i=4 j=1        next[4] = 1</li>
+<li>l!=o        i=4 j=1     j=next[1] = 0</li>
+<li>l!=g        i=4 j=0        j=next[0] = -1</li>
+<li>j==-1        i=5 j=0     next[5] = 0</li>
+<li>e!=g      i=6 j=1     break;</li>
+</ul>
 
       
     </div>
@@ -733,383 +1124,6 @@
 <p>You are to finish your homework before you go to play. 你出去玩之前一定要把作业完成了。<br>These tablets are not to be taken orally. 这些药片禁止口服。<br>If it doesn’t rain within the next few weeks, the crops will have to be watered if they are to survive. 以后的几个星期如果还不下雨，则须对庄稼进行灌溉，以便庄稼能够存活。</p>
 <h3 id="be-about-to-do"><a href="#be-about-to-do" class="headerlink" title="be about to do"></a>be about to do</h3><p>这一结构用来表示即将发生的动作（比如通常在5分钟之内就会发生），意思是“正要，马上就要”。<br>The train is about to leave. 火车马上就要开了。<br>Jack is holding a fly swatter and staring at a fly on the kitchen table. He is about to swat the fly. 杰克手里正拿着苍蝇拍，眼睛盯着厨房桌上的一只苍蝇。他正要拍 这只苍蝇。</p>
 <h3 id="be-on-the-point-verge-brink-eve-of-doing"><a href="#be-on-the-point-verge-brink-eve-of-doing" class="headerlink" title="be on the point/verge/brink/eve of doing"></a>be on the point/verge/brink/eve of doing</h3><p>这一结构与be about to do的意思差不多，但其动作发生的时间比be about to do还要快一些。<br>He was on the point of killing himself when she stepped into his room. 她走进房间时，看见他正要自杀。<br>The child was on the verge of laughing, but he held back. 这孩子差 一点笑出声来，但还是忍住了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/02/English系列-虚拟语气/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/02/English系列-虚拟语气/" class="post-title-link" itemprop="url">English系列-虚拟语气</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-08-02 09:57:44" itemprop="dateCreated datePublished" datetime="2020-08-02T09:57:44+08:00">2020-08-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-22 16:22:57" itemprop="dateModified" datetime="2020-09-22T16:22:57+08:00">2020-09-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>这篇笔记摘选自《英语语法新思维中级教程通悟语法第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。<br>思维导图版本<a href="http://www.xmind.net/m/8YhgVq" target="_blank" rel="noopener">点击这里</a>（Web版的XMind有一些问题）。</p>
-</blockquote>
-<p>表示说话者的一种主观愿望、假想和建议等等，实际上并不能实现。 这在英语里，用语法术语表达就叫“虚拟语气”。<br>If I could rearrange the alphabet, I would put U and I together.<br>一般来讲，英语中的虚拟语气可以分为两大体系：一是表示与事实相反的或假想的情形，通常由if引导，叫作“非真实条件句（unreal conditional）”，或者叫“虚拟条件句”；另一个体系是在名词从句中使用虚拟语气，表示建议、命令或要求等语气，这是一个完全不同于非真实条件句的虚拟的结构形式。</p>
-<h2 id="虚拟条件句：两类三时"><a href="#虚拟条件句：两类三时" class="headerlink" title="虚拟条件句：两类三时"></a>虚拟条件句：两类三时</h2><p>这里说的“两类三时”是指虚拟条件句具有两种类型，并会对三种时间进行虚拟。<br>具体来说，虚拟条件句的两种类型是：<strong><em>假设条件句 （hypothetical）和事实相反句（counterfactual）。 </em></strong><br>假设条件句，顾名思义，是表示一种假想的情形，表示说话者的一种主观愿望或态度等，实现的可能性不大或极小。<br>事实相反句，顾名思义，是表示与现在或过去的某个事实相反的情形。对三种时间进行虚拟，即是对将来、现在和过去这三种时间的虚拟。<br>对于将来的情形只能是假设；对于现在的情形既可以是假设，也可以是谈与现在事实相反的情况；对于过去，只能是谈与事实相反的情形。</p>
-<p>If I were to have the time tomorrow, I would help him.<br>这里是表示将来虚拟假设的情形。用了虚拟，就表明说话人“我”认为自己明天有时间的可能性不大，所以言外之意是“我”可能帮不了他。这里用虚拟只是说明可能性不大（unlikely），而不是表达与事实相违背的不可能的情形（impossible）。<br>If I had the time now, I would help him.<br>这里是表示现在虚拟假设的情形。用了虚拟，就表明说话人“我”认为自己现在有时间的可能性不大，所以言外之意是“我”可能帮不了他。这里用虚拟也只是说明可能性不大（unlikely），而不是表达与事实相违背的不可能的情形（impossible）。比如“我”现在完全可以抛开一切事情不做而去帮他，所以可能性还是存在的。<br>If I were you, I would help him.<br>这里是表示与现在事实相反的情形。因为“我”成为“你”是不可能发生的（impossible）情形，而不是可能性不大 （unlikely）的情形了。</p>
-<p>表示与现在事实相反的情形：<br>If I were the President, I would make some changes.<br>“我”现在不是“总统”，这是一个现在的事实，即这里是表示与现在事实相反的情形。<br>如果我是总统，我就会做一些改革。<br>If my grandfather were alive today, he would experience a very different world.<br>If my grandfather were here now, he would be angry.<br>“我爷爷”现在不在这里，这是一个现在的事实，即这里是表示与现在事实相反的情形。<br>如果我爷爷现在在这里，他会很生气的。<br>表示对过去事实虚拟的句子：<br>If I had had the time yesterday, I would have helped him.</p>
-<p>综上所述，假设条件句表达的是一种在将来或现在可能性不大（unlikely）的情形，但不是不可能（impossible）的情形，表示说话人认为不可能，是一种比较主观的表达，而不是与客观事实相反。它尤其用来谈将来的情形，也可以谈现在。事实相反句表达的是一种与现在或过去的事实相违背的情形，因此是不可能发生的，而不是可能性不大。它适合谈现在或过去。由此可见，谈将来的情形，只能是假设条件句；谈现在的情形，既可能是假设条件句，也可能是事实相反句；谈过去的情形，只能是事实相反句。</p>
-<h2 id="虚拟条件句的谓语变化"><a href="#虚拟条件句的谓语变化" class="headerlink" title="虚拟条件句的谓语变化"></a>虚拟条件句的谓语变化</h2><p>三种不同时间下的主、从句的谓语形式列表如下：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/3VPsxo.png" alt></p>
-<h2 id="将来虚拟（ZjCj）"><a href="#将来虚拟（ZjCj）" class="headerlink" title="将来虚拟（ZjCj）"></a>将来虚拟（ZjCj）</h2><p>将来虚拟只能是谈将来的“不大可能”的情形，而不是一个与事实相反的情形。我们常常会用将来虚拟来谈一个不太可能实现的愿望。比如：<br>If I were to live my life over again, I would have you as my wife.<br>这句将来虚拟表达的是一个良好的愿望，将来是不会实现的。<br>如果我有来生，我一定会娶你为妻。<br>或者用将来虚拟来谈一个说话人认为不太可能发生的情形，这表明了说话人的自信程度。比如：<br>If I should win the lottery, I would buy a house.<br>万一我赢得了彩票大奖，我就会买一栋房子。</p>
-<p>对于很多将来的情况，选择用虚拟还是不用虚拟，完全取决于说话人对所陈述事件的态度，或者说虚拟语气能表明说话人的态度。比如：<br>What do you think would be the value of the necklace, if I were to sell it?<br>这里“卖项链”这个事件是说话人完全可以控制的，不是像“假如我有来生”那样完全不能掌控，但说话人依然用了将来虚拟的谓语形式were to sell，这只是表明说话人这样一个态度——不会卖或不大可能会卖这个项链。<br>假如我把这串项链卖了，你觉得会是什么价？<br>将来虚拟在很大程度上是由说话人对事件的态度决定的，所以，将来虚拟使用起来非常灵活。比如，同样是上面这个“卖项链”的事件，如果是对于一个急需用钱而且想把自己的项链卖掉来换钱的人，若他在询问卖价，这时他就不会用将来虚拟了，而是用一般陈述的语气来这样说：<br>What do you think is the value of the necklace if I sell it to you?<br>如果我把这串项链卖给你，你能出什么价？<br>这里说话人是真想卖掉项链，所以他就用is和sell这样的一般时态来询问卖价。</p>
-<p>真实条件和将来虚拟条件的区别：<br>1） If it were to rain, I would stay home.<br>2） If it rains, I will stay home.<br>这种不同语气的选择，反映了说话人对未来下雨的可能性的信心程度不同。在例句1）中，用了虚拟语气，表明说话人认为将来不太可能会下雨。在例句2）中，用了陈述语气，表明说话人认为将来下雨的可能性比较大。<br>1）万一要下雨，那我就在家呆着。<br>2）如果下雨了，我就在家呆着。</p>
-<blockquote>
-<p>思维总结：</p>
-</blockquote>
-<p><strong><em>从句用were to do或should do，主句用 would do。其意义是用将来虚拟谈论自己认为不太可能发生的事情。另外要注意的是，将来虚拟在很大程度上是由说话人对事件的态度决定的。所以，将来虚拟使用起来非常灵活，这一点需要读者注意，即你说话语气（虚拟还是不虚拟）的选择，反映了你的态度。</em></strong></p>
-<h2 id="现在虚拟（ZxCx）"><a href="#现在虚拟（ZxCx）" class="headerlink" title="现在虚拟（ZxCx）"></a>现在虚拟（ZxCx）</h2><p>If everyone lived like Americans, then you would need three planet earths to sustain that level of consumption.<br>由此可见，美国人常常指责别国破坏地球环境，浪费资源，殊不知他们自己才是破坏地球环境真正的罪魁祸首。在这句话中，彼得就是用了虚拟语气，因为事实上我们没有三个地球来供我们浪费和糟蹋。所以，主从句的谓语分别采用了“would动词（need）原形”和过去式（lived）这样标准的一般虚拟形式。<br>如果世界上每一个人都像美国人这般生活的话，那我们得需要三个地球方能维持这样的消费水平。</p>
-<p>This has been my life. I have found it worth living, and would gladly live it again if the chance were offered me.<br>这就是我的一生。我已经找到了它的价值。而且如果有机会，我很愿意能再活它一次。</p>
-<p>注意，比如对于“假如我当总统，我会……”这样一个简单的句子，都要根据说话人的不同身份来选择不同的语气表达。比如，这句话若是出自一个小学生之口， 他应该说成：<br>If I became President, I would…<br><strong><em>因为对于一个小学生来说，“当总统”是一个与现实相反的虚拟假设，所以这句话要借助谓语动词变化（即从句用过去式became，主句用would接一个原形动词）来传达这种虚拟的情形。</em></strong>但若是对于一位正在竞选中的总统候选人，比如2016年美国总统大选中的民主党候选人希拉里（Hillary），她则要这么说：<br>If I become President, I will make America stronger at home and more respected in the world.<br>如果我当了美国总统，我要让美国变得更强大，在国际上更受尊重。<br><strong><em>因为她应该用表示真实条件的陈述语气来表明对自己未来总统竞选获胜的信心。 如果希拉里用虚拟语气说：“If I became President, I would…”，恐怕连本来支持她的选民都要改旗易帜支持她的竞争对手了。</em></strong></p>
-<blockquote>
-<p>思维总结：</p>
-</blockquote>
-<p><strong><em>主句和从句都表示对现在一般情况的虚拟。此时，主句用would do，而从句用一般过去时态did；若从句的谓语是be动词，则一律用were。</em></strong></p>
-<h2 id="过去虚拟（ZgCg）"><a href="#过去虚拟（ZgCg）" class="headerlink" title="过去虚拟（ZgCg）"></a>过去虚拟（ZgCg）</h2><p>贝克汉姆曾在一次新闻发布会上说：<br>Two years ago if someone had turned round to me and said“in two years you’ll be England captain”, I would have turned round and said:“I don’t think so!”<br>这里是一个对过去事实的虚拟：两年前并没有人跟小贝说过“你将在两年后成为英格兰队的队长”，所以，小贝在这里用了虚拟语气：从句用过去完成时had turned，主句用would have turned。</p>
-<blockquote>
-<p>思维总结：</p>
-</blockquote>
-<p><strong><em>表示对过去的虚拟，主句的谓语要采用 would have done的形式，从句的谓语则要用过去完成时态had done。</em></strong></p>
-<h2 id="混合虚拟（一）：主句现在-从句过去-（ZxCg）"><a href="#混合虚拟（一）：主句现在-从句过去-（ZxCg）" class="headerlink" title="混合虚拟（一）：主句现在+从句过去 （ZxCg）"></a>混合虚拟（一）：主句现在+从句过去 （ZxCg）</h2><p>某个故事的结尾：<br>Boy, were you lucky that I came along. If you had married him, you would be the wife of a gas station attendant instead of the wife of a chief executive officer. （你瞧，嫁给了我真是你的幸运啊，你当初要是嫁给 了他，你现在就做不了总裁的太太，而只能是加油工的太太了。）<br>他太太也不甘示弱地回敬道： My dear, if I had married him, he would be the chief executive officer and you would be the gas station attendant. （嘿，亲爱的，如果我当初嫁 的是他，他就是总裁，而你就是加油工了。）<br>在这两个例句中，从句的“结婚（married）”这一活动是发生在过去，而且是与过去事实相反的一个假设，即是对过去的虚拟，所以谓语用的是过去完成时had married。不同的是，这里的主句是表示与现在事实相反的一个假设，即是对现在事实的虚拟，所以谓语用would be这样的动词形式。<br>简言之，这里的主句是对现在的虚拟，从句是对过去的虚拟，即主句和从句的虚拟时间不同。我们把这种主句、从句虚拟时间不一致的虚拟语气叫作“混合时间虚拟语气”。<br>对于混合虚拟语气，可以分两步判断：首先是根据上下文的语境，要能判断出某个句子是表达了与事实相反的情形，即虚拟；其次，分析主从句各自的虚拟时间有何不同，从而选择各自的谓语形式来表达不同的虚拟意义。</p>
-<p>有则笑话如下：<br>A: I don’t like my mother-in-law.<br>B: Listen, don’t you realize that you couldn’t have your wife if it hadn’t been for your mother-in-law?<br>A: Yes, that’s why I don’t like her.<br>根据主句和从句的谓语形式，我们知道这是一个混合时间虚拟语气。主句的谓语couldn’t have表明是对现在的虚拟，从句的谓语hadn’t been表明是对过去的虚拟。那就要思考这里为什么要用混合时间虚拟呢？该如何判断虚拟时间呢？其实，这里的主句说“你不可能有你的妻子”，但事实是现在“你有妻子”，即是对现在一般情况的虚拟。那么从句为什么是表示对过去时间的虚拟呢？因为从句说“如果不是因为你的岳母”，言外之意是，“如果没有你的岳母生下你的妻子”——这是发生在过去的。所以，这里的从句是表示对过去的虚拟，于是采用过去完成时hadn’t been。<br>A：我不喜欢我的岳母。<br>B：听着，你有没有想过，如果没有你的岳母，哪来你现在的妻子啊？<br>A：正是因为这个所以我才不喜欢她。</p>
-<blockquote>
-<p>思维总结：</p>
-</blockquote>
-<p><strong><em>是ZxCg（主现从过）型虚拟语气，即主句对现在虚拟，用would do形式；从句对过去虚拟，用had done形式。这是最常用的一种混合虚拟语气。</em></strong></p>
-<h2 id="混合虚拟（二）：主句过去-从句现在-（ZgCx）"><a href="#混合虚拟（二）：主句过去-从句现在-（ZgCx）" class="headerlink" title="混合虚拟（二）：主句过去+从句现在 （ZgCx）"></a>混合虚拟（二）：主句过去+从句现在 （ZgCx）</h2><p>某个故事中，如果将“如果我不爱她，我就不会娶她”翻译为英文，若是不懂英文的思维规律，只按照汉语的思维表达，将其译成英文就是：<br>If I don’t love her, I won’t marry her.<br>其实，这是一个典型的中式英语，并没有表达出原句的“言外之意”：我当然爱她，要不我就不会娶她了。但实际上他们已经结婚了。<br>可以选择的翻译大概如下：<br>If I didn’t love her, I wouldn’t have married her.<br>If I hadn’t loved her, I wouldn’t have married her.<br>If I didn’t love her, I wouldn’t marry her.<br>“如果我不爱她”，其实这是“正话反说”，实际上约翰是爱路易丝的，而且是一直都深爱着她，因此，这在英文中就是对“现在事实”表示虚拟。我们知道，从句对现在的虚拟要用一般过去时来表示，所以，这句话用正确的英文就要说成“If I didn’t love her…”。<br>“我就不会娶她”，实际上他们已经结婚了，所以，这句话是对“过去事实”的虚拟。在英文中，主句对过去的虚拟要用would have done的谓语动词形式。所以，这句话的正确英文表达是“I wouldn’t have married her.”。<br>根据以上分析，原句是一个ZgCx（主过从现）型的混合时间虚拟语气，即主句表示对过去事实的虚拟，从句则是表示对现在事实的虚拟。<br>因此，“如果我不爱她，我就不会娶她”这句话的正确英文表达应该是“If I didn’t love her, I wouldn’t have married her.”。<br>再来分析另外两个例句：<br>If I hadn’t loved her, I wouldn’t have married her.<br>这是一个ZgCg（主过从过）型虚拟语气，即主句和从句都表示对过去的虚拟。含义是：在结婚时约翰是爱她的，要不然当时就不会娶她。言外之意 可能是：当时能和她结婚，是因为当时爱她，但现在已经不爱了（所以离婚吧）。<br>If I didn’t love her, I wouldn’t marry her.<br>这里的wouldn’t marry 表示两人还没有结婚，说的是将来的情况。真正意思是“如果我不爱她，我将来就不打算和她结婚了”。这显然是以男朋友的身份来说这话的。</p>
-<blockquote>
-<p>思维总结：</p>
-</blockquote>
-<p><strong><em>ZgCx（主过从现）型混合时间虚拟语气，即主句对过去虚拟，用would have done的形式；从句对现在虚拟，用did的形式。</em></strong></p>
-<h2 id="倒装虚拟"><a href="#倒装虚拟" class="headerlink" title="倒装虚拟"></a>倒装虚拟</h2><p>在英文中，虚拟从句可以采用倒装结构。具体来说，当if引导的条件句省去if时，可将should，had或were置于句首，从而构成倒装虚拟句，而意义不变。<br>Should I win the lottery, I would buy a car.<br>=If I should win the lottery, I would buy a car.<br>如果我能赢得大奖，我就会买一辆车。</p>
-<p>Were he to leave today, he would get there by Monday.<br>=If he were to leave today, he would get there by Monday.<br>如果他今天出发，他就能在星期一之前到达那里。</p>
-<p>Should you change your mind, no one would blame you.<br>=If you should change your mind, no one would blame you.<br>如果你改变主意的话，没有人会责怪你。</p>
-<p>另外在英语口语里，我们常常会使用“疑问句+陈述句”这样的结构，如：<br>Are you ready? Okay we can leave.<br>这里的一般疑问句就相当于一个条件从句“If you are ready…”，于是整个句子相当于“如果你准备好了，那我们现在就走”。<br>你准备好了吗？那我们现在就走。</p>
-<h2 id="跳层虚拟"><a href="#跳层虚拟" class="headerlink" title="跳层虚拟"></a>跳层虚拟</h2><p>He must have heard her initial instructions or he would not have known where to take her.<br>在她刚上车时告诉他要去哪里，他一定是听清了，否则他不会知道该把她送到哪儿。<br>这个句子的谓语比较复杂，一个是must have heard，另一个是would not have known，即两个都带有情态动词。要注意的是，这里的must have heard不是虚拟语气，而是must表示推测的用法。在英文中，“must+have done”结构表示对过去的推测。也就是说，这里谈论的是一个过去的情形。接下来有一个关键词or，表示“否则”，其后面接的就是虚拟语气。此时要搞清楚两点： 一是虚拟的时间。由or前面的句子我们知道，这里是表示对过去的虚拟；二是句子的谓语采用虚拟主句的谓语形式还是从句的谓语形式。因为or后面的句子相当于一个虚拟主句，所以其谓语自然要采用虚拟主句的谓语形式。搞清楚这两点，就知道为什么要说would not have known了，因为这正是一个过去虚拟的主句谓语结构形式。<br>这类虚拟句一般分为两部分，两部分在语气上截然相反，一部分虚拟，另一部分不虚拟，而用的是陈述语气，用以陈述一个事实。比如上面这个句子就是“陈述句or+虚拟句”这样的结构。它们二者之间往往有but，or，or else或otherwise来连接。正是因为这种虚拟与不虚拟兼而有之，一部分虚拟， 一部分又跳出虚拟的圈子，故称之为“跳层虚拟句”。</p>
-<h3 id="陈述句-or-虚拟主句"><a href="#陈述句-or-虚拟主句" class="headerlink" title="陈述句+or+虚拟主句"></a>陈述句+or+虚拟主句</h3><p>这里的连接词除了or，还可以用or else和otherwise。需要注意的是，or前面的句子是陈述语气，而后面的句子用的是虚拟语气，而且是虚拟主句。具体的谓语搭配结构是：</p>
-<ul>
-<li>主语一般现在时的谓语形式, or+主语+would do→表示对现在事实的虚拟；</li>
-<li>主语+一般过去时的谓语形式, or+主语+would have done→表示对过去事实的虚拟。</li>
-</ul>
-<p>We didn’t know his telephone number, otherwise we would have telephoned him.<br>=We would have telephoned him if we had known his telephone number.<br>这里的didn’t表示陈述过去的事实，而otherwise的后面则是对过去的虚拟，且是虚拟主句的形式，因此 要用would have done.</p>
-<p>He must have had an accident, or he would have been here then.<br>这里or的前面通过用must have had 这一形式来表示对过去的推测，是属于陈述过去，而or的后面则用过去虚拟。<br>他一定是出事故了，要不然早就到了。</p>
-<p>Mary couldn’t have received my letter; otherwise she would have replied before now.<br>这里otherwise后面的句子表示对过去的虚拟，相应地，其前面的半个句子就是表示陈述过去，所以要用一般过去时。不过，这里情态动词的过去时态couldn’t have done的形式表示对过去的推测，类似于must表示推测。</p>
-<h3 id="虚拟主句-but-陈述句"><a href="#虚拟主句-but-陈述句" class="headerlink" title="虚拟主句+but+陈述句"></a>虚拟主句+but+陈述句</h3><p>与or等词不同的是，这里but的前面是虚拟主句，but的后面是陈述句。该句型的使用规律是：</p>
-<ul>
-<li>主语+would do, BUT+主语+一般现在时的谓语形式→表示对现在事实的虚拟；</li>
-<li>主语+would have done, BUT+主语+一般过去时的谓语形式→表示对过去事实的虚拟。</li>
-</ul>
-<p>当然，句中的would可换成should, might或could。这类跳层虚拟句的关键标志词是but，随着but一转折，句子的语气也由虚拟变为不虚拟，即but将句子一分为二，but前面部分的句子用虚拟语气，but后面部分的句子用陈述语气。</p>
-<p>He would put on weight, but he doesn’t eat much.<br>=He would put on weight if he ate much.<br>这里不用didn’t，而是doesn’t。因为前面的would不是表示过去时态，而是表示对现在事实的虚拟，原句相当于“If he ate much, he would put on weight.”。这就解释了为什么but前面的半句话相当于虚拟主句形式了，因为but后面的陈述句相当于一个虚拟从句。<br>他本来是会发胖的，但是他从来不会多吃。</p>
-<p>Some women could have made a good salary in a job instead of staying home, but they decided not to work for the sake of the family.<br>=Some women could have made a good salary in a job instead of staying home if they hadn’t decided not to work for the sake of the family.<br>这里but后面的句子是陈述过去的事实，but前面的句子是对过去的虚拟，所以采用过去虚拟主句的谓语形式could have made。<br>有些妇女本来是能够挣得高薪的，但是为了家庭，她们放弃了工作，呆在家里。<br>有时不用but来表示转折，而是用其他副词，比如下句中的 unfortunately：<br>A safety analysis would have identified the target as a potential danger. Unfortunately, it was never done.<br>这里的unfortunately在语义上相当于but，表示转折，使句子从虚拟转为不虚拟。这里的was表示过去，因此前半部分也是表示过去，所以采用过去虚拟主句的谓语形式would have identified。<br>若是做一下安全分析，就可以发现这个潜在的隐患，但遗憾的是，并没有做安全分析。</p>
-<blockquote>
-<p>思维总结:</p>
-</blockquote>
-<p>共有两类跳层虚拟句，一类是由or等引导的，具体的句型结构是： </p>
-<ul>
-<li>主语+一般现在时谓语形式，or+主语+would do→表示对现在事实的虚拟； </li>
-<li>主语+一般过去时谓语形式，or+主语+would have done→表示对过去事实的虚拟。 </li>
-</ul>
-<p>另一类是由but引导的，具体的句型结构是： </p>
-<ul>
-<li>主语+would do，but+主语+一般现在时谓语形式→表示对现在事实的虚拟； </li>
-<li>主语+would have done，but+主语+一般过去时谓语形式→表示对过去事实的虚拟。 </li>
-</ul>
-<p>注意这两类句型的前后两个分句的语气正好相反。</p>
-<h2 id="名词从句中如何使用虚拟"><a href="#名词从句中如何使用虚拟" class="headerlink" title="名词从句中如何使用虚拟"></a>名词从句中如何使用虚拟</h2><p>在特定的名词从句中也需要用虚拟语气。这里所说的“特定的名词从句”，是指这样的名词从句中均要含有特定的标志词，这些标志词可用来表示愿望、建议、命令、请求或意志等语气。<br>而且，与非真实条件虚拟句中的主句和从句的谓语动词的形式完全不同的是，名词从句虚拟句的谓语变化的形式只有一条规律，那就是：名词从句虚拟句无论其主句的谓语动词是何种形式，从句的谓语形式均为“should动词原形”，其中should可以省去。这里特别要提醒读者注意：不是用would，而是用should。比如：<br>I suggest that we should go tomorrow.<br>I suggested that we should go the next day.<br>上面两个例句中的suggest 即是我们所说的标志词。这里从句中谓语的时态（should go）并没有受主句谓语时态（suggest， suggested）的影响。</p>
-<ol>
-<li>我建议我们明天走。 </li>
-<li>我当时建议我们第二天走。</li>
-</ol>
-<blockquote>
-<p>要掌握名词从句的虚拟句，最终归结为：记住相应的标志词即可：</p>
-</blockquote>
-<h3 id="此类虚拟语气的宾语从句常见标记词"><a href="#此类虚拟语气的宾语从句常见标记词" class="headerlink" title="此类虚拟语气的宾语从句常见标记词"></a>此类虚拟语气的宾语从句常见标记词</h3><p>ask （要求，请求），advise，beg，command，demand，decide， deserve，desire，determine，insist，move （动议，提议），order， prefer，propose，require，recommend，request，suggest和urge等。</p>
-<p>His father urged that he study medicine.<br>注意这句话中用study，不用studies，省略了should。<br>他父亲要求他学医。</p>
-<p>The instructions ask that we not take more than three tablets once.<br>从句的谓语not take相当于should not take，这里should被省去了。<br>说明书要求每次服用的量不超过三粒。</p>
-<p>The board deemed it urgent that these files should be printed right away.<br>这里因为有了形容词urgent，所以从句要用虚拟语气， 即用动词should be printed的形式。<br>董事会要求把这些文件立刻打印出来。</p>
-<h3 id="在it-is-形容词-过去分词-特定的名词-that的主语从句中"><a href="#在it-is-形容词-过去分词-特定的名词-that的主语从句中" class="headerlink" title="在it is+形容词/过去分词/特定的名词+that的主语从句中"></a>在it is+形容词/过去分词/特定的名词+that的主语从句中</h3><h4 id="形容词"><a href="#形容词" class="headerlink" title="形容词"></a>形容词</h4><p>astonishing，amazing，advisable，appropriate，crucial，desirable， essential，important，imperative，keen，necessary，natural，normal， odd，proper，preferable，strange，sorry，shocked，surprising，urgent， unusual和vital等。这些形容词一般表示个人对事件的反应。<br>If we are ever going to protect the atmosphere, it is crucial that those new plants be environmentally sound.<br>这里因为有了形容词crucial，所以从句要用虚拟语气，即用动词原形be。<br>我们若是想保护大气层，那么就应该要求那些新开工的工厂对环境无害。</p>
-<p>It is natural that I should dwell upon his successes rather than upon his failures.<br>我宁愿强调他成功的地方，而不愿突出他的失败之处，这是理所当然的。</p>
-<p>It is strange that he should not come here.<br>这里的should只表明一种意外的语气，可译为“竟然”。<br>他竟然没来，这真是太奇怪了。</p>
-<p>It is important that the hotel receptionist make sure that guests are registered correctly.<br>宾馆的前台接待人员应该确认客人们登记注册无误，这是十分重要的。</p>
-<h4 id="过去分词"><a href="#过去分词" class="headerlink" title="过去分词"></a>过去分词</h4><p>decided，desired，demanded，ordered，requested，required， recommended和suggested等。<br>It is requested that all members be present at the meeting. 要求所有的成员都出席这次会议。<br>It is politely requested by the hotel management that radios not be played after 11 o’clock at night.<br>宾馆的管理人员恳请客人晚上11点以后不要开收音机。</p>
-<h4 id="特定的名词"><a href="#特定的名词" class="headerlink" title="特定的名词"></a>特定的名词</h4><p>advice，decision，desire，demand，suggestion，motion，pray， resolution，wish，preference，proposal，recommendation，requirement， idea和order等。<br>It is my proposal that he be sent to study further abroad. 我建议把他送到国外去学习。</p>
-<h4 id="在上述名词的表语从句和同位语从句中"><a href="#在上述名词的表语从句和同位语从句中" class="headerlink" title="在上述名词的表语从句和同位语从句中"></a>在上述名词的表语从句和同位语从句中</h4><p>For my own part, it seems that the main requirement of an international language is that it be easily learned.<br>我个人认为，对于一门国际语言最主要的要求是，它必须易于学习。<br>The suggestion that the mayor present the prizes was accepted by everyone. 由市长颁奖的建议被所有人接受了。</p>
-<h2 id="各种虚拟句型"><a href="#各种虚拟句型" class="headerlink" title="各种虚拟句型"></a>各种虚拟句型</h2><h3 id="在wish后面的宾语从句中"><a href="#在wish后面的宾语从句中" class="headerlink" title="在wish后面的宾语从句中"></a>在wish后面的宾语从句中</h3><p>这是读者非常熟悉的一个虚拟句型，它用来表示说话者难以实现的或与事实违背的愿望，具有较强的感情色彩，可分别表示对现在、过去和将来情景的虚拟。</p>
-<h4 id="对现在的虚拟"><a href="#对现在的虚拟" class="headerlink" title="对现在的虚拟"></a>对现在的虚拟</h4><p>即表示对现状的愿望，从句的谓语动词用过去时。<br>I wish I were a little younger. 我希望我能够年轻一点。<br>I wish I could travel to the moon (but I can’t do that). 我希望我能够登上月球（但实际上我不能）。<br>Whenever something goes wrong, I just push this little Reset button and restart. I wish my whole life were like that!<br>每次电脑出故障的时候，我只要按一下Reset键，电脑就可以重启了。我真希望人生也能如此啊！<br>事实上，人生不可能如此简单。如果做错事了，想让时光倒流，重新来选择，这是不可能的。</p>
-<h4 id="对过去的虚拟"><a href="#对过去的虚拟" class="headerlink" title="对过去的虚拟"></a>对过去的虚拟</h4><p>即对过去发生的事情表示遗憾或后悔，从句的谓语动词用过去完成时（had done）或“would/could+现在完成时”，意指从句的谓语动词所表示的动作发生在主句的谓语所表示的动作之前。<br>I wish I had been there. 我真希望我当时在那儿。<br>I wish I could have gone with you to the concert last night. 我真希望昨晚能和你一起去听音乐会。</p>
-<h4 id="对将来的虚拟"><a href="#对将来的虚拟" class="headerlink" title="对将来的虚拟"></a>对将来的虚拟</h4><p>指对将来发生的事情表示祝愿，从句的谓语动词用“would/could+动词原形”，意指从句的谓语动词所表示的动作可能发生在主句的谓语所表示的动作之后。<br>I wish he could explain what he means. 我希望他能解释一下他是什么意思。<br>I wish you would shut up. 我希望你能闭嘴。<br>注意，即使将wish改为wished，上述例句谓语的时态仍然不变。</p>
-<h3 id="在if-only感叹句中"><a href="#在if-only感叹句中" class="headerlink" title="在if only感叹句中"></a>在if only感叹句中</h3><p>if only表示“但愿”“要是……就好了”，其用法和wish基本相同，可表示对现在、过去和将来的虚拟，只是比wish具有更强烈的感情色彩。<br>If only the rain would stop. 但愿雨能停。（对将来的虚拟）<br>If only I were taller. 我的个子要是能高一点就好了。（对现在的虚拟）<br>If only he had followed your advice! 他要是听从了你的建议就好了！（对过去的虚拟）</p>
-<p>另外需要注意的是，可以把only放到句中的位置。<br>If he had only followed your advice!</p>
-<p>If I’d only remembered to lock the door.<br>= I wish I had locked the door.<br>if only与wish的用法和意义均相同，比如这里wish的后面也是接过去完成时来表示过去虚拟的事件。<br>我要是记得锁门就好了。</p>
-<h3 id="在as-if-as-though引导的从句中"><a href="#在as-if-as-though引导的从句中" class="headerlink" title="在as if/as though引导的从句中"></a>在as if/as though引导的从句中</h3><h4 id="表示与现在事实相反或对现在情况有所怀疑，谓语用过去时"><a href="#表示与现在事实相反或对现在情况有所怀疑，谓语用过去时" class="headerlink" title="表示与现在事实相反或对现在情况有所怀疑，谓语用过去时"></a>表示与现在事实相反或对现在情况有所怀疑，谓语用过去时</h4><p>I really don’t care for the way you’re speaking to me. It seems as if you were my father.<br>我真的非常讨厌你和我说话的方式。你听起来就好像是我爸爸。<br>You should live each day as if it were the last and use every second to your advantage. That means setting goals, being involved on campus and in your community, working hard, and most importantly, never giving up!</p>
-<h4 id="表示与过去事实相反，谓语用过去完成时"><a href="#表示与过去事实相反，谓语用过去完成时" class="headerlink" title="表示与过去事实相反，谓语用过去完成时"></a>表示与过去事实相反，谓语用过去完成时</h4><p>It seems as if he has been to America. 他好像去过美国。</p>
-<h4 id="在it-is-（high）-time-（that）从句中"><a href="#在it-is-（high）-time-（that）从句中" class="headerlink" title="在it is （high） time （that）从句中"></a>在it is （high） time （that）从句中</h4><p>该句型表示“该是做什么事的时候了”，含有“晚了一点”的意思，从句中用过去时。<br>Don’t dawdle away your youth any more. It is time you thought about your future.<br>不要再浪费青春了，你该考虑自己的将来了。<br>It seems to be high time that this argument were put to an end.<br>现在似乎是时候结束争吵了。</p>
-<h4 id="在would-rather-would-（just）-as-soon-would-sooner-would-prefer等从句中"><a href="#在would-rather-would-（just）-as-soon-would-sooner-would-prefer等从句中" class="headerlink" title="在would rather, would （just） as soon, would sooner, would prefer等从句中"></a>在would rather, would （just） as soon, would sooner, would prefer等从句中</h4><h5 id="would-rather-do-sth"><a href="#would-rather-do-sth" class="headerlink" title="would rather do sth."></a>would rather do sth.</h5><p>would rather的后面接动词原形，可以表示将来或现在的事件，意指“主语宁愿自己做某事”。这是would rather最常见的用法。<br>I would rather go there tomorrow. 我想明天去那里。<br>He would rather stay at home than go to the cinema tonight.<br>他今晚就想在家里呆着, 而不想去看电影。<br>注意，对该句型的否定，要在动词的前面加not，而不是在would的后面加not。例如：<br>1） He would rather not stay at home tonight. 他今晚不想在家呆着。<br>2） He would not rather stay at home tonight. *</p>
-<h5 id="would-rather-have-done-sth"><a href="#would-rather-have-done-sth" class="headerlink" title="would rather have done sth."></a>would rather have done sth.</h5><p>这是would rather后面接动词完成式的用法，表示过去的事件，意指“某人宁愿自己过去做了某事，但实际上没有做”，因此，具有过去虚拟的意味，如同过去虚拟条件主句的谓语形式。<br>I took Sally to the cinema last night, but I would rather have been there alone.<br>这里的would rather have been表示对过去的虚拟，意思是“还不如自己一个人去”，但实际上不是一个人去的。<br>我昨晚带萨莉看电影去了，可是我还不如自己一个人去呢（真不该带她去）。</p>
-<h5 id="would-rather-sb-did"><a href="#would-rather-sb-did" class="headerlink" title="would rather sb. did"></a>would rather sb. did</h5><p>这是would rather后面接从句的用法，意指“主语宁愿让另一个人做某事”。这里从句的谓语用一般过去式，但表示的是现在或将来的事件，如同现在虚拟条件从句的谓语形式。<br>Don’t come tomorrow. I’d rather you came next weekend.<br>我们看到，这里的时间状语next weekend显然是表示一个将来的时间，但句子的谓语却用了came这样的一般过去式，而不用 will come，甚至也不用would come。<br>明天就别来了，我希望你下周末过来。<br>She says she’d rather he left tomorrow instead of today.<br>她说她希望他明天走，而不是今天。</p>
-<h5 id="would-rather-sb-had-done"><a href="#would-rather-sb-had-done" class="headerlink" title="would rather sb. had done"></a>would rather sb. had done</h5><p>这是would rather后面接从句的用法，意指“主语宁愿别人过去做了某事，但实际上没有做”。这里从句的谓语用过去完成时表示过去的事件，如同过去虚拟条件从句的谓语形式。<br>For my ninth birthday, my father gave me a set of the World Book Encyclopedia. But I would rather he had given me a set of transformers.</p>
-<blockquote>
-<p>其他的结构，如would (just) as soon，would sooner和would prefer在接从句时，完全如同would rather的虚拟用法。</p>
-</blockquote>
-<p>I’d just as soon you didn’t speak rudely to her. 我希望你不要那么粗鲁地对她说话。<br>I’d as soon you hadn’t spoken rudely to her. 我希望你当时没有那么粗鲁地对她说话。</p>
-<blockquote>
-<p>might just as well接完成时的虚拟表达</p>
-</blockquote>
-<p>Our holidays were ruined by the weather—we might just as well have stayed at home.<br>这完全类似于would rather have done的意义和用法，都表示对过去的虚拟，意思是“还不如呆在家里”，但实际上没有这么做，而是出去度假了，但天气不好，玩得并不开心。<br>因为天气的原因，我们的假期全给毁了。我们还不如就在家里呆着哪儿也不去呢！</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/09/English系列之定语从句/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/09/English系列之定语从句/" class="post-title-link" itemprop="url">English系列之定语从句</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-09-09 20:51:52" itemprop="dateCreated datePublished" datetime="2020-09-09T20:51:52+08:00">2020-09-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-22 16:22:57" itemprop="dateModified" datetime="2020-09-22T16:22:57+08:00">2020-09-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>这篇笔记摘选自《英语语法新思维中级教程第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。<br>思维导图版本<a href="http://www.xmind.net/m/KPatAf" target="_blank" rel="noopener">点击这里</a></p>
-</blockquote>
-<h2 id="定语从句概述"><a href="#定语从句概述" class="headerlink" title="定语从句概述"></a>定语从句概述</h2><p>在英文中，被定语从句所修饰的对象叫作antecedent，英文中对这个词的解释是a word, phrase, clause, or sentence to which a pronoun refers，即表示“代词所指代的词、短语、从句或句子”，所以先行词可以是一个词、短语、分句或者独立的句子等。</p>
-<h3 id="形容词作定语与从句作定语比较"><a href="#形容词作定语与从句作定语比较" class="headerlink" title="形容词作定语与从句作定语比较"></a>形容词作定语与从句作定语比较</h3><p>当要表达复杂的意思时，往往需要借助于定语从句来完成，即要用定语从句来修饰某个名词或名词短语。比如当我们说“我不喜欢懒人”，这时只需要用一个形容词lazy来作定语就可以。<br>I don’t like lazy people.<br>如果要表达稍微复杂一点的意思，比如说“我不喜欢不守信用的人”，这时，简单地用形容词作定语就无能为力了，就要借助于一个句子来修饰名词，用作名词的定语，对名词进行限制。<br>I don’t like people who never keep their word.<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/KmgSIt.png" alt></p>
-<h3 id="定语从句的两个重要概念：先行词和关系词"><a href="#定语从句的两个重要概念：先行词和关系词" class="headerlink" title="定语从句的两个重要概念：先行词和关系词"></a>定语从句的两个重要概念：先行词和关系词</h3><p>被定语从句所修饰的对象称为先行词。<br>重复指代先行词、起连接主句和从句的作用，并且在定语从句中充当一定成分的连接词称为关系词。<br>关系词有两个作用：</p>
-<ul>
-<li>代词的作用： 重复指代先行词并且在定语从句中充当一定成分。</li>
-<li>连接作用：即连接主句和从句。</li>
-</ul>
-<h2 id="先行词的结构特点"><a href="#先行词的结构特点" class="headerlink" title="先行词的结构特点"></a>先行词的结构特点</h2><h3 id="先行词是一个词"><a href="#先行词是一个词" class="headerlink" title="先行词是一个词"></a>先行词是一个词</h3><p>先行词可以是一个单词，通常是名词，也可以是代词。主要包括：人称代词he（其他人称代词不可以），指示代词that/those，不定代词one等。<br>There is this difference between happiness and wisdom: he who thinks himself the happiest man really is so; but he who thinks himself the wisest is generally the greatest fool.<br>这里的两个定语从句的先行词都是代词he。注意：这里的he不是具体指某个人，而是表示泛指。一般来讲，人称代词后面是不能接定语从句的，比如我们不能说“We who think ourselves…<em>”，或“You who think yourself…</em>”等等，因为人称代词已经表达了一个完整的意思，不需要任何定语从句来修饰。但人称代词若是表示泛指，则可以接定语从句来进行修饰<br>幸福与智慧的区别在于：认为自己最幸福的人，他真的就是最幸福；而认为自己最智慧的人，却往往是最大的傻瓜。</p>
-<p>Only those who have the patience to do simple things perfectly will acquire the skill to do difficult things easily.<br>这里的those指人，作先行词，被定语从句who have the patience to do simple things perfectly所修饰。<br>只有那些有耐心将简单的事情做得完美的人，才能学会轻松地做好难事的技能。</p>
-<h3 id="先行词是一个短语"><a href="#先行词是一个短语" class="headerlink" title="先行词是一个短语"></a>先行词是一个短语</h3><p>In Europe, as elsewhere, multi-media groups have been increasingly successful groups which bring together television, radio, newspapers, magazines and publishing houses that work in relation to one another.<br>这里的关系词which指代的先行词是successful groups这个名词短语，关系词that指代的先行词是television, radio, newspapers, magazines and publishing houses这个名词短语。<br>在欧洲，像在其他地方一样，多媒体集团越来越成功了。这些集团把相互间联系密切的电视台、电台、报纸、杂志以及出版社组合到了一起。</p>
-<h3 id="先行词是一个分句"><a href="#先行词是一个分句" class="headerlink" title="先行词是一个分句"></a>先行词是一个分句</h3><p>He said that he had no time, which isn’t true.<br>这里which指代的是一个宾语从句that he had no time。<br>他说他没有时间，事实并非如此。</p>
-<h3 id="先行词是一个完整的句子"><a href="#先行词是一个完整的句子" class="headerlink" title="先行词是一个完整的句子"></a>先行词是一个完整的句子</h3><p>My girlfriend likes dancing with other guys, which really drives me crazy.<br>先行词是my girlfriend likes dancing with other guys这一完整的句子。<br>我女友喜欢和别的小伙子跳舞，这让我十分恼火。</p>
-<h2 id="先行词的位置特点"><a href="#先行词的位置特点" class="headerlink" title="先行词的位置特点"></a>先行词的位置特点</h2><h3 id="先行词-其他定语-定语从句"><a href="#先行词-其他定语-定语从句" class="headerlink" title="先行词+其他定语+定语从句"></a>先行词+其他定语+定语从句</h3><p>这种情形最常见。这是由于先行词同时带有多个定语，定语从句与其他定语相比，一般较长，结构也较复杂，因此，按照英语的“尾重原则（principle of end weight）”，结构复杂的定语从句置于其他定语后边，从而造成与先行词隔离。<br>The mineral elements from the soil that are usable by the plant must be dissolved in the soil solution before they can be taken into the root.<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/QbR3pc.png" alt><br>土壤中可供植物利用的矿物质只有先溶解在土壤中，然后才能被植物的根部吸收。</p>
-<h3 id="先行词-状语-定语从句"><a href="#先行词-状语-定语从句" class="headerlink" title="先行词+状语+定语从句"></a>先行词+状语+定语从句</h3><p>造成先行词与关系词被分隔的第二种情形，就是在先行词与关系词之间插入一个状语，这个状语一般是修饰主句的谓语动词的。<br>Never leave that until tomorrow which you can do today.<br>这里的先行词是that，定语从句是which you can do today。现在二者之间插入了一个时间状语until tomorrow来修饰leave，从而造成先行词与关系词被分隔。<br>今日事，今日毕（不要把今天能做的事情留到明天做）。</p>
-<p>If there is anything in the world that a young man should be more grateful for than another, it is the poverty which necessitates starting life under very great disadvantage.<br>这里的 关系代词that在从句中作介词for的宾语。<br>对于青年人来说，如果世上真的有什么事物是他最应该感激的，那就是贫穷，因为贫穷能促使他在非常恶劣的环境下开创生活。</p>
-<h3 id="作主语的先行词-谓语部分-定语从句"><a href="#作主语的先行词-谓语部分-定语从句" class="headerlink" title="作主语的先行词+谓语部分+定语从句"></a>作主语的先行词+谓语部分+定语从句</h3><p>先行词与关系词被分隔的第三种情形就是两者被主句谓语隔开。这是因为先行词在主句中作主语，然后它又被一个定语从句所修饰，而定语从句一般都会比主句谓语的结构复杂。因此，按照英语的“尾重原则（principle of end weight）”，结构复杂的定语从句置于主句谓语后边，从而造成关系词与先行词被隔离。<br>It can be predicted, however, that from time to time questions will arise which will require specific scientific answers.<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/FOWXxR.png" alt><br>然而，可以预见的是，将来会经常出现一些问题，这些问题需要给出专门的科学的回答。</p>
-<p>Social science is that branch of intellectual enquiry which seeks to study humans and their endeavors in the same reasoned, orderly, systematic, and dispassioned manner that natural scientists used for the study of natural phenomena.<br>社会科学是知识探索的一个分支，它力图像自然科学家研究自然现象那样，用理性的、有序的、系统的和冷静的方式研究人类及其行为。</p>
-<h2 id="定语从句中的主谓一致问题"><a href="#定语从句中的主谓一致问题" class="headerlink" title="定语从句中的主谓一致问题"></a>定语从句中的主谓一致问题</h2><blockquote>
-<p>定语从句的谓语动词是用单数还是用复数，这不取决于关系词，而是由先行词决定的。</p>
-</blockquote>
-<p>Despite【A】 much research, there are still certain elements in【B】 the life cycle of the insect that is【C】 not fully understood【D】.<br>C，应改为are。<br>这里先行词elements与关系词that被分隔，因为elements还有一个后置定语in the life cycle of the insect。显然，这种分隔属于：先行词+其他定语+定语从句。that指代elements，在从句中作主语，所以，谓语动词要用复数形式的are。</p>
-<h2 id="关系词在定语从句中充当的成分"><a href="#关系词在定语从句中充当的成分" class="headerlink" title="关系词在定语从句中充当的成分"></a>关系词在定语从句中充当的成分</h2><h3 id="关系词用作从句的主语"><a href="#关系词用作从句的主语" class="headerlink" title="关系词用作从句的主语"></a>关系词用作从句的主语</h3><p>比较简单句和定语从句，看看一个简单句如何变成定语从句。<br><strong><em>The woman</em></strong> is a famous dancer and she lives next door.<br>这个句中有一个“重复元素”，这里的she指代 the woman，即两句之间有一个交叉点，而通过这个交叉点建立起两句之间的联系。现在要用she lives next door来作定语修饰the woman，以告诉对方哪位女士是舞蹈演员。而在定语从句中，指代“人”的关系词要用who。<br>因此，上句可改写成：<br>The woman is a famous dancer who (=and she) lives next door.<br>这里的关系词who既取代了代词she也取代了连词and， 即who既具有代词的作用也起着连接的作用。另外，定语从句一般要紧跟在它所修饰的名词后面。因此，上一句又可进一步改写成：<br>The woman who lives next door is a famous dancer.<br>由此看到，关系词who既指代the woman，同时又在从句中作主语，而且还替换了and，起着连词的作用。<br>这位女士是一名著名的舞蹈演员，她就住在我家隔壁。</p>
-<p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/ONSgS8.png" alt><br>这里的关系词who取代and they，来引导定语从句who have a good sense of humor，修饰名词guys。<br>我喜欢有幽默感的男士。</p>
-<p>在变换过程中药注意三点：</p>
-<ul>
-<li>用关系词who代替人称代词（如she或they）后，定语从句里就不能再保留这些代词了。比如不能说：<br>The woman who she lives next door is a famous dancer. <em><br>I like guys who they have a good sense of humor. </em></li>
-<li>事实上，定语从句可以修饰一个主句当中的任何一个名词。但是，我们关注的往往是关系词在定语从句中所充当的成分，不关心定语从句是修饰主句的哪个名词。</li>
-<li>定语从句的谓语动词形式是由关系词所指代的先行词来决定的，而不是取决于关系词本身。定语从句who lives next door中的who指代的woman是单数名词，故谓语用单数的lives；而定语从句who have a good sense of humor中的who指代的guys是复数名词，故谓语用复数的have。</li>
-</ul>
-<p>Anger is a thief who steals away the nice moments .<br>愤怒就如同一个窃贼，盗取了我们的幸福时光。<br>He who is not handsome at twenty, nor strong at thirty, nor rich at forty, nor wise at fifty , will never be handsome, strong, rich, or wise.<br>一个人若在20岁时不俊美、30岁时不健康、40岁时不富有、50岁时不明智，那么他将永远不会拥有这些。<br>There is this difference between happiness and wisdom: the person who thinks himself the happiest man really is so; but the person who thinks himself the wisest is generally the greatest fool.<br>幸福与智慧区别于此：认为自己是最幸福的，他真的就是最幸福的；而认为自己是最有智慧的，他却往往是最大的傻瓜。<br>The world is a book, and those who do not travel read only one page.<br>世界犹如一本书，而那些从不出门旅行的人仅仅读了这本书的一页。<br>Of course I am not talking about easy-come-easy-go friendship. I’m talking about friends who care deeply about each other, who support each other, who make life worth living.<br>当然了，我这里所说的友谊不是那种“来得快去得也快”的泛泛之交，而是那种彼此之间能真正互相关心的朋友，能够互相支持的朋友，能够让你的人生更有意义的朋友。</p>
-<h3 id="关系词用作从句中动词的宾语"><a href="#关系词用作从句中动词的宾语" class="headerlink" title="关系词用作从句中动词的宾语"></a>关系词用作从句中动词的宾语</h3><p>关系词除了在定语从句中作主语外，还可以在从句中作宾语。而且，还可以进一步区分为从句动词的宾语和从句介词的宾语。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/8WGhly.png" alt><br>在例句1）中，这里的him指代名词短语a friend，可以用关系词who来替代him，充当动词trust的宾语。又因为who有连词的作用，所以此时and就要去掉了，如例句2）所示。另一方面，关系词who要置于从句的开头，所以要把who移到I的前面，原句从而变成了下面的例句3）：<br>3）I’d really like to find a friend who I can trust completely.<br>我想找一个我完全能够信任的人做朋友。</p>
-<p>He is the best grammar teacher who I have ever seen.<br>他是我见过的最好的语法老师。</p>
-<p>It’s hard to have a friend who you can trust completely.<br>很难有一个你能完全信任的朋友。</p>
-<h3 id="关系词用作从句中介词的宾语"><a href="#关系词用作从句中介词的宾语" class="headerlink" title="关系词用作从句中介词的宾语"></a>关系词用作从句中介词的宾语</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/YGRKuS.png" alt><br>这里的who充当介词with的宾语。<br>我这里说的朋友，是指那些你几乎可以把一切与之分享的人。</p>
-<p>I hope I never have a boss who I can’t talk to about my problems.<br>这里的who充当介词to的宾语。<br>我不希望有一个无法与其谈论我的问题的老板。</p>
-<p>I’d prefer someone who I have something in common with — who I can talk to easily.<br>这里的关系词who分别充当介词with和to的宾语。<br>我喜欢那些与我有共同点的人，这样易交流。</p>
-<h3 id="作宾语的关系词可以省去"><a href="#作宾语的关系词可以省去" class="headerlink" title="作宾语的关系词可以省去"></a>作宾语的关系词可以省去</h3><p>作宾语的关系词可以省去，不论关系词是作动词的宾语还是作介词的宾语都可以省去。比如以上讨论过的相关例句，可以分别改写成：<br>I’d really like to find a friend ( ) I can trust completely.<br>I hope I never have a boss ( ) I can’t talk to about my problems.</p>
-<blockquote>
-<p>在从句中作主语的关系词无法省去。比如不能说：</p>
-</blockquote>
-<p>I like guys ( ) have a good sense of humor. *</p>
-<h2 id="关系代词与先行词的搭配关系"><a href="#关系代词与先行词的搭配关系" class="headerlink" title="关系代词与先行词的搭配关系"></a>关系代词与先行词的搭配关系</h2><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/gScElI.png" alt></p>
-<h3 id="先行词指“人”，用关系代词who或whom"><a href="#先行词指“人”，用关系代词who或whom" class="headerlink" title="先行词指“人”，用关系代词who或whom"></a>先行词指“人”，用关系代词who或whom</h3><h3 id="who和whom的区别"><a href="#who和whom的区别" class="headerlink" title="who和whom的区别"></a>who和whom的区别</h3><ul>
-<li>who的前面不能与介词搭配使用<br>因为who是主格形式，所以在介词的后面不能用who，比如不说with who<em>，而说with whom。<br>I’m talking about friends who you can share almost everything with.<br>不能说“I’m talking about friends with who you can share almost everything. </em>”。<br>而应该说“I’m talking about friends with whom you can share almost everything.”。<br>主格形式的who除了作定语从句的主语外，还可以充当定语从句的宾语或表语。</li>
-<li>whom在定语从句中不能作主语，但可作宾语或表语<br>A rich person is not one who has the most, but is one who needs the least.<br>这里的who作从句的主语，所以不能用whom，不说whom has…*。<br>一个富有的人，不是因为他拥有的最多，而是因为他需要的最少。</li>
-</ul>
-<p>Only the people who have the patience to do simple things perfectly will acquire the skill to do difficult things easily.<br>这里的who作从句的主语，所以不能用whom，不说whom have…*。<br>只有有耐心圆满完成简单工作的人，才能够轻而易举地完成困难的事。</p>
-<blockquote>
-<p>总之，who可以作主语，也可以代替whom作宾语或表语，但不能用在介词后面。而因为whom是宾格形式，所以不能作主语。</p>
-</blockquote>
-<h3 id="表示人或物的所有关系，用whose"><a href="#表示人或物的所有关系，用whose" class="headerlink" title="表示人或物的所有关系，用whose"></a>表示人或物的所有关系，用whose</h3><p>whose表示所有关系，其作用就如同物主代词my，your，her，his，their和our，whose的后面要接名词。whose可指人也可指物。“whose+名词”在从句中可作主语、动词的宾语或介词的宾语，whose同that一样，既可以指人，也可以指物。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/7KbXpL.png" alt><br>例句2）里的whose代替了例句1）里的his，指friend，即表示人。<br>我认识一个朋友，他哥哥是一名流行歌手。</p>
-<p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/FzNNnM.png" alt><br>例句2）里whose代替了例句1）里的its，指schoolroom，即表示物。<br>这些孩子就坐在窗玻璃都打破了的教室里上课。</p>
-<p>When I looked through the window, I saw a girl whose beauty took my breath away.<br>这里的whose beauty作从句的主语，whose指人即a girl。<br>当我朝窗外看去，猛然看见一个美女，其美貌让我惊讶不已。</p>
-<p>It was a meeting whose importance I did not realize at the time.<br>这里的whose importance作从句动词realize的宾语，whose指物即a meeting。<br>这个会议的重要性当时我并没有意识到。</p>
-<h3 id="先行词指“物”，用关系代词which"><a href="#先行词指“物”，用关系代词which" class="headerlink" title="先行词指“物”，用关系代词which"></a>先行词指“物”，用关系代词which</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/z263sW.png" alt><br>这里的先行词是sentences，表示“物”，因此不能用who。要用which代替they，指代sentences，告诉对方“我们正在学习什么类型的句子”。<br>我们正在学习带有定语从句的句子。</p>
-<p>关系词which所指代的先行词比较复杂，它除了可以指单个的名词外，还可以指代短语甚至是从句。</p>
-<h4 id="先行词是单个的名词"><a href="#先行词是单个的名词" class="headerlink" title="先行词是单个的名词"></a>先行词是单个的名词</h4><p>Anger is a wind which blows out the lamp of the mind.<br>先行词是wind，即which指单个的名词。<br>愤怒是吹灭心灵之灯的风。</p>
-<p>Perhaps it is human to appreciate little that which we have and to long for that which we have not.<br>先行词是that，即which指单个的名词。<br>或许，“不惜已获，贪求不得”是人类共同的弱点吧。</p>
-<h4 id="先行词是一个短语-1"><a href="#先行词是一个短语-1" class="headerlink" title="先行词是一个短语"></a>先行词是一个短语</h4><p>which可以指代一个短语。<br>He likes climbing mountains, which is a good exercise.<br>先行词是主句中的一个动名词短语climbing mountains。<br>他喜欢爬山，这是一项很好的运动。</p>
-<h4 id="先行词是一个句子"><a href="#先行词是一个句子" class="headerlink" title="先行词是一个句子"></a>先行词是一个句子</h4><p>which可以指代前面的整个句子。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/sLf9DC.png" alt><br>汤姆迟到了，这让我很吃惊。</p>
-<p>He tore up my photo, which upset me.<br>全句“he tore up my photo”作which的先行词。<br>他把我的照片给撕了，这让我很生气。</p>
-<h3 id="that可以指代“人”，也可以指代“物”"><a href="#that可以指代“人”，也可以指代“物”" class="headerlink" title="that可以指代“人”，也可以指代“物”"></a>that可以指代“人”，也可以指代“物”</h3><p>关系代词that的意义和用法主要有以下三点：</p>
-<ul>
-<li>that既可指“人”也可指“物”，指“物”时可以替换which，指“人”时可以替换who；</li>
-<li>that不用在非限制性定语从句中；</li>
-<li>that不能用于介词的后面（同who一样）。</li>
-</ul>
-<p>Too many people spend money which they haven’t earned, to buy things which they don’t want, to impress people who they don’t like.<br>可以用that替换其中的which和who而将这句话改写成“Too many people spend money that they haven’t earned, to buy things that they don’t want, to impress people that they don’t like.”。<br>这里that的先行词有“物（money和things）”，也有“人（people）”。<br>作宾语的关系词可以省去，因此这句话也可说成“Too many people spend money ( ) they haven’t earned, to buy things ( ) they don’t want, to impress people ( ) they don’t like.”。<br>太多的人花他们还没挣到的钱，买他们不想要的东西，取悦他们不喜欢的人。</p>
-<p>that与which和who在用法上的区别：</p>
-<ul>
-<li>先行词中同时出现“人”和“物”时，用that<br>The writer and his novels that the article deals with are quite familiar to us.<br>这里的先行词是the writer and his novels，即同时有“人（writer）”和“物（his novels）”，所以要选用that引导定语从句。<br>这篇文章里所说的这个作家以及他的小说，我们都比较熟悉。</li>
-<li>先行词为指“物”的all，little，few，much，none和the first时, 用that<br>All that glitters is not gold.<br>这里的先行词是all，所以用that来引导定语从句。另外要注意的是，<strong><em>这里有一个半否定的问题：all…not要译成“并非都是”，不能译成全否定的“所有都不”。</em></strong><br>闪光的并非都是金子。<br>The book contains little that is useful.<br>这里的先行词是表示否定意义的代词little（几乎没有什么），所以用that来引导定语从句。<br>这本书里几乎没有有用的东西。<br>There is not much that can be done.<br>这里的先行词是代词much，所以用that来引导定语从句。<br>这没有什么可以做的了。<br>As long as you stand up to the difficulties, there are none that cannot be overcome.<br>这里的先行词是代词none，所以用that来引导定语从句。<br>只要你勇敢地去面对困难，就没有什么克服不了的。</li>
-<li>先行词是不定代词something，anything，nothing和everything时，一般用that</li>
-<li>先行词被any，only，all，every，no，some，much，few，little，序数词，形容词的最高级，the only，the one，the very，the right和the last等成分修饰时，用that<br>Tell us all things that you know.<br>把你知道的都告诉我们。<br>The very problem that I want to solve is like this.<br>我想解决的问题就像这个一样。<br>He is the only man that can speak four foreign languages in our company.<br>他是我们公司唯一一个会说四种外语的人。</li>
-<li>that不用在非限制性定语从句中<br>I became a single mother overnight, which is nothing like becoming famous overnight.<br>我在一夜之间成了单亲妈妈，这跟一夜成名可完全不同。<br>不能说“I became a single mother overnight, that is nothing like becoming famous overnight. *”。</li>
-<li>that不能用于介词后面<br>The world in which we live is made up of matter. 我们所生活的世界是由物质组成的。<br>或：The world which we live in is made up of matter.<br>或：The world that we live in is made up of matter.<br>但不能说“The world in that we live is made up of matter. *”。</li>
-</ul>
-<h2 id="介词-关系代词"><a href="#介词-关系代词" class="headerlink" title="介词+关系代词"></a>介词+关系代词</h2><h3 id="看从句选介词"><a href="#看从句选介词" class="headerlink" title="看从句选介词"></a>看从句选介词</h3><h4 id="所用介词须与定语从句中的动词构成固定搭配（最常见）"><a href="#所用介词须与定语从句中的动词构成固定搭配（最常见）" class="headerlink" title="所用介词须与定语从句中的动词构成固定搭配（最常见）"></a>所用介词须与定语从句中的动词构成固定搭配（最常见）</h4><p>这里所说的动词往往是指定语从句中的谓语动词。<br>The girl with whom you work is his girlfriend.<br>关系词whom前面的介词with与定语从句中的谓语动词work构成固定搭配work with，表示“和……一起工作”。<br>He is the man on whom I think you can depend.<br>关系词whom前面的介词on与定语从句中的谓语动词depend构成固定搭配depend on，表示“依靠”。</p>
-<h4 id="看从句的形容词：所用介词须与定语从句中的形容词构成搭配（比较常见）"><a href="#看从句的形容词：所用介词须与定语从句中的形容词构成搭配（比较常见）" class="headerlink" title="看从句的形容词：所用介词须与定语从句中的形容词构成搭配（比较常见）"></a>看从句的形容词：所用介词须与定语从句中的形容词构成搭配（比较常见）</h4><p>如果定语从句的谓语不是一个实义动词，而是由be动词与某个形容词构成的，我们则要使用与该形容词搭配的介词。<br>He referred me to some reference books with which I am not very familiar.<br>关系词which前面的介词with与定语从句谓语部分中的 形容词familiar构成固定搭配be familiar with sth.，表示“对……熟悉”。<br>他让我参考的几本书我一本也不熟悉。</p>
-<p>They will pass along their fresh impressions to the youth groups in which they are active.<br>关系词which前面的介词in与定语从句谓语部分中的形容词active构成固定搭配be active in sth.，表示“积极参与”。<br>他们会把自己获得的新鲜印象与他们积极参与的青年团体分享。</p>
-<h2 id="关系副词的用法"><a href="#关系副词的用法" class="headerlink" title="关系副词的用法"></a>关系副词的用法</h2><h3 id="when的用法"><a href="#when的用法" class="headerlink" title="when的用法"></a>when的用法</h3><h4 id="先行词指时间"><a href="#先行词指时间" class="headerlink" title="先行词指时间"></a>先行词指时间</h4><p>when可以引导限制性和非限制性定语从句，其先行词必须是表示时间的名词，如day，year或time等。<br>I’ll never forget the day when I met you.<br>这里的先行词是表示时间的名词day，所以用when引导定语从句。when作从句的时间状语，修饰谓语动词met。<br>我永远不会忘记我们见面的那一天。</p>
-<p>My favorite season is spring, when the earth seems born again.<br>这里是when引导的非限制性定语从句，先行词是表示时间的名词spring。<br>到了春天，万物复苏，所以春天是我最喜欢的季节。</p>
-<p>We will put off the outing until next week, when we won’t be so busy.<br>这里是when引导的非限制性定语从句，先行词是表示时间的短语next week。<br>我们要把出游推迟到下周，到时我们就不会这么忙了。</p>
-<p>The day may soon come when we don’t bother to go to office but just work at home.<br>也许在不久的将来，我们就不必去办公室上班了，而就在家里工作。</p>
-<h4 id="关系副词when在从句中作时间状语"><a href="#关系副词when在从句中作时间状语" class="headerlink" title="关系副词when在从句中作时间状语"></a>关系副词when在从句中作时间状语</h4><p>when是在定语从句中作时间状语。换句话说，若定语从句不是缺少状语，而是缺少主语或宾语，那么即使先行词是表示时间的名词，也不能用when而要用which或that来引导定语从句。因为用when来引导定语从句的前提条件是：when必须在其引导的定语从句中作时间状语。<br>1） I’ll never forget the time which I spent on campus.<br>2） I’ll never forget the day when we first met in the park.<br>在例句1）中，由于定语从句中的谓语spent缺宾语，因此关系词要充当这一宾语，故要用which。<br>在例句2）中，定语从句不缺主语或宾语，而是缺少时间状语，故关系词用when，这里when作时间状语，修饰met。<br>1）我永远不会忘记在大学校园里度过的时光。<br>2）我永远不会忘记我们第一次在公园里相遇的那一天。</p>
-<p>The day, which began brightly, ended with a violent storm.<br>这里的先行词是day，表示时间。由于定语从句缺少主语，所以用关系代词which引导定语从句，which作从句的主语，而不用关系副词when，因为关系副词无法作主语，只能作状语。<br>那天，开始的时候还是阳光明媚，后来就下起了暴风雨。</p>
-<h3 id="where的用法"><a href="#where的用法" class="headerlink" title="where的用法"></a>where的用法</h3><h4 id="where的先行词指地点"><a href="#where的先行词指地点" class="headerlink" title="where的先行词指地点"></a>where的先行词指地点</h4><p>where引导定语从句，其先行词一般是表示地点的名词，如place和house等。<br>A: Since you work in the theater, can’t you get me a free ticket now and then?<br>B: Certainly if you bring me a few notes now and then from the bank where you work!<br>这里的先行词bank表示地点，where在从句中充当地点状语（定语从句中不缺主语或宾语），修饰work。<br>A：既然你在剧院工作，那你就不能时常给我弄些免费的票吗？<br>B：当然可以，只要你能够从你工作的那家银行里时常给我弄些票子出来。</p>
-<p>This is the town where I spent my childhood.<br>这就是我度过童年的小镇。</p>
-<h4 id="关系副词where在从句中作地点状语"><a href="#关系副词where在从句中作地点状语" class="headerlink" title="关系副词where在从句中作地点状语"></a>关系副词where在从句中作地点状语</h4><p>与when类似，并不是先行词是表示地点的名词时，都得由where来引导定语从句，这得看关系词在从句中充当的成分。若定语从句缺主语或宾语，则要用which或that引导定语从句。<br>1） This is the town where I spent my childhood.<br>2） This is the town which I told you about before.<br>在例句1）中，定语从句不缺少主语或宾语，而是缺少地点状语，故关系词用where。where作地点状语，修饰spent。<br>在例句2）里，由于定语从句中的谓语部分told you about缺少宾语，因此关系词要充当这一宾语，故要用which。<br>1）这就是我度过童年的小城。<br>2）这就是我以前告诉过你的小城。</p>
-<p>I’ve never been to Beijing, but it’s the place <strong>__</strong>.<br>A. where I’d like to visit<br>B. in which I’d like to visit<br>C. I most want to visit<br>D. that I want to visit it most<br>本题考查定语从句关系词的选择。这句话中尽管先行词是表示地点的名词place，但由于从句中的谓语visit缺少宾语，所以不能选A，而C才是正确答案。这里相当于省去了关系词that或which，因此原句应该是that / which I most want to visit。<br>我从未到过北京，但北京却是我最想游览的地方。</p>
-<h3 id="why的用法"><a href="#why的用法" class="headerlink" title="why的用法"></a>why的用法</h3><p>why用来表示原因，只引导限制性定语从句，先行词是reason等表示原因的名词。<br>This is the reason why I didn’t come here.<br>此处的why相当于for which。<br>这就是我没来的原因。</p>
-<h2 id="限制性与非限制性定语从句"><a href="#限制性与非限制性定语从句" class="headerlink" title="限制性与非限制性定语从句"></a>限制性与非限制性定语从句</h2><p>在限制性定语从句中，先行词和关系词之间不用逗号隔开，而非限制性定语从句则需要逗号隔开。</p>
-<h3 id="限制性定语从句——不用逗号隔开"><a href="#限制性定语从句——不用逗号隔开" class="headerlink" title="限制性定语从句——不用逗号隔开"></a>限制性定语从句——不用逗号隔开</h3><p>限制性定语从句是用来对一个名词提供必要的信息（a defining relative clause defines or gives essential information about a noun），以说明定语从句所修饰的先行词的身份或性质，或用来限制先行词所指的范围。若去掉限制性定语从句，则主句部分的含义不明确，或意义不完整，所以不能用逗号来分隔先行词和定语从句。<br>比如“I don’t like people.”，这句话的意思不明确，句意不完整，因此其后面必须加一个限制性定语从句，才能使句意完整。比如：<br>I don’t like people who are never on time. 我不喜欢不守时的人。<br>I don’t like people who never keep their word. 我不喜欢不守信用的人。<br>以上句子黑体部分的定语从句都用来说明people的性质，是必不可少的信息，因此不能加逗号将其变为非限制性定语从句。</p>
-<p>There are two factors which determine an individual’s intelligence.<br>这里若只是说“There are two factors.”，则句意不够完整，现在有了限制性定语从句which determine an individual’s intelligence来限制、修饰名词factors，就使得句意更明确。<br>决定人的智力的因素有两个。</p>
-<p>He is a man who is of value to the people.<br>这里若只是说“He is a man.”，则句意不完整，现在有了限制性定语从句who is of value to the people来限制修饰名词man，就使得句意完整而明确。<br>他是一个有利于人民的人。</p>
-<h3 id="非限制性定语从句——用逗号隔开"><a href="#非限制性定语从句——用逗号隔开" class="headerlink" title="非限制性定语从句——用逗号隔开"></a>非限制性定语从句——用逗号隔开</h3><p>非限制性定语从句用来提供附加的而非必要的信息，只是对先行词做进一步的解释、补充或说明（a non-defining relative clause gives optional information about a noun）。若去掉此定语从句，整个主句的意义一样很明确，不会引起误解和歧义。</p>
-<h4 id="专有名词"><a href="#专有名词" class="headerlink" title="专有名词"></a>专有名词</h4><p>如果定语从句修饰一个专有名词，一般要用逗号分隔先行词与定语从句，也就是说要使用非限制性定语从句。这是因为专有名词本身的意思已经很完整，不需要限制，用定语从句只是对它进行补充说明。<br>My mother, who is 50 this year , lives with me now.<br>这里的先行词my mother就是一个专有名词，其后的定语从句who is 50 this year只能是作为非限制性的定语从句来提供附加信息，不能使用限制性定语从句。若说“My mother who is 50 this year lives with me now.”，则言外之意为“我有好几个母亲，目前和我住在一起的是今年50岁的那位母亲”。<br>我母亲今年50岁了，现在和我生活在一起。</p>
-<p>I asked my mother, who is 80 , whether she’d ever seen snow in Iraq before, and her answer was no.<br>我问我已经80岁的妈妈，她以前在伊拉克是否见过雪，她回答说没见过。</p>
-<p>Einstein, who was a great Jewish scientist, created the theory of relativity.<br>爱因斯坦这位伟大的犹太科学家创立了相对论。</p>
-<p>Hawaii, which consists of eight principal islands, is a favorite vacation spot.<br>夏威夷包含八个主要岛屿，是一个度假胜地。</p>
-<h4 id="类指名词"><a href="#类指名词" class="headerlink" title="类指名词"></a>类指名词</h4><p>普通名词若是用来表示类指，即表示的是一类事物，而非具体的某一个事物，此时，其后也宜用非限制性定语从句。<br>1） An elephant, which is the earth’s largest land mammal , has few natural enemies other than human beings.<br>2） One of the elephants which we saw at the zoo had only one tusk.<br>例句1）中的an elephant是类指或泛指，即表示“大象”这类动物，而不是指称具体的某一头大象。<br>例句2）中的one of the elephants则不是类指概念，而是具体指代某一头大象，即“我们在动物园看到的那头大象”。<br>1）大象作为陆地上体形最大的哺乳类动物，很少有天敌，除了人类之外。<br>2）我们在动物园看到有一头大象只有一颗象牙。</p>
-<h3 id="用或不用逗号，句意有差别"><a href="#用或不用逗号，句意有差别" class="headerlink" title="用或不用逗号，句意有差别"></a>用或不用逗号，句意有差别</h3><p>还有一类句子，用限制性或非限制性定语从句都可以，但强调的意义不一样，即句意不同。<br>1） He has a daughter who works in a hospital.<br>2） He has a daughter, who works in a hospital.</p>
-<p>1） The cab drivers who knew about the traffic jam took another road.<br>2） The cab drivers, who knew about the traffic jam, took another road.<br>例句1）的言外之意是“不知道的司机则没有换路线，只有部分司机换行驶路线了”。<br>例句2）的言外之意是“全部司机都知道，都换了行驶路线”。<br>1）知道那里堵车的出租车司机换了另一条路。<br>2）出租车司机知道那里堵车了，他们都换了另一条路。</p>
-<h3 id="非限制性定语从句的翻译"><a href="#非限制性定语从句的翻译" class="headerlink" title="非限制性定语从句的翻译"></a>非限制性定语从句的翻译</h3><p>限制性定语从句一般翻译成定语的形式“……的”，而非限制性定语从句往往会译成各种状语形式。<br>The food, which wasn’t in the fridge , all went off.<br>食物都坏了，因为没有放在冰箱里。（译成原因状语从句）</p>
-<p>The Ambassador gave a dinner to the scientists, with whom he especially wished to talk.<br>大使宴请了那些科学家，因为他特别想与他们交谈一下。（译成原因状语从句）</p>
-<p>The people were desperate for work, any work, which could support their family.<br>人们急于找到工作，什么工作都行，只要能养家糊口。（译成条件状语从句）</p>
-<p>The millionaire had another house built, which he didn’t need at all.<br>那位百万富翁又建了一幢房子，尽管他并不需要。（译成让步状语从句）</p>
-<p>They tried to stamp out the revolt, which spread all the more furiously throughout the country.<br>起义依然声势浩大地遍布全国，尽管他们试图镇压。（译成让步状语从句）</p>
-<h2 id="定语从句与同位语从句的区分"><a href="#定语从句与同位语从句的区分" class="headerlink" title="定语从句与同位语从句的区分"></a>定语从句与同位语从句的区分</h2><p>二者在结构上有相似性，都是“名词that从句”，这里的名词都称作先行词。</p>
-<h3 id="从结构上区分：that是否作成分"><a href="#从结构上区分：that是否作成分" class="headerlink" title="从结构上区分：that是否作成分"></a>从结构上区分：that是否作成分</h3><p>that在定语从句中要充当成分，比如作从句的主语或宾语；而that在同位语从句中不充当任何成分，仅起连词的作用。<br>换句话说，定语从句的结构是“名词+that+不完整的句子”，而同位语从句的结构是“名词that+完整的陈述句”。<br>1） The rumor that he spread everywhere turned out to be untrue.<br>2） The rumor that Tom was a thief turned out to be untrue.<br>例句 1）中的that在从句中充当spread的宾语，故此处为定语从句。<br>例句2）中 的that在从句中不充当任何成分，因为从句“Tom was a thief”是一个完整的句子，不缺少任何成分。故其为同位语从句，作the rumor的同位语，补充说明the rumor的具体内容。<br>1）他到处散布的那个谣言，结果证明是假的。<br>2）有谣传说汤姆是小偷，结果证明是假的。</p>
-<p>1） The fact that we talked about is very important.<br>2） The fact that he succeeded in the experiment pleased everybody.<br>例句1）中的that作talked about的宾语，故此处为定语从句。<br>例句2）中的that不充当成分，因为“he succeeded in the experiment”是一个完整的陈述句，故其为同位语从句。<br>1）我们讨论的这些情况很重要。<br>2）他的实验取得了成功，这让大家很高兴。</p>
-<h3 id="从意义上区分：that引导的从句的意义不同"><a href="#从意义上区分：that引导的从句的意义不同" class="headerlink" title="从意义上区分：that引导的从句的意义不同"></a>从意义上区分：that引导的从句的意义不同</h3><p>定语从句相当于形容词, 对先行词起修饰、描述和限制的作用；同位语从句相当于一个名词，是对其前面名词内容的具体表述，二者是同位关系。<br>1） The news that you heard is not true.<br>2） The news that Lincoln was murdered at a theater is true.<br>例句1）中的定语从句that you heard并不是表示news的内容，只是在限制news所指的范围，即“你听到的那个消息”。<br>例句2）中的同位语从句that Lincoln was murdered at a theater是表示news的具体 内容，在意义上与news构成同位关系。<br>1）你听到的那个消息并不是真实的。<br>2）有消息说林肯是在一个剧院被刺杀的，这是真的。</p>
-<p>1） The fact that you pointed out made me interested.<br>2） The fact that there are no lives on the moon is known to us all.<br>例句1）中的定语从句that you pointed out并不是表示fact的内容，只是在限制fact的所指范围，即“你指出的这个事实”。<br>例句2）中的同位语从句that there are no lives on the moon是表示fact的具体内容，在意义上与fact构成同位关系。<br>1）你指出的这一点，我很感兴趣。<br>2）众所周知，月球上并没有生命存在。</p>
 
       
     </div>
