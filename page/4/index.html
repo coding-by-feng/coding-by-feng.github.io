@@ -163,7 +163,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Interview汇总/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/26/English系列之完成进行时-将来完成进行时/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -177,7 +177,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/10/15/Interview汇总/" class="post-title-link" itemprop="url">Interview汇总</a>
+            <a href="/2020/07/26/English系列之完成进行时-将来完成进行时/" class="post-title-link" itemprop="url">English系列之完成进行时（将来完成进行时）</a>
         </h2>
 
         <div class="post-meta">
@@ -187,14 +187,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2019-10-15 21:21:25" itemprop="dateCreated datePublished" datetime="2019-10-15T21:21:25+08:00">2019-10-15</time>
+              <time title="Created: 2020-07-26 21:36:07" itemprop="dateCreated datePublished" datetime="2020-07-26T21:36:07+08:00">2020-07-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-18 10:46:47" itemprop="dateModified" datetime="2020-09-18T10:46:47+08:00">2020-09-18</time>
+                <time title="Modified: 2020-09-25 10:42:36" itemprop="dateModified" datetime="2020-09-25T10:42:36+08:00">2020-09-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -202,7 +202,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/interview/" itemprop="url" rel="index"><span itemprop="name">interview</span></a>
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
                 </span>
             </span>
 
@@ -217,46 +217,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="公司的新版微服务架构用到的技术栈"><a href="#公司的新版微服务架构用到的技术栈" class="headerlink" title="公司的新版微服务架构用到的技术栈"></a>公司的新版微服务架构用到的技术栈</h2><h1 id="CS"><a href="#CS" class="headerlink" title="CS"></a>CS</h1><h2 id="32位和64位系统底层的本质区别是什么？"><a href="#32位和64位系统底层的本质区别是什么？" class="headerlink" title="32位和64位系统底层的本质区别是什么？"></a>32位和64位系统底层的本质区别是什么？</h2><h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><p><a href="https://juejin.im/post/5e37b8ea6fb9a030080ca2df" target="_blank" rel="noopener">2020年2月面试题100+大全（合适各级Java人员）</a></p>
-<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="通过new-String-“test”-与-“test”-与运行时常量池的关系"><a href="#通过new-String-“test”-与-“test”-与运行时常量池的关系" class="headerlink" title="通过new String(“test”) 与 “test” 与运行时常量池的关系"></a>通过new String(“test”) 与 “test” 与运行时常量池的关系</h3><ul>
-<li>String a = “aaa”;（保存在常量池中的）</li>
-<li>String b = new String(“aaa”);（new创建的对象会存放在堆内存中）</li>
-</ul>
-<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><h3 id="ArrayList-vs-LinkedList-vs-SynchronizedList-vs-CopyOnWriteArrayList"><a href="#ArrayList-vs-LinkedList-vs-SynchronizedList-vs-CopyOnWriteArrayList" class="headerlink" title="ArrayList vs LinkedList vs SynchronizedList vs CopyOnWriteArrayList"></a>ArrayList vs LinkedList vs SynchronizedList vs CopyOnWriteArrayList</h3><h4 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h4><p>ArrayList底层使用的是数组实现，也就是基于顺序表的原理，是线程不安全的。<br>默认初始化的时候，其内部的数组是一个静态的空数组：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">private static final int DEFAULT_CAPACITY = 10;</span><br><span class="line">private static final Object[] EMPTY_ELEMENTDATA = &#123;&#125;;</span><br><span class="line">private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = &#123;&#125;;</span><br><span class="line">transient Object[] elementData; // non-private to simplify nested class access</span><br><span class="line">private int size;</span><br><span class="line">public ArrayList() &#123;</span><br><span class="line">    this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>也可以在初始化的时候指定默认容量，或者指定默认要承接的集合数据：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public ArrayList(int initialCapacity) &#123;</span><br><span class="line">    if (initialCapacity &gt; 0) &#123;</span><br><span class="line">        this.elementData = new Object[initialCapacity];</span><br><span class="line">    &#125; else if (initialCapacity == 0) &#123;</span><br><span class="line">        this.elementData = EMPTY_ELEMENTDATA;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        throw new IllegalArgumentException(&quot;Illegal Capacity: &quot;+</span><br><span class="line">                                           initialCapacity);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public ArrayList(Collection&lt;? extends E&gt; c) &#123;</span><br><span class="line">    elementData = c.toArray();</span><br><span class="line">    if ((size = elementData.length) != 0) &#123;</span><br><span class="line">        // c.toArray might (incorrectly) not return Object[] (see 6260652)</span><br><span class="line">        if (elementData.getClass() != Object[].class)</span><br><span class="line">            elementData = Arrays.copyOf(elementData, size, Object[].class);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        // replace with empty array.</span><br><span class="line">        this.elementData = EMPTY_ELEMENTDATA;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>当数组为空或者数组长度不够进行扩容的长度增长因子一般是1.5（但是要注意极端情况下，扩容到大于<code>Integer.MAX_VALUE-8</code>，会默认增长到ArrayList的最大长度<code>Integer.MAX_VALUE</code>，超过最大长度将抛出OutOfMemoryError异常）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">private void grow(int minCapacity) &#123;</span><br><span class="line">    // overflow-conscious code</span><br><span class="line">    int oldCapacity = elementData.length;</span><br><span class="line">    int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);</span><br><span class="line">    if (newCapacity - minCapacity &lt; 0)</span><br><span class="line">        newCapacity = minCapacity;</span><br><span class="line">    if (newCapacity - MAX_ARRAY_SIZE &gt; 0)</span><br><span class="line">        newCapacity = hugeCapacity(minCapacity);</span><br><span class="line">    // minCapacity is usually close to size, so this is a win:</span><br><span class="line">    elementData = Arrays.copyOf(elementData, newCapacity);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>ArrayList因为其扩容因子是<code>1.5</code>，其内部的数组会预留出一定的空间，所以从资源利用的角度来讲，这存在一定程度的浪费。<br>正因为是基于顺序表原来实现，ArrayList元素的物理存储地址是连续的，在其内部数组中间插入或者删除元素的话，其后面的所有元素都要进行移位，所以性能开销会相对较大。</p>
+          <blockquote>
+<p>这篇笔记摘选自《英语语法新思维中级教程通悟语法第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。</p>
 </blockquote>
-<h4 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h4><p>LinkedList底层使用的是双链表来实现的，它默认初始化之后有着头尾两个空结点，同样也是线程不安全的。<br>可见空双链表插入第一个结点时，判断尾结点是否为空，如果为空是在first头结点插入，否则是插入到尾部结点之后。</p>
-<blockquote>
-<p>LinkedList得益于双链表的数据结构优势，在对单个元素的插入和删除操作上，一般性能开销会相对较小，但是在单个元素的访问上，会表现较差。</p>
-</blockquote>
-<h4 id="快速失败迭代器（fail-fast-Iterator）"><a href="#快速失败迭代器（fail-fast-Iterator）" class="headerlink" title="快速失败迭代器（fail-fast Iterator）"></a>快速失败迭代器（fail-fast Iterator）</h4><p>ArrayList、LinkedList等很多常用集合的Iterator实现中，都是通过快速失败检查机制来检查数据是否在外部不被期望的情况下修改了，常见的快速失败检查都是通过如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">final void checkForComodification() &#123;</span><br><span class="line">    if (modCount != expectedModCount)</span><br><span class="line">        throw new ConcurrentModificationException();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>异常时通过判断expectedModCount是否等于modCount，如果不相等就抛出异常。</p>
-<ul>
-<li>expectedModCount：被期望的修改次数，在Iterator初始化的时候被赋值，<code>int expectedModCount = modCount;</code>，在调用迭代器的remove方法时会被更新。</li>
-<li>modCount：真实的修改次数，每次调用add()，remove()方法（非迭代器的方法）会导致modCount+1。</li>
-</ul>
-<p>迭代器在调用<code>next()</code>和<code>remove()</code>都会做<code>ConcurrentModificationException</code>的异常检测。</p>
-<blockquote>
-<p>所以，当集合是使用迭代器Iterator来遍历的时候，删除集合的元素记得用迭代器的<code>remove()</code>方法。</p>
-</blockquote>
-<h4 id="SynchronizedList（线程安全）"><a href="#SynchronizedList（线程安全）" class="headerlink" title="SynchronizedList（线程安全）"></a>SynchronizedList（线程安全）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 线程安全List的创建方式</span><br><span class="line">List&lt;Object&gt; syncArrayList = Collections.synchronizedList(new ArrayList&lt;&gt;());</span><br><span class="line">List&lt;Object&gt; syncLinkedList = Collections.synchronizedList(new LinkedList&lt;&gt;());</span><br></pre></td></tr></table></figure>
-<p>线程安全实现原理：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">final Object mutex;     // Object on which to synchronize</span><br></pre></td></tr></table></figure></p>
-<p>其内部具有线程安全问题的方法都被互斥量加了锁：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public int size() &#123;</span><br><span class="line">    synchronized (mutex) &#123;return c.size();&#125;</span><br><span class="line">&#125;</span><br><span class="line">public boolean add(E e) &#123;</span><br><span class="line">    synchronized (mutex) &#123;return c.add(e);&#125;</span><br><span class="line">&#125;</span><br><span class="line">public boolean remove(Object o) &#123;</span><br><span class="line">    synchronized (mutex) &#123;return c.remove(o);&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="CopyOnWriteArrayList"><a href="#CopyOnWriteArrayList" class="headerlink" title="CopyOnWriteArrayList"></a>CopyOnWriteArrayList</h4><p>CopyOnWriteArrayList和ArrayList类似，其内部也是基于数组实现的，但是还额外多出了一个可重入锁：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/** The lock protecting all mutators */</span><br><span class="line">final transient ReentrantLock lock = new ReentrantLock();</span><br><span class="line">/** The array, accessed only via getArray/setArray. */</span><br><span class="line">private transient volatile Object[] array;</span><br></pre></td></tr></table></figure></p>
-<p>因为加了transient修饰，所以其数据不支持序列化。<br>另外其内部存储数据的数组是通过volatile修饰的，避免了线程安全的问题。<br>插入和删除操作也加了锁机制：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">public boolean add(E e) &#123;</span><br><span class="line">    final ReentrantLock lock = this.lock;</span><br><span class="line">    lock.lock();</span><br><span class="line">    try &#123;</span><br><span class="line">        Object[] elements = getArray();</span><br><span class="line">        int len = elements.length;</span><br><span class="line">        Object[] newElements = Arrays.copyOf(elements, len + 1);</span><br><span class="line">        newElements[len] = e;</span><br><span class="line">        setArray(newElements);</span><br><span class="line">        return true;</span><br><span class="line">    &#125; finally &#123;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public E remove(int index) &#123;</span><br><span class="line">    final ReentrantLock lock = this.lock;</span><br><span class="line">    lock.lock();</span><br><span class="line">    try &#123;</span><br><span class="line">        Object[] elements = getArray();</span><br><span class="line">        int len = elements.length;</span><br><span class="line">        E oldValue = get(elements, index);</span><br><span class="line">        int numMoved = len - index - 1;</span><br><span class="line">        if (numMoved == 0)</span><br><span class="line">            setArray(Arrays.copyOf(elements, len - 1));</span><br><span class="line">        else &#123;</span><br><span class="line">            Object[] newElements = new Object[len - 1];</span><br><span class="line">            System.arraycopy(elements, 0, newElements, 0, index);</span><br><span class="line">            System.arraycopy(elements, index + 1, newElements, index,</span><br><span class="line">                             numMoved);</span><br><span class="line">            setArray(newElements);</span><br><span class="line">        &#125;</span><br><span class="line">        return oldValue;</span><br><span class="line">    &#125; finally &#123;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>SynchronizedList是通过对读写方法使用synchronized修饰来实现同步的，即便只是多个线程在读数据，也不能进行，如果是读比较多的场景下，会性能不高，所以适合读写均匀的情况。<br>而CopyOnWriteArrayList是读写分离的，只对写操作加锁，但是每次写操作(添加和删除元素等)时都会复制出一个新数组，完成修改后，然后将新数组设置到旧数组的引用上，所以在写比较多的情况下，会有很大的性能开销，所以适合读比较多的应用场景。</p>
-</blockquote>
-<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="B-树和二叉树的区别"><a href="#B-树和二叉树的区别" class="headerlink" title="B+树和二叉树的区别"></a>B+树和二叉树的区别</h2><h2 id="红黑树和跳表"><a href="#红黑树和跳表" class="headerlink" title="红黑树和跳表"></a>红黑树和跳表</h2><h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="一个接口太多事务操作是否要使用批量事务"><a href="#一个接口太多事务操作是否要使用批量事务" class="headerlink" title="一个接口太多事务操作是否要使用批量事务"></a>一个接口太多事务操作是否要使用批量事务</h2><h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="OLAP和OLTP"><a href="#OLAP和OLTP" class="headerlink" title="OLAP和OLTP"></a>OLAP和OLTP</h2><h2 id="冗余字段"><a href="#冗余字段" class="headerlink" title="冗余字段"></a>冗余字段</h2><p>微服务架构加上前后端分离的情况下。后端接口很多时候会出现太多联表查询的情况。其实可以数据库存储空间大小允许的情况下，留出一些关键字段的冗余字段来代替联表查询。甚至可以将一些数据拆分出来查询封装成比较合适的数据JSON结构，然后可以将需要连表查询的逻辑放到前端去计算拼接，这样一来可以减少服务器和数据库的压力，同时前端做这部分的计算能力其实也是绰绰有余了，毕竟目前相对来说这是一个用户端性能过剩的时代。</p>
-<p>尽可能多的冗余字段也可以为一定业务场景带来便捷的查询，没必要一味得遵循数据库三方式。</p>
-<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>必要时，时间字段也要上索引，索引一般是建立在字段值重复性比较少的，很多时候，时间字段基本不会重复，而且查询排序经常用到。</p>
-<h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><h2 id="redis如何清理过期key"><a href="#redis如何清理过期key" class="headerlink" title="redis如何清理过期key"></a>redis如何清理过期key</h2><h2 id="redis内存不足时的策略"><a href="#redis内存不足时的策略" class="headerlink" title="redis内存不足时的策略"></a>redis内存不足时的策略</h2><h2 id="缓存更新的套路"><a href="#缓存更新的套路" class="headerlink" title="缓存更新的套路"></a>缓存更新的套路</h2><p><a href="https://coolshell.cn/articles/17416.html[](https://coolshell.cn/articles/17416.html" target="_blank" rel="noopener">https://coolshell.cn/articles/17416.html[](https://coolshell.cn/articles/17416.html</a> “”)</p>
-<h3 id="Cache-Aside-Pattern"><a href="#Cache-Aside-Pattern" class="headerlink" title="Cache Aside Pattern"></a>Cache Aside Pattern</h3><h3 id="Read-Write-Through-Pattern"><a href="#Read-Write-Through-Pattern" class="headerlink" title="Read/Write Through Pattern"></a>Read/Write Through Pattern</h3><h3 id="Write-Behind-Caching-Pattern"><a href="#Write-Behind-Caching-Pattern" class="headerlink" title="Write Behind Caching Pattern"></a>Write Behind Caching Pattern</h3><h1 id="Combo"><a href="#Combo" class="headerlink" title="Combo"></a>Combo</h1><h2 id="后端架构"><a href="#后端架构" class="headerlink" title="后端架构"></a>后端架构</h2><p>每一个单一表的对应Service类里面有且只能有一个Mapper，这也遵守了类的单一责任原则。</p>
-<h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><p>类似DO、DTO、VO这种有可能要做传输的类一定不要忘记实现Serializable，和唯一标识化serialVersionUID。</p>
+<p>将来完成进行时的用法与现在完成进行时基本相同，只是将“坐标时间”移到了将来。同样是强调动作的持续性，表示开始于将来某个时刻之前的动作持续到将来这一时刻，并可能继续持续下去。从时间的角度来看，将来完成进行时需要在上下文中有将来的时间坐标，这类似于过去完成进行时的过去的时间坐标。通常用“by+将来时间”或者是“by the time+从句（从句谓语用一般现在时）”来给出一个将来的时间坐标。<br>My brother has promised to help me study for my exam tomorrow. I get home from school at 3:00 and he gets home from school at 5:00. I will have been studying for two hours by the time he gets home.<br>这里是“by the time+从句”结构给出的将来的时间坐标，从句的谓语gets是一般现在时态，但表示将来的动作。然后在这个将来时间的基础上谈论之前的一个延续事件——一直在学习（到5:00时，studying的活动仍将持续），此时就要用将来完成进行时will have been studying这一较为复杂的动词形式。<br>图示如下：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/9tcgtR.png" alt></p>
+<h2 id="长期延续的事件："><a href="#长期延续的事件：" class="headerlink" title="长期延续的事件："></a>长期延续的事件：</h2><p>I’m retiring this fall. By then I’ll have been teaching for 30 years.<br>我将于今年秋天退休，到那时，我教书就有30年了。<br>She will have been taking care of her blind husband for 20 years by then.<br>到那时，她照顾她双目失明的丈夫就将有20年了。</p>
+<h2 id="说话时刻在延续的事件"><a href="#说话时刻在延续的事件" class="headerlink" title="说话时刻在延续的事件"></a>说话时刻在延续的事件</h2><p>The old man will have been getting up at 4:00 for ten years by next month.<br>到下个月，这老头坚持凌晨4:00起床就将长达10年时间了。<br>By tomorrow I will have been doing morning exercises for 100 days.<br>到明天，我坚持做早操就将有100天了。</p>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/07/26/English系列之完成进行时-将来完成进行时/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -275,7 +250,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/17/Docker汇总/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/05/English系列之思维练习错题笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -289,7 +264,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/01/17/Docker汇总/" class="post-title-link" itemprop="url">Docker汇总</a>
+            <a href="/2020/08/05/English系列之思维练习错题笔记/" class="post-title-link" itemprop="url">English系列之思维练习错题笔记</a>
         </h2>
 
         <div class="post-meta">
@@ -299,14 +274,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-01-17 09:38:28" itemprop="dateCreated datePublished" datetime="2020-01-17T09:38:28+08:00">2020-01-17</time>
+              <time title="Created: 2020-08-05 22:47:26" itemprop="dateCreated datePublished" datetime="2020-08-05T22:47:26+08:00">2020-08-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-17 10:29:58" itemprop="dateModified" datetime="2020-09-17T10:29:58+08:00">2020-09-17</time>
+                <time title="Modified: 2020-09-25 10:42:36" itemprop="dateModified" datetime="2020-09-25T10:42:36+08:00">2020-09-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -314,7 +289,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
                 </span>
             </span>
 
@@ -329,75 +304,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><a href="http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html" target="_blank" rel="noopener">参考1</a><br><a href="https://www.jianshu.com/p/ca1623ac7723" target="_blank" rel="noopener">参考2</a></p>
-<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><p><a href="https://www.runoob.com/docker/docker-command-manual.html" target="_blank" rel="noopener">命令大全</a></p>
-<h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><h3 id="列出所有容器"><a href="#列出所有容器" class="headerlink" title="列出所有容器"></a>列出所有容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container ls</span><br></pre></td></tr></table></figure>
-<h3 id="查看所有容易，包括关闭的"><a href="#查看所有容易，包括关闭的" class="headerlink" title="查看所有容易，包括关闭的"></a>查看所有容易，包括关闭的</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker container ls --all</span><br><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
-<h3 id="删除具体的容器，根据container-id"><a href="#删除具体的容器，根据container-id" class="headerlink" title="删除具体的容器，根据container id"></a>删除具体的容器，根据container id</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container rm c8faeffaaa62</span><br></pre></td></tr></table></figure>
-<h3 id="查看容器IP"><a href="#查看容器IP" class="headerlink" title="查看容器IP"></a>查看容器IP</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect 容器ID | grep IPAddress</span><br></pre></td></tr></table></figure>
-<h3 id="启动某个容器"><a href="#启动某个容器" class="headerlink" title="启动某个容器"></a>启动某个容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart 1b4671904bfa</span><br></pre></td></tr></table></figure>
-<h3 id="查看容器内存使用情况（支持多个同时查）"><a href="#查看容器内存使用情况（支持多个同时查）" class="headerlink" title="查看容器内存使用情况（支持多个同时查）"></a>查看容器内存使用情况（支持多个同时查）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stats containerName1 containerName2</span><br></pre></td></tr></table></figure>
-<h3 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs -f 122482b4b37f</span><br></pre></td></tr></table></figure>
-<h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo docker exec -it containerName bash</span><br><span class="line">sudo docker attach 44fc0f0582d9</span><br></pre></td></tr></table></figure>
-<h3 id="docker限制容器的内存使用"><a href="#docker限制容器的内存使用" class="headerlink" title="docker限制容器的内存使用"></a>docker限制容器的内存使用</h3><p><a href="https://blog.csdn.net/qq_37611270/article/details/97243704" target="_blank" rel="noopener">https://blog.csdn.net/qq_37611270/article/details/97243704</a></p>
-<h2 id="状态信息"><a href="#状态信息" class="headerlink" title="状态信息"></a>状态信息</h2><h2 id="列出docker-name"><a href="#列出docker-name" class="headerlink" title="列出docker name"></a>列出docker name</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker inspect -f=&apos;&#123;&#123;.Name&#125;&#125;&apos; $(sudo docker ps -a -q)</span><br></pre></td></tr></table></figure>
-<h3 id="列出docker-ip"><a href="#列出docker-ip" class="headerlink" title="列出docker ip"></a>列出docker ip</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker inspect -f=&apos;&#123;&#123;.NetworkSettings.IPAddress&#125;&#125;&apos; $(sudo docker ps -a -q)</span><br></pre></td></tr></table></figure>
-<h3 id="列出所有容器对应的名称，端口，及ip"><a href="#列出所有容器对应的名称，端口，及ip" class="headerlink" title="列出所有容器对应的名称，端口，及ip"></a>列出所有容器对应的名称，端口，及ip</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect -f=&apos;&#123;&#123;.Name&#125;&#125; &#123;&#123;.NetworkSettings.IPAddress&#125;&#125; &#123;&#123;.HostConfig.PortBindings&#125;&#125;&apos; $(docker ps -aq)</span><br></pre></td></tr></table></figure>
-<h3 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status docker</span><br></pre></td></tr></table></figure>
-<h2 id="数据卷"><a href="#数据卷" class="headerlink" title="数据卷"></a>数据卷</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker inspect 容器id</span><br><span class="line"># 可以查看容器信息  “HostConfig下的Binds 可以看到数据卷绑定  Mounts下Souce和Destination也可以看到数据卷绑定信息”</span><br></pre></td></tr></table></figure>
-<h1 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h1><p><a href="https://www.cnblogs.com/sablier/p/11605606.html" target="_blank" rel="noopener">参考</a><br>目录映射时，容器里面的目录会在容器启动的时候自动创建。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 3306:3306 --name mysql \</span><br><span class="line">-v /usr/local/docker/mysql/conf:/etc/mysql \</span><br><span class="line">-v /usr/local/docker/mysql/logs:/var/log/mysql \</span><br><span class="line">-v /usr/local/docker/mysql/data:/var/lib/mysql \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=raubbhWy \</span><br><span class="line">-d mysql:5.7</span><br></pre></td></tr></table></figure></p>
-<p>进入docker本地连接mysql客户端<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo docker exec -it mysql bash</span><br><span class="line">mysql -uroot -p123456</span><br></pre></td></tr></table></figure></p>
-<h1 id="Fastdfs"><a href="#Fastdfs" class="headerlink" title="Fastdfs"></a>Fastdfs</h1><p><a href="https://hub.docker.com/r/season/fastdfs" target="_blank" rel="noopener">season/fastdfs</a><br><a href="http://www.zuidaima.com/blog/4653383732808704.htm" target="_blank" rel="noopener">参考1</a><br><a href="https://blog.502.li/archives/docker-deploy-fastdfs.html" target="_blank" rel="noopener">参考2</a><br><a href="https://v3u.cn/a_id_78" target="_blank" rel="noopener">参考3</a></p>
-<h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><p><a href="https://www.runoob.com/docker/docker-install-redis.html" target="_blank" rel="noopener">https://www.runoob.com/docker/docker-install-redis.html</a></p>
-<h1 id="rabbitmq"><a href="#rabbitmq" class="headerlink" title="rabbitmq"></a>rabbitmq</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull rabbitmq:management</span><br><span class="line">docker run -d --hostname my-rabbit --name some-rabbit -p 15555:15672 rabbitmq:management</span><br></pre></td></tr></table></figure>
-<p>默认账号密码：guest和guest</p>
-<h1 id="docker跑SpringCloud微服务"><a href="#docker跑SpringCloud微服务" class="headerlink" title="docker跑SpringCloud微服务"></a>docker跑SpringCloud微服务</h1><h1 id="dockerfile-maven"><a href="#dockerfile-maven" class="headerlink" title="dockerfile-maven"></a>dockerfile-maven</h1><h1 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h1><p>在Docker中创建镜像最常用的方式，就是使用Dockerfile。Dockerfile是一个Docker镜像的描述文件，我们可以理解成火箭发射的A、B、C、D…的步骤。Dockerfile其内部包含了一条条的指令，每一条指令构建一层，因此每一条指令的内容，就是描述该层应当如何构建。<br><a href="https://www.runoob.com/docker/docker-dockerfile.html" target="_blank" rel="noopener">Dockerfile基础知识</a><br><a href="https://www.cnblogs.com/lingfengblogs/p/11093246.html" target="_blank" rel="noopener">Dockerfile命令大全</a></p>
-<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="EXPOSE"><a href="#EXPOSE" class="headerlink" title="EXPOSE"></a>EXPOSE</h3><p><a href="https://blog.csdn.net/qq_17639365/article/details/86655177" target="_blank" rel="noopener">https://blog.csdn.net/qq_17639365/article/details/86655177</a></p>
-<h3 id="VOLUME"><a href="#VOLUME" class="headerlink" title="VOLUME"></a>VOLUME</h3><p><a href="https://www.cnblogs.com/ExMan/p/12017896.html" target="_blank" rel="noopener">https://www.cnblogs.com/ExMan/p/12017896.html</a></p>
-<ul>
-<li>通过docker run命令的-v标识创建的挂载点只能对创建的容器有效。</li>
-<li>通过dockerfile的 VOLUME 指令可以在镜像中创建挂载点，这样只要通过该镜像创建的容器都有了挂载点。</li>
-<li>还有一个区别是，通过 VOLUME 指令创建的挂载点，无法指定主机上对应的目录，是自动生成的。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#test</span><br><span class="line">FROM ubuntu</span><br><span class="line">MAINTAINER hello1</span><br><span class="line">VOLUME [&quot;/data1&quot;,&quot;/data2&quot;]</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>上面的dockfile文件通过VOLUME指令指定了两个挂载点 /data1 和 /data2.</p>
-<p>我们通过docker inspect 查看通过该dockerfile创建的镜像生成的容器，可以看到如下信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&quot;Mounts&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;Name&quot;: &quot;d411f6b8f17f4418629d4e5a1ab69679dee369b39e13bb68bed77aa4a0d12d21&quot;,</span><br><span class="line">            &quot;Source&quot;: &quot;/var/lib/docker/volumes/d411f6b8f17f4418629d4e5a1ab69679dee369b39e13bb68bed77aa4a0d12d21/_data&quot;,</span><br><span class="line">            &quot;Destination&quot;: &quot;/data1&quot;,</span><br><span class="line">            &quot;Driver&quot;: &quot;local&quot;,</span><br><span class="line">            &quot;Mode&quot;: &quot;&quot;,</span><br><span class="line">            &quot;RW&quot;: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;Name&quot;: &quot;6d3badcf47c4ac5955deda6f6ae56f4aaf1037a871275f46220c14ebd762fc36&quot;,</span><br><span class="line">            &quot;Source&quot;: &quot;/var/lib/docker/volumes/6d3badcf47c4ac5955deda6f6ae56f4aaf1037a871275f46220c14ebd762fc36/_data&quot;,</span><br><span class="line">            &quot;Destination&quot;: &quot;/data2&quot;,</span><br><span class="line">            &quot;Driver&quot;: &quot;local&quot;,</span><br><span class="line">            &quot;Mode&quot;: &quot;&quot;,</span><br><span class="line">            &quot;RW&quot;: true</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br></pre></td></tr></table></figure></p>
-<h2 id="apt-get更换国内源解决Dockerfile构建速度过慢"><a href="#apt-get更换国内源解决Dockerfile构建速度过慢" class="headerlink" title="apt-get更换国内源解决Dockerfile构建速度过慢"></a>apt-get更换国内源解决Dockerfile构建速度过慢</h2><p>ubuntu和debian的镜像源都要换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RUN  sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list</span><br><span class="line">RUN  sed -i &apos;s/deb.debian.org/mirrors.ustc.edu.cn/g&apos; /etc/apt/sources.list</span><br><span class="line">RUN  apt-get clean</span><br><span class="line">RUN  apt-get update</span><br></pre></td></tr></table></figure></p>
-<p>或者：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FROM ubuntu:20.04</span><br><span class="line">RUN sed -i &apos;s/ports.ubuntu.com/mirror.tuna.tsinghua.edu.cn/g&apos; /etc/apt/sources.list</span><br><span class="line">RUN apt-get install vim</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://www.cnblogs.com/dakewei/p/12783717.html" target="_blank" rel="noopener">https://www.cnblogs.com/dakewei/p/12783717.html</a></p>
-<h3 id="163的镜像"><a href="#163的镜像" class="headerlink" title="163的镜像"></a>163的镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#更新apt-get源 使用163的源</span><br><span class="line">RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-<h1 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker-compose"></a>docker-compose</h1><p><a href="https://www.jianshu.com/p/90bf0e231e5a" target="_blank" rel="noopener">docker-compose.yml文件详解</a><br><a href="https://www.runoob.com/docker/docker-compose.html" target="_blank" rel="noopener">基础</a><br><a href="https://www.cnblogs.com/williamjie/p/9103327.html" target="_blank" rel="noopener">参考1</a></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
-<p>如果从github拉下来安装之后无法执行docker-compose命令的话，可以采用本机电脑下载之后上传到服务器，在chmod修改可执行权限就可以了。</p>
-<h2 id="命令-1"><a href="#命令-1" class="headerlink" title="命令"></a>命令</h2><h3 id="后台执行"><a href="#后台执行" class="headerlink" title="后台执行"></a>后台执行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
-<h2 id="docker-compose中解决depends-on无效问题"><a href="#docker-compose中解决depends-on无效问题" class="headerlink" title="docker-compose中解决depends_on无效问题"></a>docker-compose中解决depends_on无效问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RUN apt-get -q update &amp;&amp; apt-get -qy install netcat</span><br><span class="line"># docker-compose.yml 加上下面</span><br><span class="line">command: sh -c &apos;./wait-for.sh kiwi-microservice-local:5001/actuator/info -- echo kiwi-word-biz already started&apos;</span><br></pre></td></tr></table></figure>
-<p><a href="http://www.zyiz.net/tech/detail-98533.html" target="_blank" rel="noopener">http://www.zyiz.net/tech/detail-98533.html</a><br><a href="https://github.com/Eficode/wait-for" target="_blank" rel="noopener">https://github.com/Eficode/wait-for</a></p>
-<h1 id="Mac上跑docker"><a href="#Mac上跑docker" class="headerlink" title="Mac上跑docker"></a>Mac上跑docker</h1><p><a href="https://www.runoob.com/docker/macos-docker-install.html" target="_blank" rel="noopener">https://www.runoob.com/docker/macos-docker-install.html</a></p>
-<h1 id="docker-service的配置"><a href="#docker-service的配置" class="headerlink" title="docker.service的配置"></a>docker.service的配置</h1><p><a href="https://www.cnblogs.com/nihaorz/p/12131873.html" target="_blank" rel="noopener">https://www.cnblogs.com/nihaorz/p/12131873.html</a></p>
-<h1 id="更换国内的镜像"><a href="#更换国内的镜像" class="headerlink" title="更换国内的镜像"></a>更换国内的镜像</h1><p><a href="https://blog.csdn.net/u012081441/article/details/104553145/" target="_blank" rel="noopener">https://blog.csdn.net/u012081441/article/details/104553145/</a><br><a href="https://blog.csdn.net/s_lisheng/article/details/79871086" target="_blank" rel="noopener">https://blog.csdn.net/s_lisheng/article/details/79871086</a></p>
-<h1 id="在docker跑nginx的vue项目"><a href="#在docker跑nginx的vue项目" class="headerlink" title="在docker跑nginx的vue项目"></a>在docker跑nginx的vue项目</h1><p><a href="https://www.jianshu.com/p/422b61100273" target="_blank" rel="noopener">https://www.jianshu.com/p/422b61100273</a></p>
-<h2 id="nginx80端口被占用修改"><a href="#nginx80端口被占用修改" class="headerlink" title="nginx80端口被占用修改"></a>nginx80端口被占用修改</h2><p><a href="https://jingyan.baidu.com/article/3aed632efb150a701080912f.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/3aed632efb150a701080912f.html</a></p>
-<h2 id="各种配置"><a href="#各种配置" class="headerlink" title="各种配置"></a>各种配置</h2><p><a href="https://www.jqhtml.com/34815.html" target="_blank" rel="noopener">https://www.jqhtml.com/34815.html</a></p>
-<h1 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker network ls</span><br><span class="line">docker network inspect bridge</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.cnblogs.com/chenpython123/p/10823879.html" target="_blank" rel="noopener">https://www.cnblogs.com/chenpython123/p/10823879.html</a></p>
-<h1 id="Docker根据名称查询容器ID镜像ID并停止删除"><a href="#Docker根据名称查询容器ID镜像ID并停止删除" class="headerlink" title="Docker根据名称查询容器ID镜像ID并停止删除"></a>Docker根据名称查询容器ID镜像ID并停止删除</h1><p><a href="https://blog.csdn.net/zimou5581/article/details/94012682" target="_blank" rel="noopener">https://blog.csdn.net/zimou5581/article/details/94012682</a></p>
-<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="bash-vi-command-not-found"><a href="#bash-vi-command-not-found" class="headerlink" title="bash: vi: command not found"></a>bash: vi: command not found</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it &lt;container&gt; bash</span><br><span class="line">apt-get update</span><br><span class="line">apt-get install vim</span><br></pre></td></tr></table></figure>
-<h2 id="Error-response-from-daemon-Get-https-registry-1-docker-io-v2-net-http-TLS-handshake-timeout"><a href="#Error-response-from-daemon-Get-https-registry-1-docker-io-v2-net-http-TLS-handshake-timeout" class="headerlink" title="Error response from daemon: Get https://registry-1.docker.io/v2/: net/http: TLS handshake timeout"></a>Error response from daemon: Get <a href="https://registry-1.docker.io/v2/" target="_blank" rel="noopener">https://registry-1.docker.io/v2/</a>: net/http: TLS handshake timeout</h2><p><a href="https://blog.csdn.net/BigData_Mining/article/details/87869147" target="_blank" rel="noopener">网上的解决方案</a></p>
-<h2 id="Current-command-vanished-from-the-unit-file-execution-of-the-command-list-won’t-be-resumed"><a href="#Current-command-vanished-from-the-unit-file-execution-of-the-command-list-won’t-be-resumed" class="headerlink" title="Current command vanished from the unit file, execution of the command list won’t be resumed."></a>Current command vanished from the unit file, execution of the command list won’t be resumed.</h2><p>可能是有docker的相关进程没有杀干净。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef|grep docker</span><br><span class="line">kill -9 pid</span><br></pre></td></tr></table></figure></p>
-<h2 id="远程2375连接不上"><a href="#远程2375连接不上" class="headerlink" title="远程2375连接不上"></a>远程2375连接不上</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/lib/systemd/system/docker.service</span><br></pre></td></tr></table></figure>
-<p>vim进入命令行模式输入?ExecStart，找到如下一行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ExecStart=/usr/bin/dockerd -H unix://var/run/docker.sock \</span><br></pre></td></tr></table></figure></p>
-<p>在后面加上-H tcp://0.0.0.0:2375<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock -H tcp://0.0.0.0:2375</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service docker restart</span><br></pre></td></tr></table></figure>
-<p>之后要注意重启之前的容器。</p>
-<h2 id="ERROR-Version-in-“-docker-compose-yml”-is-invalid-You-might-be-seeing-this-error-because-you’re-using-the-wrong-Compose-file-version-Either-specify-a-supported-version-e-g-“2-2”-or-“3-3”"><a href="#ERROR-Version-in-“-docker-compose-yml”-is-invalid-You-might-be-seeing-this-error-because-you’re-using-the-wrong-Compose-file-version-Either-specify-a-supported-version-e-g-“2-2”-or-“3-3”" class="headerlink" title="ERROR: Version in “./docker-compose.yml” is invalid. You might be seeing this error because you’re using the wrong Compose file version. Either specify a supported version (e.g “2.2” or “3.3”)"></a>ERROR: Version in “./docker-compose.yml” is invalid. You might be seeing this error because you’re using the wrong Compose file version. Either specify a supported version (e.g “2.2” or “3.3”)</h2><p>把docker-compose.yml里面的version改一下，改成2.2或3.3（根据提示改）</p>
-<h2 id="docker-启动-nginx-访问不了的问题"><a href="#docker-启动-nginx-访问不了的问题" class="headerlink" title="docker 启动 nginx 访问不了的问题"></a>docker 启动 nginx 访问不了的问题</h2><p>如果容器的nginx服务没有启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#  进入容器</span><br><span class="line">/usr/sbin/nginx</span><br><span class="line"># 看下报什么错</span><br></pre></td></tr></table></figure></p>
-<h2 id="vue-config-js设置代理之后，nginx反向代理-404"><a href="#vue-config-js设置代理之后，nginx反向代理-404" class="headerlink" title="vue.config.js设置代理之后，nginx反向代理 404"></a>vue.config.js设置代理之后，nginx反向代理 404</h2><p><a href="https://zhuanlan.zhihu.com/p/60833019" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/60833019</a><br>/etc/nginx/conf.d/default.conf</p>
-<p>nginx关键配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">root /usr/share/nginx/html;</span><br><span class="line">index index.html index.htm;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /auth &#123;</span><br><span class="line">	proxy_pass http://kiwi-microservice:9991;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /wordBiz &#123;</span><br><span class="line">    proxy_pass http://kiwi-microservice:9991;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /code &#123;</span><br><span class="line">    proxy_pass http://kiwi-microservice:9991;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="Published-ports-are-discarded-when-using-host-network-mode"><a href="#Published-ports-are-discarded-when-using-host-network-mode" class="headerlink" title="Published ports are discarded when using host network mode"></a>Published ports are discarded when using host network mode</h2><p>host的网络模式不能-p映射端口</p>
-<h2 id="OCI-runtime-exec-failed-exec-failed-container-linux-go-349-starting-container-process-caused-“exec-”bash-”-executable-file-not-found-in-PATH”-unknown"><a href="#OCI-runtime-exec-failed-exec-failed-container-linux-go-349-starting-container-process-caused-“exec-”bash-”-executable-file-not-found-in-PATH”-unknown" class="headerlink" title="OCI runtime exec failed: exec failed: container_linux.go:349: starting container process caused “exec: \”bash\”: executable file not found in $PATH”: unknown"></a>OCI runtime exec failed: exec failed: container_linux.go:349: starting container process caused “exec: \”bash\”: executable file not found in $PATH”: unknown</h2><p>三种模式选择一种试试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it 1e33b26152e1 /bin/sh</span><br><span class="line">docker exec -it 1e33b26152e1 bash</span><br><span class="line">docker exec -it 1e33b26152e1 sh</span><br></pre></td></tr></table></figure></p>
-<h2 id="mkdir-can’t-create-directory-‘-tmp’-File-exists"><a href="#mkdir-can’t-create-directory-‘-tmp’-File-exists" class="headerlink" title="mkdir: can’t create directory ‘/tmp’: File exists"></a>mkdir: can’t create directory ‘/tmp’: File exists</h2><p>Dockerfile里面RUN命令创建文件夹的时候注意不要和系统同路径，不然会报错。</p>
-
+          <p>Yesterday I had a phone call from Clint. I was very surprised. I <strong>__</strong> （write） to him many times but he <strong>__</strong> （never, reply） to my letters.<br>答案：had written, had never replied<br>解析：两个或两个以上相继发生的动作，用and或but按动作发生的先后顺序连接，此时要用一般过去时，而不用过去完成时。过去完成时则强调主语在过去的某一时刻“回顾”更早的动作。具体来说，如果在谈论过去某一事件时，又想到在这之前已发生的某事，就要用过去完成时态。   </p>
+<p>A: I need to find a dermatologist.（皮肤科医生） You’re familiar with Dr. Smith. Do you recommend her?<br>B: Well, I <strong>__</strong> （see） by her a few times. And the best I can say for her is she has interesting magazines in her waiting room.<br>答案：have been seen<br>解析：在英语中，“动作表达”的完成时态强调最近发生的事件，而“状态表达”的完成时态强调“较远的过去”经历。   </p>
+<p>It’s reported that by the end of this month the output of cement in the factory <strong>__</strong> （rise） by about 10%.<br>答案：will have risen<br>解析：将来完成时是以“将来”作为“坐标时间”，来表示开始于将来之前（可能是过去、现在或将来）的动作持续到将来。但动作开始的时间并不重要，关键是说话人要站在将来的某一时间来谈某一动作的完成情况。</p>
+<p>I have entered the university for two years.<br>答案：错误，应改为：I have been in the university for two years，或者用一般过去时态说成：I entered the university two years ago.</p>
+<p>He has left his native place for three years.<br>答案：“单一事件”完成时的肯定句不与持续的时间状语连用，动词leave（left的原形）是非延续性动词，不能跟一段时间状语（否定句除外）。</p>
+<p>A: Are you glad you came to China?<br>B: Yes. Indeed. 我本来是要考虑去Tokyo or Singapore, but 我从不后 悔我的决定。<br>答案：I’d considered going to Tokyo or Singapore, but I’ve never regretted my decision.<br>解析：表示“非真实”的过去，主要是指intend，mean，hope，want，plan，suppose，expect， think，propose和wish等动词用于过去完成时，可表示过去未能实现的计划、设想、意图或希望等。   </p>
+<p>George would certainly have attended the proceedings <strong>__</strong>.<br>A. had he not had a flat tire<br>B. had the tire no flattened itself<br>C. if the flat tire hadn’t happened<br>D. if he didn’t get a flat tire<br>答案：A</p>
+<p>If Greek civilization <strong>__</strong> all of Europe, English wouldn’t contain so many Greek words.<br>A. hadn’t influenced<br>B. doesn’t influence<br>C. hasn’t influenced<br>D. didn’t influence<br>答案：A</p>
+<p>Nelson <strong>__</strong> the fight, with a little more training and a better manager.<br>A. would win<br>B. had won<br>C. could have won<br>D. won<br>答案：C<br>解析：尼尔森本可以赢得这场战斗，但需要更多的训练和更好的教练。</p>
+<p>He would rather <strong>__</strong> than worked last night.<br>A. have slept<br>B. has slept<br>C. sleep<br>D. slept<br>答案：A<br>解析：本题考查 would rather have done 的虚拟句型，本题相当于“He would rather have slept than have worked last night.” ，后边的 have 被省去了。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/08/05/English系列之思维练习错题笔记/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -416,7 +340,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Vue系列之基础知识/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/28/English时态系列之一般过去时/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -430,7 +354,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/10/15/Vue系列之基础知识/" class="post-title-link" itemprop="url">Vue系列之基础知识</a>
+            <a href="/2020/08/28/English时态系列之一般过去时/" class="post-title-link" itemprop="url">English时态系列之一般过去时</a>
         </h2>
 
         <div class="post-meta">
@@ -440,14 +364,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2019-10-15 21:11:24" itemprop="dateCreated datePublished" datetime="2019-10-15T21:11:24+08:00">2019-10-15</time>
+              <time title="Created: 2020-08-28 08:43:38" itemprop="dateCreated datePublished" datetime="2020-08-28T08:43:38+08:00">2020-08-28</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-17 09:11:57" itemprop="dateModified" datetime="2020-09-17T09:11:57+08:00">2020-09-17</time>
+                <time title="Modified: 2020-09-25 10:42:36" itemprop="dateModified" datetime="2020-09-25T10:42:36+08:00">2020-09-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -455,7 +379,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
                 </span>
             </span>
 
@@ -470,75 +394,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="eslint-plugin-vue-todo"><a href="#eslint-plugin-vue-todo" class="headerlink" title="eslint-plugin-vue todo"></a>eslint-plugin-vue todo</h2><h2 id="调试技巧-todo"><a href="#调试技巧-todo" class="headerlink" title="调试技巧 todo"></a>调试技巧 todo</h2><h2 id="前端加密的库CryptoJS使用demo-todo"><a href="#前端加密的库CryptoJS使用demo-todo" class="headerlink" title="前端加密的库CryptoJS使用demo todo"></a>前端加密的库CryptoJS使用demo todo</h2><p>以及相同的流行的库有什么？</p>
-<h2 id="Vue的生命周期-todo"><a href="#Vue的生命周期-todo" class="headerlink" title="Vue的生命周期 todo"></a>Vue的生命周期 todo</h2><h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="Vue-js-devtools灰色状态"><a href="#Vue-js-devtools灰色状态" class="headerlink" title="Vue.js devtools灰色状态"></a>Vue.js devtools灰色状态</h2><p>首先要确保编译的控制台没有error,在Sources里面有源码可以debug。</p>
-<h2 id="Invalid-prop-type-check-failed-for-prop-“queryForm”-Expected-Array-got-Promise"><a href="#Invalid-prop-type-check-failed-for-prop-“queryForm”-Expected-Array-got-Promise" class="headerlink" title="Invalid prop: type check failed for prop “queryForm”. Expected Array, got Promise"></a>Invalid prop: type check failed for prop “queryForm”. Expected Array, got Promise</h2><p>原因是因为prop “queryForm”，期待拿到的是一个Array数组对象，但是传进去的却是一个Promise对象，所以抛出这个报错，类似的错误一般会有：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Vue warn]: Invalid prop: type check failed for prop &quot;data&quot;. Expected Array, got String.</span><br></pre></td></tr></table></figure></p>
-<h2 id="Vue中监听路由参数变化的方法"><a href="#Vue中监听路由参数变化的方法" class="headerlink" title="Vue中监听路由参数变化的方法"></a>Vue中监听路由参数变化的方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">      $route()&#123;</span><br><span class="line">        this.pjtid = this.$route.query.pjtid</span><br><span class="line">      &#125;,</span><br><span class="line">      pjtid() &#123;</span><br><span class="line">        this.pjtdetail()</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>还可以监听url的前后变化：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$route (to, from) &#123;</span><br><span class="line">      this.init()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="VueRouter进不去组件的原因"><a href="#VueRouter进不去组件的原因" class="headerlink" title="VueRouter进不去组件的原因"></a>VueRouter进不去组件的原因</h2><blockquote>
-<p>有可能是父路径的path忘记以/开头了，比如：</p>
+          <blockquote>
+<p>这篇笔记摘选自《英语语法新思维初级教程第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">export default [&#123;</span><br><span class="line">  path: &apos;index&apos;,</span><br><span class="line">  component: $ =&gt; import(&apos;@/page/index/Index&apos;)</span><br><span class="line">&#125;, &#123;</span><br><span class="line">  path: &apos;vocabulary&apos;,</span><br><span class="line">  component: $ =&gt; import(&apos;@/page/word/Search&apos;),</span><br><span class="line">  children: [&#123;</span><br><span class="line">    path: &apos;detail&apos;,</span><br><span class="line">    component: $ =&gt; import(&apos;@/page/word/Detail&apos;)</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    path: &apos;starList&apos;,</span><br><span class="line">    component: $ =&gt; import(&apos;@/page/word/StarList&apos;)</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    path: &apos;starListDetail&apos;,</span><br><span class="line">    component: $ =&gt; import(&apos;@/page/word/StarListDetail&apos;)</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
-<p>这样子的话浏览器访问<a href="http://localhost:8080/#/index会出现空白!" target="_blank" rel="noopener">http://localhost:8080/#/index会出现空白!</a></p>
-<h2 id="filters-调用到this对象的data、methods"><a href="#filters-调用到this对象的data、methods" class="headerlink" title="filters 调用到this对象的data、methods"></a>filters 调用到this对象的data、methods</h2><p><a href="https://blog.csdn.net/ee_11eeeeee/article/details/102961376" target="_blank" rel="noopener">https://blog.csdn.net/ee_11eeeeee/article/details/102961376</a></p>
-<h2 id="Avoid-mutating-a-prop-directly-since-the-value-will-be-overwritten-whenever"><a href="#Avoid-mutating-a-prop-directly-since-the-value-will-be-overwritten-whenever" class="headerlink" title="Avoid mutating a prop directly since the value will be overwritten whenever"></a>Avoid mutating a prop directly since the value will be overwritten whenever</h2><p>props从父组件传递数据到子组件，不能子组件更改修改父组件，单向传递，用临时局部变量代替。</p>
-<h2 id="ios手机点击输入框页面放大，输入框失焦后，页面不复原，仍保持放大状态"><a href="#ios手机点击输入框页面放大，输入框失焦后，页面不复原，仍保持放大状态" class="headerlink" title="ios手机点击输入框页面放大，输入框失焦后，页面不复原，仍保持放大状态"></a>ios手机点击输入框页面放大，输入框失焦后，页面不复原，仍保持放大状态</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot;&gt;</span><br></pre></td></tr></table></figure>
-<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="重要备忘"><a href="#重要备忘" class="headerlink" title="重要备忘"></a>重要备忘</h2><ul>
-<li>在标签的属性与vue的变量或者方法绑定中，千万记得不要使用this.开头，这样子会读取到标签本身的属性值的</li>
-<li>vue的html标签如果属性绑定调用的是方法返回的，注意要在方法名后面加上()，不然可能会被解析为变量名</li>
-<li>引入js的单个或这个静态的方法或变量，一定要加{}，比如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123;BILL_BUTTON_CONFIGS&#125; from &apos;./buttonConfig&apos;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>不能是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import BILL_BUTTON_CONFIGS from &apos;./buttonConfig&apos;</span><br></pre></td></tr></table></figure></p>
-<p>不然里面的BILL_BUTTON_CONFIGS常量使用会undefined</p>
-<ul>
-<li>v-bind绑定是可以使用三目运算符的<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:class=&quot;taskVO.selected?&apos;selected&apos;:&apos;&apos;&quot;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="log打印"><a href="#log打印" class="headerlink" title="log打印"></a>log打印</h2><p>如果变量打印前面加了字符串拼接的话，chrome是不会自动打印变量的具体内容的！</p>
-<h2 id="API-in-common-use"><a href="#API-in-common-use" class="headerlink" title="API in common use"></a>API in common use</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">v:bind:attribute</span><br><span class="line">v-html</span><br><span class="line">v-on:click</span><br><span class="line">v-on:dblclick</span><br><span class="line">v-on:mousemove</span><br><span class="line"></span><br><span class="line">v-on:可以用@代替</span><br></pre></td></tr></table></figure>
-<h2 id="vue-import"><a href="#vue-import" class="headerlink" title="vue import @"></a>vue import @</h2><p>@ 等价于 /src 这个目录，避免写麻烦又易错的相对路径</p>
-<h2 id="使用Vue-prototype实现全局变量"><a href="#使用Vue-prototype实现全局变量" class="headerlink" title="使用Vue.prototype实现全局变量"></a>使用Vue.prototype实现全局变量</h2><p>当你在main.js里声明了Vue.prototype.a = 1后，因为你的每一个vue组件都是一个Vue对象的实例，所以即使你没有在组件内部使用data(){return{……}}声明a，你依然可以在组件中通过this.a来访问。</p>
-<h2 id="Template-Literals（模板对象）-in-ES6"><a href="#Template-Literals（模板对象）-in-ES6" class="headerlink" title="Template Literals（模板对象） in ES6"></a>Template Literals（模板对象） in ES6</h2><p>如在es5中拼凑字符串需要+’’以及变量名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var name = &apos;Your name is &apos; + first + &apos; &apos; + last + &apos;.&apos;;</span><br><span class="line">var url = &apos;http://localhost:3000/api/messages/&apos; + id;</span><br></pre></td></tr></table></figure></p>
-<p>在es6中新增添了${}的使用方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var name = `Your name is $&#123;first&#125; $&#123;last&#125;. `;</span><br><span class="line">var url = `http://localhost:3000/api/messages/$&#123;id&#125;`;</span><br></pre></td></tr></table></figure></p>
-<h2 id="no-undef"><a href="#no-undef" class="headerlink" title="no-undef"></a>no-undef</h2><p>“extends”: “eslint:recommended”配置文件中的属性启用此规则。<br>此规则可以帮助您查找由变量和参数名称拼写错误或意外隐式全局变量（例如，var在for循环初始值设定项中遗忘关键字）导致的潜在ReferenceErrors 。</p>
-<h2 id="style-scoped"><a href="#style-scoped" class="headerlink" title="style scoped"></a>style scoped</h2><p>在Vue组件中，为了使样式私有化（模块化），不对全局造成污染，可以在style标签上添加scoped属性以表示它的只属于当下的模块，局部有效。如果一个项目中的所有vue组件style标签全部加上了scoped，相当于实现了样式的私有化。如果引用了第三方组件，需要在当前组件中局部修改第三方组件的样式，而又不想去除scoped属性造成组件之间的样式污染。</p>
-<h2 id="v-model-vs-model"><a href="#v-model-vs-model" class="headerlink" title="v-model vs :model"></a>v-model vs :model</h2><p>v-model是vue内置的控件和变量之间双向数据绑定的指令，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--input输入框，值会在&lt;p&gt;标签打印出来--&gt;</span><br><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">     &lt;input type=&quot;text&quot; v-model=&quot;message&quot; placeholder=&quot;请输入&quot;&gt;</span><br><span class="line">    &lt;p&gt;输入的内容是: &#123;&#123;message&#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var  vue=new Vue(&#123;</span><br><span class="line">        el:&apos;#app&apos;,</span><br><span class="line">        data:&#123;</span><br><span class="line">           message:&apos;&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>:model相当于v-bind:model的缩写，<br>    v-bind动态绑定指令，默认情况下控件自带属性的值是固定的。<br>    这种只是将父组件的数据传递到了子组件，并没有实现子组件和父组件数据的双向绑定。<br>    当然引用类型除外，子组件改变引用类型的数据的话，父组件也会改变的。</p>
-<p>用v-bind和v-on指令实现v-model，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--input输入框--&gt;</span><br><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;!--把message字段的值作为input标签的value属性值，同时监听输入事件，实时更新message的值--&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; @input=&quot;handleInput($event)&quot;  placeholder=&quot;请输入&quot;  v-bind:value=&quot;message&quot;&gt;</span><br><span class="line">    &lt;p&gt;输入的内容是: &#123;&#123;message&#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var  vue=new Vue(&#123;</span><br><span class="line">        el:&apos;#app&apos;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            message:&apos;&apos;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line">            handleInput: function (event) &#123;</span><br><span class="line">                console.info(&quot;控制台打印event详情&quot;)</span><br><span class="line">                console.info(event)</span><br><span class="line">                console.info(event.toLocaleString());</span><br><span class="line">                this.message=event.target.value;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="XML-DOM自带的validate方法"><a href="#XML-DOM自带的validate方法" class="headerlink" title="XML DOM自带的validate方法"></a>XML DOM自带的validate方法</h2><p>查看js源码发现，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">export interface IXMLDOMSchemaCollection &#123;</span><br><span class="line">        length: number;</span><br><span class="line">        namespaceURI(index: number): string;</span><br><span class="line">        validateOnLoad: boolean;</span><br><span class="line"></span><br><span class="line">        add(namespaceURI: string, schema: string|IXMLDOMNode): void;</span><br><span class="line">        addCollection(collection: IXMLDOMSchemaCollection): void;</span><br><span class="line">        get(namespaceURI: string): IXMLDOMNode;</span><br><span class="line">        getDeclaration(node: IXMLDOMNode): ISchemaItem;</span><br><span class="line">        getSchema(namespaceURI: string): ISchema;</span><br><span class="line">        remove(namespaceURI: string): void;</span><br><span class="line">        validate(): void;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p>因此，在vue的代码中，form对象可以直接调用validate()，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">handleLogin () &#123;</span><br><span class="line">  this.$refs.loginForm.validate(valid =&gt; &#123;</span><br><span class="line">    if (valid) &#123;</span><br><span class="line">      this.$store.dispatch(&quot;LoginByUsername&quot;, this.loginForm).then(() =&gt; &#123;</span><br><span class="line">        this.$router.push(&#123; path: this.tagWel.value &#125;);</span><br><span class="line">      &#125;).catch(()=&gt;&#123;</span><br><span class="line">        this.refreshCode()</span><br><span class="line">      &#125;)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="vue中this-router-push-路由传值和获取的两种常见方法"><a href="#vue中this-router-push-路由传值和获取的两种常见方法" class="headerlink" title="vue中this.$router.push()路由传值和获取的两种常见方法"></a>vue中this.$router.push()路由传值和获取的两种常见方法</h2><p><a href="https://www.cnblogs.com/toonezhr/p/10325457.html" target="_blank" rel="noopener">https://www.cnblogs.com/toonezhr/p/10325457.html</a></p>
-<h2 id="Vue-extend-new-Vue-Vue-component-render"><a href="#Vue-extend-new-Vue-Vue-component-render" class="headerlink" title="Vue.extend, new Vue(), Vue.component(), render"></a>Vue.extend, new Vue(), Vue.component(), render</h2><p><a href="https://www.jianshu.com/p/ae319db5b456" target="_blank" rel="noopener">https://www.jianshu.com/p/ae319db5b456</a></p>
-<h2 id="vue-sync修饰符"><a href="#vue-sync修饰符" class="headerlink" title="vue sync修饰符"></a>vue sync修饰符</h2><p>vue 修饰符sync的功能是：当一个子组件改变了一个 prop 的值时，这个变化也会同步到父组件中所绑定。<br><a href="https://www.jianshu.com/p/6b062af8cf01" target="_blank" rel="noopener">https://www.jianshu.com/p/6b062af8cf01</a></p>
-<h2 id="常用属性"><a href="#常用属性" class="headerlink" title="常用属性"></a>常用属性</h2><p>vm.$el<br>获取Vue实例关联的DOM元素；</p>
-<p>vm.$data<br>获取Vue实例的data选项（对象）</p>
-<p>vm.$options<br>获取Vue实例的自定义属性（如vm.$options.methods,获取Vue实例的自定义属性methods）</p>
-<p>vm.$refs<br>获取页面中所有含有ref属性的DOM元素（如vm.$refs.hello，获取页面中含有属性ref = “hello”的DOM元素，如果有多个元素，那么只返回最后一个）<br><a href="https://www.jianshu.com/p/f6f3f00cd923" target="_blank" rel="noopener">https://www.jianshu.com/p/f6f3f00cd923</a></p>
-<h2 id="vue-use和vue-prototype的区别"><a href="#vue-use和vue-prototype的区别" class="headerlink" title="vue.use和vue.prototype的区别"></a>vue.use和vue.prototype的区别</h2><h2 id="watch、mounted、computed、created的区别-todo"><a href="#watch、mounted、computed、created的区别-todo" class="headerlink" title="watch、mounted、computed、created的区别 todo"></a>watch、mounted、computed、created的区别 todo</h2><h3 id="created和mounted的区别"><a href="#created和mounted的区别" class="headerlink" title="created和mounted的区别"></a>created和mounted的区别</h3><p>created:在模板渲染成html前调用，即通常初始化某些属性值，然后再渲染成视图。</p>
-<p>mounted:在模板渲染成html后调用，通常是初始化页面完成后，再对html的dom节点。</p>
-<h4 id="二者的执行顺序"><a href="#二者的执行顺序" class="headerlink" title="二者的执行顺序"></a>二者的执行顺序</h4><p>嵌套组件中两者的执行顺序不同。</p>
-<p>父组件 created</p>
-<p>子组件 created</p>
-<p>子组件 mounted</p>
-<p>父组件 mounted</p>
-<h3 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h3><h4 id="watch的高级用法"><a href="#watch的高级用法" class="headerlink" title="watch的高级用法"></a>watch的高级用法</h4><p>监听变量originList的变化，如果变化了调用init方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mounted () &#123;</span><br><span class="line">    this.$watch(&quot;originList&quot;, this.init)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="gt-import-“-components-common-Empty”-这是什么写法？"><a href="#gt-import-“-components-common-Empty”-这是什么写法？" class="headerlink" title="$=&gt;import(“@/components/common/Empty”)这是什么写法？"></a>$=&gt;import(“@/components/common/Empty”)这是什么写法？</h2><h2 id="this-options"><a href="#this-options" class="headerlink" title="this.$options"></a>this.$options</h2><p>通过this.$options调用方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">his.$options.methods.getPicData.call(this)</span><br></pre></td></tr></table></figure></p>
-<p>带参数的调用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$options.methods.getPicData.call(this,data)</span><br></pre></td></tr></table></figure></p>
-<h2 id="this-emit-Vue子组件向父组件传值"><a href="#this-emit-Vue子组件向父组件传值" class="headerlink" title="this.$emit()/Vue子组件向父组件传值"></a>this.$emit()/Vue子组件向父组件传值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$emit(&apos;refreshCodeTreeFun&apos;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;vercode-info ref=&quot;vercodeInfo&quot; v-if=&quot;showVercodeTable&quot;</span><br><span class="line">				:parent-id=&quot;parentId&quot;</span><br><span class="line">				:current-id=&quot;currentId&quot;</span><br><span class="line">				:parent-name=&quot;parentName&quot;</span><br><span class="line">				:default-node-type=&quot;defaultNodeType&quot;</span><br><span class="line">				:specialty-name=&quot;specialtyName&quot;</span><br><span class="line">				:specialty-id=&quot;specialtyId&quot;</span><br><span class="line">				@refreshCodeTreeFun=&quot;refreshCodeTreeFun&quot;&gt;&lt;/vercode-info&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">refreshCodeTreeFun () &#123;</span><br><span class="line">			this.showCodeTree = false</span><br><span class="line">			setTimeout(() =&gt; &#123;</span><br><span class="line">				this.showCodeTree = true</span><br><span class="line">			&#125;, 1)</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="ref属性"><a href="#ref属性" class="headerlink" title="ref属性"></a>ref属性</h2><p>ref 被用来给元素或子组件注册引用信息。引用信息将会注册在父组件的 $refs 对象上。</p>
-<p>$refs 是所有注册过的ref的一个集合。</p>
-<h2 id="vue语法-（模版字符串）"><a href="#vue语法-（模版字符串）" class="headerlink" title="vue语法 ${ }（模版字符串）"></a>vue语法 <code>${ }</code>（模版字符串）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">const name = &apos;小缘&apos;</span><br><span class="line">const age = 14</span><br><span class="line">console.info(`大家好，我叫$&#123;name&#125;，今年$&#123;age&#125;岁了`)</span><br><span class="line">// 等价于</span><br><span class="line">console.info(&apos;大家好，我叫&apos; + name + &apos;，今年&apos; + age + &apos;岁了&apos;)</span><br><span class="line"> </span><br><span class="line">// 最大的优势是支持换行字符串</span><br><span class="line">const url = &apos;//baidu.com&apos;</span><br><span class="line">const text = &apos;百度一下，你就知道&apos;</span><br><span class="line">const html = `</span><br><span class="line">  &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">    &lt;a href=&quot;$&#123;url&#125;&quot;&gt;$&#123;text&#125;&lt;/a&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">`</span><br><span class="line">————————————————</span><br><span class="line">版权声明：本文为CSDN博主「Hzsilvana」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</span><br><span class="line">原文链接：https://blog.csdn.net/weixin_42776027/java/article/details/101197879</span><br></pre></td></tr></table></figure>
-<h2 id="自定义setter方法，调用时一并返回对象"><a href="#自定义setter方法，调用时一并返回对象" class="headerlink" title="自定义setter方法，调用时一并返回对象"></a>自定义setter方法，调用时一并返回对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">export const createQueryFieldEnhance = function () &#123;</span><br><span class="line">	let field = &#123;</span><br><span class="line">		type: &apos;&apos;, propertyName: &apos;&apos;, fieldName: &apos;&apos;, dataSource: [], dataSourceCode: &apos;&apos;, isMultiple: false,</span><br><span class="line">		setType (type) &#123;</span><br><span class="line">			this.type = type</span><br><span class="line">			return this</span><br><span class="line">		&#125;,</span><br><span class="line">		setPropertyName (propertyName) &#123;</span><br><span class="line">			this.propertyName = propertyName</span><br><span class="line">			return this</span><br><span class="line">		&#125;,</span><br><span class="line">		setFieldName (fieldName) &#123;</span><br><span class="line">			this.fieldName = fieldName</span><br><span class="line">			return this</span><br><span class="line">		&#125;,</span><br><span class="line">		setDataSource (dataSource) &#123;</span><br><span class="line">			this.dataSource = dataSource</span><br><span class="line">			return this</span><br><span class="line">		&#125;,</span><br><span class="line">		setDataSourceCode (dataSourceCode) &#123;</span><br><span class="line">			this.dataSourceCode = dataSourceCode</span><br><span class="line">			return this</span><br><span class="line">		&#125;,</span><br><span class="line">		setIsMultiple (isMultiple) &#123;</span><br><span class="line">			this.isMultiple = isMultiple</span><br><span class="line">			return this</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return field</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="vue组件之间通信的6种方式"><a href="#vue组件之间通信的6种方式" class="headerlink" title="vue组件之间通信的6种方式"></a>vue组件之间通信的6种方式</h2><h3 id="emit-on"><a href="#emit-on" class="headerlink" title="$emit / $on"></a>$emit / $on</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$emit(事件名,数据);</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">async mounted ()&#123;</span><br><span class="line">    this.$on(&quot;refresh&quot;, $=&gt;&#123;</span><br><span class="line">        // xxx</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="输入框Input监听回车"><a href="#输入框Input监听回车" class="headerlink" title="输入框Input监听回车"></a>输入框Input监听回车</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-input v-model=&quot;name&quot; @keyup.enter.native=&quot;onSubmit&quot; placeholder=&quot;User Name&quot;&gt;&lt;/el-input&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="vue监听浏览器窗口的变化"><a href="#vue监听浏览器窗口的变化" class="headerlink" title="vue监听浏览器窗口的变化"></a>vue监听浏览器窗口的变化</h2><p><a href="https://blog.csdn.net/weixin_34049948/article/details/86021903" target="_blank" rel="noopener">https://blog.csdn.net/weixin_34049948/article/details/86021903</a></p>
-<h1 id="Tool"><a href="#Tool" class="headerlink" title="Tool"></a>Tool</h1><p><a href="http://www.html2jade.org/" target="_blank" rel="noopener">html和pug之间的转换</a></p>
-<h2 id="倒计时组件"><a href="#倒计时组件" class="headerlink" title="倒计时组件"></a>倒计时组件</h2><p><a href="https://www.cnblogs.com/haoning/p/11686674.html" target="_blank" rel="noopener">https://www.cnblogs.com/haoning/p/11686674.html</a></p>
-
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>据说，在美国的新闻报道中，最精练简明的导语出现在1906年4月的旧金山大地震之时，这个导语是：<br>San Francisco Was<br>这里除了地名San Francisco外，就只有唯一的一个关键词was，通过was表明了这次地震对旧金山所造成的破坏程度——已将其夷为平地，该城市不复存在了。因此，这个导语不妨译成：<br>旧金山已成为过去</p>
+<h2 id="基本用法一：过去发生的短暂动作或状态"><a href="#基本用法一：过去发生的短暂动作或状态" class="headerlink" title="基本用法一：过去发生的短暂动作或状态"></a>基本用法一：过去发生的短暂动作或状态</h2><p>一般过去时常表示在过去某一个特定的时间所发生的动作或存在的状态，此时常和表示过去的特定的时间状语连用。这些时间状语有：yesterday, yesterday evening, last night, the night before last（前天晚上）, last year, last spring（去年春天）以及three days/months/years ago等等。注意，这些时间状语之前不需加介词，比如不能说：at last night<em>, in last year</em>或in three years ago*等等。<br>I saw him in the library yesterday morning. 我昨天早上在图书馆看到他了。<br>I bought this computer three years ago. 我3年以前买的这台电脑。<br>是表示过去存在的状态：<br>He was late for school this morning. 他今天早上上学迟到了。<br>I was tired last night, so I went to bed early. 我昨晚感到很累，所以早早地上床睡觉了。<br>图示：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/jCl8Ia.png" alt></p>
+<p>I didn’t choose this life; it chose me.<br>这是巴基斯坦反对派领袖、前总理贝·布托（Bhutto）在其回忆录中的一句话。这里虽然没有明确的过去的时间状语，但根据语境判断，是表示过去发生的事件，所以用了一般过去时态。<br>我没有选择这种命运，而是命运选择了我。</p>
+<h2 id="基本用法二：过去发生的重复或延续活动"><a href="#基本用法二：过去发生的重复或延续活动" class="headerlink" title="基本用法二：过去发生的重复或延续活动"></a>基本用法二：过去发生的重复或延续活动</h2><p>除了表示短暂动作之外，一般过去时还可以表示过去的一段时间（a specific period of time in the past）内延续或重复的动作，图示为：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/AWxXqn.png" alt><br>I slept for eight hours last night. 我昨晚睡了8个小时。<br>She lived in our town for three years, but now she is living in Beijing.<br>她在我们这个小镇生活了3年，不过她现在住在北京。<br>I lived in the country for ten years. 我在农村生活了10年。</p>
+<p>表示过去重复发生的活动：<br>I wrote a letter once a week to my family when I was in my first college year.<br>这里的wrote是表示过去一段期间内不断重复发生的活动。<br>在大一的时候，我通常每个星期给家里写一封信。<br>He used to do morning exercises. 他过去常常晨练。<br>用表格简单地总结如下：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/OQuczd.png" alt></p>
+<h2 id="用法比较：一般过去时和现在完成时用于“for-时间段”的区别"><a href="#用法比较：一般过去时和现在完成时用于“for-时间段”的区别" class="headerlink" title="用法比较：一般过去时和现在完成时用于“for+时间段”的区别"></a>用法比较：一般过去时和现在完成时用于“for+时间段”的区别</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/08/28/English时态系列之一般过去时/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -557,7 +429,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/01/Idea汇总/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/17/English系列之完成进行时-现在完成进行时/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -571,7 +443,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/12/01/Idea汇总/" class="post-title-link" itemprop="url">Java系列之Idea</a>
+            <a href="/2020/07/17/English系列之完成进行时-现在完成进行时/" class="post-title-link" itemprop="url">English系列之完成进行时（现在完成进行时）</a>
         </h2>
 
         <div class="post-meta">
@@ -581,14 +453,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2019-12-01 21:10:40" itemprop="dateCreated datePublished" datetime="2019-12-01T21:10:40+08:00">2019-12-01</time>
+              <time title="Created: 2020-07-17 21:03:15" itemprop="dateCreated datePublished" datetime="2020-07-17T21:03:15+08:00">2020-07-17</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-14 11:20:44" itemprop="dateModified" datetime="2020-09-14T11:20:44+08:00">2020-09-14</time>
+                <time title="Modified: 2020-09-25 10:42:36" itemprop="dateModified" datetime="2020-09-25T10:42:36+08:00">2020-09-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -596,7 +468,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Idea/" itemprop="url" rel="index"><span itemprop="name">Idea</span></a>
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
                 </span>
             </span>
 
@@ -611,331 +483,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="HOTKEY"><a href="#HOTKEY" class="headerlink" title="HOTKEY"></a>HOTKEY</h1><h2 id="Usage-Search（使用查询）"><a href="#Usage-Search（使用查询）" class="headerlink" title="Usage Search（使用查询）"></a>Usage Search（使用查询）</h2><table>
-<thead>
-<tr>
-<th>key</th>
-<th>desc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>cmd+opt+F7</td>
-<td>搜索文件中用法，以弹窗方式显示</td>
-</tr>
-<tr>
-<td>opt+F7</td>
-<td>全局搜索引用</td>
-</tr>
-<tr>
-<td>cmd+shift+F7</td>
-<td>高亮显示当前代码域使用到的地方</td>
-</tr>
-<tr>
-<td>F3 or shift+F3</td>
-<td>搜索当前文件的模式下，按向下 or F3跳到下一处，按向上 or shift+F3跳到上一处</td>
-</tr>
-<tr>
-<td>tab or tab+shift</td>
-<td>在ctrl+shift+f全局搜索的时候，可以通过tab和来移动输入聚焦，可以脱离鼠标来选择右上角的File mask</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Editing（编辑）"><a href="#Editing（编辑）" class="headerlink" title="Editing（编辑）"></a>Editing（编辑）</h2><table>
-<thead>
-<tr>
-<th>key</th>
-<th>desc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>cmd+P</td>
-<td>显示方法的参数，这个方法的强大之处在于，展示了参数之后，在写入传参的时候，弹框会一直存在，让参数更加直观</td>
-</tr>
-<tr>
-<td>cmd++</td>
-<td>展开折叠的代码</td>
-</tr>
-<tr>
-<td>cmd+-</td>
-<td>折叠代码</td>
-</tr>
-<tr>
-<td>shift+上下方向键</td>
-<td>有时候用vim插件的jk上下移动太慢了，而且又不能明确知道要用emacsIdeas调整到哪里，可以用idea自带的shift+上下方向键来快速上下移动代码</td>
-</tr>
-</tbody>
-</table>
-<h2 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h2><table>
-<thead>
-<tr>
-<th>key</th>
-<th>desc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>cmd+shift+F8</td>
-<td>查看断点信息</td>
-</tr>
-<tr>
-<td>shift+F7</td>
-<td>智能步入，断点所在行上有多个方法调用，会弹出进入哪个方法</td>
-</tr>
-<tr>
-<td>^+F5</td>
-<td>重启debug服务</td>
-</tr>
-<tr>
-<td>cmd+F2</td>
-<td>终止debug服务</td>
-</tr>
-<tr>
-<td>^+cmd+W</td>
-<td>将Add to Watches绑定快捷键，可以快速查看变量或者表达式的值</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Spring-Boot-微服务"><a href="#Spring-Boot-微服务" class="headerlink" title="Spring Boot 微服务"></a>Spring Boot 微服务</h2><p>cmd+8 弹出多个微服务的启动控制窗口，可以通过上下左右移动快速定位到某个微服务，通过快捷键^+shiftF10 Runing,或者通过^+shift+F9 Debuging</p>
-<h2 id="General（通用）"><a href="#General（通用）" class="headerlink" title="General（通用）"></a>General（通用）</h2><table>
-<thead>
-<tr>
-<th>key</th>
-<th>desc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>^+cmd+F</td>
-<td>切换全屏模式</td>
-</tr>
-<tr>
-<td>^+cmd+C</td>
-<td>清理控制台的日志之类的，需要再keymap里面设置Other</td>
-<td>Clear All</td>
-</tr>
-<tr>
-<td>opt+F12</td>
-<td>打开或关闭Terminal</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Refactoring（重构）"><a href="#Refactoring（重构）" class="headerlink" title="Refactoring（重构）"></a>Refactoring（重构）</h2><table>
-<thead>
-<tr>
-<th>key</th>
-<th>desc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>F5</td>
-<td>复制文件到指定包路径</td>
-</tr>
-<tr>
-<td>F6</td>
-<td>移动文件到指定包路径</td>
-</tr>
-<tr>
-<td>opt+cmd+t</td>
-<td>surround with 快捷得用各种模板语法包括代码（这个很强大`）</td>
-</tr>
-<tr>
-<td>opt+cmd+m</td>
-<td>提取代码为方法</td>
-</tr>
-<tr>
-<td>opt+cmd+c</td>
-<td>提取代码为常量</td>
-</tr>
-<tr>
-<td>opt+cmd+v</td>
-<td>提取代码为变量</td>
-</tr>
-<tr>
-<td>opt+cmd+f</td>
-<td>提取代码为成员变量</td>
-</tr>
-<tr>
-<td>opt+cmd+p</td>
-<td>提取代码为方法的形参</td>
-</tr>
-<tr>
-<td>opt+cmd+o</td>
-<td>快速去掉多余的import</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Navigation（导航）"><a href="#Navigation（导航）" class="headerlink" title="Navigation（导航）"></a>Navigation（导航）</h2><table>
-<thead>
-<tr>
-<th>key</th>
-<th>desc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>alt+F1</td>
-<td>跳转到当前代码文件很多相关的功能（强大）</td>
-</tr>
-<tr>
-<td>cmd+u</td>
-<td>前往当前光标所在方法的父类的方法 / 接口定义</td>
-</tr>
-<tr>
-<td>cmd+b</td>
-<td>进入定义处</td>
-</tr>
-<tr>
-<td>cmd+opt+b</td>
-<td>进入实现处</td>
-</tr>
-<tr>
-<td>cmd+o</td>
-<td>查询当前类可以继承实现的所有方法</td>
-</tr>
-<tr>
-<td>cmd+F12</td>
-<td>展示当前文件的结果大纲（可用于查询变量、方法等）</td>
-</tr>
-<tr>
-<td>^+shift+B</td>
-<td>跳转到类型声明处，可以直接从类变量跳到对应的类里面</td>
-</tr>
-<tr>
-<td>F12</td>
-<td>返回前一个工具窗口</td>
-</tr>
-<tr>
-<td>shift+esc</td>
-<td>隐藏当前或最后一个活动的窗口，且光标进入代码文件窗口</td>
-</tr>
-<tr>
-<td>opt+F1</td>
-<td>显示当前文件选择目标弹出层，弹出层中有很多目标可以进行选择（如在代码编辑窗口可以选择显示该文件的 Finder）</td>
-</tr>
-<tr>
-<td>⌃H</td>
-<td>显示当前类的层次结构(在类的任何地方可以快速跳转到父类、父接口、子类)</td>
-</tr>
-<tr>
-<td>^+opt+H</td>
-<td>显示所有调用的层次结构</td>
-</tr>
-<tr>
-<td>^+h</td>
-<td>显示类的所有子类型的相关内容</td>
-</tr>
-<tr>
-<td>shift+F4</td>
-<td>在新窗口打开文件</td>
-</tr>
-<tr>
-<td>^+F2</td>
-<td>可以快速跳到idea的菜单栏，然后通过方向键和enter，可以快速进行一下菜单栏的操作，这个快捷键适合其他软件</td>
-</tr>
-<tr>
-<td>^+opt+cmd+N</td>
-<td>跳到next method，这个是我自定义的</td>
-</tr>
-<tr>
-<td>^+opt+cmd+P</td>
-<td>跳到previous method，这个是我自定义的</td>
-</tr>
-<tr>
-<td>跳到光标所在方法的方法名</td>
-<td>先^+opt+cmd+N再^+opt+cmd+P，如果是最后一个方法就反之</td>
-</tr>
-</tbody>
-</table>
-<h2 id="后缀补全"><a href="#后缀补全" class="headerlink" title="后缀补全"></a>后缀补全</h2><h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><p>声明变量或者调用方法之后输入<code>.var</code>，可以自动生成前面的变量声明</p>
-<h3 id="null"><a href="#null" class="headerlink" title="null"></a>null</h3><p>某个变量或者表达式之后输入<code>.null</code>，自动生成if空判断</p>
-<h3 id="nn"><a href="#nn" class="headerlink" title="nn"></a>nn</h3><p>某个变量或者表达式之后输入<code>.nn</code>，自动生成if不为空判断</p>
-<h3 id="not"><a href="#not" class="headerlink" title="not"></a>not</h3><p>某个变量或者表达式之后输入<code>.not</code>，自动生成取反</p>
-<h3 id="还有for、return、if、opt等等常用的"><a href="#还有for、return、if、opt等等常用的" class="headerlink" title="还有for、return、if、opt等等常用的"></a>还有for、return、if、opt等等常用的</h3><h1 id="PLUGIN-插件"><a href="#PLUGIN-插件" class="headerlink" title="PLUGIN(插件)"></a>PLUGIN(插件)</h1><h2 id="emacsIdeas-最强大没有之一"><a href="#emacsIdeas-最强大没有之一" class="headerlink" title="emacsIdeas 最强大没有之一"></a>emacsIdeas 最强大没有之一</h2><blockquote>
-<p>注意如果和IdeaVim一同使用的话，类似^+W的快捷键要更改，不然会和IdeaVim的屏幕分割快捷键冲突了</p>
+          <blockquote>
+<p>这篇笔记摘选自《英语语法新思维中级教程通悟语法第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。</p>
 </blockquote>
-<h4 id="jump"><a href="#jump" class="headerlink" title="jump"></a>jump</h4><ul>
-<li>Plug-ins | emacsIDEAs | AceJumpSelect       选中当前位置到某个字符</li>
-<li>Plug-ins | emacsIDEAs | HighlightPrevSymbol 高亮跳到上一个一样的字符</li>
-<li>Plug-ins | emacsIDEAs | HighlightNextSymbol 高亮跳到下一个一样的字符</li>
-</ul>
-<h4 id="emacsIdeas-copy"><a href="#emacsIdeas-copy" class="headerlink" title="emacsIdeas copy"></a>emacsIdeas copy</h4><ul>
-<li>Plug-ins | emacsIDEAs | AceJumpCopy.Block       复制特定代码块到当前光标(可以是函数里面的整个形参定义)</li>
-<li>Plug-ins | emacsIDEAs | AceJumpCopy.Line        复制特定行到当前光标</li>
-<li>Plug-ins | emacsIDEAs | AceJumpCopy.Quote       复制特定的引用到当前光标，比如某个引号里面的内容</li>
-<li>Plug-ins | emacsIDEAs | AceJumpCopy.String      复制特定的代码到当前光标，一般是某块前后由空格隔开的代码</li>
-<li>Plug-ins | emacsIDEAs | AceJumpCopy.ToLineEnd   从当前位置复制到行尾</li>
-<li>Plug-ins | emacsIDEAs | AceJumpCopy.ToLineStart 从当前位置复制到行首</li>
-<li>Plug-ins | emacsIDEAs | AceJumpCopy.Paragraph   复制某个特定段落，比如类的某段注释</li>
-<li>Plug-ins | emacsIDEAs | AceJumpCopy.Group       复制某块代码，可以使某个判断的条件+整个花括号{}里面的内容 </li>
-</ul>
-<h4 id="emacsIdeas-delete"><a href="#emacsIdeas-delete" class="headerlink" title="emacsIdeas delete"></a>emacsIdeas delete</h4><ul>
-<li>Plug-ins | emacsIDEAs | AceJumpCut                  从当前位置剪切到某个位置</li>
-<li>Plug-ins | emacsIDEAs | AceJumpDelete.Block         删除特定的代码块 </li>
-<li>Plug-ins | emacsIDEAs | AceJumpDelete.Line          删除特定的代码行</li>
-<li>Plug-ins | emacsIDEAs | AceJumpDelete.Quote         删除特定的引用代码，比如某个引号里面的内容</li>
-<li>Plug-ins | emacsIDEAs | AceJumpDelete.String        删除特定的二个空格之间的字符 </li>
-<li>Plug-ins | emacsIDEAs | AceJumpDelete.Word          删除特定的某个变量方法名（紧挨在一起的代码标识）</li>
-<li>Plug-ins | emacsIDEAs | AceJumpDelete.ToLineEnd     从当前位置删除到行尾</li>
-<li>Plug-ins | emacsIDEAs | AceJumpDelete.ToLineStart   从当前位置删除到行首</li>
-<li>Plug-ins | emacsIDEAs | AceJumpDelete.Paragraph     删除某个特定段落，比如类的某段注释</li>
-</ul>
-<h4 id="emacsIdeas-cut"><a href="#emacsIdeas-cut" class="headerlink" title="emacsIdeas cut"></a>emacsIdeas cut</h4><ul>
-<li>Plug-ins | emacsIDEAs | AceJumpCut  从光标当前位置剪切到某个位置</li>
-</ul>
-<h4 id="emacsIdeas-more"><a href="#emacsIdeas-more" class="headerlink" title="emacsIdeas more"></a>emacsIdeas more</h4><p>AceJumpMove模式，各种快捷键的变种和上面的一样.etc.</p>
-<h2 id="ideaVim"><a href="#ideaVim" class="headerlink" title="ideaVim"></a>ideaVim</h2><p>yy 复制当值当前行，或者选中后y复制，然后输入数字n，再输入p，代表连续粘贴n次。<br>gg 快速移动到文件的开头<br>G  快速移动到文件的结尾</p>
-<h2 id="CamelCase"><a href="#CamelCase" class="headerlink" title="CamelCase"></a>CamelCase</h2><p>opt+shift+u 可以对字符进行驼峰式的不同格式变换，非常实用。</p>
-<h2 id="Grep-Console"><a href="#Grep-Console" class="headerlink" title="Grep Console"></a>Grep Console</h2><p>安装该日志插件，控制台的日志输出可以更加直观，还可以自定义颜色。</p>
-<h2 id="spring-assistant-yml或者properties文件编写提示"><a href="#spring-assistant-yml或者properties文件编写提示" class="headerlink" title="spring assistant(yml或者properties文件编写提示)"></a>spring assistant(yml或者properties文件编写提示)</h2><p>编写yml配置文件的时候，可以自动提示，但是这个自动提示貌似自会提示Spring Boot的基础配置，如果是在配置中心的话，其他的第三方依赖配置要在配置中心引入其spring-boot-starter的依赖才能自动提示对应的配置。</p>
-<p><strong><em>如果对应的依赖引入了之后还不会自动提示，那就需要再idea的模块配置里面将自定义的配置文件加入到配置文件的类别中，如下图:</em></strong><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/EpjOSE.png" alt><br>选择右边的第一个Configuration Files，因为通常配置中心新增的都不会是Bootstrap类别的配置文件，如下图，然后点击下面的绿色按钮，也就是最后一个按钮<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/RWKXhb.png" alt><br>再点击下面的+号，选择对一个的yml或者properties，然后确认就ok了。</p>
-<h2 id="RestfulToolkit"><a href="#RestfulToolkit" class="headerlink" title="RestfulToolkit"></a>RestfulToolkit</h2><p>这个插件可以自动收集项目的Restful风格的接口，还可以在idea里面直接填写参数调用接口</p>
-<h2 id="MyBatis-Log-Plugin"><a href="#MyBatis-Log-Plugin" class="headerlink" title="MyBatis Log Plugin"></a>MyBatis Log Plugin</h2><p>自动打印Mybatis的每一个SQL，有时候我们要抽取SQL不是很方便</p>
-<h2 id="Free-Mybatis-plugin"><a href="#Free-Mybatis-plugin" class="headerlink" title="Free Mybatis plugin"></a>Free Mybatis plugin</h2><p>Mapper与Mapper XML映射之间的调整，方便代码的跟踪查看。<br>而且还可以自动通过Mapper的方法矫正或者生成Mapper.xml的每个xml节点</p>
-<h2 id="ignore（版本控制忽略文件的好插件）支持各种文件忽略的配置"><a href="#ignore（版本控制忽略文件的好插件）支持各种文件忽略的配置" class="headerlink" title=".ignore（版本控制忽略文件的好插件）支持各种文件忽略的配置"></a>.ignore（版本控制忽略文件的好插件）支持各种文件忽略的配置</h2><p><a href="https://blog.csdn.net/byy8023/article/details/82259155" target="_blank" rel="noopener">https://blog.csdn.net/byy8023/article/details/82259155</a></p>
-<h3 id="可以根据项目的引用的构建工具能来针对性忽略"><a href="#可以根据项目的引用的构建工具能来针对性忽略" class="headerlink" title="可以根据项目的引用的构建工具能来针对性忽略"></a>可以根据项目的引用的构建工具能来针对性忽略</h3><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/A8xyJA.png" alt><br>比如我的项目选择了JetBrains、MacOS、Java、Maven、Example user template</p>
-<h3 id="如果出现-gitgnore忽略了某些要被纳入版本控制的文件或目录比如："><a href="#如果出现-gitgnore忽略了某些要被纳入版本控制的文件或目录比如：" class="headerlink" title="如果出现.gitgnore忽略了某些要被纳入版本控制的文件或目录比如："></a>如果出现.gitgnore忽略了某些要被纳入版本控制的文件或目录比如：</h3><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/rXGSPh.png" alt><br>直接删除掉想要重新纳入版本控制的目录或文件即可</p>
-<h3 id="maven的target反复被纳入版本控制"><a href="#maven的target反复被纳入版本控制" class="headerlink" title="maven的target反复被纳入版本控制"></a>maven的target反复被纳入版本控制</h3><p>这个是因为之前target目录已经被版本控制了，需要先关闭idea的自动编译，然后mvn clean一下，再提交所有删除的target文件，然后恢复自动编译配置。</p>
-<p>前提是.gitignore文件里面配置了Maven的忽略目录</p>
-<h2 id="JUnitGenerator-V2-0"><a href="#JUnitGenerator-V2-0" class="headerlink" title="JUnitGenerator V2.0"></a>JUnitGenerator V2.0</h2><p>选中代码中的类名，按cmd+shift+T，可以生成自定义测试类。<br><a href="https://blog.51cto.com/12066352/2134091" target="_blank" rel="noopener">https://blog.51cto.com/12066352/2134091</a></p>
-<h2 id="jclasslib-Bytecode-viewer"><a href="#jclasslib-Bytecode-viewer" class="headerlink" title="jclasslib Bytecode viewer"></a>jclasslib Bytecode viewer</h2><p>查看分析字节码的插件</p>
-<h1 id="Others-其他"><a href="#Others-其他" class="headerlink" title="Others(其他)"></a>Others(其他)</h1><h2 id="修改包名要注意的地方"><a href="#修改包名要注意的地方" class="headerlink" title="修改包名要注意的地方"></a>修改包名要注意的地方</h2><p>修改了包名之后注意在编译输出的目录要清空之前的老的class，不然可能会引起意想不到的冲突。</p>
-<h2 id="有没有更加智能化的API注释查看方法，比如鼠标-cmd的方式就完整地将注释都展示出来？"><a href="#有没有更加智能化的API注释查看方法，比如鼠标-cmd的方式就完整地将注释都展示出来？" class="headerlink" title="有没有更加智能化的API注释查看方法，比如鼠标+cmd的方式就完整地将注释都展示出来？"></a>有没有更加智能化的API注释查看方法，比如鼠标+cmd的方式就完整地将注释都展示出来？</h2><p>ctrl+J<br>可以搜索keymap需改热键，Quick Documentation</p>
-<h2 id="debug的时候变量的多种不同的View"><a href="#debug的时候变量的多种不同的View" class="headerlink" title="debug的时候变量的多种不同的View"></a>debug的时候变量的多种不同的View</h2><p>在Variables右键要跟踪的变量,可以view text，或者view as 其他类型.</p>
-<h2 id="Performance-enhancements（性能增加）"><a href="#Performance-enhancements（性能增加）" class="headerlink" title="Performance enhancements（性能增加）"></a>Performance enhancements（性能增加）</h2><p>idea吃内存确实是有点恐怖，对于调大内存，网上基本都是说调整idea.vmoptions里面的这三个参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-Xms1024m</span><br><span class="line">-Xmx3000m</span><br><span class="line">-XX:ReservedCodeCacheSize=1024m</span><br></pre></td></tr></table></figure></p>
-<p>但是我自己是基于2019.02的版本，发现即使调整了之后重启，idea右下角的内存显示还是原来的Max。<br>其实要这样调整才能真正生效：<br>Help-&gt;Edit Custom VM Options<br>打开这个会发现里面的配置还是原来的，在这里更改再重启，右下角的内存Max才会变大，才能生效。</p>
-<h2 id="cmd-shift-A按第二次的时候老是换出Terminal"><a href="#cmd-shift-A按第二次的时候老是换出Terminal" class="headerlink" title="cmd+shift+A按第二次的时候老是换出Terminal"></a>cmd+shift+A按第二次的时候老是换出Terminal</h2><p><a href="https://intellij-support.jetbrains.com/hc/en-us/articles/360005137400-Cmd-Shift-A-hotkey-opens-Terminal-with-apropos-search-instead-of-the-Find-Action-dialog" target="_blank" rel="noopener">https://intellij-support.jetbrains.com/hc/en-us/articles/360005137400-Cmd-Shift-A-hotkey-opens-Terminal-with-apropos-search-instead-of-the-Find-Action-dialog</a></p>
-<h2 id="Bug"><a href="#Bug" class="headerlink" title="Bug"></a>Bug</h2><p>有时候会出现复制进来的新文件编译之后没有被输出到target对应的目录，应该是idea潜在的bug，如果点击重新加载文件索引太慢了，一般重启一下重新编译可以解决。</p>
-<h2 id="search（搜索）"><a href="#search（搜索）" class="headerlink" title="search（搜索）"></a>search（搜索）</h2><p>全局搜索的时候记得利用好Scope，比如要搜索某个模块，某所最近更改的内容，搜索版本控制的所有更改等等。</p>
-<h2 id="Services"><a href="#Services" class="headerlink" title="Services"></a>Services</h2><p>cmd+8可以将多个SpringBoot的服务（微服务）整一个打开控制，可以结合其他快捷键进行启动、重启和停止，不过第一次使用需要再右下角的弹框中点击确认。<br>此外在Spring Cloud多个微服务的情况下，还可以将不同的微服务分组然后统一对某个组别进行run、debug或者静默断点等操作。</p>
-<h2 id="使用lombok跟踪bean属性调用栈"><a href="#使用lombok跟踪bean属性调用栈" class="headerlink" title="使用lombok跟踪bean属性调用栈"></a>使用lombok跟踪bean属性调用栈</h2><p>opt+F7依然可以看到getter和setter的调用栈。</p>
-<h2 id="SpringBoot-Application的热加载"><a href="#SpringBoot-Application的热加载" class="headerlink" title="SpringBoot Application的热加载"></a>SpringBoot Application的热加载</h2><p>要在debug模式下，设置Hot swap classes and update trigger file if failed，就可以自动热加载class了。</p>
-<h2 id="idea的svn的删除操作"><a href="#idea的svn的删除操作" class="headerlink" title="idea的svn的删除操作"></a>idea的svn的删除操作</h2><p>本地删除之后要在，Locally Deleted Files中点击Remove from VCS，然后再回来上面的Default Changelist去执行Commit删除。</p>
-<h2 id="折叠显示文件"><a href="#折叠显示文件" class="headerlink" title="折叠显示文件"></a>折叠显示文件</h2><p>可以在设置中搜索Soft-Wrap，根据文件格式配置是否折叠显示超过屏幕的行，也可以通过快捷键绑定折叠当前文件。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/dPTK3g.png" alt></p>
-<h2 id="提交代码前要先Optimize-Imports一下"><a href="#提交代码前要先Optimize-Imports一下" class="headerlink" title="提交代码前要先Optimize Imports一下"></a>提交代码前要先Optimize Imports一下</h2><p>可以cmd+9，在Default Changelist上Optimize Imports（opt+cmd+O）,这样就不会优化到其他没有修改到的代码，只操作自己改过的代码。</p>
-<h2 id="Run-Debug-Configurations中Build和Build-Project的区别"><a href="#Run-Debug-Configurations中Build和Build-Project的区别" class="headerlink" title="Run/Debug Configurations中Build和Build Project的区别"></a>Run/Debug Configurations中Build和Build Project的区别</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/sSnMvO.png" alt><br>Build只会编译配置依赖的模块，Build Project会编译模块依赖的所有项目，将编译器交给Maven代工的话注意要选择Build Project。</p>
-<h1 id="all-shortcut"><a href="#all-shortcut" class="headerlink" title="all shortcut"></a>all shortcut</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">新建文件的时候可以这样操作来脱离鼠标：</span><br><span class="line">cmd+1跳到Project目录上下移动到目标目录，然后cmd+shift+A跳出Action，输入new+文件类型或者手动选择文件类型就可以了。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">option+cmd+c 抽取局部字符串为静态变量</span><br><span class="line">cmd+shift+方向键  可以控制模态框的大小，和左右移动编辑区的内容</span><br><span class="line">ctrl+j  展示API文档</span><br><span class="line">ctrl+shift+F,[words 打钩可以搜索是否为单词]</span><br><span class="line">command+D,</span><br><span class="line">commond+F12(file structure)</span><br><span class="line">command+shift+N(search file&apos;s name and global)</span><br><span class="line">commond+option+shift+N(search method d variable global)</span><br><span class="line">shirt + option + (向上箭头)/（向下箭头）(move codes up or down)</span><br><span class="line">Command + Option + L(Format code)</span><br><span class="line">option+enter（add javadoc）</span><br><span class="line">option+command+b(jump into the class impl)</span><br><span class="line">command+e(recent file)</span><br><span class="line">command+shift+a(search action)</span><br><span class="line">command+number(window tab jump)</span><br><span class="line">shift(ctrl)+command+del(last(next) edit location)</span><br><span class="line">F11，command+F11，ctrl+number(alphabet)(bookmarks)</span><br><span class="line">option+shift+F(add to favorites)</span><br><span class="line">shift+option+U(toggle case)</span><br><span class="line">command+1,esc(switch between file navigate and edit area)</span><br><span class="line">option+F7(find usage)</span><br><span class="line">shift+option+方向(move caret to next word)</span><br><span class="line">command+方向(move to first or end of line)</span><br><span class="line">ctrl+command+G(sellect all occurrences) HOT</span><br><span class="line">F2(Quickly locate the wrong line)</span><br><span class="line">option+command+V(generate locate variable)</span><br><span class="line">shift+command+enter(generate some code)</span><br><span class="line">option+enter(generate some method)</span><br><span class="line">command+R(replace)</span><br><span class="line">shift+F6(rename)</span><br><span class="line">option+command+V(Extract Variable)</span><br><span class="line">option+command+C(Extract static Variable) HOT</span><br><span class="line">option+command+F(Extract field Variable)</span><br><span class="line">option+command+P(Extract field Variable into method)</span><br><span class="line">option+command+M(Extract some code to be a new method)HOT</span><br><span class="line">shift+command+F8(show all breakPoints)</span><br><span class="line">shift+command+V(copy history)</span><br><span class="line">shift+option+command+U(show maven dependencies)</span><br><span class="line">option+command+U(show class inherit) HOT</span><br><span class="line">ctrl+option+H(call method or be called history)</span><br><span class="line">ctrl+N(Generate anything)</span><br><span class="line">ctrl+w(select something)</span><br><span class="line">ctrl+&lt; or &gt; (move up or down next method) HOT</span><br><span class="line">cmd+option+T (surround) HOT</span><br></pre></td></tr></table></figure>
-<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="编译出现莫名其妙的找不到符号的Error"><a href="#编译出现莫名其妙的找不到符号的Error" class="headerlink" title="编译出现莫名其妙的找不到符号的Error"></a>编译出现莫名其妙的找不到符号的Error</h2><p>如果找不到符号的错误行数，刚好式同包下的某个类找不到符号报错，那么可能式idea的类编译顺序冲突了，找到报错行上引用到的类，先单独编译应用到的类，再编译报错的类，最后编译整个项目就可以了。</p>
-<h2 id="非静默模式下断点失效"><a href="#非静默模式下断点失效" class="headerlink" title="非静默模式下断点失效"></a>非静默模式下断点失效</h2><p>断点处提示：idea debug no executable code found<br>这个一般是class和idea的代码不一致导致的。<br>解决办法：<br>1、invalidate Caches/Restart<br>2、rebuild Project<br>3、class的输出路径正确<br>4、我自己是因为jboss的On ‘update’ action 被设置成了Restart Server，热部署应该改为：Update classes and resources</p>
-<h2 id="某个jar依赖冲突问题的解决"><a href="#某个jar依赖冲突问题的解决" class="headerlink" title="某个jar依赖冲突问题的解决"></a>某个jar依赖冲突问题的解决</h2><p>公司项目中cglib的包依赖了二个log4j的包，导致控制台启动会报错。 删除项目输出目录下的lib，设置依赖jar的scope为provided。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/7vAT8L.png" alt><br>然后重新部署启动就可以了。</p>
-<h2 id="debug启动微服务莫名其妙卡住的情况"><a href="#debug启动微服务莫名其妙卡住的情况" class="headerlink" title="debug启动微服务莫名其妙卡住的情况"></a>debug启动微服务莫名其妙卡住的情况</h2><p>竟然是因为我在某个方法的声明上打了断点，然后我静默断点时就可以debug启动微服务了：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/Qtfqng.png" alt><br>于是我果断把断点去掉，然后再检查一遍有没有打到方法声明上的断点，全都取消之后重启debug就可以了。</p>
-<h2 id="记录Idea关于Maven依赖的一个致命Bug"><a href="#记录Idea关于Maven依赖的一个致命Bug" class="headerlink" title="记录Idea关于Maven依赖的一个致命Bug"></a>记录Idea关于Maven依赖的一个致命Bug</h2><blockquote>
-<p>基于版本2019.3.4</p>
-</blockquote>
-<p>公司的微服务架构的用的Maven管理依赖，关于流程flowable的的模块ngbip-flow及其几个子模块我放在一个单独的文件夹下面；</p>
-<p>另外的一个项目也是基于微服务架构依赖ngbip-flow及其几个子模块，然后由于启动报了个莫名其妙的错误，于是我删掉了项目对公司自研的所有依赖，重新引入；</p>
-<p>但是这个时候idea移动将ngbip-flow的几个模块的依赖强制指向了上面提到的单独的文件夹下面的ngbip-flow几个子模块的代码文件，不走maven去依赖了，我TM是不同的文件夹（不同的工作区间啊，打开的是不同的idea窗口）；</p>
-<p>最后的硬核解决方法是，将原来的单独文件夹重命名个名字，这个时候另外的项目一下子就自动重新引入ngbip-flow的maven依赖，不会强制走开发机的其他文件夹下面的依赖，然后我再把文件夹名字改回来即可。</p>
-<h2 id="Maven代码不能指向本地工程module代码"><a href="#Maven代码不能指向本地工程module代码" class="headerlink" title="Maven代码不能指向本地工程module代码"></a>Maven代码不能指向本地工程module代码</h2><p>如果出现idea的Modules已经存在，但是代码不能通过Maven依赖到已经引入的module时（此时Maven管理界面可能会出现已经引入的model的maven可视化没有出现），这个时候在工程的Modules删除重新引入应该就可以了。</p>
-<h2 id="Idea出现所有引导到的类报错，连jdk的基础类也报错的情况"><a href="#Idea出现所有引导到的类报错，连jdk的基础类也报错的情况" class="headerlink" title="Idea出现所有引导到的类报错，连jdk的基础类也报错的情况"></a>Idea出现所有引导到的类报错，连jdk的基础类也报错的情况</h2><p>可能是不了心设置了Editor-&gt;File Type中忽略了*.class导致的。<br>如果是项目引入自己项目的代码也报错，可以删掉模块重新import。</p>
-<h2 id="Idea关闭写代码形参提示（会导致变卡）"><a href="#Idea关闭写代码形参提示（会导致变卡）" class="headerlink" title="Idea关闭写代码形参提示（会导致变卡）"></a>Idea关闭写代码形参提示（会导致变卡）</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/RVmJT6.png" alt="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/RVmJT6.png"></p>
-<blockquote>
-<p>有部分内容来自网络，一般都有注明出处，如若侵权，请联系我删除，谢谢！</p>
-</blockquote>
-
+<h2 id="完成进行时态的构成"><a href="#完成进行时态的构成" class="headerlink" title="完成进行时态的构成"></a>完成进行时态的构成</h2><p>以动词work为例，三种完成进行时态的构成形式如下：</p>
+<ol>
+<li>现在完成进行时：have been working</li>
+<li>过去完成进行时：had been working</li>
+<li>将来完成进行时：will have been working</li>
+</ol>
+<h2 id="完成进行时态的意义"><a href="#完成进行时态的意义" class="headerlink" title="完成进行时态的意义"></a>完成进行时态的意义</h2><p>从结构（structurally）的角度来看，完成进行时态是由完成时态与进行时态复合而成的，这种结构上的复合也必然会反映到意义上，因此完成进行时兼备“完成体”和“进行体”这两种时体的意义。<br>比如，对于现在完成进行时而言，一方面，完成体赋予了它“始于现在之前”的概念，即表示一个动作或状态是从过去持续或重复到现在；另一方面，进行体赋予它暂时的、不间断的延续性。所以，结合这两者的特点，现在完成进行时的核心意义是表示：被描述的事件开始于现在之前，而且是有限地（不会无限期地）持续下去。简言之，完成进行时的核心含义是表示“有限的延续性”。</p>
+<h2 id="延续事件"><a href="#延续事件" class="headerlink" title="延续事件"></a>延续事件</h2><p>现在完成进行时强调动作的持续性，表示一个到目前为止尚未完成的活动。具体来说，它表示开始于过去的活动持续到现在，并且活动往往还没有结束，将继续持续下去。此时的完成进行时常与“for+时间段”“since+时间点”，all morning，all day，all week 等这样的表示一段时间的时间状语连用，以强调在这一段期间内，某项活动正在持续。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/bxlo6A.png" alt></p>
+<p>I’ve been studying English for over ten years now, but I still can’t speak it well.<br>该句的谓语have been studying采用了现在完成进行时态，表示学习英语这一动作从10年前开始，一直持续到目前说话的时候，并且还将继续持续下去。</p>
+<p>你妈妈看到你正在看电视，不高兴地说：<br>A: Hey, you’re watching TV again.<br>B: I’ve been studying for the whole morning. I need to relax now.<br>该句的谓语have been studying采用了现在完成进行时态，但“学习”这个活动在说话时并没有在持续，而是在说话之前的一段时间内持续进行。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/07/17/English系列之完成进行时-现在完成进行时/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -954,7 +522,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/05/数据结构系列之队列-Java/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/02/English系列之虚拟语气/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -968,7 +536,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/05/数据结构系列之队列-Java/" class="post-title-link" itemprop="url">数据结构系列之队列（Java）</a>
+            <a href="/2020/08/02/English系列之虚拟语气/" class="post-title-link" itemprop="url">English系列之虚拟语气</a>
         </h2>
 
         <div class="post-meta">
@@ -978,14 +546,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-09-05 22:16:36" itemprop="dateCreated datePublished" datetime="2020-09-05T22:16:36+08:00">2020-09-05</time>
+              <time title="Created: 2020-08-02 09:57:44" itemprop="dateCreated datePublished" datetime="2020-08-02T09:57:44+08:00">2020-08-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-12 21:35:49" itemprop="dateModified" datetime="2020-09-12T21:35:49+08:00">2020-09-12</time>
+                <time title="Modified: 2020-09-25 10:42:36" itemprop="dateModified" datetime="2020-09-25T10:42:36+08:00">2020-09-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -993,7 +561,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
                 </span>
             </span>
 
@@ -1008,50 +576,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><a href="https://leetcode-cn.com/tag/queue/" target="_blank" rel="noopener">leetcode队列专题</a></p>
-<h2 id="队列的定义"><a href="#队列的定义" class="headerlink" title="队列的定义"></a>队列的定义</h2><p>队列是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作，和栈一样，队列是一种操作受限制的线性表。进行插入操作的端称为队尾，进行删除操作的端称为队头。队列的特点就是先进先出(First In First Out)。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/pRoXuq.png" alt></p>
-<h2 id="顺序队列"><a href="#顺序队列" class="headerlink" title="顺序队列"></a>顺序队列</h2><p>建立顺序队列结构必须为其静态分配或动态申请一片连续的存储空间，并设置两个指针进行管理。一个是队头指针front，它指向队头元素；另一个是队尾指针rear，它指向下一个入队元素的存储位置。</p>
-<blockquote>
-<p>如果没有两个指针，入队操作直接执行顺序表尾部插入操作，其时间复杂度为O(1)，出队操作直接执行顺序表头部删除操作，其时间复杂度为O(n)，<br>增加了front和rear指针，出队操作的时间复杂度也是O(1)了。</p>
+          <blockquote>
+<p>这篇笔记摘选自《英语语法新思维中级教程通悟语法第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。<br>思维导图版本<a href="http://www.xmind.net/m/8YhgVq" target="_blank" rel="noopener">点击这里</a>（Web版的XMind有一些问题）。</p>
 </blockquote>
-<p>空队列：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/VOhvX9.png" alt><br>往队列里面插入A：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/Tvnv7J.png" alt><br>继续插入元素：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/DFz5Ix.png" alt><br>将A和B出队：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/SKuBUa.png" alt><br>继续将D、E、F、G入队：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/Bh2zXE.png" alt><br>由于队列暂时”已满”，G将无法入队，但是此时front前面实际上还有未被利用的空间，这称为<code>&quot;假上溢&quot;现象</code>。<br>之所以出现这样”假溢出”现象是因为顺序表队列的存储单元没有重复利用机制，而解决该问题的最合适的方式就是将顺序队列设计为循环结构。</p>
-<h3 id="“下溢”现象"><a href="#“下溢”现象" class="headerlink" title="“下溢”现象"></a>“下溢”现象</h3><p>当队列为空时，做出队运算产生的溢出现象。“下溢”是正常现象，常用作程序控制转移的条件。</p>
-<h3 id="“真上溢”现象"><a href="#“真上溢”现象" class="headerlink" title="“真上溢”现象"></a>“真上溢”现象</h3><p>当队列满时，做进栈运算产生空间溢出的现象。“真上溢”是一种出错状态，应设法避免。</p>
-<h3 id="“假上溢”现象"><a href="#“假上溢”现象" class="headerlink" title="“假上溢”现象"></a>“假上溢”现象</h3><p>由于入队和出队操作中，头尾指针只增加不减小，致使被删元素的空间永远无法重新利用。当队列中实际的元素个数远远小于向量空间的规模时，也可能由于尾指针已超越向量空间的上界而不能做入队操作。该现象称为”假上溢”现象，如上面的图解。</p>
-<h2 id="循环队列"><a href="#循环队列" class="headerlink" title="循环队列"></a>循环队列</h2><p>循环队列就是将顺序队列设计为在逻辑结构上首尾相接的循环结构，使队列空间能重复使用，往往对队列的使用方法稍加改进：无论插入或删除，一旦rear指针增1或front指针增1时超出了所分配的队列空间，就让它指向这片连续空间的起始位置。自己真从MaxSize-1增1变到0，可用取余运算<code>(rear+1)%MaxSize</code>和<code>(front+1)%MaxSize</code>来实现（如果front和rear是从1开始的，则无需+1）。<br>这实际上是把队列空间想象成一个环形空间，环形空间中的存储单元循环使用，用这种方法管理的队列也就称为循环队列。除了一些简单应用之外，真正实用的队列是循环队列。<br>向循环队列插入A：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/id3Re7.png" alt><br>继续插入B、C（每次入队rear都在增1）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/L9wzvj.png" alt><br>将A、B、C出队（每次出队front都在增1）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/JVFghB.png" alt><br>重新插入A、B、C（此时队列出现”假上溢”现象，使用<code>(rear+1)%MaxSize</code>计算rear）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/M40vAU.png" alt><br>继续将A、B、C出队（此时队列出现”假上溢”现象，使用<code>(front+1)%MaxSize</code>计算front）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/rQlZy9.png" alt><br>重新插入直至队列出现”真上溢”现象，然后可以动态对循环队列进行扩展（并按照原来队列的次序复制元素数组）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/gHQzZs.png" alt></p>
-<h2 id="链式队列"><a href="#链式队列" class="headerlink" title="链式队列"></a>链式队列</h2><p>基于链表的队列，要动态创建和删除节点，效率较低，但是可以动态增长，可以使用带头指针front和尾指针rear的单链表实现，front直接指向队头的第一个元素，rear指向队尾的最后一个元素。<br>队列采用的FIFO(first in first out)，新元素（等待进入队列的元素）总是被插入到链表的尾部，而读取的时候总是从链表的头部开始读取。每次读取一个元素，释放一个元素。所谓的动态创建，动态释放。因而也不存在溢出等问题。由于链表由结构体间接而成，遍历也方便。<br>空链式队列：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/YVIozT.png" alt><br>插入元素（入队）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/cbwuMz.png" alt><br>出队和入队都分别改变front和rear的指向即可。</p>
-<h2 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h2><p>在某些情况下，有些应用系统要求不仅需要按照“先来先服务”的原则进行，而且还需按照任务的重要或紧急程度进行排队处理，此时就需要使用到优先队列。比如在操作系统中进行进程调度管理，每个进程都具备一个优先级值以表示进程的紧急程度，优先级高的进行先执行，同等级进程按照先进先出的原则排队处理，此时操作系统使用的便是优先队列管理和调度进程。<br>优先队列也是一种特殊的数据结构，队列中的每个元素都有一个优先级，按照排序可分类为：</p>
-<ul>
-<li>降序优先级队列：每次出队的是队列当前具有最高优先级的元素。</li>
-<li>升序优先级队列：每次出队的是队列当前具有最低优先级的元素。</li>
-</ul>
-<p>优先队列的实现可以有三种方案：</p>
-<ul>
-<li>有序数组</li>
-<li>有序链表</li>
-<li>也可以使用二叉树（二叉堆）实现</li>
-</ul>
-<h2 id="双端队列"><a href="#双端队列" class="headerlink" title="双端队列"></a>双端队列</h2><p>双端队列可以在队列任意一端入队和出队。此外，经常还会有一个查看（Peek）操作，返回该端的数据而不将其出队。</p>
-<h2 id="队列的应用"><a href="#队列的应用" class="headerlink" title="队列的应用"></a>队列的应用</h2><ul>
-<li>异步数据的处理、传输；</li>
-<li>短信群体发送 应用的发布订阅模式；</li>
-<li>模拟真实的订单服务、售票，以及其他先到先服务的场景。</li>
-</ul>
-<h2 id="Java中的队列"><a href="#Java中的队列" class="headerlink" title="Java中的队列"></a>Java中的队列</h2><h3 id="非阻塞队列"><a href="#非阻塞队列" class="headerlink" title="非阻塞队列"></a>非阻塞队列</h3><ul>
-<li>PriorityQueue</li>
-<li>ConcurrentLinkedQueue</li>
-</ul>
-<h3 id="阻塞队列"><a href="#阻塞队列" class="headerlink" title="阻塞队列"></a>阻塞队列</h3><ul>
-<li>ArrayBlockingQueue</li>
-<li>LinkedBlockingQueue</li>
-<li>PriorityBlockingQueue</li>
-<li>DelayQueue</li>
-<li>SynchronousQueue</li>
-</ul>
-<blockquote>
-<p>参考来源：<a href="https://blog.csdn.net/javazejian/article/details/53375004" target="_blank" rel="noopener">某篇博客</a>、<a href="https://baike.baidu.com/item/%E9%98%9F%E5%88%97/14580481" target="_blank" rel="noopener">百度百科</a>等。</p>
-</blockquote>
-
+<p>表示说话者的一种主观愿望、假想和建议等等，实际上并不能实现。 这在英语里，用语法术语表达就叫“虚拟语气”。<br>If I could rearrange the alphabet, I would put U and I together.<br>一般来讲，英语中的虚拟语气可以分为两大体系：一是表示与事实相反的或假想的情形，通常由if引导，叫作“非真实条件句（unreal conditional）”，或者叫“虚拟条件句”；另一个体系是在名词从句中使用虚拟语气，表示建议、命令或要求等语气，这是一个完全不同于非真实条件句的虚拟的结构形式。</p>
+<h2 id="虚拟条件句：两类三时"><a href="#虚拟条件句：两类三时" class="headerlink" title="虚拟条件句：两类三时"></a>虚拟条件句：两类三时</h2><p>这里说的“两类三时”是指虚拟条件句具有两种类型，并会对三种时间进行虚拟。<br>具体来说，虚拟条件句的两种类型是：<strong><em>假设条件句 （hypothetical）和事实相反句（counterfactual）。 </em></strong><br>假设条件句，顾名思义，是表示一种假想的情形，表示说话者的一种主观愿望或态度等，实现的可能性不大或极小。<br>事实相反句，顾名思义，是表示与现在或过去的某个事实相反的情形。对三种时间进行虚拟，即是对将来、现在和过去这三种时间的虚拟。<br>对于将来的情形只能是假设；对于现在的情形既可以是假设，也可以是谈与现在事实相反的情况；对于过去，只能是谈与事实相反的情形。</p>
+<p>If I were to have the time tomorrow, I would help him.<br>这里是表示将来虚拟假设的情形。用了虚拟，就表明说话人“我”认为自己明天有时间的可能性不大，所以言外之意是“我”可能帮不了他。这里用虚拟只是说明可能性不大（unlikely），而不是表达与事实相违背的不可能的情形（impossible）。<br>If I had the time now, I would help him.<br>这里是表示现在虚拟假设的情形。用了虚拟，就表明说话人“我”认为自己现在有时间的可能性不大，所以言外之意是“我”可能帮不了他。这里用虚拟也只是说明可能性不大（unlikely），而不是表达与事实相违背的不可能的情形（impossible）。比如“我”现在完全可以抛开一切事情不做而去帮他，所以可能性还是存在的。<br>If I were you, I would help him.<br>这里是表示与现在事实相反的情形。因为“我”成为“你”是不可能发生的（impossible）情形，而不是可能性不大 （unlikely）的情形了。</p>
+<p>表示与现在事实相反的情形：<br>If I were the President, I would make some changes.<br>“我”现在不是“总统”，这是一个现在的事实，即这里是表示与现在事实相反的情形。<br>如果我是总统，我就会做一些改革。<br>If my grandfather were alive today, he would experience a very different world.<br>If my grandfather were here now, he would be angry.<br>“我爷爷”现在不在这里，这是一个现在的事实，即这里是表示与现在事实相反的情形。<br>如果我爷爷现在在这里，他会很生气的。<br>表示对过去事实虚拟的句子：<br>If I had had the time yesterday, I would have helped him.</p>
+<p>综上所述，假设条件句表达的是一种在将来或现在可能性不大（unlikely）的情形，但不是不可能（impossible）的情形，表示说话人认为不可能，是一种比较主观的表达，而不是与客观事实相反。它尤其用来谈将来的情形，也可以谈现在。事实相反句表达的是一种与现在或过去的事实相违背的情形，因此是不可能发生的，而不是可能性不大。它适合谈现在或过去。由此可见，谈将来的情形，只能是假设条件句；谈现在的情形，既可能是假设条件句，也可能是事实相反句；谈过去的情形，只能是事实相反句。</p>
+<h2 id="虚拟条件句的谓语变化"><a href="#虚拟条件句的谓语变化" class="headerlink" title="虚拟条件句的谓语变化"></a>虚拟条件句的谓语变化</h2><p>三种不同时间下的主、从句的谓语形式列表如下：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/3VPsxo.png" alt></p>
+<h2 id="将来虚拟（ZjCj）"><a href="#将来虚拟（ZjCj）" class="headerlink" title="将来虚拟（ZjCj）"></a>将来虚拟（ZjCj）</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/08/02/English系列之虚拟语气/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

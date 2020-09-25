@@ -251,108 +251,14 @@
  */
 </code></pre><p>好吧，看起来真的是吃力，后悔以前没有学好英文。</p>
 <h4 id="Target"><a href="#Target" class="headerlink" title="@Target"></a>@Target</h4><p>@Target说明了Annotation所修饰的对象范围：Annotation可被用于 packages、types（类、接口、枚举、Annotation类型）、类型成员（方法、构造方法、成员变量、枚举值）、方法参数和本地变量（如循环变量、catch参数）。在Annotation类型的声明中使用了target可更加明晰其修饰的目标</p>
-<blockquote>
-<p>作用：用于描述注解的使用范围（即：被描述的注解可以用在什么地方）</p>
-</blockquote>
-<p>取值(ElementType)有：</p>
-<ul>
-<li>CONSTRUCTOR:用于描述构造器</li>
-<li>FIELD:用于描述域</li>
-<li>LOCAL_VARIABLE:用于描述局部变量</li>
-<li>METHOD:用于描述方法</li>
-<li>PACKAGE:用于描述包</li>
-<li>PARAMETER:用于描述参数</li>
-<li>TYPE:用于描述类、接口(包括注解类型) 或enum声明</li>
-</ul>
-<h4 id="Retention"><a href="#Retention" class="headerlink" title="@Retention"></a>@Retention</h4><p>@Retention定义了该Annotation被保留的时间长短：某些Annotation仅出现在源代码中，而被编译器丢弃；而另一些却被编译在class文件中；编译在class文件中的Annotation可能会被虚拟机忽略，而另一些在class被装载时将被读取（请注意并不影响class的执行，因为Annotation与class在使用上是被分离的）。使用这个meta-Annotation可以对 Annotation的“生命周期”限制。</p>
-<p>取值（RetentionPoicy）有：</p>
-<ul>
-<li>SOURCE:在源文件中有效（即源文件保留）</li>
-<li>CLASS:在class文件中有效（即class保留）</li>
-<li>RUNTIME:在运行时有效（即运行时保留）</li>
-</ul>
-<h4 id="Documented"><a href="#Documented" class="headerlink" title="@Documented"></a>@Documented</h4><p>@Documented用于描述其它类型的annotation应该被作为被标注的程序成员的公共API，因此可以被例如javadoc此类的工具文档化。Documented是一个标记注解，没有成员。</p>
-<h4 id="Inherited"><a href="#Inherited" class="headerlink" title="@Inherited"></a>@Inherited</h4><p>@Inherited 元注解是一个标记注解，@Inherited阐述了某个被标注的类型是被继承的。如果一个使用了@Inherited修饰的annotation类型被用于一个class，则这个annotation将被用于该class的子类。</p>
-<p>注意：@Inherited annotation类型是被标注过的class的子类所继承。类并不从它所实现的接口继承annotation，方法并不从它所重载的方法继承annotation。</p>
-<p>当@Inherited annotation类型标注的annotation的Retention是RetentionPolicy.RUNTIME，则反射API增强了这种继承性。如果我们使用java.lang.reflect去查询一个@Inherited annotation类型的annotation时，反射代码检查将展开工作：检查class和其父类，直到发现指定的annotation类型被发现，或者到达类继承结构的顶层。</p>
-<h2 id="自定义注解"><a href="#自定义注解" class="headerlink" title="自定义注解"></a>自定义注解</h2><p>使用@interface自定义注解时，自动继承了java.lang.annotation.Annotation接口，由编译程序自动完成其他细节。在定义注解时，不能继承其他的注解或接口。@interface用来声明一个注解，其中的每一个方法实际上是声明了一个配置参数。方法的名称就是参数的名称，返回值类型就是参数的类型（返回值类型只能是基本类型、Class、String、enum）。可以通过default来声明参数的默认值。<br>定义注解格式：</p>
-<p>　　public @interface 注解名 {定义体}</p>
-<p>注解参数的可支持数据类型：</p>
-<ul>
-<li>所有基本数据类型（int,float,boolean,byte,double,char,long,short)</li>
-<li>String类型</li>
-<li>Class类型</li>
-<li>enum类型</li>
-<li>Annotation类型</li>
-<li>以上所有类型的数组</li>
-</ul>
-<h4 id="注解元素的默认值"><a href="#注解元素的默认值" class="headerlink" title="注解元素的默认值"></a>注解元素的默认值</h4><p>注解元素必须有确定的值，要么在定义注解的默认值中指定，要么在使用注解时指定，非基本类型的注解元素的值不可为null。因此, 使用空字符串或0作为默认值是一种常用的做法。这个约束使得处理器很难表现一个元素的存在或缺失的状态，因为每个注解的声明中，所有元素都存在，并且都具有相应的值，为了绕开这个约束，我们只能定义一些特殊的值，例如空字符串或者负数，一次表示某个元素不存在，在定义注解时，这已经成为一个习惯用法。</p>
-<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><pre><code>package cn.fengblog.java.review.annotation;
-
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
-@Target(ElementType.FIELD)
-@Retention(RetentionPolicy.RUNTIME)
-@Documented
-public @interface FruitColor {
-
-    public enum Color {
-        RED, YELLOW, BLUE
-    }
-
-    Color value() default Color.RED;
-
-}
-</code></pre><hr>
-<pre><code>package cn.fengblog.java.review.annotation;
-
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
-@Target(ElementType.FIELD)
-@Retention(RetentionPolicy.RUNTIME)
-@Documented
-public @interface FruitName {
-    String value() default &quot;&quot;;
-}
-</code></pre><hr>
-<pre><code>package cn.fengblog.java.review.annotation;
-
-import cn.fengblog.java.review.annotation.FruitColor.Color;
-
-public class Apple {
-
-    @FruitName(&quot;红富士&quot;)
-    private String appleName;
-
-    @FruitColor(Color.RED)
-    private String appleColor;
-
-    public String getAppleName() {
-        return appleName;
-    }
-
-    public void setAppleName(String appleName) {
-        this.appleName = appleName;
-    }
-
-    public String getAppleColor() {
-        return appleColor;
-    }
-
-    public void setAppleColor(String appleColor) {
-        this.appleColor = appleColor;
-    }
-
-}
-</code></pre>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2016/11/23/Java系列之自定义注解入门/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -492,6 +398,14 @@ public class Apple {
           <p>vscode用着用着用出bug了，放弃了。</p>
 <h2 id="vscode强大的插件"><a href="#vscode强大的插件" class="headerlink" title="vscode强大的插件"></a>vscode强大的插件</h2><p>MetaGo: 字符跳转选择<br>Markdown Preview Enhanced: MarkDown预览插件，cmd-k v（边栏预览），cmd-shift-v（新窗口预览）</p>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/10/VSCode汇总/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -570,10 +484,14 @@ public class Apple {
 <h4 id="只打开22端口的进出配置以及保存命令如下："><a href="#只打开22端口的进出配置以及保存命令如下：" class="headerlink" title="只打开22端口的进出配置以及保存命令如下："></a>只打开22端口的进出配置以及保存命令如下：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p tcp --dport 26666 -j ACCEPT</span><br><span class="line">iptables -A OUTPUT -p tcp --sport 26666 -j ACCEPT</span><br><span class="line">service iptables save</span><br></pre></td></tr></table></figure>
 <p>-A 参数就看成是添加一条 INPUT 的规则<br>-p 指定是什么协议 我们常用的tcp 协议<br>–dport 就是目标端口 当数据从外部进入服务器为目标端口<br>反之 数据从服务器出去 则为数据源端口 使用 –sport<br>-j 就是指定是 ACCEPT 接收 或者 DROP 不接收</p>
 <h4 id="删除规则"><a href="#删除规则" class="headerlink" title="删除规则"></a>删除规则</h4><p>查看规则行标：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -L -n --line-number</span><br></pre></td></tr></table></figure></p>
-<p>根据行标num删除对应规则：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -D INPUT 2</span><br></pre></td></tr></table></figure></p>
-<p>注意删除之后行号会缩进，原本的6编程5，以免误删。</p>
-<h2 id="保存或恢复iptables规则"><a href="#保存或恢复iptables规则" class="headerlink" title="保存或恢复iptables规则"></a>保存或恢复iptables规则</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables-save &gt; somefile</span><br><span class="line">iptables-restore &lt; somefiles</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/04/15/linux系列之防火墙iptable/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -647,10 +565,14 @@ public class Apple {
 <p>上面的例子是指定一个Spring上下文配置文件的方式进行单元测试，这样子就加载很多本次单元测试不用到的注入，Spring官方文档给出了更加高效的方案：<br>Context Configuration with Annotated Classes<br>To load an ApplicationContext for your tests by using annotated classes (see Java-based container configuration), you can annotate your test class with @ContextConfiguration and configure the classes attribute with an array that contains references to annotated classes. The following example shows how to do so:<br>翻译：使用@ContextConfiguration里面的classes属性来指定加载的配置类信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@RunWith(SpringRunner.class)</span><br><span class="line">// ApplicationContext will be loaded from AppConfig and TestConfig</span><br><span class="line">@ContextConfiguration(classes = &#123;AppConfig.class, TestConfig.class&#125;) </span><br><span class="line">public class MyTest &#123;</span><br><span class="line">    // class body...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>If you omit the classes attribute from the @ContextConfiguration annotation, the TestContext framework tries to detect the presence of default configuration classes. Specifically, AnnotationConfigContextLoader and AnnotationConfigWebContextLoader detect all static nested classes of the test class that meet the requirements for configuration class implementations, as specified in the @Configuration javadoc. Note that the name of the configuration class is arbitrary. In addition, a test class can contain more than one static nested configuration class if desired. In the following example, the OrderServiceTest class declares a static nested configuration class named Config that is automatically used to load the ApplicationContext for the test class:<br>翻译：此外，Spring官方还提供了更加简要的方式，可以省略掉@ContextConfiguration里面的classes属性。因为TestContext框架会去检测默认存在的配置类，特别是，测试类中存在的内部静态配置类，比如下面代码中的静态配置类将被加载到测试的Spring上下文中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">@RunWith(SpringRunner.class)</span><br><span class="line">// ApplicationContext will be loaded from the</span><br><span class="line">// static nested Config class</span><br><span class="line">@ContextConfiguration </span><br><span class="line">public class OrderServiceTest &#123;</span><br><span class="line"></span><br><span class="line">    @Configuration</span><br><span class="line">    static class Config &#123;</span><br><span class="line"></span><br><span class="line">        // this bean will be injected into the OrderServiceTest class</span><br><span class="line">        @Bean</span><br><span class="line">        public OrderService orderService() &#123;</span><br><span class="line">            OrderService orderService = new OrderServiceImpl();</span><br><span class="line">            // set properties, etc.</span><br><span class="line">            return orderService;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private OrderService orderService;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void testOrderService() &#123;</span><br><span class="line">        // test the orderService</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="基于SpringBoot的单元测试"><a href="#基于SpringBoot的单元测试" class="headerlink" title="基于SpringBoot的单元测试"></a>基于SpringBoot的单元测试</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@RunWith(SpringRunner.class)</span><br><span class="line">@SpringBootTest</span><br><span class="line">@Import(MyTestsConfiguration.class)</span><br><span class="line">public class MyTests &#123;</span><br><span class="line"></span><br><span class="line">	@Test</span><br><span class="line">	public void exampleTest() &#123;</span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="指定类别的方式去进行多个单元测试"><a href="#指定类别的方式去进行多个单元测试" class="headerlink" title="指定类别的方式去进行多个单元测试"></a>指定类别的方式去进行多个单元测试</h2><p><a href="https://github.com/junit-team/junit4/wiki/Categories" target="_blank" rel="noopener">https://github.com/junit-team/junit4/wiki/Categories</a></p>
-<h2 id="可以自定义参数化的单元测试"><a href="#可以自定义参数化的单元测试" class="headerlink" title="可以自定义参数化的单元测试"></a>可以自定义参数化的单元测试</h2><p><a href="https://github.com/junit-team/junit4/wiki/Parameterized-tests" target="_blank" rel="noopener">https://github.com/junit-team/junit4/wiki/Parameterized-tests</a><br><strong><em>这个暂时还来不及分析场景和用例</em></strong></p>
-<p>更多的单元测试尽在<a href="https://github.com/junit-team/junit4/wiki" target="_blank" rel="noopener">https://github.com/junit-team/junit4/wiki</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/15/JUnit汇总/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

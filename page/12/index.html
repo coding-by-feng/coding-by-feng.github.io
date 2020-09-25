@@ -163,6 +163,273 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Redis汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/15/Redis汇总/" class="post-title-link" itemprop="url">Redis汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-15 21:36:09" itemprop="dateCreated datePublished" datetime="2019-10-15T21:36:09+08:00">2019-10-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-23 16:42:20" itemprop="dateModified" datetime="2020-07-23T16:42:20+08:00">2020-07-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/redis/" itemprop="url" rel="index"><span itemprop="name">redis</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="那些数据适合存储进去-todo"><a href="#那些数据适合存储进去-todo" class="headerlink" title="那些数据适合存储进去? todo"></a>那些数据适合存储进去? todo</h2><pre><code>维护的增删改查应不应该放弃使用缓存（只是为了不出现一种情况，就是修改了数据库，缓存依然还是老的数据）
+另外还要考虑到维护的时候增删改其实使用的频率是不多的，所有没必要使用缓存，当然，高频率增删改的除外。
+使用到缓存的一般是可以是高频率的查询
+</code></pre><h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="redis数据持久化，一般重启不丢失"><a href="#redis数据持久化，一般重启不丢失" class="headerlink" title="redis数据持久化，一般重启不丢失"></a>redis数据持久化，一般重启不丢失</h2><p><a href="https://redis.io/topics/persistence" target="_blank" rel="noopener">https://redis.io/topics/persistence</a><br>会默认开启RDB 持久化</p>
+<h2 id="Redis的数据类型"><a href="#Redis的数据类型" class="headerlink" title="Redis的数据类型"></a>Redis的数据类型</h2><ol>
+<li>字符串（String）</li>
+<li>字符串列表（list）</li>
+<li>有序字符串集合（sorted set）</li>
+<li>哈希（hash）</li>
+<li>字符串集合（set）</li>
+</ol>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p><a href="https://www.runoob.com/redis/redis-commands.html" target="_blank" rel="noopener">https://www.runoob.com/redis/redis-commands.html</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">查询键keys * 查询所有的键,会遍历所有的键值,复杂度O(n)</span><br><span class="line">flushall</span><br><span class="line">incr num</span><br><span class="line">decr num</span><br><span class="line">incrby num 5</span><br><span class="line">decrby num 3</span><br><span class="line">append num str</span><br><span class="line">hset myhash keyname value</span><br><span class="line">hmset myhashs key1 v1 key2 v2</span><br><span class="line">hget myhashs key1</span><br><span class="line">hmget myhashs key1 key2</span><br><span class="line">hgetall myhashs</span><br><span class="line">hdel myhashs key1 key2</span><br><span class="line">hlen myhashs</span><br><span class="line">hkeys myhashs</span><br><span class="line">hvals myhashs</span><br><span class="line">lpush mylist a b c （左侧添加进去）</span><br><span class="line">rpush mylist 1 2 3 （右侧添加进去）</span><br><span class="line">lrange mylist 0 -1 (负数是倒数第n)</span><br><span class="line">lpop mylist （弹出首个）</span><br><span class="line">rpop mylist（弹出尾个）</span><br><span class="line">llen mylist</span><br><span class="line">lpushx mylist x （插入到头部）</span><br><span class="line">rpushx mylist x（插入到尾部）</span><br><span class="line">lrem mylist 2 3 (从头到尾删除2个值为3的元素)</span><br><span class="line">lrem mylist -2 3 (从尾到头删除2个值为3的元素)</span><br><span class="line">lrem mylist 0 3 （删除所有值为3的元素）</span><br><span class="line">lset mylist 3 mmm（在下标为3的位置插入mmm）</span><br><span class="line">linsert mylist before mmm haha（在第一个mmm之前插入haha）</span><br><span class="line">linsert mylist after mmm xixi（在第一个mmm之后插入xixi）</span><br><span class="line">rpoplpush mylist1 mylist2 （mylist1弹出首个元素给到mylist2）</span><br><span class="line">sadd myset a b c</span><br><span class="line">sismember myset a（判断是否成员）</span><br><span class="line">sdiff myset1 myset2（差集）</span><br><span class="line">sinter myset1 myset2（交集）</span><br><span class="line">sunion set1 set2 （并集）</span><br><span class="line">smembers myset</span><br><span class="line">scard myset</span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/15/Redis汇总/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Spring系列之SpringSecurity/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/15/Spring系列之SpringSecurity/" class="post-title-link" itemprop="url">Spring系列之SpringSecurity</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-15 21:23:15" itemprop="dateCreated datePublished" datetime="2019-10-15T21:23:15+08:00">2019-10-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-21 16:49:58" itemprop="dateModified" datetime="2020-07-21T16:49:58+08:00">2020-07-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/SpringSecurity/" itemprop="url" rel="index"><span itemprop="name">SpringSecurity</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="OAuth2标准研究-todo"><a href="#OAuth2标准研究-todo" class="headerlink" title="OAuth2标准研究 todo"></a>OAuth2标准研究 todo</h2><h2 id="AuthorizationServerConfigurerAdapter-vsWebSecurityConfigurerAdapter-todo"><a href="#AuthorizationServerConfigurerAdapter-vsWebSecurityConfigurerAdapter-todo" class="headerlink" title="AuthorizationServerConfigurerAdapter vsWebSecurityConfigurerAdapter todo"></a>AuthorizationServerConfigurerAdapter vsWebSecurityConfigurerAdapter todo</h2><h2 id="判断是否超时的逻辑-todo"><a href="#判断是否超时的逻辑-todo" class="headerlink" title="判断是否超时的逻辑 todo"></a>判断是否超时的逻辑 todo</h2><h2 id="CORS-todo"><a href="#CORS-todo" class="headerlink" title="CORS todo"></a>CORS todo</h2><h2 id="JSR-250-todo"><a href="#JSR-250-todo" class="headerlink" title="JSR-250 todo"></a>JSR-250 todo</h2><h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="很好的基础教程"><a href="#很好的基础教程" class="headerlink" title="很好的基础教程"></a>很好的基础教程</h2><p><a href="https://www.baeldung.com/security-spring" target="_blank" rel="noopener">Security with Spring</a></p>
+<h2 id="token值在哪里生成？怎么生成？"><a href="#token值在哪里生成？怎么生成？" class="headerlink" title="token值在哪里生成？怎么生成？"></a>token值在哪里生成？怎么生成？</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/15/Spring系列之SpringSecurity/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/18/github-hexo-next-快速搭建偏亮的个人博客/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/11/18/github-hexo-next-快速搭建偏亮的个人博客/" class="post-title-link" itemprop="url">github+hexo+next 快速搭建漂亮的个人博客</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2016-11-18 13:59:05" itemprop="dateCreated datePublished" datetime="2016-11-18T13:59:05+08:00">2016-11-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-21 14:08:24" itemprop="dateModified" datetime="2020-07-21T14:08:24+08:00">2020-07-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/blog-build/" itemprop="url" rel="index"><span itemprop="name">blog build</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>本教程针对windows用户，苦逼实习生用不起mac</p>
+</blockquote>
+<h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><h3 id="安装git-for-windows"><a href="#安装git-for-windows" class="headerlink" title="安装git for windows"></a>安装git for windows</h3><p><a href="https://git-for-windows.github.io/" target="_blank" rel="noopener">《下载安装入口》</a><br>关于github与本地git客户端的关联这里不做阐述，百度一大把。</p>
+<h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><p><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">《node.js下载安装入口》</a><br>官网下载速度可能会很慢，安装完毕之后可以再cmd窗口测试一下是否安装成功。<br>键入以下命令，你会看到对应的版本号。</p>
+<pre><code>$ node -v
+</code></pre><p>除此之外还要检测一下npm是否安装成功，npm作为node.js的子项目也被安装进去了，后面安装hexo需要依赖于npm，用下面命令测试，成功依然会返回版本号。</p>
+<pre><code>$ npm -v
+</code></pre><h4 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h4>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2016/11/18/github-hexo-next-快速搭建偏亮的个人博客/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Mac汇总/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -275,22 +542,15 @@
 <p>Dock的最佳位置是放在右边，并且隐藏起来，这样既有较大的屏幕可视区间，也不会经常因为移动鼠标到左边而误触，毕竟MacOS的窗口控制习惯是在左边。</p>
 <h2 id="通过命令和粘贴文件"><a href="#通过命令和粘贴文件" class="headerlink" title="通过命令和粘贴文件"></a>通过命令和粘贴文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 将a.txt文件类容写入剪切板，相当于 cmd + C</span><br><span class="line">pbcopy &lt; blogpost.txt</span><br><span class="line">cat a.txt | pbcopy      </span><br><span class="line"># 将主目录的文件列表复制到剪贴板</span><br><span class="line">ls ~ | pbcopy      </span><br><span class="line"># 复制终端当前目录</span><br><span class="line">pwd | pbcopy</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 将刚刚存入剪切板的a.txt内容复制到终端，相当于 cmd + v</span><br><span class="line">pbpaste              </span><br><span class="line"># 追加内容到对应的文件</span><br><span class="line">pbpaste &gt;&gt; tasklist.txt</span><br></pre></td></tr></table></figure>
-<h1 id="Alfred"><a href="#Alfred" class="headerlink" title="Alfred"></a>Alfred</h1><h2 id="Powerful-command"><a href="#Powerful-command" class="headerlink" title="Powerful command"></a>Powerful command</h2><p>command of close any app：quit<br>command of search anything in file: in<br>快速用类vim软件打开选中文件</p>
-<h2 id="不搜索Parallels-Desktop的内容"><a href="#不搜索Parallels-Desktop的内容" class="headerlink" title="不搜索Parallels Desktop的内容"></a>不搜索Parallels Desktop的内容</h2><p>打开spotlight-&gt;private，将Applications(Parallels)添加进来</p>
-<h2 id="有道词典的插件"><a href="#有道词典的插件" class="headerlink" title="有道词典的插件"></a>有道词典的插件</h2><p>通过yd 快捷翻译和查询，enter快捷复制结</p>
-<h2 id="按右键有很多快捷操作"><a href="#按右键有很多快捷操作" class="headerlink" title="按右键有很多快捷操作"></a>按右键有很多快捷操作</h2><p>比如搜索某个目录<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/PXiZrB.png" alt><br>然后按右键可以有很多快捷操作<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/3Do9ZM.png" alt><br>然后可以选择open with，选择不同的软件打开，我喜欢用iterm打开，快捷操作。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/zpzWvn.png" alt></p>
-<h1 id="brew"><a href="#brew" class="headerlink" title="brew"></a>brew</h1><h4 id="安装卸载"><a href="#安装卸载" class="headerlink" title="安装卸载"></a>安装卸载</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">brew --version 或者 brew -v 显示brew版本信息</span><br><span class="line">brew install &lt;formula&gt; 安装指定软件</span><br><span class="line">brew unistall &lt;formula 卸载指定软件</span><br><span class="line">brew list  显示所有的已安装的软件</span><br><span class="line">brew search text 搜索本地远程仓库的软件，已安装会显示绿色的勾</span><br><span class="line">brew search /text/ 使用正则表达式搜软件</span><br></pre></td></tr></table></figure>
-<h4 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">brew update 自动升级homebrew（从github下载最新版本）</span><br><span class="line">brew outdated 检测已经过时的软件</span><br><span class="line">brew upgrade  升级所有已过时的软件，即列出的以过时软件</span><br><span class="line">brew upgrade &lt;formula&gt;升级指定的软件</span><br><span class="line">brew pin &lt;formula&gt; 禁止指定软件升级</span><br><span class="line">brew unpin &lt;formula&gt; 解锁禁止升级</span><br><span class="line">brew upgrade --all 升级所有的软件包，包括未清理干净的旧版本的包</span><br></pre></td></tr></table></figure>
-<h4 id="查询搜索"><a href="#查询搜索" class="headerlink" title="查询搜索"></a>查询搜索</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew search name</span><br></pre></td></tr></table></figure>
-<h4 id="国内使用速度慢的解决方法"><a href="#国内使用速度慢的解决方法" class="headerlink" title="国内使用速度慢的解决方法"></a>国内使用速度慢的解决方法</h4><p><a href="https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/" target="_blank" rel="noopener">使用清华大学镜像</a></p>
-<h1 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h1><h2 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h2><p>刷新页面快捷键：cmd+R</p>
-<h2 id="AppCleaner被锁住无法删除"><a href="#AppCleaner被锁住无法删除" class="headerlink" title="AppCleaner被锁住无法删除"></a>AppCleaner被锁住无法删除</h2><p>可能需要kill -9 掉正在运行的pid，然后切换AppClearner到Widgets，再切换回来Applications，就可以删除了。</p>
-<h2 id="brew安装的骚气的命令"><a href="#brew安装的骚气的命令" class="headerlink" title="brew安装的骚气的命令"></a>brew安装的骚气的命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ccat # cat的升级版，自动字符高亮</span><br><span class="line">htop # top的升级版，展示界面更加高大上</span><br><span class="line">    点击不同的展示栏还可以排序，比如按照CPU占用排序或者按照RES（资源占用排序）等等</span><br><span class="line">tldr # 对展示的文档进行了简化，并展示了对应的例子</span><br></pre></td></tr></table></figure>
-<h2 id="SlowQuitApps"><a href="#SlowQuitApps" class="headerlink" title="SlowQuitApps"></a>SlowQuitApps</h2><p>有时候会误按到cmd+Q，安装这个软件之后可以在误按的时候有个确认的操作，防止误触退出。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew tap dteoh/sqa</span><br><span class="line">brew cask install slowquitapps</span><br></pre></td></tr></table></figure></p>
-<p>安装之后要在system setting给上权限，然后可以开启开机自动启动。</p>
-<h2 id="安装sshpass"><a href="#安装sshpass" class="headerlink" title="安装sshpass"></a>安装sshpass</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">curl -O -L https://fossies.org/linux/privat/sshpass-1.06.tar.gz &amp;&amp; tar xvzf sshpass-1.06.tar.gz</span><br><span class="line"></span><br><span class="line">cd sshpass-1.06</span><br><span class="line"></span><br><span class="line">./configure</span><br><span class="line"></span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
-<h2 id="uPic"><a href="#uPic" class="headerlink" title="uPic"></a>uPic</h2><p><a href="https://blog.svend.cc/upic/tutorials/github/" target="_blank" rel="noopener">uPic结合github做图床</a><br>github token如果忘记了，可以在github设置里面重新生成：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/ToYZBP.png" alt><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/Vym2hq.png" alt></p>
-
+<h1 id="Alfred"><a href="#Alfred" class="headerlink" title="Alfred"></a>Alfred</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/15/Mac汇总/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -371,367 +631,14 @@
 <h2 id="查看Storage和Tracker是否在通信"><a href="#查看Storage和Tracker是否在通信" class="headerlink" title="查看Storage和Tracker是否在通信"></a>查看Storage和Tracker是否在通信</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdfs_monitor /etc/fdfs/storage.conf</span><br></pre></td></tr></table></figure>
 <h2 id="查看Storage和Tracker是否状态都正常"><a href="#查看Storage和Tracker是否状态都正常" class="headerlink" title="查看Storage和Tracker是否状态都正常"></a>查看Storage和Tracker是否状态都正常</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -unltp|grep fdfs</span><br></pre></td></tr></table></figure>
 <p>正常的话结果如下：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/Q53RzT.png" alt="image"><br>只要没有二个都出现那么可能是其中一个down掉了。</p>
-<h2 id="Storage两种启动方式"><a href="#Storage两种启动方式" class="headerlink" title="Storage两种启动方式"></a>Storage两种启动方式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/fdfs_storaged start</span><br><span class="line"></span><br><span class="line">service fdfs_storaged start</span><br></pre></td></tr></table></figure>
-<h2 id="tracker-重启"><a href="#tracker-重启" class="headerlink" title="tracker 重启"></a>tracker 重启</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdfs_trackerd fdfs_conf/tracker.conf</span><br></pre></td></tr></table></figure>
-<h2 id="com-github-tobato-fastdfs-exception-FdfsConnectException-无法获取服务端连接资源：can’t-create-connection-to-172-26-64-218-23000"><a href="#com-github-tobato-fastdfs-exception-FdfsConnectException-无法获取服务端连接资源：can’t-create-connection-to-172-26-64-218-23000" class="headerlink" title="com.github.tobato.fastdfs.exception.FdfsConnectException: 无法获取服务端连接资源：can’t create connection to/172.26.64.218:23000"></a>com.github.tobato.fastdfs.exception.FdfsConnectException: 无法获取服务端连接资源：can’t create connection to/172.26.64.218:23000</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">查看启动日志，看看是否启动成功</span><br><span class="line">tail -n10 /home/xxx/xxx/logs/xxx.log</span><br></pre></td></tr></table></figure>
-<h2 id="错误码：2，错误信息：找不到节点或文件"><a href="#错误码：2，错误信息：找不到节点或文件" class="headerlink" title="错误码：2，错误信息：找不到节点或文件"></a>错误码：2，错误信息：找不到节点或文件</h2><p><a href="https://blog.csdn.net/csp_6666/article/details/97912732" target="_blank" rel="noopener">https://blog.csdn.net/csp_6666/article/details/97912732</a></p>
-<h2 id="season-fastdfs"><a href="#season-fastdfs" class="headerlink" title="season/fastdfs"></a>season/fastdfs</h2><p><a href="https://www.bbsmax.com/A/MAzAr2jRJ9/" target="_blank" rel="noopener">https://www.bbsmax.com/A/MAzAr2jRJ9/</a></p>
-<ul>
-<li>配置文件在/fdfs_conf/下面</li>
-<li>重新拉去至少要更改storage节点的/fdfs_conf/storage.conf文件里面的tracker_server的ip</li>
-<li>再分别启动一下tracker和storage，storage可能已经启动了提示端口占用<br>tracker启动：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdfs_trackered %FastDFS%/tracker.conf</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>看下storage是否有效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdfs_monitor /etc/fdfs/storage.conf</span><br></pre></td></tr></table></figure></p>
-<p><strong><em>特别要注意IP地址要改成外网配置的地址</em></strong></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/22/显示器选购指南/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/22/显示器选购指南/" class="post-title-link" itemprop="url">显示器选购指南</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-11-22 03:00:18" itemprop="dateCreated datePublished" datetime="2019-11-22T03:00:18+08:00">2019-11-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-16 20:58:54" itemprop="dateModified" datetime="2020-07-16T20:58:54+08:00">2020-07-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/显示器/" itemprop="url" rel="index"><span itemprop="name">显示器</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="LG27UK850体验总结"><a href="#LG27UK850体验总结" class="headerlink" title="LG27UK850体验总结"></a>LG27UK850体验总结</h1><pre><code>本来我都不想浪费时间来写下这个总结的，因为一贯都很懒，但是有个事情激发了我的动力，入手了LG27UK850之后，本来还想在微信群里面分享一波，那个微信群本来是三五个好友的撩骚群，但是在天朝特色的环境下，曾经最活跃的好群，慢慢的变成了各自炫耀自己仅有的一点点成绩的地方，在卑微的虚荣心驱使之下，影响到我们的独善其身，这也是我现在慢慢得想淡化静默一些群的原因。
-在我分享了一张刚买的显示器照片之后，果然不出我的意料，有二个朋友回复的是，&quot;辣鸡，LG泛白严重&quot;，&quot;内心毫无波动&quot;等，诸如此类的回复。我在寻思，也许是多年的好友，才能够肆无忌惮的各种踩，也许是有好友出自内心的提醒，毕竟忠言逆耳利于行，而又或许，虚荣心在作祟？不过都无所谓，我将仔细分析一下我这次的体验，冷暖自知。
-此外，我TM昨晚刚下单，今天中午就降价100块，狗东一定是在针对我。
-</code></pre><p>先说明一下我为什么要买显示器以及选中了LG27UK850的原因：</p>
-<ol>
-<li>我是MBP18，MBP18四个Type-C都支持Thunderbolt3</li>
-<li>我的扩展坞没有DP接口，只有一个HDMI1.4，1.4它不香了，无法支持4k/60Hz，所以如果我使用原有的扩展坞的话的话，那么买的显示器如果没有Type-C接口，将支持不了4k/60Hz，而我又测试了一下HDMI1.4，明显感觉掉帧和卡顿，又或者我需要买那种Type-C转DP的线。</li>
-<li>同时这块显示器电源之后用Type-C来输入的话，可以给MBP反向充电</li>
-<li>可以通过Type-C CtoC连接，这样一来就是基于DP来传输的，速率上杠杠的。</li>
-<li>有了Type-C直连，我就可以减少有线的很多连接和转接头，有时候我比较喜欢简约美。</li>
-<li>为什么我不选择戴尔U2718Q，网上对于戴尔显示器的显示效果确实好评声音高于LG，但是我对比了二款显示器，价位戴尔高几百块，当然这个不是重点，主要戴尔U2718Q没有Type-C口，而其他各种参数他们基本一致，抛开品控不说，苹果的显示器也都是和LG合作的，所以上车LG，我不是很方。</li>
-<li>我是真的迫不及待想要体验用上大屏 or 双屏，这样会更好能够利用好我的时间，提交效率。</li>
-<li>每天上班都是用MBP，十足十的低头族，加上经常看手机，脖子已经吃不消了，搞不好还容易驼背圆肩什么的，大屏显示器它势在必得！</li>
-</ol>
-<h1 id="弊端"><a href="#弊端" class="headerlink" title="弊端"></a>弊端</h1><ul>
-<li>旋转屏幕之后不会自动感应旋转画面，需要在系统额外设置，之前我一直以为是会自动旋转画面的。</li>
-<li>朋友说的泛白，肉眼看上去，确实没有MBP屏幕那样的恰到好处，加上我本身自己是高度近视，眼镜其实已经用了很久了，貌似是有点点泛白的感觉，但是不做设计，感觉我自己没有这方面的极致追求。</li>
-<li>我看到网上有人说反向充电会充不满，但是我自己试了一个下午，一直都是100%，所以不存在这个问题。</li>
-<li>LG原装里面送的Type-C线不是雷电3，我看没有雷电标记，也就是普通的Type-C先，郁闷。。。</li>
-<li>睡眠之后通过鼠标or键盘重新唤醒，需要等好几秒，如果待机很久，比如一整个晚上，会出现无法唤醒，必须打开笔记本盖子，才能唤醒，这个应该是MBP彻底休眠了。。。</li>
-<li>亮度已经调整为最低，但是实际上还是偏亮，需要辅助性软件或者对比度也调低，才能找到合适的亮度，可能我本人眼睛也不适合看亮的东西。</li>
-</ul>
-<h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><p>显示器传输接口DP、HDMI（1.0和2.0）、VGA（上古时代的产品）、DVI（也是时代的遗物）  </p>
-<h2 id="DP"><a href="#DP" class="headerlink" title="DP"></a>DP</h2><p>DisplayPort接口</p>
-<h2 id="HDMI"><a href="#HDMI" class="headerlink" title="HDMI"></a>HDMI</h2><p>HDMI现在最新版本已经是2.x了，只有2.0之后的版本才支持4k+60p，最新2.1版本支持 8K/60Hz、4K/120Hz 视频、Dynamic HDR（动态HDR，对于一些电影、游戏或图片的较灰暗的画面貌似有更好的纠正显示效果），将频宽大幅提升到 48Gbps。</p>
-<h2 id="DP-VS-HDMI"><a href="#DP-VS-HDMI" class="headerlink" title="DP VS HDMI"></a>DP VS HDMI</h2><ul>
-<li>DP的最新版本是1.4，发布于2016年3月，1.5版本迟迟没有发布</li>
-<li>HDMI最新版本为2.1，发布于2017年11月<br>查看网上对于两者的比较，基本得出的结论大概是这样：<br>如果是电脑显示器，优先选择DP。HDMI主要是影音应用的，带宽不如DP。<br>如果论专业度，首选DP吧，虽然HDMI与DP都支持4K*2K，但DP的宽带会更高。<br>但是我个人一眼扫过去他们二者的数据比较，感觉单从数据来看，可能差不多已经是不相上下了。</li>
-</ul>
-<h2 id="Thunderbolt3"><a href="#Thunderbolt3" class="headerlink" title="Thunderbolt3"></a>Thunderbolt3</h2><p>雷电三的数据线都是带有雷电标记的，如：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/4AsmkY.png" alt="image"><br>MBP2018一共有四个Type-C接口，都是支持雷电3的</p>
-<h2 id="Thunderbolt3、USB-3-1-Gen2、-Type-C的区别"><a href="#Thunderbolt3、USB-3-1-Gen2、-Type-C的区别" class="headerlink" title="Thunderbolt3、USB 3.1 Gen2、 Type-C的区别"></a>Thunderbolt3、USB 3.1 Gen2、 Type-C的区别</h2><p>想要弄清楚这两种电缆的区别，首先就需要先理清雷电3、USB 3.1、Type-C这三个名词的概念。其实，雷电3（Thunderbolt 3）和USB 3.1都是数据传输协议。<br>不同传输标准区别主要在于传输速率。拿USB 3.1来说，还分为USB 3.1 Gen1和USB 3.1 Gen2，USB 3.1 Gen1的最大传输速率为5Gb/s，USB3.1 Gen2最大传输速率为10Gb/s。<br>而Type-C则是一种接口规格，除此之外还有Type-A、Type-B等其他接口规格。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/OzaYIT.png" alt="image"><br>而用户容易把雷电3和USB Type-C搞混淆的原因之一，就是两种电缆均采用了Type-C接口规格，看起来几乎完全相同。现在为了更好的区分两者，苹果最新的雷电3数据线上都会带有雷电标志，所以很重要的区别是线本身的电缆不一样。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/9b8HMD.png" alt="image"><br>雷电3和USB Type-C虽然有相同的接口，却与不同的传输协议配对，分别是雷电3（Thunderbolt 3）和USB 3.1。<br>一些 Thunderbolt 3 连接线可以作为 USB 3.1 Type-C 连接线使用，但不是所有的线缆都可以。而 USB 3.1 Type-C 连接线，却永远无法当做 Thunderbolt 3 连接线使用，就算大家都是相同的 USB-C 接口也不行。同时，并不是所有的 USB Type-C 线缆都能胜任规范中的最高 100W 传输功率，无论是 Thunderbolt 3 还是 USB 3.1 Type-C 都不一定能够达到。</p>
-<p>USB Type-C 接口其实本身并不支持视频输出，但是它拥有替代模式，通过转接到其他芯片上来实现不同功能，它实际使用的是DP标准的信号传输，好处是可以通过一根线解决显示器的画面输出和供电问题。</p>
-<h2 id="为什么LG送的Type-C非雷电3可以做传输？"><a href="#为什么LG送的Type-C非雷电3可以做传输？" class="headerlink" title="为什么LG送的Type-C非雷电3可以做传输？"></a>为什么LG送的Type-C非雷电3可以做传输？</h2><p>我用自己MBP的电源充电线连接显示器，显示无信号连接，显然不起作用，但是用LG附带的Type-C线就可以，询问客户说是普通的线。<br>于是我搜了苹果原装雷电3数据线，TM要两百多，LG难怪不送雷电3的线，然后我发现了双Type-C原来还可以这么玩：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/X2FuqL.png" alt="image"><br>难怪显示器用Type-C的线能够给MBP反向充电。<br>翻了半天，没找到合理的科普，暂且搁置。</p>
-<h1 id="坏点测试网站"><a href="#坏点测试网站" class="headerlink" title="坏点测试网站"></a>坏点测试网站</h1><p><a href="http://pingmu.zh-ang.com/" target="_blank" rel="noopener">http://pingmu.zh-ang.com/</a></p>
-<h1 id="下面附上我的测试结果"><a href="#下面附上我的测试结果" class="headerlink" title="下面附上我的测试结果"></a>下面附上我的测试结果</h1><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/pLSliT.png" alt="image"><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/LL5L5z.png" alt="image"><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/lBaLO9.png" alt="image"><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/8ZhCcI.png" alt="image"><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/56Xsiu.png" alt="image"><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/NrtREc.png" alt="image"><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/l2YypC.png" alt="image"></p>
-<blockquote>
-<p>下面是一些显示器选购的参数</p>
-</blockquote>
-<h1 id="色域"><a href="#色域" class="headerlink" title="色域"></a>色域</h1><ul>
-<li>sRGB</li>
-<li>NTSC</li>
-</ul>
-<h1 id="色差"><a href="#色差" class="headerlink" title="色差"></a>色差</h1><h1 id="分辨率-尺寸"><a href="#分辨率-尺寸" class="headerlink" title="分辨率 尺寸"></a>分辨率 尺寸</h1><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/Jhr774.png" alt="image"><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/UNfhPV.png" alt="image"></p>
-<h1 id="刷新率-灰阶响应时间"><a href="#刷新率-灰阶响应时间" class="headerlink" title="刷新率 灰阶响应时间"></a>刷新率 灰阶响应时间</h1><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/aXNYhn.png" alt="image"></p>
-<ul>
-<li>IPS：漏光听说可能会比较严重</li>
-<li>TN：色彩太差，尽量不考虑，</li>
-</ul>
-<h1 id="带鱼屏"><a href="#带鱼屏" class="headerlink" title="带鱼屏"></a>带鱼屏</h1><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/wbAnv9.png" alt="image"><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/I7TEW7.png" alt="image"></p>
-<h1 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h1><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/uw7LCF.png" alt="image"><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/XepCvX.png" alt="image"><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/YP7wN7.png" alt="image"><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/IYBayE.png" alt="image"></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/PDLjPX.png" alt="image"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/02/Vue系列之表严肃Vue视频教程笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/02/Vue系列之表严肃Vue视频教程笔记/" class="post-title-link" itemprop="url">Vue系列之表严肃Vue视频教程笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-02 21:29:06" itemprop="dateCreated datePublished" datetime="2019-12-02T21:29:06+08:00">2019-12-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-16 20:58:54" itemprop="dateModified" datetime="2020-07-16T20:58:54+08:00">2020-07-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>参考自表严肃的视频教程 <a href="https://www.bilibili.com/video/av13450835?p=4" target="_blank" rel="noopener">https://www.bilibili.com/video/av13450835?p=4</a></p>
-</blockquote>
-<h1 id="常用feature"><a href="#常用feature" class="headerlink" title="常用feature"></a>常用feature</h1><h2 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;span v-for=&quot;(role) in scope.row.roleList&quot;&gt;</span><br><span class="line">                &lt;el-tag&gt;&#123;&#123;role.roleName&#125;&#125; &lt;/el-tag&gt;</span><br><span class="line">              &lt;/span&gt;</span><br></pre></td></tr></table></figure>
-<p>chrome的控制台可以动态直接通过js的api给页面update数据，比如：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/JOPVFM.png" alt></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/02/Flowable汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/02/Flowable汇总/" class="post-title-link" itemprop="url">Flowable汇总</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-02 09:23:07" itemprop="dateCreated datePublished" datetime="2019-12-02T09:23:07+08:00">2019-12-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-16 20:58:54" itemprop="dateModified" datetime="2020-07-16T20:58:54+08:00">2020-07-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Flowable/" itemprop="url" rel="index"><span itemprop="name">Flowable</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="flowable涉及到的表"><a href="#flowable涉及到的表" class="headerlink" title="flowable涉及到的表"></a>flowable涉及到的表</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">ACT_GE_BYTEARRAY	通用的流程定义和流程资源</span><br><span class="line">ACT_GE_PROPERTY	系统相关属性</span><br><span class="line"># 流程历史记录</span><br><span class="line">ACT_HI_ACTINST	历史的流程实例</span><br><span class="line">ACT_HI_ATTACHMENT	历史的流程附件</span><br><span class="line">ACT_HI_COMMENT	历史的说明性信息</span><br><span class="line">ACT_HI_DETAIL	历史的流程运行中的细节信息</span><br><span class="line">ACT_HI_IDENTITYLINK	历史的流程运行过程中用户关系</span><br><span class="line">ACT_HI_PROCINST	历史的流程实例</span><br><span class="line">ACT_HI_TASKINST	历史的任务实例</span><br><span class="line">ACT_HI_VARINST	历史的流程运行中的变量信息</span><br><span class="line"># 用户用户组表</span><br><span class="line">ACT_ID_BYTEARRAY	二进制数据表</span><br><span class="line">ACT_ID_GROUP	用户组信息表</span><br><span class="line">ACT_ID_INFO	用户信息详情表</span><br><span class="line">ACT_ID_MEMBERSHIP	人与组关系表</span><br><span class="line">ACT_ID_PRIV	权限表</span><br><span class="line">ACT_ID_PRIV_MAPPING	用户或组权限关系表</span><br><span class="line">ACT_ID_PROPERTY	属性表</span><br><span class="line">ACT_ID_TOKEN	系统登录日志表</span><br><span class="line">ACT_ID_USER	用户表</span><br><span class="line"># 流程定义表</span><br><span class="line">ACT_RE_DEPLOYMENT	部署单元信息</span><br><span class="line">ACT_RE_MODEL	模型信息</span><br><span class="line">ACT_RE_PROCDEF	已部署的流程定义</span><br><span class="line"># 运行实例表</span><br><span class="line">ACT_RU_DEADLETTER_JOB	正在运行的任务表</span><br><span class="line">ACT_RU_EVENT_SUBSCR	运行时事件</span><br><span class="line">ACT_RU_EXECUTION	运行时流程执行实例</span><br><span class="line">ACT_RU_HISTORY_JOB	历史作业表</span><br><span class="line">ACT_RU_IDENTITYLINK	运行时用户关系信息</span><br><span class="line">ACT_RU_JOB	运行时作业表</span><br><span class="line">ACT_RU_SUSPENDED_JOB	暂停作业表</span><br><span class="line">ACT_RU_TASK	运行时任务表</span><br><span class="line">ACT_RU_TIMER_JOB	定时作业表</span><br><span class="line">ACT_RU_VARIABLE	运行时变量表</span><br><span class="line"># 其他表	</span><br><span class="line">ACT_EVT_LOG	事件日志表</span><br><span class="line">ACT_PROCDEF_INFO	流程定义信息</span><br></pre></td></tr></table></figure>
-<h1 id="整合启动flowable-modeler"><a href="#整合启动flowable-modeler" class="headerlink" title="整合启动flowable-modeler"></a>整合启动flowable-modeler</h1><p>官网下载的zip包中将wars里面的flowable-admin.war, flowable-idm.war, flowable-modeler.war and flowable-task.war放到tomcat的webapps目录，解压出来后修改每个war里面对应的properties里面的数据源，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  classes pwd</span><br><span class="line">/Users/zhanshifeng/Documents/ccssoftDocument/flowable/apache-tomcat-7.0.99/webapps/flowable-idm/WEB-INF/classes</span><br><span class="line">➜  classes vi flowable-default.properties</span><br></pre></td></tr></table></figure></p>
-<p>然后启动tomcat访问<a href="http://localhost:8080/flowable-modeler" target="_blank" rel="noopener">http://localhost:8080/flowable-modeler</a></p>
-<h1 id="Events（事件）"><a href="#Events（事件）" class="headerlink" title="Events（事件）"></a>Events（事件）</h1><p>Events are used to model something that happens during the lifetime of a process. Events are always visualized as a circle. In BPMN 2.0, there exist two main event categories: catching and throwing events.</p>
-<p>事件的类别主要有：捕捉事件和投掷事件。</p>
-<h2 id="Timer-Event-Definitions（定时器事件定义）"><a href="#Timer-Event-Definitions（定时器事件定义）" class="headerlink" title="Timer Event Definitions（定时器事件定义）"></a>Timer Event Definitions（定时器事件定义）</h2><p>Timer events are events that are triggered by a defined timer. They can be used as start event, intermediate event or boundary event.</p>
-<p>定时器事件由某个被预定义的定时器所触发，通常被用作于开始事件、中间事件或边界事件，定时器事件中所以和事件相关的定义或变量值，都必须遵循ISO 8601标准。</p>
-<ul>
-<li><strong>timeDate</strong> 具体的时间点，当时间点到达，将触发事件。</li>
-<li><strong>timeDuration</strong> 每隔一个自定义的时间周期，将触发事件。</li>
-<li><strong>timeCycle</strong> 每隔一个自定义的时间周期，将触发事件，触发次数可以差异化，此外，它还具有一个EndDate属性，这个属性代表，当endDate的时间已到达，事件将不被触发，EndDate属性有两种写法，如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;timerEventDefinition&gt;</span><br><span class="line">    &lt;timeCycle flowable:endDate=&quot;2015-02-25T16:42:11+00:00&quot;&gt;R3/PT10H&lt;/timeCycle&gt;</span><br><span class="line">&lt;/timerEventDefinition&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;timerEventDefinition&gt;</span><br><span class="line">    &lt;timeCycle&gt;R3/PT10H/$&#123;EndDate&#125;&lt;/timeCycle&gt;</span><br><span class="line">&lt;/timerEventDefinition&gt;</span><br></pre></td></tr></table></figure>
-<p>两种写法都存在同一个定时器事件的时候，Flowable默认采用第一种。</p>
-<h2 id="Signal-Event-Definitions（信号事件定义）"><a href="#Signal-Event-Definitions（信号事件定义）" class="headerlink" title="Signal Event Definitions（信号事件定义）"></a>Signal Event Definitions（信号事件定义）</h2><p>运行时通过代码抛出信号事件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RuntimeService.signalEventReceived(String signalName);</span><br><span class="line">RuntimeService.signalEventReceived(String signalName, String executionId);</span><br></pre></td></tr></table></figure></p>
-<h4 id="Querying-for-Signal-Event-subscriptions（信号事件订阅查询）"><a href="#Querying-for-Signal-Event-subscriptions（信号事件订阅查询）" class="headerlink" title="Querying for Signal Event subscriptions（信号事件订阅查询）"></a>Querying for Signal Event subscriptions（信号事件订阅查询）</h4><p>查询所有订阅的特定信号事件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Execution&gt; executions = runtimeService.createExecutionQuery()</span><br><span class="line">      .signalEventSubscriptionName(&quot;alert&quot;)</span><br><span class="line">      .list();</span><br></pre></td></tr></table></figure></p>
-<h4 id="Signal-event-scope（信号事件的作用域）"><a href="#Signal-event-scope（信号事件的作用域）" class="headerlink" title="Signal event scope（信号事件的作用域）"></a>Signal event scope（信号事件的作用域）</h4><p>By default, signals are broadcast process engine wide. This means that you can throw a signal event in a process instance, and other process instances with different process definitions can react on the occurrence of this event.<br>默认，信号事件的作用域是整个广播流程引擎的范围，如果要将作用域限制在某个特定的流程实例以内i，就需要将信号事件绑定在特定的流程定义上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;signal id=&quot;alertSignal&quot; name=&quot;alert&quot; flowable:scope=&quot;processInstance&quot;/&gt;</span><br></pre></td></tr></table></figure></p>
-<p>scope属性值默认是”global”，全局。</p>
-<h2 id="Message-Event-Definitions（消息事件定义）"><a href="#Message-Event-Definitions（消息事件定义）" class="headerlink" title="Message Event Definitions（消息事件定义）"></a>Message Event Definitions（消息事件定义）</h2><p>消息事件的定义demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;definitions id=&quot;definitions&quot;</span><br><span class="line">  xmlns=&quot;http://www.omg.org/spec/BPMN/20100524/MODEL&quot;</span><br><span class="line">  xmlns:flowable=&quot;http://flowable.org/bpmn&quot;</span><br><span class="line">  targetNamespace=&quot;Examples&quot;</span><br><span class="line">  xmlns:tns=&quot;Examples&quot;&gt;</span><br><span class="line"></span><br><span class="line">  &lt;message id=&quot;newInvoice&quot; name=&quot;newInvoiceMessage&quot; /&gt;</span><br><span class="line">  &lt;message id=&quot;payment&quot; name=&quot;paymentMessage&quot; /&gt;</span><br><span class="line"></span><br><span class="line">  &lt;process id=&quot;invoiceProcess&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;startEvent id=&quot;messageStart&quot; &gt;</span><br><span class="line">    	&lt;messageEventDefinition messageRef=&quot;newInvoice&quot; /&gt;</span><br><span class="line">    &lt;/startEvent&gt;</span><br><span class="line">    ...</span><br><span class="line">    &lt;intermediateCatchEvent id=&quot;paymentEvt&quot; &gt;</span><br><span class="line">    	&lt;messageEventDefinition messageRef=&quot;payment&quot; /&gt;</span><br><span class="line">    &lt;/intermediateCatchEvent&gt;</span><br><span class="line">    ...</span><br><span class="line">  &lt;/process&gt;</span><br><span class="line"></span><br><span class="line">&lt;/definitions&gt;</span><br></pre></td></tr></table></figure></p>
-<p>As an embeddable process engine, Flowable is not concerned with actually receiving a message. This would be environment dependent and entail platform-specific activities, such as connecting to a JMS (Java Messaging Service) Queue/Topic or processing a Webservice or REST request. The reception of messages is therefore something you have to implement as part of the application or infrastructure into which the process engine is embedded.（大概意思是flowable没有局限消息接收的具体实现，这部分由开发者自定义，可以是JMS、消息队列、WebService或者是REST风格的请求）</p>
-<p>通过消息来触发启动流程实例可以有如下二个API可供选择：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ProcessInstance startProcessInstanceByMessage(String messageName);</span><br><span class="line">ProcessInstance startProcessInstanceByMessage(String messageName, Map&lt;String, Object&gt; processVariables);</span><br><span class="line">ProcessInstance startProcessInstanceByMessage(String messageName, String businessKey,</span><br><span class="line">    Map&lt;String, Object&gt; processVariables);</span><br></pre></td></tr></table></figure></p>
-<p>If the message needs to be received by an existing process instance, you first have to correlate the message to a specific process instance (see next section) and then trigger the continuation of the waiting execution. The runtime service offers the following methods for triggering an execution based on a message event subscription:(两个方法关联消息去触发继续某个正在等待状态的流程)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">void messageEventReceived(String messageName, String executionId);</span><br><span class="line">void messageEventReceived(String messageName, String executionId, HashMap&lt;String, Object&gt; processVariables);</span><br></pre></td></tr></table></figure></p>
-<p>使用ProcessDefinitionQuery来绑定消息订阅查询拿到流程定义ProcessDefinition：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery()</span><br><span class="line">      .messageEventSubscription(&quot;newCallCenterBooking&quot;)</span><br><span class="line">      .singleResult();</span><br></pre></td></tr></table></figure></p>
-<p>或者使用ExecutionQuery来绑定消息订阅查询特定的执行对象Execution。</p>
-<h2 id="Start-Events（开始事件）"><a href="#Start-Events（开始事件）" class="headerlink" title="Start Events（开始事件）"></a>Start Events（开始事件）</h2><p>概念上来说，开始事件总是在等待着捕捉一个触发的发生.<br>开始事件的定义demo：<br>initiator: 指向一个认证的用户id，应该是被纳入IDM范围内的一个用户对象的id。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;startEvent id=&quot;request&quot; flowable:initiator=&quot;initiator&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
-<h4 id="Timer-Start-Event（定时器开始事件）"><a href="#Timer-Start-Event（定时器开始事件）" class="headerlink" title="Timer Start Event（定时器开始事件）"></a>Timer Start Event（定时器开始事件）</h4><p>XML定义的demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;startEvent id=&quot;theStart&quot;&gt;</span><br><span class="line">  &lt;timerEventDefinition&gt;</span><br><span class="line">    &lt;timeCycle&gt;R4/2011-03-11T12:13/PT5M&lt;/timeCycle&gt;</span><br><span class="line">  &lt;/timerEventDefinition&gt;</span><br><span class="line">&lt;/startEvent&gt;</span><br></pre></td></tr></table></figure></p>
-<h4 id="Message-Start-Event（消息开始事件）"><a href="#Message-Start-Event（消息开始事件）" class="headerlink" title="Message Start Event（消息开始事件）"></a>Message Start Event（消息开始事件）</h4><p>流程定义引用到消息开始事件的时候：<br>The name of the message start event must be unique across a given process definition. A process definition must not have multiple message start events with the same name. Flowable throws an exception upon deployment of a process definition containing two or more message start events referencing the same message, or if two or more message start events reference messages with the same message name.（消息开始事件在流程定义中必须是唯一的，一个流程定义如果引用多个名字相同的消息开始事件的话，会抛出异常，或者多个消息开始事件被定义成相同的name也会抛出异常；如果流程部署了一个新的版本，那么老旧的版本中的消息订阅将会被移除）</p>
-<p>如上文所讲到的，消息事件通过这些API调用来触发：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ProcessInstance startProcessInstanceByMessage(String messageName);</span><br><span class="line">ProcessInstance startProcessInstanceByMessage(String messageName, Map&lt;String, Object&gt; processVariables);</span><br><span class="line">ProcessInstance startProcessInstanceByMessage(String messageName, String businessKey,</span><br><span class="line">    Map&lt;String, Object&lt; processVariables);</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>多个消息开始事件的流程通过runtimeService.startProcessInstanceByMessage(…​)启动</li>
-<li>拥有一个空的开始事件可以通过实例id启动流程实例</li>
-<li>没有空的开始事件的话通过实例id启动流程会抛异常</li>
-</ul>
-<p>xml定义demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;definitions id=&quot;definitions&quot;</span><br><span class="line">  xmlns=&quot;http://www.omg.org/spec/BPMN/20100524/MODEL&quot;</span><br><span class="line">  xmlns:flowable=&quot;http://flowable.org/bpmn&quot;</span><br><span class="line">  targetNamespace=&quot;Examples&quot;</span><br><span class="line">  xmlns:tns=&quot;Examples&quot;&gt;</span><br><span class="line"></span><br><span class="line">  &lt;message id=&quot;newInvoice&quot; name=&quot;newInvoiceMessage&quot; /&gt;</span><br><span class="line"></span><br><span class="line">  &lt;process id=&quot;invoiceProcess&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;startEvent id=&quot;messageStart&quot; &gt;</span><br><span class="line">    	&lt;messageEventDefinition messageRef=&quot;tns:newInvoice&quot; /&gt;</span><br><span class="line">    &lt;/startEvent&gt;</span><br><span class="line">    ...</span><br><span class="line">  &lt;/process&gt;</span><br><span class="line"></span><br><span class="line">&lt;/definitions&gt;</span><br></pre></td></tr></table></figure></p>
-<h4 id="Signal-Start-Event（信号开始事件）"><a href="#Signal-Start-Event（信号开始事件）" class="headerlink" title="Signal Start Event（信号开始事件）"></a>Signal Start Event（信号开始事件）</h4><p>xml定义的配置demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;signal id=&quot;theSignal&quot; name=&quot;The Signal&quot; /&gt;</span><br><span class="line"></span><br><span class="line">&lt;process id=&quot;processWithSignalStart1&quot;&gt;</span><br><span class="line">  &lt;startEvent id=&quot;theStart&quot;&gt;</span><br><span class="line">    &lt;signalEventDefinition id=&quot;theSignalEventDefinition&quot; signalRef=&quot;theSignal&quot;  /&gt;</span><br><span class="line">  &lt;/startEvent&gt;</span><br><span class="line">  &lt;sequenceFlow id=&quot;flow1&quot; sourceRef=&quot;theStart&quot; targetRef=&quot;theTask&quot; /&gt;</span><br><span class="line">  &lt;userTask id=&quot;theTask&quot; name=&quot;Task in process A&quot; /&gt;</span><br><span class="line">  &lt;sequenceFlow id=&quot;flow2&quot; sourceRef=&quot;theTask&quot; targetRef=&quot;theEnd&quot; /&gt;</span><br><span class="line">  &lt;endEvent id=&quot;theEnd&quot; /&gt;</span><br><span class="line">&lt;/process&gt;</span><br></pre></td></tr></table></figure></p>
-<p>可以通过runtimeService.signalEventReceivedXXX触发。</p>
-<h4 id="Error-Start-Even（错误开始事件）"><a href="#Error-Start-Even（错误开始事件）" class="headerlink" title="Error Start Even（错误开始事件）"></a>Error Start Even（错误开始事件）</h4><p>An error start event can be used to trigger an Event Sub-Process. An error start event cannot be used for starting a process instance.（错误开始事件只能用来发出子流程，不能触发整个的流程实例？？）</p>
-<h2 id="End-Events（结束事件）"><a href="#End-Events（结束事件）" class="headerlink" title="End Events（结束事件）"></a>End Events（结束事件）</h2><h4 id="None-End-Event（空结束事件）"><a href="#None-End-Event（空结束事件）" class="headerlink" title="None End Event（空结束事件）"></a>None End Event（空结束事件）</h4><p>xml定义demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;endEvent id=&quot;end&quot; name=&quot;my end event&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
-<h4 id="Error-End-Event（错误结束事件）"><a href="#Error-End-Event（错误结束事件）" class="headerlink" title="Error End Event（错误结束事件）"></a>Error End Event（错误结束事件）</h4><p>xml定义demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;endEvent id=&quot;myErrorEndEvent&quot;&gt;</span><br><span class="line">  &lt;errorEventDefinition errorRef=&quot;myError&quot; /&gt;</span><br><span class="line">&lt;/endEvent&gt;</span><br></pre></td></tr></table></figure></p>
-<p>具体的错误能够被定义在流程之外，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;error id=&quot;myError&quot; errorCode=&quot;123&quot; /&gt;</span><br><span class="line">...</span><br><span class="line">&lt;process id=&quot;myProcess&quot;&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
-<p>errorCode会被用来匹配一个等待被捕捉的边界错误事件，如果匹配不到，那么errorCode会被等同于id来使用，比如下面的二个代码片段作用一样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;error id=&quot;myError&quot; errorCode=&quot;error123&quot; /&gt;</span><br><span class="line">...</span><br><span class="line">&lt;process id=&quot;myProcess&quot;&gt;</span><br><span class="line">...</span><br><span class="line">  &lt;endEvent id=&quot;myErrorEndEvent&quot;&gt;</span><br><span class="line">    &lt;errorEventDefinition errorRef=&quot;myError&quot; /&gt;</span><br><span class="line">  &lt;/endEvent&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;endEvent id=&quot;myErrorEndEvent&quot;&gt;</span><br><span class="line">  &lt;errorEventDefinition errorRef=&quot;error123&quot; /&gt;</span><br><span class="line">&lt;/endEvent&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="Terminate-End-Event（终止结束事件）"><a href="#Terminate-End-Event（终止结束事件）" class="headerlink" title="Terminate End Event（终止结束事件）"></a>Terminate End Event（终止结束事件）</h4><p>xml定义demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;endEvent id=&quot;myEndEvent &gt;</span><br><span class="line">  &lt;terminateEventDefinition flowable:terminateAll=&quot;true&quot;&gt;&lt;/terminateEventDefinition&gt;</span><br><span class="line">&lt;/endEvent&gt;</span><br></pre></td></tr></table></figure></p>
-<p>如果terminateAll为true，会总之所有整个流程以及相关子流程。</p>
-<h4 id="Cancel-End-Event（取消结束事件）"><a href="#Cancel-End-Event（取消结束事件）" class="headerlink" title="Cancel End Event（取消结束事件）"></a>Cancel End Event（取消结束事件）</h4><p>xm定义demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;endEvent id=&quot;myCancelEndEvent&quot;&gt;</span><br><span class="line">  &lt;cancelEventDefinition /&gt;</span><br><span class="line">&lt;/endEvent&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="Boundary-Events（边界事件）"><a href="#Boundary-Events（边界事件）" class="headerlink" title="Boundary Events（边界事件）"></a>Boundary Events（边界事件）</h2><p>边界事件的定义规则如下：</p>
-<ul>
-<li>在流程范围内是唯一的</li>
-<li>通过attachedToRef属性附加到一个引用的Activity，但是边界事件和它附着的活动是同一等级的，不是上下级关系？？<br>xml定义demo：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;boundaryEvent id=&quot;myBoundaryEvent&quot; attachedToRef=&quot;theActivity&quot;&gt;</span><br><span class="line">      &lt;XXXEventDefinition/&gt;</span><br><span class="line">&lt;/boundaryEvent&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="Timer-Boundary-Event（定时器边界事件）"><a href="#Timer-Boundary-Event（定时器边界事件）" class="headerlink" title="Timer Boundary Event（定时器边界事件）"></a>Timer Boundary Event（定时器边界事件）</h4><p>xml定义demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;boundaryEvent id=&quot;escalationTimer&quot; cancelActivity=&quot;true&quot; attachedToRef=&quot;firstLineSupport&quot;&gt;</span><br><span class="line">  &lt;timerEventDefinition&gt;</span><br><span class="line">    &lt;timeDuration&gt;PT4H&lt;/timeDuration&gt;</span><br><span class="line">  &lt;/timerEventDefinition&gt;</span><br><span class="line">&lt;/boundaryEvent&gt;</span><br></pre></td></tr></table></figure></p>
-<p>有个关键的不同点是：Non-interrupting 和 Interrupting，前者是不会打断流程原来的活动，后者反之，边界事件默认是会打断的，可以通过cancelActivity属性自定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;boundaryEvent id=&quot;escalationTimer&quot; cancelActivity=&quot;false&quot; attachedToRef=&quot;firstLineSupport&quot;/&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Note: boundary timer events are only fired when the async executor is enabled (asyncExecutorActivate needs to be set to true in the flowable.cfg.xml, since the async executor is disabled by default).<br>注意要开启异步执行器，flowable默认是关闭该配置的。<br>官方给出的demo（通过定时器边界事件来对Task额外的邮件通知做处理，同时不影响原来Task的继续执行）：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/g6DpP6.png" alt></p>
-<h4 id="Known-issue-with-boundary-events（边界事件已知问题）"><a href="#Known-issue-with-boundary-events（边界事件已知问题）" class="headerlink" title="Known issue with boundary events（边界事件已知问题）"></a>Known issue with boundary events（边界事件已知问题）</h4><p>无论是那种类型的边界事件，都不允许直接并发触发多个外部的序列流程，必须通过并行网关来处理：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/Sk9V5Z.png" alt></p>
-<h4 id="Error-Boundary-Event（错误边界事件）"><a href="#Error-Boundary-Event（错误边界事件）" class="headerlink" title="Error Boundary Event（错误边界事件）"></a>Error Boundary Event（错误边界事件）</h4><p>xml定义demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;boundaryEvent id=&quot;catchError&quot; attachedToRef=&quot;mySubProcess&quot;&gt;</span><br><span class="line">  &lt;errorEventDefinition errorRef=&quot;myError&quot;/&gt;</span><br><span class="line">&lt;/boundaryEvent&gt;</span><br><span class="line"></span><br><span class="line">&lt;error id=&quot;myError&quot; errorCode=&quot;123&quot; /&gt;</span><br><span class="line">...</span><br><span class="line">&lt;process id=&quot;myProcess&quot;&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>如果errorRef被省略，那么边界错误事件将捕获任何错误事件，如果errorRef指向的error存在，那么将只捕捉对应的error，如果error不存在，那么会将errorRef的值视为对应的error，就像错误结束事件一样。<br>官方给出的demo（）：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/NQoyiB.png" alt><br>还有官方根据上图demo做的测试类：<a href="https://github.com/flowable/flowable-engine/blob/master/modules/flowable-engine/src/test/java/org/flowable/examples/bpmn/event/error/BoundaryErrorEventTest.java" target="_blank" rel="noopener">BoundaryErrorEventTest.java</a><h4 id="Signal-Boundary-Event（信号边界事件）"><a href="#Signal-Boundary-Event（信号边界事件）" class="headerlink" title="Signal Boundary Event（信号边界事件）"></a>Signal Boundary Event（信号边界事件）</h4>信号边界事件是不可消耗的，意思是，如果一个信号事件被抛出，那么捕捉这个信号事件的所有流程实例的活动都会被触发，因为信号事件的作用域是全局的，它能够在任何地方被抛出，在任何地方被捕捉。<br>xml定义demo：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;boundaryEvent id=&quot;boundary&quot; attachedToRef=&quot;task&quot; cancelActivity=&quot;true&quot;&gt;</span><br><span class="line">    &lt;signalEventDefinition signalRef=&quot;alertSignal&quot;/&gt;</span><br><span class="line">&lt;/boundaryEvent&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="Message-Boundary-Event（消息边界事件）"><a href="#Message-Boundary-Event（消息边界事件）" class="headerlink" title="Message Boundary Event（消息边界事件）"></a>Message Boundary Event（消息边界事件）</h4><p>xml定义demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;boundaryEvent id=&quot;boundary&quot; attachedToRef=&quot;task&quot; cancelActivity=&quot;true&quot;&gt;</span><br><span class="line">    &lt;messageEventDefinition messageRef=&quot;newCustomerMessage&quot;/&gt;</span><br><span class="line">&lt;/boundaryEvent&gt;</span><br></pre></td></tr></table></figure></p>
-<h4 id="Cancel-Boundary-Event（取消边界事件）"><a href="#Cancel-Boundary-Event（取消边界事件）" class="headerlink" title="Cancel Boundary Event（取消边界事件）"></a>Cancel Boundary Event（取消边界事件）</h4><h4 id="compensation-boundary-event（补偿边界事件）"><a href="#compensation-boundary-event（补偿边界事件）" class="headerlink" title="compensation boundary event（补偿边界事件）"></a>compensation boundary event（补偿边界事件）</h4><p>补偿边界事件被定义做一个典型的边界事件，xml定义demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;boundaryEvent id=&quot;compensateBookHotelEvt&quot; attachedToRef=&quot;bookHotel&quot; &gt;</span><br><span class="line">    &lt;compensateEventDefinition /&gt;</span><br><span class="line">&lt;/boundaryEvent&gt;</span><br><span class="line"></span><br><span class="line">&lt;association associationDirection=&quot;One&quot; id=&quot;a1&quot;</span><br><span class="line">    sourceRef=&quot;compensateBookHotelEvt&quot; targetRef=&quot;undoBookHotel&quot; /&gt;</span><br><span class="line"></span><br><span class="line">&lt;serviceTask id=&quot;undoBookHotel&quot; isForCompensation=&quot;true&quot; flowable:class=&quot;...&quot; /</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>When compensation is triggered, the compensation handler associated with the compensation boundary event is invoked the same number of times the activity it is attached to completed successfully.（当补偿被触发，补偿边界事件绑定的补偿处理器被调用的次数和事件依附在流程活动的次数是一样的）</li>
-<li>If a compensation boundary event is attached to an activity with multiple instance characteristics, a compensation event subscription is created for each instance.（如果补偿边界事件被绑定在多个不同的流程实例，那么每个流程实例都将创建一个事件订阅）</li>
-<li>If a compensation boundary event is attached to an activity that is contained inside a loop, a compensation event subscription is created each time the activity is executed.（如果事件的绑定逻辑在内部的循环里，那么事件订阅的创建也将跟随着每个循环都创建一次）</li>
-<li>If the process instance ends, the subscriptions to compensation events are canceled.（流程实例结束，补偿事件的订阅也将取消）</li>
-</ul>
-<h2 id="Intermediate-Catching-Events（中间捕捉事件）"><a href="#Intermediate-Catching-Events（中间捕捉事件）" class="headerlink" title="Intermediate Catching Events（中间捕捉事件）"></a>Intermediate Catching Events（中间捕捉事件）</h2><p>所有中间捕捉事件的定义方式，同个流程范围内必须唯一：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;intermediateCatchEvent id=&quot;myIntermediateCatchEvent&quot; &gt;</span><br><span class="line">    &lt;XXXEventDefinition/&gt;</span><br><span class="line">&lt;/intermediateCatchEvent&gt;</span><br></pre></td></tr></table></figure></p>
-<h4 id="Timer-Intermediate-Catching-Event（定时器中间捕捉事件）"><a href="#Timer-Intermediate-Catching-Event（定时器中间捕捉事件）" class="headerlink" title="Timer Intermediate Catching Event（定时器中间捕捉事件）"></a>Timer Intermediate Catching Event（定时器中间捕捉事件）</h4><h4 id="Signal-Intermediate-Catching-Event（信号中间捕捉事件）"><a href="#Signal-Intermediate-Catching-Event（信号中间捕捉事件）" class="headerlink" title="Signal Intermediate Catching Event（信号中间捕捉事件）"></a>Signal Intermediate Catching Event（信号中间捕捉事件）</h4><h4 id="Message-Intermediate-Catching-Event（消息中间捕捉事件）"><a href="#Message-Intermediate-Catching-Event（消息中间捕捉事件）" class="headerlink" title="Message Intermediate Catching Event（消息中间捕捉事件）"></a>Message Intermediate Catching Event（消息中间捕捉事件）</h4><h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="upgrading-flowable-engine-schema-from-6-4-1-1-to-6-5-0-1"><a href="#upgrading-flowable-engine-schema-from-6-4-1-1-to-6-5-0-1" class="headerlink" title="upgrading flowable engine schema from 6.4.1.1 to 6.5.0.1"></a>upgrading flowable engine schema from 6.4.1.1 to 6.5.0.1</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">performing upgrade on engine with resource org/flowable/db/upgrade/flowable.mysql.upgradestep.6411.to.6412.engine.sql</span><br></pre></td></tr></table></figure>
-<p>这个报错是因为默认配置的dbSchemaUpgrade是true，这个会在流程初始化的时候去对Flowable版本和数据库存的Flowable版本做比对并做一些初始化的处理，如果要快速启动忽略版本比对问题的话改成false，如果还有问题干脆改成”none”。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/06/fastdfs/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

@@ -222,35 +222,14 @@
 <p>关闭标签：command + w</p>
 <p>切换标签：command + 数字 command + 左右方向键</p>
 <p>切换全屏：command + enter</p>
-<p>查找：command + f</p>
-<p>垂直分屏：command + d</p>
-<p>水平分屏：command + shift + d</p>
-<p>切换屏幕：command + option + 方向键 command + [ 或 command + ]</p>
-<p>查看历史命令：command + ;</p>
-<p>查看剪贴板历史：command + shift + h</p>
-<p>清除当前行：ctrl + u</p>
-<p>到行首：ctrl + a</p>
-<p>到行尾：ctrl + e</p>
-<p>前进后退：ctrl + f/b (相当于左右方向键)</p>
-<p>上一条命令：ctrl + p</p>
-<p>搜索命令历史：ctrl + r</p>
-<p>删除当前光标的字符：ctrl + d</p>
-<p>删除光标之前的字符：ctrl + h</p>
-<p>删除光标之前的单词：ctrl + w</p>
-<p>删除到文本末尾：ctrl + k</p>
-<p>交换光标处文本：ctrl + t</p>
-<p>清屏1：command + r</p>
-<p>清屏2：ctrl + l</p>
-<p>自带有哪些很实用的功能/快捷键</p>
-<p>⌘ + 数字在各 tab 标签直接来回切换</p>
-<p>选择即复制 + 鼠标中键粘贴，这个很实用</p>
-<p>⌘ + f 所查找的内容会被自动复制</p>
-<p>⌘ + d 横着分屏 / ⌘ + shift + d 竖着分屏</p>
-<p>⌘ + r = clear，而且只是换到新一屏，不会想 clear 一样创建一个空屏</p>
-<p>ctrl + u 清空当前行，无论光标在什么位置</p>
-<p>输入开头命令后 按 ⌘ + ; 会自动列出输入过的命令</p>
-<h1 id="oh-my-zsh"><a href="#oh-my-zsh" class="headerlink" title="oh-my-zsh"></a>oh-my-zsh</h1><h2 id="好看清晰的主题"><a href="#好看清晰的主题" class="headerlink" title="好看清晰的主题"></a>好看清晰的主题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">af-magic.zsh-theme</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/15/iTerm2汇总/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -330,13 +309,15 @@
 </ul>
 <h2 id="开启Browser后台界面管理插件"><a href="#开启Browser后台界面管理插件" class="headerlink" title="开启Browser后台界面管理插件"></a>开启Browser后台界面管理插件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull rabbitmq:management</span><br><span class="line">docker run -d --hostname my-rabbit --name some-rabbit -p 15555:15672 rabbitmq:management</span><br></pre></td></tr></table></figure>
 <p>15555端口可以自定义</p>
-<h1 id="PROBLEM-SOLUTION"><a href="#PROBLEM-SOLUTION" class="headerlink" title="PROBLEM SOLUTION"></a>PROBLEM SOLUTION</h1><h2 id="guest取消本地登录限制"><a href="#guest取消本地登录限制" class="headerlink" title="guest取消本地登录限制"></a>guest取消本地登录限制</h2><p><a href="https://blog.csdn.net/shenhonglei1234/article/details/82745601" target="_blank" rel="noopener">https://blog.csdn.net/shenhonglei1234/article/details/82745601</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">## 注意对应版本</span><br><span class="line">vi /usr/lib/rabbitmq/lib/rabbitmq_server-3.7.7/ebin/rabbit.app</span><br><span class="line"></span><br><span class="line">将：&#123;loopback_users, [&lt;&lt;”guest”&gt;&gt;]&#125;，</span><br><span class="line">改为：&#123;loopback_users, []&#125;，</span><br><span class="line">原因：rabbitmq从3.3.0开始禁止使用guest/guest权限通过除localhost外的访问</span><br><span class="line"></span><br><span class="line">service rabbitmq-server restart</span><br></pre></td></tr></table></figure>
-<h2 id="org-springframework-amqp-AmqpConnectException-java-net-ConnectException-Connection-refused-Connection-refused"><a href="#org-springframework-amqp-AmqpConnectException-java-net-ConnectException-Connection-refused-Connection-refused" class="headerlink" title="org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused (Connection refused)"></a>org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused (Connection refused)</h2><p>默认基于tcp的连接端口是5672，详情可见rabbit.app配置文件里面的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;tcp_listeners, [5672]&#125;</span><br></pre></td></tr></table></figure></p>
-<p>还要注意防火墙是否屏蔽端口。</p>
-<h2 id="cannot-deserialize-from-Object-value-no-delegate-or-property-based-Creator"><a href="#cannot-deserialize-from-Object-value-no-delegate-or-property-based-Creator" class="headerlink" title="cannot deserialize from Object value (no delegate- or property-based Creator)"></a>cannot deserialize from Object value (no delegate- or property-based Creator)</h2><p>不小心在POJO加了lombok的@AllArgsConstructor注解，这个方法会私有化无参构造器，导致序列化失败。</p>
-<h2 id="How-to-delete-all-messages-from-a-Queue"><a href="#How-to-delete-all-messages-from-a-Queue" class="headerlink" title="How to delete all messages from a Queue"></a>How to delete all messages from a Queue</h2><p><a href="https://www.cloudamqp.com/blog/2016-06-14_how_to_delete_all_messages_in_a_queue.html#mgmt_interface" target="_blank" rel="noopener">https://www.cloudamqp.com/blog/2016-06-14_how_to_delete_all_messages_in_a_queue.html#mgmt_interface</a></p>
-
+<h1 id="PROBLEM-SOLUTION"><a href="#PROBLEM-SOLUTION" class="headerlink" title="PROBLEM SOLUTION"></a>PROBLEM SOLUTION</h1><h2 id="guest取消本地登录限制"><a href="#guest取消本地登录限制" class="headerlink" title="guest取消本地登录限制"></a>guest取消本地登录限制</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/28/RabbitMQ汇总/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -414,13 +395,15 @@
 <p>配置文件如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;inbounds&quot;: [&#123;</span><br><span class="line">    &quot;port&quot;: 25386,// V2Ray代理的端口号</span><br><span class="line">    &quot;protocol&quot;: &quot;vmess&quot;,</span><br><span class="line">    &quot;settings&quot;: &#123;</span><br><span class="line">      &quot;clients&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">          &quot;id&quot;: &quot;23f96613-697b-4383-bd21-6exxx98bf47f&quot;,// 用户ID，用户client的配置，要和client保持一致</span><br><span class="line">          &quot;level&quot;: 1,</span><br><span class="line">          &quot;alterId&quot;: 64</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;],</span><br><span class="line">  &quot;outbounds&quot;: [&#123;</span><br><span class="line">    &quot;protocol&quot;: &quot;freedom&quot;,</span><br><span class="line">    &quot;settings&quot;: &#123;&#125;</span><br><span class="line">  &#125;,&#123;</span><br><span class="line">    &quot;protocol&quot;: &quot;blackhole&quot;,</span><br><span class="line">    &quot;settings&quot;: &#123;&#125;,</span><br><span class="line">    &quot;tag&quot;: &quot;blocked&quot;</span><br><span class="line">  &#125;],</span><br><span class="line">  &quot;routing&quot;: &#123;</span><br><span class="line">    &quot;rules&quot;: [</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;type&quot;: &quot;field&quot;,</span><br><span class="line">        &quot;ip&quot;: [&quot;geoip:private&quot;],</span><br><span class="line">        &quot;outboundTag&quot;: &quot;blocked&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="V2Ray安装之后需要手动启动"><a href="#V2Ray安装之后需要手动启动" class="headerlink" title="V2Ray安装之后需要手动启动"></a>V2Ray安装之后需要手动启动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 启动</span><br><span class="line">sudo systemctl start v2ray</span><br><span class="line"></span><br><span class="line"># 停止</span><br><span class="line">sudo systemctl stop v2ray</span><br><span class="line"></span><br><span class="line"># 重启</span><br><span class="line">sudo systemctl restart v2ray</span><br></pre></td></tr></table></figure>
 <h2 id="Mac客户端的安装"><a href="#Mac客户端的安装" class="headerlink" title="Mac客户端的安装"></a>Mac客户端的安装</h2><p>使用brew，没用过brew不是一个合格的Mac用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install v2rayx</span><br></pre></td></tr></table></figure></p>
-<h2 id="V2Ray客户端配置"><a href="#V2Ray客户端配置" class="headerlink" title="V2Ray客户端配置"></a>V2Ray客户端配置</h2><p>点击状态栏的图标，点击configure…，在VMess Servers下面点击+，增加一个服务器配置；<br>将ip地址，端口，用户ID等信息填进去，Security由于我都是默认的，所以我采用auto；<br>然后配置上面的DNS： 8.8.8.8,1.1.1.1<br>点击OK</p>
-<p><strong><em>完了，注意再次点击V2Ray图标，如果最上面的灰色不可选中的的一项是v2ray-core:loaded，代表当前已经启动客户端代理，如果是v2ray-core:unloaded说明客户端还没有启动，需要手动点击第二个选项：Load core</em></strong></p>
-<p>大功告成，愉快地上网了!</p>
-<blockquote>
-<p>用了一段时间如果抽风了，可以修改下端口，重启服务，telnet看下端口是否通。</p>
-</blockquote>
-
+<h2 id="V2Ray客户端配置"><a href="#V2Ray客户端配置" class="headerlink" title="V2Ray客户端配置"></a>V2Ray客户端配置</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/09/24/弃用主流ssr转战V2ray/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -495,9 +478,15 @@
       
           <h2 id="babel"><a href="#babel" class="headerlink" title="babel"></a>babel</h2><p>可以在babeljs.cn网站查看es6语法编译前和编译后的区别</p>
 <h2 id="webcomponents-org"><a href="#webcomponents-org" class="headerlink" title="webcomponents.org"></a>webcomponents.org</h2><h2 id="vue、vue-router、vuex（全家桶）"><a href="#vue、vue-router、vuex（全家桶）" class="headerlink" title="vue、vue-router、vuex（全家桶）"></a>vue、vue-router、vuex（全家桶）</h2><h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p>图片在 youdao note</p>
-<h2 id="symbol"><a href="#symbol" class="headerlink" title="symbol()"></a>symbol()</h2><h2 id="element-ui"><a href="#element-ui" class="headerlink" title="element ui"></a>element ui</h2><h2 id="图标库"><a href="#图标库" class="headerlink" title="图标库"></a>图标库</h2><h2 id="mockjs"><a href="#mockjs" class="headerlink" title="mockjs"></a>mockjs</h2><h2 id="lodashjs"><a href="#lodashjs" class="headerlink" title="lodashjs"></a>lodashjs</h2><h2 id="es6"><a href="#es6" class="headerlink" title="es6"></a>es6</h2><p>###import<br>常规import<br>异步import<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const jquery = import ...</span><br></pre></td></tr></table></figure></p>
-<p>图片在 youdao note</p>
-<h2 id="scss"><a href="#scss" class="headerlink" title="scss"></a>scss</h2><h2 id="pug"><a href="#pug" class="headerlink" title="pug"></a>pug</h2><h2 id="unit测试"><a href="#unit测试" class="headerlink" title="unit测试"></a>unit测试</h2><h2 id="e2e端对端测试"><a href="#e2e端对端测试" class="headerlink" title="e2e端对端测试"></a>e2e端对端测试</h2>
+<h2 id="symbol"><a href="#symbol" class="headerlink" title="symbol()"></a>symbol()</h2><h2 id="element-ui"><a href="#element-ui" class="headerlink" title="element ui"></a>element ui</h2><h2 id="图标库"><a href="#图标库" class="headerlink" title="图标库"></a>图标库</h2><h2 id="mockjs"><a href="#mockjs" class="headerlink" title="mockjs"></a>mockjs</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/01/Vue系列之公司前端项目架构/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -575,16 +564,15 @@
 <p>将原来的<br><code>https://updates.jenkins.io/update-center.json</code><br>改成<br><code>http://mirror.xmission.com/jenkins/updates/update-center.json</code></p>
 <p>重启jenkins</p>
 <p><a href="http://ip:9090/restart" target="_blank" rel="noopener">http://ip:9090/restart</a></p>
-<h3 id="修改default-json"><a href="#修改default-json" class="headerlink" title="修改default.json"></a>修改default.json</h3><p>在jenkins安装目录的updates/下，先按英文冒号进入命令行模式输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1,$s/http:\/\/updates.jenkins-ci.org\/download/https:\/\/mirrors.tuna.tsinghua.edu.cn\/jenkins/g</span><br></pre></td></tr></table></figure></p>
-<p>回车之后再次进入命令行模式输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1,$s/http:\/\/www.google.com/https:\/\/www.baidu.com/g</span><br></pre></td></tr></table></figure></p>
-<p>再回车，保存重启即可。</p>
-<p><a href="https://www.cnblogs.com/yoyoketang/p/12115569.html" target="_blank" rel="noopener">https://www.cnblogs.com/yoyoketang/p/12115569.html</a></p>
-<h2 id="从界面安装插件"><a href="#从界面安装插件" class="headerlink" title="从界面安装插件"></a>从界面安装插件</h2><p><a href="https://www.jianshu.com/p/3b5ebe85c034" target="_blank" rel="noopener">https://www.jianshu.com/p/3b5ebe85c034</a></p>
-<h2 id="重启Jenkies"><a href="#重启Jenkies" class="headerlink" title="重启Jenkies"></a>重启Jenkies</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/restart</span><br></pre></td></tr></table></figure>
-<h2 id="重新加载配置信息"><a href="#重新加载配置信息" class="headerlink" title="重新加载配置信息"></a>重新加载配置信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/reload</span><br></pre></td></tr></table></figure>
-<h2 id="关闭Jenkins"><a href="#关闭Jenkins" class="headerlink" title="关闭Jenkins"></a>关闭Jenkins</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/exit</span><br></pre></td></tr></table></figure>
-<h1 id="jenkins自动部署SpringCloud微服务"><a href="#jenkins自动部署SpringCloud微服务" class="headerlink" title="jenkins自动部署SpringCloud微服务"></a>jenkins自动部署SpringCloud微服务</h1><p><a href="https://blog.csdn.net/sunhuansheng/article/details/100719021" target="_blank" rel="noopener">https://blog.csdn.net/sunhuansheng/article/details/100719021</a><br>-更改插件加速<br>-安装maven intergration plugin</p>
-
+<h3 id="修改default-json"><a href="#修改default-json" class="headerlink" title="修改default.json"></a>修改default.json</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/18/jenkins汇总/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

@@ -163,6 +163,93 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/13/Reactor响应式编程阅读源码有感/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/13/Reactor响应式编程阅读源码有感/" class="post-title-link" itemprop="url">Reactor响应式编程阅读源码有感</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-13 20:57:04" itemprop="dateCreated datePublished" datetime="2019-12-13T20:57:04+08:00">2019-12-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-16 20:58:54" itemprop="dateModified" datetime="2020-07-16T20:58:54+08:00">2020-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Reactor/" itemprop="url" rel="index"><span itemprop="name">Reactor</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="https://projectreactor.io/docs/core/release/reference/" target="_blank" rel="noopener">官方参考文档</a><br><a href="https://www.baeldung.com/reactor-core" target="_blank" rel="noopener">baeldung参考文章</a></p>
+<h1 id="Flux"><a href="#Flux" class="headerlink" title="Flux"></a>Flux</h1><p>an Asynchronous Sequence of 0-N Items（是一个异步的处理序列，它有0或者多个条目）<br>官方对Flux的原理解析图解：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/2zMdgN.png" alt></p>
+<p>Spring Gateway的源码中重度依赖Reactor Project，比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return responseFlux.then(chain.filter(exchange));</span><br></pre></td></tr></table></figure></p>
+<p>这句代码的逻辑会这么走：要等到responseFlux被subscribe了之后，chain.filter(exchange)（这是一个Mono），才会被继续流转运行。</p>
+<h1 id="Mono"><a href="#Mono" class="headerlink" title="Mono"></a>Mono</h1><h2 id="Mono-just"><a href="#Mono-just" class="headerlink" title="Mono.just"></a>Mono.just</h2><p>I mean that calling Mono.just(System.currentTimeMillis()) will immediately invoke the currentTimeMillis() method and capture the result</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Mono&lt;Long&gt; clock = Mono.just(System.currentTimeMillis());</span><br><span class="line">//time == t0</span><br><span class="line"></span><br><span class="line">Thread.sleep(10_000);</span><br><span class="line">//time == t10</span><br><span class="line">clock.block(); //we use block for demonstration purposes, returns t0（代表这个时候获取clock的实际时间依然还是上面第一次调用System.currentTimeMillis()拿到的时间，下面雷同）</span><br><span class="line"></span><br><span class="line">Thread.sleep(7_000);</span><br><span class="line">//time == t17</span><br><span class="line">clock.block(); //we re-subscribe to clock, still returns t0</span><br></pre></td></tr></table></figure>
+<h2 id="Mono-defer"><a href="#Mono-defer" class="headerlink" title="Mono.defer"></a>Mono.defer</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/13/Reactor响应式编程阅读源码有感/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Spring系列之SpringBoot/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -232,15 +319,14 @@
 </li>
 <li><a href="https://www.baeldung.com/spring-boot-actuators#1-endpoints" target="_blank" rel="noopener">Spring Boot Actuator</a></li>
 </ul>
-<h2 id="spring-boot-configuration-processor"><a href="#spring-boot-configuration-processor" class="headerlink" title="spring-boot-configuration-processor"></a>spring-boot-configuration-processor</h2><p>可以更加优雅地读取配置文件的值，参考<a href="https://blog.csdn.net/fzbbw/article/details/101175595" target="_blank" rel="noopener">https://blog.csdn.net/fzbbw/article/details/101175595</a></p>
-<h2 id="远程Debug（Remote-Debug）"><a href="#远程Debug（Remote-Debug）" class="headerlink" title="远程Debug（Remote Debug）"></a>远程Debug（Remote Debug）</h2><p><a href="https://blog.csdn.net/weixin_42740530/article/details/89524509" target="_blank" rel="noopener">https://blog.csdn.net/weixin_42740530/article/details/89524509</a></p>
-<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="required-a-bean-of-type-‘javax-sql-DataSource’-that-could-not-be-found"><a href="#required-a-bean-of-type-‘javax-sql-DataSource’-that-could-not-be-found" class="headerlink" title="required a bean of type ‘javax.sql.DataSource’ that could not be found."></a>required a bean of type ‘javax.sql.DataSource’ that could not be found.</h2><p>需要手动配置spring-boot-starter-jdbc的依赖jar</p>
-<h2 id="Consider-revisiting-the-entries-above-or-defining-a-bean-of-type-‘org-springframework-security-core-userdetails-UserDetailsService’-in-your-configuration"><a href="#Consider-revisiting-the-entries-above-or-defining-a-bean-of-type-‘org-springframework-security-core-userdetails-UserDetailsService’-in-your-configuration" class="headerlink" title="Consider revisiting the entries above or defining a bean of type ‘org.springframework.security.core.userdetails.UserDetailsService’ in your configuration."></a>Consider revisiting the entries above or defining a bean of type ‘org.springframework.security.core.userdetails.UserDetailsService’ in your configuration.</h2><p>需要自己实现UserDetailsService，并注入到Spring。</p>
-<h2 id="2019-12-19-14-24-44-064-WARN-2849-—-XNIO-1-task-7-com-zaxxer-hikari-pool-PoolBase-HikariPool-1-Failed-to-validate-connection-com-mysql-cj-jdbc-ConnectionImpl-6bee636d-No-operations-allowed-after-connection-closed-Possibly-consider-using-a-shorter-maxLifetime-value"><a href="#2019-12-19-14-24-44-064-WARN-2849-—-XNIO-1-task-7-com-zaxxer-hikari-pool-PoolBase-HikariPool-1-Failed-to-validate-connection-com-mysql-cj-jdbc-ConnectionImpl-6bee636d-No-operations-allowed-after-connection-closed-Possibly-consider-using-a-shorter-maxLifetime-value" class="headerlink" title="2019-12-19 14:24:44.064  WARN 2849 — [  XNIO-1 task-7] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6bee636d (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value."></a>2019-12-19 14:24:44.064  WARN 2849 — [  XNIO-1 task-7] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6bee636d (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.</h2><p>使用hikari需要配置加上max-lifetime: 27700000，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 数据源</span><br><span class="line">spring:</span><br><span class="line">  datasource:</span><br><span class="line">    type: com.zaxxer.hikari.HikariDataSource</span><br><span class="line">    driver-class-name: com.mysql.cj.jdbc.Driver</span><br><span class="line">    username: root</span><br><span class="line">    password: raubbhWy</span><br><span class="line">    url: jdbc:mysql://39.100.106.97:3306/inspect_db?characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=false&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Asia/Shanghai</span><br><span class="line">    hikari:</span><br><span class="line">      max-lifetime: 27700000</span><br></pre></td></tr></table></figure></p>
-<h2 id="Caused-by-java-lang-ClassNotFoundException-org-springframework-cloud-context-named-NamedContextFactory-Specification"><a href="#Caused-by-java-lang-ClassNotFoundException-org-springframework-cloud-context-named-NamedContextFactory-Specification" class="headerlink" title="Caused by: java.lang.ClassNotFoundException: org.springframework.cloud.context.named.NamedContextFactory$Specification"></a>Caused by: java.lang.ClassNotFoundException: org.springframework.cloud.context.named.NamedContextFactory$Specification</h2><p>原因：OpcApplication 中有注解@EnableFeignClients，但是在控制器或对外实现接口中，SpringBoot没有扫描到@FeignClient注解的程序</p>
-<p>解决：要么给程序加注解@FeignClient，要么把 OpcApplication 中有注解@EnableFeignClients 暂时去掉</p>
-<p>还有网上提到需要增加对应的依赖：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-cloud-context&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/15/Spring系列之SpringBoot/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -324,14 +410,15 @@
 </ul>
 <h2 id="自动分页要开启PaginationInterceptor插件"><a href="#自动分页要开启PaginationInterceptor插件" class="headerlink" title="自动分页要开启PaginationInterceptor插件"></a>自动分页要开启PaginationInterceptor插件</h2><p><a href="https://mybatis.plus/guide/page.html" target="_blank" rel="noopener">https://mybatis.plus/guide/page.html</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Bean</span><br><span class="line">public PaginationInterceptor paginationInterceptor() &#123;</span><br><span class="line">    PaginationInterceptor paginationInterceptor = new PaginationInterceptor();</span><br><span class="line">    paginationInterceptor.setCountSqlParser(new JsqlParserCountOptimize(true));</span><br><span class="line">    return paginationInterceptor;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="vs"><a href="#vs" class="headerlink" title="${} vs #{}"></a>${} vs #{}</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#方式能够很大程度防止sql注入。</span><br><span class="line">#方式会在外面加一层字符串标识的包装：&quot;xxx&quot; or &apos;xxx&apos;</span><br><span class="line">$方式无法防止Sql注入。</span><br></pre></td></tr></table></figure>
-<h2 id="mybatis的二级缓存-vs-redis"><a href="#mybatis的二级缓存-vs-redis" class="headerlink" title="mybatis的二级缓存 vs redis"></a>mybatis的二级缓存 vs redis</h2><p>Mybatis一级缓存作用域是session，session commit之后缓存就失效了。</p>
-<p>Mybatis二级缓存作用域是sessionfactory，该缓存是以namespace为单位的（也就是一个Mapper.xml文件），不同namespace下的操作互不影响。所有对数据表的改变操作都会刷新缓存。但是一般不要用二级缓存，例如在UserMapper.xml中有大多数针对user表的操作。但是在另一个XXXMapper.xml中，还有针对user单表的操作。这会导致user在两个命名空间下的数据不一致。如果在UserMapper.xml中做了刷新缓存的操作，在XXXMapper.xml中缓存仍然有效，如果有针对user的单表查询，使用缓存的结果可能会不正确，读到脏数据。</p>
-<p>Redis比之一、二级缓存的好处很多，Redis可以搭建在其他服务器上，缓存容量可扩展。Redis可以灵活的使用在需要缓存的数据上，比如一些热点数据。<br><a href="http://www.imooc.com/qadetail/248957" target="_blank" rel="noopener">来源</a></p>
-<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="mapping-xml映射文件中order-by后面的参数如果是变量传进去的话"><a href="#mapping-xml映射文件中order-by后面的参数如果是变量传进去的话" class="headerlink" title="mapping xml映射文件中order by后面的参数如果是变量传进去的话"></a>mapping xml映射文件中order by后面的参数如果是变量传进去的话</h2><p>排序如果直接这样写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">order by #&#123;params.orderBy&#125; #&#123;params.order&#125;</span><br></pre></td></tr></table></figure></p>
-<p>会报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">order by ? ?; nested exception is java.sql.SQLException: sql injection violation, syntax error: syntax error, error in :&apos;rder by ? ?&apos;, expect QUES</span><br></pre></td></tr></table></figure></p>
-<p>升降序不能通过变量#{}传进去，因为这样会被底层解释为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">order by xxx &apos;desc&apos;</span><br><span class="line">order by xxx &apos;asc&apos;</span><br></pre></td></tr></table></figure></p>
-<p>　　</p>
-
+<h2 id="mybatis的二级缓存-vs-redis"><a href="#mybatis的二级缓存-vs-redis" class="headerlink" title="mybatis的二级缓存 vs redis"></a>mybatis的二级缓存 vs redis</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/27/MybatisPlus汇总/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -399,6 +486,14 @@
 <h2 id="查询类型"><a href="#查询类型" class="headerlink" title="查询类型"></a>查询类型</h2><h3 id="term"><a href="#term" class="headerlink" title="term"></a>term</h3><p>term：代表完全匹配，即不进行分词器分析，文档中必须包含整个搜索的词汇</p>
 <h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PB是数据存储容量的单位，它等于2的50次方个字节，或者在数值上大约等于1000个TB。</span><br></pre></td></tr></table></figure>
 <h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/28/Elasticsearch汇总/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -476,123 +571,15 @@
 <h2 id="dependencies与dependencyManagement的区别"><a href="#dependencies与dependencyManagement的区别" class="headerlink" title="dependencies与dependencyManagement的区别"></a>dependencies与dependencyManagement的区别</h2><p>根据maven子模块继承父模块的特性，不难理解两者肯定都有继承父模块依赖的作用，但是要注意他们的区别是：</p>
 <p><strong><em>dependencies里面声明的依赖，子模块会默认全部继承，不用手动去引入依赖；而dependencyManagement里面声明的依赖，则不会再子模块中自动去隐式依赖，只有子模块中声明了依赖，并且没有指明依赖的版本这种情况才会到父模块中寻找dependencyManagement中的对应依赖，要注意的是，如果子模块声明了依赖版本号，那么在dependencyManagement中如果也有同一依赖库的不同版本共存的话，maven优先去依赖的是子模块自己的版本</em></strong></p>
 <h2 id="Maven仓库下载依赖太慢的解决方案"><a href="#Maven仓库下载依赖太慢的解决方案" class="headerlink" title="Maven仓库下载依赖太慢的解决方案"></a>Maven仓库下载依赖太慢的解决方案</h2><p>将仓库中心更改为阿里云的，修改setting.xml，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line"> &lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;</span><br><span class="line">  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">  xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd&quot;&gt;</span><br><span class="line">     &lt;mirrors&gt;</span><br><span class="line">         &lt;!-- 阿里云仓库 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://maven.aliyun.com/nexus/content/repositories/central/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line"></span><br><span class="line">         &lt;!-- 中央仓库1 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;repo1&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://repo1.maven.org/maven2/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line"></span><br><span class="line">         &lt;!-- 中央仓库2 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;repo2&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://repo2.maven.org/maven2/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line">     &lt;/mirrors&gt;</span><br><span class="line"> &lt;/settings&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="Maven-BOM"><a href="#Maven-BOM" class="headerlink" title="Maven BOM"></a>Maven BOM</h2><p>BOM stands for Bill Of Materials. A BOM is a special kind of POM that is used to control the versions of a project’s dependencies and provide a central place to define and update those versions.<br>BOM字面理解是”材料清单”，它是一种特别的POM，可以用来控制项目的多个依赖，相当于某个依赖集群的中心控制处。</p>
-<h2 id="Transitive-Dependencies-依赖传递性"><a href="#Transitive-Dependencies-依赖传递性" class="headerlink" title="Transitive Dependencies 依赖传递性"></a>Transitive Dependencies 依赖传递性</h2><p>Maven can discover the libraries that are needed by our own dependencies in our pom.xml and includes them automatically. There’s no limit to the number of dependency levels that the libraries are gathered from.<br>Maven通过pom.xml的多层级依赖是没有限制的，也就是，父模块可以递归依赖子模块的任何依赖，所以可能会出现如下的矛盾：</p>
-<blockquote>
-<p>A -&gt; B -&gt; C -&gt; D 1.4  and  A -&gt; E -&gt; D 1.0</p>
-</blockquote>
-<p>那么Maven给出了两个解决方案：</p>
-<ol>
-<li>We can always guarantee a version by declaring it explicitly in our project’s POM. For instance, to guarantee that D 1.4 is used, we should add it explicitly as a dependency in the pom.xml file. 通过在A的pom.xml明确声明D的依赖版本，这样子就不会采用子模块传递过来的依赖了。</li>
-<li>We can use the Dependency Management section to control artifact versions. 可以通过依赖管理来控制依赖版本，也就是直接继承父模块，通过<parent>；或者通过import BOM。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;parent&gt;</span><br><span class="line">        &lt;groupId&gt;baeldung&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;Baeldung-BOM&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br><span class="line">    &lt;/parent&gt;</span><br></pre></td></tr></table></figure>
-</parent></li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencyManagement&gt;</span><br><span class="line">        &lt;dependencies&gt;</span><br><span class="line">            &lt;dependency&gt;</span><br><span class="line">                &lt;groupId&gt;baeldung&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;Baeldung-BOM&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br><span class="line">                &lt;type&gt;pom&lt;/type&gt;</span><br><span class="line">                &lt;scope&gt;import&lt;/scope&gt;</span><br><span class="line">            &lt;/dependency&gt;</span><br><span class="line">        &lt;/dependencies&gt;</span><br><span class="line">    &lt;/dependencyManagement&gt;</span><br></pre></td></tr></table></figure>
-<p>maven依赖版本的优先权如下：<br>1、项目自己pom.xml里面直接声明的版本<br>2、从parent项目继承的版本<br>3、通过import形式的依赖版本，和import的顺序有关，先import进来的版本被优先采用。</p>
-<p>详情参考：<a href="https://www.baeldung.com/spring-maven-bom#2-what-is-maven-bom" target="_blank" rel="noopener">https://www.baeldung.com/spring-maven-bom#2-what-is-maven-bom</a></p>
-<h2 id="mvn-compile与mvn-install、mvn-deploy的区别"><a href="#mvn-compile与mvn-install、mvn-deploy的区别" class="headerlink" title="mvn compile与mvn install、mvn deploy的区别"></a>mvn compile与mvn install、mvn deploy的区别</h2><ul>
-<li>mvn compile，编译类文件</li>
-<li>mvn install，包含mvn compile，mvn package，然后上传到本地仓库</li>
-<li>mvn deploy,包含mvn install,然后，上传到私服</li>
-</ul>
-<h2 id="maven-compiler-plugin-插件"><a href="#maven-compiler-plugin-插件" class="headerlink" title="maven-compiler-plugin 插件"></a>maven-compiler-plugin 插件</h2><p>可以用于指定模块编译的jdk版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">    &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">    &lt;configuration&gt;</span><br><span class="line">        &lt;target&gt;$&#123;java.version&#125;&lt;/target&gt;</span><br><span class="line">        &lt;source&gt;$&#123;java.version&#125;&lt;/source&gt;</span><br><span class="line">        &lt;encoding&gt;UTF-8&lt;/encoding&gt;</span><br><span class="line">    &lt;/configuration&gt;</span><br><span class="line">&lt;/plugin&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="Maven中-DskipTests和-Dmaven-test-skip-true的区别"><a href="#Maven中-DskipTests和-Dmaven-test-skip-true的区别" class="headerlink" title="Maven中-DskipTests和-Dmaven.test.skip=true的区别"></a>Maven中-DskipTests和-Dmaven.test.skip=true的区别</h2><p>在使用mvn package进行编译、打包时，Maven会执行src/test/java中的JUnit测试用例，有时为了跳过测试，会使用参数-DskipTests和-Dmaven.test.skip=true，这两个参数的主要区别是：<br>-DskipTests，不执行测试用例，但编译测试用例类生成相应的class文件至target/test-classes下。<br>-Dmaven.test.skip=true，不执行测试用例，也不编译测试用例类。</p>
-<h2 id="profile切换正式环境和测试环境"><a href="#profile切换正式环境和测试环境" class="headerlink" title="profile切换正式环境和测试环境"></a>profile切换正式环境和测试环境</h2><p>可以使用<profiles>的<profile>通过id标签来切换不同环境的依赖</profile></profiles></p>
-<h2 id="mvn-install执行要注意的地方-错误笔记"><a href="#mvn-install执行要注意的地方-错误笔记" class="headerlink" title="mvn install执行要注意的地方 (错误笔记*)"></a>mvn install执行要注意的地方 (错误笔记*)</h2><p>通过在父项目的pom.xml目录执行mvn install可以连同子模块也一起安装，然后假如有多层级的父子模块依赖的情况下，mvn install是不会递归去安装子模块的子模块的。<br>比如，parent模块（BOM）下有subParent（BOM），subParent下面的子模块（jar），这个时候再parent模块下执行mvn install，subParent的jar是不会安装的，需要到subParent执行一次</p>
-<h2 id="Maven整个声明周期"><a href="#Maven整个声明周期" class="headerlink" title="Maven整个声明周期"></a>Maven整个声明周期</h2><p>验证（validate） 验证项目是正确的，所有必要的信息可用。<br>初始化（initialize） 初始化构建状态，例如设置属性或创建目录。<br>产生来源（generate-sources） 生成包含在编译中的任何源代码。<br>流程源（process-sources） 处理源代码，例如过滤任何值。<br>生成资源（generate-resources） 生成包含在包中的资源。<br>流程资源（process-resources） 将资源复制并处理到目标目录中，准备打包。<br>编译（compile） 编译项目的源代码。<br>工艺类（process-classes） 从编译后处理生成的文件，例如对Java类进行字节码增强。<br>生成测试来源（generate-test-sources） 生成包含在编译中的任何测试源代码。<br>流程测试来源（process-test-sources） 处理测试源代码，例如过滤任何值。<br>生成测试资源（generate-test-resources） 创建测试资源。<br>流程测试资源（process-test-resources） 将资源复制并处理到测试目标目录中。<br>测试编译（test-compile） 将测试源代码编译到测试目标目录中<br>流程检验类（process-test-classes） 从测试编译中处理生成的文件，例如对Java类进行字节码增强。对于Maven 2.0.5及以上版本。<br>测试（test） 使用合适的单元测试框架运行测试。这些测试不应该要求代码被打包或部署。<br>制备包（prepare-package） 在实际包装之前，执行必要的准备包装的操作。这通常会导致打包的处理版本的包。（Maven 2.1及以上）<br>打包（package） 采取编译的代码，并以其可分发的格式（如JAR）进行打包。<br>预集成测试（pre-integration-test） 在执行集成测试之前执行所需的操作。这可能涉及诸如设置所需环境等。<br>集成测试（integration-test） 如果需要，可以将该包过程并部署到可以运行集成测试的环境中。<br>整合后的测试（post-integration-test） 执行集成测试后执行所需的操作。这可能包括清理环境。<br>校验（verify） 运行任何检查以验证包装是否有效并符合质量标准。<br>安装（install） 将软件包安装到本地存储库中，以作为本地其他项目的依赖关系。<br>部署（deploy） 在集成或发布环境中完成，将最终软件包复制到远程存储库，以与其他开发人员和项目共享。<br>————————————————<br>版权声明：本文为CSDN博主「zhangxitab」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/zhangxitab/article/details/91047445" target="_blank" rel="noopener">https://blog.csdn.net/zhangxitab/article/details/91047445</a></p>
-<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="记录一个Idea中Maven的奇葩错误"><a href="#记录一个Idea中Maven的奇葩错误" class="headerlink" title="记录一个Idea中Maven的奇葩错误"></a>记录一个Idea中Maven的奇葩错误</h2><p>因为我从SVN拉代码下来是将项目根目录的名字修改为其他，导致根目录的pom.xml里面的name标签的值和文件不匹配，idea就一直报红，无法依赖其他依赖。。</p>
-<h2 id="新增加properties的变量时，编译打包报错"><a href="#新增加properties的变量时，编译打包报错" class="headerlink" title="新增加properties的变量时，编译打包报错"></a>新增加properties的变量时，编译打包报错</h2><p>很有可能需要把子模块modules都注释掉，然后编译一个或者多个父模块之后再放开子模块的注释。</p>
-<h2 id="jar-original"><a href="#jar-original" class="headerlink" title="jar.original"></a>jar.original</h2><ul>
-<li>jar.original 是普通jar包，不包含依赖</li>
-<li>.jar 是可执行jar包，包含了pom中的所有依赖，可以直接用java -jar 命令执行</li>
-<li>如果是部署，就用.jar</li>
-<li>如果是给别的项目用，就要给.jar.original这个包</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/14/linux系列之问题汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/14/linux系列之问题汇总/" class="post-title-link" itemprop="url">linux系列之问题汇总</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-14 18:11:33" itemprop="dateCreated datePublished" datetime="2020-05-14T18:11:33+08:00">2020-05-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-05 13:53:01" itemprop="dateModified" datetime="2020-06-05T13:53:01+08:00">2020-06-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="apt-get国内太慢"><a href="#apt-get国内太慢" class="headerlink" title="apt-get国内太慢"></a>apt-get国内太慢</h1><p>ubuntu和debian的镜像源都要换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list</span><br><span class="line">sed -i &apos;s/deb.debian.org/mirrors.ustc.edu.cn/g&apos; /etc/apt/sources.list</span><br></pre></td></tr></table></figure></p>
-<p>还原：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i s@/mirrors.aliyun.com/@/deb.debian.org/@g /etc/apt/sources.list</span><br></pre></td></tr></table></figure></p>
-<h2 id="更换163的镜像"><a href="#更换163的镜像" class="headerlink" title="更换163的镜像"></a>更换163的镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#更新apt-get源 使用163的源</span><br><span class="line">mv /etc/apt/sources.list /etc/apt/sources.list.bak &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-<h2 id="apk命令更换源"><a href="#apk命令更换源" class="headerlink" title="apk命令更换源"></a>apk命令更换源</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;http://mirrors.aliyun.com/alpine/v3.8/main&quot; &gt; /etc/apk/repositories \</span><br><span class="line">    &amp;&amp; echo &quot;http://mirrors.aliyun.com/alpine/v3.8/community&quot; &gt;&gt; /etc/apk/repositories \</span><br><span class="line">    &amp;&amp; apk update upgrade \</span><br></pre></td></tr></table></figure>
-<h2 id="将命令的返回值赋值给变量（Shell命令）"><a href="#将命令的返回值赋值给变量（Shell命令）" class="headerlink" title="将命令的返回值赋值给变量（Shell命令）"></a>将命令的返回值赋值给变量（Shell命令）</h2><ul>
-<li>A=<code>ls -la</code> 反引号，运行里面的命令，并把结果返回给变量A</li>
-<li>A=$(ls -la)等价于反引号</li>
-</ul>
-<h2 id="linux-shell通过curl获取HTTP请求的状态码"><a href="#linux-shell通过curl获取HTTP请求的状态码" class="headerlink" title="linux shell通过curl获取HTTP请求的状态码"></a>linux shell通过curl获取HTTP请求的状态码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -I -m 10 -o /dev/null -s -w %&#123;http_code&#125; www.baidu.com</span><br></pre></td></tr></table></figure>
-<h2 id="shell获取系统当前时间并格式化"><a href="#shell获取系统当前时间并格式化" class="headerlink" title="shell获取系统当前时间并格式化"></a>shell获取系统当前时间并格式化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time=$(date &quot;+%Y-%m-%d %H:%M:%S&quot;)</span><br></pre></td></tr></table></figure>
-<h2 id="安装包打包命令"><a href="#安装包打包命令" class="headerlink" title="安装包打包命令"></a>安装包打包命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpmbuild / dpkg-deb 可以制作 rpm / deb package</span><br></pre></td></tr></table></figure>
-
+<h2 id="Maven-BOM"><a href="#Maven-BOM" class="headerlink" title="Maven BOM"></a>Maven BOM</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/15/Maven汇总/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

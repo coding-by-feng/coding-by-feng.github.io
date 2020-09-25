@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Basic KnowledgeJVM的官方规范《Java Virtual Machine Specification》 美团Java面试7连问马士兵老师的讲解 对象的定位方式句柄方式 直接指针 句柄方式 vs 直接指针后者的效率更高，但是当GC挪动对象的时候，前者效率更高。（上图中，前者GC挪动存活对象和清理垃圾对象的时候，t的指针不需要变） 对象怎么分配OOP-KLASS模型Java内存模型（J">
+  <meta name="description" content="Basic KnowledgeJVM的官方规范《Java Virtual Machine Specification》 美团Java面试7连问马士兵老师的讲解 对象的定位方式句柄方式 直接指针">
 <meta name="keywords" content="Java,JVM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java系列之JVM">
 <meta property="og:url" content="http://yoursite.com/2020/03/31/Java系列之JVM/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="Basic KnowledgeJVM的官方规范《Java Virtual Machine Specification》 美团Java面试7连问马士兵老师的讲解 对象的定位方式句柄方式 直接指针 句柄方式 vs 直接指针后者的效率更高，但是当GC挪动对象的时候，前者效率更高。（上图中，前者GC挪动存活对象和清理垃圾对象的时候，t的指针不需要变） 对象怎么分配OOP-KLASS模型Java内存模型（J">
+<meta property="og:description" content="Basic KnowledgeJVM的官方规范《Java Virtual Machine Specification》 美团Java面试7连问马士兵老师的讲解 对象的定位方式句柄方式 直接指针">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/QUtvd4.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/7BWN68.png">
 <meta property="og:updated_time" content="2020-09-18T09:37:37.674Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java系列之JVM">
-<meta name="twitter:description" content="Basic KnowledgeJVM的官方规范《Java Virtual Machine Specification》 美团Java面试7连问马士兵老师的讲解 对象的定位方式句柄方式 直接指针 句柄方式 vs 直接指针后者的效率更高，但是当GC挪动对象的时候，前者效率更高。（上图中，前者GC挪动存活对象和清理垃圾对象的时候，t的指针不需要变） 对象怎么分配OOP-KLASS模型Java内存模型（J">
+<meta name="twitter:description" content="Basic KnowledgeJVM的官方规范《Java Virtual Machine Specification》 美团Java面试7连问马士兵老师的讲解 对象的定位方式句柄方式 直接指针">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/QUtvd4.png">
 
 <link rel="canonical" href="http://yoursite.com/2020/03/31/Java系列之JVM/">

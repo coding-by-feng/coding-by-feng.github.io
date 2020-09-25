@@ -224,74 +224,14 @@
 <p><strong><em>错误写法：</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select a,b,avg(x) from emp group by a;</span><br><span class="line">-- b必须出现在group by 后面。</span><br></pre></td></tr></table></figure></p>
 <p><strong><em>注意：在select列表中所有未包含在组函数中的列都应该包含在group by子句中；包含在group by子句中的列不必包含在select列表中。</em></strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-- 按照部门，不同职位，统计员工的工资总额</span><br><span class="line">select deptno,job,sum(sal) from emp group by deptno,job order by deptno;</span><br><span class="line">-- 分组按照group by子句列的先后顺序。</span><br></pre></td></tr></table></figure>
-<h4 id="过滤分组-having子句语法"><a href="#过滤分组-having子句语法" class="headerlink" title="过滤分组,having子句语法"></a>过滤分组,having子句语法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 求平均工资大于2000的部门</span><br><span class="line">select deptno,avg(sal) from emp group by deptno having avg(sal) &gt; 2000;</span><br></pre></td></tr></table></figure>
-<p><strong><em>注意：where子句不能使用组函数，having才可以。没有组函数的时候，条件写在二者之后都是可以的，但是从sql优化的角度上，where的效率会更加高。</em></strong></p>
-<blockquote>
-<p>having是先分组，后过滤。where是先过滤，后分组。</p>
-</blockquote>
-<h4 id="分组函数的嵌套"><a href="#分组函数的嵌套" class="headerlink" title="分组函数的嵌套"></a>分组函数的嵌套</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 求部门平均工资的最大值</span><br><span class="line">select max(avg(sal)) from emp group by deptno;</span><br></pre></td></tr></table></figure>
-<h4 id="group-by-的增强-rollup-a-b"><a href="#group-by-的增强-rollup-a-b" class="headerlink" title="group by 的增强 rollup(a,b)"></a>group by 的增强 rollup(a,b)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">group by rollup(a,b)</span><br><span class="line">-- 等价于</span><br><span class="line">group by a,b </span><br><span class="line">+</span><br><span class="line">group by a </span><br><span class="line">+</span><br><span class="line">group by null(不分组)</span><br></pre></td></tr></table></figure>
-<p><strong><em>rollup用于报表的生成非常有用</em></strong></p>
-<blockquote>
-<p>break on deptno skip 2（相同的部门号只显示一次，不同的部门号跳过2行）<br>select deptno,job,sum(sal) from emp group by rollup(deptno, job);–生成升序报表</p>
-</blockquote>
-<h4 id="order-by-排序"><a href="#order-by-排序" class="headerlink" title="order by 排序"></a>order by 排序</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select deptno,avg(sal) 平均工资 from emp group by deptno order by 平均工资</span><br></pre></td></tr></table></figure>
-<p><strong><em>上面平均工资也可以用2来代替，2代表select出来的列的序号。</em></strong></p>
-<h2 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h2><h4 id="笛卡尔积"><a href="#笛卡尔积" class="headerlink" title="笛卡尔积"></a>笛卡尔积</h4><blockquote>
-<p>假定有部门表dept和员工表emp</p>
-</blockquote>
-<p>笛卡尔全集的列数=dept行数*emp行数.<br>sql拼写的时候一定要注意避免错误的笛卡尔全集。</p>
-<h4 id="等值连接"><a href="#等值连接" class="headerlink" title="等值连接"></a>等值连接</h4><blockquote>
-<p>连接条件中如果是等于号，那就是等值连接。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 查询二个表的员工信息</span><br><span class="line">select ... from emp e, dept d where e.deptno=d.deptno</span><br></pre></td></tr></table></figure>
-<h4 id="不等值连接"><a href="#不等值连接" class="headerlink" title="不等值连接"></a>不等值连接</h4><blockquote>
-<p>连接条件中如果不是等于号，那就是等值连接。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-- salgrade薪水级别表</span><br><span class="line">select ... from emp e, salgrade s where e.sal between s.lowsal and s.highsal</span><br><span class="line">-- 使用between一定要注意小的在前大的在后</span><br></pre></td></tr></table></figure>
-<h4 id="外链接"><a href="#外链接" class="headerlink" title="外链接"></a>外链接</h4><blockquote>
-<p>核心：通过外链接，把对于连接条件不成立的记录，仍然包含在最后的结果中。<br>左外连接：当连接条件不成立的时候，等号左边的表仍然被包含。<br>右外链接：当连接条件不成立的时候，等号右边的表仍然被包含。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-- 右外链接</span><br><span class="line">select ... from emp e, dept d where e.deptno(+)=d.deptno group by ...;</span><br><span class="line">-- 左外链接反之</span><br></pre></td></tr></table></figure>
-<h4 id="自连接"><a href="#自连接" class="headerlink" title="自连接"></a>自连接</h4><blockquote>
-<p>通过别名，将同一张表视为多张表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 查询员工的老板，mgr员工老板的empno</span><br><span class="line">select ... from emp a, emp b where a.mgr=b.eepno;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h5 id="自连接存在的问题"><a href="#自连接存在的问题" class="headerlink" title="自连接存在的问题"></a>自连接存在的问题</h5><blockquote>
-<p>根据笛卡尔积，n个别名表，自连接的总行数是表记录的n次方，所以自连接不适合操作大表，解决方法：层次查询。</p>
-</blockquote>
-<h4 id="层次查询"><a href="#层次查询" class="headerlink" title="层次查询"></a>层次查询</h4><blockquote>
-<p>单表查询，树结构查询</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- 管理者和下属可以理解为树结构关系，emp.mgr指向管理者emp.empno</span><br><span class="line">select level, empno, ename, sal, mgr from emp connect by prior empno=mgr</span><br><span class="line">start with mgr is null order by 1;</span><br><span class="line">-- level是一个伪劣，相当于树结构的层次，越高层越小，从1开始，order by 1代表根据level排序</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>自连接优点是直观，缺点是不适合操作大表。<br>层次查询有点是单表查询，不会产生笛卡尔积，缺点是结果不直观，可能不满足某些应用场景。</p>
-</blockquote>
-<h2 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h2><blockquote>
-<p>子查询说白了只是select语句的嵌套。</p>
-<h4 id="子查询要注意的10个问题"><a href="#子查询要注意的10个问题" class="headerlink" title="子查询要注意的10个问题"></a>子查询要注意的10个问题</h4><ol>
-<li>语法的小括号不可缺少</li>
-<li>书写风格，让语句方便阅读</li>
-<li>可以使用子查询的位置：where，select，having，from</li>
-<li>不可以使用子查询的位置：group by</li>
-<li>强调：from后面的子查询</li>
-<li>主查询和子查询可以不是同一张表</li>
-<li>一般不在子查询中使用排序，但在top-n分析问题中，必须对子查询排序</li>
-<li>一般先执行子查询，再执行主查询；但是相关子查询例外</li>
-<li>单行子查询只能使用单行操作符；多行子查询只能使用多行操作符</li>
-<li>注意：子查询中是null值问题</li>
-</ol>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-- top-n分析问题</span><br><span class="line">-- 找到员工表中工资最高的前三名</span><br><span class="line">-- rownum：行号，伪列</span><br><span class="line"></span><br><span class="line">--以下是错误写法：</span><br><span class="line">select rownum, empno, ename, sal from emp where rownum&lt;=3 order by sal desc;</span><br></pre></td></tr></table></figure>
-<p><strong><em>rownum 行号永远按照默认的顺序生成，行号只能使用&lt;, &lt;=; 不能使用&gt;, &gt;=。默认顺序是指select不加排序条件查出来的顺序，使用rownum排序是误区。</em></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 正确的写法</span><br><span class="line">select rownum, empno, ename, sal from（select * from emp order by sal desc）where rownum&lt;=3;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">--一般先执行子查询，再执行主查询；但是相关子查询例外,例如下面的相关子查询（子查询要依赖于父查询）。</span><br><span class="line">-- 找到员工表中薪水大于本部门平均薪水的员工</span><br><span class="line">select empno，ename，sal, (select avg(e2.sal) from emp e where e2.dept=e1.dept) avgsal from emp e where e.sal &gt; (select avg(e2.sal) from emp e where e2.dept=e1.dept);</span><br><span class="line">以上就是相关子查询实例，</span><br></pre></td></tr></table></figure>
-<h4 id="子查询的类型"><a href="#子查询的类型" class="headerlink" title="子查询的类型"></a>子查询的类型</h4><blockquote>
-<p>子查询分单行子查询和多行子查询。<br>多行操作符：in，any，all<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">-- 查询工资大于部门号30的任意一个员工工资的员工</span><br><span class="line">select * from emp e where e.sal &gt; any (select sal from emp where deptno=30);</span><br><span class="line">-- 或者使用min函数</span><br><span class="line">select * from emp e where e.sal &gt; (select min(sal) from emp where deptno=30);</span><br><span class="line">查询工资大于部门号30所有人工资的员工</span><br><span class="line">select * from emp e where e.sal &gt; any (select sal from emp where deptno=30);</span><br><span class="line">-- 同样可以用max函数</span><br><span class="line">-- 查询不是老板的员工</span><br><span class="line">-- 下面是错误写法：</span><br><span class="line">select * from emp where empno not in (select mgr from emp);--空结果</span><br><span class="line">--原因：a not in (10,20,null) == a!=10 and a!=20 and a!=null  最后一个条件永远不假</span><br><span class="line">-- 正确写法</span><br><span class="line">select * from emp where empno not in (select mgr from emp where mgr is not null);</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h2 id="综合示例"><a href="#综合示例" class="headerlink" title="综合示例"></a>综合示例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-- 分页案例 查询排序后的5到8条记录</span><br><span class="line">select * from (select rownum r,* from (select * from emp order by desc) e1  where rownum &lt;= 8) e2 where e2.r &gt; 5;</span><br><span class="line"></span><br><span class="line">-- 按照入职年份查询员工的人数, 例如1981</span><br><span class="line">select count(*) total, sum(decode(to_char(hiredate, &apos;YYYY&apos;), &apos;1981&apos;, 1, 0)) &apos;1981&apos; from emp;</span><br><span class="line">select (select count(*) from emp) total, (select count(*) from emp where ...) &apos;1981&apos; fro dual;</span><br></pre></td></tr></table></figure>
-<p><strong><em>相关子查询效率正常比多表查询快</em></strong></p>
-<h2 id="Extra-notes"><a href="#Extra-notes" class="headerlink" title="Extra notes"></a>Extra notes</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- desc emp</span><br><span class="line">-- show user</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/03/07/oracle系列之高级查询/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -362,6 +302,14 @@
 <p>更改webserver的端口信息$JBoss_home\server\default\conf\jboss-service.xml文件<br>更改JNDI的端口信息$JBoss_home\server\default\conf\jboss-service.xml文件<br>更改RMI端口信息$JBoss_home\server\default\conf\jboss-service.xml文件<br>更改Remote端口信息$JBoss_home\server\default\conf\jboss-service.xml文件<br>更改JMS端口$JBoss_home\server\default\deploy\jms\uil2-service.xml文件<br>更改http端口$JBoss_home\server\default\deploy\jboss-web.deployer下的server.xml文件<br>更改ejb socket端口$JBoss_home\server\default\deploy\ejb3.deployer\META-INF\ jboss-service.xml</p>
 <p>需要修改几个冲突的端口才能启动。</p>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/03/20/一台机器启动多个jboss/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

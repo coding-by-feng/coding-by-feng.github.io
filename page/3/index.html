@@ -163,7 +163,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/11/数据结构系列之树-Java/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/09/English系列之名词/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -177,7 +177,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/11/数据结构系列之树-Java/" class="post-title-link" itemprop="url">数据结构系列之树（Java）</a>
+            <a href="/2020/04/09/English系列之名词/" class="post-title-link" itemprop="url">English系列之名词</a>
         </h2>
 
         <div class="post-meta">
@@ -187,538 +187,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-09-11 21:33:45" itemprop="dateCreated datePublished" datetime="2020-09-11T21:33:45+08:00">2020-09-11</time>
+              <time title="Created: 2020-04-09 13:07:43" itemprop="dateCreated datePublished" datetime="2020-04-09T13:07:43+08:00">2020-04-09</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-20 16:45:54" itemprop="dateModified" datetime="2020-09-20T16:45:54+08:00">2020-09-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>该文章总结自网上一些个教程，转载需注明出处。</p>
-</blockquote>
-<p><a href="https://leetcode-cn.com/tag/tree/" target="_blank" rel="noopener">leetcode树专题</a></p>
-<h2 id="树的定义"><a href="#树的定义" class="headerlink" title="树的定义"></a>树的定义</h2><p>树是由n个有限节点组成一个具有层次关系的集合。把它叫做“树”是因为它看起来像一棵倒挂的树，也就是说它是根朝上，而叶朝下的。<br>当n=0时，称为空树。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/pbMQ0p.png" alt></p>
-<h2 id="树的特点"><a href="#树的特点" class="headerlink" title="树的特点"></a>树的特点</h2><ul>
-<li>每个节点都只有有限个子节点或无子节点；</li>
-<li>没有父节点的节点称为根节点；</li>
-<li>每一个非根节点有且只有一个父节点；</li>
-<li>除了根节点外，每个子节点可以分为多个不相交的子树；</li>
-<li>树里面没有环路(cycle)。 </li>
-</ul>
-<h2 id="树的术语"><a href="#树的术语" class="headerlink" title="树的术语"></a>树的术语</h2><ul>
-<li>根节点： 根节点没有父节点，树中最多有一个根节点（如上图的Root）；</li>
-<li>节点的度：一个节点含有的子树的个数称为该节点的度（如上图的Root的度为3，L2_*所有节点的度为0）；</li>
-<li>树的度：树中最大的节点度称为树的度（如上图树的度=Root的度=L1_C的度）；</li>
-<li>叶节点（终端节点）：度为0的节点（如上图L2_*的所有节点）；</li>
-<li>父节点：若一个节点含有子节点，则这个节点称为其子节点的父节点；</li>
-<li>子节点：一个节点的子树的根节点称为其孩子节点；</li>
-<li>兄弟节点：具有相同父节点的节点互称为兄弟节点；</li>
-<li>树的层（节点的层）：从根开始定义起，根为第1层，根的子节点为第2层，以此类推；</li>
-<li>分支节点（非终端节点）：度不为零的节点；</li>
-<li>深度：对于任意节点n,n的深度为从根到n的唯一路径长，根的深度为0；</li>
-<li>高度：对于任意节点n,n的高度为从n到其子孙中的最长路径，所有树叶的高度为0；</li>
-<li>节点的祖先：从根到该节点所经分支上的所有节点；</li>
-<li>森林：由m（m&gt;=0）棵互不相交的树的集合称为森林；</li>
-<li>子孙：以某节点为根的子树中任一节点都称为该节点的子孙。</li>
-</ul>
-<h2 id="有序树"><a href="#有序树" class="headerlink" title="有序树"></a>有序树</h2><h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><p>二叉树（Binary tree）是每个节点最多只有两个分支（即不存在分支度大于2的节点）的树结构，是n(n≥0)个节点组成的有限集合：</p>
-<ul>
-<li>n=0时称为空二叉树；</li>
-<li>n&gt;0的二叉树由一个根节点和两棵互不相交的子树组合而成，通常分支被称作“左子树”或“右子树”，二叉树的分支具有左右次序，不能随意颠倒。</li>
-</ul>
-<h4 id="二叉树的五种形态"><a href="#二叉树的五种形态" class="headerlink" title="二叉树的五种形态"></a>二叉树的五种形态</h4><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/r9NLTh.png" alt></p>
-<h4 id="三个节点的二叉树有多少种？"><a href="#三个节点的二叉树有多少种？" class="headerlink" title="三个节点的二叉树有多少种？"></a>三个节点的二叉树有多少种？</h4><p>五种。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/MKUYFS.png" alt></p>
-<h4 id="二叉树的性质"><a href="#二叉树的性质" class="headerlink" title="二叉树的性质"></a>二叉树的性质</h4><ul>
-<li>二叉树的第i层上至多有$2^{i-1}(i≥1)$个节点；</li>
-<li>深度为h的二叉树中至多含有2^{h}-1个节点;</li>
-</ul>
-<h4 id="完全二叉树（Complete-Binary-Tree）"><a href="#完全二叉树（Complete-Binary-Tree）" class="headerlink" title="完全二叉树（Complete Binary Tree）"></a>完全二叉树（Complete Binary Tree）</h4><p>假设二叉树的深度为h，除第h层外，其它各层<code>[1～h-1]</code>的节点数都达到最大个数，第h层所有的节点都连续集中在最左边，这就是完全二叉树<br>换句话说，在一颗二叉树中，若除最后一层外的其余层都是满的，并且最后一层要么是满的，要么在右边缺少<strong><em>连续</em></strong>一个或若干节点，则此二叉树为完全二叉树。<br>比如，下面三棵树都是完全二叉树：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/g7pm5P.png" alt></p>
-<h5 id="完全二叉树的性质"><a href="#完全二叉树的性质" class="headerlink" title="完全二叉树的性质"></a>完全二叉树的性质</h5><ul>
-<li>若<code>i≤[n/2]</code>， 则节点i为分支节点，否则为叶子节点。</li>
-<li>叶子节点只可能在层次最大的两层上出现。对于最大层次的叶子节点，都依次排在最左边的位置上。</li>
-<li>度为1的节点若存在，则最多只能只有一个，且是编号最大的分支节点，其孩子节点一定是左节点。</li>
-</ul>
-<h5 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h5><p>一棵高度为h的满二叉树（Full Binary Tree）是具有$2^{h}−1(h≥0)$个节点的二叉树。满二叉树的最大特点是每一层次的节点数都达到最大值。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/pjgSLj.png" alt></p>
-<blockquote>
-<p>对于编号为i的节点，若存在，其双亲的编号为<code>i/2</code>,左孩子为<code>2i</code>,右孩子为<code>2i+1</code>。</p>
-</blockquote>
-<h4 id="二叉树的存储结构"><a href="#二叉树的存储结构" class="headerlink" title="二叉树的存储结构"></a>二叉树的存储结构</h4><p>二叉树可以用数组或链接串列来存储，主要采用的是链式存储结构，至于顺序存储结构仅适用于完全二叉树或满二叉树，若是满二叉树就能紧凑排列而不浪费空间。</p>
-<h5 id="顺序存储结构"><a href="#顺序存储结构" class="headerlink" title="顺序存储结构"></a>顺序存储结构</h5><p>用一组连续的存储单元依次自上而下、自左至右存储完全二叉树上的节点元素。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/2AJIGM.png" alt><br>但是如果二叉树树是非完全二叉树的情况下，就必须使用顺序表的空元素来代替，如：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/27x3Tt.png" alt><br>这样的话，在非完全二叉树的情况下，采用顺序存储结构的二叉树就有很大弊端了，可能会造成很大空间的浪费，比如这种类型的树：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/1XluNE.png" alt><br>因此，非完全二叉树还是要使用链式存储结构来实现，这也是最常见的实现二叉树的存储结构。</p>
-<h5 id="二叉树的链式存储结构"><a href="#二叉树的链式存储结构" class="headerlink" title="二叉树的链式存储结构"></a>二叉树的链式存储结构</h5><ul>
-<li>双指针链式存储结构<br>双指针链式结构主要由一个数据域和两个分别指向左、右孩子的指针组成。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/Ir7nGG.png" alt><br>从图中可以看出，采用双指针链式存储结构，每个节点只存储了到其孩子节点的单向关系，而没有存储到父节点的关系，这样的话，每次要获取父节点时将消耗较多的时间，因为需要从root根节点开始查找，花费的时间是遍历部分二叉树的时间。</li>
-<li>三指针链式存储结构<br>三指针链式结构主要是在双指针的基础上多添加了一个指向父节点的域，这样我们就存储了父节点与孩子节点的双向关系，当然这样也增加了一定的空间开销。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/hvHTKU.png" alt></li>
-</ul>
-<h4 id="二叉查找树（二叉排序树、二叉搜索树、Binary-Seary-Tree）"><a href="#二叉查找树（二叉排序树、二叉搜索树、Binary-Seary-Tree）" class="headerlink" title="二叉查找树（二叉排序树、二叉搜索树、Binary Seary Tree）"></a>二叉查找树（二叉排序树、二叉搜索树、Binary Seary Tree）</h4><p>二叉查找树的特性是，对于树种的每个节点T,它的左子树中所有项的值小T中的值，而它的右子树中所有项的值都大于T中的值。</p>
-<blockquote>
-<p>它既有链表的快速插入与删除操作的特点，又有数组快速查找的优势。</p>
-</blockquote>
-<h5 id="二叉排序树的查询"><a href="#二叉排序树的查询" class="headerlink" title="二叉排序树的查询"></a>二叉排序树的查询</h5><p>二叉树非空时，查找根结点，若相等则查找成功;<br>若不等，则当小于根结点值时，查找左子树;当大于根结点的值时，查找右子树。<br>当查找到叶节点仍没查找到相应的值，则查找失败。</p>
-<blockquote>
-<p>BOILERPLATE（递归转非递归并非一定要通过栈）:</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public TreeNode searchBST(TreeNode node, int key)&#123;</span><br><span class="line">    while(node !=null &amp;&amp; key != node.val)&#123;</span><br><span class="line">        if(key &lt; node.val)&#123;</span><br><span class="line">            node = node.left;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            node = node.right;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return node;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h4><h5 id="先序（先根次序）遍历"><a href="#先序（先根次序）遍历" class="headerlink" title="先序（先根次序）遍历"></a>先序（先根次序）遍历</h5><ul>
-<li>访问根节点</li>
-<li>先序遍历左子树</li>
-<li>先序遍历右子树</li>
-</ul>
-<p>比如以下二叉树的访问次序是：1、2、4、5、3<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/T6UmeX.png" alt></p>
-<h6 id="先根遍历的递归实现"><a href="#先根遍历的递归实现" class="headerlink" title="先根遍历的递归实现"></a>先根遍历的递归实现</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">private String preOrder(BinaryNode&lt;T&gt; node)&#123;</span><br><span class="line">    if (node!=null) &#123;</span><br><span class="line">        //先访问根节点</span><br><span class="line">        peek(node);</span><br><span class="line">        //遍历左子树</span><br><span class="line">        preOrder(node.left);</span><br><span class="line">        //遍历右子树</span><br><span class="line">        preOrder(node.right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>也可以使用非递归实现，比如使用栈。</p>
-</blockquote>
-<h5 id="中序（中根次序）遍历"><a href="#中序（中根次序）遍历" class="headerlink" title="中序（中根次序）遍历"></a>中序（中根次序）遍历</h5><p>二叉搜索树的中序遍历的序列是递增排序的序列，中序遍历的遍历次序：Left -&gt; Node -&gt; Right。</p>
-<ul>
-<li>中序遍历左子树</li>
-<li>遍历根节点</li>
-<li>中序遍历右子树</li>
-</ul>
-<p>比如以下二叉树遍历顺序是a、b、c，也就是4、2、5、1、3、6：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/8xLHgi.png" alt><br> 中序遍历的递归实现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">private String inOrder(BinaryNode&lt;T&gt; node)&#123;</span><br><span class="line">    if (node!=null) &#123;</span><br><span class="line">        //遍历左子树</span><br><span class="line">        inOrder(node.left);</span><br><span class="line">        //先访问根节点</span><br><span class="line">        peek(node);</span><br><span class="line">        //遍历右子树</span><br><span class="line">        inOrder(node.right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h6 id="中序遍历的非递归实现"><a href="#中序遍历的非递归实现" class="headerlink" title="中序遍历的非递归实现"></a>中序遍历的非递归实现</h6><blockquote>
-<p>可以使用栈来实现。</p>
-</blockquote>
-<p>遍历思想：</p>
-<ul>
-<li>1、初始时依次扫描根节点的所有左侧节点并将它们进栈;</li>
-<li>2、出栈一个节点，访问它;</li>
-<li>3、扫描该节点的右节点并将其进栈;</li>
-<li>4、依次扫描右节点的所有左侧节点并一一进栈;</li>
-<li>5、反复该过程直到栈空为止。</li>
-</ul>
-<p>比如以下树，进出栈顺序为：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/oy8slf.png" alt></p>
-<ul>
-<li>进栈：1、2、4、7（遍历思想第1步）；</li>
-<li>出栈：7；（栈中：：1、2、4，遍历思想第2步）</li>
-<li>访问7所在节点，尝试拿到其右节点压入栈，但是此时为空，不能递归空节点是否有左节点（遍历思想上面的第3步）；</li>
-<li>出栈：4；（栈中：1、2，遍历思想第2步）</li>
-<li>遍历思想第3步，此时为空；</li>
-<li>出栈：2；（栈中：1，遍历思想第2步）</li>
-<li>遍历思想第3步，发现其右节点；</li>
-<li>进栈：5；（栈中：1、5）</li>
-<li>遍历思想第4步，此时为空；</li>
-<li>出栈：5；（栈中：1，遍历思想第2步）</li>
-<li>遍历思想第3步，此时为空；</li>
-<li>出栈：1（遍历思想第2步）</li>
-<li>遍历思想第3步，此时发现右节点，进栈3（栈中：3）；</li>
-<li>遍历思想第4步，此时发现左节点，进栈6（栈中：3、6）；</li>
-<li>重复第2步2次，致词结束。</li>
-</ul>
-<p>所以不难发现，其实真个过程只是在遍历思想的5步中循环，从第3步到第4步，只要访问想要的节点为空就退回到上一步然后继续往后走，直至栈空。</p>
-<blockquote>
-<p>BOILERPLATE：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">void inOrder(TreeNode node)&#123;</span><br><span class="line">    Stack stack = new Stack();</span><br><span class="line">    Object e = node;</span><br><span class="line">    while(e != null || !stack.isEmpty())&#123;</span><br><span class="line">        if(e != null)&#123;</span><br><span class="line">            stack.push(e);</span><br><span class="line">            e = e.left;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            e = stack.pop();</span><br><span class="line">            peek(e);</span><br><span class="line">            e = e.right;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="后序（后根次序）遍历"><a href="#后序（后根次序）遍历" class="headerlink" title="后序（后根次序）遍历"></a>后序（后根次序）遍历</h5><ul>
-<li>后序遍历左子树</li>
-<li>后序遍历右子树</li>
-<li>访问根节点</li>
-</ul>
-<p>比如以下二叉树遍历顺序是a、b、c，也就是4、5、2、1、6、3、1：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/kysHQi.png" alt></p>
-<h6 id="后序遍历的递归实现"><a href="#后序遍历的递归实现" class="headerlink" title="后序遍历的递归实现"></a>后序遍历的递归实现</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">private String postOrder(BinaryNode&lt;T&gt; node)&#123;</span><br><span class="line">    if (node!=null) &#123;</span><br><span class="line">        //遍历左子树</span><br><span class="line">        postOrder(node.left);</span><br><span class="line">        //遍历右子树</span><br><span class="line">        postOrder(node.right);</span><br><span class="line">        //先访问根节点</span><br><span class="line">        peek(node);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>同样也可以使用栈来实现。</p>
-</blockquote>
-<h5 id="层次遍历"><a href="#层次遍历" class="headerlink" title="层次遍历"></a>层次遍历</h5><blockquote>
-<p>使用队列来实现。</p>
-</blockquote>
-<p>遍历思想：</p>
-<ul>
-<li>1、初始将根入队并访问根结点，然后出队;</li>
-<li>2、若有左子树，则将左子树的根入队;</li>
-<li>3、若有右子树，则将右子树的根入队;</li>
-<li>4、然后出队，访问该结点;</li>
-<li>5、反复该过程直到队列空为止。</li>
-</ul>
-<blockquote>
-<p>BOILERPLATE：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void levelOrder(BiTree root)&#123;</span><br><span class="line">    queue.push(root);</span><br><span class="line">    BiTree node;</span><br><span class="line">    while(!queue.isEmpty())&#123;</span><br><span class="line">        node = queue.pop();</span><br><span class="line">        peek(node);</span><br><span class="line">        if(node.left != null) queue.push(node.left);</span><br><span class="line">        if(node.right != null) queue.push(node.right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="遍历序列确定唯一二叉树"><a href="#遍历序列确定唯一二叉树" class="headerlink" title="遍历序列确定唯一二叉树"></a>遍历序列确定唯一二叉树</h5><p>后序或者先序遍历序列+中序遍历序列，可以确定一颗唯一二叉树。<br>比如：</p>
-<ul>
-<li>先序遍历序列（1、2、4、5、3、6）</li>
-<li>中序遍历序列（4、2、5、1、6、3）</li>
-</ul>
-<p>其对应的树如下：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/EmDKEi.png" alt></p>
-<h4 id="线索二叉树"><a href="#线索二叉树" class="headerlink" title="线索二叉树"></a>线索二叉树</h4><p>线索化：</p>
-<ul>
-<li>若无左子树，则将左指针指向其前驱结点;</li>
-<li>若无右子树，则将右指针指向其后继结点。</li>
-</ul>
-<h5 id="线索二叉树-1"><a href="#线索二叉树-1" class="headerlink" title="线索二叉树"></a>线索二叉树</h5><p>比如先序遍历序列为<code>124536</code>的二叉树先序线索化如下图：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/oblrFJ.png" alt><br>同样是这颗树的中序序列为<code>425163</code>，其对应的中序线索化如下图：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/p5lMPP.png" alt></p>
-<blockquote>
-<p>其后序线索二叉树<code>452631</code>也是同理。<br>最常用的是中序线索二叉树。<br>中序线索二叉树线索化的BOILERPLATE:</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class TreeNode &#123;</span><br><span class="line">        String data;    //数据域</span><br><span class="line">        Node left;      //左节点</span><br><span class="line">        Node right;     //右节点</span><br><span class="line">        boolean isLeftToPre;  </span><br><span class="line">        boolean isRightToNext; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">// 方法调用传入二叉树的中序遍历后的顺序的第一个节点对象实例</span><br><span class="line">public void initInThread(TreeNode first)&#123;</span><br><span class="line">    TreeNode pre = null;</span><br><span class="line">    inThreadOrder(first, pre);</span><br><span class="line">    pre.right = null;</span><br><span class="line">    pre.isLeftToPre = true;</span><br><span class="line">&#125;</span><br><span class="line">public void inThreadOrder(TreeNode node, TreeNode pre)&#123;</span><br><span class="line">    if(node == null) return;</span><br><span class="line">    inThreadOrder(node.left, node);</span><br><span class="line">    if(node.left == null)&#123;</span><br><span class="line">        node.left = pre;</span><br><span class="line">        node.isLeftToParent = true;</span><br><span class="line">    &#125;</span><br><span class="line">    if(pre != null &amp;&amp; pre.right == null)&#123;</span><br><span class="line">        pre.right = node;</span><br><span class="line">        pre.isRightToNext = true;</span><br><span class="line">    &#125;</span><br><span class="line">    pre = node;</span><br><span class="line">    inThreadOrder(node.right, node.pre);</span><br><span class="line">&#125;</span><br><span class="line">// 寻找中序排列第一个节点，传入根节点</span><br><span class="line">publid TreeNode firstNode(TreeNode node)&#123;</span><br><span class="line">    while(!node.isLeftToPre)&#123;</span><br><span class="line">        node = node.left;</span><br><span class="line">    &#125;</span><br><span class="line">    return node;</span><br><span class="line">&#125;</span><br><span class="line">// 寻找中序排序之后的后继节点</span><br><span class="line">publid TreeNode nextNode(TressNode node)&#123;</span><br><span class="line">    if(!node.isRightToNext)&#123;</span><br><span class="line">        return firstNode(node.right);</span><br><span class="line">    &#125;</span><br><span class="line">    return node.right;</span><br><span class="line">&#125;</span><br><span class="line">// 所以，中序线索化遍历某颗树可以这么实现：</span><br><span class="line">// 传入树的根节点，简单明了</span><br><span class="line">public void inOrder(TreeNode root)&#123;</span><br><span class="line">    for(TreeNode temp = firstNode(root); temp != null; temp = nextNode(temp))&#123;</span><br><span class="line">        peek(temp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h6 id="线索二叉树数据结构特点"><a href="#线索二叉树数据结构特点" class="headerlink" title="线索二叉树数据结构特点"></a>线索二叉树数据结构特点</h6><p>其节点数据结构增加两个Boolean类型的标志域（成员变量）：</p>
-<ul>
-<li>isLeftToPre<code>true</code>时代表其左孩子节点指向其前驱节点，反之代表其左孩子节点指向其后继节点。</li>
-<li>isRightToNext：当为<code>true</code>时代表其右孩子节点指向其前驱结点，反之代表其右孩子节点指向其后继节点。   </li>
-</ul>
-<h3 id="霍夫曼树"><a href="#霍夫曼树" class="headerlink" title="霍夫曼树"></a>霍夫曼树</h3><h3 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h3><h2 id="无序树"><a href="#无序树" class="headerlink" title="无序树"></a>无序树</h2><blockquote>
-<p>参考来源<a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91" target="_blank" rel="noopener">维基百科</a>、<a href="https://www.bilibili.com/video/BV1b7411N798?p=42" target="_blank" rel="noopener">王道考研</a>等</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/18/数据结构系列之图-Java/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/18/数据结构系列之图-Java/" class="post-title-link" itemprop="url">数据结构系列之图（Java）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-09-18 18:45:32" itemprop="dateCreated datePublished" datetime="2020-09-18T18:45:32+08:00">2020-09-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-19 17:22:30" itemprop="dateModified" datetime="2020-09-19T17:22:30+08:00">2020-09-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="广度优先搜索（Breadth-First-Search、BFS）"><a href="#广度优先搜索（Breadth-First-Search、BFS）" class="headerlink" title="广度优先搜索（Breadth-First-Search、BFS）"></a>广度优先搜索（Breadth-First-Search、BFS）</h3><p>BFS与树的层次遍历有点类似，其具体过程如下：</p>
-<ul>
-<li>访问起始顶点<code>vertex</code>;</li>
-<li>由顶点依次访问<code>vertex</code>的各个<strong><em>未被访问过</em></strong>的邻接顶点W1、W2、W3、…Wn;</li>
-<li>然后依次访问W1、W2、W3、… Wn;的所有<strong><em>未被访问过</em></strong>的邻接顶点;</li>
-<li>…，以此类推。</li>
-</ul>
-<p>如果仅仅是树的层次遍历来实现BFS的话，无法满足只访问未被访问过的这一约束，比如如下的图：</p>
-<p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/ihab4j.png" alt></p>
-<p>因此其实现原理需要额外的一个<code>队列</code>和一个<code>辅助性的数组</code>。</p>
-<blockquote>
-<p>BOILERPLATE:</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">private class Graph &#123;</span><br><span class="line">    int val;</span><br><span class="line">    int index;</span><br><span class="line">    Graph[] neighbors;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private boolean[] visitedRecord = new boolean[MAX];</span><br><span class="line">private Queue&lt;Graph&gt; queue;</span><br><span class="line">private void BFS(Graph g)&#123;</span><br><span class="line">    peek(g); // 具体的访问代码逻辑</span><br><span class="line">    visitedRecord[g.index] = true; // 代表已经访问过</span><br><span class="line">    queue.push(g);</span><br><span class="line">    while(!queue.isEmpty())&#123;</span><br><span class="line">        Graph temp = intqueue.pop();</span><br><span class="line">        for(Graph next = getFristNeighbor(temp); next != null ; next = getNextNeighbor(temp))&#123;</span><br><span class="line">            if(!visitedRecord[next.index])&#123;</span><br><span class="line">                peek(next);</span><br><span class="line">                visitedRecord[next.index] = true; // 代表已经访问过</span><br><span class="line">                queue.push(next);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private void mutilGraphVetex(Graph... gs)&#123;</span><br><span class="line">    // 如果存在多个顶点的图</span><br><span class="line">    gs.forEach(this::BDF);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="深度优先搜索（Depth-First-Search、DFS）"><a href="#深度优先搜索（Depth-First-Search、DFS）" class="headerlink" title="深度优先搜索（Depth-First-Search、DFS）"></a>深度优先搜索（Depth-First-Search、DFS）</h3>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/31/Java系列之JVM/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/31/Java系列之JVM/" class="post-title-link" itemprop="url">Java系列之JVM</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-03-31 20:57:37" itemprop="dateCreated datePublished" datetime="2020-03-31T20:57:37+08:00">2020-03-31</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-18 17:37:37" itemprop="dateModified" datetime="2020-09-18T17:37:37+08:00">2020-09-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/JVM/" itemprop="url" rel="index"><span itemprop="name">JVM</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="JVM的官方规范"><a href="#JVM的官方规范" class="headerlink" title="JVM的官方规范"></a>JVM的官方规范</h2><p>《Java Virtual Machine Specification》</p>
-<h2 id="美团Java面试7连问"><a href="#美团Java面试7连问" class="headerlink" title="美团Java面试7连问"></a>美团Java面试7连问</h2><p><a href="https://zhuanlan.zhihu.com/p/114157783" target="_blank" rel="noopener">马士兵老师的讲解</a></p>
-<h3 id="对象的定位方式"><a href="#对象的定位方式" class="headerlink" title="对象的定位方式"></a>对象的定位方式</h3><h4 id="句柄方式"><a href="#句柄方式" class="headerlink" title="句柄方式"></a>句柄方式</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/QUtvd4.png" alt></p>
-<h4 id="直接指针"><a href="#直接指针" class="headerlink" title="直接指针"></a>直接指针</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/7BWN68.png" alt></p>
-<h3 id="句柄方式-vs-直接指针"><a href="#句柄方式-vs-直接指针" class="headerlink" title="句柄方式 vs 直接指针"></a>句柄方式 vs 直接指针</h3><p>后者的效率更高，但是当GC挪动对象的时候，前者效率更高。（上图中，前者GC挪动存活对象和清理垃圾对象的时候，t的指针不需要变）</p>
-<h3 id="对象怎么分配"><a href="#对象怎么分配" class="headerlink" title="对象怎么分配"></a>对象怎么分配</h3><h3 id="OOP-KLASS模型"><a href="#OOP-KLASS模型" class="headerlink" title="OOP-KLASS模型"></a>OOP-KLASS模型</h3><h2 id="Java内存模型（Java-Memory-Model-JMM）"><a href="#Java内存模型（Java-Memory-Model-JMM）" class="headerlink" title="Java内存模型（Java Memory Model/JMM）"></a>Java内存模型（Java Memory Model/JMM）</h2><p><a href="https://zhuanlan.zhihu.com/p/29881777" target="_blank" rel="noopener">Java内存模型（JMM）总结</a></p>
-<h2 id="Java三种编译方式：前端编译-JIT编译（即时编译）-AOT编译"><a href="#Java三种编译方式：前端编译-JIT编译（即时编译）-AOT编译" class="headerlink" title="Java三种编译方式：前端编译 JIT编译（即时编译） AOT编译"></a>Java三种编译方式：前端编译 JIT编译（即时编译） AOT编译</h2><p><a href="https://blog.csdn.net/tjiyu/article/details/53748965" target="_blank" rel="noopener">https://blog.csdn.net/tjiyu/article/details/53748965</a></p>
-<h2 id="JVM各种实现"><a href="#JVM各种实现" class="headerlink" title="JVM各种实现"></a>JVM各种实现</h2><p>实现JVM规范的各种虚拟机：</p>
-<ul>
-<li>Oracle的HotSpot</li>
-</ul>
-<h2 id="java的nio"><a href="#java的nio" class="headerlink" title="java的nio"></a>java的nio</h2><h2 id="Java的AOT、JIT（Just-in-time-即时编译）"><a href="#Java的AOT、JIT（Just-in-time-即时编译）" class="headerlink" title="Java的AOT、JIT（Just in time/即时编译）"></a>Java的AOT、JIT（Just in time/即时编译）</h2><h2 id="Java内存（映像）分析工具（hprof文件分析工具）"><a href="#Java内存（映像）分析工具（hprof文件分析工具）" class="headerlink" title="Java内存（映像）分析工具（hprof文件分析工具）"></a>Java内存（映像）分析工具（hprof文件分析工具）</h2><p><a href="https://youzhixueyuan.com/jvm-performance-analysis-tool.html" target="_blank" rel="noopener">https://youzhixueyuan.com/jvm-performance-analysis-tool.html</a><br>目前主流有四大工具：</p>
-<ul>
-<li>Jconsole（JDK自带，功能简单）</li>
-<li>VisualVM（JDK自带，功能强大）</li>
-<li>JProfiler（商业软件，功能强大）</li>
-<li>MAT（基于Eclipse）</li>
-</ul>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="jar"><a href="#jar" class="headerlink" title="jar"></a>jar</h3><p>list the files in the jar.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar -tf xxx.jar</span><br></pre></td></tr></table></figure></p>
-<h3 id="javap（The-Java-Class-File-Disassembler、Java-class文件反编译程序）"><a href="#javap（The-Java-Class-File-Disassembler、Java-class文件反编译程序）" class="headerlink" title="javap（The Java Class File Disassembler、Java class文件反编译程序）"></a>javap（The Java Class File Disassembler、Java class文件反编译程序）</h3><p>解压jar包，并反编译class输入到txt文件查看<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unzip Classes.jar</span><br><span class="line">find . -name &apos;*.class&apos; | xargs javap -p &gt; classes.txt</span><br></pre></td></tr></table></figure></p>
-<h3 id="查找命令所在目录"><a href="#查找命令所在目录" class="headerlink" title="查找命令所在目录"></a>查找命令所在目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">where java</span><br><span class="line">where javac</span><br><span class="line">where jar</span><br><span class="line">where jvisualvm</span><br><span class="line"># where也可以换成which</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/04/大杂烩/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/04/大杂烩/" class="post-title-link" itemprop="url">大杂烩</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-08-04 19:13:39" itemprop="dateCreated datePublished" datetime="2020-08-04T19:13:39+08:00">2020-08-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-18 16:05:52" itemprop="dateModified" datetime="2020-09-18T16:05:52+08:00">2020-09-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="专业方法和技巧"><a href="#专业方法和技巧" class="headerlink" title="专业方法和技巧"></a>专业方法和技巧</h1><h2 id="第一原理（第一性原理、第一思维方式）"><a href="#第一原理（第一性原理、第一思维方式）" class="headerlink" title="第一原理（第一性原理、第一思维方式）"></a>第一原理（第一性原理、第一思维方式）</h2><p><a href="https://wiki.mbalib.com/wiki/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86" target="_blank" rel="noopener">https://wiki.mbalib.com/wiki/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86</a><br>“我们运用第一性原理，而不是比较思维去思考问题是非常重要的。我们在生活中总是倾向于比较，对别人已经做过或者正在做的事情我们也都去做，这样发展的结果只能产生细小的迭代发展。第一性原理的思想方式是用物理学的角度看待世界，也就是说一层层拨开事物表象，看到里面的本质，再从本质一层层往上走。”这是马斯克眼中的“第一性原理思维模型”——回溯事物的本质，重新思考怎么做。</p>
-<h2 id="费曼4步学习法"><a href="#费曼4步学习法" class="headerlink" title="费曼4步学习法"></a>费曼4步学习法</h2><h2 id="艾宾浩斯记忆曲线"><a href="#艾宾浩斯记忆曲线" class="headerlink" title="艾宾浩斯记忆曲线"></a>艾宾浩斯记忆曲线</h2><p>遗忘曲线（Forgetting curve）是用于表述记忆中的中长期记忆的遗忘率的一种曲线。这一曲线最早由心理学家赫尔曼·艾宾浩斯通过自己的实验提出。在这一实验中，艾宾浩斯使用了一些毫无意义的字母组合。通过记忆这些字母组合，并在一系列时间间隔后检查遗忘率，得到了这一曲线。因此，这一曲线又叫艾宾浩斯遗忘曲线。<br>记忆曲线大概如下：</p>
-<ul>
-<li>20分钟后，42%被遗忘掉，58%被记住。</li>
-<li>1小时后，56%被遗忘掉，44%被记住。</li>
-<li>1天后，74%被遗忘掉，26%被记住。</li>
-<li>1周后，77%被遗忘掉，23%被记住。</li>
-<li>1个月后，79%被遗忘掉，21%被记住。</li>
-</ul>
-<blockquote>
-<p>Anki Notes这个软件就是根据这个原理设计的。</p>
-</blockquote>
-<h2 id="罗斯福专业法"><a href="#罗斯福专业法" class="headerlink" title="罗斯福专业法"></a>罗斯福专业法</h2><h2 id="达芬奇笔记"><a href="#达芬奇笔记" class="headerlink" title="达芬奇笔记"></a>达芬奇笔记</h2><h1 id="一些个专有名词"><a href="#一些个专有名词" class="headerlink" title="一些个专有名词"></a>一些个专有名词</h1><h2 id="边际效益"><a href="#边际效益" class="headerlink" title="边际效益"></a>边际效益</h2><p><a href="https://baike.baidu.com/item/%E8%BE%B9%E9%99%85%E6%95%88%E7%9B%8A/2414098?fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/%E8%BE%B9%E9%99%85%E6%95%88%E7%9B%8A/2414098?fr=aladdin</a></p>
-<h2 id="方法论-VS-世界观"><a href="#方法论-VS-世界观" class="headerlink" title="方法论 VS 世界观"></a>方法论 VS 世界观</h2><p><strong><em>它是人们用什么样的方式、方法来观察事物和处理问题。概括地说，世界观主要说明世界“是什么”的问题，方法论主要说明“怎么办”的问题。</em></strong><br>方法论是一种以解决问题为目标的理论体系或系统，通常涉及对问题阶段、任务、工具、方法技巧的论述。方法论会对一系列具体的方法进行分析研究、系统总结并最终提出较为一般性的原则。<br><a href="https://baike.baidu.com/item/%E6%96%B9%E6%B3%95%E8%AE%BA/82748?fr=aladdin" target="_blank" rel="noopener">方法论的百度百科</a></p>
-<h2 id="衰减平均值"><a href="#衰减平均值" class="headerlink" title="衰减平均值"></a>衰减平均值</h2><p>“衰减平均值”是指它会比普通的平均值更容易受到新数据的影响，平均值代表整体平均状态，但衰减平均值更准确地代表“最近的”平均状态。</p>
-<h2 id="人口红利"><a href="#人口红利" class="headerlink" title="人口红利"></a>人口红利</h2><p>一国人口生育率的迅速下降在造成人口老龄化加速的同时，少儿抚养比例迅速下降，劳动年龄人口比例上升，在老年人口比例达到较高水平之前，将形成一个劳动力资源相对丰富、抚养负担轻、于经济发展十分有利的“黄金时期”，人口经济学家称之为“人口红利”。</p>
-<h1 id="成语-amp-词语"><a href="#成语-amp-词语" class="headerlink" title="成语&amp;词语"></a>成语&amp;词语</h1><ul>
-<li>睚眦必报</li>
-<li>兼听则明，偏听则暗</li>
-<li>触类旁通</li>
-<li>高光时刻</li>
-<li>窸窸窣窣</li>
-<li>侧足而立</li>
-<li>相悖</li>
-<li>商榷</li>
-<li>结痂</li>
-<li>一骑绝尘</li>
-<li>罄竹难书</li>
-</ul>
-<h1 id="权威书籍"><a href="#权威书籍" class="headerlink" title="权威书籍"></a>权威书籍</h1><h2 id="《金字塔原理》"><a href="#《金字塔原理》" class="headerlink" title="《金字塔原理》"></a>《金字塔原理》</h2><h2 id="《罗伯特议事规则》"><a href="#《罗伯特议事规则》" class="headerlink" title="《罗伯特议事规则》"></a>《罗伯特议事规则》</h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/05/English系列-思维练习错题笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/05/English系列-思维练习错题笔记/" class="post-title-link" itemprop="url">English系列-思维练习错题笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-08-05 22:47:26" itemprop="dateCreated datePublished" datetime="2020-08-05T22:47:26+08:00">2020-08-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-18 13:56:54" itemprop="dateModified" datetime="2020-09-18T13:56:54+08:00">2020-09-18</time>
+                <time title="Modified: 2020-09-25 10:47:18" itemprop="dateModified" datetime="2020-09-25T10:47:18+08:00">2020-09-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -741,36 +217,387 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Yesterday I had a phone call from Clint. I was very surprised. I <strong>__</strong> （write） to him many times but he <strong>__</strong> （never, reply） to my letters.<br>答案：had written, had never replied<br>解析：两个或两个以上相继发生的动作，用and或but按动作发生的先后顺序连接，此时要用一般过去时，而不用过去完成时。过去完成时则强调主语在过去的某一时刻“回顾”更早的动作。具体来说，如果在谈论过去某一事件时，又想到在这之前已发生的某事，就要用过去完成时态。   </p>
-<p>A: I need to find a dermatologist.（皮肤科医生） You’re familiar with Dr. Smith. Do you recommend her?<br>B: Well, I <strong>__</strong> （see） by her a few times. And the best I can say for her is she has interesting magazines in her waiting room.<br>答案：have been seen<br>解析：在英语中，“动作表达”的完成时态强调最近发生的事件，而“状态表达”的完成时态强调“较远的过去”经历。   </p>
-<p>It’s reported that by the end of this month the output of cement in the factory <strong>__</strong> （rise） by about 10%.<br>答案：will have risen<br>解析：将来完成时是以“将来”作为“坐标时间”，来表示开始于将来之前（可能是过去、现在或将来）的动作持续到将来。但动作开始的时间并不重要，关键是说话人要站在将来的某一时间来谈某一动作的完成情况。</p>
-<p>I have entered the university for two years.<br>答案：错误，应改为：I have been in the university for two years，或者用一般过去时态说成：I entered the university two years ago.</p>
-<p>He has left his native place for three years.<br>答案：“单一事件”完成时的肯定句不与持续的时间状语连用，动词leave（left的原形）是非延续性动词，不能跟一段时间状语（否定句除外）。</p>
-<p>A: Are you glad you came to China?<br>B: Yes. Indeed. 我本来是要考虑去Tokyo or Singapore, but 我从不后 悔我的决定。<br>答案：I’d considered going to Tokyo or Singapore, but I’ve never regretted my decision.<br>解析：表示“非真实”的过去，主要是指intend，mean，hope，want，plan，suppose，expect， think，propose和wish等动词用于过去完成时，可表示过去未能实现的计划、设想、意图或希望等。   </p>
-<p>George would certainly have attended the proceedings <strong>__</strong>.<br>A. had he not had a flat tire<br>B. had the tire no flattened itself<br>C. if the flat tire hadn’t happened<br>D. if he didn’t get a flat tire<br>答案：A</p>
-<p>If Greek civilization <strong>__</strong> all of Europe, English wouldn’t contain so many Greek words.<br>A. hadn’t influenced<br>B. doesn’t influence<br>C. hasn’t influenced<br>D. didn’t influence<br>答案：A</p>
-<p>Nelson <strong>__</strong> the fight, with a little more training and a better manager.<br>A. would win<br>B. had won<br>C. could have won<br>D. won<br>答案：C<br>解析：尼尔森本可以赢得这场战斗，但需要更多的训练和更好的教练。</p>
-<p>He would rather <strong>__</strong> than worked last night.<br>A. have slept<br>B. has slept<br>C. sleep<br>D. slept<br>答案：A<br>解析：本题考查 would rather have done 的虚拟句型，本题相当于“He would rather have slept than have worked last night.” ，后边的 have 被省去了。</p>
-<p>If the climate had been more favorable, the crops <strong>__</strong> still better.<br>A. would have grown<br>B. would be growing<br>C. would be grown<br>D. will grow<br>答案：A</p>
-<p>These facts suggested that women <strong>__</strong> in opportunity for physical exercise by cultural taboos.<br>A. should been limited<br>B. had been limited<br>C. be limited<br>D. have been limited<br>答案：B<br>解析：这里的 suggested 是“表明，显示”而不是“建议”的意思，因而不用虚拟语气。</p>
-<p>The result has turned still worse than it <strong>__</strong><br>A. would otherwise have been<br>B. would be otherwise<br>C. has otherwise been<br>D. had otherwise been<br>答案：A<br>解析：这里有 otherwise ，表明要用虚拟，且是虚拟的主句形式。另根据句意判断，这里是表示过去虚拟，故要用 would have done 形式，所以 A 正确。</p>
-<p>We (could, might) go to that new restaurant opposite the cinema.<br>答案：could<br>解析：用于表示委婉的“建议”，此时，could并不表示过去。</p>
-<p>You (could, may) be right, but I still don’t agree with you!<br>答案：may<br>解析：could更加的委婉和客观，因为后面的but I still don’t agree with you，所有要用may，即使两者可能性程度都很低。</p>
-<p>The situation was bad but it (could be, may have been, could have been) worse.<br>答案：could have been</p>
-<p>Thank you very much for buying me flowers. You <strong>__</strong> (buy) me flowers.<br>错误答案：couldn’t have bought<br>正确答案：shouldn’t have bought<br>解析：虽然could用于表示委婉的“建议，但是couldn’t就失去了委婉的含义了。</p>
-<p>Mary was a talented violinist at the age of ten. She <strong>__</strong> (play) the violin very well when she was ten.<br>错误答案：must have played<br>正确答案：could play<br>解析：这里要表达的是过去的能力（过去的潜能）</p>
-<p>Our worrying so much was a waste of time.=We <strong>__</strong> (worry) so much.<br>错误答案：shouldn’t worry<br>正确答案：needn’t have worried<br>解析：这里的need是情态动词。表示“没必要做……”</p>
-<p>It’s possible that the last person to leave didn’t lock the door.=The last person to leave <strong>__</strong> (lock) the door.<br>错误答案：could haven’t locked<br>正确答案：may not have locked<br>解析：过去推测，在否定句中，can’t/couldn’t要比may not/might not的否定语气强烈。</p>
-<p>She paid him and walked off. Then she realized that he <strong>__</strong> (not, be) a deaf mute. How did she know? He must have heard her initial instructions or he <strong>__</strong> (not, know) where to take her.<br>正确答案：can’t have been    wouldn’t have known<br>解析：can’t在此表示不可能，后者是过去虚拟语气</p>
-<p>The boss has promised that every player in NBA <strong>__</strong> have a rise in income.<br>A. would B. might C. shall D. should<br>正确答案：C<br>解析：shall用于第二、三人称的陈述句中，可以表示说话人的许诺。</p>
-<p>He was a good swimmer so he <strong>__</strong> swim to the river bank when the boat sank.<br>A. could B. might C. succeeded to D. was able to<br>正确答案：D<br>解析：was able to才是表达过去具体的能力，could只能表达过去潜在的能力。</p>
-<p>He did very badly on the exam. He <strong>__</strong> harder.<br>A. must study B. must have studied C. should study D. should have studied<br>正确答案：D<br>解析：</p>
-<p>He <strong>__</strong> pull down a bull and acknowledged as a man with superman strength.<br>A. used to be able to B. would be able to C. should be able to D. might be able to<br>正确答案：A<br>解析：为什么C不可以？</p>
-<p>This book falls overdue a week; I must be fined.<br>这本书过期一周了，我肯定会被罚款。</p>
-<p>He looked <strong>__</strong>.<br>A. nervously<br>B. around nervous<br>C. around nervously<br>正确答案：C<br>解析：C。look作系动词时，意为“看起来”，后面接形容词作表语。look作行为动词时，意为“看”，lookC。look作系动词时，意为“看起来”，后面接形容词作表语。look作行为动词时，意为“看”，look around意为“朝周围看”，可以被副词nervously修饰，充当其方式状语。</p>
-<p>In 1952 Ernest Hemingway published The Old Man and the Sea, <strong>__</strong>.<br>A. won him the Nobel Prize for Literature in 1954<br>B. and the Nobel Prize for Literature won in 1954<br>C. in 1954 won the Nobel Prize for Literature for this work<br>D. a work that won him the Nobel Prize for Literature in 1954<br>正确答案：D<br>解析：本题考查双宾语结构：win sb. sth.。这里D选项中 a work是作为同位语，补充说明The Old Man and the Sea。然后在work后边接一个定语从句。 精品译文：在1952年，欧内斯特·海明威发表了小说《老人与海》，这部作品为他赢得了1954年的诺贝尔文学奖。</p>
-<p>The question is <strong>__</strong> can be put into practice.<br>A. how you have learned<br>B. how that you have learned<br>C. that why you have learned<br>D. how what you have learned<br>正确答案：D<br>解析：D。这是从句的嵌套结构。首先是how引导一个表语从句，然后在此从句中，嵌套一个what引导的主语从句。其中what充当从句谓语learned的宾语。</p>
+          <h1 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h1><h2 id="名词短语"><a href="#名词短语" class="headerlink" title="名词短语"></a>名词短语</h2><p>名词短语是由名词与它的修饰语一起构成的。名词的修饰语与名词的位置关系不外乎两种：一是放在被修饰名词的前面，我们称之为前置定语或定语；二是放在被修饰名词的后面，我们称之为后置定语。<br>一般来讲，名词前面有两种修饰语。其一是限定词，用来限定名词所指的范围，对名词起泛指或特指、定量或不定量等限定修饰作用。比如上文中的these, three, a, the, my和that。<br>其二是形容词，是用来表示名词的性质和特征的。</p>
+<h3 id="左二右六公式"><a href="#左二右六公式" class="headerlink" title="左二右六公式"></a>左二右六公式</h3><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/yCPZgM.png" alt></p>
+<h3 id="汉语和英语很大的基本差别"><a href="#汉语和英语很大的基本差别" class="headerlink" title="汉语和英语很大的基本差别"></a>汉语和英语很大的基本差别</h3><p>我们知道，英语和汉语的一个基本差别就是名词修饰语，即定语的位置差异。我们汉语的定语一律是在名词的前面，而英语的定语有在名词前面的，也有在名词后面的，更多的定语是置于被修饰名词的后面，构成后置定语。所以，在语言学上，汉语被称作是“中心词（head）在后”的语言（head-last language）；英语被称作是“中心词在前”的语言（head-first language）。因此，总体来说，英语和汉语的语序差不多是刚好反过来的。</p>
+<h2 id="名词的分类"><a href="#名词的分类" class="headerlink" title="名词的分类"></a>名词的分类</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/z9DC7y.png" alt></p>
+<h2 id="不可数名词的规律"><a href="#不可数名词的规律" class="headerlink" title="不可数名词的规律"></a>不可数名词的规律</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/09/English系列之名词/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
 
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/07/English系列之进行时态-思维特征/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/07/English系列之进行时态-思维特征/" class="post-title-link" itemprop="url">English系列之进行时态（思维特征)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-06-07 19:39:21" itemprop="dateCreated datePublished" datetime="2020-06-07T19:39:21+08:00">2020-06-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-25 10:47:18" itemprop="dateModified" datetime="2020-09-25T10:47:18+08:00">2020-09-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>这篇笔记摘选自《英语语法新思维初级教程第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。</p>
+</blockquote>
+<h2 id="进行时态的核心含义"><a href="#进行时态的核心含义" class="headerlink" title="进行时态的核心含义"></a>进行时态的核心含义</h2><ol>
+<li>事件具有持续性（ongoing）：进行时态首先表示的是一个事件或活动在某个特定的时间正在持续；</li>
+<li>事件具有短暂性（temporary）：即表明事件的持续时间是有限的。如果是无限的，即表达一个长期的、恒久的含义，那么就该用一般现在时态了；</li>
+<li>事件未完成（incomplete）：进行体既然强调动作的持续性，那么就表明这个动作还没有结束。</li>
+</ol>
+<h2 id="进行体动作与一般动作对比"><a href="#进行体动作与一般动作对比" class="headerlink" title="进行体动作与一般动作对比"></a>进行体动作与一般动作对比</h2><h3 id="活动与状态的对比"><a href="#活动与状态的对比" class="headerlink" title="活动与状态的对比"></a>活动与状态的对比</h3><p>进行体表示具体的活动，而一般时态往往与状态有关。<br>1） I am thinking about the answer.<br>2） I think the answer is 144.<br>在例句1）中，进行时态表明think是用于“动态”的意义，相当于consider，此时表示思考活动。在例句2）中，一般时态表明think 是用于“静态”的意义，相当于说have an opinion，此时表示思维状态。</p>
+<h3 id="发生在说话那一刻的一个动作与一个习惯的对比"><a href="#发生在说话那一刻的一个动作与一个习惯的对比" class="headerlink" title="发生在说话那一刻的一个动作与一个习惯的对比"></a>发生在说话那一刻的一个动作与一个习惯的对比</h3><p>进行体表示发生在说话时刻的一个动作，而一般时态则表示一个习惯。<br>1） Why are you wearing glasses?<br>2） Why do you wear glasses?<br>在例句1）中，进行时态表示一个当下的具体动作， 即“在说话的时刻，对方正戴着眼镜”。在例句2）中，一般现在时态表示一个习惯动作，即使在说话的时刻，对方没有戴眼镜，也可以说这句话。</p>
+<h3 id="具体事件与概括描述的对比"><a href="#具体事件与概括描述的对比" class="headerlink" title="具体事件与概括描述的对比"></a>具体事件与概括描述的对比</h3><p>进行体总是十分具体的，而一般动作可用于概括的叙述。<br>1） Weeds are growing like wildfire（in my garden）.<br>2） Weeds grow like wildfire.<br>在例句1）中，进行时态往往会表达目前所见到的一个具体场景，比如这里说我们家花园里杂草的长势情况。在例句2）中，一般时态通常表示一个一般情形，比如这里是说，一般情况下杂草长得很快，是泛泛地在谈杂草的生长特点，而并没有具体所指。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/06/07/English系列之进行时态-思维特征/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/07/English系列之进行时态-将来进行时/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/07/English系列之进行时态-将来进行时/" class="post-title-link" itemprop="url">English系列之进行时态（将来进行时）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-06-07 18:36:16" itemprop="dateCreated datePublished" datetime="2020-06-07T18:36:16+08:00">2020-06-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-25 10:47:18" itemprop="dateModified" datetime="2020-09-25T10:47:18+08:00">2020-09-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>这篇笔记摘选自《英语语法新思维初级教程第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。</p>
+</blockquote>
+<h2 id="典型用法：将来某一特定时刻正在持续的事"><a href="#典型用法：将来某一特定时刻正在持续的事" class="headerlink" title="典型用法：将来某一特定时刻正在持续的事"></a>典型用法：将来某一特定时刻正在持续的事</h2><p><strong><em>将来进行时态的典型用法，就是想象自己或其他人在将来某一特定时刻（at a particular time in future）正在做某事。</em></strong>比如下面的两个朋友在谈论休假的事：<br>A: When do you leave for Hainan?<br>B: Tomorrow. Just think, two days from now I will be lying on the beach in the sun.<br>A: Sounds great!<br>在上文中，说话人B用了will be lying这一动词变化形式，表示想象自己后天就正躺在海滩上的情景，这样的表达很生动。</p>
+<p>Don’t telephone me after eight tomorrow—I’ll be having a meeting.<br>明天8点钟以后不要给我打电话，因为那时我正在开会。</p>
+<p>Wait until seven o’clock so that they won’t still be eating.<br>等到7点钟再过去吧，这样他们那时就不会还在吃饭了。</p>
+<h2 id="口语用法：将来计划好的事"><a href="#口语用法：将来计划好的事" class="headerlink" title="口语用法：将来计划好的事"></a>口语用法：将来计划好的事</h2><p><strong><em>在日常的口语中，我们常用will be doing来谈一个将来计划好的事情。</em></strong><br>Professor Smith will be giving a lecture on American literature tomorrow evening.<br>这里的将来进行时态表示确定好的安排。<br>明晚史密斯教授将会举行有关美国文学的讲座。<br>现在进行时态be doing也可以表示计划好的事。比如上面这个句子也可以说成：<br>Professor Smith is giving a lecture on American literature tomorrow evening. </p>
+<blockquote>
+<p>此时，两者的区别不是很大。因此，表示将来安排好的事情，两种时态可以换用。</p>
+</blockquote>
+<p>不过，二者还是有下列两点不同： </p>
+<blockquote>
+<p>现在进行时只表示最近的将来；而将来进行时既可以表示最近的将来，也可以表示较远的将来。</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/06/07/English系列之进行时态-将来进行时/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/08/English系列之情态动词/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/08/English系列之情态动词/" class="post-title-link" itemprop="url">English系列之情态动词</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-08 09:28:30" itemprop="dateCreated datePublished" datetime="2020-08-08T09:28:30+08:00">2020-08-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-25 10:42:36" itemprop="dateModified" datetime="2020-09-25T10:42:36+08:00">2020-09-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>这篇笔记摘选自《英语语法新思维中级教程通悟语法第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。<br>思维导图版本<a href="http://www.xmind.net/m/WMvHqi" target="_blank" rel="noopener">点击这里</a>（Web版的XMind有一些问题）。</p>
+</blockquote>
+<h2 id="多情多义的情态动词"><a href="#多情多义的情态动词" class="headerlink" title="多情多义的情态动词"></a>多情多义的情态动词</h2><h3 id="情态动词的“全家福”"><a href="#情态动词的“全家福”" class="headerlink" title="情态动词的“全家福”"></a>情态动词的“全家福”</h3><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/zMxKiC.png" alt><br>需要注意的是，四个情态动词的过去式could，might，would和should只是在形式上是can，may，will和shall的过去式，而在意义上并不是完全对应于can，may，will和shall。<br>一方面，现在式和过去式这两类情态动词的意义并不完全对等。例如，can和could的意义并不完全等同，它们既有共同的用法，如表示“能力”，也有各自不同的用法。另一方面，这四个过去形式的情态动词并不一定表示过去的时间（实际上通常都不是）。</p>
+<h3 id="情态动词的意义"><a href="#情态动词的意义" class="headerlink" title="情态动词的意义"></a>情态动词的意义</h3><p>情态动词（modals）用在实义动词（main verb）的前面， 以添加某种意思。比较下列句子用与不用情态动词在意义上的差别：<br>1） John isn’t in class. He is sick.<br>2） John isn’t in class. He must be sick.<br>在例句1）中，没有使用情态动词，只用了一般现在时态的is，表达的是一个客观事实。在例句2）中，用了情态动词must，则是表示说话人的主观猜测。我们看到，因为有了must，使得例句2）比例句1）更带有主观色彩，意思也不同了。<br>1） 约翰今天没上课，他病了。<br>2） 约翰今天没上课，他一定是病了。</p>
+<p>I must go to school today.<br>比较上面的例句2）和本句可以发现，两句中情态动词must的意思是不一样的：例句2）中的must表示推测，而本句中的must没有推测的意思，而是表示“必须”。<br>今天我一定得上学去。</p>
+<p>有时，即使是同一个句子，也可能会因为语境不同，其中的情态动词会有不同的理解。<br>He must drink a lot of milk.<br>没有上下文的语境，我们很难判断。即比如，如果这句话是出自医生之口，显然就会被理解成是医生对病人提的一个忠告或建议，即“他得多喝牛奶”。言外之意，就是说明喝牛奶对健康是有好处的。因此，此时的must是“必须”之意。我们再想象这句话可能出现的另一个场景，比如，有一天我们在商店里看到一个人买了很多牛奶，这时我们就可以推断说“He must drink a lot of milk”。<br>显然这时要说的意思是“他准是爱喝很多牛奶”。因此，此时的must表示的是推测。<br>情态动词的含义大致可以分为以下两大类：</p>
+<ul>
+<li>一类是表示“逻辑可能性”，将其称为推测用法，即表示人们对某件事发生的可能性大小所做的判断。</li>
+<li>另一类是各个情态动词有各自基本的意思，比如，can意为“能够”，must意为“必须”，should意为“应该”等等。</li>
+</ul>
+<p>关于“约翰生病”的例子：<br>1） John isn’t in class. He is sick.<br>2） John isn’t in class. He must be sick.<br>3） John isn’t in class. He may be sick.<br>例句1）没有使用情态动词，只用了一般现在时态的is，这表明说话人只是在陈述一个客观事实，即“约翰生病了”。这句话没有表明说话人的态度（the speaker’s attitude）。而例句2）和3）这两句使用了情态动词，表明了说话人的态度。例句2）用的是must，意为“一定是，准是”，这表明说话人对于“约翰生病了”这件事是很有把握和信心的一个推断（deduction）。例句3）用的是may，意为“可能是，或许是”，这表明说话人对于“约翰生病了”这件事是比较没有把握和信心的一个推断。说话人推断“约翰生病了”。<br>这件事从三个不同的角度（perspective）来表达：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/08/08/English系列之情态动词/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/22/English系列之自然拼读/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/22/English系列之自然拼读/" class="post-title-link" itemprop="url">English系列之自然拼读</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-22 16:51:35" itemprop="dateCreated datePublished" datetime="2020-07-22T16:51:35+08:00">2020-07-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-25 10:42:36" itemprop="dateModified" datetime="2020-09-25T10:42:36+08:00">2020-09-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="单词结尾的s什么时候读-“s”-与-“z”"><a href="#单词结尾的s什么时候读-“s”-与-“z”" class="headerlink" title="单词结尾的s什么时候读 “s” 与 “z”"></a>单词结尾的s什么时候读 “s” 与 “z”</h2><ul>
+<li>做动词时结尾读”z”</li>
+<li>做形容词、副词、名词时结尾读”s”</li>
+</ul>
+<p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/aXaxF4.png" alt><br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/kwz7k7.png" alt><br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/G9b1HK.png" alt><br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/s6UeVk.png" alt><br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/qJ0Dzb.png" alt><br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/odIBhw.png" alt><br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/q8mAhm.png" alt></p>
+<blockquote>
+<p>参考来源<a href="https://www.zhihu.com/zvideo/1268214408456630272" target="_blank" rel="noopener">知乎</a></p>
+</blockquote>
+<h1 id="字母组合发音"><a href="#字母组合发音" class="headerlink" title="字母组合发音"></a>字母组合发音</h1><h2 id="ar"><a href="#ar" class="headerlink" title="ar"></a>ar</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/ɑː/</span><br></pre></td></tr></table></figure>
+<p>garbage</p>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/07/22/English系列之自然拼读/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -945,61 +772,6 @@
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-          load: ['[tex]/mhchem'],
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-          packages: {'[+]': ['mhchem']},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 

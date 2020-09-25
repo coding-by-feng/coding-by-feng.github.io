@@ -163,6 +163,95 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/14/linux系列之问题汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/14/linux系列之问题汇总/" class="post-title-link" itemprop="url">linux系列之问题汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-14 18:11:33" itemprop="dateCreated datePublished" datetime="2020-05-14T18:11:33+08:00">2020-05-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-05 13:53:01" itemprop="dateModified" datetime="2020-06-05T13:53:01+08:00">2020-06-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="apt-get国内太慢"><a href="#apt-get国内太慢" class="headerlink" title="apt-get国内太慢"></a>apt-get国内太慢</h1><p>ubuntu和debian的镜像源都要换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list</span><br><span class="line">sed -i &apos;s/deb.debian.org/mirrors.ustc.edu.cn/g&apos; /etc/apt/sources.list</span><br></pre></td></tr></table></figure></p>
+<p>还原：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i s@/mirrors.aliyun.com/@/deb.debian.org/@g /etc/apt/sources.list</span><br></pre></td></tr></table></figure></p>
+<h2 id="更换163的镜像"><a href="#更换163的镜像" class="headerlink" title="更换163的镜像"></a>更换163的镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#更新apt-get源 使用163的源</span><br><span class="line">mv /etc/apt/sources.list /etc/apt/sources.list.bak &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+<h2 id="apk命令更换源"><a href="#apk命令更换源" class="headerlink" title="apk命令更换源"></a>apk命令更换源</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;http://mirrors.aliyun.com/alpine/v3.8/main&quot; &gt; /etc/apk/repositories \</span><br><span class="line">    &amp;&amp; echo &quot;http://mirrors.aliyun.com/alpine/v3.8/community&quot; &gt;&gt; /etc/apk/repositories \</span><br><span class="line">    &amp;&amp; apk update upgrade \</span><br></pre></td></tr></table></figure>
+<h2 id="将命令的返回值赋值给变量（Shell命令）"><a href="#将命令的返回值赋值给变量（Shell命令）" class="headerlink" title="将命令的返回值赋值给变量（Shell命令）"></a>将命令的返回值赋值给变量（Shell命令）</h2><ul>
+<li>A=<code>ls -la</code> 反引号，运行里面的命令，并把结果返回给变量A</li>
+<li>A=$(ls -la)等价于反引号</li>
+</ul>
+<h2 id="linux-shell通过curl获取HTTP请求的状态码"><a href="#linux-shell通过curl获取HTTP请求的状态码" class="headerlink" title="linux shell通过curl获取HTTP请求的状态码"></a>linux shell通过curl获取HTTP请求的状态码</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/14/linux系列之问题汇总/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/25/Spring系列之SpringCloud/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -223,40 +312,15 @@
       
           <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？-todo"><a href="#整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？-todo" class="headerlink" title="整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？ todo"></a>整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？ todo</h2><h2 id="Dubbo的生态在最近有没有经常颠覆性的完善？-todo"><a href="#Dubbo的生态在最近有没有经常颠覆性的完善？-todo" class="headerlink" title="Dubbo的生态在最近有没有经常颠覆性的完善？ todo"></a>Dubbo的生态在最近有没有经常颠覆性的完善？ todo</h2><h2 id="为什么本地配置文件还要有从git加载的模式？-todo"><a href="#为什么本地配置文件还要有从git加载的模式？-todo" class="headerlink" title="为什么本地配置文件还要有从git加载的模式？ todo"></a>为什么本地配置文件还要有从git加载的模式？ todo</h2><h2 id="RefreshScope用法和避坑-todo"><a href="#RefreshScope用法和避坑-todo" class="headerlink" title="@RefreshScope用法和避坑 todo"></a>@RefreshScope用法和避坑 todo</h2><p>Refresh Scope<br>A Spring @Bean that is marked as @RefreshScope will get special treatment when there is a configuration change. This addresses the problem of stateful beans that only get their configuration injected when they are initialized. For instance if a DataSource has open connections when the database URL is changed via the Environment, we probably want the holders of those connections to be able to complete what they are doing. Then the next time someone borrows a connection from the pool he gets one with the new URL.</p>
 <p>Refresh scope beans are lazy proxies that initialize when they are used (i.e. when a method is called), and the scope acts as a cache of initialized values. To force a bean to re-initialize on the next method call you just need to invalidate its cache entry.</p>
-<h2 id="spring-cloud-config-uri的默认值作用是什么？启动警告是否需要排除掉？todo"><a href="#spring-cloud-config-uri的默认值作用是什么？启动警告是否需要排除掉？todo" class="headerlink" title="spring.cloud.config.uri的默认值作用是什么？启动警告是否需要排除掉？todo"></a>spring.cloud.config.uri的默认值作用是什么？启动警告是否需要排除掉？todo</h2><h2 id="SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别-todo"><a href="#SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别-todo" class="headerlink" title="@SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别 todo"></a>@SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别 todo</h2><h1 id="spring-profiles-yml配置文件"><a href="#spring-profiles-yml配置文件" class="headerlink" title="spring.profiles || yml配置文件"></a>spring.profiles || yml配置文件</h1><p>关于spring boot profiles可以参考：<br><a href="https://dzone.com/articles/spring-boot-profiles-1" target="_blank" rel="noopener">https://dzone.com/articles/spring-boot-profiles-1</a><br>文中翻译的大概意思如下：<br>spring.profiles会以灵活切换的方式切换整个应用环境配置的各种相关属性，通过相关属性所在配置文件的文件名为条件做切换。</p>
-<h4 id="spring-profiles-active-native"><a href="#spring-profiles-active-native" class="headerlink" title="spring.profiles.active:native"></a>spring.profiles.active:native</h4><p>这个标记为配置文件从本地路径加载，但是有点奇怪，按道理这么危险的配置文件应该只能本地才对，即使从svn或者git上加载也只能从私服去取，在非开发模式下不应该存在去公网取配置文件才对。<br>网上说可以从native，svn和git加载，但是官方的最新文档其comma-separated list出现的有<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">active: dev,mysql,git,redis,awss3,credhub,composite,vault</span><br></pre></td></tr></table></figure></p>
-<p>在查阅官方文档之后发现这几段话：</p>
-<blockquote>
-<p>There is also a “native” profile in the Config Server that does not use Git but loads the config files from the local classpath or file system (any static URL you want to point to with spring.cloud.config.server.native.searchLocations). To use the native profile, launch the Config Server with spring.profiles.active=native.</p>
-</blockquote>
-<p>意思是，当spring.profiles.active=native，配置服务会从本地的类路径classpath读取配置文件，如果指定了spring.cloud.config.server.native.searchLocations的话，那么将从指定的路径去读取配置属性文件。</p>
-<blockquote>
-<p>Remember to use the file: prefix for file resources (the default without a prefix is usually the classpath). As with any Spring Boot configuration, you can embed ${}-style environment placeholders, but remember that absolute paths in Windows require an extra / (for example, file:///${user.home}/config-repo).</p>
-</blockquote>
-<p>意思是，spring.cloud.config.server.native.searchLocations可以用${}引用变量这种占位符的方式指定路径。</p>
-<blockquote>
-<p>The default value of the searchLocations is identical to a local Spring Boot application (that is, [classpath:/, classpath:/config, file:./, file:./config]). This does not expose the application.properties from the server to all clients, because any property sources present in the server are removed before being sent to the client.</p>
-</blockquote>
-<p>意思是，spring.cloud.config.server.native.searchLocations有四个默认值，在不配置它的时候可以默认生效,并且如果配置了native的话，路径下所有的配置文件都会被默认加载。</p>
-<h4 id="prefer-ip-address"><a href="#prefer-ip-address" class="headerlink" title="prefer-ip-address"></a>prefer-ip-address</h4><p>这个配置我在官方文档找到的解释是这样的：<br>In some cases, it is preferable for Eureka to advertise the IP addresses of services rather than the hostname. Set eureka.instance.preferIpAddress to true and, when the application registers with eureka, it uses its IP address rather than its hostname.<br>翻译：在某些情况下，Eureka显示服务列表用ip地址的形式来展示比用hostname的形式可能更加合适。把eureka.instance.preferIpAddress（低版本）设置为true，当服务被注册到eureka的时候，注册中心会使用它的ip地址而不是hostname。</p>
-<h4 id="lease-renewal-interval-in-seconds"><a href="#lease-renewal-interval-in-seconds" class="headerlink" title="lease-renewal-interval-in-seconds"></a>lease-renewal-interval-in-seconds</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">   /**</span><br><span class="line"> * Indicates how often (in seconds) the eureka client needs to send heartbeats to</span><br><span class="line"> * eureka server to indicate that it is still alive. If the heartbeats are not</span><br><span class="line"> * received for the period specified in leaseExpirationDurationInSeconds, eureka</span><br><span class="line"> * server will remove the instance from its view, there by disallowing traffic to this</span><br><span class="line"> * instance.</span><br><span class="line"> *</span><br><span class="line"> * Note that the instance could still not take traffic if it implements</span><br><span class="line"> * HealthCheckCallback and then decides to make itself unavailable.</span><br><span class="line"> */</span><br><span class="line">private int leaseRenewalIntervalInSeconds = 30;</span><br></pre></td></tr></table></figure>
-<p>翻译：指定一个eureka客户端发送心跳包给eureka服务的频率（以秒为单位），以此来确保服务是否还活着。如果心跳包在leaseExpirationDurationInSeconds指定的时间段之内没有收到回应，那么eureka的服务将从他们可用微服务列表中移除掉对应的微服务实例，不再允许向该实例发送流量。要注意的是，如果实例实现了HealthCheckCallback接口，并且决定让实例自己置为不可用的话，那么它任然是不能接受流量的。</p>
-<h4 id="lease-expiration-duration-in-seconds"><a href="#lease-expiration-duration-in-seconds" class="headerlink" title="lease-expiration-duration-in-seconds"></a>lease-expiration-duration-in-seconds</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">   /**</span><br><span class="line"> * Indicates the time in seconds that the eureka server waits since it received the</span><br><span class="line"> * last heartbeat before it can remove this instance from its view and there by</span><br><span class="line"> * disallowing traffic to this instance.</span><br><span class="line"> *</span><br><span class="line"> * Setting this value too long could mean that the traffic could be routed to the</span><br><span class="line"> * instance even though the instance is not alive. Setting this value too small could</span><br><span class="line"> * mean, the instance may be taken out of traffic because of temporary network</span><br><span class="line"> * glitches.This value to be set to atleast higher than the value specified in</span><br><span class="line"> * leaseRenewalIntervalInSeconds.</span><br><span class="line"> */</span><br><span class="line">private int leaseExpirationDurationInSeconds = 90;</span><br></pre></td></tr></table></figure>
-<p>翻译：指定一个从它最后一次接收某个服务实例的心跳包后等待的时间（以秒为单位），如果超过这个时间还不能接收到心跳包，那么eureka将会从他的服务列表中移除该实例，并不再允许向该实例发送流量。设置leaseExpirationDurationInSeconds的值太大的话，可能意味着某个实例不是活着的情况下，流量依然被发送到该实例中。设置的值太小的话，可能会由于临时网络故障导致实例抛弃了流量。这个值至少要比leaseRenewalIntervalInSeconds的值要高，也就是上面提到的lease-renewal-interval-in-seconds。</p>
-<h4 id="registry-fetch-interval-seconds"><a href="#registry-fetch-interval-seconds" class="headerlink" title="registry-fetch-interval-seconds"></a>registry-fetch-interval-seconds</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  /**</span><br><span class="line">* Indicates how often(in seconds) to fetch the registry information from the eureka</span><br><span class="line">* server.</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-<p>翻译：指定从eureka抓取注册服务的信息的频率（以秒为单位）</p>
-<h4 id="spring-cloud-config-fail-fast"><a href="#spring-cloud-config-fail-fast" class="headerlink" title="spring.cloud.config.fail-fast"></a>spring.cloud.config.fail-fast</h4><p><a href="https://blog.csdn.net/liubenlong007/article/details/87885567" target="_blank" rel="noopener">https://blog.csdn.net/liubenlong007/article/details/87885567</a></p>
-<h1 id="处理过的问题"><a href="#处理过的问题" class="headerlink" title="处理过的问题"></a>处理过的问题</h1><h4 id="Request-execution-error-endpoint-DefaultEndpoint-serviceUrl-’XX’"><a href="#Request-execution-error-endpoint-DefaultEndpoint-serviceUrl-’XX’" class="headerlink" title="Request execution error. endpoint=DefaultEndpoint{ serviceUrl=’XX’}"></a>Request execution error. endpoint=DefaultEndpoint{ serviceUrl=’XX’}</h4><p>这个报错非常奇葩，我是从网上下的手脚架，运行起来直接报错，后来通过谷歌找到了解决方案，就是在eureka服务的配置文件中加入register-with-eureka和fetch-registry:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 注册中心配置</span><br><span class="line">eureka:</span><br><span class="line">  instance:</span><br><span class="line">    prefer-ip-address: true</span><br><span class="line">    hostname: pig-eureka</span><br><span class="line">  client:</span><br><span class="line">    register-with-eureka: false</span><br><span class="line">    fetch-registry: false</span><br><span class="line">    service-url:</span><br><span class="line">      defaultZone: http://pig:pig@pig-eureka:8761/eureka/</span><br></pre></td></tr></table></figure></p>
-<p>后来再仔细跟一下，发现我是忘记先把eureka注册中心的服务启动了。。。</p>
-<h4 id="Cannot-execute-request-on-any-known-server"><a href="#Cannot-execute-request-on-any-known-server" class="headerlink" title="Cannot execute request on any known server"></a>Cannot execute request on any known server</h4><p>确认yml配置文件地址和格式没有问题的话，那么可能是eureka注册中心的服务没有关闭csrf，在eureka注册中心增加WebSecurityConfigurerAdapter，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@EnableWebSecurity</span><br><span class="line">public class WebSecurityConfig extends WebSecurityConfigurerAdapter &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void configure(HttpSecurity http) throws Exception &#123;</span><br><span class="line">        http.csrf().disable();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="java-lang-NoClassDefFoundError-com-netflix-hystrix-contrib-javanica-aop-aspectj-HystrixCommandAspect"><a href="#java-lang-NoClassDefFoundError-com-netflix-hystrix-contrib-javanica-aop-aspectj-HystrixCommandAspect" class="headerlink" title="java.lang.NoClassDefFoundError: com/netflix/hystrix/contrib/javanica/aop/aspectj/HystrixCommandAspect"></a>java.lang.NoClassDefFoundError: com/netflix/hystrix/contrib/javanica/aop/aspectj/HystrixCommandAspect</h4><p>需要增加断容器依赖spring-cloud-starter-netflix-hystrix</p>
-<h4 id="org-springframework-beans-factory-annotation-Qualifier-value-webFluxConversionService"><a href="#org-springframework-beans-factory-annotation-Qualifier-value-webFluxConversionService" class="headerlink" title="@org.springframework.beans.factory.annotation.Qualifier(value=webFluxConversionService)}"></a>@org.springframework.beans.factory.annotation.Qualifier(value=webFluxConversionService)}</h4><p>如果引入一些第三方的Spring<br>抛出了这个依赖异常，原因是我同时引入依赖：spring-cloud-starter-gateway 和 spring-boot-starter-web。去除了父模块的spring-boot-starter-web依赖即可。</p>
-<h4 id="If-you-want-an-embedded-database-H2-HSQL-or-Derby-please-put-it-on-the-classpath"><a href="#If-you-want-an-embedded-database-H2-HSQL-or-Derby-please-put-it-on-the-classpath" class="headerlink" title="If you want an embedded database (H2, HSQL or Derby), please put it on the classpath."></a>If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.</h4><p>如果遇到新建的微服务报错如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">***************************</span><br><span class="line">APPLICATION FAILED TO START</span><br><span class="line">***************************</span><br><span class="line"></span><br><span class="line">Description:</span><br><span class="line"></span><br><span class="line">Failed to configure a DataSource: &apos;url&apos; attribute is not specified and no embedded datasource could be configured.</span><br><span class="line"></span><br><span class="line">Reason: Failed to determine a suitable driver class</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Action:</span><br><span class="line"></span><br><span class="line">Consider the following:</span><br><span class="line">	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.</span><br><span class="line">	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).</span><br></pre></td></tr></table></figure></p>
-<p>检查关于数据库的链接拼写，和驱动包依赖，如果都没问题，有可能是因为新的微服务使用了配置中心忘记引用配置中心的客户端pom依赖了，我就是忘记下面这个引用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-config&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
-<p>另外，可能性也会有如下几点：<br>1，yml，properties文件缺失、配置写错等；<br>2，没有在@SpringBootApplication注解的Application的同级包或者子级包下增加配置类也会报这个错;<br>3，也有可能是因为引入了不必要的spring-boot-starter-web模块，这个模块会强制要配置数据源；<br>4，引入了其他依赖到数据源配置的包比如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--mybatis-plus--&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;com.baomidou&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;mybatis-plus.version&#125;&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
-<h4 id="Feign-PathVariable-annotation-was-empty-on-param-0"><a href="#Feign-PathVariable-annotation-was-empty-on-param-0" class="headerlink" title="Feign PathVariable annotation was empty on param 0."></a>Feign PathVariable annotation was empty on param 0.</h4><p>使用Feign的时候,如果参数中带有@PathVariable形式的参数,则要用value=””标明对应的参数,否则会抛出IllegalStateException异常</p>
-<h4 id="The-bean-‘ngbip-baf-service-FeignClientSpecification’-could-not-be-registered-A-bean-with-that-name-has-already-been-defined-and-overriding-is-disabled"><a href="#The-bean-‘ngbip-baf-service-FeignClientSpecification’-could-not-be-registered-A-bean-with-that-name-has-already-been-defined-and-overriding-is-disabled" class="headerlink" title="The bean ‘ngbip-baf-service.FeignClientSpecification’ could not be registered. A bean with that name has already been defined and overriding is disabled."></a>The bean ‘ngbip-baf-service.FeignClientSpecification’ could not be registered. A bean with that name has already been defined and overriding is disabled.</h4><p>这个原因基本是因为注解了FeignClient的客户端类，同个id的要被重复注册进注册中心才报的错，可以检查一下是否有@FeignClient的id重复，或者pom的依赖重复了导致feign服务注册多次。</p>
-
+<h2 id="spring-cloud-config-uri的默认值作用是什么？启动警告是否需要排除掉？todo"><a href="#spring-cloud-config-uri的默认值作用是什么？启动警告是否需要排除掉？todo" class="headerlink" title="spring.cloud.config.uri的默认值作用是什么？启动警告是否需要排除掉？todo"></a>spring.cloud.config.uri的默认值作用是什么？启动警告是否需要排除掉？todo</h2><h2 id="SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别-todo"><a href="#SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别-todo" class="headerlink" title="@SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别 todo"></a>@SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别 todo</h2><h1 id="spring-profiles-yml配置文件"><a href="#spring-profiles-yml配置文件" class="headerlink" title="spring.profiles || yml配置文件"></a>spring.profiles || yml配置文件</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/25/Spring系列之SpringCloud/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -336,73 +400,14 @@
           <h1 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h1><p><a href="https://spring.io/guides" target="_blank" rel="noopener">Spring All Guides</a><br><a href="https://spring.io/guides/gs/caching/" target="_blank" rel="noopener">Caching Data with Spring</a></p>
 <h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="SpringBoot中-Cacheable-CacheEvict-CachePut在同一个类中方法调用不起作用"><a href="#SpringBoot中-Cacheable-CacheEvict-CachePut在同一个类中方法调用不起作用" class="headerlink" title="SpringBoot中@Cacheable,@CacheEvict,@CachePut在同一个类中方法调用不起作用"></a>SpringBoot中@Cacheable,@CacheEvict,@CachePut在同一个类中方法调用不起作用</h2><p><a href="https://www.jianshu.com/p/c33ba070028e" target="_blank" rel="noopener">https://www.jianshu.com/p/c33ba070028e</a><br><a href="https://www.cnblogs.com/liubey/archive/2018/04/02/spring_cacheable.html" target="_blank" rel="noopener">https://www.cnblogs.com/liubey/archive/2018/04/02/spring_cacheable.html</a><br><a href="https://www.cnblogs.com/chanedi/p/4552555.html" target="_blank" rel="noopener">https://www.cnblogs.com/chanedi/p/4552555.html</a><br><a href="https://blog.csdn.net/dapinxiaohuo/article/details/52092447" target="_blank" rel="noopener">https://blog.csdn.net/dapinxiaohuo/article/details/52092447</a></p>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/30/English之限定词系列-数量限定词与个体限定词/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/30/English之限定词系列-数量限定词与个体限定词/" class="post-title-link" itemprop="url">English之限定词系列（数量限定词与个体限定词）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-05-30 21:05:35 / Modified: 21:06:41" itemprop="dateCreated datePublished" datetime="2020-05-30T21:05:35+08:00">2020-05-30</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/02/Spring系列之Cache/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -478,6 +483,14 @@
           <h1 id="Method-has-too-many-Body-parameters"><a href="#Method-has-too-many-Body-parameters" class="headerlink" title="Method has too many Body parameters"></a>Method has too many Body parameters</h1><p><a href="https://www.cnblogs.com/chenkeyu/p/8482276.html" target="_blank" rel="noopener">https://www.cnblogs.com/chenkeyu/p/8482276.html</a><br><a href="https://stackoverflow.com/questions/43604734/springboot-feignclient-method-has-too-many-paramters" target="_blank" rel="noopener">https://stackoverflow.com/questions/43604734/springboot-feignclient-method-has-too-many-paramters</a></p>
 <p>比如可以改成这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@PostMapping(WORD_MAIN_VARIANT + &quot;/insertVariant&quot;)</span><br><span class="line">R&lt;Void&gt; insertVariant(@RequestParam String inputWordName, @RequestParam String fetchWordName);</span><br></pre></td></tr></table></figure></p>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/09/feign汇总/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -554,26 +567,14 @@
 <h1 id="设计优化"><a href="#设计优化" class="headerlink" title="设计优化"></a>设计优化</h1><h2 id="tinyint和char-1-性能对比"><a href="#tinyint和char-1-性能对比" class="headerlink" title="tinyint和char(1)性能对比"></a>tinyint和char(1)性能对比</h2><p><a href="https://blog.csdn.net/yzj5208/article/details/81214780?utm_source=blogxgwz6" target="_blank" rel="noopener">https://blog.csdn.net/yzj5208/article/details/81214780?utm_source=blogxgwz6</a></p>
 <h1 id="锁表、线程溢出常见处理方法"><a href="#锁表、线程溢出常见处理方法" class="headerlink" title="锁表、线程溢出常见处理方法"></a>锁表、线程溢出常见处理方法</h1><p>查询当前的线程信息，mysql会把当前正在运行的mysql线程信息实时更新到processlist表。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">show processlist; # 查询当前100条；等同于select * from information_schema.processlist;</span><br><span class="line">show full processlist; # 查询全部；</span><br><span class="line"># 查询非睡眠状态的连接</span><br><span class="line">select p.*</span><br><span class="line">from information_schema.processlist p</span><br><span class="line">where p.COMMAND != &apos;Sleep&apos;;</span><br><span class="line"># 查询并发最大连接数</span><br><span class="line">show variables like &apos;%max_connections%&apos;;</span><br><span class="line"># 查看当前线程连接数量信息 </span><br><span class="line">show status like &apos;Threads%&apos;;</span><br></pre></td></tr></table></figure></p>
 <h2 id="慢查询"><a href="#慢查询" class="headerlink" title="慢查询"></a>慢查询</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 查找当前正在执行超过1分钟的线程信息</span><br><span class="line">select * from information_schema.processlist where command != &apos;Sleep&apos; and time &gt; 60 order by time desc;</span><br><span class="line"># 不要轻易kill，注意看是否是system user或者是maxscale等代理监控的用户</span><br><span class="line"># 确定是慢查询的时候，可以执行kill id的操作</span><br><span class="line"># 命令行查看慢查询</span><br><span class="line">mysql -ureader -pread -e &apos;show full processlist&apos; | grep &quot;select &quot;</span><br></pre></td></tr></table></figure>
-<p>参考：<a href="https://www.jianshu.com/p/93cae0b3db3b" target="_blank" rel="noopener">https://www.jianshu.com/p/93cae0b3db3b</a></p>
-<h2 id="事务等待超时一般会抛出异常："><a href="#事务等待超时一般会抛出异常：" class="headerlink" title="事务等待超时一般会抛出异常："></a>事务等待超时一般会抛出异常：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error updating database.  Cause: com.mysql.cj.jdbc.exceptions.MySQLTransactionRollbackException: Lock wait timeout exceeded; try restarting transaction</span><br></pre></td></tr></table></figure>
-<h2 id="设置事务超时时间："><a href="#设置事务超时时间：" class="headerlink" title="设置事务超时时间："></a>设置事务超时时间：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 查询事务超时变量值</span><br><span class="line">SHOW GLOBAL VARIABLES LIKE &apos;innodb_lock_wait_timeout&apos;;</span><br><span class="line"># 设置事务超时时间</span><br><span class="line">SET GLOBAL innodb_lock_wait_timeout=120;</span><br></pre></td></tr></table></figure>
-<h2 id="设置线程等待时间"><a href="#设置线程等待时间" class="headerlink" title="设置线程等待时间"></a>设置线程等待时间</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SET wait_timeout = 10;</span><br><span class="line">SET global wait_timeout = 10;</span><br><span class="line">show global variables like &apos;wait_timeout&apos;;</span><br><span class="line">show variables like &apos;wait_timeout&apos;;</span><br></pre></td></tr></table></figure>
-<h2 id="事务锁、死锁处理方法"><a href="#事务锁、死锁处理方法" class="headerlink" title="事务锁、死锁处理方法"></a>事务锁、死锁处理方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select * from information_schema.innodb_trx; # 当前运行的所有事务</span><br><span class="line">select * from information_schema.innodb_locks; # 当前出现的锁</span><br><span class="line">select * from information_schema.innodb_lock_waits; # 锁等待的对应关系</span><br></pre></td></tr></table></figure>
-<h2 id="查找一直在锁等待的线程"><a href="#查找一直在锁等待的线程" class="headerlink" title="查找一直在锁等待的线程"></a>查找一直在锁等待的线程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select trx_mysql_thread_id from information_schema.innodb_trx it </span><br><span class="line">JOIN information_schema.INNODB_LOCK_WAITS ilw </span><br><span class="line">on ilw.blocking_trx_id = it.trx_id;</span><br><span class="line"></span><br><span class="line">kill tid;</span><br></pre></td></tr></table></figure>
-<h2 id="开启慢查询日志"><a href="#开启慢查询日志" class="headerlink" title="开启慢查询日志"></a>开启慢查询日志</h2><p>参考：<a href="https://www.cnblogs.com/saneri/p/6656161.html" title="标题" target="_blank" rel="noopener">https://www.cnblogs.com/saneri/p/6656161.html</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">slow_query_log 慢查询开启状态，ON开启，OFF关闭</span><br><span class="line">slow_query_log_file 慢查询日志存放的位置（这个目录需要MySQL的运行帐号的可写权限，一般设置为MySQL的数据存放目录）</span><br><span class="line">long_query_time 查询超过多少秒才记录</span><br><span class="line">log_queries_not_using_indexes：未使用索引的查询也被记录到慢查询日志中（可选项）</span><br><span class="line">log_output：日志存储方式。log_output=&apos;FILE&apos;表示将日志存入文件，默认值是&apos;FILE&apos;。log_output=&apos;TABLE&apos;表示将日志存入数据库，这样日志信息就会被写入到mysql.slow_log表中。MySQL数据&lt;br&gt;库支持同时两种日志存储方式，配置的时候以逗号隔开即可，如：log_output=&apos;FILE,TABLE&apos;。日志记录到系统的专用日志表中，要比记录到文件耗费更多的系统资源，因此对于需要启用慢查询日志，又需&lt;br&gt;要能够获得更高的系统性能，那么建议优先记录到文件。</span><br></pre></td></tr></table></figure></p>
-<h4 id="生产环境的慢查询日志分析命令mysqldumpslow"><a href="#生产环境的慢查询日志分析命令mysqldumpslow" class="headerlink" title="生产环境的慢查询日志分析命令mysqldumpslow"></a>生产环境的慢查询日志分析命令mysqldumpslow</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">比如:</span><br><span class="line">得到返回记录集最多的10个SQL。</span><br><span class="line">mysqldumpslow -s r -t 10 /database/mysql/mysql06_slow.log</span><br><span class="line"> </span><br><span class="line">得到访问次数最多的10个SQL</span><br><span class="line">mysqldumpslow -s c -t 10 /database/mysql/mysql06_slow.log</span><br><span class="line"> </span><br><span class="line">得到按照时间排序的前10条里面含有左连接的查询语句。</span><br><span class="line">mysqldumpslow -s t -t 10 -g “left join” /database/mysql/mysql06_slow.log</span><br><span class="line"> </span><br><span class="line">另外建议在使用这些命令时结合 | 和more 使用 ，否则有可能出现刷屏的情况。</span><br><span class="line">mysqldumpslow -s r -t 20 /mysqldata/mysql/mysql06-slow.log | more</span><br></pre></td></tr></table></figure>
-<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="Access-denied-for-user-‘root’-’localhost’-using-password-YES"><a href="#Access-denied-for-user-‘root’-’localhost’-using-password-YES" class="headerlink" title="Access denied for user ‘root’@’localhost’ (using password: YES)"></a>Access denied for user ‘root’@’localhost’ (using password: YES)</h2><ul>
-<li>Open &amp; Edit /etc/my.cnf or /etc/mysql/my.cnf, depending on your distro.</li>
-<li>Add skip-grant-tables under [mysqld]</li>
-<li>Restart Mysql</li>
-<li>You should be able to login to mysql now using the below command mysql -u root -p</li>
-<li>Run mysql&gt; flush privileges;</li>
-<li>Set new password by ALTER USER ‘root’@’localhost’ IDENTIFIED BY ‘NewPassword’;</li>
-<li>Go back to /etc/my.cnf and remove/comment skip-grant-tables</li>
-<li>Restart Mysql</li>
-<li>Now you will be able to login with the new password mysql -u root -p</li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/12/Mysql系列之性能优化与问题定位/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

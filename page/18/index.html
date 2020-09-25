@@ -217,6 +217,14 @@
 <li>最后如果想要一次性用maven命令操作其他所有模块再把modules标签放开注释即可通过根目录的pom.xml来操作子模块</li>
 </ul>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/13/kiwi-microservice项目架构技术记录/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -281,6 +289,14 @@
 
       
           <h1 id="公司的微服务模块架构关系"><a href="#公司的微服务模块架构关系" class="headerlink" title="公司的微服务模块架构关系"></a>公司的微服务模块架构关系</h1><h2 id="云原生"><a href="#云原生" class="headerlink" title="云原生"></a>云原生</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/09/Spring系列之SpringCloud微服务架构/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -350,6 +366,14 @@
           <h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><p><a href="https://www.fengorz.me/html/Docker.html" target="_blank" rel="noopener">尚硅谷Docker基础笔记</a></p>
 <p><a href="https://github.com/coding-by-feng/coding-by-feng.github.io/blob/master/html/docker-in-microservice.pdf" target="_blank" rel="noopener">Docker入门与微服务部署-诸葛老师</a></p>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/04/网上各种讲师技术笔记整合收集/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -426,6 +450,14 @@
 <p>@/page/word/Search.vue：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        某个子组件的具体内容xxx</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></p>
 <p>这时候可以在浏览器访问<a href="http://localhost:8080/#/index/vocabulary，这个时候就可以同时访问到Index和Search组件的内容，此外，如果Search的组件内容有所变化，" target="_blank" rel="noopener">http://localhost:8080/#/index/vocabulary，这个时候就可以同时访问到Index和Search组件的内容，此外，如果Search的组件内容有所变化，</a><br>改变路径的节点即可实现浏览器页面不调整的变化，这样用户体验更好跟快。</p>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/01/Vue系列之Vue-Router/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -505,37 +537,15 @@
 <p>综上所述：</p>
 <p>如果P1&lt;P2，多方就赚了，空方亏了，因为多方在过去的时间以低价位拿到货，而在交易时日时，平仓的时候空方要重新拿回来合约要以更高的价格结算；</p>
 <p>如果P1&gt;P2，反之，多方亏了，空方赚了。</p>
-<h4 id="期货保证金交易制度"><a href="#期货保证金交易制度" class="headerlink" title="期货保证金交易制度"></a>期货保证金交易制度</h4><h5 id="假如油价在拟定合约后上涨的情况"><a href="#假如油价在拟定合约后上涨的情况" class="headerlink" title="假如油价在拟定合约后上涨的情况"></a>假如油价在拟定合约后上涨的情况</h5><p>期货市场的【平仓保证金交易制度】（假如以10%结算）：</p>
-<table>
-<thead>
-<tr>
-<th>交易阶段</th>
-<th>买方（多方）保证金账户</th>
-<th>卖方（空方）保证金账户</th>
-<th>输方的资金流入</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>期货合约拟定（总价比如20000$）</td>
-<td>2000$</td>
-<td>2000$</td>
-<td>0$</td>
-</tr>
-<tr>
-<td>临近交货时日价格变动之后（假如油价上涨8个点，总价25000）</td>
-<td>2500$（从空方划走500$）</td>
-<td>2500$（保证金不足，要再充值1500元）</td>
-<td>1500$</td>
-</tr>
-</tbody>
-</table>
-<p>如果有一方因为交不起保证金的情况下，交易所就会强行平仓，这样一来，【原本的空方就要变成买房来重新买回来之前的合约，不过是以更高的价位买入，也就是上文提到的P2】</p>
-<h5 id="假如油价在拟定合约后下跌的情况"><a href="#假如油价在拟定合约后下跌的情况" class="headerlink" title="假如油价在拟定合约后下跌的情况"></a>假如油价在拟定合约后下跌的情况</h5><p>保证金在下跌的情况，合约签订时计算好的保证金已经交足，所以保证金账户余额里面就一直是充足的，无需追加保证金。【应该是这样】</p>
-<p>单看价格下跌，其实如果是直接期货交易完成，对于两方来说是无伤大雅，但是不要忘了，期货是要实货交易的，这就是原油宝问题的致命之处。</p>
-<h4 id="原油宝事件的致命问题"><a href="#原油宝事件的致命问题" class="headerlink" title="原油宝事件的致命问题"></a>原油宝事件的致命问题</h4><p>如果说按照合约规定，到期后在一定的短时间内，多方（原油宝客户 约等于 中行）去美国的油库提油，那么问题不大，可惜没有这个如果，中行没有能力在短时间内拿出设备和运载工具去提油！</p>
-<p>既然无法真实交易，那么交易所会自动强行平仓，这下麻烦大了，按照当前负油价，那么原油宝客户方一下子从多方变成空方，空方此时卖原油是要倒贴钱的啊！</p>
-
+<h4 id="期货保证金交易制度"><a href="#期货保证金交易制度" class="headerlink" title="期货保证金交易制度"></a>期货保证金交易制度</h4>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/26/原油宝事件简单分析/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
