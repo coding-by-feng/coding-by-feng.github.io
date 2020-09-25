@@ -163,93 +163,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/13/Reactor响应式编程阅读源码有感/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/13/Reactor响应式编程阅读源码有感/" class="post-title-link" itemprop="url">Reactor响应式编程阅读源码有感</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-13 20:57:04" itemprop="dateCreated datePublished" datetime="2019-12-13T20:57:04+08:00">2019-12-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-16 20:58:54" itemprop="dateModified" datetime="2020-07-16T20:58:54+08:00">2020-07-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Reactor/" itemprop="url" rel="index"><span itemprop="name">Reactor</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://projectreactor.io/docs/core/release/reference/" target="_blank" rel="noopener">官方参考文档</a><br><a href="https://www.baeldung.com/reactor-core" target="_blank" rel="noopener">baeldung参考文章</a></p>
-<h1 id="Flux"><a href="#Flux" class="headerlink" title="Flux"></a>Flux</h1><p>an Asynchronous Sequence of 0-N Items（是一个异步的处理序列，它有0或者多个条目）<br>官方对Flux的原理解析图解：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/2zMdgN.png" alt></p>
-<p>Spring Gateway的源码中重度依赖Reactor Project，比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return responseFlux.then(chain.filter(exchange));</span><br></pre></td></tr></table></figure></p>
-<p>这句代码的逻辑会这么走：要等到responseFlux被subscribe了之后，chain.filter(exchange)（这是一个Mono），才会被继续流转运行。</p>
-<h1 id="Mono"><a href="#Mono" class="headerlink" title="Mono"></a>Mono</h1><h2 id="Mono-just"><a href="#Mono-just" class="headerlink" title="Mono.just"></a>Mono.just</h2><p>I mean that calling Mono.just(System.currentTimeMillis()) will immediately invoke the currentTimeMillis() method and capture the result</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Mono&lt;Long&gt; clock = Mono.just(System.currentTimeMillis());</span><br><span class="line">//time == t0</span><br><span class="line"></span><br><span class="line">Thread.sleep(10_000);</span><br><span class="line">//time == t10</span><br><span class="line">clock.block(); //we use block for demonstration purposes, returns t0（代表这个时候获取clock的实际时间依然还是上面第一次调用System.currentTimeMillis()拿到的时间，下面雷同）</span><br><span class="line"></span><br><span class="line">Thread.sleep(7_000);</span><br><span class="line">//time == t17</span><br><span class="line">clock.block(); //we re-subscribe to clock, still returns t0</span><br></pre></td></tr></table></figure>
-<h2 id="Mono-defer"><a href="#Mono-defer" class="headerlink" title="Mono.defer"></a>Mono.defer</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/12/13/Reactor响应式编程阅读源码有感/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Spring系列之SpringBoot/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -594,6 +507,95 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/14/linux系列之问题汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/14/linux系列之问题汇总/" class="post-title-link" itemprop="url">linux系列之问题汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-14 18:11:33" itemprop="dateCreated datePublished" datetime="2020-05-14T18:11:33+08:00">2020-05-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-05 13:53:01" itemprop="dateModified" datetime="2020-06-05T13:53:01+08:00">2020-06-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="apt-get国内太慢"><a href="#apt-get国内太慢" class="headerlink" title="apt-get国内太慢"></a>apt-get国内太慢</h1><p>ubuntu和debian的镜像源都要换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list</span><br><span class="line">sed -i &apos;s/deb.debian.org/mirrors.ustc.edu.cn/g&apos; /etc/apt/sources.list</span><br></pre></td></tr></table></figure></p>
+<p>还原：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i s@/mirrors.aliyun.com/@/deb.debian.org/@g /etc/apt/sources.list</span><br></pre></td></tr></table></figure></p>
+<h2 id="更换163的镜像"><a href="#更换163的镜像" class="headerlink" title="更换163的镜像"></a>更换163的镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#更新apt-get源 使用163的源</span><br><span class="line">mv /etc/apt/sources.list /etc/apt/sources.list.bak &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+<h2 id="apk命令更换源"><a href="#apk命令更换源" class="headerlink" title="apk命令更换源"></a>apk命令更换源</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;http://mirrors.aliyun.com/alpine/v3.8/main&quot; &gt; /etc/apk/repositories \</span><br><span class="line">    &amp;&amp; echo &quot;http://mirrors.aliyun.com/alpine/v3.8/community&quot; &gt;&gt; /etc/apk/repositories \</span><br><span class="line">    &amp;&amp; apk update upgrade \</span><br></pre></td></tr></table></figure>
+<h2 id="将命令的返回值赋值给变量（Shell命令）"><a href="#将命令的返回值赋值给变量（Shell命令）" class="headerlink" title="将命令的返回值赋值给变量（Shell命令）"></a>将命令的返回值赋值给变量（Shell命令）</h2><ul>
+<li>A=<code>ls -la</code> 反引号，运行里面的命令，并把结果返回给变量A</li>
+<li>A=$(ls -la)等价于反引号</li>
+</ul>
+<h2 id="linux-shell通过curl获取HTTP请求的状态码"><a href="#linux-shell通过curl获取HTTP请求的状态码" class="headerlink" title="linux shell通过curl获取HTTP请求的状态码"></a>linux shell通过curl获取HTTP请求的状态码</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/14/linux系列之问题汇总/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -663,7 +665,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">127</span>
+          <span class="site-state-item-count">126</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

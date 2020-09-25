@@ -163,92 +163,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/关于安装shadowsocks之后的iptables配置的坑/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/15/关于安装shadowsocks之后的iptables配置的坑/" class="post-title-link" itemprop="url">关于安装shadowsocks之后的iptables配置的坑</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-04-15 21:25:02" itemprop="dateCreated datePublished" datetime="2019-04-15T21:25:02+08:00">2019-04-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-09-23 20:36:30" itemprop="dateModified" datetime="2019-09-23T20:36:30+08:00">2019-09-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/shadowsocks/" itemprop="url" rel="index"><span itemprop="name">shadowsocks</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>利用shadowsocks科学上网的搭建方法网上教程很多，可以参考这个：<br><a href="https://www.vultrblog.com/vultr-ss.html" target="_blank" rel="noopener">https://www.vultrblog.com/vultr-ss.html</a></p>
-<h4 id="为了防止上面的地址被墙，记录一下command"><a href="#为了防止上面的地址被墙，记录一下command" class="headerlink" title="为了防止上面的地址被墙，记录一下command"></a>为了防止上面的地址被墙，记录一下command</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh</span><br><span class="line"></span><br><span class="line">chmod +x shadowsocks.sh</span><br><span class="line"></span><br><span class="line">./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log</span><br></pre></td></tr></table></figure>
-<h4 id="修改shadowsocks端口"><a href="#修改shadowsocks端口" class="headerlink" title="修改shadowsocks端口"></a>修改shadowsocks端口</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/shadowsocks.json</span><br><span class="line"></span><br><span class="line">/etc/init.d/shadowsocks restart</span><br></pre></td></tr></table></figure>
-<p>我shadowsocks配置的端口是19726，所以iptables正确的配置命令是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p tcp --dport 19726 -j ACCEPT</span><br><span class="line">iptables -I INPUT -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT</span><br><span class="line">iptables -I INPUT -m state --state INVALID -j DROP</span><br><span class="line">service iptable save</span><br></pre></td></tr></table></figure></p>
-<p>网上很多配置上面最后二条命令。</p>
-
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/04/15/关于安装shadowsocks之后的iptables配置的坑/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/公司项目随想/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -556,6 +470,88 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/28/oracle系列之性能调优/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/28/oracle系列之性能调优/" class="post-title-link" itemprop="url">oracle系列之性能调优</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-04-28 18:24:27" itemprop="dateCreated datePublished" datetime="2019-04-28T18:24:27+08:00">2019-04-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-05-15 15:55:56" itemprop="dateModified" datetime="2019-05-15T15:55:56+08:00">2019-05-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/oracle/" itemprop="url" rel="index"><span itemprop="name">oracle</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="http://note.youdao.com/noteshare?id=9162b83c7c234ae534289003bc2ebb0e" target="_blank" rel="noopener">http://note.youdao.com/noteshare?id=9162b83c7c234ae534289003bc2ebb0e</a></p>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/04/28/oracle系列之性能调优/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -625,7 +621,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">127</span>
+          <span class="site-state-item-count">126</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
