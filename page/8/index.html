@@ -136,6 +136,11 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a>
+
+  </li>
   </ul>
 </nav>
 
@@ -159,6 +164,99 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/04/数据结构系列之栈-Java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/04/数据结构系列之栈-Java/" class="post-title-link" itemprop="url">数据结构系列之栈（Java）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-09-04 15:48:50" itemprop="dateCreated datePublished" datetime="2020-09-04T15:48:50+08:00">2020-09-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-06 21:08:56" itemprop="dateModified" datetime="2020-09-06T21:08:56+08:00">2020-09-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="https://leetcode-cn.com/tag/stack/" target="_blank" rel="noopener">leetcode栈专题</a></p>
+<h2 id="顺序栈的定义"><a href="#顺序栈的定义" class="headerlink" title="顺序栈的定义"></a>顺序栈的定义</h2><p>顺序栈栈和线性表很类似，可以认为栈是一种特殊的线性表，只是插入和删除只能允许在其一端进行，把允许操作的一端称为栈顶（Top），不可操作的一端称为栈底（Bottom），同时把插入元素的操作称为入栈(Push),删除元素的操作称为出栈(Pop)。若栈中没有任何元素，则称为空栈。</p>
+<p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/iSJO68.png" alt></p>
+<p>栈插入的元素将第一个被删除，栈也称为后进先出(Last In First Out,LIFO)或先进后出(First In Last Out FILO)的线性表。</p>
+<h2 id="栈的操作"><a href="#栈的操作" class="headerlink" title="栈的操作"></a>栈的操作</h2><ul>
+<li>peek（未删除只获取值）</li>
+<li>push（入栈，更新栈顶Top指向）</li>
+<li>Pop（出栈，删除并获取值，更新栈顶Top指向）</li>
+</ul>
+<h2 id="链式栈"><a href="#链式栈" class="headerlink" title="链式栈"></a>链式栈</h2><h3 id="空栈"><a href="#空栈" class="headerlink" title="空栈"></a>空栈</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/GGkvFd.png" alt></p>
+<h3 id="非空栈"><a href="#非空栈" class="headerlink" title="非空栈"></a>非空栈</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/ghOgbZ.png" alt></p>
+<h3 id="栈顶插入"><a href="#栈顶插入" class="headerlink" title="栈顶插入"></a>栈顶插入</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/vzjf3l.png" alt></p>
+<h3 id="栈顶删除"><a href="#栈顶删除" class="headerlink" title="栈顶删除"></a>栈顶删除</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/lWtLTv.png" alt></p>
+<blockquote>
+<p>链式栈插入和删除依然只能在栈顶操作。</p>
+</blockquote>
+<h2 id="栈的应用"><a href="#栈的应用" class="headerlink" title="栈的应用"></a>栈的应用</h2><ul>
+<li>符号匹配</li>
+<li>HTML和XML文件中的标签匹配</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -503,119 +601,6 @@
 
       
           
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/23/Java系列之多线程并发-长篇/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/23/Java系列之多线程并发-长篇/" class="post-title-link" itemprop="url">Java系列之多线程并发-长篇</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-04-23 16:42:15" itemprop="dateCreated datePublished" datetime="2019-04-23T16:42:15+08:00">2019-04-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-03 19:55:40" itemprop="dateModified" datetime="2020-09-03T19:55:40+08:00">2020-09-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="http://note.youdao.com/noteshare?id=5a758a5214a793176ed9c543a2011217" target="_blank" rel="noopener">http://note.youdao.com/noteshare?id=5a758a5214a793176ed9c543a2011217</a></p>
-<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><p><a href="https://www.baeldung.com/tag/java-concurrency/" target="_blank" rel="noopener">https://www.baeldung.com/tag/java-concurrency/</a><br><a href="https://www.baeldung.com/java-concurrent-locks" target="_blank" rel="noopener">https://www.baeldung.com/java-concurrent-locks</a></p>
-<h2 id="Overview-of-the-java-util-concurrent"><a href="#Overview-of-the-java-util-concurrent" class="headerlink" title="Overview of the java.util.concurrent"></a>Overview of the java.util.concurrent</h2><p><a href="https://www.baeldung.com/java-util-concurrent" target="_blank" rel="noopener">https://www.baeldung.com/java-util-concurrent</a></p>
-<ul>
-<li>Executor</li>
-<li>ExecutorService</li>
-<li>ScheduledExecutorService</li>
-<li>Future</li>
-<li>CountDownLatch</li>
-<li>CyclicBarrier</li>
-<li>Semaphore</li>
-<li>ThreadFactory</li>
-<li>BlockingQueue</li>
-<li>DelayQueue</li>
-<li>Locks</li>
-<li>Phaser</li>
-</ul>
-<h2 id="Semaphores-in-Java-API"><a href="#Semaphores-in-Java-API" class="headerlink" title="Semaphores in Java API"></a>Semaphores in Java API</h2><p><a href="https://www.baeldung.com/java-semaphore" target="_blank" rel="noopener">https://www.baeldung.com/java-semaphore</a></p>
-<h2 id="多线程知识的要点"><a href="#多线程知识的要点" class="headerlink" title="多线程知识的要点"></a>多线程知识的要点</h2><p><a href="https://zhuanlan.zhihu.com/p/29881777" target="_blank" rel="noopener">参考自知乎这篇文章</a></p>
-<h3 id="硬件内存架构"><a href="#硬件内存架构" class="headerlink" title="硬件内存架构"></a>硬件内存架构</h3><ul>
-<li>多CPU</li>
-<li>CPU寄存器</li>
-<li>高速缓存cache</li>
-<li>内存</li>
-<li>运作原理（从CPU&lt;-&gt;寄存器&lt;-&gt;高速缓存层&lt;-&gt;内存RAM）</li>
-<li>缓存一致性问题</li>
-<li>指令重排序问题（这个需要深入了解一下）<h3 id="Java内存模型（JMM）"><a href="#Java内存模型（JMM）" class="headerlink" title="Java内存模型（JMM）"></a>Java内存模型（JMM）</h3></li>
-<li>多线程的共享变量</li>
-<li>线程私有的本地内存（这个需要深入了解一下）</li>
-<li>JMM模型下的线程间通信</li>
-<li>JMM的八种基本操作</li>
-<li>多线程读同步与可见性<ul>
-<li>可见性（共享对象可见性）</li>
-</ul>
-</li>
-</ul>
-<h2 id="ThreadPoolExecutor-四种处理策略"><a href="#ThreadPoolExecutor-四种处理策略" class="headerlink" title="ThreadPoolExecutor 四种处理策略"></a>ThreadPoolExecutor 四种处理策略</h2><p>ThreadPoolExecutor.AbortPolicy()  抛出java.util.concurrent.RejectedExecutionException异常<br>ThreadPoolExecutor.CallerRunsPolicy() 重试添加当前的任务，他会自动重复调用execute()方法<br>ThreadPoolExecutor.DiscardOldestPolicy() 抛弃旧的任务<br>ThreadPoolExecutor.DiscardPolicy() 抛弃当前的任务 </p>
-<h2 id="锁对象的声明"><a href="#锁对象的声明" class="headerlink" title="锁对象的声明"></a>锁对象的声明</h2><p>如果只是简单的一个锁对象，没有类额外的对象状态变更的话，可以将锁声明为final：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 来自org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter</span><br><span class="line">// Spring Security token校验机制</span><br><span class="line">private final Object delegateMonitor = new Object();</span><br></pre></td></tr></table></figure></p>
-<h2 id="乐观锁-vs-悲观锁（PCC）"><a href="#乐观锁-vs-悲观锁（PCC）" class="headerlink" title="乐观锁 vs 悲观锁（PCC）"></a>乐观锁 vs 悲观锁（PCC）</h2><p><a href="http://www.imooc.com/article/285147" target="_blank" rel="noopener">http://www.imooc.com/article/285147</a></p>
-<h2 id="多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？"><a href="#多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？" class="headerlink" title="多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？"></a>多线程的情况下，怎么防止数据库出现脏数据，或者出现Mysql数据的线程安全问题？</h2><h2 id="为什么要写成-final-ReentrantLock-lock-this-lock"><a href="#为什么要写成-final-ReentrantLock-lock-this-lock" class="headerlink" title="为什么要写成 final ReentrantLock lock = this.lock; ?"></a>为什么要写成 final ReentrantLock lock = this.lock; ?</h2><p><a href="https://blog.csdn.net/zqz_zqz/article/details/79438502" target="_blank" rel="noopener">https://blog.csdn.net/zqz_zqz/article/details/79438502</a></p>
-
       
     </div>
 
