@@ -20,18 +20,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="A Quiet Departure.">
-<meta name="keywords" content="Java,数据结构,哈希表">
+  <meta name="description" content="哈希表（散列表）散列表（Hash table，也叫哈希表），是根据键（Key）而直接访问在内存储存位置的数据结构。也就是说，它通过计算一个关于键值的函数，将所需查询的数据映射到表中一个位置来访问记录，这加快了查找速度。这个映射函数称做散列函数，存放记录的数组称做散列表。 散列函数线程安全的java.util.Hashtable的散列函数是基于除留余数法的方式来计算，其计算代码如下：123Entry">
+<meta name="keywords" content="Java,数据结构,哈希表,散列表">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构系列之哈希表（Java）">
 <meta property="og:url" content="http://yoursite.com/2020/09/02/数据结构系列之哈希表-Java/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="A Quiet Departure.">
+<meta property="og:description" content="哈希表（散列表）散列表（Hash table，也叫哈希表），是根据键（Key）而直接访问在内存储存位置的数据结构。也就是说，它通过计算一个关于键值的函数，将所需查询的数据映射到表中一个位置来访问记录，这加快了查找速度。这个映射函数称做散列函数，存放记录的数组称做散列表。 散列函数线程安全的java.util.Hashtable的散列函数是基于除留余数法的方式来计算，其计算代码如下：123Entry">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-04T02:24:28.312Z">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/CP99ZS.png">
+<meta property="og:updated_time" content="2020-09-26T11:53:01.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构系列之哈希表（Java）">
-<meta name="twitter:description" content="A Quiet Departure.">
+<meta name="twitter:description" content="哈希表（散列表）散列表（Hash table，也叫哈希表），是根据键（Key）而直接访问在内存储存位置的数据结构。也就是说，它通过计算一个关于键值的函数，将所需查询的数据映射到表中一个位置来访问记录，这加快了查找速度。这个映射函数称做散列函数，存放记录的数组称做散列表。 散列函数线程安全的java.util.Hashtable的散列函数是基于除留余数法的方式来计算，其计算代码如下：123Entry">
+<meta name="twitter:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/CP99ZS.png">
 
 <link rel="canonical" href="http://yoursite.com/2020/09/02/数据结构系列之哈希表-Java/">
 
@@ -196,7 +198,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-04 10:24:28" itemprop="dateModified" datetime="2020-09-04T10:24:28+08:00">2020-09-04</time>
+                <time title="Modified: 2020-09-26 19:53:01" itemprop="dateModified" datetime="2020-09-26T19:53:01+08:00">2020-09-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -219,7 +221,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h2 id="哈希表（散列表）"><a href="#哈希表（散列表）" class="headerlink" title="哈希表（散列表）"></a>哈希表（散列表）</h2><p>散列表（Hash table，也叫哈希表），是根据键（Key）而直接访问在内存储存位置的数据结构。也就是说，它通过计算一个关于键值的函数，将所需查询的数据映射到表中一个位置来访问记录，这加快了查找速度。这个映射函数称做散列函数，存放记录的数组称做散列表。</p>
+<h3 id="散列函数"><a href="#散列函数" class="headerlink" title="散列函数"></a>散列函数</h3><p>线程安全的<code>java.util.Hashtable</code>的散列函数是基于<code>除留余数法</code>的方式来计算，其计算代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Entry&lt;?,?&gt; tab[] = table; // 表存储是采用数组来实现的</span><br><span class="line">int hash = key.hashCode();</span><br><span class="line">int index = (hash &amp; 0x7FFFFFFF) % tab.length;</span><br></pre></td></tr></table></figure></p>
+<p><strong><em>如果单单只是通过取模来计算映射地址的话，可能会出现<code>冲突</code>问题。</em></strong></p>
+<h3 id="冲突"><a href="#冲突" class="headerlink" title="冲突"></a>冲突</h3><p>散列函数可能会把不同的Key值映射到同一个数组下标。</p>
+<h3 id="散列函数的要求"><a href="#散列函数的要求" class="headerlink" title="散列函数的要求"></a>散列函数的要求</h3><ul>
+<li>散列函数的定义域必须包含全部需要存储的Key值，而Value值的范围则依赖于散列表的大小或地址范围。</li>
+<li>散列函数计算出来的地址应该能等概率、均匀分布在整个地址空间中，从而减少冲突的发生。</li>
+<li>散列函数应尽量简单，能够在较短时间内计算出任一关键字对应的散列地址。</li>
+</ul>
+<h3 id="散列表的构造方法"><a href="#散列表的构造方法" class="headerlink" title="散列表的构造方法"></a>散列表的构造方法</h3><h4 id="直接定址法"><a href="#直接定址法" class="headerlink" title="直接定址法"></a>直接定址法</h4><p>取关键字或关键字的某个线性函数值为散列地址。<br>其线性函数可以表示为：<code>Hash(k)=a*k+b（a、b均为常数）</code>。</p>
+<blockquote>
+<p>直接定址法的弊端是，若Key值分布不均衡，Hash(k)计算出来的值也不均衡，会造成空间浪费。</p>
+</blockquote>
+<h4 id="除留余数法"><a href="#除留余数法" class="headerlink" title="除留余数法"></a>除留余数法</h4><p>取Key（Java里面是计算Key的hashCode）被某个不大于散列表（HashTable是取其内部table的长度）表长的数p除后所得的余数为散列地址，也就是基于取模运算。<br>其散列函数公式表示为：<code>Hash(k)=k%p</code>。</p>
+<blockquote>
+<p>p值最好是取最接近或等于表长的质数，这样可以减少冲突（<code>java.util.Hashtable</code>内部直接使用表长作为p值了）。</p>
+</blockquote>
+<h4 id="数字分析法"><a href="#数字分析法" class="headerlink" title="数字分析法"></a>数字分析法</h4><p>假设Key是以r为基的数，并且哈希表中可能出现的Key都是事先知道的，则可取Key的若干数位组成哈希地址。<br>好比如以下的一组二进制数：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/CP99ZS.png" alt><br>则可只取后面的几位作为散列地址的计算依据或者结果。</p>
+<blockquote>
+<p>只适合Key是已经的集合。</p>
+</blockquote>
+<h4 id="折叠法"><a href="#折叠法" class="headerlink" title="折叠法"></a>折叠法</h4><h4 id="随机数法"><a href="#随机数法" class="headerlink" title="随机数法"></a>随机数法</h4><blockquote>
+<p>参考来源：<a href="https://zh.wikipedia.org/wiki/%E5%93%88%E5%B8%8C%E8%A1%A8" target="_blank" rel="noopener">哈希表-维基百科</a>、<a href="https://www.bilibili.com/video/BV1b7411N798?p=68" target="_blank" rel="noopener">王道考研</a></p>
+</blockquote>
+
     </div>
 
     
@@ -231,6 +257,7 @@
               <a href="/tags/Java/" rel="tag"># Java</a>
               <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
               <a href="/tags/哈希表/" rel="tag"># 哈希表</a>
+              <a href="/tags/散列表/" rel="tag"># 散列表</a>
           </div>
 
         
@@ -304,6 +331,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#哈希表（散列表）"><span class="nav-number">1.</span> <span class="nav-text">哈希表（散列表）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#散列函数"><span class="nav-number">1.1.</span> <span class="nav-text">散列函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#冲突"><span class="nav-number">1.2.</span> <span class="nav-text">冲突</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#散列函数的要求"><span class="nav-number">1.3.</span> <span class="nav-text">散列函数的要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#散列表的构造方法"><span class="nav-number">1.4.</span> <span class="nav-text">散列表的构造方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#直接定址法"><span class="nav-number">1.4.1.</span> <span class="nav-text">直接定址法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#除留余数法"><span class="nav-number">1.4.2.</span> <span class="nav-text">除留余数法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数字分析法"><span class="nav-number">1.4.3.</span> <span class="nav-text">数字分析法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#折叠法"><span class="nav-number">1.4.4.</span> <span class="nav-text">折叠法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#随机数法"><span class="nav-number">1.4.5.</span> <span class="nav-text">随机数法</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -330,7 +358,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">88</span>
+        <span class="site-state-item-count">89</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -408,6 +436,61 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 

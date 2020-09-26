@@ -2907,6 +2907,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 <h3 id="String-intern"><a href="#String-intern" class="headerlink" title="String.intern"></a>String.intern</h3><p><a href="https://www.cnblogs.com/Yintianhao/p/12273714.html" target="_blank" rel="noopener">https://www.cnblogs.com/Yintianhao/p/12273714.html</a></p>
 <h2 id="n次方写法"><a href="#n次方写法" class="headerlink" title="n次方写法"></a>n次方写法</h2><p>在Java中一个数的N次方不可以写成：a^0这种形式，算得的数不正确；<br>正确的写法为Math.pow(a,0);</p>
 <h2 id="废弃对象手动赋值为null有助于GC即将生效"><a href="#废弃对象手动赋值为null有助于GC即将生效" class="headerlink" title="废弃对象手动赋值为null有助于GC即将生效"></a>废弃对象手动赋值为null有助于GC即将生效</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Object o = new Object();</span><br><span class="line">o = null;</span><br><span class="line">o = new Object(); // 这里将触发上面null的GC，又或者调用System.gc(); 但是System.gc()是Full GC</span><br></pre></td></tr></table></figure>
+<h2 id="Integer-valueOf-x-缓存"><a href="#Integer-valueOf-x-缓存" class="headerlink" title="Integer.valueOf(x)缓存"></a>Integer.valueOf(x)缓存</h2><p>如果x的范围在-128~127之间，那么会直接返回缓存中的对象，也就是只要数值被调用过一次，以后返回的都是同个对象实例了。</p>
 <hr>
 <h1 id="避坑"><a href="#避坑" class="headerlink" title="避坑"></a>避坑</h1><h2 id="代码格式"><a href="#代码格式" class="headerlink" title="代码格式"></a>代码格式</h2><p>一个团队你的代码格式一定要统一，不然代码冲突时，比对代码非常麻烦。</p>
 <h2 id="Service与Controller的交互"><a href="#Service与Controller的交互" class="headerlink" title="Service与Controller的交互"></a>Service与Controller的交互</h2><p>Service最终返回给Controller层的数据如果比较复杂，尽量不要用Map，可以封装成DTO，而且这样一来还可以结合JSR303或者其各种扩展，对DTO进行优雅的数据校验。</p>
@@ -3973,7 +3974,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 <h2 id="mkdir-can’t-create-directory-‘-tmp’-File-exists"><a href="#mkdir-can’t-create-directory-‘-tmp’-File-exists" class="headerlink" title="mkdir: can’t create directory ‘/tmp’: File exists"></a>mkdir: can’t create directory ‘/tmp’: File exists</h2><p>Dockerfile里面RUN命令创建文件夹的时候注意不要和系统同路径，不然会报错。</p>
 <h2 id="openjdk-8-jdk-alpine进入容器"><a href="#openjdk-8-jdk-alpine进入容器" class="headerlink" title="openjdk:8-jdk-alpine进入容器"></a>openjdk:8-jdk-alpine进入容器</h2><p>用传统的<code>docker exec -it ? bash</code>进不去要改成：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker exec -it ? /bin/sh</span><br></pre></td></tr></table></figure></p>
 <p><a href="https://stackoverflow.com/questions/40944479/how-to-use-bash-with-an-alpine-based-docker-image/40944512" target="_blank" rel="noopener">https://stackoverflow.com/questions/40944479/how-to-use-bash-with-an-alpine-based-docker-image/40944512</a><br>查看其java_home：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker-java-home</span><br></pre></td></tr></table></figure></p>
-]]></content>
+<h2 id="jmap等命令在openjdk-8-jdk-alpine不灵"><a href="#jmap等命令在openjdk-8-jdk-alpine不灵" class="headerlink" title="jmap等命令在openjdk:8-jdk-alpine不灵"></a>jmap等命令在openjdk:8-jdk-alpine不灵</h2>]]></content>
       <categories>
         <category>docker</category>
       </categories>
@@ -6194,75 +6195,6 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       </tags>
   </entry>
   <entry>
-    <title>English时态系列之一般现在时</title>
-    <url>/2020/08/28/English%E6%97%B6%E6%80%81%E7%B3%BB%E5%88%97%E4%B9%8B%E4%B8%80%E8%88%AC%E7%8E%B0%E5%9C%A8%E6%97%B6/</url>
-    <content><![CDATA[<blockquote>
-<p>这篇笔记摘选自《英语语法新思维初级教程第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。</p>
-</blockquote>
-<h2 id="并非只表示现在"><a href="#并非只表示现在" class="headerlink" title="并非只表示现在"></a>并非只表示现在</h2><p>一般现在时态并非只表示“现在”。一般现在时本质的思维特征是：表示从过去到现在直至将来的一段时间内发生的动作（action）或存在的状态（state），它们可发生于任何时间，这一段时间可以近乎无限长（如表示客观真理），也可以是人们生活中的一段时间（如人们的习惯活动）。<br>因此，一般现在时态通常被描述为有两种基本用法：</p>
-<ol>
-<li>不受时间限制的科学事实、客观真理、 谚语格言，以及用于概括、结论、观点等；</li>
-<li>表示人们日常生活习惯及 重复活动。</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/leH4QA.png" alt></p>
-<h2 id="用法一：表示普遍的事实或真理（expressing-a-general-truth）"><a href="#用法一：表示普遍的事实或真理（expressing-a-general-truth）" class="headerlink" title="用法一：表示普遍的事实或真理（expressing a general truth）"></a>用法一：表示普遍的事实或真理（expressing a general truth）</h2><blockquote>
-<p>表示不受时间限制的科学事实、客观真理、谚语格言，以及用于概括、结论、观点等。此时，这些动作或状态的发生不限于某个特定的时间，即它们可发生于任何时间，包括现在、过去和将来。</p>
-</blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/zh5h3G.png" alt></p>
-<p>Water freezes at 32 Fahrenheit and boils at 212 Fahrenheit.<br>水在华氏32度结冰，在华氏212度沸腾。<br>The sun rises in the east and sets in the west.<br>太阳东升西落。<br>Knowledge is power.<br>知识就是力量。<br>Opportunities always favor the prepared minds.<br>机会总是青睐有准备的人。<br>Great minds think alike.<br>英雄所见略同。</p>
-<h2 id="用法二：表示重复活动（expressing-a-regularly-occurring-event）"><a href="#用法二：表示重复活动（expressing-a-regularly-occurring-event）" class="headerlink" title="用法二：表示重复活动（expressing a regularly occurring event）"></a>用法二：表示重复活动（expressing a regularly occurring event）</h2><p>表示经常发生的、习惯性的动作（action）或者是存在的状态（state）。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/tvneHS.png" alt></p>
-<h3 id="表示习惯的动作"><a href="#表示习惯的动作" class="headerlink" title="表示习惯的动作"></a>表示习惯的动作</h3><p>He often goes to the gym. 他经常去健身房。<br>I go to the gym twice a week. 我每周去两次健身房。<br>He walks to school every day. 他每天步行去上学。</p>
-<h3 id="表示习惯的状态"><a href="#表示习惯的状态" class="headerlink" title="表示习惯的状态"></a>表示习惯的状态</h3><p>I like rice for dinner. 我晚餐喜欢吃米饭。</p>
-<blockquote>
-<p>这一用法常和一些表示动作频率的时间副词连用。</p>
-</blockquote>
-<ul>
-<li>表示肯定的频度副词有：always, frequently, usually, sometimes, generally, occasionally和often等。</li>
-<li>表示否定的频度副词有：never, seldom和rarely。</li>
-<li>表示频度的副词短语有：once a week, twice a year和on alternate days等。</li>
-</ul>
-<p>在应用上述这些副词时，要注意以下几点：</p>
-<ul>
-<li>它在句子中的位置通常是：在be动词后、实义动词前。<br>He is always late. 他总是迟到。<br>He always goes to school by bike. 他总是骑自行车上学。</li>
-<li>上述否定副词不能再与否定助动词（如don’t等）连用。<br>He doesn’t seldom come late. *（一般不这么说）<br>He seldom comes late. 他几乎从不迟到。</li>
-<li>这些副词一般放在否定助动词前，always除外。<br>The history lectures sometimes aren’t interesting.<br>关于历史的讲座有时很没意思。<br>His wife complains that he sometimes doesn’t listen to her.<br>他的妻子抱怨，说他有时候不注意听她说话。<br>He doesn’t always leave before 6 o’clock. Sometimes he works until 7 o’clock.<br>他并不总是在6点钟之前下班，有时他会工作到7点。</li>
-</ul>
-<p>谋篇短文中频繁地使用了一般现在时来介绍“口腔清洁运动”。</p>
-<ul>
-<li>Brush your teeth at least twice a day.</li>
-<li>Replace the toothbrush every 3 to 4 months.</li>
-<li>Floss your teeth once a day.</li>
-<li>Clean your tongue at least once a day.</li>
-<li>Visit your dentist once in every 6 months.</li>
-</ul>
-<blockquote>
-<p>这些都表示日常的重复活动，并且还明确给出了重复发生的频率， 如twice a day, every 3 to 4 months, once a day和every 6 months等。这些表示日常的习惯或重复发生的活动（regularly occurring event），我们要用一般现在时态。</p>
-</blockquote>
-<h2 id="用法比较：表示重复活动的一般现在时态和现在完成进行时态"><a href="#用法比较：表示重复活动的一般现在时态和现在完成进行时态" class="headerlink" title="用法比较：表示重复活动的一般现在时态和现在完成进行时态"></a>用法比较：表示重复活动的一般现在时态和现在完成进行时态</h2><p>在来比较下面两个句子：<br>1） I swim 1,000 meters every afternoon.<br>2） I have been swimming 1,000 meters every afternoon.<br>例句1）用一般现在时swim，我们是指昨天以前是swim 1,000 meters，今天也是swim 1,000 meters，明天以后还是swim 1,000 meters。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/BKmSmq.png" alt><br>例句2）话要理解成“到目前为止，我是每天下午游1,000米”。在这里我们加上了“到目前为止”来对应翻译英文的语言标记have been doing 这一动词变形，来潜含一个较为明确的时间段。这句话的意思是，也许“我”打算以后改变一下游泳锻炼的计划，比如说“我”决定游得更长些：<br>I have been swimming 1,000 meters every afternoon, but I think I’ll make it a little longer later.<br>在这样的上下文语境中，我们就不能说：<br>I swim 1,000 meters every afternoon, but I think I’ll make it a little longer later. *</p>
-<h2 id="用法三：一般现在时表示正在发生的动作"><a href="#用法三：一般现在时表示正在发生的动作" class="headerlink" title="用法三：一般现在时表示正在发生的动作"></a>用法三：一般现在时表示正在发生的动作</h2><h3 id="一般现在时态用在以there或here开头的句子中，表示目前的短暂动作"><a href="#一般现在时态用在以there或here开头的句子中，表示目前的短暂动作" class="headerlink" title="一般现在时态用在以there或here开头的句子中，表示目前的短暂动作"></a>一般现在时态用在以there或here开头的句子中，表示目前的短暂动作</h3><p>Here comes your wife.<br>这里显然是说话人看到your wife正在走过来，然后说的这句话，即表示正在发生的动作。在这个结构中不能用现在进行时态，不能说“Here is coming your wife.”* 可以说“Your wife is coming.”。但是，此时的进行时是表示将来的动作，所以这句话的意思是：你妻子很快就要过来了。<br>你妻子来了。</p>
-<p>There goes our bus; we’ll have to wait for the next one.<br>这句话是说话人看着自己要搭乘的车正在开走时说的。同样，在这个结构中不能用现在进行时态，说成“There is going our bus.”*<br>我们的车开走了，我们只好等下一辆了。</p>
-<h3 id="表示现在瞬间的动作（instant-actions）"><a href="#表示现在瞬间的动作（instant-actions）" class="headerlink" title="表示现在瞬间的动作（instant actions）"></a>表示现在瞬间的动作（instant actions）</h3><p>这个瞬间动作是说话人在说话的同时即刻发生的。这只适用于表达动作的动词，表示对一些动作的解说，比如：球赛解说、剧情介绍、解释自己正在做的事情、给别人一边说一边做的示范动作等等。<br>这是球赛的解说，表示在说话时刻正在发生的动作。<br>迈克尔传给克林特，克林特传给杰克，杰克又回传给克林特——克林特射门——球进了！</p>
-<p>The woman is a spy, now she enters the room, opens the drawer, takes out a pistol and slips it into her pocket.<br>这是剧情说明。<br>这个女人是个间谍。现在她走进房间，打开抽屉，拿出手枪塞进衣兜里。</p>
-<h2 id="用法四：一般现在时表示将来发生的动作"><a href="#用法四：一般现在时表示将来发生的动作" class="headerlink" title="用法四：一般现在时表示将来发生的动作"></a>用法四：一般现在时表示将来发生的动作</h2><p>在某些特定的场合，一般现在时态有时可表示将来发生的动作。</p>
-<h3 id="用在条件状语从句和时间状语从句中"><a href="#用在条件状语从句和时间状语从句中" class="headerlink" title="用在条件状语从句和时间状语从句中"></a>用在条件状语从句和时间状语从句中</h3><p>主要用在条件状语从句（if和unless）和时间状语从句（when, as soon as, before和after等）中，表示将来的动作。<br>Please let me know when he comes back.<br>他回来时请告诉我。<br>What are you going to do when you leave school?<br>你毕业以后想要干些什么？<br>I will get everything ready before you come back.<br>你回来之前我会把所有的东西都准备好。<br>I’ll give the book to him as soon as I see him.<br>我一见到他就会把书给他。</p>
-<blockquote>
-<p>若从句的动作含有“意愿”的意思，则从句中可用will。</p>
-</blockquote>
-<p>If you will give me a hand with these books, I’ll appreciate it.<br>如果你愿意帮我拿这些书，我将非常感激。<br>If they will not accept a check, we shall have to pay in cash, though it would be much trouble for both sides.<br>要是他们不愿意接受支票，我们就只好用现金支付，尽管这样会给双方带来不便。</p>
-<h3 id="在谈到未来的计划和时间安排表的时候，表示将来的动作"><a href="#在谈到未来的计划和时间安排表的时候，表示将来的动作" class="headerlink" title="在谈到未来的计划和时间安排表的时候，表示将来的动作"></a>在谈到未来的计划和时间安排表的时候，表示将来的动作</h3><p>此时句中的动词往往是表示短暂性动作的动词，如go, come, leave, start和move等。<br>The train starts at 2 o’clock. 火车两点钟开。<br>We move next week. 我们下周搬家。<br>They leave for Shanghai by train tomorrow evening. 他们明晚出发去上海。</p>
-<h3 id="在从句中表示将来的动作，此时主句往往用了一个将来时"><a href="#在从句中表示将来的动作，此时主句往往用了一个将来时" class="headerlink" title="在从句中表示将来的动作，此时主句往往用了一个将来时"></a>在从句中表示将来的动作，此时主句往往用了一个将来时</h3><p>I will reward the person who finds my lost kitten.<br>我将酬谢找到我丢失的猫的人。<br>I will give the booklet to whoever asks for it.<br>谁来索取这个小册子，我就把它给谁。</p>
-<h2 id="用法五：一般现在时表示过去发生的动作"><a href="#用法五：一般现在时表示过去发生的动作" class="headerlink" title="用法五：一般现在时表示过去发生的动作"></a>用法五：一般现在时表示过去发生的动作</h2><h3 id="表示死者的理论、著作等"><a href="#表示死者的理论、著作等" class="headerlink" title="表示死者的理论、著作等"></a>表示死者的理论、著作等</h3><p>因为这些理论、著作到现在仍有效；或表示一些名人名言。<br>Francis Bacon says, “Reading makes a full man; conference a ready man; and writing an exact man.”<br>弗朗西斯·培根说：“读书使人充实，讨论使人机智，写作使人准确。</p>
-<h3 id="引用书刊、报纸、通知或新近收到的信件的内容时"><a href="#引用书刊、报纸、通知或新近收到的信件的内容时" class="headerlink" title="引用书刊、报纸、通知或新近收到的信件的内容时"></a>引用书刊、报纸、通知或新近收到的信件的内容时</h3><p>The newspaper reads, “The criminal who killed eight women has been executed.”<br>这里的reads其实是表示过去的，因为显然是说话人看过the newspaper之后才说了这句话。<br>报纸上写着：“杀害八名妇女的那个罪犯已经被处决了”。<br>The sign on the washing machine says, “Out of Order.”<br>这里的says其实是表示过去的，因为显然是说话人看过the sign之后才说了这句话。<br>洗衣机上有一个告示写着：“洗衣机坏了。”</p>
-<h2 id="用法六：一般现在时代指现在完成时"><a href="#用法六：一般现在时代指现在完成时" class="headerlink" title="用法六：一般现在时代指现在完成时"></a>用法六：一般现在时代指现在完成时</h2><p>在口语中，可以用一般现在时代指现在完成时。能这样使用的动词不多，通常有：hear, find, see, learn, tell和read等。<br>I am（=have been） informed that you have been there. 有人告诉我，你去过那里。<br>I hear（=have heard） that he has left Beijing. 我听说他已经离开北京了。<br>I hear（=have heard） you’re getting married. 我听说你要结婚了。<br>I see/find（=have seen/found） that you have your hair cut. You look terrific! 我发现你理发了。你看上去棒极了！<br>I read（=have read） in the newspaper that the criminal who killed eight women has been executed.<br>我在报纸上看到，杀害八名妇女的那个罪犯已经被处决了。</p>
-]]></content>
-      <categories>
-        <category>English</category>
-      </categories>
-      <tags>
-        <tag>English</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>大杂烩</title>
     <url>/2020/08/04/%E5%A4%A7%E6%9D%82%E7%83%A9/</url>
     <content><![CDATA[<h1 id="专业方法和技巧"><a href="#专业方法和技巧" class="headerlink" title="专业方法和技巧"></a>专业方法和技巧</h1><h2 id="第一原理（第一性原理、第一思维方式）"><a href="#第一原理（第一性原理、第一思维方式）" class="headerlink" title="第一原理（第一性原理、第一思维方式）"></a>第一原理（第一性原理、第一思维方式）</h2><p><a href="https://wiki.mbalib.com/wiki/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86" target="_blank" rel="noopener">https://wiki.mbalib.com/wiki/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86</a><br>“我们运用第一性原理，而不是比较思维去思考问题是非常重要的。我们在生活中总是倾向于比较，对别人已经做过或者正在做的事情我们也都去做，这样发展的结果只能产生细小的迭代发展。第一性原理的思想方式是用物理学的角度看待世界，也就是说一层层拨开事物表象，看到里面的本质，再从本质一层层往上走。”这是马斯克眼中的“第一性原理思维模型”——回溯事物的本质，重新思考怎么做。</p>
@@ -6293,6 +6225,9 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 <li>结痂</li>
 <li>一骑绝尘</li>
 <li>罄竹难书</li>
+<li>求全责备</li>
+<li>靡靡之音</li>
+<li>不遑多让</li>
 </ul>
 <h1 id="权威书籍"><a href="#权威书籍" class="headerlink" title="权威书籍"></a>权威书籍</h1><h2 id="《金字塔原理》"><a href="#《金字塔原理》" class="headerlink" title="《金字塔原理》"></a>《金字塔原理》</h2><h2 id="《罗伯特议事规则》"><a href="#《罗伯特议事规则》" class="headerlink" title="《罗伯特议事规则》"></a>《罗伯特议事规则》</h2>]]></content>
       <categories>
@@ -6329,57 +6264,33 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
       </tags>
   </entry>
   <entry>
-    <title>English时态系列之一般过去时</title>
-    <url>/2020/08/28/English%E6%97%B6%E6%80%81%E7%B3%BB%E5%88%97%E4%B9%8B%E4%B8%80%E8%88%AC%E8%BF%87%E5%8E%BB%E6%97%B6/</url>
-    <content><![CDATA[<blockquote>
-<p>这篇笔记摘选自《英语语法新思维初级教程第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。</p>
-</blockquote>
-<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>据说，在美国的新闻报道中，最精练简明的导语出现在1906年4月的旧金山大地震之时，这个导语是：<br>San Francisco Was<br>这里除了地名San Francisco外，就只有唯一的一个关键词was，通过was表明了这次地震对旧金山所造成的破坏程度——已将其夷为平地，该城市不复存在了。因此，这个导语不妨译成：<br>旧金山已成为过去</p>
-<h2 id="基本用法一：过去发生的短暂动作或状态"><a href="#基本用法一：过去发生的短暂动作或状态" class="headerlink" title="基本用法一：过去发生的短暂动作或状态"></a>基本用法一：过去发生的短暂动作或状态</h2><p>一般过去时常表示在过去某一个特定的时间所发生的动作或存在的状态，此时常和表示过去的特定的时间状语连用。这些时间状语有：yesterday, yesterday evening, last night, the night before last（前天晚上）, last year, last spring（去年春天）以及three days/months/years ago等等。注意，这些时间状语之前不需加介词，比如不能说：at last night<em>, in last year</em>或in three years ago*等等。<br>I saw him in the library yesterday morning. 我昨天早上在图书馆看到他了。<br>I bought this computer three years ago. 我3年以前买的这台电脑。<br>是表示过去存在的状态：<br>He was late for school this morning. 他今天早上上学迟到了。<br>I was tired last night, so I went to bed early. 我昨晚感到很累，所以早早地上床睡觉了。<br>图示：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/jCl8Ia.png" alt></p>
-<p>I didn’t choose this life; it chose me.<br>这是巴基斯坦反对派领袖、前总理贝·布托（Bhutto）在其回忆录中的一句话。这里虽然没有明确的过去的时间状语，但根据语境判断，是表示过去发生的事件，所以用了一般过去时态。<br>我没有选择这种命运，而是命运选择了我。</p>
-<h2 id="基本用法二：过去发生的重复或延续活动"><a href="#基本用法二：过去发生的重复或延续活动" class="headerlink" title="基本用法二：过去发生的重复或延续活动"></a>基本用法二：过去发生的重复或延续活动</h2><p>除了表示短暂动作之外，一般过去时还可以表示过去的一段时间（a specific period of time in the past）内延续或重复的动作，图示为：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/AWxXqn.png" alt><br>I slept for eight hours last night. 我昨晚睡了8个小时。<br>She lived in our town for three years, but now she is living in Beijing.<br>她在我们这个小镇生活了3年，不过她现在住在北京。<br>I lived in the country for ten years. 我在农村生活了10年。</p>
-<p>表示过去重复发生的活动：<br>I wrote a letter once a week to my family when I was in my first college year.<br>这里的wrote是表示过去一段期间内不断重复发生的活动。<br>在大一的时候，我通常每个星期给家里写一封信。<br>He used to do morning exercises. 他过去常常晨练。<br>用表格简单地总结如下：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/OQuczd.png" alt></p>
-<h2 id="用法比较：一般过去时和现在完成时用于“for-时间段”的区别"><a href="#用法比较：一般过去时和现在完成时用于“for-时间段”的区别" class="headerlink" title="用法比较：一般过去时和现在完成时用于“for+时间段”的区别"></a>用法比较：一般过去时和现在完成时用于“for+时间段”的区别</h2><p>一般过去时态可以与“for+时间段”连用。比如：<br>I slept for eight hours last night. 我昨晚睡了八个小时。<br>He worked in that dot-com company for one year. Now he is studying in America.<br>他在那家网络公司工作过一年，现在在美国上学。</p>
-<p>一般过去时表示的延续动作图示如下：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/0oBmFa.png" alt><br>现在完成时表示的延续动作图示如下：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/ldiQ3p.png" alt></p>
-<blockquote>
-<p>一般过去时与“for+时间段”连用，表示动作在过去已经结束，并没有延续到现在；而现在完成时与“for+时间段”连用，则表明动作延续到现在，并且还有可能延续下去。</p>
-</blockquote>
-<p>1） She lived in our town for three years.<br>2） She has lived in our town for three years.<br>1） 她在我们小镇生活过三年（但现在不在这里）。<br>2） 她在我们小镇已经生活了三年（现在还在这里）。</p>
-<p>表示事件延续到了现在，因此可以在时间状语for three years的后面填上一个now，但对于例句1）则不可以。比如：<br>1） She lived in our town for three years now. *<br>2） She has lived in our town for three years now.</p>
-<h2 id="口语用法一：“我不知道”——“I-don’t-know”-or-“I-didn’t-know”"><a href="#口语用法一：“我不知道”——“I-don’t-know”-or-“I-didn’t-know”" class="headerlink" title="口语用法一：“我不知道”——“I don’t know” or “I didn’t know”?"></a>口语用法一：“我不知道”——“I don’t know” or “I didn’t know”?</h2><p>A: Do you see the person with loose pants and long hair? Is it a boy or girl?<br>B: A girl. She is my daughter.<br>A: Oh, please forgive me. I didn’t know you were her mother.<br>B: No, I’m her father.<br>A: 你看见那边那个穿着宽松裤子、留着长发的人了吗？是男的还是女的？<br>B: 是女的。她是我女儿。<br>A: 哦，真对不起，我不知道你是她母亲。<br>B: 不，我是她父亲。</p>
-<p>A说“我不知道”的时候其实他已经知道了，因为B已经告诉他“She is my daughter.”了，也就是说，他的真正意思应该是“我刚才不知道”，因此正确的英文应该说成：<br>I didn’t know you were her mother.</p>
-<p>下面的短文是讲作者在一次不得已的情况下让一位陌生的邻居格林夫人（Mrs. Green）开车送自己去学校，后来当她知道格林夫人竟是一位癌症患者时，她的内心对此深感不安：<br>Mrs. Green, the woman with cancer. I stood on the stairs, my hand covering my mouth: I had asked a person struggling with cancer to go out in a snowstorm to give me a lift to school. “Oh, Mrs. Green,” I stammered, “I didn’t realize who you were. Please forgive me.”<br>作者在事先不知情的情况下给一位癌症患者带来麻烦，因而感到内疚。但她现在知道真相了。<br>格林夫人——竟是那位患了癌症的女人！我站在楼梯上，手掩着嘴一时说不出话来：我竟然让一个身患癌症的病人冒着暴风雪开车送我去学校！“噢，格林夫人，”我结结巴巴地说道，“我真不知道您就是格林夫人。请原谅我！”</p>
-<h2 id="口语用法二：“我忘记了”——“I-forget”-or-“I-forgot”？"><a href="#口语用法二：“我忘记了”——“I-forget”-or-“I-forgot”？" class="headerlink" title="口语用法二：“我忘记了”——“I forget” or “I forgot”？"></a>口语用法二：“我忘记了”——“I forget” or “I forgot”？</h2><p>“我忘记了这个单词的意思”和“我忘记把你的耳机带来”，这两个“忘记”在汉语中丝毫没有区别，但在英文中却是大不相同，即它们发生的时间不一样。“我忘记了这个单词的意思”是“我”现在还不知道；而“我忘记把你的耳机带来”是当“我”想起来之后说的一句话，“忘记”已成为过去。因此，这两句英文要分别说成：<br>I forget the meaning of the word.<br>I forgot to bring your earphone back.</p>
-<p>A: I am sorry I forgot to return your physics book last night.<br>B: I’ll forgive you considering the test isn’t until Friday.<br>A：很抱歉，昨晚我忘了还你的那本物理书。<br>B：没关系，因为周五才考试呢。</p>
-<p>在汉语中说“我忘记做某事”，英文一般都是说成I forgot to do…，因为这一定是当你想起来之后才能说的一句话，“忘记”已成为过去。<br><strong><em>英文中一般没有使用I forget to do…的语境。</em></strong></p>
-<blockquote>
-<p>“我忘记”还可以说成It slipped my mind…。</p>
-</blockquote>
-<p>A: Did you pick up my books from Ron’s house?<br>B: Sorry. It slipped my mind.</p>
-<p>A：你是否从罗恩家把我的书捎过来了？<br>B：对不起，我忘记了。</p>
-<h2 id="口语用法三：“我以为”——“I-think”-or-“I-thought”？"><a href="#口语用法三：“我以为”——“I-think”-or-“I-thought”？" class="headerlink" title="口语用法三：“我以为”——“I think” or “I thought”？"></a>口语用法三：“我以为”——“I think” or “I thought”？</h2><p>A: I really thought that I’d win the match.<br>B: Oh, well, better luck next time, Henry.<br>A：我（本来）真的以为这个比赛我会赢的。<br>B：哦，没关系，希望你下次好运，亨利。<br>若说成： I really think that I will win the match.（我真的很肯定我会赢得这场比赛。）<br>这就一定是在比赛之前说的话，表明自己很有信心赢得这场比赛。所以，简单来说，I thought是强调“我刚才这么想”，而现实情况往往不同（如上句的I really thought that I’d win the match，即“我本来以为我会赢”，但实际没有赢）。而I think则相当于I have an opinion（我这么认为），表示自己的观点。因此，两者的意思可谓是大相径庭。</p>
-<p>再比如目前大学毕业生找工作很难，我们可以说出这样的一句话：<br>开始我以为找工作很容易，但现实情况比我想的还要难。<br>这句话可以这样讲：<br>At first I thought it would be easy to find a job, but the real situation has proved more difficult than I thought.</p>
-<blockquote>
-<p>当我们要说“我本来还以为……”时，在英文中就要说成I thought…。</p>
-</blockquote>
-<h2 id="口语用法四：根据上下文的语境灵活地使用一般过去时"><a href="#口语用法四：根据上下文的语境灵活地使用一般过去时" class="headerlink" title="口语用法四：根据上下文的语境灵活地使用一般过去时"></a>口语用法四：根据上下文的语境灵活地使用一般过去时</h2><p>在英语里，当两人见面刚认识，都会说“认识你很高兴”，用英语说成：<br>It is nice to meet you.<br>这里用的是一般现在时is。但是，在两人聊天结束后，在分手告别时还不会忘记说上一句“认识你很高兴”，这时英语就要用过去时态了：<br>It was nice meeting you.<br>或者说“和你聊天很开心”：<br>It was nice talking to you.<br>上面两句告别用语可以分别简化成“Nice meeting you.”和“Nice talking to you.”。</p>
-<blockquote>
-<p>告别时说“认识”用的是动名词meeting，而不是不定式to meet。</p>
-</blockquote>
-<p>A: Excuse me. I believe I <strong>__</strong>（be） here first. Do you mind waiting your turn?<br>B: Oh, sure. Sorry.<br>A: That’s OK.<br>根据语境，空格中我们应该用过去时这么说“I believe I was here first.”。<br>A：对不起，我想我比你先来这里的。你能排队等候吗？<br>B：哦，对不起。<br>A：没事。</p>
-<h2 id="口语用法五：礼貌表达"><a href="#口语用法五：礼貌表达" class="headerlink" title="口语用法五：礼貌表达"></a>口语用法五：礼貌表达</h2><p>在口语中，一般过去时（也可用过去进行时）可以表示语气委婉，此时的过去时丝毫没有过去的意味，而谈的是现在的情况。<br>I wondered if you could help me. 我想知道你能否帮我。<br>Could you give me a hand? 你能帮我一下吗？<br>I was wondering if you could possibly lend me your car for this evening. 我想知道你今晚能否把车借给我用用。</p>
-]]></content>
-      <categories>
-        <category>English</category>
-      </categories>
-      <tags>
-        <tag>English</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数据结构系列之哈希表（Java）</title>
     <url>/2020/09/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B3%BB%E5%88%97%E4%B9%8B%E5%93%88%E5%B8%8C%E8%A1%A8-Java/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h2 id="哈希表（散列表）"><a href="#哈希表（散列表）" class="headerlink" title="哈希表（散列表）"></a>哈希表（散列表）</h2><p>散列表（Hash table，也叫哈希表），是根据键（Key）而直接访问在内存储存位置的数据结构。也就是说，它通过计算一个关于键值的函数，将所需查询的数据映射到表中一个位置来访问记录，这加快了查找速度。这个映射函数称做散列函数，存放记录的数组称做散列表。</p>
+<h3 id="散列函数"><a href="#散列函数" class="headerlink" title="散列函数"></a>散列函数</h3><p>线程安全的<code>java.util.Hashtable</code>的散列函数是基于<code>除留余数法</code>的方式来计算，其计算代码如下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Entry&lt;?,?&gt; tab[] = table; // 表存储是采用数组来实现的</span><br><span class="line">int hash = key.hashCode();</span><br><span class="line">int index = (hash &amp; 0x7FFFFFFF) % tab.length;</span><br></pre></td></tr></table></figure></p>
+<p><strong><em>如果单单只是通过取模来计算映射地址的话，可能会出现<code>冲突</code>问题。</em></strong></p>
+<h3 id="冲突"><a href="#冲突" class="headerlink" title="冲突"></a>冲突</h3><p>散列函数可能会把不同的Key值映射到同一个数组下标。</p>
+<h3 id="散列函数的要求"><a href="#散列函数的要求" class="headerlink" title="散列函数的要求"></a>散列函数的要求</h3><ul>
+<li>散列函数的定义域必须包含全部需要存储的Key值，而Value值的范围则依赖于散列表的大小或地址范围。</li>
+<li>散列函数计算出来的地址应该能等概率、均匀分布在整个地址空间中，从而减少冲突的发生。</li>
+<li>散列函数应尽量简单，能够在较短时间内计算出任一关键字对应的散列地址。</li>
+</ul>
+<h3 id="散列表的构造方法"><a href="#散列表的构造方法" class="headerlink" title="散列表的构造方法"></a>散列表的构造方法</h3><h4 id="直接定址法"><a href="#直接定址法" class="headerlink" title="直接定址法"></a>直接定址法</h4><p>取关键字或关键字的某个线性函数值为散列地址。<br>其线性函数可以表示为：<code>Hash(k)=a*k+b（a、b均为常数）</code>。</p>
+<blockquote>
+<p>直接定址法的弊端是，若Key值分布不均衡，Hash(k)计算出来的值也不均衡，会造成空间浪费。</p>
+</blockquote>
+<h4 id="除留余数法"><a href="#除留余数法" class="headerlink" title="除留余数法"></a>除留余数法</h4><p>取Key（Java里面是计算Key的hashCode）被某个不大于散列表（HashTable是取其内部table的长度）表长的数p除后所得的余数为散列地址，也就是基于取模运算。<br>其散列函数公式表示为：<code>Hash(k)=k%p</code>。</p>
+<blockquote>
+<p>p值最好是取最接近或等于表长的质数，这样可以减少冲突（<code>java.util.Hashtable</code>内部直接使用表长作为p值了）。</p>
+</blockquote>
+<h4 id="数字分析法"><a href="#数字分析法" class="headerlink" title="数字分析法"></a>数字分析法</h4><p>假设Key是以r为基的数，并且哈希表中可能出现的Key都是事先知道的，则可取Key的若干数位组成哈希地址。<br>好比如以下的一组二进制数：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/CP99ZS.png" alt><br>则可只取后面的几位作为散列地址的计算依据或者结果。</p>
+<blockquote>
+<p>只适合Key是已经的集合。</p>
+</blockquote>
+<h4 id="折叠法"><a href="#折叠法" class="headerlink" title="折叠法"></a>折叠法</h4><h4 id="随机数法"><a href="#随机数法" class="headerlink" title="随机数法"></a>随机数法</h4><blockquote>
+<p>参考来源：<a href="https://zh.wikipedia.org/wiki/%E5%93%88%E5%B8%8C%E8%A1%A8" target="_blank" rel="noopener">哈希表-维基百科</a>、<a href="https://www.bilibili.com/video/BV1b7411N798?p=68" target="_blank" rel="noopener">王道考研</a></p>
+</blockquote>
+]]></content>
       <categories>
         <category>数据结构</category>
       </categories>
@@ -6387,6 +6298,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
         <tag>Java</tag>
         <tag>数据结构</tag>
         <tag>哈希表</tag>
+        <tag>散列表</tag>
       </tags>
   </entry>
   <entry>
@@ -6897,7 +6809,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 <li>j==-1        i=5 j=0     next[5] = 0</li>
 <li>e!=g      i=6 j=1     break;</li>
 </ul>
-]]></content>
+<h3 id="KMP算法的优化"><a href="#KMP算法的优化" class="headerlink" title="KMP算法的优化"></a>KMP算法的优化</h3>]]></content>
       <categories>
         <category>数据结构</category>
       </categories>
@@ -6925,7 +6837,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 <h3 id="先行词是一个短语"><a href="#先行词是一个短语" class="headerlink" title="先行词是一个短语"></a>先行词是一个短语</h3><p>In Europe, as elsewhere, multi-media groups have been increasingly successful groups which bring together television, radio, newspapers, magazines and publishing houses that work in relation to one another.<br>这里的关系词which指代的先行词是successful groups这个名词短语，关系词that指代的先行词是television, radio, newspapers, magazines and publishing houses这个名词短语。<br>在欧洲，像在其他地方一样，多媒体集团越来越成功了。这些集团把相互间联系密切的电视台、电台、报纸、杂志以及出版社组合到了一起。</p>
 <h3 id="先行词是一个分句"><a href="#先行词是一个分句" class="headerlink" title="先行词是一个分句"></a>先行词是一个分句</h3><p>He said that he had no time, which isn’t true.<br>这里which指代的是一个宾语从句that he had no time。<br>他说他没有时间，事实并非如此。</p>
 <h3 id="先行词是一个完整的句子"><a href="#先行词是一个完整的句子" class="headerlink" title="先行词是一个完整的句子"></a>先行词是一个完整的句子</h3><p>My girlfriend likes dancing with other guys, which really drives me crazy.<br>先行词是my girlfriend likes dancing with other guys这一完整的句子。<br>我女友喜欢和别的小伙子跳舞，这让我十分恼火。</p>
-<h2 id="先行词的位置特点"><a href="#先行词的位置特点" class="headerlink" title="先行词的位置特点"></a>先行词的位置特点</h2><h3 id="先行词-其他定语-定语从句"><a href="#先行词-其他定语-定语从句" class="headerlink" title="先行词+其他定语+定语从句"></a>先行词+其他定语+定语从句</h3><p>这种情形最常见。这是由于先行词同时带有多个定语，定语从句与其他定语相比，一般较长，结构也较复杂，因此，按照英语的“尾重原则（principle of end weight）”，结构复杂的定语从句置于其他定语后边，从而造成与先行词隔离。<br>The mineral elements from the soil that are usable by the plant must be dissolved in the soil solution before they can be taken into the root.<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/QbR3pc.png" alt><br>土壤中可供植物利用的矿物质只有先溶解在土壤中，然后才能被植物的根部吸收。</p>
+<h2 id="先行词的位置特点"><a href="#先行词的位置特点" class="headerlink" title="先行词的位置特点"></a>先行词的位置特点</h2><h3 id="先行词-其他定语-定语从句"><a href="#先行词-其他定语-定语从句" class="headerlink" title="先行词+其他定语+定语从句"></a>先行词+其他定语+定语从句</h3><p>这种情形最常见。这是由于先行词同时带有多个定语，定语从句与其他定语相比，一般较长，结构也较复杂，因此，按照英语的“尾重原则（principle of end weight）”，结构复杂的定语从句置于其他定语后边，从而造成与先行词隔离。<br>The mineral elements from the soil that are usable by the plant must be dissolved in the soil solution before they can be taken into the root.<br>土壤中可供植物利用的矿物质只有先溶解在土壤中，然后才能被植物的根部吸收。</p>
 <h3 id="先行词-状语-定语从句"><a href="#先行词-状语-定语从句" class="headerlink" title="先行词+状语+定语从句"></a>先行词+状语+定语从句</h3><p>造成先行词与关系词被分隔的第二种情形，就是在先行词与关系词之间插入一个状语，这个状语一般是修饰主句的谓语动词的。<br>Never leave that until tomorrow which you can do today.<br>这里的先行词是that，定语从句是which you can do today。现在二者之间插入了一个时间状语until tomorrow来修饰leave，从而造成先行词与关系词被分隔。<br>今日事，今日毕（不要把今天能做的事情留到明天做）。</p>
 <p>If there is anything in the world that a young man should be more grateful for than another, it is the poverty which necessitates starting life under very great disadvantage.<br>这里的 关系代词that在从句中作介词for的宾语。<br>对于青年人来说，如果世上真的有什么事物是他最应该感激的，那就是贫穷，因为贫穷能促使他在非常恶劣的环境下开创生活。</p>
 <h3 id="作主语的先行词-谓语部分-定语从句"><a href="#作主语的先行词-谓语部分-定语从句" class="headerlink" title="作主语的先行词+谓语部分+定语从句"></a>作主语的先行词+谓语部分+定语从句</h3><p>先行词与关系词被分隔的第三种情形就是两者被主句谓语隔开。这是因为先行词在主句中作主语，然后它又被一个定语从句所修饰，而定语从句一般都会比主句谓语的结构复杂。因此，按照英语的“尾重原则（principle of end weight）”，结构复杂的定语从句置于主句谓语后边，从而造成关系词与先行词被隔离。<br>It can be predicted, however, that from time to time questions will arise which will require specific scientific answers.<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/FOWXxR.png" alt><br>然而，可以预见的是，将来会经常出现一些问题，这些问题需要给出专门的科学的回答。</p>
@@ -6936,7 +6848,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 <p>Despite【A】 much research, there are still certain elements in【B】 the life cycle of the insect that is【C】 not fully understood【D】.<br>C，应改为are。<br>这里先行词elements与关系词that被分隔，因为elements还有一个后置定语in the life cycle of the insect。显然，这种分隔属于：先行词+其他定语+定语从句。that指代elements，在从句中作主语，所以，谓语动词要用复数形式的are。</p>
 <h2 id="关系词在定语从句中充当的成分"><a href="#关系词在定语从句中充当的成分" class="headerlink" title="关系词在定语从句中充当的成分"></a>关系词在定语从句中充当的成分</h2><h3 id="关系词用作从句的主语"><a href="#关系词用作从句的主语" class="headerlink" title="关系词用作从句的主语"></a>关系词用作从句的主语</h3><p>比较简单句和定语从句，看看一个简单句如何变成定语从句。<br><strong><em>The woman</em></strong> is a famous dancer and she lives next door.<br>这个句中有一个“重复元素”，这里的she指代 the woman，即两句之间有一个交叉点，而通过这个交叉点建立起两句之间的联系。现在要用she lives next door来作定语修饰the woman，以告诉对方哪位女士是舞蹈演员。而在定语从句中，指代“人”的关系词要用who。<br>因此，上句可改写成：<br>The woman is a famous dancer who (=and she) lives next door.<br>这里的关系词who既取代了代词she也取代了连词and， 即who既具有代词的作用也起着连接的作用。另外，定语从句一般要紧跟在它所修饰的名词后面。因此，上一句又可进一步改写成：<br>The woman who lives next door is a famous dancer.<br>由此看到，关系词who既指代the woman，同时又在从句中作主语，而且还替换了and，起着连词的作用。<br>这位女士是一名著名的舞蹈演员，她就住在我家隔壁。</p>
 <p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/ONSgS8.png" alt><br>这里的关系词who取代and they，来引导定语从句who have a good sense of humor，修饰名词guys。<br>我喜欢有幽默感的男士。</p>
-<p>在变换过程中药注意三点：</p>
+<p>在变换过程中要注意三点：</p>
 <ul>
 <li>用关系词who代替人称代词（如she或they）后，定语从句里就不能再保留这些代词了。比如不能说：<br>The woman who she lives next door is a famous dancer. <em><br>I like guys who they have a good sense of humor. </em></li>
 <li>事实上，定语从句可以修饰一个主句当中的任何一个名词。但是，我们关注的往往是关系词在定语从句中所充当的成分，不关心定语从句是修饰主句的哪个名词。</li>
@@ -7080,7 +6992,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 <p>The day may soon come when we don’t bother to go to office but just work at home.<br>也许在不久的将来，我们就不必去办公室上班了，而就在家里工作。</p>
 <h4 id="关系副词when在从句中作时间状语（先行词表示时间时，不一定都用when引导定语从句）"><a href="#关系副词when在从句中作时间状语（先行词表示时间时，不一定都用when引导定语从句）" class="headerlink" title="关系副词when在从句中作时间状语（先行词表示时间时，不一定都用when引导定语从句）"></a>关系副词when在从句中作时间状语（先行词表示时间时，不一定都用when引导定语从句）</h4><p>when是在定语从句中作时间状语。换句话说，若定语从句不是缺少状语，而是缺少主语或宾语，那么即使先行词是表示时间的名词，也不能用when而要用which或that来引导定语从句。因为用when来引导定语从句的前提条件是：when必须在其引导的定语从句中作时间状语。<br>1） I’ll never forget the time which I spent on campus.<br>2） I’ll never forget the day when we first met in the park.<br>在例句1）中，由于定语从句中的谓语spent缺宾语，因此关系词要充当这一宾语，故要用which。<br>在例句2）中，定语从句不缺主语或宾语，而是缺少时间状语，故关系词用when，这里when作时间状语，修饰met。<br>1）我永远不会忘记在大学校园里度过的时光。<br>2）我永远不会忘记我们第一次在公园里相遇的那一天。</p>
 <p>The day, which began brightly, ended with a violent storm.<br>这里的先行词是day，表示时间。由于定语从句缺少主语，所以用关系代词which引导定语从句，which作从句的主语，而不用关系副词when，因为关系副词无法作主语，只能作状语。<br>那天，开始的时候还是阳光明媚，后来就下起了暴风雨。</p>
-<h4 id="如何区分when引导的定语从句与when引导的时间状语从句"><a href="#如何区分when引导的定语从句与when引导的时间状语从句" class="headerlink" title="如何区分when引导的定语从句与when引导的时间状语从句"></a>如何区分when引导的定语从句与when引导的时间状语从句</h4><p>很多时候，若不区分开when引导的这两类从句，就会导致误解。</p>
+<h4 id="如何区分when引导的定语从句与when引导的时间状语从句"><a href="#如何区分when引导的定语从句与when引导的时间状语从句" class="headerlink" title="如何区分when引导的定语从句与when引导的时间状语从句"></a>如何区分when引导的定语从句与when引导的时间状语从句</h4><p>很多时候，若不区分开when引导的这两类从句，就会导致误解。<br>This trend began during the Second World War, when several governments came to the conclusion that the specific demands that a government wants to make of its scientific establishment cannot generally be foreseen in detail.<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/fAfJaW.png" alt><br>这里when的前面有表示时间的名词短语the Second World War，这里的when不是表示“当……时”，而要译成“当时”，这个从句可以译成“当时一些国家的政府得出结论”，而不能译成“当一些国家的政府得出结论的时候”。<br>同位语从句的主语部分是the specific demands that a government wants to make of its scientific establishment，谓语部分是cannot generally be foreseen in detail。这个主语部分比较难，因为主语中心词demands后面又带了一个that引导的定语从句that a government wants to make of its scientific establishment。<br>这里的that指代先行词demands，在定语从句中作谓语make的宾语，从而构成一个make demands of的搭配，表示“对……提出要求”。<br>这种趋势始于第二次世界大战期间，当时一些国家的政府得出结论：政府要向科研机构提出的具体要求通常是无法详尽预见的。</p>
 <h3 id="where的用法"><a href="#where的用法" class="headerlink" title="where的用法"></a>where的用法</h3><h4 id="where的先行词指地点"><a href="#where的先行词指地点" class="headerlink" title="where的先行词指地点"></a>where的先行词指地点</h4><p>where引导定语从句，其先行词一般是表示地点的名词，如place和house等。<br>A: Since you work in the theater, can’t you get me a free ticket now and then?<br>B: Certainly if you bring me a few notes now and then from the bank where you work!<br>这里的先行词bank表示地点，where在从句中充当地点状语（定语从句中不缺主语或宾语），修饰work。<br>A：既然你在剧院工作，那你就不能时常给我弄些免费的票吗？<br>B：当然可以，只要你能够从你工作的那家银行里时常给我弄些票子出来。</p>
 <p>This is the town where I spent my childhood.<br>这就是我度过童年的小镇。</p>
 <h4 id="关系副词where在从句中作地点状语"><a href="#关系副词where在从句中作地点状语" class="headerlink" title="关系副词where在从句中作地点状语"></a>关系副词where在从句中作地点状语</h4><p>与when类似，并不是先行词是表示地点的名词时，都得由where来引导定语从句，这得看关系词在从句中充当的成分。若定语从句缺主语或宾语，则要用which或that引导定语从句。<br>1） This is the town where I spent my childhood.<br>2） This is the town which I told you about before.<br>在例句1）中，定语从句不缺少主语或宾语，而是缺少地点状语，故关系词用where。where作地点状语，修饰spent。<br>在例句2）里，由于定语从句中的谓语部分told you about缺少宾语，因此关系词要充当这一宾语，故要用which。<br>1）这就是我度过童年的小城。<br>2）这就是我以前告诉过你的小城。</p>
@@ -7120,7 +7032,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
     <title>《深入理解Java虚拟机第3版》阅读笔记</title>
     <url>/2020/07/09/%E3%80%8A%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AC%AC3%E7%89%88%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<blockquote>
-<p>这篇笔记总结自周志明老师的《深入理解Java虚拟机第3版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。<br>思维导图版本<a href="http://www.xmind.net/m/bFegT6" target="_blank" rel="noopener">点击这里</a></p>
+<p>这篇笔记总结自周志明老师的《深入理解Java虚拟机第3版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。<br>思维导图版本<a href="http://www.xmind.net/m/XScehV" target="_blank" rel="noopener">点击这里</a></p>
 </blockquote>
 <h1 id="虚拟机概述"><a href="#虚拟机概述" class="headerlink" title="虚拟机概述"></a>虚拟机概述</h1><h2 id="中间语言翻译（从Java翻译到机器码）"><a href="#中间语言翻译（从Java翻译到机器码）" class="headerlink" title="中间语言翻译（从Java翻译到机器码）"></a>中间语言翻译（从Java翻译到机器码）</h2><blockquote>
 <p>从中间语言翻译到机器码</p>
@@ -7177,9 +7089,9 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 <h4 id="对象头（Header）"><a href="#对象头（Header）" class="headerlink" title="对象头（Header）"></a>对象头（Header）</h4><p>HotSpot对象头包含两类信息：</p>
 <ul>
 <li>存储对象自身的运行时数据：<code>哈希码（HashCode）</code>、<code>GC分代年龄</code>、<code>锁状态标志</code>、<code>线程持有的锁</code>、<code>偏向线程ID</code>、<code>偏向时间戳</code>等，官方称之为”Mark Word”。<br>MarkWord被设计成一一个有着动态定义的数据结构，以便在极小的空间内存储尽量多的数据，根据对象的状态复用自己的存储空间。例如在32位的HotSpot虚拟机中，如对象未被同步锁锁定的状态下，Mark Word的32个比特存储空间中的25个比特用于存储对象哈希码，4个比特用于存储对象分代年龄，2个比特用于存储锁标志位，1个比特固定为0，在其他状态(轻量级锁定、重量级锁定、GC标记、可偏向) 下对象的存储内容。如下图：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/YAJQr9.png" alt></li>
-<li>类型指针：即对象指向 它的类型元数据的指针，Java虚拟机通过这个指针来确定该对象是哪个类的实例。并不是所有的虚拟机实现都必须在对象数据上保留类型指针。</li>
+<li>类型指针：即对象指向它的类型元数据的指针，Java虚拟机通过这个指针来确定该对象是哪个类的实例。并不是所有的虚拟机实现都必须在对象数据上保留类型指针。</li>
 </ul>
-<h4 id="实例数据（Instance-Data）"><a href="#实例数据（Instance-Data）" class="headerlink" title="实例数据（Instance Data）"></a>实例数据（Instance Data）</h4><p>这部分是对象真正存储的有效信息，即程序代码里定义的各种类型的字段内容，无论是从父类继承下来的，还是在子类中定义的字段都必须记录在此。<br>这部分的存储顺序会受到虚拟机分配策略参数<code>-XX: FieldsAllocationStyle</code>参数和字段在Java源码中定义顺序的影响。<br>HotSpot虛拟机默认的分配顺序为longs/doubles、ints、 shorts/chars、 bytes/booleans、oops(Ordinary Object Pointers, OOPs)，从以上默认的分配策略中可以看到，相同宽度的字段总是被分配到一起存放，在满足这个前提条件的情况下，在父类中定义的变量会出现在子类之前。<br>如果HotSpot虛拟机的<code>+XX: CompactPields</code>参数值为true(默认就为true)，那子类之中较窄的变量也允许插入父类变量的空隙之中，以节省出一点点空间。</p>
+<h4 id="实例数据（Instance-Data）"><a href="#实例数据（Instance-Data）" class="headerlink" title="实例数据（Instance Data）"></a>实例数据（Instance Data）</h4><p>这部分是对象真正存储的有效信息，即程序代码里定义的各种类型的字段内容，无论是从父类继承下来的，还是在子类中定义的字段都必须记录在此。<br>这部分的存储顺序会受到虚拟机分配策略参数<code>-XX: FieldsAllocationStyle</code>参数和字段在Java源码中定义顺序的影响。<br>HotSpot虛拟机默认的分配顺序为longs/doubles、ints、 shorts/chars、 bytes/eooleans、oops(Ordinary Object Pointers, OOPs)，从以上默认的分配策略中可以看到，相同宽度的字段总是被分配到一起存放，在满足这个前提条件的情况下，在父类中定义的变量会出现在子类之前。<br>如果HotSpot虛拟机的<code>+XX: CompactPields</code>参数值为true(默认就为true)，那子类之中较窄的变量也允许插入父类变量的空隙之中，以节省出一点点空间。</p>
 <h4 id="对齐填充（Padding）"><a href="#对齐填充（Padding）" class="headerlink" title="对齐填充（Padding）"></a>对齐填充（Padding）</h4><p>不是一定存在的，只是起到占位符的作用。<br>由于HotSpot虚拟机的自动内存管理系统要求对象起始地址必须是8字节的整数倍，换句话说就是任何对象的大小都必须是8字节的整数倍。对象头部分已经被精心设计成正好是8字节的倍数(1倍或者2倍)，因此，如果对象实例数据部分没有对齐的话，就需要通过对齐填充来补全。</p>
 <h3 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h3><p>Java程序会通过栈上的reference类型数据来操作堆上的具体对象。</p>
 <h4 id="句柄和直接指针两种方式"><a href="#句柄和直接指针两种方式" class="headerlink" title="句柄和直接指针两种方式"></a>句柄和直接指针两种方式</h4><ul>
@@ -7417,22 +7329,51 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 <li>如果小于，或者-XX:HandlePromotionFailure设置不允许冒险，那这时就要改为进行一次Full GC。</li>
 </ul>
 <h4 id="冒险"><a href="#冒险" class="headerlink" title="冒险"></a>冒险</h4><p>新生代使用复制收集算法，但为了内存利用率，只使用其中一个Survivor空间来作为轮换备份，因此当出现大量对象在MinorGC后仍然存活的情况（最极端的情况就是内存回收后新生代中所有对象都存活），需要老年代进行分配担保，把Survivor无法容纳的对象直接送入老年代，这与生活中信用贷款担保类似。老年代要进行这样的担保，前提是老年代本身还有容纳这些对象的剩余空间，但一共有多少对象会在这次回收中活下来在实际完成内存回收之前是无法明确知道的，所以<strong><em>只能取之前每一次回收晋升到老年代对象容量的平均大小作为经验值，与老年代的剩余空间进行比较，决定是否进行Full GC来让老年代腾出更多空间。</em></strong><br>取历史平均值来比较其实仍然是一种赌概率的解决办法，如果赌输了（Minor GC失败），那就只能Full GC，</p>
-<h1 id="虚拟机性能监控、故障处理工具"><a href="#虚拟机性能监控、故障处理工具" class="headerlink" title="虚拟机性能监控、故障处理工具"></a>虚拟机性能监控、故障处理工具</h1><h2 id="jps"><a href="#jps" class="headerlink" title="jps"></a>jps</h2><ul>
+<h1 id="虚拟机性能监控、故障处理工具"><a href="#虚拟机性能监控、故障处理工具" class="headerlink" title="虚拟机性能监控、故障处理工具"></a>虚拟机性能监控、故障处理工具</h1><h2 id="基础故障处理工具（命令行）"><a href="#基础故障处理工具（命令行）" class="headerlink" title="基础故障处理工具（命令行）"></a>基础故障处理工具（命令行）</h2><h3 id="jps"><a href="#jps" class="headerlink" title="jps"></a>jps</h3><ul>
 <li>类似Unix的ps命令，可以列出正在运行的虚拟机进程，并显示虚拟机执行主类(Main Class，main()函数所在的类)名称以及这些进程的本地虚拟机唯一ID (LVMID， Local Virtual Machine Identifier) 。</li>
 <li>对于本地虚拟机进程来说，LVMID与操作系统的进程ID(PID, Process Identifier)是一致的，使用Windows的任务管理器或者UNIX的ps命令也可以查询到虚拟机进程的LVMID，但如果同时启动了多个虚拟机进程，无法根据进程名称定位时，那就必须依赖jps命令显示主类的功能才能区分了。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/Ypeo0b.png" alt></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ ./jps -l</span><br><span class="line">21618 me.fengorz.kiwi.gateway.GatewayApplication</span><br><span class="line">21443 me.fengorz.kiwi.eureka.EurekaApplication</span><br><span class="line">21624 me.fengorz.kiwi.auth.AuthApplication</span><br><span class="line">21609 me.fengorz.kiwi.admin.UpmsApplication</span><br><span class="line">21642 /Users/zhanshifeng/Documents/myDocument/idea-project/microservice-kiwi/kiwi-common/kiwi-common-sdk/target/surefire/surefirebooter5682934295796544847.jar</span><br><span class="line">5005</span><br><span class="line">21645 sun.tools.jps.Jps</span><br><span class="line">21438 me.fengorz.kiwi.config.ConfigApplication</span><br><span class="line">21631 org.codehaus.classworlds.Launcher</span><br><span class="line">21359</span><br></pre></td></tr></table></figure>
-<h2 id="jstatd"><a href="#jstatd" class="headerlink" title="jstatd"></a>jstatd</h2><p>需要远程主机提供RMI支持，JDK中提供了jstatd工具可以很方便地建立远程RMI服务器。<br><a href="https://docs.oracle.com/javase/8/docs/technotes/tools/windows/jstatd.html#:~:text=Description,registry%20on%20the%20local%20host." target="_blank" rel="noopener">官方文档</a></p>
-<h2 id="jstat"><a href="#jstat" class="headerlink" title="jstat"></a>jstat</h2><p>jstat (JVM Statistics Monitoring Tool)是用于监视虚拟机各种运行状态信息的命令行工具。它可以显示本地或者远程虚拟机进程中的类加载、内存、垃圾收集、即时编译等运行时数据。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/vKxXCM.png" alt></p>
+<h3 id="jstatd"><a href="#jstatd" class="headerlink" title="jstatd"></a>jstatd</h3><p>需要远程主机提供RMI支持，JDK中提供了jstatd工具可以很方便地建立远程RMI服务器。<br><a href="https://docs.oracle.com/javase/8/docs/technotes/tools/windows/jstatd.html#:~:text=Description,registry%20on%20the%20local%20host." target="_blank" rel="noopener">官方文档</a></p>
+<h3 id="jstat"><a href="#jstat" class="headerlink" title="jstat"></a>jstat</h3><p>jstat (JVM Statistics Monitoring Tool)是用于监视虚拟机各种运行状态信息的命令行工具。它可以显示本地或者远程虚拟机进程中的类加载、内存、垃圾收集、即时编译等运行时数据。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/vKxXCM.png" alt></p>
 <p><a href="https://docs.oracle.com/javase/8/docs/technotes/tools/unix/jstat.html" target="_blank" rel="noopener">JDK 8的jstat官方手册</a><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 每250秒查询一次进程21443的垃圾收集情况，一共查询20次</span><br><span class="line">./jstat -gc 21443 250 20</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ ./jstat -gcutil 21443</span><br><span class="line">  S0     S1     E      O      M     CCS    YGC     YGCT    FGC    FGCT     GCT</span><br><span class="line"> 67.19   0.00  77.24  71.45  94.54  92.87     74    0.164     2    0.092    0.256</span><br><span class="line"># S0、S1表示Survivor0、Survivor1</span><br><span class="line"># E表示新生代Eden区，已经使用了77.24%</span><br><span class="line"># O表示老年代</span><br><span class="line"># M表示Meta Space（元空间）</span><br><span class="line"># CCS：Compressed class space utilization as a percentage.（压缩类空间利用率百分比）</span><br><span class="line"># YGC表示发生Minor GC（Young GC）的次数</span><br><span class="line"># YGCT: Young generation garbage collection time.（YGC的总耗时）</span><br><span class="line"># FGC表示Full GC次数</span><br><span class="line"># FGCT表示FGC总耗时</span><br><span class="line"># GCT表示所有FC总耗时</span><br></pre></td></tr></table></figure>
-<h2 id="jinfo（Java配置信息工具）"><a href="#jinfo（Java配置信息工具）" class="headerlink" title="jinfo（Java配置信息工具）"></a>jinfo（Java配置信息工具）</h2><h1 id="HotSpot参数大全"><a href="#HotSpot参数大全" class="headerlink" title="HotSpot参数大全"></a>HotSpot参数大全</h1><h2 id="Xmx"><a href="#Xmx" class="headerlink" title="-Xmx"></a>-Xmx</h2><h2 id="Xms"><a href="#Xms" class="headerlink" title="-Xms"></a>-Xms</h2><h2 id="Xmn"><a href="#Xmn" class="headerlink" title="-Xmn"></a>-Xmn</h2><p>分配给Minor的大小</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ ./jstat -gcutil 21443</span><br><span class="line">  S0     S1     E      O      M     CCS    YGC     YGCT    FGC    FGCT     GCT</span><br><span class="line"> 67.19   0.00  77.24  71.45  94.54  92.87     74    0.164     2    0.092    0.256</span><br><span class="line"># S0、S1表示Survivor0、Survivor1</span><br><span class="line"># E表示新生代Eden区，已经使用了77.24%</span><br><span class="line"># O表示老年代</span><br><span class="line"># M表示Meta Space（元空间）</span><br><span class="line"># CCS：Compressed class space utilization as a percentage.（压缩类空间利用率百分比）</span><br><span class="line"># YGC表示发生Minor GC（Young GC）的次数</span><br><span class="line"># YGCT: Young generation garbage collection time.（YGC的总耗时）</span><br><span class="line"># FGC表示Full GC次数</span><br><span class="line"># FGCT表示FGC总耗时</span><br><span class="line"># GCT表示所有GC总耗时</span><br></pre></td></tr></table></figure>
+<h3 id="jinfo（Java配置信息工具）"><a href="#jinfo（Java配置信息工具）" class="headerlink" title="jinfo（Java配置信息工具）"></a>jinfo（Java配置信息工具）</h3><p>jinfo (Configuration Info for Java)的作用是实时查看和调整虚拟机各项参数（只能对可在运行时修改的参数生效）。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Usage:</span><br><span class="line">    jinfo &lt;option&gt; &lt;pid&gt;</span><br><span class="line">       (to connect to a running process)</span><br><span class="line"></span><br><span class="line">where &lt;option&gt; is one of:</span><br><span class="line">    -flag &lt;name&gt;         to print the value of the named VM flag</span><br><span class="line">    -flag [+|-]&lt;name&gt;    to enable or disable the named VM flag</span><br><span class="line">    -flag &lt;name&gt;=&lt;value&gt; to set the named VM flag to the given value</span><br><span class="line">    -h | -help           to print this help message</span><br></pre></td></tr></table></figure>
+<h3 id="jmap（Java内存映射工具）"><a href="#jmap（Java内存映射工具）" class="headerlink" title="jmap（Java内存映射工具）"></a>jmap（Java内存映射工具）</h3><p>jmap (Memory Map for Java)命令用于生成堆转储快照(般称为heapdump或dump文件)。<br>也可以使用参数<code>-XX:+HeapDumpOnOutOfMemoryError</code>“暴力”拿到hump文件。</p>
+<h4 id="jmap的其他作用"><a href="#jmap的其他作用" class="headerlink" title="jmap的其他作用"></a>jmap的其他作用</h4><p>还可以查询finalize执行队列、Java堆和方法区的详细信息，如空间使用率、当前用的是哪种收集器等。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/5CDON2.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">jmap -dump:format=b,file=test.bin pid</span><br></pre></td></tr></table></figure>
+<h3 id="jhat（虚拟机堆转储快照分析工具）"><a href="#jhat（虚拟机堆转储快照分析工具）" class="headerlink" title="jhat（虚拟机堆转储快照分析工具）"></a>jhat（虚拟机堆转储快照分析工具）</h3><p>jhat（JVM Heap Analysis Tool）命令可以与jmap搭配使用，来分析jmap生成的堆转储快照。jhat内置了一个微型的HTTP/Web服务器，生成堆转储快照的分析结果后，可以在浏览器中查看。<br>不过一般不会在部署应用程序的服务器上直接分析堆转储快照，即使可以这样做，也会尽量将堆转储快照文件复制到其他机器上进行分析。</p>
+<h3 id="jstack：Java堆跟踪工具"><a href="#jstack：Java堆跟踪工具" class="headerlink" title="jstack：Java堆跟踪工具"></a>jstack：Java堆跟踪工具</h3><p>jstack (Stack Trace for Java)命令用于生成虚拟机当前时刻的线程快照(一般称为threaddump或者javacore文件)。<br>线程快照就是当前虚拟机内每一条线程<code>正在执行的方法堆栈的集合</code>，生成线程快照的目的通常是定位线程出现长时间停顿的原因，如<code>线程间死锁</code>、<code>死循环</code>、<code>请求外部资源导致的长时间挂起</code>等，都是导致线程长时间停顿的常见原因。线程出现停顿时通过jstack来查看各个线程的调用堆栈，就可以获知没有响应的线程到底在后台做些什么事情，或者等待着什么资源。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/jcikU1.png" alt><br>通过<code>java.lang.Thread</code>的getAllStackTraces()获取虚拟机所有线程的StackTraceElement对象，也可以查看线程状况。</p>
+<h2 id="可视化故障处理工具"><a href="#可视化故障处理工具" class="headerlink" title="可视化故障处理工具"></a>可视化故障处理工具</h2><ul>
+<li>JConsole（最古老）</li>
+<li>JHSDB（JDK 9之后才正式提供）</li>
+<li>VisualVM</li>
+<li>Java Mission Control（JMC）</li>
+</ul>
+<h3 id="JHSDB（基于服务性代理的调试工具）"><a href="#JHSDB（基于服务性代理的调试工具）" class="headerlink" title="JHSDB（基于服务性代理的调试工具）"></a>JHSDB（基于服务性代理的调试工具）</h3><p>JHSDB比老工具更好用、更强大，是一款基于服务性代理(Serviceability Agent, SA)实现的进程外调试工具。服务性代理是HotSpot虚拟机中一组用于映射Java虚拟机运行信息的、主要基于Java数据结构为参照物进行设计，把这些C++的数据抽象出Java模型对象，相当于HotSpot的C++代码的一个镜像。通过服务性代理的API,可以在一个独立的Java虚拟机的进程里分析其他HotSpot虚拟机的内部数据，或者从HotSpot虚拟机进程内存中dump出来的转储快照里还原出它的运行状态细节。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @Description 测试JHSDB故障分析工具</span><br><span class="line"> * @Author zhanshifeng</span><br><span class="line"> * @Date 2020/9/26 10:11 AM</span><br><span class="line"> */</span><br><span class="line">public class JHSDBTest &#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * taticObj随着Test的类型信息存放在方法区；</span><br><span class="line">     * instanceObj随着Test的对象实例存放在Java堆；</span><br><span class="line">     * localObj则是存放在foo方法栈帧的局部变量表中。</span><br><span class="line">     */</span><br><span class="line">    static class Test &#123;</span><br><span class="line">        static ObjectHolder staticObj = new ObjectHolder();</span><br><span class="line">        ObjectHolder instanceObj = new ObjectHolder();</span><br><span class="line"></span><br><span class="line">        void foo() &#123;</span><br><span class="line">            ObjectHolder localObj = new ObjectHolder();</span><br><span class="line">            System.out.println(&quot;done&quot;);// 打断点</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private static class ObjectHolder &#123;&#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * VM Options:</span><br><span class="line">     * -Xmx10m</span><br><span class="line">     * -XX:+UseSerialGC</span><br><span class="line">     * -XX:-UseCompressedOops</span><br><span class="line">     *</span><br><span class="line">     * @param args</span><br><span class="line">     */</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Test test = new JHSDBTest.Test();</span><br><span class="line">        test.foo();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * ./jps -l</span><br><span class="line">     * 6019 me.fengorz.jvm.jhsdb.JHSDBTest</span><br><span class="line">     *</span><br><span class="line">     * ./jhsdb hsdb -pid 6019</span><br><span class="line">     *</span><br><span class="line">     * 通过Tools-&gt;Heep Parameters复制Eden里面对象实例的内存地址</span><br><span class="line">     * scanoops 0x0000000124c00000 0x0000000124e9ee58 0x0000000124eb0000</span><br><span class="line">     * 可以追寻到以下结果：</span><br><span class="line">     * 0x0000000115c93d00 me/fengorz/jvm/jhsdb/JHSDBTest$Test</span><br><span class="line">     * 0x0000000115c93cf0 me/fengorz/jvm/jhsdb/JHSDBTest$ObjectHolder</span><br><span class="line">     * 0x0000000115c93d18 me/fengorz/jvm/jhsdb/JHSDBTest$ObjectHolder</span><br><span class="line">     * 0x0000000115c93d28 me/fengorz/jvm/jhsdb/JHSDBTest$ObjectHolder</span><br><span class="line">     *</span><br><span class="line">     * 通过Tools-&gt;Inspector确认三个实例地址存放的具体内容</span><br><span class="line">     * _metadata._klass: InstanceKlass for me/fengorz/jvm/jhsdb/JHSDBTest$ObjectHolder</span><br><span class="line">     * _super: InstanceKlass for java/lang/Object</span><br><span class="line">     * _layout_helper: 16</span><br><span class="line">     * _access_flags: 538968096</span><br><span class="line">     * _subklass: null</span><br><span class="line">     * _next_sibling: InstanceKlass for me/fengorz/jvm/jhsdb/JHSDBTest$Test</span><br><span class="line">     * _vtable_len: 5</span><br><span class="line">     * _array_klasses: null</span><br><span class="line">     * _nonstatic_field_size: 0</span><br><span class="line">     * _static_field_size: 0</span><br><span class="line">     * _static_oop_field_count: 0</span><br><span class="line">     * _nonstatic_oop_map_size: 0</span><br><span class="line">     * _is_marked_dependent: 0</span><br><span class="line">     * _init_state: 4</span><br><span class="line">     * _itable_len: 2</span><br><span class="line">     */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>根据Inspector的结果可以得到对象头和指向对象元数据的指针，里面包括了：</p>
+<ul>
+<li>Java类型的名字、继承关系、实现接口关系</li>
+<li>字段信息、方法信息、运行时常量池的指针、内嵌的虚方法表(vtable) 以及接口方法表(itable) 等。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hsdb&gt; revptrs 0x0000000115c93cf0</span><br><span class="line">null</span><br><span class="line">Oop for java/lang/Class @ 0x0000000115c92288</span><br></pre></td></tr></table></figure>
+<p>通过Inspector查看<code>0x0000000115c92288</code>地址对应的对象实例具体内容：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/f7me0O.png" alt><br>至此，可以看出上面内存地址的<code>0x0000000115c93cf0</code>对象实例，被内存地址为<code>0x0000000115c92288</code>的实例对象所引用，这就整好对照了Test类里面声明了静态的ObjectHolder类型的变量staticObj。<br>继续跟踪第二个对象实例内存地址在哪里被引用：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hsdb&gt; revptrs 0x0000000115c93d18</span><br><span class="line">Oop for me/fengorz/jvm/jhsdb/JHSDBTest$Test @ 0x0000000115c93d00</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/hkJyDV.png" alt><br>可以看出：内存地址为<code>0x0000000115c93d18</code>的实例被内存地址为<code>0x0000000115c93d00</code>的实例所引用，这就对照了上面代码的这句：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ObjectHolder instanceObj = new ObjectHolder();</span><br></pre></td></tr></table></figure></p>
+<p>跟踪第三个内存地址时出现null：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hsdb&gt; revptrs 0x0000000115c93d28</span><br><span class="line">null</span><br></pre></td></tr></table></figure></p>
+<p>这是因为第三个对象实例是方法栈里面产生的：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">void foo() &#123;</span><br><span class="line">   ObjectHolder localObj = new ObjectHolder();</span><br><span class="line">   System.out.println(&quot;done&quot;);// 打断点</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>revptrs不支持跟踪栈上的指针引用，可以换成在Java Threads窗口选中main线程，然后打开上面的Stack Memory for main：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/yBkGU4.png" alt></p>
+<h3 id="JConsole（Java监视与管理控制台）"><a href="#JConsole（Java监视与管理控制台）" class="headerlink" title="JConsole（Java监视与管理控制台）"></a>JConsole（Java监视与管理控制台）</h3><p>JConsole (Java Monitoring and Management Console)是一款基于JMX (JavaManagement Extensions)的可视化监视、管理工具。它的主要功能是通过JMX的MBean (Managed Bean)对系统进行信息收集和参数动态调整。<br>其Memory标签相当于可视化的jstat命令，Threads标签相当于可视化的jstack命令。<br>Threads标签使用测试代码：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class ThreadTest &#123;</span><br><span class="line"></span><br><span class="line">    public static void createBusyThread() &#123;</span><br><span class="line">        new Thread(() -&gt; &#123;</span><br><span class="line">            while (true) &#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, &quot;testBusyThread&quot;).start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private final static Object lock = new Object();</span><br><span class="line"></span><br><span class="line">    public static void createLockThread() &#123;</span><br><span class="line">        new Thread(() -&gt; &#123;</span><br><span class="line">            synchronized (lock) &#123;</span><br><span class="line">                try &#123;</span><br><span class="line">                    lock.wait();</span><br><span class="line">                &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, &quot;testLockThread&quot;).start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    static class SyncAdd implements Runnable &#123;</span><br><span class="line">        int a, b;</span><br><span class="line"></span><br><span class="line">        public SyncAdd(int a, int b) &#123;</span><br><span class="line">            this.a = a;</span><br><span class="line">            this.b = b;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public void run() &#123;</span><br><span class="line">            synchronized (Integer.valueOf(a)) &#123;</span><br><span class="line">                synchronized (Integer.valueOf(b)) &#123;</span><br><span class="line">                    System.out.println(a + b);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 为了做实验的机器资源安全，可以加上限制：</span><br><span class="line">     * -Xms500m</span><br><span class="line">     * -Xmx500m</span><br><span class="line">     *</span><br><span class="line">     * @param args</span><br><span class="line">     * @throws IOException</span><br><span class="line">     */</span><br><span class="line">    public static void main(String[] args) throws IOException &#123;</span><br><span class="line">        // BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));</span><br><span class="line">        // reader.readLine();</span><br><span class="line">        // createBusyThread();</span><br><span class="line">        // reader.readLine();</span><br><span class="line">        // createLockThread();</span><br><span class="line"></span><br><span class="line">        for (int i = 0; i &lt; 500; i++) &#123;</span><br><span class="line">            new Thread(new SyncAdd(1, 2)).start();</span><br><span class="line">            new Thread(new SyncAdd(2, 1)).start();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Name: testBusyThread</span><br><span class="line">     * State: RUNNABLE</span><br><span class="line">     * Total blocked: 0  Total waited: 0</span><br><span class="line">     *</span><br><span class="line">     * Stack trace:</span><br><span class="line">     * app//me.fengorz.jvm.jconsole.ThreadTest.lambda$createBusyThread$0(ThreadTest.java:15)</span><br><span class="line">     * app//me.fengorz.jvm.jconsole.ThreadTest$$Lambda$96/0x000000080019b840.run(Unknown Source)</span><br><span class="line">     * java.base@11.0.8/java.lang.Thread.run(Thread.java:834)</span><br><span class="line">     */</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Name: testLockThread</span><br><span class="line">     * State: WAITING on java.lang.Object@b847d8d</span><br><span class="line">     * Total blocked: 0  Total waited: 1</span><br><span class="line">     *</span><br><span class="line">     * Stack trace:</span><br><span class="line">     * java.base@11.0.8/java.lang.Object.wait(Native Method)</span><br><span class="line">     * java.base@11.0.8/java.lang.Object.wait(Object.java:328)</span><br><span class="line">     * app//me.fengorz.jvm.jconsole.ThreadTest.lambda$createLockThread$1(ThreadTest.java:27)</span><br><span class="line">     * app//me.fengorz.jvm.jconsole.ThreadTest$$Lambda$97/0x000000080019cc40.run(Unknown Source)</span><br><span class="line">     * java.base@11.0.8/java.lang.Thread.run(Thread.java:834)</span><br><span class="line">     */</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 太多SyncAdd线程产生死锁之后可以点击JConsole的Detect Deadlock探测死锁。</span><br><span class="line">     *</span><br><span class="line">     * Name: Thread-45</span><br><span class="line">     * State: BLOCKED on java.lang.Integer@2f98ef2a owned by: Thread-48</span><br><span class="line">     * Total blocked: 2  Total waited: 0</span><br><span class="line">     *</span><br><span class="line">     * Stack trace:</span><br><span class="line">     * app//me.fengorz.jvm.jconsole.ThreadTest$SyncAdd.run(ThreadTest.java:45)</span><br><span class="line">     *    - locked java.lang.Integer@d0dcf29</span><br><span class="line">     * java.base@11.0.8/java.lang.Thread.run(Thread.java:834)</span><br><span class="line">     *</span><br><span class="line">     * ----------------</span><br><span class="line">     *</span><br><span class="line">     * Name: Thread-48</span><br><span class="line">     * State: BLOCKED on java.lang.Integer@d0dcf29 owned by: Thread-45</span><br><span class="line">     * Total blocked: 2  Total waited: 0</span><br><span class="line">     *</span><br><span class="line">     * Stack trace:</span><br><span class="line">     * app//me.fengorz.jvm.jconsole.ThreadTest$SyncAdd.run(ThreadTest.java:45)</span><br><span class="line">     *    - locked java.lang.Integer@2f98ef2a</span><br><span class="line">     * java.base@11.0.8/java.lang.Thread.run(Thread.java:834)</span><br><span class="line">     *</span><br><span class="line">     * 可以发现两个线程在相互等待锁的释放：</span><br><span class="line">     * State: BLOCKED on java.lang.Integer@2f98ef2a owned by: Thread-48</span><br><span class="line">     * State: BLOCKED on java.lang.Integer@d0dcf29 owned by: Thread-45</span><br><span class="line">     */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="VisualVM（多合-故障处理工具）"><a href="#VisualVM（多合-故障处理工具）" class="headerlink" title="VisualVM（多合-故障处理工具）"></a>VisualVM（多合-故障处理工具）</h3><p>VisualVM (A1l-in-One Java Troubleshooting Tool)是功能最强大的运行监视和故障处理程序之一，曾经在很长-段时间内是Oracle官方主力发展的虚拟机故障处理工具。</p>
+<h1 id="HotSpot参数大全"><a href="#HotSpot参数大全" class="headerlink" title="HotSpot参数大全"></a>HotSpot参数大全</h1><h2 id="Xmx"><a href="#Xmx" class="headerlink" title="-Xmx"></a>-Xmx</h2><h2 id="Xms"><a href="#Xms" class="headerlink" title="-Xms"></a>-Xms</h2><h2 id="Xmn"><a href="#Xmn" class="headerlink" title="-Xmn"></a>-Xmn</h2><p>分配给Minor的大小</p>
 <h2 id="XX-PrintGCDetails"><a href="#XX-PrintGCDetails" class="headerlink" title="-XX:+PrintGCDetails"></a>-XX:+PrintGCDetails</h2><p>告诉虚拟机在发生垃圾收集行为时打印内存回收日志，并且在进程退出的时候输出当前的内存各区域分配情况。</p>
 <h2 id="verbose"><a href="#verbose" class="headerlink" title="-verbose:**"></a>-verbose:**</h2><h3 id="verbose-class"><a href="#verbose-class" class="headerlink" title="-verbose:class"></a>-verbose:class</h3><p>查看加载的类的情况。</p>
 <h3 id="–verbose-gc"><a href="#–verbose-gc" class="headerlink" title="–verbose:gc"></a>–verbose:gc</h3><p>打印出gc相关的信息；该信息不够高全面，等同于<code>-XX:+PrintGC</code>。其实只要设置<code>-XX:+PrintGCDetails</code>就会自动带上<code>-verbose:gc</code>和<code>-XX:+PrintGC</code></p>
 <h3 id="–verbose-jni"><a href="#–verbose-jni" class="headerlink" title="–verbose:jni"></a>–verbose:jni</h3><h2 id="XX-PretenureSizeThreshold"><a href="#XX-PretenureSizeThreshold" class="headerlink" title="-XX:PretenureSizeThreshold"></a>-XX:PretenureSizeThreshold</h2><p>指定大于该设置值的对象直接在老年代分配，这样做的目的就是避免在Eden区及两个Survivor区之间来回复制，产生大量的内存复制操作。</p>
 <h2 id="XX-UseSerialGC"><a href="#XX-UseSerialGC" class="headerlink" title="-XX:+UseSerialGC"></a>-XX:+UseSerialGC</h2><p>select the serial collector with the option <code>-XX:+UseSerialGC</code>.</p>
 <h2 id="XX-MaxTenuringThreshold"><a href="#XX-MaxTenuringThreshold" class="headerlink" title="-XX:MaxTenuringThreshold"></a>-XX:MaxTenuringThreshold</h2><p>设置对象晋升老年代的年龄阈值。</p>
+<h2 id="XX-HeapDumpOnOutOfMemoryError"><a href="#XX-HeapDumpOnOutOfMemoryError" class="headerlink" title="-XX:+HeapDumpOnOutOfMemoryError"></a>-XX:+HeapDumpOnOutOfMemoryError</h2><p>可以让虚拟机在内存溢出异常出现之后自动生成堆转储快照文件，通过<code>-XX:+HeapDumpOnCtrlBreak</code>参数则可以使用[Ctrl]+[Break]键让虚拟机生成堆转储快照文件，又或者在Linux系统下通过<code>kill -3 pid</code>命令发送进程退出信号“恐吓”一下虚拟机，也能顺利拿到堆转储快照。</p>
 ]]></content>
       <categories>
         <category>Java</category>
@@ -7671,6 +7612,123 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 <h2 id="总结：英文情态与中文情态的简单对比"><a href="#总结：英文情态与中文情态的简单对比" class="headerlink" title="总结：英文情态与中文情态的简单对比"></a>总结：英文情态与中文情态的简单对比</h2><h3 id="英文情态动词的委婉表达在汉语中的缺失"><a href="#英文情态动词的委婉表达在汉语中的缺失" class="headerlink" title="英文情态动词的委婉表达在汉语中的缺失"></a>英文情态动词的委婉表达在汉语中的缺失</h3><p>比如汉语里常这样说：<br>1） 请看一下这篇文章。<br>2） 我们希望你明天能过来和我们一起吃午饭。<br>3） 请你过来坐在这儿。<br>4） 我建议你去和他说一下。<br>如果直接生硬地译成英语，则显得并不十分礼貌：<br>Please read this article.<br>We hope that you will come and have lunch with us tomorrow.<br>You come and sit here, please.<br>I suggest that you have a word with him<br>下列表达会显得更自然而礼貌：<br>You may like to read this article.<br>We were wondering whether you could come and have lunch with us tomorrow.<br>Would you come and sit here, please?<br>You might want to have a word with him.<br>上面这些句子还有其他更多礼貌的表达形式，这时都得使用情态动词。比如，对于最后一句的“提建议”，还可以这样说：<br>I would suggest that you have a word with him.<br>May I suggest that you have a word with him</p>
 <p>1） That’s impossible.<br>2） Unfortunately that wouldn’t be possible.<br>在例句1）中，谓语动词用的是is，显得说话的语气非常直白和生硬，容不得对方商量。这自然就会让对方难以接受。在例句2）中，首先是借助would来“软化”生硬的口气。其次，把impossible换成not possible，让人认为有商量的余地。再次，因为是在拒绝对方，所以用副词unfortunately来表达遗憾，给对方以安慰。做了以上三个方面的处理后，语气显得更加委婉、礼貌。<br>1） 这是不可能的。<br>2） 很遗憾，这恐怕不太可能。</p>
 <p>1） We need a commitment from you now.<br>2） We would like some kind of commitment from you now.<br>在例句1）中，用need比较直截了当地提出自己的要求。在例句2）中，用would来委婉地说出自己的需要。其次，增添了some kind来缓和语气。<br>1） 我们现在就需要你的承诺。<br>2） 现在我们想知道你能不能给我们一些承诺。</p>
+]]></content>
+      <categories>
+        <category>English</category>
+      </categories>
+      <tags>
+        <tag>English</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>English系列之一般现在时</title>
+    <url>/2020/08/28/English%E7%B3%BB%E5%88%97%E4%B9%8B%E4%B8%80%E8%88%AC%E7%8E%B0%E5%9C%A8%E6%97%B6/</url>
+    <content><![CDATA[<blockquote>
+<p>这篇笔记摘选自《英语语法新思维初级教程第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。</p>
+</blockquote>
+<h2 id="并非只表示现在"><a href="#并非只表示现在" class="headerlink" title="并非只表示现在"></a>并非只表示现在</h2><p>一般现在时态并非只表示“现在”。一般现在时本质的思维特征是：表示从过去到现在直至将来的一段时间内发生的动作（action）或存在的状态（state），它们可发生于任何时间，这一段时间可以近乎无限长（如表示客观真理），也可以是人们生活中的一段时间（如人们的习惯活动）。<br>因此，一般现在时态通常被描述为有两种基本用法：</p>
+<ol>
+<li>不受时间限制的科学事实、客观真理、 谚语格言，以及用于概括、结论、观点等；</li>
+<li>表示人们日常生活习惯及 重复活动。</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/leH4QA.png" alt></p>
+<h2 id="用法一：表示普遍的事实或真理（expressing-a-general-truth）"><a href="#用法一：表示普遍的事实或真理（expressing-a-general-truth）" class="headerlink" title="用法一：表示普遍的事实或真理（expressing a general truth）"></a>用法一：表示普遍的事实或真理（expressing a general truth）</h2><blockquote>
+<p>表示不受时间限制的科学事实、客观真理、谚语格言，以及用于概括、结论、观点等。此时，这些动作或状态的发生不限于某个特定的时间，即它们可发生于任何时间，包括现在、过去和将来。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/zh5h3G.png" alt></p>
+<p>Water freezes at 32 Fahrenheit and boils at 212 Fahrenheit.<br>水在华氏32度结冰，在华氏212度沸腾。<br>The sun rises in the east and sets in the west.<br>太阳东升西落。<br>Knowledge is power.<br>知识就是力量。<br>Opportunities always favor the prepared minds.<br>机会总是青睐有准备的人。<br>Great minds think alike.<br>英雄所见略同。</p>
+<h2 id="用法二：表示重复活动（expressing-a-regularly-occurring-event）"><a href="#用法二：表示重复活动（expressing-a-regularly-occurring-event）" class="headerlink" title="用法二：表示重复活动（expressing a regularly occurring event）"></a>用法二：表示重复活动（expressing a regularly occurring event）</h2><p>表示经常发生的、习惯性的动作（action）或者是存在的状态（state）。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/tvneHS.png" alt></p>
+<h3 id="表示习惯的动作"><a href="#表示习惯的动作" class="headerlink" title="表示习惯的动作"></a>表示习惯的动作</h3><p>He often goes to the gym. 他经常去健身房。<br>I go to the gym twice a week. 我每周去两次健身房。<br>He walks to school every day. 他每天步行去上学。</p>
+<h3 id="表示习惯的状态"><a href="#表示习惯的状态" class="headerlink" title="表示习惯的状态"></a>表示习惯的状态</h3><p>I like rice for dinner. 我晚餐喜欢吃米饭。</p>
+<blockquote>
+<p>这一用法常和一些表示动作频率的时间副词连用。</p>
+</blockquote>
+<ul>
+<li>表示肯定的频度副词有：always, frequently, usually, sometimes, generally, occasionally和often等。</li>
+<li>表示否定的频度副词有：never, seldom和rarely。</li>
+<li>表示频度的副词短语有：once a week, twice a year和on alternate days等。</li>
+</ul>
+<p>在应用上述这些副词时，要注意以下几点：</p>
+<ul>
+<li>它在句子中的位置通常是：在be动词后、实义动词前。<br>He is always late. 他总是迟到。<br>He always goes to school by bike. 他总是骑自行车上学。</li>
+<li>上述否定副词不能再与否定助动词（如don’t等）连用。<br>He doesn’t seldom come late. *（一般不这么说）<br>He seldom comes late. 他几乎从不迟到。</li>
+<li>这些副词一般放在否定助动词前，always除外。<br>The history lectures sometimes aren’t interesting.<br>关于历史的讲座有时很没意思。<br>His wife complains that he sometimes doesn’t listen to her.<br>他的妻子抱怨，说他有时候不注意听她说话。<br>He doesn’t always leave before 6 o’clock. Sometimes he works until 7 o’clock.<br>他并不总是在6点钟之前下班，有时他会工作到7点。</li>
+</ul>
+<p>谋篇短文中频繁地使用了一般现在时来介绍“口腔清洁运动”。</p>
+<ul>
+<li>Brush your teeth at least twice a day.</li>
+<li>Replace the toothbrush every 3 to 4 months.</li>
+<li>Floss your teeth once a day.</li>
+<li>Clean your tongue at least once a day.</li>
+<li>Visit your dentist once in every 6 months.</li>
+</ul>
+<blockquote>
+<p>这些都表示日常的重复活动，并且还明确给出了重复发生的频率， 如twice a day, every 3 to 4 months, once a day和every 6 months等。这些表示日常的习惯或重复发生的活动（regularly occurring event），我们要用一般现在时态。</p>
+</blockquote>
+<h2 id="用法比较：表示重复活动的一般现在时态和现在完成进行时态"><a href="#用法比较：表示重复活动的一般现在时态和现在完成进行时态" class="headerlink" title="用法比较：表示重复活动的一般现在时态和现在完成进行时态"></a>用法比较：表示重复活动的一般现在时态和现在完成进行时态</h2><p>在来比较下面两个句子：<br>1） I swim 1,000 meters every afternoon.<br>2） I have been swimming 1,000 meters every afternoon.<br>例句1）用一般现在时swim，我们是指昨天以前是swim 1,000 meters，今天也是swim 1,000 meters，明天以后还是swim 1,000 meters。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/BKmSmq.png" alt><br>例句2）话要理解成“到目前为止，我是每天下午游1,000米”。在这里我们加上了“到目前为止”来对应翻译英文的语言标记have been doing 这一动词变形，来潜含一个较为明确的时间段。这句话的意思是，也许“我”打算以后改变一下游泳锻炼的计划，比如说“我”决定游得更长些：<br>I have been swimming 1,000 meters every afternoon, but I think I’ll make it a little longer later.<br>在这样的上下文语境中，我们就不能说：<br>I swim 1,000 meters every afternoon, but I think I’ll make it a little longer later. *</p>
+<h2 id="用法三：一般现在时表示正在发生的动作"><a href="#用法三：一般现在时表示正在发生的动作" class="headerlink" title="用法三：一般现在时表示正在发生的动作"></a>用法三：一般现在时表示正在发生的动作</h2><h3 id="一般现在时态用在以there或here开头的句子中，表示目前的短暂动作"><a href="#一般现在时态用在以there或here开头的句子中，表示目前的短暂动作" class="headerlink" title="一般现在时态用在以there或here开头的句子中，表示目前的短暂动作"></a>一般现在时态用在以there或here开头的句子中，表示目前的短暂动作</h3><p>Here comes your wife.<br>这里显然是说话人看到your wife正在走过来，然后说的这句话，即表示正在发生的动作。在这个结构中不能用现在进行时态，不能说“Here is coming your wife.”* 可以说“Your wife is coming.”。但是，此时的进行时是表示将来的动作，所以这句话的意思是：你妻子很快就要过来了。<br>你妻子来了。</p>
+<p>There goes our bus; we’ll have to wait for the next one.<br>这句话是说话人看着自己要搭乘的车正在开走时说的。同样，在这个结构中不能用现在进行时态，说成“There is going our bus.”*<br>我们的车开走了，我们只好等下一辆了。</p>
+<h3 id="表示现在瞬间的动作（instant-actions）"><a href="#表示现在瞬间的动作（instant-actions）" class="headerlink" title="表示现在瞬间的动作（instant actions）"></a>表示现在瞬间的动作（instant actions）</h3><p>这个瞬间动作是说话人在说话的同时即刻发生的。这只适用于表达动作的动词，表示对一些动作的解说，比如：球赛解说、剧情介绍、解释自己正在做的事情、给别人一边说一边做的示范动作等等。<br>这是球赛的解说，表示在说话时刻正在发生的动作。<br>迈克尔传给克林特，克林特传给杰克，杰克又回传给克林特——克林特射门——球进了！</p>
+<p>The woman is a spy, now she enters the room, opens the drawer, takes out a pistol and slips it into her pocket.<br>这是剧情说明。<br>这个女人是个间谍。现在她走进房间，打开抽屉，拿出手枪塞进衣兜里。</p>
+<h2 id="用法四：一般现在时表示将来发生的动作"><a href="#用法四：一般现在时表示将来发生的动作" class="headerlink" title="用法四：一般现在时表示将来发生的动作"></a>用法四：一般现在时表示将来发生的动作</h2><p>在某些特定的场合，一般现在时态有时可表示将来发生的动作。</p>
+<h3 id="用在条件状语从句和时间状语从句中"><a href="#用在条件状语从句和时间状语从句中" class="headerlink" title="用在条件状语从句和时间状语从句中"></a>用在条件状语从句和时间状语从句中</h3><p>主要用在条件状语从句（if和unless）和时间状语从句（when, as soon as, before和after等）中，表示将来的动作。<br>Please let me know when he comes back.<br>他回来时请告诉我。<br>What are you going to do when you leave school?<br>你毕业以后想要干些什么？<br>I will get everything ready before you come back.<br>你回来之前我会把所有的东西都准备好。<br>I’ll give the book to him as soon as I see him.<br>我一见到他就会把书给他。</p>
+<blockquote>
+<p>若从句的动作含有“意愿”的意思，则从句中可用will。</p>
+</blockquote>
+<p>If you will give me a hand with these books, I’ll appreciate it.<br>如果你愿意帮我拿这些书，我将非常感激。<br>If they will not accept a check, we shall have to pay in cash, though it would be much trouble for both sides.<br>要是他们不愿意接受支票，我们就只好用现金支付，尽管这样会给双方带来不便。</p>
+<h3 id="在谈到未来的计划和时间安排表的时候，表示将来的动作"><a href="#在谈到未来的计划和时间安排表的时候，表示将来的动作" class="headerlink" title="在谈到未来的计划和时间安排表的时候，表示将来的动作"></a>在谈到未来的计划和时间安排表的时候，表示将来的动作</h3><p>此时句中的动词往往是表示短暂性动作的动词，如go, come, leave, start和move等。<br>The train starts at 2 o’clock. 火车两点钟开。<br>We move next week. 我们下周搬家。<br>They leave for Shanghai by train tomorrow evening. 他们明晚出发去上海。</p>
+<h3 id="在从句中表示将来的动作，此时主句往往用了一个将来时"><a href="#在从句中表示将来的动作，此时主句往往用了一个将来时" class="headerlink" title="在从句中表示将来的动作，此时主句往往用了一个将来时"></a>在从句中表示将来的动作，此时主句往往用了一个将来时</h3><p>I will reward the person who finds my lost kitten.<br>我将酬谢找到我丢失的猫的人。<br>I will give the booklet to whoever asks for it.<br>谁来索取这个小册子，我就把它给谁。</p>
+<h2 id="用法五：一般现在时表示过去发生的动作"><a href="#用法五：一般现在时表示过去发生的动作" class="headerlink" title="用法五：一般现在时表示过去发生的动作"></a>用法五：一般现在时表示过去发生的动作</h2><h3 id="表示死者的理论、著作等"><a href="#表示死者的理论、著作等" class="headerlink" title="表示死者的理论、著作等"></a>表示死者的理论、著作等</h3><p>因为这些理论、著作到现在仍有效；或表示一些名人名言。<br>Francis Bacon says, “Reading makes a full man; conference a ready man; and writing an exact man.”<br>弗朗西斯·培根说：“读书使人充实，讨论使人机智，写作使人准确。</p>
+<h3 id="引用书刊、报纸、通知或新近收到的信件的内容时"><a href="#引用书刊、报纸、通知或新近收到的信件的内容时" class="headerlink" title="引用书刊、报纸、通知或新近收到的信件的内容时"></a>引用书刊、报纸、通知或新近收到的信件的内容时</h3><p>The newspaper reads, “The criminal who killed eight women has been executed.”<br>这里的reads其实是表示过去的，因为显然是说话人看过the newspaper之后才说了这句话。<br>报纸上写着：“杀害八名妇女的那个罪犯已经被处决了”。<br>The sign on the washing machine says, “Out of Order.”<br>这里的says其实是表示过去的，因为显然是说话人看过the sign之后才说了这句话。<br>洗衣机上有一个告示写着：“洗衣机坏了。”</p>
+<h2 id="用法六：一般现在时代指现在完成时"><a href="#用法六：一般现在时代指现在完成时" class="headerlink" title="用法六：一般现在时代指现在完成时"></a>用法六：一般现在时代指现在完成时</h2><p>在口语中，可以用一般现在时代指现在完成时。能这样使用的动词不多，通常有：hear, find, see, learn, tell和read等。<br>I am（=have been） informed that you have been there. 有人告诉我，你去过那里。<br>I hear（=have heard） that he has left Beijing. 我听说他已经离开北京了。<br>I hear（=have heard） you’re getting married. 我听说你要结婚了。<br>I see/find（=have seen/found） that you have your hair cut. You look terrific! 我发现你理发了。你看上去棒极了！<br>I read（=have read） in the newspaper that the criminal who killed eight women has been executed.<br>我在报纸上看到，杀害八名妇女的那个罪犯已经被处决了。</p>
+]]></content>
+      <categories>
+        <category>English</category>
+      </categories>
+      <tags>
+        <tag>English</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>English系列之一般过去时</title>
+    <url>/2020/08/28/English%E7%B3%BB%E5%88%97%E4%B9%8B%E4%B8%80%E8%88%AC%E8%BF%87%E5%8E%BB%E6%97%B6/</url>
+    <content><![CDATA[<blockquote>
+<p>这篇笔记摘选自《英语语法新思维初级教程第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。</p>
+</blockquote>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>据说，在美国的新闻报道中，最精练简明的导语出现在1906年4月的旧金山大地震之时，这个导语是：<br>San Francisco Was<br>这里除了地名San Francisco外，就只有唯一的一个关键词was，通过was表明了这次地震对旧金山所造成的破坏程度——已将其夷为平地，该城市不复存在了。因此，这个导语不妨译成：<br>旧金山已成为过去</p>
+<h2 id="基本用法一：过去发生的短暂动作或状态"><a href="#基本用法一：过去发生的短暂动作或状态" class="headerlink" title="基本用法一：过去发生的短暂动作或状态"></a>基本用法一：过去发生的短暂动作或状态</h2><p>一般过去时常表示在过去某一个特定的时间所发生的动作或存在的状态，此时常和表示过去的特定的时间状语连用。这些时间状语有：yesterday, yesterday evening, last night, the night before last（前天晚上）, last year, last spring（去年春天）以及three days/months/years ago等等。注意，这些时间状语之前不需加介词，比如不能说：at last night<em>, in last year</em>或in three years ago*等等。<br>I saw him in the library yesterday morning. 我昨天早上在图书馆看到他了。<br>I bought this computer three years ago. 我3年以前买的这台电脑。<br>是表示过去存在的状态：<br>He was late for school this morning. 他今天早上上学迟到了。<br>I was tired last night, so I went to bed early. 我昨晚感到很累，所以早早地上床睡觉了。<br>图示：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/jCl8Ia.png" alt></p>
+<p>I didn’t choose this life; it chose me.<br>这是巴基斯坦反对派领袖、前总理贝·布托（Bhutto）在其回忆录中的一句话。这里虽然没有明确的过去的时间状语，但根据语境判断，是表示过去发生的事件，所以用了一般过去时态。<br>我没有选择这种命运，而是命运选择了我。</p>
+<h2 id="基本用法二：过去发生的重复或延续活动"><a href="#基本用法二：过去发生的重复或延续活动" class="headerlink" title="基本用法二：过去发生的重复或延续活动"></a>基本用法二：过去发生的重复或延续活动</h2><p>除了表示短暂动作之外，一般过去时还可以表示过去的一段时间（a specific period of time in the past）内延续或重复的动作，图示为：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/AWxXqn.png" alt><br>I slept for eight hours last night. 我昨晚睡了8个小时。<br>She lived in our town for three years, but now she is living in Beijing.<br>她在我们这个小镇生活了3年，不过她现在住在北京。<br>I lived in the country for ten years. 我在农村生活了10年。</p>
+<p>表示过去重复发生的活动：<br>I wrote a letter once a week to my family when I was in my first college year.<br>这里的wrote是表示过去一段期间内不断重复发生的活动。<br>在大一的时候，我通常每个星期给家里写一封信。<br>He used to do morning exercises. 他过去常常晨练。<br>用表格简单地总结如下：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/OQuczd.png" alt></p>
+<h2 id="用法比较：一般过去时和现在完成时用于“for-时间段”的区别"><a href="#用法比较：一般过去时和现在完成时用于“for-时间段”的区别" class="headerlink" title="用法比较：一般过去时和现在完成时用于“for+时间段”的区别"></a>用法比较：一般过去时和现在完成时用于“for+时间段”的区别</h2><p>一般过去时态可以与“for+时间段”连用。比如：<br>I slept for eight hours last night. 我昨晚睡了八个小时。<br>He worked in that dot-com company for one year. Now he is studying in America.<br>他在那家网络公司工作过一年，现在在美国上学。</p>
+<p>一般过去时表示的延续动作图示如下：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/0oBmFa.png" alt><br>现在完成时表示的延续动作图示如下：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/ldiQ3p.png" alt></p>
+<blockquote>
+<p>一般过去时与“for+时间段”连用，表示动作在过去已经结束，并没有延续到现在；而现在完成时与“for+时间段”连用，则表明动作延续到现在，并且还有可能延续下去。</p>
+</blockquote>
+<p>1） She lived in our town for three years.<br>2） She has lived in our town for three years.<br>1） 她在我们小镇生活过三年（但现在不在这里）。<br>2） 她在我们小镇已经生活了三年（现在还在这里）。</p>
+<p>表示事件延续到了现在，因此可以在时间状语for three years的后面填上一个now，但对于例句1）则不可以。比如：<br>1） She lived in our town for three years now. *<br>2） She has lived in our town for three years now.</p>
+<h2 id="口语用法一：“我不知道”——“I-don’t-know”-or-“I-didn’t-know”"><a href="#口语用法一：“我不知道”——“I-don’t-know”-or-“I-didn’t-know”" class="headerlink" title="口语用法一：“我不知道”——“I don’t know” or “I didn’t know”?"></a>口语用法一：“我不知道”——“I don’t know” or “I didn’t know”?</h2><p>A: Do you see the person with loose pants and long hair? Is it a boy or girl?<br>B: A girl. She is my daughter.<br>A: Oh, please forgive me. I didn’t know you were her mother.<br>B: No, I’m her father.<br>A: 你看见那边那个穿着宽松裤子、留着长发的人了吗？是男的还是女的？<br>B: 是女的。她是我女儿。<br>A: 哦，真对不起，我不知道你是她母亲。<br>B: 不，我是她父亲。</p>
+<p>A说“我不知道”的时候其实他已经知道了，因为B已经告诉他“She is my daughter.”了，也就是说，他的真正意思应该是“我刚才不知道”，因此正确的英文应该说成：<br>I didn’t know you were her mother.</p>
+<p>下面的短文是讲作者在一次不得已的情况下让一位陌生的邻居格林夫人（Mrs. Green）开车送自己去学校，后来当她知道格林夫人竟是一位癌症患者时，她的内心对此深感不安：<br>Mrs. Green, the woman with cancer. I stood on the stairs, my hand covering my mouth: I had asked a person struggling with cancer to go out in a snowstorm to give me a lift to school. “Oh, Mrs. Green,” I stammered, “I didn’t realize who you were. Please forgive me.”<br>作者在事先不知情的情况下给一位癌症患者带来麻烦，因而感到内疚。但她现在知道真相了。<br>格林夫人——竟是那位患了癌症的女人！我站在楼梯上，手掩着嘴一时说不出话来：我竟然让一个身患癌症的病人冒着暴风雪开车送我去学校！“噢，格林夫人，”我结结巴巴地说道，“我真不知道您就是格林夫人。请原谅我！”</p>
+<h2 id="口语用法二：“我忘记了”——“I-forget”-or-“I-forgot”？"><a href="#口语用法二：“我忘记了”——“I-forget”-or-“I-forgot”？" class="headerlink" title="口语用法二：“我忘记了”——“I forget” or “I forgot”？"></a>口语用法二：“我忘记了”——“I forget” or “I forgot”？</h2><p>“我忘记了这个单词的意思”和“我忘记把你的耳机带来”，这两个“忘记”在汉语中丝毫没有区别，但在英文中却是大不相同，即它们发生的时间不一样。“我忘记了这个单词的意思”是“我”现在还不知道；而“我忘记把你的耳机带来”是当“我”想起来之后说的一句话，“忘记”已成为过去。因此，这两句英文要分别说成：<br>I forget the meaning of the word.<br>I forgot to bring your earphone back.</p>
+<p>A: I am sorry I forgot to return your physics book last night.<br>B: I’ll forgive you considering the test isn’t until Friday.<br>A：很抱歉，昨晚我忘了还你的那本物理书。<br>B：没关系，因为周五才考试呢。</p>
+<p>在汉语中说“我忘记做某事”，英文一般都是说成I forgot to do…，因为这一定是当你想起来之后才能说的一句话，“忘记”已成为过去。<br><strong><em>英文中一般没有使用I forget to do…的语境。</em></strong></p>
+<blockquote>
+<p>“我忘记”还可以说成It slipped my mind…。</p>
+</blockquote>
+<p>A: Did you pick up my books from Ron’s house?<br>B: Sorry. It slipped my mind.</p>
+<p>A：你是否从罗恩家把我的书捎过来了？<br>B：对不起，我忘记了。</p>
+<h2 id="口语用法三：“我以为”——“I-think”-or-“I-thought”？"><a href="#口语用法三：“我以为”——“I-think”-or-“I-thought”？" class="headerlink" title="口语用法三：“我以为”——“I think” or “I thought”？"></a>口语用法三：“我以为”——“I think” or “I thought”？</h2><p>A: I really thought that I’d win the match.<br>B: Oh, well, better luck next time, Henry.<br>A：我（本来）真的以为这个比赛我会赢的。<br>B：哦，没关系，希望你下次好运，亨利。<br>若说成： I really think that I will win the match.（我真的很肯定我会赢得这场比赛。）<br>这就一定是在比赛之前说的话，表明自己很有信心赢得这场比赛。所以，简单来说，I thought是强调“我刚才这么想”，而现实情况往往不同（如上句的I really thought that I’d win the match，即“我本来以为我会赢”，但实际没有赢）。而I think则相当于I have an opinion（我这么认为），表示自己的观点。因此，两者的意思可谓是大相径庭。</p>
+<p>再比如目前大学毕业生找工作很难，我们可以说出这样的一句话：<br>开始我以为找工作很容易，但现实情况比我想的还要难。<br>这句话可以这样讲：<br>At first I thought it would be easy to find a job, but the real situation has proved more difficult than I thought.</p>
+<blockquote>
+<p>当我们要说“我本来还以为……”时，在英文中就要说成I thought…。</p>
+</blockquote>
+<h2 id="口语用法四：根据上下文的语境灵活地使用一般过去时"><a href="#口语用法四：根据上下文的语境灵活地使用一般过去时" class="headerlink" title="口语用法四：根据上下文的语境灵活地使用一般过去时"></a>口语用法四：根据上下文的语境灵活地使用一般过去时</h2><p>在英语里，当两人见面刚认识，都会说“认识你很高兴”，用英语说成：<br>It is nice to meet you.<br>这里用的是一般现在时is。但是，在两人聊天结束后，在分手告别时还不会忘记说上一句“认识你很高兴”，这时英语就要用过去时态了：<br>It was nice meeting you.<br>或者说“和你聊天很开心”：<br>It was nice talking to you.<br>上面两句告别用语可以分别简化成“Nice meeting you.”和“Nice talking to you.”。</p>
+<blockquote>
+<p>告别时说“认识”用的是动名词meeting，而不是不定式to meet。</p>
+</blockquote>
+<p>A: Excuse me. I believe I <strong>__</strong>（be） here first. Do you mind waiting your turn?<br>B: Oh, sure. Sorry.<br>A: That’s OK.<br>根据语境，空格中我们应该用过去时这么说“I believe I was here first.”。<br>A：对不起，我想我比你先来这里的。你能排队等候吗？<br>B：哦，对不起。<br>A：没事。</p>
+<h2 id="口语用法五：礼貌表达"><a href="#口语用法五：礼貌表达" class="headerlink" title="口语用法五：礼貌表达"></a>口语用法五：礼貌表达</h2><p>在口语中，一般过去时（也可用过去进行时）可以表示语气委婉，此时的过去时丝毫没有过去的意味，而谈的是现在的情况。<br>I wondered if you could help me. 我想知道你能否帮我。<br>Could you give me a hand? 你能帮我一下吗？<br>I was wondering if you could possibly lend me your car for this evening. 我想知道你今晚能否把车借给我用用。</p>
 ]]></content>
       <categories>
         <category>English</category>

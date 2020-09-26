@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="串的朴素模式匹配 较简单，略过。  KMP算法（朴素模式匹配的优化）朴素模式匹配的缺点是：每当模式串匹配失败的时候，当前的匹配指针都只是往后移动一位，也就是只是把模式串右移一位，而且主串的扫描指针（模式串中匹配到哪一位）都要经常回溯，会造成多余的开销。 假定在某个主串中要匹配google这个模式串，那么其匹配逻辑如下：  声明主串扫描指针为i； 声明模式串扫描指针为j； KMP的算法关键在于匹配失">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-22T14:37:23.526Z">
+<meta property="og:updated_time" content="2020-09-26T10:55:13.549Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构系列之串（Java）">
 <meta name="twitter:description" content="串的朴素模式匹配 较简单，略过。  KMP算法（朴素模式匹配的优化）朴素模式匹配的缺点是：每当模式串匹配失败的时候，当前的匹配指针都只是往后移动一位，也就是只是把模式串右移一位，而且主串的扫描指针（模式串中匹配到哪一位）都要经常回溯，会造成多余的开销。 假定在某个主串中要匹配google这个模式串，那么其匹配逻辑如下：  声明主串扫描指针为i； 声明模式串扫描指针为j； KMP的算法关键在于匹配失">
@@ -196,7 +196,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-22 22:37:23" itemprop="dateModified" datetime="2020-09-22T22:37:23+08:00">2020-09-22</time>
+                <time title="Modified: 2020-09-26 18:55:13" itemprop="dateModified" datetime="2020-09-26T18:55:13+08:00">2020-09-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -269,7 +269,7 @@
 <li>j==-1        i=5 j=0     next[5] = 0</li>
 <li>e!=g      i=6 j=1     break;</li>
 </ul>
-
+<h3 id="KMP算法的优化"><a href="#KMP算法的优化" class="headerlink" title="KMP算法的优化"></a>KMP算法的优化</h3>
     </div>
 
     
@@ -351,7 +351,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#串的朴素模式匹配"><span class="nav-number">1.</span> <span class="nav-text">串的朴素模式匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#KMP算法（朴素模式匹配的优化）"><span class="nav-number">2.</span> <span class="nav-text">KMP算法（朴素模式匹配的优化）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#next数组的构建（fail数组）"><span class="nav-number">2.1.</span> <span class="nav-text">next数组的构建（fail数组）</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#串的朴素模式匹配"><span class="nav-number">1.</span> <span class="nav-text">串的朴素模式匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#KMP算法（朴素模式匹配的优化）"><span class="nav-number">2.</span> <span class="nav-text">KMP算法（朴素模式匹配的优化）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#next数组的构建（fail数组）"><span class="nav-number">2.1.</span> <span class="nav-text">next数组的构建（fail数组）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KMP算法的优化"><span class="nav-number">2.2.</span> <span class="nav-text">KMP算法的优化</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -378,7 +378,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">88</span>
+        <span class="site-state-item-count">89</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
