@@ -163,6 +163,186 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/20/Git汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/03/20/Git汇总/" class="post-title-link" itemprop="url">Git汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-03-20 19:45:14" itemprop="dateCreated datePublished" datetime="2019-03-20T19:45:14+08:00">2019-03-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-24 14:01:29" itemprop="dateModified" datetime="2020-07-24T14:01:29+08:00">2020-07-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="git基本命令"><a href="#git基本命令" class="headerlink" title="git基本命令"></a>git基本命令</h1><p>最近打算搞个web应用，练习一下新的技术栈，所以在github建了个私库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">clone https://github.com/coding-by-feng/keep-yourself.git</span><br><span class="line">## 查看当前分支有哪些修改</span><br><span class="line">vi README.md</span><br><span class="line">git status</span><br><span class="line">## 提交为空，但是存在尚未跟踪的文件（使用 &quot;git add&quot; 建立跟踪）</span><br><span class="line">git add README.md</span><br><span class="line">## 提交 执行之后需要写入备注 </span><br><span class="line">git commit -m &quot;remark&quot;</span><br><span class="line">## 再次执行git status 提示无文件要提交</span><br><span class="line">## git push 推送本地文件到github</span><br><span class="line">## 回到过去</span><br><span class="line">git log</span><br><span class="line">git reset --hard XXXXX（当前版本指针）</span><br><span class="line">## git reflog找回被重置冲刷掉之前的log，防止错误重置。</span><br><span class="line">## 建立里程碑</span><br><span class="line">## 在github new Releases.</span><br></pre></td></tr></table></figure>
+<h2 id="git-pull和git-fetch"><a href="#git-pull和git-fetch" class="headerlink" title="git pull和git fetch"></a>git pull和git fetch</h2><p>git pull<br>如果需要取回origin主机的erp01分支与本地的master分支合并，则写为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin erp01:master</span><br></pre></td></tr></table></figure></p>
+<p>上面这句命令的意思相当于取回origin/erp01分支的代码在与当前的分支合并。<br>如果本地分支和远程分支之间建立了一种追踪的关系，那么我们git pull的时候就可以省略远程的分支名：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origing</span><br></pre></td></tr></table></figure></p>
+<p>上面命令表明本地分支自动与队对应的origin主机追踪分支进行合并。<br>git 允许手动建立追踪关系:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch --set-upstream master origin/erp01</span><br></pre></td></tr></table></figure></p>
+<p>git fetch<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch &lt;远程主机名&gt;（origin）&lt;分支名&gt;</span><br></pre></td></tr></table></figure></p>
+<p>如果想要取回特定分支的更新就可以指定分支名；<br>所取回的更新，在本地主机上要用“远程主机名/分支名”进行读取。比如origin主机的erp01，就要用origin/erp01读取。<br>接下来可以用git branch -r命令查看远程分支，如果用到 -a选项，则表明查看所有的分支；<br>如果你需要合并分支，就可以用merge或rebase：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git merge origin/erp01</span><br><span class="line">#或</span><br><span class="line">$ git rebase origin/erp01</span><br></pre></td></tr></table></figure></p>
+<p>git pull和git fetch区别<br>这两个命令的主要区别在与：git pull是拉下更新后就自动合并本地分支，而git fetch是先吧更新拉下来，在用merge或rebase进行合并。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/03/20/Git汇总/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Redis汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/15/Redis汇总/" class="post-title-link" itemprop="url">Redis汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-15 21:36:09" itemprop="dateCreated datePublished" datetime="2019-10-15T21:36:09+08:00">2019-10-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-23 16:42:20" itemprop="dateModified" datetime="2020-07-23T16:42:20+08:00">2020-07-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/redis/" itemprop="url" rel="index"><span itemprop="name">redis</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="那些数据适合存储进去-todo"><a href="#那些数据适合存储进去-todo" class="headerlink" title="那些数据适合存储进去? todo"></a>那些数据适合存储进去? todo</h2><pre><code>维护的增删改查应不应该放弃使用缓存（只是为了不出现一种情况，就是修改了数据库，缓存依然还是老的数据）
+另外还要考虑到维护的时候增删改其实使用的频率是不多的，所有没必要使用缓存，当然，高频率增删改的除外。
+使用到缓存的一般是可以是高频率的查询
+</code></pre><h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="redis数据持久化，一般重启不丢失"><a href="#redis数据持久化，一般重启不丢失" class="headerlink" title="redis数据持久化，一般重启不丢失"></a>redis数据持久化，一般重启不丢失</h2><p><a href="https://redis.io/topics/persistence" target="_blank" rel="noopener">https://redis.io/topics/persistence</a><br>会默认开启RDB 持久化</p>
+<h2 id="Redis的数据类型"><a href="#Redis的数据类型" class="headerlink" title="Redis的数据类型"></a>Redis的数据类型</h2><ol>
+<li>字符串（String）</li>
+<li>字符串列表（list）</li>
+<li>有序字符串集合（sorted set）</li>
+<li>哈希（hash）</li>
+<li>字符串集合（set）</li>
+</ol>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p><a href="https://www.runoob.com/redis/redis-commands.html" target="_blank" rel="noopener">https://www.runoob.com/redis/redis-commands.html</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">查询键keys * 查询所有的键,会遍历所有的键值,复杂度O(n)</span><br><span class="line">flushall</span><br><span class="line">incr num</span><br><span class="line">decr num</span><br><span class="line">incrby num 5</span><br><span class="line">decrby num 3</span><br><span class="line">append num str</span><br><span class="line">hset myhash keyname value</span><br><span class="line">hmset myhashs key1 v1 key2 v2</span><br><span class="line">hget myhashs key1</span><br><span class="line">hmget myhashs key1 key2</span><br><span class="line">hgetall myhashs</span><br><span class="line">hdel myhashs key1 key2</span><br><span class="line">hlen myhashs</span><br><span class="line">hkeys myhashs</span><br><span class="line">hvals myhashs</span><br><span class="line">lpush mylist a b c （左侧添加进去）</span><br><span class="line">rpush mylist 1 2 3 （右侧添加进去）</span><br><span class="line">lrange mylist 0 -1 (负数是倒数第n)</span><br><span class="line">lpop mylist （弹出首个）</span><br><span class="line">rpop mylist（弹出尾个）</span><br><span class="line">llen mylist</span><br><span class="line">lpushx mylist x （插入到头部）</span><br><span class="line">rpushx mylist x（插入到尾部）</span><br><span class="line">lrem mylist 2 3 (从头到尾删除2个值为3的元素)</span><br><span class="line">lrem mylist -2 3 (从尾到头删除2个值为3的元素)</span><br><span class="line">lrem mylist 0 3 （删除所有值为3的元素）</span><br><span class="line">lset mylist 3 mmm（在下标为3的位置插入mmm）</span><br><span class="line">linsert mylist before mmm haha（在第一个mmm之前插入haha）</span><br><span class="line">linsert mylist after mmm xixi（在第一个mmm之后插入xixi）</span><br><span class="line">rpoplpush mylist1 mylist2 （mylist1弹出首个元素给到mylist2）</span><br><span class="line">sadd myset a b c</span><br><span class="line">sismember myset a（判断是否成员）</span><br><span class="line">sdiff myset1 myset2（差集）</span><br><span class="line">sinter myset1 myset2（交集）</span><br><span class="line">sunion set1 set2 （并集）</span><br><span class="line">smembers myset</span><br><span class="line">scard myset</span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/15/Redis汇总/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Spring系列之SpringSecurity/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -473,198 +653,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/06/fastdfs/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/06/fastdfs/" class="post-title-link" itemprop="url">fastdfs</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-11-06 09:57:27" itemprop="dateCreated datePublished" datetime="2019-11-06T09:57:27+08:00">2019-11-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-16 20:58:54" itemprop="dateModified" datetime="2020-07-16T20:58:54+08:00">2020-07-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/fastdfs/" itemprop="url" rel="index"><span itemprop="name">fastdfs</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p><a href="https://www.cnblogs.com/chiangchou/p/fastdfs.html" target="_blank" rel="noopener">https://www.cnblogs.com/chiangchou/p/fastdfs.html</a></p>
-</blockquote>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p><a href="https://www.bbsmax.com/A/MAzAr2jRJ9/" target="_blank" rel="noopener">https://www.bbsmax.com/A/MAzAr2jRJ9/</a></p>
-<h3 id="测试上传"><a href="#测试上传" class="headerlink" title="测试上传"></a>测试上传</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdfs_test /etc/fdfs/client.conf upload test.tx</span><br></pre></td></tr></table></figure>
-<h2 id="查看Storage和Tracker是否在通信"><a href="#查看Storage和Tracker是否在通信" class="headerlink" title="查看Storage和Tracker是否在通信"></a>查看Storage和Tracker是否在通信</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdfs_monitor /etc/fdfs/storage.conf</span><br></pre></td></tr></table></figure>
-<h2 id="查看Storage和Tracker是否状态都正常"><a href="#查看Storage和Tracker是否状态都正常" class="headerlink" title="查看Storage和Tracker是否状态都正常"></a>查看Storage和Tracker是否状态都正常</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -unltp|grep fdfs</span><br></pre></td></tr></table></figure>
-<p>正常的话结果如下：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/Q53RzT.png" alt="image"><br>只要没有二个都出现那么可能是其中一个down掉了。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/06/fastdfs/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/22/显示器选购指南/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/22/显示器选购指南/" class="post-title-link" itemprop="url">显示器选购指南</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-11-22 03:00:18" itemprop="dateCreated datePublished" datetime="2019-11-22T03:00:18+08:00">2019-11-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-16 20:58:54" itemprop="dateModified" datetime="2020-07-16T20:58:54+08:00">2020-07-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/显示器/" itemprop="url" rel="index"><span itemprop="name">显示器</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="LG27UK850体验总结"><a href="#LG27UK850体验总结" class="headerlink" title="LG27UK850体验总结"></a>LG27UK850体验总结</h1><pre><code>本来我都不想浪费时间来写下这个总结的，因为一贯都很懒，但是有个事情激发了我的动力，入手了LG27UK850之后，本来还想在微信群里面分享一波，那个微信群本来是三五个好友的撩骚群，但是在天朝特色的环境下，曾经最活跃的好群，慢慢的变成了各自炫耀自己仅有的一点点成绩的地方，在卑微的虚荣心驱使之下，影响到我们的独善其身，这也是我现在慢慢得想淡化静默一些群的原因。
-在我分享了一张刚买的显示器照片之后，果然不出我的意料，有二个朋友回复的是，&quot;辣鸡，LG泛白严重&quot;，&quot;内心毫无波动&quot;等，诸如此类的回复。我在寻思，也许是多年的好友，才能够肆无忌惮的各种踩，也许是有好友出自内心的提醒，毕竟忠言逆耳利于行，而又或许，虚荣心在作祟？不过都无所谓，我将仔细分析一下我这次的体验，冷暖自知。
-此外，我TM昨晚刚下单，今天中午就降价100块，狗东一定是在针对我。
-</code></pre><p>先说明一下我为什么要买显示器以及选中了LG27UK850的原因：</p>
-<ol>
-<li>我是MBP18，MBP18四个Type-C都支持Thunderbolt3</li>
-<li>我的扩展坞没有DP接口，只有一个HDMI1.4，1.4它不香了，无法支持4k/60Hz，所以如果我使用原有的扩展坞的话的话，那么买的显示器如果没有Type-C接口，将支持不了4k/60Hz，而我又测试了一下HDMI1.4，明显感觉掉帧和卡顿，又或者我需要买那种Type-C转DP的线。</li>
-<li>同时这块显示器电源之后用Type-C来输入的话，可以给MBP反向充电</li>
-<li>可以通过Type-C CtoC连接，这样一来就是基于DP来传输的，速率上杠杠的。</li>
-<li>有了Type-C直连，我就可以减少有线的很多连接和转接头，有时候我比较喜欢简约美。</li>
-<li>为什么我不选择戴尔U2718Q，网上对于戴尔显示器的显示效果确实好评声音高于LG，但是我对比了二款显示器，价位戴尔高几百块，当然这个不是重点，主要戴尔U2718Q没有Type-C口，而其他各种参数他们基本一致，抛开品控不说，苹果的显示器也都是和LG合作的，所以上车LG，我不是很方。</li>
-<li>我是真的迫不及待想要体验用上大屏 or 双屏，这样会更好能够利用好我的时间，提交效率。</li>
-<li>每天上班都是用MBP，十足十的低头族，加上经常看手机，脖子已经吃不消了，搞不好还容易驼背圆肩什么的，大屏显示器它势在必得！</li>
-</ol>
-<h1 id="弊端"><a href="#弊端" class="headerlink" title="弊端"></a>弊端</h1><ul>
-<li>旋转屏幕之后不会自动感应旋转画面，需要在系统额外设置，之前我一直以为是会自动旋转画面的。</li>
-<li>朋友说的泛白，肉眼看上去，确实没有MBP屏幕那样的恰到好处，加上我本身自己是高度近视，眼镜其实已经用了很久了，貌似是有点点泛白的感觉，但是不做设计，感觉我自己没有这方面的极致追求。</li>
-<li>我看到网上有人说反向充电会充不满，但是我自己试了一个下午，一直都是100%，所以不存在这个问题。</li>
-<li>LG原装里面送的Type-C线不是雷电3，我看没有雷电标记，也就是普通的Type-C先，郁闷。。。</li>
-<li>睡眠之后通过鼠标or键盘重新唤醒，需要等好几秒，如果待机很久，比如一整个晚上，会出现无法唤醒，必须打开笔记本盖子，才能唤醒，这个应该是MBP彻底休眠了。。。</li>
-<li>亮度已经调整为最低，但是实际上还是偏亮，需要辅助性软件或者对比度也调低，才能找到合适的亮度，可能我本人眼睛也不适合看亮的东西。</li>
-</ul>
-<h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><p>显示器传输接口DP、HDMI（1.0和2.0）、VGA（上古时代的产品）、DVI（也是时代的遗物）  </p>
-<h2 id="DP"><a href="#DP" class="headerlink" title="DP"></a>DP</h2><p>DisplayPort接口</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/22/显示器选购指南/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -734,20 +722,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-count">69</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-count">90</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
