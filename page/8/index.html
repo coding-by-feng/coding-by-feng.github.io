@@ -163,7 +163,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/18/数据结构系列之图-Java/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/22/English系列之自然拼读/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -177,7 +177,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/18/数据结构系列之图-Java/" class="post-title-link" itemprop="url">数据结构系列之图（Java）</a>
+            <a href="/2020/07/22/English系列之自然拼读/" class="post-title-link" itemprop="url">English系列之自然拼读</a>
         </h2>
 
         <div class="post-meta">
@@ -187,14 +187,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-09-18 18:45:32" itemprop="dateCreated datePublished" datetime="2020-09-18T18:45:32+08:00">2020-09-18</time>
+              <time title="Created: 2020-07-22 16:51:35" itemprop="dateCreated datePublished" datetime="2020-07-22T16:51:35+08:00">2020-07-22</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-19 17:22:30" itemprop="dateModified" datetime="2020-09-19T17:22:30+08:00">2020-09-19</time>
+                <time title="Modified: 2020-09-25 10:42:36" itemprop="dateModified" datetime="2020-09-25T10:42:36+08:00">2020-09-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -202,7 +202,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
                 </span>
             </span>
 
@@ -217,24 +217,318 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="广度优先搜索（Breadth-First-Search、BFS）"><a href="#广度优先搜索（Breadth-First-Search、BFS）" class="headerlink" title="广度优先搜索（Breadth-First-Search、BFS）"></a>广度优先搜索（Breadth-First-Search、BFS）</h3><p>BFS与树的层次遍历有点类似，其具体过程如下：</p>
-<ul>
-<li>访问起始顶点<code>vertex</code>;</li>
-<li>由顶点依次访问<code>vertex</code>的各个<strong><em>未被访问过</em></strong>的邻接顶点W1、W2、W3、…Wn;</li>
-<li>然后依次访问W1、W2、W3、… Wn;的所有<strong><em>未被访问过</em></strong>的邻接顶点;</li>
-<li>…，以此类推。</li>
+          <h2 id="单词结尾的s什么时候读-“s”-与-“z”"><a href="#单词结尾的s什么时候读-“s”-与-“z”" class="headerlink" title="单词结尾的s什么时候读 “s” 与 “z”"></a>单词结尾的s什么时候读 “s” 与 “z”</h2><ul>
+<li>做动词时结尾读”z”</li>
+<li>做形容词、副词、名词时结尾读”s”</li>
 </ul>
-<p>如果仅仅是树的层次遍历来实现BFS的话，无法满足只访问未被访问过的这一约束，比如如下的图：</p>
-<p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/ihab4j.png" alt></p>
-<p>因此其实现原理需要额外的一个<code>队列</code>和一个<code>辅助性的数组</code>。</p>
+<p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/aXaxF4.png" alt><br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/kwz7k7.png" alt><br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/G9b1HK.png" alt><br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/s6UeVk.png" alt><br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/qJ0Dzb.png" alt><br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/odIBhw.png" alt><br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/q8mAhm.png" alt></p>
 <blockquote>
-<p>BOILERPLATE:</p>
+<p>参考来源<a href="https://www.zhihu.com/zvideo/1268214408456630272" target="_blank" rel="noopener">知乎</a></p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">private class Graph &#123;</span><br><span class="line">    int val;</span><br><span class="line">    int index;</span><br><span class="line">    Graph[] neighbors;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private boolean[] visitedRecord = new boolean[MAX];</span><br><span class="line">private Queue&lt;Graph&gt; queue;</span><br><span class="line">private void BFS(Graph g)&#123;</span><br><span class="line">    peek(g); // 具体的访问代码逻辑</span><br><span class="line">    visitedRecord[g.index] = true; // 代表已经访问过</span><br><span class="line">    queue.push(g);</span><br><span class="line">    while(!queue.isEmpty())&#123;</span><br><span class="line">        Graph temp = intqueue.pop();</span><br><span class="line">        for(Graph next = getFristNeighbor(temp); next != null ; next = getNextNeighbor(temp))&#123;</span><br><span class="line">            if(!visitedRecord[next.index])&#123;</span><br><span class="line">                peek(next);</span><br><span class="line">                visitedRecord[next.index] = true; // 代表已经访问过</span><br><span class="line">                queue.push(next);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private void mutilGraphVetex(Graph... gs)&#123;</span><br><span class="line">    // 如果存在多个顶点的图</span><br><span class="line">    gs.forEach(this::BDF);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="深度优先搜索（Depth-First-Search、DFS）"><a href="#深度优先搜索（Depth-First-Search、DFS）" class="headerlink" title="深度优先搜索（Depth-First-Search、DFS）"></a>深度优先搜索（Depth-First-Search、DFS）</h3>
+<h1 id="字母组合发音"><a href="#字母组合发音" class="headerlink" title="字母组合发音"></a>字母组合发音</h1><h2 id="ar"><a href="#ar" class="headerlink" title="ar"></a>ar</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/ɑː/</span><br></pre></td></tr></table></figure>
+<p>garbage</p>
+
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/09/18/数据结构系列之图-Java/#more" rel="contents">
+              <a class="btn" href="/2020/07/22/English系列之自然拼读/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/05/English系列之思维练习错题笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/05/English系列之思维练习错题笔记/" class="post-title-link" itemprop="url">English系列之思维练习错题笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-05 22:47:26" itemprop="dateCreated datePublished" datetime="2020-08-05T22:47:26+08:00">2020-08-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-25 10:42:36" itemprop="dateModified" datetime="2020-09-25T10:42:36+08:00">2020-09-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Yesterday I had a phone call from Clint. I was very surprised. I <strong>__</strong> （write） to him many times but he <strong>__</strong> （never, reply） to my letters.<br>答案：had written, had never replied<br>解析：两个或两个以上相继发生的动作，用and或but按动作发生的先后顺序连接，此时要用一般过去时，而不用过去完成时。过去完成时则强调主语在过去的某一时刻“回顾”更早的动作。具体来说，如果在谈论过去某一事件时，又想到在这之前已发生的某事，就要用过去完成时态。   </p>
+<p>A: I need to find a dermatologist.（皮肤科医生） You’re familiar with Dr. Smith. Do you recommend her?<br>B: Well, I <strong>__</strong> （see） by her a few times. And the best I can say for her is she has interesting magazines in her waiting room.<br>答案：have been seen<br>解析：在英语中，“动作表达”的完成时态强调最近发生的事件，而“状态表达”的完成时态强调“较远的过去”经历。   </p>
+<p>It’s reported that by the end of this month the output of cement in the factory <strong>__</strong> （rise） by about 10%.<br>答案：will have risen<br>解析：将来完成时是以“将来”作为“坐标时间”，来表示开始于将来之前（可能是过去、现在或将来）的动作持续到将来。但动作开始的时间并不重要，关键是说话人要站在将来的某一时间来谈某一动作的完成情况。</p>
+<p>I have entered the university for two years.<br>答案：错误，应改为：I have been in the university for two years，或者用一般过去时态说成：I entered the university two years ago.</p>
+<p>He has left his native place for three years.<br>答案：“单一事件”完成时的肯定句不与持续的时间状语连用，动词leave（left的原形）是非延续性动词，不能跟一段时间状语（否定句除外）。</p>
+<p>A: Are you glad you came to China?<br>B: Yes. Indeed. 我本来是要考虑去Tokyo or Singapore, but 我从不后 悔我的决定。<br>答案：I’d considered going to Tokyo or Singapore, but I’ve never regretted my decision.<br>解析：表示“非真实”的过去，主要是指intend，mean，hope，want，plan，suppose，expect， think，propose和wish等动词用于过去完成时，可表示过去未能实现的计划、设想、意图或希望等。   </p>
+<p>George would certainly have attended the proceedings <strong>__</strong>.<br>A. had he not had a flat tire<br>B. had the tire no flattened itself<br>C. if the flat tire hadn’t happened<br>D. if he didn’t get a flat tire<br>答案：A</p>
+<p>If Greek civilization <strong>__</strong> all of Europe, English wouldn’t contain so many Greek words.<br>A. hadn’t influenced<br>B. doesn’t influence<br>C. hasn’t influenced<br>D. didn’t influence<br>答案：A</p>
+<p>Nelson <strong>__</strong> the fight, with a little more training and a better manager.<br>A. would win<br>B. had won<br>C. could have won<br>D. won<br>答案：C<br>解析：尼尔森本可以赢得这场战斗，但需要更多的训练和更好的教练。</p>
+<p>He would rather <strong>__</strong> than worked last night.<br>A. have slept<br>B. has slept<br>C. sleep<br>D. slept<br>答案：A<br>解析：本题考查 would rather have done 的虚拟句型，本题相当于“He would rather have slept than have worked last night.” ，后边的 have 被省去了。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/08/05/English系列之思维练习错题笔记/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/23/Java系列之多线程并发/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/23/Java系列之多线程并发/" class="post-title-link" itemprop="url">Java系列之多线程并发</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-04-23 16:42:15" itemprop="dateCreated datePublished" datetime="2019-04-23T16:42:15+08:00">2019-04-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-25 08:40:28" itemprop="dateModified" datetime="2020-09-25T08:40:28+08:00">2020-09-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><p><a href="https://www.baeldung.com/tag/java-concurrency/" target="_blank" rel="noopener">https://www.baeldung.com/tag/java-concurrency/</a><br><a href="https://www.baeldung.com/java-concurrent-locks" target="_blank" rel="noopener">https://www.baeldung.com/java-concurrent-locks</a></p>
+<h2 id="Overview-of-the-java-util-concurrent"><a href="#Overview-of-the-java-util-concurrent" class="headerlink" title="Overview of the java.util.concurrent"></a>Overview of the java.util.concurrent</h2><p><a href="https://www.baeldung.com/java-util-concurrent" target="_blank" rel="noopener">https://www.baeldung.com/java-util-concurrent</a></p>
+<ul>
+<li>Executor</li>
+<li>ExecutorService</li>
+<li>ScheduledExecutorService</li>
+<li>Future</li>
+<li>CountDownLatch</li>
+<li>CyclicBarrier</li>
+<li>Semaphore</li>
+<li>ThreadFactory</li>
+<li>BlockingQueue</li>
+<li>DelayQueue</li>
+<li>Locks</li>
+<li>Phaser</li>
+</ul>
+<h3 id="Semaphores-in-Java-API"><a href="#Semaphores-in-Java-API" class="headerlink" title="Semaphores in Java API"></a>Semaphores in Java API</h3><p><a href="https://www.baeldung.com/java-semaphore" target="_blank" rel="noopener">https://www.baeldung.com/java-semaphore</a></p>
+<h2 id="多线程知识的要点"><a href="#多线程知识的要点" class="headerlink" title="多线程知识的要点"></a>多线程知识的要点</h2><p><a href="https://zhuanlan.zhihu.com/p/29881777" target="_blank" rel="noopener">参考自知乎这篇文章</a></p>
+<h2 id="ThreadPoolExecutor-四种处理策略"><a href="#ThreadPoolExecutor-四种处理策略" class="headerlink" title="ThreadPoolExecutor 四种处理策略"></a>ThreadPoolExecutor 四种处理策略</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/04/23/Java系列之多线程并发/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/05/业界内各种权威标准/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/05/业界内各种权威标准/" class="post-title-link" itemprop="url">业界内各种权威、标准、协议</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-05 15:44:13" itemprop="dateCreated datePublished" datetime="2019-12-05T15:44:13+08:00">2019-12-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-23 11:52:58" itemprop="dateModified" datetime="2020-09-23T11:52:58+08:00">2020-09-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/标准/" itemprop="url" rel="index"><span itemprop="name">标准</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="ISO-8601"><a href="#ISO-8601" class="headerlink" title="ISO 8601"></a>ISO 8601</h1><p>国际标准化组织的时间和日期的表达方法。</p>
+<h1 id="cron-expressions"><a href="#cron-expressions" class="headerlink" title="cron expressions"></a>cron expressions</h1><p><a href="http://www.quartz-scheduler.org/documentation/quartz-2.x/tutorials/crontrigger.html" title="cron expressions教程参考" target="_blank" rel="noopener">cron expressions教程参考</a></p>
+<h1 id="GA-PRE-SNAPSHOT等各种版本含义"><a href="#GA-PRE-SNAPSHOT等各种版本含义" class="headerlink" title="GA/PRE/SNAPSHOT等各种版本含义"></a>GA/PRE/SNAPSHOT等各种版本含义</h1><ul>
+<li>GA General Availability,正式发布的版本，官方推荐使用该版本，国外很多项目都是使用GA来表示正式发布版本的</li>
+<li>PRE 预览版，主要是用来内部开发人员和测试人员测试使用，因此不建议使用</li>
+<li>SNAPSHOT 快照版，可以稳定使用，且该版本会一直进行小量的优化和改进</li>
+<li>RC (Release Candidate)：候选版本，几乎就是正式版了</li>
+<li>R (RELEASE) 正式版，等价于GA</li>
+<li>Alpha 内测版，BUG多，开发人员开发过程中使用，希腊字母α，第一，指最初版</li>
+<li>Beta 早期版本，有缺陷，无大BUG，可能加入新功能，进一步开发完善</li>
+<li>Gamma 经beta 版，完善修改，成为正式发布的候选版本（Release Candidate）</li>
+<li>Build 修正版</li>
+<li>Corporation或Enterprise：企业版</li>
+<li>Delux：豪华版</li>
+<li>DEMO：演示版，有功能限制</li>
+<li>Free：免费版</li>
+<li>Full：完全版</li>
+<li>Final：正式版</li>
+<li>Pro(professional)：专业版</li>
+<li>Plus：加强版\</li>
+<li>Retail：零售版</li>
+<li>Shareware：共享版，虽然不会要求注册但是一般也有功能限制</li>
+<li>SR：修正版</li>
+<li>Trial：试用版（一般有时间或者功能限制）</li>
+<li>M Milestone build probably not feature complete; should be vaguely stable (i.e. it’s more than just a nightly snapshot) but may still have problems.</li>
+<li>LTS（Long Term Support）：长期演进版，Ubuntu会对这一版本的支持时间更长。目前Java也在运用这种方式</li>
+</ul>
+<h1 id="计算机内存存储数据原理"><a href="#计算机内存存储数据原理" class="headerlink" title="计算机内存存储数据原理"></a>计算机内存存储数据原理</h1><p><a href="https://www.iteye.com/blog/wwty-401713" target="_blank" rel="noopener">https://www.iteye.com/blog/wwty-401713</a></p>
+<h1 id="服务级别协议（Service-Level-Agreement-SLA）"><a href="#服务级别协议（Service-Level-Agreement-SLA）" class="headerlink" title="服务级别协议（Service Level Agreement/SLA）"></a>服务级别协议（Service Level Agreement/SLA）</h1><h1 id="C-S与B-S的区别"><a href="#C-S与B-S的区别" class="headerlink" title="C/S与B/S的区别"></a>C/S与B/S的区别</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/05/业界内各种权威标准/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -342,343 +636,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Interview汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/15/Interview汇总/" class="post-title-link" itemprop="url">Interview汇总</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-10-15 21:21:25" itemprop="dateCreated datePublished" datetime="2019-10-15T21:21:25+08:00">2019-10-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-18 10:46:47" itemprop="dateModified" datetime="2020-09-18T10:46:47+08:00">2020-09-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/interview/" itemprop="url" rel="index"><span itemprop="name">interview</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="公司的新版微服务架构用到的技术栈"><a href="#公司的新版微服务架构用到的技术栈" class="headerlink" title="公司的新版微服务架构用到的技术栈"></a>公司的新版微服务架构用到的技术栈</h2><h1 id="CS"><a href="#CS" class="headerlink" title="CS"></a>CS</h1><h2 id="32位和64位系统底层的本质区别是什么？"><a href="#32位和64位系统底层的本质区别是什么？" class="headerlink" title="32位和64位系统底层的本质区别是什么？"></a>32位和64位系统底层的本质区别是什么？</h2><h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><p><a href="https://juejin.im/post/5e37b8ea6fb9a030080ca2df" target="_blank" rel="noopener">2020年2月面试题100+大全（合适各级Java人员）</a></p>
-<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="通过new-String-“test”-与-“test”-与运行时常量池的关系"><a href="#通过new-String-“test”-与-“test”-与运行时常量池的关系" class="headerlink" title="通过new String(“test”) 与 “test” 与运行时常量池的关系"></a>通过new String(“test”) 与 “test” 与运行时常量池的关系</h3><ul>
-<li>String a = “aaa”;（保存在常量池中的）</li>
-<li>String b = new String(“aaa”);（new创建的对象会存放在堆内存中）</li>
-</ul>
-<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/10/15/Interview汇总/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Vue系列之基础知识/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/15/Vue系列之基础知识/" class="post-title-link" itemprop="url">Vue系列之基础知识</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-10-15 21:11:24" itemprop="dateCreated datePublished" datetime="2019-10-15T21:11:24+08:00">2019-10-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-17 09:11:57" itemprop="dateModified" datetime="2020-09-17T09:11:57+08:00">2020-09-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="eslint-plugin-vue-todo"><a href="#eslint-plugin-vue-todo" class="headerlink" title="eslint-plugin-vue todo"></a>eslint-plugin-vue todo</h2><h2 id="调试技巧-todo"><a href="#调试技巧-todo" class="headerlink" title="调试技巧 todo"></a>调试技巧 todo</h2><h2 id="前端加密的库CryptoJS使用demo-todo"><a href="#前端加密的库CryptoJS使用demo-todo" class="headerlink" title="前端加密的库CryptoJS使用demo todo"></a>前端加密的库CryptoJS使用demo todo</h2><p>以及相同的流行的库有什么？</p>
-<h2 id="Vue的生命周期-todo"><a href="#Vue的生命周期-todo" class="headerlink" title="Vue的生命周期 todo"></a>Vue的生命周期 todo</h2><h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="Vue-js-devtools灰色状态"><a href="#Vue-js-devtools灰色状态" class="headerlink" title="Vue.js devtools灰色状态"></a>Vue.js devtools灰色状态</h2><p>首先要确保编译的控制台没有error,在Sources里面有源码可以debug。</p>
-<h2 id="Invalid-prop-type-check-failed-for-prop-“queryForm”-Expected-Array-got-Promise"><a href="#Invalid-prop-type-check-failed-for-prop-“queryForm”-Expected-Array-got-Promise" class="headerlink" title="Invalid prop: type check failed for prop “queryForm”. Expected Array, got Promise"></a>Invalid prop: type check failed for prop “queryForm”. Expected Array, got Promise</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/10/15/Vue系列之基础知识/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/01/Idea汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/01/Idea汇总/" class="post-title-link" itemprop="url">Java系列之Idea</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-01 21:10:40" itemprop="dateCreated datePublished" datetime="2019-12-01T21:10:40+08:00">2019-12-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-14 11:20:44" itemprop="dateModified" datetime="2020-09-14T11:20:44+08:00">2020-09-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Idea/" itemprop="url" rel="index"><span itemprop="name">Idea</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="HOTKEY"><a href="#HOTKEY" class="headerlink" title="HOTKEY"></a>HOTKEY</h1><h2 id="Usage-Search（使用查询）"><a href="#Usage-Search（使用查询）" class="headerlink" title="Usage Search（使用查询）"></a>Usage Search（使用查询）</h2><table>
-<thead>
-<tr>
-<th>key</th>
-<th>desc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>cmd+opt+F7</td>
-<td>搜索文件中用法，以弹窗方式显示</td>
-</tr>
-<tr>
-<td>opt+F7</td>
-<td>全局搜索引用</td>
-</tr>
-<tr>
-<td>cmd+shift+F7</td>
-<td>高亮显示当前代码域使用到的地方</td>
-</tr>
-<tr>
-<td>F3 or shift+F3</td>
-<td>搜索当前文件的模式下，按向下 or F3跳到下一处，按向上 or shift+F3跳到上一处</td>
-</tr>
-<tr>
-<td>tab or tab+shift</td>
-<td>在ctrl+shift+f全局搜索的时候，可以通过tab和来移动输入聚焦，可以脱离鼠标来选择右上角的File mask</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Editing（编辑）"><a href="#Editing（编辑）" class="headerlink" title="Editing（编辑）"></a>Editing（编辑）</h2><table>
-<thead>
-<tr>
-<th>key</th>
-<th>desc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>cmd+P</td>
-<td>显示方法的参数，这个方法的强大之处在于，展示了参数之后，在写入传参的时候，弹框会一直存在，让参数更加直观</td>
-</tr>
-<tr>
-<td>cmd++</td>
-<td>展开折叠的代码</td>
-</tr>
-<tr>
-<td>cmd+-</td>
-<td>折叠代码</td>
-</tr>
-<tr>
-<td>shift+上下方向键</td>
-<td>有时候用vim插件的jk上下移动太慢了，而且又不能明确知道要用emacsIdeas调整到哪里，可以用idea自带的shift+上下方向键来快速上下移动代码</td>
-</tr>
-</tbody>
-</table>
-<h2 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h2><table>
-<thead>
-<tr>
-<th>key</th>
-<th>desc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>cmd+shift+F8</td>
-<td>查看断点信息</td>
-</tr>
-<tr>
-<td>shift+F7</td>
-<td>智能步入，断点所在行上有多个方法调用，会弹出进入哪个方法</td>
-</tr>
-<tr>
-<td>^+F5</td>
-<td>重启debug服务</td>
-</tr>
-<tr>
-<td>cmd+F2</td>
-<td>终止debug服务</td>
-</tr>
-<tr>
-<td>^+cmd+W</td>
-<td>将Add to Watches绑定快捷键，可以快速查看变量或者表达式的值</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Spring-Boot-微服务"><a href="#Spring-Boot-微服务" class="headerlink" title="Spring Boot 微服务"></a>Spring Boot 微服务</h2><p>cmd+8 弹出多个微服务的启动控制窗口，可以通过上下左右移动快速定位到某个微服务，通过快捷键^+shiftF10 Runing,或者通过^+shift+F9 Debuging</p>
-<h2 id="General（通用）"><a href="#General（通用）" class="headerlink" title="General（通用）"></a>General（通用）</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/12/01/Idea汇总/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -748,20 +705,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">127</span>
+          <span class="site-state-item-count">128</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">69</span>
+        <span class="site-state-item-count">71</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">91</span>
+        <span class="site-state-item-count">92</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -839,61 +796,6 @@
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-          load: ['[tex]/mhchem'],
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-          packages: {'[+]': ['mhchem']},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 

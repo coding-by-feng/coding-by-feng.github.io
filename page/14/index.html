@@ -163,6 +163,94 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/17/WebStorm汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/17/WebStorm汇总/" class="post-title-link" itemprop="url">WebStorm汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-17 01:46:34" itemprop="dateCreated datePublished" datetime="2019-10-17T01:46:34+08:00">2019-10-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-16 20:58:54" itemprop="dateModified" datetime="2020-07-16T20:58:54+08:00">2020-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WebStorm/" itemprop="url" rel="index"><span itemprop="name">WebStorm</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="shortcut"><a href="#shortcut" class="headerlink" title="shortcut"></a>shortcut</h1><p>新建文件的时候可以这样操作来脱离鼠标：<br>cmd+1跳到Project目录上下移动到目标目录，然后cmd+shift+A跳出Action，输入new+文件类型或者手动选择文件类型就可以了。</p>
+<h1 id="高效率编码"><a href="#高效率编码" class="headerlink" title="高效率编码"></a>高效率编码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">&gt;：下一个子标签</span><br><span class="line">*：多少个标签</span><br><span class="line">$：标签的名称序号</span><br><span class="line">&#123;&#125;:标签的内容</span><br><span class="line">--&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入：h1,按tab键--&gt;</span><br><span class="line">&lt;h1&gt;&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入：div#abc,按Tab键--&gt;</span><br><span class="line">&lt;div id=&quot;abc&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入：div.abc,按Tab键--&gt;</span><br><span class="line">&lt;div class=&quot;abc&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入: div&gt;p*6 ,按Tab键--&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;p&gt;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入 a[href=#] 按tab键--&gt;</span><br><span class="line">&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入：ul.menu&gt;li*6&gt;a[href=#]&#123;HTML&#125; 按tab键--&gt;</span><br><span class="line">&lt;ul class=&quot;menu&quot;&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;HTML&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;HTML&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;HTML&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;HTML&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;HTML&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;HTML&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入  ul&gt;li*5&gt;a[href=#]&#123;我是第$个&#125; 再按tab键--&gt;</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;我是第1个&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;我是第2个&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;我是第3个&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;我是第4个&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;我是第5个&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入 img[src=&apos;images/$.jpg&apos;]*3 再按tab键--&gt;</span><br><span class="line">&lt;img src=&quot;images/1.jpg&quot; alt=&quot;&quot;&gt;     </span><br><span class="line">&lt;img src=&quot;images/2.jpg&quot; alt=&quot;&quot;&gt;     </span><br><span class="line">&lt;img src=&quot;images/3.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入 li*3&gt;div.img&gt;img[src=&apos;images/$.jpg&apos;] 再按tab键--&gt;</span><br><span class="line">&lt;li&gt;</span><br><span class="line">    &lt;div class=&quot;img&quot;&gt;&lt;img src=&quot;images/1.jpg&quot; alt=&quot;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/li&gt;</span><br><span class="line">&lt;li&gt;</span><br><span class="line">    &lt;div class=&quot;img&quot;&gt;&lt;img src=&quot;images/2.jpg&quot; alt=&quot;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/li&gt;</span><br><span class="line">&lt;li&gt;</span><br><span class="line">    &lt;div class=&quot;img&quot;&gt;&lt;img src=&quot;images/3.jpg&quot; alt=&quot;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/li&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/* for循环：输入itar,再点击tab键*/</span><br><span class="line">        for (var i = 0; i &lt; array.length; i++) &#123;</span><br><span class="line">            var obj = array[i];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">+ : 并列的标签</span><br><span class="line">&lt;!--div#tab1+div#tab2--&gt;</span><br><span class="line"></span><br><span class="line">&lt;div id=&quot;tab1&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;tab2&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://blog.csdn.net/sinat_31057219/article/details/79158978" target="_blank" rel="noopener">https://blog.csdn.net/sinat_31057219/article/details/79158978</a></p>
+</blockquote>
+<h1 id="Plugins"><a href="#Plugins" class="headerlink" title="Plugins"></a>Plugins</h1><h2 id="ESLint"><a href="#ESLint" class="headerlink" title="ESLint"></a>ESLint</h2><p>指定项目的eslint配置文件：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/yI1T2Z.png" alt><br>然后再快捷键设置 Fix ESLint Problems，将原来的代码格式化快捷键去掉，就可以取代WebStorm的格式化了。</p>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/17/WebStorm汇总/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/26/Spring系列之SpringMVC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -522,81 +610,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/28/Elasticsearch汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/28/Elasticsearch汇总/" class="post-title-link" itemprop="url">Elasticsearch汇总</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-28 15:36:09" itemprop="dateCreated datePublished" datetime="2020-05-28T15:36:09+08:00">2020-05-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-11 11:21:01" itemprop="dateModified" datetime="2020-06-11T11:21:01+08:00">2020-06-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><p><a href="https://spring.io/projects/spring-data-elasticsearch#learn" target="_blank" rel="noopener">spring-data-elasticsearch官方文档</a></p>
-<h2 id="查询类型"><a href="#查询类型" class="headerlink" title="查询类型"></a>查询类型</h2><h3 id="term"><a href="#term" class="headerlink" title="term"></a>term</h3><p>term：代表完全匹配，即不进行分词器分析，文档中必须包含整个搜索的词汇</p>
-<h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PB是数据存储容量的单位，它等于2的50次方个字节，或者在数值上大约等于1000个TB。</span><br></pre></td></tr></table></figure>
-<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/05/28/Elasticsearch汇总/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -666,20 +679,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">127</span>
+          <span class="site-state-item-count">128</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">69</span>
+        <span class="site-state-item-count">71</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">91</span>
+        <span class="site-state-item-count">92</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
