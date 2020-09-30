@@ -98,6 +98,7 @@
       <h1 class="site-title">Feng's Blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
+      <p class="site-subtitle" itemprop="description">kiwidict.com</p>
   </div>
 
   <div class="site-nav-right">
@@ -159,6 +160,325 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/09/《深入理解Java虚拟机第3版》阅读笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/09/《深入理解Java虚拟机第3版》阅读笔记/" class="post-title-link" itemprop="url">《深入理解Java虚拟机第3版》阅读笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-09 09:55:12" itemprop="dateCreated datePublished" datetime="2020-07-09T09:55:12+08:00">2020-07-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-01 00:03:43" itemprop="dateModified" datetime="2020-10-01T00:03:43+08:00">2020-10-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>这篇笔记总结自周志明老师的《深入理解Java虚拟机第3版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。<br>思维导图版本<a href="http://www.xmind.net/m/xLvtjn" target="_blank" rel="noopener">点击这里</a></p>
+</blockquote>
+<h1 id="虚拟机概述"><a href="#虚拟机概述" class="headerlink" title="虚拟机概述"></a>虚拟机概述</h1><h2 id="中间语言翻译（从Java翻译到机器码）"><a href="#中间语言翻译（从Java翻译到机器码）" class="headerlink" title="中间语言翻译（从Java翻译到机器码）"></a>中间语言翻译（从Java翻译到机器码）</h2><blockquote>
+<p>从中间语言翻译到机器码</p>
+</blockquote>
+<h3 id="通过C语言翻译（初JVM）"><a href="#通过C语言翻译（初JVM）" class="headerlink" title="通过C语言翻译（初JVM）"></a>通过C语言翻译（初JVM）</h3><p>通过将字节码class翻译成C语言，比如定义iadd这个字节码是相加的助记符，然后通过c语言来解析字节码中的iadd就是相加，并指向对应的c语言相加的c程序来做实际运算，这样子的话，这个解析字节码的C程序就是所谓的JVM，最简陋效率最低的初代JVM</p>
+<h3 id="直接翻译为机器码"><a href="#直接翻译为机器码" class="headerlink" title="直接翻译为机器码"></a>直接翻译为机器码</h3><h4 id="CS-IP"><a href="#CS-IP" class="headerlink" title="CS:IP"></a>CS:IP</h4><p>CS与IPO这是物理CPU内部的两个寄存器。对于一台物理机器而言，这两个寄存器是最重要的寄存器，因为CPU在取指令时便完全依靠这两个寄存器。CS寄存器保存段地址，IP保存偏移地址。CS和IP这两个寄存器的值能够唯一确定内存中的一个地址，CPU在执行机器指令之前，便通过这两个寄存器定位到目标内存位置，并将该位置处的机器指令取出来进行运算。函数跳转的本质其实便是修改CS和IP这两个寄存器的内容，使其指向到目标函数所在内存的首地址，这样CPU便能执行目标函数了。Java虚拟机要想让物理CPU直接执行Java程序所对应的目标机器码，也得修改这两个寄存器才能实现。</p>
+<p>在C语言中，能够使用语法糖来修改CS:IP段寄存器，这样C程序就能直接动态执行机器码。<br>既然都能在C语言中直接动态执行机器码了（可以简单理解为：C语言的变量里面可以复制解析出来的机器码，然后直接执行），我们只要将中间语言指令直接翻译为机器码，然后让CS:IP直接指向这段机器码执行，这也是现代JVM最重要的的基本原理之一。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/07/09/《深入理解Java虚拟机第3版》阅读笔记/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Mac汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/15/Mac汇总/" class="post-title-link" itemprop="url">Mac汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-15 21:16:54" itemprop="dateCreated datePublished" datetime="2019-10-15T21:16:54+08:00">2019-10-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-30 23:58:32" itemprop="dateModified" datetime="2020-09-30T23:58:32+08:00">2020-09-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Mac/" itemprop="url" rel="index"><span itemprop="name">Mac</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Mac-Native-Function"><a href="#Mac-Native-Function" class="headerlink" title="Mac Native Function"></a>Mac Native Function</h1><h2 id="Mac-hotkey"><a href="#Mac-hotkey" class="headerlink" title="Mac hotkey"></a>Mac hotkey</h2><table>
+<thead>
+<tr>
+<th>key</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cmd + opt + esc</td>
+<td>强制退出某个软件。通常在软件无响应时使用</td>
+</tr>
+<tr>
+<td>cmd + shift+ 3</td>
+<td>对整个屏幕进行截图</td>
+</tr>
+<tr>
+<td>cmd + shift + 4</td>
+<td>对自行选择的区域进行截图</td>
+</tr>
+<tr>
+<td>cmd + shift + 5</td>
+<td>更多方式截图和录屏（新版本系统）</td>
+</tr>
+<tr>
+<td>cmd + `</td>
+<td>切换同个软件的不同窗口</td>
+</tr>
+<tr>
+<td>cmd + opt + 8</td>
+<td>open or close zoom</td>
+</tr>
+<tr>
+<td>cmd + opt + -</td>
+<td>zoom in</td>
+</tr>
+<tr>
+<td>cmd + opt + =</td>
+<td>zoom out</td>
+</tr>
+<tr>
+<td>opt + shift + 方向</td>
+<td>先用触摸板选中一处，然后可以通过方向键叠加选中的内容</td>
+</tr>
+<tr>
+<td>^ + A</td>
+<td>行首</td>
+</tr>
+<tr>
+<td>^ + E</td>
+<td>行尾</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h2><p>非必要更新软件一定要在空闲时间更新，比如这个：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/TmZg0s.png" alt="macOS_img"><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/yAU7qe.png" alt="macOS_img"></p>
+<p>Dock的最佳位置是放在右边，并且隐藏起来，这样既有较大的屏幕可视区间，也不会经常因为移动鼠标到左边而误触，毕竟MacOS的窗口控制习惯是在左边。</p>
+<h2 id="通过命令和粘贴文件"><a href="#通过命令和粘贴文件" class="headerlink" title="通过命令和粘贴文件"></a>通过命令和粘贴文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 将a.txt文件类容写入剪切板，相当于 cmd + C</span><br><span class="line">pbcopy &lt; blogpost.txt</span><br><span class="line">cat a.txt | pbcopy      </span><br><span class="line"># 将主目录的文件列表复制到剪贴板</span><br><span class="line">ls ~ | pbcopy      </span><br><span class="line"># 复制终端当前目录</span><br><span class="line">pwd | pbcopy</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 将刚刚存入剪切板的a.txt内容复制到终端，相当于 cmd + v</span><br><span class="line">pbpaste              </span><br><span class="line"># 追加内容到对应的文件</span><br><span class="line">pbpaste &gt;&gt; tasklist.txt</span><br></pre></td></tr></table></figure>
+<h1 id="Alfred"><a href="#Alfred" class="headerlink" title="Alfred"></a>Alfred</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/15/Mac汇总/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/09/English系列之定语从句/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="A Quiet Departure.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/09/English系列之定语从句/" class="post-title-link" itemprop="url">English系列之定语从句</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-09-09 20:51:52" itemprop="dateCreated datePublished" datetime="2020-09-09T20:51:52+08:00">2020-09-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-28 20:30:46" itemprop="dateModified" datetime="2020-09-28T20:30:46+08:00">2020-09-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>这篇笔记摘选自张满胜老师的《英语语法新思维中级教程第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。<br>思维导图版本<a href="http://www.xmind.net/m/FtkHvu" target="_blank" rel="noopener">点击这里</a></p>
+</blockquote>
+<h2 id="定语从句概述"><a href="#定语从句概述" class="headerlink" title="定语从句概述"></a>定语从句概述</h2><p>在英文中，被定语从句所修饰的对象叫作antecedent，英文中对这个词的解释是a word, phrase, clause, or sentence to which a pronoun refers，即表示“代词所指代的词、短语、从句或句子”，所以先行词可以是一个词、短语、分句或者独立的句子等。</p>
+<h3 id="形容词作定语与从句作定语比较"><a href="#形容词作定语与从句作定语比较" class="headerlink" title="形容词作定语与从句作定语比较"></a>形容词作定语与从句作定语比较</h3><p>当要表达复杂的意思时，往往需要借助于定语从句来完成，即要用定语从句来修饰某个名词或名词短语。比如当我们说“我不喜欢懒人”，这时只需要用一个形容词lazy来作定语就可以。<br>I don’t like lazy people.<br>如果要表达稍微复杂一点的意思，比如说“我不喜欢不守信用的人”，这时，简单地用形容词作定语就无能为力了，就要借助于一个句子来修饰名词，用作名词的定语，对名词进行限制。<br>I don’t like people who never keep their word.<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/KmgSIt.png" alt></p>
+<h3 id="定语从句的两个重要概念：先行词和关系词"><a href="#定语从句的两个重要概念：先行词和关系词" class="headerlink" title="定语从句的两个重要概念：先行词和关系词"></a>定语从句的两个重要概念：先行词和关系词</h3><p>被定语从句所修饰的对象称为先行词。<br>重复指代先行词、起连接主句和从句的作用，并且在定语从句中充当一定成分的连接词称为关系词。<br>关系词有两个作用：</p>
+<ul>
+<li>代词的作用： 重复指代先行词并且在定语从句中充当一定成分。</li>
+<li>连接作用：即连接主句和从句。</li>
+</ul>
+<h2 id="先行词的结构特点"><a href="#先行词的结构特点" class="headerlink" title="先行词的结构特点"></a>先行词的结构特点</h2><h3 id="先行词是一个词"><a href="#先行词是一个词" class="headerlink" title="先行词是一个词"></a>先行词是一个词</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/09/English系列之定语从句/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -306,297 +626,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/09/18/数据结构系列之图-Java/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/04/数据结构系列之栈-Java/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/04/数据结构系列之栈-Java/" class="post-title-link" itemprop="url">数据结构系列之栈（Java）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-09-04 15:48:50" itemprop="dateCreated datePublished" datetime="2020-09-04T15:48:50+08:00">2020-09-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-28 17:22:38" itemprop="dateModified" datetime="2020-09-28T17:22:38+08:00">2020-09-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p><a href="https://leetcode-cn.com/tag/stack/" target="_blank" rel="noopener">leetcode栈专题</a></p>
-</blockquote>
-<h2 id="顺序栈的定义"><a href="#顺序栈的定义" class="headerlink" title="顺序栈的定义"></a>顺序栈的定义</h2><p>顺序栈栈和线性表很类似，可以认为栈是一种特殊的线性表，只是插入和删除只能允许在其一端进行，把允许操作的一端称为栈顶（Top），不可操作的一端称为栈底（Bottom），同时把插入元素的操作称为入栈(Push),删除元素的操作称为出栈(Pop)。若栈中没有任何元素，则称为空栈。</p>
-<p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/iSJO68.png" alt></p>
-<p>栈插入的元素将第一个被删除，栈也称为后进先出(Last In First Out,LIFO)或先进后出(First In Last Out FILO)的线性表。</p>
-<h2 id="栈的操作"><a href="#栈的操作" class="headerlink" title="栈的操作"></a>栈的操作</h2><ul>
-<li>peek（未删除只获取值）</li>
-<li>push（入栈，更新栈顶Top指向）</li>
-<li>Pop（出栈，删除并获取值，更新栈顶Top指向）</li>
-</ul>
-<h2 id="链式栈"><a href="#链式栈" class="headerlink" title="链式栈"></a>链式栈</h2><h3 id="空栈"><a href="#空栈" class="headerlink" title="空栈"></a>空栈</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/GGkvFd.png" alt></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/04/数据结构系列之栈-Java/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/05/数据结构系列之队列-Java/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/05/数据结构系列之队列-Java/" class="post-title-link" itemprop="url">数据结构系列之队列（Java）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-09-05 22:16:36" itemprop="dateCreated datePublished" datetime="2020-09-05T22:16:36+08:00">2020-09-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-28 17:22:38" itemprop="dateModified" datetime="2020-09-28T17:22:38+08:00">2020-09-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p><a href="https://leetcode-cn.com/tag/queue/" target="_blank" rel="noopener">leetcode队列专题</a></p>
-</blockquote>
-<h2 id="队列的定义"><a href="#队列的定义" class="headerlink" title="队列的定义"></a>队列的定义</h2><p>队列是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作，和栈一样，队列是一种操作受限制的线性表。进行插入操作的端称为队尾，进行删除操作的端称为队头。队列的特点就是先进先出(First In First Out)。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/pRoXuq.png" alt></p>
-<h2 id="顺序队列"><a href="#顺序队列" class="headerlink" title="顺序队列"></a>顺序队列</h2><p>建立顺序队列结构必须为其静态分配或动态申请一片连续的存储空间，并设置两个指针进行管理。一个是队头指针front，它指向队头元素；另一个是队尾指针rear，它指向下一个入队元素的存储位置。</p>
-<blockquote>
-<p>如果没有两个指针，入队操作直接执行顺序表尾部插入操作，其时间复杂度为O(1)，出队操作直接执行顺序表头部删除操作，其时间复杂度为O(n)，<br>增加了front和rear指针，出队操作的时间复杂度也是O(1)了。</p>
-</blockquote>
-<p>空队列：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/VOhvX9.png" alt><br>往队列里面插入A：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/Tvnv7J.png" alt><br>继续插入元素：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/DFz5Ix.png" alt><br>将A和B出队：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/SKuBUa.png" alt><br>继续将D、E、F、G入队：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/Bh2zXE.png" alt><br>由于队列暂时”已满”，G将无法入队，但是此时front前面实际上还有未被利用的空间，这称为<code>&quot;假上溢&quot;现象</code>。<br>之所以出现这样”假溢出”现象是因为顺序表队列的存储单元没有重复利用机制，而解决该问题的最合适的方式就是将顺序队列设计为循环结构。</p>
-<h3 id="“下溢”现象"><a href="#“下溢”现象" class="headerlink" title="“下溢”现象"></a>“下溢”现象</h3><p>当队列为空时，做出队运算产生的溢出现象。“下溢”是正常现象，常用作程序控制转移的条件。</p>
-<h3 id="“真上溢”现象"><a href="#“真上溢”现象" class="headerlink" title="“真上溢”现象"></a>“真上溢”现象</h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/05/数据结构系列之队列-Java/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/11/数据结构系列之树-Java/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="A Quiet Departure.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/11/数据结构系列之树-Java/" class="post-title-link" itemprop="url">数据结构系列之树（Java）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-09-11 21:33:45" itemprop="dateCreated datePublished" datetime="2020-09-11T21:33:45+08:00">2020-09-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-28 17:22:38" itemprop="dateModified" datetime="2020-09-28T17:22:38+08:00">2020-09-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p><a href="https://leetcode-cn.com/tag/tree/" target="_blank" rel="noopener">leetcode树专题</a></p>
-</blockquote>
-<h2 id="树的定义"><a href="#树的定义" class="headerlink" title="树的定义"></a>树的定义</h2><p>树是由n个有限节点组成一个具有层次关系的集合。把它叫做“树”是因为它看起来像一棵倒挂的树，也就是说它是根朝上，而叶朝下的。<br>当n=0时，称为空树。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/pbMQ0p.png" alt></p>
-<h2 id="树的特点"><a href="#树的特点" class="headerlink" title="树的特点"></a>树的特点</h2><ul>
-<li>每个节点都只有有限个子节点或无子节点；</li>
-<li>没有父节点的节点称为根节点；</li>
-<li>每一个非根节点有且只有一个父节点；</li>
-<li>除了根节点外，每个子节点可以分为多个不相交的子树；</li>
-<li>树里面没有环路(cycle)。 </li>
-</ul>
-<h2 id="树的术语"><a href="#树的术语" class="headerlink" title="树的术语"></a>树的术语</h2><ul>
-<li>根节点： 根节点没有父节点，树中最多有一个根节点（如上图的Root）；</li>
-<li>节点的度：一个节点含有的子树的个数称为该节点的度（如上图的Root的度为3，L2_*所有节点的度为0）；</li>
-<li>树的度：树中最大的节点度称为树的度（如上图树的度=Root的度=L1_C的度）；</li>
-<li>叶节点（终端节点）：度为0的节点（如上图L2_*的所有节点）；</li>
-<li>父节点：若一个节点含有子节点，则这个节点称为其子节点的父节点；</li>
-<li>子节点：一个节点的子树的根节点称为其孩子节点；</li>
-<li>兄弟节点：具有相同父节点的节点互称为兄弟节点；</li>
-<li>树的层（节点的层）：从根开始定义起，根为第1层，根的子节点为第2层，以此类推；</li>
-<li>分支节点（非终端节点）：度不为零的节点；</li>
-<li>深度：对于任意节点n,n的深度为从根到n的唯一路径长，根的深度为0；</li>
-<li>高度：对于任意节点n,n的高度为从n到其子孙中的最长路径，所有树叶的高度为0；</li>
-<li>节点的祖先：从根到该节点所经分支上的所有节点；</li>
-<li>森林：由m（m&gt;=0）棵互不相交的树的集合称为森林；</li>
-<li>子孙：以某节点为根的子树中任一节点都称为该节点的子孙。</li>
-</ul>
-<h2 id="有序树"><a href="#有序树" class="headerlink" title="有序树"></a>有序树</h2><h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><p>二叉树（Binary tree）是每个节点最多只有两个分支（即不存在分支度大于2的节点）的树结构，是n(n≥0)个节点组成的有限集合：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/11/数据结构系列之树-Java/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
