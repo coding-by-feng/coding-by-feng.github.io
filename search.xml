@@ -3772,7 +3772,9 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 <li>B/S 建立在广域网之上的，不必是专门的网络硬件环境，例如电话上网，租用设备，信息自己管理，有比C/S更强的适应范围，一般只要有操作系统和浏览器就行。</li>
 </ul>
 <h1 id="SaaS"><a href="#SaaS" class="headerlink" title="SaaS"></a>SaaS</h1><h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><h2 id="JEP-JDK-Enhancement-Proposals-JDK增强提案"><a href="#JEP-JDK-Enhancement-Proposals-JDK增强提案" class="headerlink" title="JEP(JDK Enhancement Proposals)(JDK增强提案)"></a>JEP(JDK Enhancement Proposals)(JDK增强提案)</h2><p><a href="http://openjdk.java.net/jeps/0" target="_blank" rel="noopener">http://openjdk.java.net/jeps/0</a></p>
-<h2 id="J9"><a href="#J9" class="headerlink" title="J9"></a>J9</h2>]]></content>
+<h2 id="J9"><a href="#J9" class="headerlink" title="J9"></a>J9</h2><h1 id="B-S结构"><a href="#B-S结构" class="headerlink" title="B/S结构"></a>B/S结构</h1><p>B/S结构（Browser/Server，浏览器/服务器模式）。</p>
+<h1 id="C-S结构"><a href="#C-S结构" class="headerlink" title="C/S结构"></a>C/S结构</h1><p>C是英文单词“Client”的首字母，即客户端的意思，C/S就是“Client/Server”的缩写，即“客户端/服务器”模式。</p>
+]]></content>
       <categories>
         <category>标准</category>
       </categories>
@@ -6039,8 +6041,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 <li>窦文涛《锵锵三人行》、《圆桌派》</li>
 <li>高晓松《晓说》、《晓松奇谈》</li>
 <li>马未都《嘟嘟》、《观复嘟嘟》</li>
-<li>梁文道《开卷八分钟》《一千零一夜》</li>
-<li>《》<h2 id="《金字塔原理》"><a href="#《金字塔原理》" class="headerlink" title="《金字塔原理》"></a>《金字塔原理》</h2><h2 id="《罗伯特议事规则》"><a href="#《罗伯特议事规则》" class="headerlink" title="《罗伯特议事规则》"></a>《罗伯特议事规则》</h2></li>
+<li>梁文道《开卷八分钟》《一千零一夜》<h2 id="《金字塔原理》"><a href="#《金字塔原理》" class="headerlink" title="《金字塔原理》"></a>《金字塔原理》</h2><h2 id="《罗伯特议事规则》"><a href="#《罗伯特议事规则》" class="headerlink" title="《罗伯特议事规则》"></a>《罗伯特议事规则》</h2></li>
 </ul>
 ]]></content>
       <categories>
@@ -6904,7 +6905,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
     <content><![CDATA[<h1 id="查找（Search）"><a href="#查找（Search）" class="headerlink" title="查找（Search）"></a>查找（Search）</h1><blockquote>
 <p><a href="https://leetcode-cn.com/tag/binary-search/" target="_blank" rel="noopener">leetcode二分查找专题</a></p>
 </blockquote>
-<h2 id="顺序查找"><a href="#顺序查找" class="headerlink" title="顺序查找"></a>顺序查找</h2><p>顺序查找又称现行查找，主要用于在线性表中进行查找。</p>
+<h2 id="顺序查找"><a href="#顺序查找" class="headerlink" title="顺序查找"></a>顺序查找</h2><p>顺序查找又称现行查找，主要用于在线性表中进行查找，序列有序无序皆可。</p>
 <ul>
 <li>对无序线性表进行顺序查找，查找失败时要遍历整个线性表。</li>
 <li>对有序线性表进行顺序查找，查找失败时不一定要遍历整个线性表。</li>
@@ -6914,7 +6915,13 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 <p>BOILERPLATE:</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 重点在于low和high的摇摆切换</span><br><span class="line">public int BS(int[] arr, int key) &#123;</span><br><span class="line">    int low = 0;</span><br><span class="line">    int high = arr.length - 1;</span><br><span class="line">    int half;</span><br><span class="line">    while (low &lt;= high) &#123;</span><br><span class="line">        half = (low + high) / 2;</span><br><span class="line">        if (arr[half] == key) &#123;</span><br><span class="line">            return half;</span><br><span class="line">        &#125; else if (arr[half] &gt; key) &#123;</span><br><span class="line">            high = half - 1;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            low = half + 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="分块查找"><a href="#分块查找" class="headerlink" title="分块查找"></a>分块查找</h2><h1 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h1>]]></content>
+<h2 id="分块查找"><a href="#分块查找" class="headerlink" title="分块查找"></a>分块查找</h2><h1 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h1><h1 id="贪心算法（贪婪算法-Greedy-Algorithm）"><a href="#贪心算法（贪婪算法-Greedy-Algorithm）" class="headerlink" title="贪心算法（贪婪算法/Greedy Algorithm）"></a>贪心算法（贪婪算法/Greedy Algorithm）</h1><blockquote>
+<p><a href="https://zh.wikipedia.org/wiki/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">维基百科</a></p>
+</blockquote>
+<h1 id="动态规划（Dynamic-programming-DP）"><a href="#动态规划（Dynamic-programming-DP）" class="headerlink" title="动态规划（Dynamic programming/DP）"></a>动态规划（Dynamic programming/DP）</h1><blockquote>
+<p><a href="https://zh.wikipedia.org/wiki/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92" target="_blank" rel="noopener">维基百科</a></p>
+</blockquote>
+]]></content>
       <categories>
         <category>algorithm</category>
       </categories>
@@ -7010,7 +7017,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
     <title>《深入理解Java虚拟机第3版》阅读笔记</title>
     <url>/2020/07/09/%E3%80%8A%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AC%AC3%E7%89%88%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<blockquote>
-<p>这篇笔记总结自周志明老师的《深入理解Java虚拟机第3版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。<br>思维导图版本<a href="http://www.xmind.net/m/xLvtjn" target="_blank" rel="noopener">点击这里</a></p>
+<p>这篇笔记总结自周志明老师的《深入理解Java虚拟机第3版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。<br>思维导图版本<a href="http://www.xmind.net/m/PAgTLR" target="_blank" rel="noopener">点击这里</a></p>
 </blockquote>
 <h1 id="虚拟机概述"><a href="#虚拟机概述" class="headerlink" title="虚拟机概述"></a>虚拟机概述</h1><h2 id="中间语言翻译（从Java翻译到机器码）"><a href="#中间语言翻译（从Java翻译到机器码）" class="headerlink" title="中间语言翻译（从Java翻译到机器码）"></a>中间语言翻译（从Java翻译到机器码）</h2><blockquote>
 <p>从中间语言翻译到机器码</p>
@@ -7373,7 +7380,19 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-Dcom.sun.management.jmxremote.port=9999</span><br><span class="line">-Dcom.sun.management.jmxremote.ssl=false</span><br><span class="line">-Dcom.sun.management.jmxremote.authenticate=false</span><br><span class="line">-XX:+UnlockCommercialFeatures </span><br><span class="line">-XX:+FlightRecorder</span><br></pre></td></tr></table></figure>
 <p>下面这个应该是向内网的安装JMC的机器广播自动发现的通知（Multicast address to send autodiscovery packets）：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-Dcom.sun.management.jdp.address=224.0.23.178</span><br></pre></td></tr></table></figure></p>
-<h2 id="HotSpot虚拟机插件及工具"><a href="#HotSpot虚拟机插件及工具" class="headerlink" title="HotSpot虚拟机插件及工具"></a>HotSpot虚拟机插件及工具</h2><h3 id="HSDIS（JIT生成代码反编译）"><a href="#HSDIS（JIT生成代码反编译）" class="headerlink" title="HSDIS（JIT生成代码反编译）"></a>HSDIS（JIT生成代码反编译）</h3><p>HSDIS插件的作用是让HotSpot的<code>-XX:+PrintAssembly</code>指令调用它来把即时编译器动态生成的本地代码还原为汇编代码输出，同时还会自动产生大量非常有价值的注释，这样我们就可以通过输出的汇编代码来从最本质的角度分析问题。<br>JITWatch是HSDIS经常搭配使用的可视化的编译日志分析工具，为便于在JITWatch中读取，可以使用以下参数把日志输出到logfile文件:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-XX:+UnlockDiagnosticVMOptions ,</span><br><span class="line">-XX:+TraceClassLoading</span><br><span class="line">-XX:+LogCompilation</span><br><span class="line">-XX:LogFile=/tmp/logfile.log</span><br><span class="line">-XX:+PrintAssembly</span><br><span class="line">-XX:+TraceClassLoading</span><br></pre></td></tr></table></figure></p>
+<h2 id="HotSpot虚拟机插件及工具"><a href="#HotSpot虚拟机插件及工具" class="headerlink" title="HotSpot虚拟机插件及工具"></a>HotSpot虚拟机插件及工具</h2><h3 id="HSDIS（JIT生成代码反编译）"><a href="#HSDIS（JIT生成代码反编译）" class="headerlink" title="HSDIS（JIT生成代码反编译）"></a>HSDIS（JIT生成代码反编译）</h3><p>HSDIS插件的作用是让HotSpot的<code>-XX:+PrintAssembly</code>指令调用它来把即时编译器动态生成的本地代码还原为汇编代码输出，同时还会自动产生大量非常有价值的注释，这样我们就可以通过输出的汇编代码来从最本质的角度分析问题。<br>JITWatch是HSDIS经常搭配使用的可视化的编译日志分析工具，为便于在JITWatch中读取，可以使用以下参数把日志输出到logfile文件:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-XX:+UnlockDiagnosticVMOptions</span><br><span class="line">-XX:+TraceClassLoading</span><br><span class="line">-XX:+LogCompilation</span><br><span class="line">-XX:LogFile=/tmp/logfile.log</span><br><span class="line">-XX:+PrintAssembly</span><br><span class="line">-XX:+TraceClassLoading</span><br></pre></td></tr></table></figure></p>
+<h1 id="调优案例分析与实战"><a href="#调优案例分析与实战" class="headerlink" title="调优案例分析与实战"></a>调优案例分析与实战</h1><h2 id="大内存硬件上的程序部署策略"><a href="#大内存硬件上的程序部署策略" class="headerlink" title="大内存硬件上的程序部署策略"></a>大内存硬件上的程序部署策略</h2><p>目前单体应用在较大内存的硬件上主要的部署方式有两种：</p>
+<ul>
+<li>通过一个单独的Java虚拟机实例来管理大量的Java堆内存。</li>
+<li>同时使用若干个Java虚拟机，建立逻辑集群来利用硬件资源。</li>
+</ul>
+<p>对于用户交互性强、对停顿时间敏感、内存又较大的系统，并不是一定要使用Shenandoah、ZGC这些明确以控制延迟为目标的垃圾收集器才能解决问题(当然这是最值得考虑的方案)。<br>使用Parallel Scavenge/Old收集器，并且给Java虚拟机分配较大的堆内存也是有很多运行得很成功的案例的，但前提是必须把应用的Full GC频率控制得足够低，至少要低到不会在用户使用过程中发生，譬如十几个小时乃至一整天都不出现一次Full GC,这样可以通过在服务器空闲时执行定时任务的方式触发Full GC，甚至是自动重启应用服务器来保持内存可用空间在一个稳定的水平。<br>控制Full GC频率的关键是老年代的相对稳定，这主要取决于应用中绝大多数对象能否符合“朝生夕灭”的原则，即大多数对象的生存时间不应当太长，尤其是不能有成批量的、长生存时间的大对象产生，这样才能保障老年代空间的稳定。<br>在许多网站和B/S形式的应用里，多数对象的生存周期都应该是请求级或者页面级的，会话级和全局级的长生命对象相对较少。<br>使用单个Java虚拟机实例来管理大内存，还需要考虑下面可能面临的问题:</p>
+<ul>
+<li>ZGC和Shenandoah这种低延迟的最好解决方案目前尚未完全成熟（在任意堆内存大小下都能很好地做到低延迟GC）。</li>
+<li>大内存的情况下，64位虚拟机的性能测试结果普遍略低于相同版本的32位虚拟机。</li>
+<li>必须保证应用程序足够稳定，因为这种大型单体应用要是发生了堆内存溢出，几乎无法产生堆转储快照（要产生十几GB乃至更大的快照文件），哪怕成功生成了快照也难以进行分析。如果确实出了问题要进行诊断，可能就必须应用JMC这种能够在生产环境中进行的运维工具。</li>
+<li>在64位虚拟机中消耗的内存一般比32位虚拟机要大，这是由于指针膨胀，以及数据类型对齐补白等因素导致的，可以开启（默认即开启）压缩指针功能来缓解。</li>
+</ul>
 <h1 id="HotSpot参数大全"><a href="#HotSpot参数大全" class="headerlink" title="HotSpot参数大全"></a>HotSpot参数大全</h1><h2 id="Xmx"><a href="#Xmx" class="headerlink" title="-Xmx"></a>-Xmx</h2><h2 id="Xms"><a href="#Xms" class="headerlink" title="-Xms"></a>-Xms</h2><h2 id="Xmn"><a href="#Xmn" class="headerlink" title="-Xmn"></a>-Xmn</h2><p>分配给Minor的大小</p>
 <h2 id="XX-PrintGCDetails"><a href="#XX-PrintGCDetails" class="headerlink" title="-XX:+PrintGCDetails"></a>-XX:+PrintGCDetails</h2><p>告诉虚拟机在发生垃圾收集行为时打印内存回收日志，并且在进程退出的时候输出当前的内存各区域分配情况。</p>
 <h2 id="verbose"><a href="#verbose" class="headerlink" title="-verbose:**"></a>-verbose:**</h2><h3 id="verbose-class"><a href="#verbose-class" class="headerlink" title="-verbose:class"></a>-verbose:class</h3><p>查看加载的类的情况。</p>
