@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="Feng&#39;s Blog">
 <meta property="og:description" content="调优方案Server模式 Selects server application runtime optimizations. The directory server will take longer to start and “warm up” but will be more aggressively optimized to produce higher throughput.  服务器模式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-10-05T05:46:05.260Z">
+<meta property="og:updated_time" content="2020-10-07T04:46:10.938Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IDEA调优记录">
 <meta name="twitter:description" content="调优方案Server模式 Selects server application runtime optimizations. The directory server will take longer to start and “warm up” but will be more aggressively optimized to produce higher throughput.  服务器模式">
@@ -197,7 +197,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-05 13:46:05" itemprop="dateModified" datetime="2020-10-05T13:46:05+08:00">2020-10-05</time>
+                <time title="Modified: 2020-10-07 12:46:10" itemprop="dateModified" datetime="2020-10-07T12:46:10+08:00">2020-10-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -223,7 +223,7 @@
         <h1 id="调优方案"><a href="#调优方案" class="headerlink" title="调优方案"></a>调优方案</h1><h2 id="Server模式"><a href="#Server模式" class="headerlink" title="Server模式"></a>Server模式</h2><blockquote>
 <p>Selects server application runtime optimizations. The directory server will take longer to start and “warm up” but will be more aggressively optimized to produce higher throughput.</p>
 </blockquote>
-<p>服务器模式对于应用的运行时优化得更好，但是可能启动和”预热”会较慢，但将进行更积极的优化运行期的性能，以产生更高的吞吐量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- server</span><br></pre></td></tr></table></figure></p>
+<p>服务器模式对于应用的运行时优化得更好，可能启动和”预热”会较慢，但将进行更积极的优化运行期的性能，以产生更高的吞吐量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- server</span><br></pre></td></tr></table></figure></p>
 <h2 id="固定-Xmx与-Xms的大小，可能存在频繁扩容的消耗"><a href="#固定-Xmx与-Xms的大小，可能存在频繁扩容的消耗" class="headerlink" title="固定-Xmx与-Xms的大小，可能存在频繁扩容的消耗"></a>固定-Xmx与-Xms的大小，可能存在频繁扩容的消耗</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-Xms2048m</span><br><span class="line">-Xmx2048m</span><br></pre></td></tr></table></figure>
 <h2 id="提高Minor的内存容量"><a href="#提高Minor的内存容量" class="headerlink" title="提高Minor的内存容量"></a>提高Minor的内存容量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-Xmn800m</span><br></pre></td></tr></table></figure>
 <h2 id="Xverify-none"><a href="#Xverify-none" class="headerlink" title="-Xverify:none"></a>-Xverify:none</h2><blockquote>
