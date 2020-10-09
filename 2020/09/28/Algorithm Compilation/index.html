@@ -20,18 +20,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="查找（Search） leetcode二分查找专题  顺序查找顺序查找又称现行查找，主要用于在线性表中进行查找，序列有序无序皆可。  对无序线性表进行顺序查找，查找失败时要遍历整个线性表。 对有序线性表进行顺序查找，查找失败时不一定要遍历整个线性表。  折半查找折半查找又称二分查找，仅适用于有序的顺序表。  BOILERPLATE:  1234567891011121314151617// 重点在">
+  <meta name="description" content="程序 = 数据结构 + 算法  算法的效率度量时间复杂度（Time complexity）算法的时间复杂度是一个函数，它定性描述该算法的运行时间，时间复杂度常用大O符号表述，不包括这个函数的低阶项和首项系数，使用这种方式时，时间复杂度可被称为是渐近的（渐近分析（asymptotic analysis、asymptotics），在数学分析中是一种描述函数在极限附近的行为的方法）。例如，如果一个算法">
 <meta name="keywords" content="algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Algorithm Compilation">
 <meta property="og:url" content="http://yoursite.com/2020/09/28/Algorithm Compilation/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="查找（Search） leetcode二分查找专题  顺序查找顺序查找又称现行查找，主要用于在线性表中进行查找，序列有序无序皆可。  对无序线性表进行顺序查找，查找失败时要遍历整个线性表。 对有序线性表进行顺序查找，查找失败时不一定要遍历整个线性表。  折半查找折半查找又称二分查找，仅适用于有序的顺序表。  BOILERPLATE:  1234567891011121314151617// 重点在">
+<meta property="og:description" content="程序 = 数据结构 + 算法  算法的效率度量时间复杂度（Time complexity）算法的时间复杂度是一个函数，它定性描述该算法的运行时间，时间复杂度常用大O符号表述，不包括这个函数的低阶项和首项系数，使用这种方式时，时间复杂度可被称为是渐近的（渐近分析（asymptotic analysis、asymptotics），在数学分析中是一种描述函数在极限附近的行为的方法）。例如，如果一个算法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-10-05T11:42:14.394Z">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/0DiJ6d.png">
+<meta property="og:updated_time" content="2020-10-09T09:32:56.221Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Algorithm Compilation">
-<meta name="twitter:description" content="查找（Search） leetcode二分查找专题  顺序查找顺序查找又称现行查找，主要用于在线性表中进行查找，序列有序无序皆可。  对无序线性表进行顺序查找，查找失败时要遍历整个线性表。 对有序线性表进行顺序查找，查找失败时不一定要遍历整个线性表。  折半查找折半查找又称二分查找，仅适用于有序的顺序表。  BOILERPLATE:  1234567891011121314151617// 重点在">
+<meta name="twitter:description" content="程序 = 数据结构 + 算法  算法的效率度量时间复杂度（Time complexity）算法的时间复杂度是一个函数，它定性描述该算法的运行时间，时间复杂度常用大O符号表述，不包括这个函数的低阶项和首项系数，使用这种方式时，时间复杂度可被称为是渐近的（渐近分析（asymptotic analysis、asymptotics），在数学分析中是一种描述函数在极限附近的行为的方法）。例如，如果一个算法">
+<meta name="twitter:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/0DiJ6d.png">
 
 <link rel="canonical" href="http://yoursite.com/2020/09/28/Algorithm Compilation/">
 
@@ -197,7 +199,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-05 19:42:14" itemprop="dateModified" datetime="2020-10-05T19:42:14+08:00">2020-10-05</time>
+                <time title="Modified: 2020-10-09 17:32:56" itemprop="dateModified" datetime="2020-10-09T17:32:56+08:00">2020-10-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -220,7 +222,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="查找（Search）"><a href="#查找（Search）" class="headerlink" title="查找（Search）"></a>查找（Search）</h1><blockquote>
+        <blockquote>
+<p>程序 = 数据结构 + 算法</p>
+</blockquote>
+<h1 id="算法的效率度量"><a href="#算法的效率度量" class="headerlink" title="算法的效率度量"></a>算法的效率度量</h1><h2 id="时间复杂度（Time-complexity）"><a href="#时间复杂度（Time-complexity）" class="headerlink" title="时间复杂度（Time complexity）"></a>时间复杂度（Time complexity）</h2><p>算法的时间复杂度是一个函数，它定性描述该算法的运行时间，时间复杂度常用大O符号表述，不包括这个函数的低阶项和首项系数，使用这种方式时，时间复杂度可被称为是渐近的（渐近分析（asymptotic analysis、asymptotics），在数学分析中是一种描述函数在极限附近的行为的方法）。<br>例如，如果一个算法对于任何大小为n（必须比n0大）的输入，它至多需要$5n^{3}+3n$的时间运行完毕（也就是时间开销和问题规模n的关系为：$T_{(n)}=5n^{3}+3n$，这个时候，低阶项3n应该被抛弃，首项系数5也不保留），那么它的渐近时间复杂度是$O(n^{3})$；某个算法的运行时间至多需要$n^{2}+3n+1000$，那么其时间复杂度为$O(n^{2})$。</p>
+<p>渐近规则：</p>
+<ul>
+<li>多项相加，只保留最高阶的项，且系数变为1；</li>
+<li>多项相乘，都保留。</li>
+</ul>
+<p>阶数由低到高如下：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/0DiJ6d.png" alt><br>上图从左到右的算法中，随着问题规模的增大，时间开销会依次递增。</p>
+<blockquote>
+<p>BOILERPLATE:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void test(int n)&#123;// n为问题规模</span><br><span class="line">    int i = 1; // 只运算1次</span><br><span class="line">    while(i&lt;=n)&#123; // 总共会运算n+1次</span><br><span class="line">        i++;     // 总共会运算n次</span><br><span class="line">        doSomething(i);  // 总共会运算n次</span><br><span class="line">    &#125;</span><br><span class="line">    doMore(i);   // 只运算1次</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个算法的时间开销与问题规模n关系如下：<br>$T(n)=3n+3$<br>换算成渐近的时间复杂度就是<code>O(n)</code>。<br>如果在while循环里面增加一个for循环：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void test(int n)&#123;// n为问题规模</span><br><span class="line">    int i = 1; // 只运算1次</span><br><span class="line">    while(i&lt;=n)&#123; // 总共会运算n+1次</span><br><span class="line">        i++;     // 总共会运算n次</span><br><span class="line">        doSomething(i);  // 总共会运算n次</span><br><span class="line">        for(int j = 0; j &lt; n; j++)&#123; // 共总会运算n次</span><br><span class="line">            doSomething(j);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    doMore(i);   // 只运算1次</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这个算法的时间开销与问题规模n关系如下：<br>$T(n)=O(n)+O(n^{2})$<br>换算成渐近的时间复杂度就是$O(n^{2})$（去掉低阶项）。</p>
+<blockquote>
+<p>如果有多层嵌套循环，只需关注最深层循环循环了几次。</p>
+</blockquote>
+<h1 id="查找（Search）"><a href="#查找（Search）" class="headerlink" title="查找（Search）"></a>查找（Search）</h1><blockquote>
 <p><a href="https://leetcode-cn.com/tag/binary-search/" target="_blank" rel="noopener">leetcode二分查找专题</a></p>
 </blockquote>
 <h2 id="顺序查找"><a href="#顺序查找" class="headerlink" title="顺序查找"></a>顺序查找</h2><p>顺序查找又称现行查找，主要用于在线性表中进行查找，序列有序无序皆可。</p>
@@ -240,9 +261,10 @@
 <h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><h3 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h3><h3 id="折半（二分）插入排序"><a href="#折半（二分）插入排序" class="headerlink" title="折半（二分）插入排序"></a>折半（二分）插入排序</h3><h2 id="交换排序"><a href="#交换排序" class="headerlink" title="交换排序"></a>交换排序</h2><h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><h3 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h3><h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><h2 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h2><h1 id="贪心算法（贪婪算法-Greedy-Algorithm）"><a href="#贪心算法（贪婪算法-Greedy-Algorithm）" class="headerlink" title="贪心算法（贪婪算法/Greedy Algorithm）"></a>贪心算法（贪婪算法/Greedy Algorithm）</h1><blockquote>
 <p><a href="https://zh.wikipedia.org/wiki/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">维基百科</a></p>
 </blockquote>
+<p>在对问题求解时，总是做出在当前看来是最好的选择。简单地说，问题能够分解成子问题来解决，子问题的最优解能递推到最终问题的最优解。这种子问题最优解成为最优子结构。<br>贪心算法与动态规划的不同在于它对每个子问题的解决方案都做出选择，不能回退。动态规划则会保存以前的运算结果,并根据以前的结果对当前进行选择,有回退功能。</p>
 <h1 id="动态规划（Dynamic-programming-DP）"><a href="#动态规划（Dynamic-programming-DP）" class="headerlink" title="动态规划（Dynamic programming/DP）"></a>动态规划（Dynamic programming/DP）</h1><blockquote>
 <p><a href="https://zh.wikipedia.org/wiki/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92" target="_blank" rel="noopener">维基百科</a></p>
-<p><a href="https://www.bilibili.com/video/BV1b7411N798?p=69" target="_blank" rel="noopener">参考来源</a></p>
+<p><a href="https://www.bilibili.com/video/BV1b7411N798?p=69" target="_blank" rel="noopener">参考来源：王道考研</a></p>
 </blockquote>
 
     </div>
@@ -327,7 +349,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#查找（Search）"><span class="nav-number">1.</span> <span class="nav-text">查找（Search）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序查找"><span class="nav-number">1.1.</span> <span class="nav-text">顺序查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#折半查找"><span class="nav-number">1.2.</span> <span class="nav-text">折半查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分块查找"><span class="nav-number">1.3.</span> <span class="nav-text">分块查找</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#排序"><span class="nav-number">2.</span> <span class="nav-text">排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#插入排序"><span class="nav-number">2.1.</span> <span class="nav-text">插入排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#直接插入排序"><span class="nav-number">2.1.1.</span> <span class="nav-text">直接插入排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#折半（二分）插入排序"><span class="nav-number">2.1.2.</span> <span class="nav-text">折半（二分）插入排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交换排序"><span class="nav-number">2.2.</span> <span class="nav-text">交换排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序"><span class="nav-number">2.2.1.</span> <span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序"><span class="nav-number">2.2.2.</span> <span class="nav-text">快速排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择排序"><span class="nav-number">2.3.</span> <span class="nav-text">选择排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单选择排序"><span class="nav-number">2.3.1.</span> <span class="nav-text">简单选择排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆排序"><span class="nav-number">2.3.2.</span> <span class="nav-text">堆排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#归并排序"><span class="nav-number">2.4.</span> <span class="nav-text">归并排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基数排序"><span class="nav-number">2.5.</span> <span class="nav-text">基数排序</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#贪心算法（贪婪算法-Greedy-Algorithm）"><span class="nav-number">3.</span> <span class="nav-text">贪心算法（贪婪算法/Greedy Algorithm）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态规划（Dynamic-programming-DP）"><span class="nav-number">4.</span> <span class="nav-text">动态规划（Dynamic programming/DP）</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#算法的效率度量"><span class="nav-number">1.</span> <span class="nav-text">算法的效率度量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#时间复杂度（Time-complexity）"><span class="nav-number">1.1.</span> <span class="nav-text">时间复杂度（Time complexity）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查找（Search）"><span class="nav-number">2.</span> <span class="nav-text">查找（Search）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序查找"><span class="nav-number">2.1.</span> <span class="nav-text">顺序查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#折半查找"><span class="nav-number">2.2.</span> <span class="nav-text">折半查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分块查找"><span class="nav-number">2.3.</span> <span class="nav-text">分块查找</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#排序"><span class="nav-number">3.</span> <span class="nav-text">排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#插入排序"><span class="nav-number">3.1.</span> <span class="nav-text">插入排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#直接插入排序"><span class="nav-number">3.1.1.</span> <span class="nav-text">直接插入排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#折半（二分）插入排序"><span class="nav-number">3.1.2.</span> <span class="nav-text">折半（二分）插入排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交换排序"><span class="nav-number">3.2.</span> <span class="nav-text">交换排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序"><span class="nav-number">3.2.1.</span> <span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序"><span class="nav-number">3.2.2.</span> <span class="nav-text">快速排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择排序"><span class="nav-number">3.3.</span> <span class="nav-text">选择排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单选择排序"><span class="nav-number">3.3.1.</span> <span class="nav-text">简单选择排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆排序"><span class="nav-number">3.3.2.</span> <span class="nav-text">堆排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#归并排序"><span class="nav-number">3.4.</span> <span class="nav-text">归并排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基数排序"><span class="nav-number">3.5.</span> <span class="nav-text">基数排序</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#贪心算法（贪婪算法-Greedy-Algorithm）"><span class="nav-number">4.</span> <span class="nav-text">贪心算法（贪婪算法/Greedy Algorithm）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态规划（Dynamic-programming-DP）"><span class="nav-number">5.</span> <span class="nav-text">动态规划（Dynamic programming/DP）</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -432,6 +454,61 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
