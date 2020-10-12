@@ -30,7 +30,11 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/ihab4j.png">
 <meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/54HWwB.png">
-<meta property="og:updated_time" content="2020-09-28T09:27:26.972Z">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/o7XLuA.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/jZ07up.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/2KaG2f.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/FpsB7k.png">
+<meta property="og:updated_time" content="2020-10-12T13:25:27.865Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构系列之图（Java）">
 <meta name="twitter:description" content="leetcode图专题  广度优先搜索（Breadth-First-Search、BFS）BFS与树的层次遍历有点类似，可以用于树或者图的遍历，其具体过程如下：  访问起始顶点vertex; 由顶点依次访问vertex的各个未被访问过的邻接顶点W1、W2、W3、…Wn; 然后依次访问W1、W2、W3、… Wn;的所有未被访问过的邻接顶点; 如果所在顶点没有未被访问过的领接顶点，则退回到上一层顶点">
@@ -200,7 +204,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-28 17:27:26" itemprop="dateModified" datetime="2020-09-28T17:27:26+08:00">2020-09-28</time>
+                <time title="Modified: 2020-10-12 21:25:27" itemprop="dateModified" datetime="2020-10-12T21:25:27+08:00">2020-10-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -255,6 +259,23 @@
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">private class Graph &#123;</span><br><span class="line">    int val;</span><br><span class="line">    int index;</span><br><span class="line">    Graph[] neighbors;</span><br><span class="line">    int currentVisitNeighborIndex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private boolean[] visitedRecord = new boolean[MAX];</span><br><span class="line"></span><br><span class="line">private void DFS(Graph g)&#123;</span><br><span class="line">    peek(g); // 具体的访问代码逻辑</span><br><span class="line">    visitedRecord[g.index] = true; // 代表已经访问过</span><br><span class="line">    for(Graph next = getFristNeighbor(g); next != null ; next = getNextNeighbor(g))&#123;</span><br><span class="line">        if(!visitedRecord[next.index])&#123;</span><br><span class="line">            (next);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private void mutilGraphVetex(Graph... gs)&#123;</span><br><span class="line">    // 如果存在多个顶点的图</span><br><span class="line">    gs.forEach(this::DFS);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="这是一种多顶点的图"><a href="#这是一种多顶点的图" class="headerlink" title="这是一种多顶点的图"></a>这是一种多顶点的图</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/54HWwB.png" alt><br>其DFS序列为：<code>ACDEB</code>。</p>
+<h2 id="拓扑排序（Topological-sorting）"><a href="#拓扑排序（Topological-sorting）" class="headerlink" title="拓扑排序（Topological sorting）"></a>拓扑排序（Topological sorting）</h2><blockquote>
+<p>参考来源：<a href="https://www.bilibili.com/video/BV1b7411N798?p=59" target="_blank" rel="noopener">王道考研</a></p>
+</blockquote>
+<p>对DAG所有顶点的一种排序，使若存在一条从顶点A到顶点B的路径，在排序中B排在A的后面。<br>有环无向图不存在拓扑排序。</p>
+<h3 id="有向无环图（DAG，Directed-Acyclic-Graph）"><a href="#有向无环图（DAG，Directed-Acyclic-Graph）" class="headerlink" title="有向无环图（DAG，Directed Acyclic Graph）"></a>有向无环图（DAG，Directed Acyclic Graph）</h3><p>在图论中，如果一个有向图从任意顶点出发无法经过若干条边回到该点，则这个图是一个有向无环图。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/o7XLuA.png" alt></p>
+<h3 id="算法思维"><a href="#算法思维" class="headerlink" title="算法思维"></a>算法思维</h3><ul>
+<li>从DAG图中选择一个没有前驱的顶点并输出；</li>
+<li>从图中删除该顶点和所有以它为起点的有向边；</li>
+<li>重复1、2步直到当前的DAG图为空或当前图中不存在无前驱的顶点为止，后一种情况说明图中有环。</li>
+</ul>
+<blockquote>
+<p>DAG其拓扑排序的过程如下：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/jZ07up.png" alt></p>
+<p>非DAG图：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/2KaG2f.png" alt><br>算法结束时没有访问所有顶点，则存在以剩下顶点组成的环。</p>
+<p>出现多个没有入边的顶点（入度不为0）的情况：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/FpsB7k.png" alt><br>拓扑排序的结果不一定唯一。</p>
+<p>BOILERPLATE:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">private class Graph &#123;</span><br><span class="line">    int val;</span><br><span class="line">    int index;</span><br><span class="line">    Graph[] neighbors;</span><br><span class="line">    int currentVisitNeighborIndex = 0;</span><br><span class="line"></span><br><span class="line">    public Graph firstNeighbor() &#123;</span><br><span class="line">        if (neighbors == null || neighbors.length == 0) &#123;</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">        return neighbors[currentVisitNeighborIndex++];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Graph nextNeighbor() &#123;</span><br><span class="line">        if (neighbors != null &amp;&amp; currentVisitNeighborIndex &lt; neighbors.length) &#123;</span><br><span class="line">            return neighbors[currentVisitNeighborIndex++];</span><br><span class="line">        &#125;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private Graph getGraph(int index) &#123;</span><br><span class="line">    // dosomething</span><br><span class="line">    return null;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">boolean topologicalSort(int[] indegrees) &#123;</span><br><span class="line">    // 当前顶点</span><br><span class="line">    Graph g = null;</span><br><span class="line">    Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();</span><br><span class="line">    // 找出入度为0的顶点</span><br><span class="line">    for (int i : indegrees) &#123;</span><br><span class="line">        if (i == 0) &#123;</span><br><span class="line">            stack.push(i);</span><br><span class="line">            // 顶点入队之后，其入度已经不存在，也就是删除顶点与其出边</span><br><span class="line">            --indegrees[i];</span><br><span class="line">            g = getGraph(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    // 记录当前访问顶点的个数</span><br><span class="line">    int count = 0;</span><br><span class="line">    // 用一个数组来记录排序的序列</span><br><span class="line">    int[] print = new int[indegrees.length];</span><br><span class="line">    while (!stack.isEmpty()) &#123;</span><br><span class="line">        // 记录当前的额顶点下标（排序）</span><br><span class="line">        print[count++] = stack.pop();</span><br><span class="line">        for (Graph tmp = g.firstNeighbor(); tmp != null; tmp = g.nextNeighbor()) &#123;</span><br><span class="line">            // 删除入度，如果此时入度为0，代表又是一个顶点</span><br><span class="line">            if (--indegrees[tmp.index] == 0) &#123;</span><br><span class="line">                // 顶点入队</span><br><span class="line">                stack.push(tmp.index);</span><br><span class="line">                // 删除顶点与其出边</span><br><span class="line">                --indegrees[tmp.index];</span><br><span class="line">                g = getGraph(tmp.index);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if (count &lt; indegrees.length) &#123;</span><br><span class="line">        // 如果有顶点没有被访问到，不是DAG，剩下的是环状结构</span><br><span class="line">        return false;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        // 拓扑排序成功，输出print</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -340,7 +361,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#广度优先搜索（Breadth-First-Search、BFS）"><span class="nav-number">1.</span> <span class="nav-text">广度优先搜索（Breadth-First-Search、BFS）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深度优先搜索（Depth-First-Search、DFS）"><span class="nav-number">2.</span> <span class="nav-text">深度优先搜索（Depth-First-Search、DFS）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#这是一种多顶点的图"><span class="nav-number">2.1.</span> <span class="nav-text">这是一种多顶点的图</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#广度优先搜索（Breadth-First-Search、BFS）"><span class="nav-number">1.</span> <span class="nav-text">广度优先搜索（Breadth-First-Search、BFS）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深度优先搜索（Depth-First-Search、DFS）"><span class="nav-number">2.</span> <span class="nav-text">深度优先搜索（Depth-First-Search、DFS）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#这是一种多顶点的图"><span class="nav-number">2.1.</span> <span class="nav-text">这是一种多顶点的图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拓扑排序（Topological-sorting）"><span class="nav-number">3.</span> <span class="nav-text">拓扑排序（Topological sorting）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#有向无环图（DAG，Directed-Acyclic-Graph）"><span class="nav-number">3.1.</span> <span class="nav-text">有向无环图（DAG，Directed Acyclic Graph）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法思维"><span class="nav-number">3.2.</span> <span class="nav-text">算法思维</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -354,20 +375,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-count">128</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">70</span>
+        <span class="site-state-item-count">69</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">92</span>
+        <span class="site-state-item-count">91</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
