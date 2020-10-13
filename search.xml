@@ -7560,7 +7560,59 @@ public class Apple {
 <h4 id="运算指令"><a href="#运算指令" class="headerlink" title="运算指令"></a>运算指令</h4><p>算术指令用于对两个操作数栈上的值进行某种特定运算，并把结果重新存入到操作栈顶。</p>
 <h4 id="类型转换指令"><a href="#类型转换指令" class="headerlink" title="类型转换指令"></a>类型转换指令</h4><p>类型转换指令可以将两种不同的数值类型相互转换，这些转换操作一般用于实现用户代码中的显式类型转换操作，或者用来处理字节码指令集中数据类型相关指令无法与数据类型对应的问题。</p>
 <h4 id="对象创建与访问指令"><a href="#对象创建与访问指令" class="headerlink" title="对象创建与访问指令"></a>对象创建与访问指令</h4><h4 id="操作数栈管理指令"><a href="#操作数栈管理指令" class="headerlink" title="操作数栈管理指令"></a>操作数栈管理指令</h4><h4 id="控制转移指令"><a href="#控制转移指令" class="headerlink" title="控制转移指令"></a>控制转移指令</h4><h4 id="方法调用和返回指令"><a href="#方法调用和返回指令" class="headerlink" title="方法调用和返回指令"></a>方法调用和返回指令</h4><h4 id="异常处理指令"><a href="#异常处理指令" class="headerlink" title="异常处理指令"></a>异常处理指令</h4><h4 id="同步指令"><a href="#同步指令" class="headerlink" title="同步指令"></a>同步指令</h4><p>Java虚拟机可以支持方法级的同步和方法内部一段指令序列的同步，这两种同步结构都是使用管程（Monitor, 更常见的是直接将它称为“锁”）来实现的。<br>方法级的同步是隐式的，无须通过字节码指令来控制，它实现在方法调用和返回操作之中。<br>当方法调用时，调用指令将会检查方法的ACC_ SYNCHRONIZED访问标志是否被设置，如果设置了，执行线程就要求先成功持有管程，然后才能执行方法，最后当方法完成（无论是正常完成还是非正常完成）时释放管程。<br>在方法执行期间，其他任何线程都无法再获取到同一个管程。如果一个同步方法执行期间抛出了异常，并且在方法内部无法处理此异常，那这个同步方法所持有的管程将在异常抛到同步方法边界之外时自动释放。</p>
-<h1 id="虚拟机类加载机制"><a href="#虚拟机类加载机制" class="headerlink" title="虚拟机类加载机制"></a>虚拟机类加载机制</h1><h1 id="HotSpot参数大全"><a href="#HotSpot参数大全" class="headerlink" title="HotSpot参数大全"></a>HotSpot参数大全</h1><h2 id="Xmx"><a href="#Xmx" class="headerlink" title="-Xmx"></a>-Xmx</h2><h2 id="Xms"><a href="#Xms" class="headerlink" title="-Xms"></a>-Xms</h2><h2 id="Xmn"><a href="#Xmn" class="headerlink" title="-Xmn"></a>-Xmn</h2><p>分配给Minor的大小</p>
+<h1 id="虚拟机类加载机制"><a href="#虚拟机类加载机制" class="headerlink" title="虚拟机类加载机制"></a>虚拟机类加载机制</h1><h2 id="类的生命周期"><a href="#类的生命周期" class="headerlink" title="类的生命周期"></a>类的生命周期</h2><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/5TyrOh.png" alt></p>
+<h2 id="类的加载时机"><a href="#类的加载时机" class="headerlink" title="类的加载时机"></a>类的加载时机</h2><p>以下这些情况，如果类型没有进行过初始化，则需要先触发其初始化阶段，这种引用称为对一个类型进行主动引用：</p>
+<ul>
+<li>使用new关键字实例化对象的时候；</li>
+<li>读取或设置一个类型的静态字段（被final修饰、 已在编译期把结果放入常量池的静态字段除外）的时候；</li>
+<li>调用一个类型的静态方法的时候。</li>
+<li>使用java.lang.reflect包的方法对类型进行反射调用的时候，如果类型没有进行过初始化，则需要先触发其初始化。</li>
+<li>当初始化类的时候，如果发现其父类还没有进行过初始化，则需要先触发其父类的初始化。</li>
+<li>当虚拟机启动时，用户需要指定一个要执行的主类（包含main方法的那个类），虚拟机会先初始化这个主类。</li>
+<li>当使用JDK 7新加入的动态语言支持时，如果一个java.lang .invoke MethodHandle实例最后的解析结果为REF_getStatic、REF_putStatic、REF_invokeStatic、REF_newInvokeSpecial四种类型的方法句柄，并且这个方法句柄对应的类没有进行过初始化，则需要先触发其初始化。</li>
+<li>当一个接口中定义了JDK 8新加入的默认方法（被default关键字修饰的接口方法）时，如果有这个接口的实现类发生了初始化，那该接口要在其之前被初始化。</li>
+</ul>
+<p>除此之外，所有引用类型的方式都不会触发初始化，称为被动引用。</p>
+<h3 id="被动引用"><a href="#被动引用" class="headerlink" title="被动引用"></a>被动引用</h3><ul>
+<li>通过子类引用父类的静态字段，不会导致子类初始化；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class SuperClass &#123;</span><br><span class="line">    static &#123;</span><br><span class="line">        System.out.println(&quot;super class init!&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static int value = 666;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class SubClass extends SuperClass &#123;</span><br><span class="line">    static &#123;</span><br><span class="line">        System.out.println(&quot;sub class init!&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class ClassLoadTest &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        System.out.println(SubClass.value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * super class init!</span><br><span class="line">     * 666</span><br><span class="line">     */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过数组定义来引用类，不会触及此类的初始化；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class ClassLoadTest &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SuperClass[] arr = new SuperClass[10];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 并没有输出 super class init!</span><br><span class="line">     */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>常量在编译阶段会存入调用类的常量池中，本质上没有直接引用到定义常量的类，因此不会触发定义常量的类的初始化；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Constant &#123;</span><br><span class="line">    static &#123;</span><br><span class="line">        System.out.println(&quot;constant init!&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static final String HELLO_WORLD = &quot;hello world!&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class ClassLoadTest &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        System.out.println(Constant.HELLO_WORLD);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 并没有输出 &quot;constant init!&quot;</span><br><span class="line">     */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>当一个类在初始化时，要求其父类全部都已经初始化过了，但是一个接口在初始化时，并不要求其父接口全部都完成了初始化，只有在真正使用到父接口的时候（如引用接口中定义的常量）才会初始化。</li>
+</ul>
+<h2 id="类的加载过程"><a href="#类的加载过程" class="headerlink" title="类的加载过程"></a>类的加载过程</h2><h3 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h3><p>在加载阶段，Java虚拟机需要完成以下三件事情:</p>
+<ul>
+<li>通过一个类的全限定名来获取定义此类的二进制字节流，字节流来源可以有：<ul>
+<li>从ZIP压缩包中读取，这很常见，最终成为日后JAR、EAR、 WAR格式的基础。</li>
+<li>从网络中获取。</li>
+<li>运行时计算生成，这种场景使用得最多的就是动态代理技术，在java.lang.refect.Proxy中，就是用了ProxyGenerator .generateProxyClass()来为特定接口生成形式为“*$Proxy”的代理类的二进制字节流。</li>
+<li>从数据库中读取，这种场景相对少见些。</li>
+<li>可以从加密文件中获取，这是典型的防Class文件被反编译的保护措施，通过加载时解密Class文件来保障程序运行逻辑不被窥探。</li>
+</ul>
+</li>
+<li>将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构。</li>
+<li>在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问入口。</li>
+</ul>
+<h4 id="类的加载"><a href="#类的加载" class="headerlink" title="类的加载"></a>类的加载</h4><p>加载阶段可以使用Java虚拟机里内置的引导类加载器来完成，也可以由用户自定义的类加载器去完成，开发人员通过定义自己的类加载器去控制字节流的获取方式（重写一个类加载器的fndClass或loadClass方法）。</p>
+<h4 id="数组的加载"><a href="#数组的加载" class="headerlink" title="数组的加载"></a>数组的加载</h4><p>与类加载不一致，待记录。</p>
+<p>加载阶段结束后，Java虚拟机外部的二进制字节流就按照虚拟机所设定的格式存储在方法区之中了，《Java虚拟机规范》未规定此区域的具体数据结构。类型数据妥善安置在方法区之后，会在Java堆内存中实例化一个java.lang.Class类的对象，这个对象将作为程序访问方法区中的类型数据的外部接口。</p>
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><ul>
+<li>文件格式验证（这阶段的验证是基于二进制字节流进行的，只有通过了这个阶段的验证之后，这段字节流才被允许进入Java虚拟机内存的方法区中进行存储，后面的三个验证阶段全部是基于方法区的存储结构上进行的）。</li>
+<li>元数据验证。</li>
+<li>字节码验证（这阶段就要对类的方法体(Class文件中 的Code属性)进行校验分析，保证被校验类的方法在运行时不会做出危害虚拟机安全的行为）。</li>
+</ul>
+<h1 id="HotSpot参数大全"><a href="#HotSpot参数大全" class="headerlink" title="HotSpot参数大全"></a>HotSpot参数大全</h1><h2 id="Xmx"><a href="#Xmx" class="headerlink" title="-Xmx"></a>-Xmx</h2><h2 id="Xms"><a href="#Xms" class="headerlink" title="-Xms"></a>-Xms</h2><h2 id="Xmn"><a href="#Xmn" class="headerlink" title="-Xmn"></a>-Xmn</h2><p>分配给Minor的大小</p>
 <h2 id="XX-PrintGCDetails"><a href="#XX-PrintGCDetails" class="headerlink" title="-XX:+PrintGCDetails"></a>-XX:+PrintGCDetails</h2><p>告诉虚拟机在发生垃圾收集行为时打印内存回收日志，并且在进程退出的时候输出当前的内存各区域分配情况。</p>
 <h2 id="verbose"><a href="#verbose" class="headerlink" title="-verbose:**"></a>-verbose:**</h2><h3 id="verbose-class"><a href="#verbose-class" class="headerlink" title="-verbose:class"></a>-verbose:class</h3><p>查看加载的类的情况。</p>
 <h3 id="–verbose-gc"><a href="#–verbose-gc" class="headerlink" title="–verbose:gc"></a>–verbose:gc</h3><p>打印出gc相关的信息；该信息不够高全面，等同于<code>-XX:+PrintGC</code>。其实只要设置<code>-XX:+PrintGCDetails</code>就会自动带上<code>-verbose:gc</code>和<code>-XX:+PrintGC</code></p>
