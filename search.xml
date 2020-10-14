@@ -2831,7 +2831,8 @@ public class Apple {
   <entry>
     <title>Java系列之零碎笔记</title>
     <url>/2019/11/30/Java%E7%B3%BB%E5%88%97%E4%B9%8B%E9%9B%B6%E7%A2%8E%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><h3 id="synchronized"><a href="#synchronized" class="headerlink" title="synchronized"></a>synchronized</h3><p>以某个代码片段为例子：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public void fizz(Runnable printFizz) throws InterruptedException &#123;</span><br><span class="line">    while (i &lt;= n) &#123;</span><br><span class="line">        synchronized (this) &#123;</span><br><span class="line">            if (i % 3 == 0 &amp;&amp; i % 5 != 0) &#123;</span><br><span class="line">                printFizz.run();</span><br><span class="line">                i++;</span><br><span class="line">                this.notifyAll();</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                this.wait();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+    <content><![CDATA[<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="基本类型的零值"><a href="#基本类型的零值" class="headerlink" title="基本类型的零值"></a>基本类型的零值</h2><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/2yFTP5.png" alt></p>
+<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><h3 id="synchronized"><a href="#synchronized" class="headerlink" title="synchronized"></a>synchronized</h3><p>以某个代码片段为例子：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public void fizz(Runnable printFizz) throws InterruptedException &#123;</span><br><span class="line">    while (i &lt;= n) &#123;</span><br><span class="line">        synchronized (this) &#123;</span><br><span class="line">            if (i % 3 == 0 &amp;&amp; i % 5 != 0) &#123;</span><br><span class="line">                printFizz.run();</span><br><span class="line">                i++;</span><br><span class="line">                this.notifyAll();</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                this.wait();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>使用javap -v命令查看其class文件，得到如下的字节码命令：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public void fizz(java.lang.Runnable) throws java.lang.InterruptedException;</span><br><span class="line">    descriptor: (Ljava/lang/Runnable;)V</span><br><span class="line">    flags: ACC_PUBLIC</span><br><span class="line">    Code:</span><br><span class="line">      stack=3, locals=4, args_size=2</span><br><span class="line">         0: aload_0</span><br><span class="line">         1: getfield      #2                  // Field i:I</span><br><span class="line">         4: aload_0</span><br><span class="line">         5: getfield      #3                  // Field n:I</span><br><span class="line">         8: if_icmpgt     73</span><br><span class="line">        11: aload_0</span><br><span class="line">        12: dup</span><br><span class="line">        13: astore_2</span><br><span class="line">        14: monitorenter                      // 在这里锁住</span><br><span class="line">        15: aload_0</span><br><span class="line">        16: getfield      #2                  // Field i:I</span><br><span class="line">        19: iconst_3</span><br><span class="line">        20: irem</span><br><span class="line">        21: ifne          56</span><br><span class="line">        24: aload_0</span><br><span class="line">        25: getfield      #2                  // Field i:I</span><br><span class="line">        28: iconst_5</span><br><span class="line">        29: irem</span><br><span class="line">        30: ifeq          56</span><br><span class="line">        33: aload_1</span><br><span class="line">        34: invokeinterface #4,  1            // InterfaceMethod java/lang/Runnable.run:()V</span><br><span class="line">        39: aload_0</span><br><span class="line">        40: dup</span><br><span class="line">        41: getfield      #2                  // Field i:I</span><br><span class="line">        44: iconst_1</span><br><span class="line">        45: iadd</span><br><span class="line">        46: putfield      #2                  // Field i:I</span><br><span class="line">        49: aload_0</span><br><span class="line">        50: invokevirtual #5                  // Method java/lang/Object.notifyAll:()V</span><br><span class="line">        53: goto          60</span><br><span class="line">        56: aload_0</span><br><span class="line">        57: invokevirtual #6                  // Method java/lang/Object.wait:()V</span><br><span class="line">        60: aload_2</span><br><span class="line">        61: monitorexit                       // 在这里第一次释放锁</span><br><span class="line">        62: goto          70</span><br><span class="line">        65: astore_3</span><br><span class="line">        66: aload_2</span><br><span class="line">        67: monitorexit                       // 这里会再次释放锁</span><br><span class="line">        68: aload_3</span><br><span class="line">        69: athrow</span><br><span class="line">        70: goto          0</span><br><span class="line">        73: return</span><br><span class="line">      Exception table:</span><br><span class="line">         from    to  target type</span><br><span class="line">            15    62    65   any</span><br><span class="line">            65    68    65   any</span><br><span class="line">      LineNumberTable:</span><br><span class="line">        line 47: 0</span><br><span class="line">        line 48: 11</span><br><span class="line">        line 49: 15</span><br><span class="line">        line 50: 33</span><br><span class="line">        line 51: 39</span><br><span class="line">        line 52: 49</span><br><span class="line">        line 54: 56</span><br><span class="line">        line 56: 60</span><br><span class="line">        line 58: 73</span><br><span class="line">      LocalVariableTable:</span><br><span class="line">        Start  Length  Slot  Name   Signature</span><br><span class="line">            0      74     0  this   Lme/fengorz/leetcode/concurrency/fizz_buzz_multithreaded/FizzBuzz;</span><br><span class="line">            0      74     1 printFizz   Ljava/lang/Runnable;</span><br><span class="line">      StackMapTable: number_of_entries = 6</span><br><span class="line">        frame_type = 0 /* same */</span><br><span class="line">        frame_type = 252 /* append */</span><br><span class="line">          offset_delta = 55</span><br><span class="line">          locals = [ class java/lang/Object ]</span><br><span class="line">        frame_type = 3 /* same */</span><br><span class="line">        frame_type = 68 /* same_locals_1_stack_item */</span><br><span class="line">          stack = [ class java/lang/Throwable ]</span><br><span class="line">        frame_type = 250 /* chop */</span><br><span class="line">          offset_delta = 4</span><br><span class="line">        frame_type = 2 /* same */</span><br><span class="line">    Exceptions:</span><br><span class="line">      throws java.lang.InterruptedException</span><br></pre></td></tr></table></figure></p>
 <p>发现上面有两条关键字节码<code>monitorenter</code>和<code>monitorexit</code>：</p>
 <ul>
@@ -3372,7 +3373,7 @@ public class Apple {
 <h2 id="Xverify-none"><a href="#Xverify-none" class="headerlink" title="-Xverify:none"></a>-Xverify:none</h2><blockquote>
 <p>Enables verification for all non-bootstrap classes.</p>
 </blockquote>
-<p>该参数默认是<code>-Xverify:remote</code>等同于<code>-Xverify</code>，会对class加载验证，对性能有影响。</p>
+<p>该参数默认是<code>-Xverify:remote</code>等同于<code>-Xverify</code>，会对class加载验证，对性能有影响，毕竟IDEA已经被反复使用和验证过，没必要每次都验证。</p>
 <blockquote>
 <p>For compatibility, this parameter is accepted, but is equivalent to the default -Xverify.<br>Note: This setting might have an impact on performance(<code>-Xverify:all</code>).</p>
 </blockquote>
@@ -6075,6 +6076,7 @@ public class Apple {
 <li>如火如荼</li>
 <li>挞伐</li>
 <li>浮光掠影</li>
+<li>收之桑榆，失之东隅</li>
 </ul>
 <h1 id="开卷有益"><a href="#开卷有益" class="headerlink" title="开卷有益"></a>开卷有益</h1><h2 id="有意思的节目"><a href="#有意思的节目" class="headerlink" title="有意思的节目"></a>有意思的节目</h2><ul>
 <li>窦文涛《锵锵三人行》、《圆桌派》</li>
@@ -7108,7 +7110,7 @@ public class Apple {
 </ul>
 <h4 id="操作数栈？"><a href="#操作数栈？" class="headerlink" title="操作数栈？"></a>操作数栈？</h4><h3 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h3><p>本地方法栈（Native Method Stacks）为虚拟机调用本地方法而服务，就像虚拟机栈服务于Java方法的调用一样。<br>虚拟机可以对本地方法栈自由实现，《Java虚拟机规范》对这没有强制约束（HotSpot将虚拟机栈和本地方法栈合并了）。</p>
 <h3 id="Java堆（Heap、GC堆）"><a href="#Java堆（Heap、GC堆）" class="headerlink" title="Java堆（Heap、GC堆）"></a>Java堆（Heap、GC堆）</h3><p>Java堆是虚拟机内存管理中最大的一块（线程共享）。<br>当前主流虚拟机都可以通过参数扩展堆的大小（<code>-Xmx</code>、<code>-Xms</code>），如果内存不足或者堆无法再扩展了，就会抛出OutOfMemoryError。</p>
-<h3 id="方法区（”非堆”、Non-Heap）"><a href="#方法区（”非堆”、Non-Heap）" class="headerlink" title="方法区（”非堆”、Non-Heap）"></a>方法区（”非堆”、Non-Heap）</h3><p>和Java堆一样，是各个线程共享的内存区域，它用于存储已被虚拟机加载的<code>类型信息</code>、<code>常量</code>、<code>静态变量</code>、<code>即时编译器编译后的代码缓存</code>等数据。<br>虽然《Java虚拟机规范》中把方法区描述为堆的一个逻辑部分，但是它却有一个别名叫作“非堆”(Non-Heap) ，目的是与Java堆区分开来。</p>
+<h3 id="方法区（”非堆”、Non-Heap）"><a href="#方法区（”非堆”、Non-Heap）" class="headerlink" title="方法区（”非堆”、Non-Heap）"></a>方法区（”非堆”、Non-Heap）</h3><p><strong><em>在JDK 7及之前，HotSpot使用永久代来实现方法区时，而在JDK 8及之后，类变量则会随着Class对象一起存放在Java堆中，这时候<code>类变量在方法区</code>就完全是一种种对逻辑概念的表述了。</em></strong><br>和Java堆一样，是各个线程共享的内存区域，它用于存储已被虚拟机加载的<code>类型信息</code>、<code>常量</code>、<code>静态变量</code>、<code>即时编译器编译后的代码缓存</code>等数据。<br>虽然《Java虚拟机规范》中把方法区描述为堆的一个逻辑部分，但是它却有一个别名叫作“非堆”(Non-Heap) ，目的是与Java堆区分开来。</p>
 <h4 id="永久代（Permanent-Generation）的落寞，元空间（Meta-space）的登场"><a href="#永久代（Permanent-Generation）的落寞，元空间（Meta-space）的登场" class="headerlink" title="永久代（Permanent Generation）的落寞，元空间（Meta-space）的登场"></a>永久代（Permanent Generation）的落寞，元空间（Meta-space）的登场</h4><p>Java 8之前，很多人习惯将方法区叫称为”永久代”，因为仅仅只有当时的HotSpot使用永久代来实现方法区，很多其他的虚拟机并不存在永久代的概念，《Java虚拟机规范》也对方法区的实现没有约束，所以方法区不等同于永久代。</p>
 <blockquote>
 <p>HotSpot使用永久代来实现方法区，实际上导致了Java应用更容易出现内存溢出，其<code>-XX: MaxPermSize</code>可以设置永久代的上限，即使不设置也有默认大小。 &gt; 而J9和JRockit就没有此类内存限制，除非触碰进程可用内存上限，这个是由系统控制。</p>
@@ -7611,6 +7613,71 @@ public class Apple {
 <li>文件格式验证（这阶段的验证是基于二进制字节流进行的，只有通过了这个阶段的验证之后，这段字节流才被允许进入Java虚拟机内存的方法区中进行存储，后面的三个验证阶段全部是基于方法区的存储结构上进行的）。</li>
 <li>元数据验证。</li>
 <li>字节码验证（这阶段就要对类的方法体(Class文件中 的Code属性)进行校验分析，保证被校验类的方法在运行时不会做出危害虚拟机安全的行为）。</li>
+<li>符号引用验证（符号引用验证可以看作是对类自身以外（常量池中的各种符号引用）的各类信息进行匹配性校验,通俗来说就是，该类是否缺少或者被禁止访问它依赖的某些外部类、方法、字段等资源）。<br>  -如果无法通过符号引用验证，Java虚拟机将会拋出一个<code>java.lang.IncompatibleClassChangeError</code>的子类异常，典型的如：<code>java.lang.IlelalAccessError</code>、<code>java.lang.NoSuchFieldError</code>、<code>java.lang.NoSuchMethodError</code>等。</li>
+</ul>
+<p><strong><em>如果程序运行的全部代码（包括自已编写的、第三方包中的、从外部加载的、动态生成的等所有代码）都已经被反复使用和验证过，在生产环境的实施阶段就可以考虑使用<code>-Xverify: none</code>参数来关闭大部分的类验证措施，以缩短虚拟机类加载的时间。</em></strong></p>
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>准备阶段是正式为类中定义的变量（即静态变量，被static修饰的变量）分配内存并设置类变量初始值的阶段，从概念上讲，这些变量所使用的内存都应当在方法区中进行分配。<br><strong><em>这时候进行内存分配的仅包括类变量，而不包括实例变量，实例变量将会在对象实例化时随着对象一起起分配在Java堆中。</em></strong><br>如果是赋值了的基本类型静态变量的情况下（也就是默认是预置为基础类型的<code>零值</code>）：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public static int value = 123;</span><br></pre></td></tr></table></figure></p>
+<p>在准备阶段期间其是不会被预置为123的值的，123的赋值操作将在后面的<code>初始化阶段</code>中进行。<br>基本类型的零值：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/2yFTP5.png" alt><br><em>*</em>如果变量被声明为final static，也就是类变量进常量池的字段属性表中的ConstantValue属性时，那么其在准备阶段会被初始化为具体指定的值，如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public static final int value = 123;</span><br></pre></td></tr></table></figure></p>
+<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><p>解析阶段是Java虚拟机将常量池内的符号引用替换为直接引用的过程，也就是将对类引用、接口引用、方法引用、对象变量引用等赋值为其具体的实例引用。</p>
+<ul>
+<li>符号引用（Symbolic References）<br>  -符号引用以一组符号来描述所引用的目标，符号可以是任何形式的字面量，只要使用时能无歧义地定位到目标即可。符号引用与虚拟机实现的内存布局无关，引用的目标并不一定是已经加载到虚拟机内存当中的内容。各种虚拟机实现的内存布局可以各不相同，但是它们能接受的符号引用必须都是一致的，因为符号引用的字面量形式明确定义在《Java虚拟机规范》的Class文件格式中。</li>
+<li>直接引用（Direct References）<ul>
+<li>直接引用是可以直接指向目标的指针、相对偏移量或者是一个能间接定位到目标的句柄。直接引用是和虚拟机实现的内存布局直接相关的，同一个符号引用在不同虚拟机实例上翻译出来的直接引用一般不会相同。如果有了直接引用，那引用的目标必定已经在虚拟机的内存中存在。虚拟机到底是在类被加载器加载时就对常量池中的符号引用进行解析，还是等到一个符号引用将要被使用前才去解析它，这个《Java虚拟机规范》没有具体约束。</li>
+</ul>
+</li>
+</ul>
+<p>一般来说，一个符号引用之前已经被成功解析过，那么后续的引用解析请求就应当一直能够成功；如果第一次解析失败了，其他指令对这个符号的解析请求也应该收到相同的异常，哪怕这个请求的符号在后来已成功加载进Java虚拟机内存之中。</p>
+<h4 id="类或接口的解析"><a href="#类或接口的解析" class="headerlink" title="类或接口的解析"></a>类或接口的解析</h4><p>假设当前代码所处的类为D，如果要把一个从未解析过的符号引用N解析为一个类或接口C的直接引用，其解析过程如下（出现任何异常，解析将失败）：</p>
+<ul>
+<li>如果C不是数组类型，那虚拟机将会把代表N的全限定名传递给D的类加载器去加载这个类C。在加载过程中，由于元数据验证、字节码验证的需要，又可能触发其他相关类的加载动作，例如加载这个类的父类或实现的接口。</li>
+<li>如果C是数组类型，并且数组的元素类型为对象，也就是N的描述符会是类似是<code>[Ljava/lang/Integer</code>，那将会按照第一点的规则加载数组元素类型，接着由虚拟机生成一个代表该数组维度和元素的数组对象。</li>
+<li>此时C在虚拟机中实际上已经成为一个有效的类或接口了，但在解析完成前还要进行符号引用验证，确认D是否具备对C的访问权限。如果发现不具备访问权限，将抛出<code>java.lang.IlegalAccessError</code>异常。<ul>
+<li>JDK 9引入模块化之后，即使是public类型也不能肆无忌惮地访问了。</li>
+</ul>
+</li>
+</ul>
+<h4 id="字段解析"><a href="#字段解析" class="headerlink" title="字段解析"></a>字段解析</h4><p>解析一个未被解析过的字段符号引用，首先将会对字段表内class_index项中索引的CONSTANT__Class_info符号引用进行解析，如果解析成功，那么假设这个字段所属的类或接口用C表示，《Java虚拟机规范》要求按照如下步骤对C进行后续字段的搜索：</p>
+<ul>
+<li>如果C本身就包含了简单名称和字段描述符都与目标相匹配的字段，则返回这个字段的直接引用。</li>
+<li>否则，如果在C中实现了接口，将会按照继承关系从下往上递归搜索各个接口和它的父接口，如果接口中包含了简单名称和字段描述符都与目标相匹配的字段，则返回这个字段的直接引用。</li>
+<li>否则，如果C不是java.lang.Object的话，将会按照继承关系从下往上递归搜索其父类，如果在父类中包含了简单名称和字段描述符都与目标相匹配的字段，则返回这个字段的直接引用。</li>
+<li>否则，查找失败，抛出java.lang.NoSuchFieldError异常。</li>
+<li>同样的，找到成功的话，还要对字段的访问权限进行校验。</li>
+</ul>
+<h4 id="方法解析"><a href="#方法解析" class="headerlink" title="方法解析"></a>方法解析</h4><p>需要先解析出方法表的class_index项中索引的方法所属的类或接口的符号引用，如果解析成功，那么假设用C表示这个类，接下来虚拟机对方法的解析和字段解析类似，同样也是自下而上的解析，如果解析成功也需要进行权限验证。</p>
+<ul>
+<li>由于Class文件格式中类的方法和接口的方法符号引用的常量类型定义是分开的，如果在类的方法表中发现class_index中索引的C是个接口的话，那就直接抛出java.lang .IncompatibleClassChangeError异常。</li>
+<li>在类C中查找是否有简单名称和描述符都与目标相匹配的方法，如果有则返回这个方法的直接引用。</li>
+<li>否则，在类C实现的接口列表及它们的父接口之中递归查找是否有简单名称和描述符都与目标相匹配的方法，如果存在匹配的方法，说明类C是一个抽象类，这时候查找结束，抛出java.lang.AbstractMethodError异常。</li>
+<li>如果还没有找到，宣告方法查找失败，抛出java.lang.NoSuchMethodError异常。 </li>
+</ul>
+<h4 id="接口方法解析"><a href="#接口方法解析" class="headerlink" title="接口方法解析"></a>接口方法解析</h4><p>接口方法也是需要先解析出接口方法表的class_index项中索引的方法所属的类或接口的符号引用，如果解析成功，依然用C表示这个接口，接下来虚拟机将会<br>按照如下步骤进行后续的接口方法搜索:</p>
+<ul>
+<li>如果在接口方法表中发现class_index中的索引C是个类而不是接口，那么就直接抛出java.lang .IncompatibleClassChangeError异常。</li>
+<li>否则，在接口C中查找是否有简单名称和描述符都与目标相匹配的方法，如果有则返回这个方法的直接引用，查找结束。</li>
+<li>否则，在接口C的父接口中递归查找，直到java.lang.Object类（接口方法的查找范围也会包括Object类中的方法）为止，看是否有简单名称和描述符都与目标相匹配的方法，如果有则返回这个方法的直接引用，查找结束。</li>
+<li>如果接口有多继承的父接口，则返回其中一个符合的直接引用，查找结束（有些虚拟机的实现会拒绝这种不确定性）。</li>
+<li>如果还没有找到，宣告方法查找失败，抛出java.lang.NoSuchMethodError异常。 </li>
+</ul>
+<p>JDK 9之后增加了接口的静态私有方法、模块化访问约束。</p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>初始化阶段就是执行类构造器<code>&lt;clinit&gt;()</code>方法的过程。<code>&lt;clinit&gt;()</code>并不是程序员在Java代码中直接编写的方法，它由Javac编译器自动生成。</p>
+<h4 id="方法"><a href="#方法" class="headerlink" title="()方法"></a><clinit>()方法</clinit></h4><ul>
+<li><p><clinit>()方法是由编译器自动收集类中的所有类变量的赋值动作和静态语句块（static{}块）中的语句合并产生的，编译器收集的顺序是由语句在源文件中出现的顺序决定的，静态语句块中只能访问到定义在静态语句块之前的变量，定义在它之后的变量，在前面的静态语句块可以赋值，但是不能访问。</clinit></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">static &#123;</span><br><span class="line">    test = 2;</span><br><span class="line">    System.out.println(test);// 这句编译不通过</span><br><span class="line">&#125;</span><br><span class="line">static int test = 1;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>父类的<clinit>()方法比子类的先执行，也就意味着父类中定义的静态语句块要优先于子类的变量赋值操作。</clinit></p>
+<ul>
+<li>因此在Java虚拟机中第一个被执行的<clinit>()方法的类型肯定是java.lang.Object。</clinit></li>
+</ul>
+</li>
+<li>没有静态语句块与静态变量的赋值操作的类或接口，可以不生成<clinit>()。接口与类不同，只有当父接口中定义的变量被使用时，父接口才会调用<clinit>()。此外，接口的实现类在初始化时也一样不会执行接口的<clinit>()方法。</clinit></clinit></clinit></li>
+<li><clinit>()方法是线程安全的，所以其里面有很耗时的初始化操作，当多个线程同时去初始化其类时，会造成线程阻塞。</clinit></li>
+</ul>
+<h2 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h2><h3 id="类与类加载器"><a href="#类与类加载器" class="headerlink" title="类与类加载器"></a>类与类加载器</h3><p>两个完全相等的类必须是同一个类加载器加载的，”相等”包含了：<br>类的Class对象的equals()方法、isAssignableFrom()方法、isInstance()方法的返回结果，也包括了使用instanceof关键字做对象所属关系判定等各种情况。<br>分别使用自定义实现类加载器<code>new ClassLoader()</code>与虚拟机默认加载器所加载的同个类的实例去做instanceof会出现不匹配的结果。</p>
+<h3 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h3><p>只存在两种类加载器：</p>
+<ul>
+<li>启动类加载器（Bootstrap ClassLoader），这个类加载器使用C++语言实现，是虚拟机自身的一部分。</li>
+<li>由Java语言实现，并且全都继承自抽象类<code>java.lang.ClassLoader</code>。</li>
 </ul>
 <h1 id="HotSpot参数大全"><a href="#HotSpot参数大全" class="headerlink" title="HotSpot参数大全"></a>HotSpot参数大全</h1><h2 id="Xmx"><a href="#Xmx" class="headerlink" title="-Xmx"></a>-Xmx</h2><h2 id="Xms"><a href="#Xms" class="headerlink" title="-Xms"></a>-Xms</h2><h2 id="Xmn"><a href="#Xmn" class="headerlink" title="-Xmn"></a>-Xmn</h2><p>分配给Minor的大小</p>
 <h2 id="XX-PrintGCDetails"><a href="#XX-PrintGCDetails" class="headerlink" title="-XX:+PrintGCDetails"></a>-XX:+PrintGCDetails</h2><p>告诉虚拟机在发生垃圾收集行为时打印内存回收日志，并且在进程退出的时候输出当前的内存各区域分配情况。</p>
@@ -7620,6 +7687,7 @@ public class Apple {
 <h2 id="XX-UseSerialGC"><a href="#XX-UseSerialGC" class="headerlink" title="-XX:+UseSerialGC"></a>-XX:+UseSerialGC</h2><p>select the serial collector with the option <code>-XX:+UseSerialGC</code>.</p>
 <h2 id="XX-MaxTenuringThreshold"><a href="#XX-MaxTenuringThreshold" class="headerlink" title="-XX:MaxTenuringThreshold"></a>-XX:MaxTenuringThreshold</h2><p>设置对象晋升老年代的年龄阈值。</p>
 <h2 id="XX-HeapDumpOnOutOfMemoryError"><a href="#XX-HeapDumpOnOutOfMemoryError" class="headerlink" title="-XX:+HeapDumpOnOutOfMemoryError"></a>-XX:+HeapDumpOnOutOfMemoryError</h2><p>可以让虚拟机在内存溢出异常出现之后自动生成堆转储快照文件，通过<code>-XX:+HeapDumpOnCtrlBreak</code>参数则可以使用[Ctrl]+[Break]键让虚拟机生成堆转储快照文件，又或者在Linux系统下通过<code>kill -3 pid</code>命令发送进程退出信号“恐吓”一下虚拟机，也能顺利拿到堆转储快照。</p>
+<h2 id="Xverify-none"><a href="#Xverify-none" class="headerlink" title="-Xverify:none"></a>-Xverify:none</h2><p>如果程序运行的全部代码（包括自已编写的、第三方包中的、从外部加载的、动态生成的等所有代码）都已经被反复使用和验证过，在生产环境的实施阶段就可以考虑使用<code>-Xverify: none</code>参数来关闭大部分的类验证措施，以缩短虚拟机类加载的时间。</p>
 ]]></content>
       <categories>
         <category>Java</category>
