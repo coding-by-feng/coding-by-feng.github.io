@@ -2368,7 +2368,7 @@ public class Apple {
   <entry>
     <title>iTerm2汇总</title>
     <url>/2019/10/15/iTerm2%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="iterm2-ranger强大的终端文件管理器-todo"><a href="#iterm2-ranger强大的终端文件管理器-todo" class="headerlink" title="iterm2+ranger强大的终端文件管理器 todo"></a>iterm2+ranger强大的终端文件管理器 todo</h2><h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="HotKey"><a href="#HotKey" class="headerlink" title="HotKey"></a>HotKey</h2><p>按方向切换 pane：⌘+Option+方向键<br>切分屏幕：⌘+d 水平切分，⌘+Shift+d 垂直切分<br>智能查找，支持正则查找：⌘+f<br>自动查找历史命令: ⌘+;<br>ctrl+r 搜索历史命令<br>查看剪贴板历史: cmd+shift+h</p>
+    <content><![CDATA[<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="HotKey"><a href="#HotKey" class="headerlink" title="HotKey"></a>HotKey</h2><p>按方向切换 pane：⌘+Option+方向键<br>切分屏幕：⌘+d 水平切分，⌘+Shift+d 垂直切分<br>智能查找，支持正则查找：⌘+f<br>自动查找历史命令: ⌘+;<br>ctrl+r 搜索历史命令，一直按可以切换更多的关联历史<br>查看剪贴板历史: cmd+shift+h</p>
 <h2 id="keymap"><a href="#keymap" class="headerlink" title="keymap"></a>keymap</h2><p>新建标签：command + t</p>
 <p>关闭标签：command + w</p>
 <p>切换标签：command + 数字 command + 左右方向键</p>
@@ -2401,7 +2401,7 @@ public class Apple {
 <p>ctrl + u 清空当前行，无论光标在什么位置</p>
 <p>输入开头命令后 按 ⌘ + ; 会自动列出输入过的命令</p>
 <h1 id="oh-my-zsh"><a href="#oh-my-zsh" class="headerlink" title="oh-my-zsh"></a>oh-my-zsh</h1><h2 id="好看清晰的主题"><a href="#好看清晰的主题" class="headerlink" title="好看清晰的主题"></a>好看清晰的主题</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">af-magic.zsh-theme</span><br></pre></td></tr></table></figure>
-]]></content>
+<h1 id="iterm2-ranger强大的终端文件管理器-todo"><a href="#iterm2-ranger强大的终端文件管理器-todo" class="headerlink" title="iterm2+ranger强大的终端文件管理器 todo"></a>iterm2+ranger强大的终端文件管理器 todo</h1>]]></content>
       <categories>
         <category>iTerm2</category>
       </categories>
@@ -2877,6 +2877,9 @@ public class Apple {
 <p>这里面super();是一句多余的代码，因为子类的构造器会默认先调用父类无参构造器。</p>
 <h2 id="尽量避免大对象"><a href="#尽量避免大对象" class="headerlink" title="尽量避免大对象"></a>尽量避免大对象</h2><p>大对象就是指需要大量连续内存空间的Java对象，最典型的大对象便是那种很长的字符串，或者元素数量很庞大的数组。<br>比遇到大对象更加坏的消息就是遇到一群“朝生夕灭”的“短命大对象”，我们写程序的时候应注意避免。<br>在Java虚拟机中要避免大对象的原因是，在分配空间时，它容易导致内存明明还有不少空间时就提前触发垃圾收集，以获取足够的连续空间才能安置好它们，而当复制对象时，大对象就意味着高额的内存复制开销。HotSpot虚拟机提供了<code>-XX: PretenureSizeThreshold</code>参数， 指定大于该设置值的对象直接在老年代分配，这样做的目的就是避免在Eden区及两个Survivor区之间来回复制，产生大量的内存复制操作。</p>
 <h2 id="接口与方法的实现注意形参尽量用可传送的DTO对象（实现Serializable）"><a href="#接口与方法的实现注意形参尽量用可传送的DTO对象（实现Serializable）" class="headerlink" title="接口与方法的实现注意形参尽量用可传送的DTO对象（实现Serializable）"></a>接口与方法的实现注意形参尽量用可传送的DTO对象（实现Serializable）</h2><p>这个将来方便各种动态扩展参数。</p>
+<h2 id="读取IO流要注意尾部数据失真问题"><a href="#读取IO流要注意尾部数据失真问题" class="headerlink" title="读取IO流要注意尾部数据失真问题"></a>读取IO流要注意尾部数据失真问题</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">temps = response.getOutputStream();</span><br><span class="line">in = new DataInputStream(inputStream);</span><br><span class="line">// 这个方法写入音频流时有个致命问题，如果是音频流会出现尾部有杂音，因为byte数组如果尾部空流在音频当还是会被当做声音处理</span><br><span class="line">// 如果采用下面注释掉的这种写法的话</span><br><span class="line">byte[] b = new byte[2048];</span><br><span class="line">while ((in.read(b)) != -1) &#123;</span><br><span class="line">    temps.write(b);</span><br><span class="line">    temps.flush();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以采用HuTool工具API，或者使用其内部的实现机制：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">byte[] b = new byte[length];</span><br><span class="line">int readLength;</span><br><span class="line">try &#123;</span><br><span class="line">    readLength = in.read(b);</span><br><span class="line">&#125; catch (IOException e) &#123;</span><br><span class="line">    throw new IORuntimeException(e);</span><br><span class="line">&#125;</span><br><span class="line">if (readLength &gt; 0 &amp;&amp; readLength &lt; length) &#123;</span><br><span class="line">    byte[] b2 = new byte[length];</span><br><span class="line">    System.arraycopy(b, 0, b2, 0, readLength);</span><br><span class="line">    return b2;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    return b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">byte[] b = IoUtil.readBytes(in, 1024);</span><br><span class="line">while (b != null &amp;&amp; b.length &gt; 0) &#123;</span><br><span class="line">    temps.write(b);</span><br><span class="line">    temps.flush();</span><br><span class="line">    b = IoUtil.readBytes(in, 1024);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <h1 id="Combo"><a href="#Combo" class="headerlink" title="Combo"></a>Combo</h1><h2 id="jar"><a href="#jar" class="headerlink" title="jar"></a>jar</h2><h3 id="Mac中jar运行之后窗口无法粘贴"><a href="#Mac中jar运行之后窗口无法粘贴" class="headerlink" title="Mac中jar运行之后窗口无法粘贴"></a>Mac中jar运行之后窗口无法粘贴</h3><p>有些情况下需要使用windows的复制粘贴快捷键才能生效</p>
 <h3 id="jar指定目录的所有classes去打包"><a href="#jar指定目录的所有classes去打包" class="headerlink" title="jar指定目录的所有classes去打包"></a>jar指定目录的所有classes去打包</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">jar cvf test.jar -C unwoven-classes .</span><br></pre></td></tr></table></figure>
@@ -6077,6 +6080,7 @@ public class Apple {
 <li>挞伐</li>
 <li>浮光掠影</li>
 <li>收之桑榆，失之东隅</li>
+<li>舞弊</li>
 </ul>
 <h1 id="开卷有益"><a href="#开卷有益" class="headerlink" title="开卷有益"></a>开卷有益</h1><h2 id="有意思的节目"><a href="#有意思的节目" class="headerlink" title="有意思的节目"></a>有意思的节目</h2><ul>
 <li>窦文涛《锵锵三人行》、《圆桌派》</li>
@@ -7661,17 +7665,17 @@ public class Apple {
 </ul>
 <p>JDK 9之后增加了接口的静态私有方法、模块化访问约束。</p>
 <h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>初始化阶段就是执行类构造器<code>&lt;clinit&gt;()</code>方法的过程。<code>&lt;clinit&gt;()</code>并不是程序员在Java代码中直接编写的方法，它由Javac编译器自动生成。</p>
-<h4 id="方法"><a href="#方法" class="headerlink" title="()方法"></a><clinit>()方法</clinit></h4><ul>
-<li><p><clinit>()方法是由编译器自动收集类中的所有类变量的赋值动作和静态语句块（static{}块）中的语句合并产生的，编译器收集的顺序是由语句在源文件中出现的顺序决定的，静态语句块中只能访问到定义在静态语句块之前的变量，定义在它之后的变量，在前面的静态语句块可以赋值，但是不能访问。</clinit></p>
+<h4 id="lt-clinit-gt-方法"><a href="#lt-clinit-gt-方法" class="headerlink" title="&lt;clinit&gt;()方法"></a><code>&lt;clinit&gt;()</code>方法</h4><ul>
+<li><p><code>&lt;clinit&gt;()</code>方法是由编译器自动收集类中的所有类变量的赋值动作和静态语句块（static{}块）中的语句合并产生的，编译器收集的顺序是由语句在源文件中出现的顺序决定的，静态语句块中只能访问到定义在静态语句块之前的变量，定义在它之后的变量，在前面的静态语句块可以赋值，但是不能访问。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">static &#123;</span><br><span class="line">    test = 2;</span><br><span class="line">    System.out.println(test);// 这句编译不通过</span><br><span class="line">&#125;</span><br><span class="line">static int test = 1;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>父类的<clinit>()方法比子类的先执行，也就意味着父类中定义的静态语句块要优先于子类的变量赋值操作。</clinit></p>
+<li><p>父类的<code>&lt;clinit&gt;()</code>方法比子类的先执行，也就意味着父类中定义的静态语句块要优先于子类的变量赋值操作。</p>
 <ul>
-<li>因此在Java虚拟机中第一个被执行的<clinit>()方法的类型肯定是java.lang.Object。</clinit></li>
+<li>因此在Java虚拟机中第一个被执行的<code>&lt;clinit&gt;()</code>方法的类型肯定是java.lang.Object。</li>
 </ul>
 </li>
-<li>没有静态语句块与静态变量的赋值操作的类或接口，可以不生成<clinit>()。接口与类不同，只有当父接口中定义的变量被使用时，父接口才会调用<clinit>()。此外，接口的实现类在初始化时也一样不会执行接口的<clinit>()方法。</clinit></clinit></clinit></li>
-<li><clinit>()方法是线程安全的，所以其里面有很耗时的初始化操作，当多个线程同时去初始化其类时，会造成线程阻塞。</clinit></li>
+<li>没有静态语句块与静态变量的赋值操作的类或接口，可以不生成<code>&lt;clinit&gt;()</code>。接口与类不同，只有当父接口中定义的变量被使用时，父接口才会调用<code>&lt;clinit&gt;()</code>。此外，接口的实现类在初始化时也一样不会执行接口的<code>&lt;clinit&gt;()</code>方法。</li>
+<li><code>&lt;clinit&gt;()</code>方法是线程安全的，所以其里面有很耗时的初始化操作，当多个线程同时去初始化其类时，会造成线程阻塞。</li>
 </ul>
 <h2 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h2><h3 id="类与类加载器"><a href="#类与类加载器" class="headerlink" title="类与类加载器"></a>类与类加载器</h3><p>两个完全相等的类必须是同一个类加载器加载的，”相等”包含了：<br>类的Class对象的equals()方法、isAssignableFrom()方法、isInstance()方法的返回结果，也包括了使用instanceof关键字做对象所属关系判定等各种情况。<br>分别使用自定义实现类加载器<code>new ClassLoader()</code>与虚拟机默认加载器所加载的同个类的实例去做instanceof会出现不匹配的结果。</p>
 <h3 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h3><p>只存在两种类加载器：</p>
@@ -7679,7 +7683,9 @@ public class Apple {
 <li>启动类加载器（Bootstrap ClassLoader），这个类加载器使用C++语言实现，是虚拟机自身的一部分。</li>
 <li>由Java语言实现，并且全都继承自抽象类<code>java.lang.ClassLoader</code>。</li>
 </ul>
-<h1 id="HotSpot参数大全"><a href="#HotSpot参数大全" class="headerlink" title="HotSpot参数大全"></a>HotSpot参数大全</h1><h2 id="Xmx"><a href="#Xmx" class="headerlink" title="-Xmx"></a>-Xmx</h2><h2 id="Xms"><a href="#Xms" class="headerlink" title="-Xms"></a>-Xms</h2><h2 id="Xmn"><a href="#Xmn" class="headerlink" title="-Xmn"></a>-Xmn</h2><p>分配给Minor的大小</p>
+<p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/S3pc4X.png" alt><br>双亲委派模型的工作过程是:如果一个类加载器收到了类加载的请求，它首先不会自己去尝试加载这个类，而是把这个请求委派给父类加载器去完成，每一个层次的类加载器都是如此，因此所有的加载请求最终都应该传送到最顶层的启动类加载器中，只有当父加载器反馈自己无法完成这个加载请求（它的搜索范围中没有找到所需的类）时，子加载器才会尝试自己去完成加载。<br>双亲委派的具体按照loadClass()方法的逻辑去调用父加载器加载，如果父类加载失败，会自动调用自己的findClass(方法来完成加载，这样既不影响用户按照自己的意愿去加载类，又可以保证新写出来的类加载器是符合双亲委派规则的。</p>
+<h3 id="破坏双亲委派模型"><a href="#破坏双亲委派模型" class="headerlink" title="破坏双亲委派模型"></a>破坏双亲委派模型</h3><h4 id="OSGi"><a href="#OSGi" class="headerlink" title="OSGi"></a>OSGi</h4><p>OSGi实现模块化热部署的关键是它自定义的类加载器机制的实现，每一个程序模块(OSGi中称为Bundle)都有一个自己的类加载器，当需要更换一个Bundle时，就把Bundle连同类加载器一起换掉以实现代码的热替换。在OSGi环境下，类加载器不再双亲委派模型推荐的树状结构，而是进一步发展为更加复杂的网状结构。<br>《深入理解OSGi：Equinox原理、应用于最佳实践》这本书有对其进行详尽讲解。</p>
+<h2 id="Java模块化（待记录）"><a href="#Java模块化（待记录）" class="headerlink" title="Java模块化（待记录）"></a>Java模块化（待记录）</h2><h1 id="虚拟机字节码执行引擎"><a href="#虚拟机字节码执行引擎" class="headerlink" title="虚拟机字节码执行引擎"></a>虚拟机字节码执行引擎</h1><h1 id="HotSpot参数大全"><a href="#HotSpot参数大全" class="headerlink" title="HotSpot参数大全"></a>HotSpot参数大全</h1><h2 id="Xmx"><a href="#Xmx" class="headerlink" title="-Xmx"></a>-Xmx</h2><h2 id="Xms"><a href="#Xms" class="headerlink" title="-Xms"></a>-Xms</h2><h2 id="Xmn"><a href="#Xmn" class="headerlink" title="-Xmn"></a>-Xmn</h2><p>分配给Minor的大小</p>
 <h2 id="XX-PrintGCDetails"><a href="#XX-PrintGCDetails" class="headerlink" title="-XX:+PrintGCDetails"></a>-XX:+PrintGCDetails</h2><p>告诉虚拟机在发生垃圾收集行为时打印内存回收日志，并且在进程退出的时候输出当前的内存各区域分配情况。</p>
 <h2 id="verbose"><a href="#verbose" class="headerlink" title="-verbose:**"></a>-verbose:**</h2><h3 id="verbose-class"><a href="#verbose-class" class="headerlink" title="-verbose:class"></a>-verbose:class</h3><p>查看加载的类的情况。</p>
 <h3 id="–verbose-gc"><a href="#–verbose-gc" class="headerlink" title="–verbose:gc"></a>–verbose:gc</h3><p>打印出gc相关的信息；该信息不够高全面，等同于<code>-XX:+PrintGC</code>。其实只要设置<code>-XX:+PrintGCDetails</code>就会自动带上<code>-verbose:gc</code>和<code>-XX:+PrintGC</code></p>
