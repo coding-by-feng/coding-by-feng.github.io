@@ -164,6 +164,93 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/25/Spring系列之SpringCloud/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="NZ OR NORDIC.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/25/Spring系列之SpringCloud/" class="post-title-link" itemprop="url">Spring系列之SpringCloud</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-25 21:30:37" itemprop="dateCreated datePublished" datetime="2019-11-25T21:30:37+08:00">2019-11-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-05 10:23:30" itemprop="dateModified" datetime="2020-06-05T10:23:30+08:00">2020-06-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/SpringCloud/" itemprop="url" rel="index"><span itemprop="name">SpringCloud</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？-todo"><a href="#整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？-todo" class="headerlink" title="整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？ todo"></a>整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？ todo</h2><h2 id="Dubbo的生态在最近有没有经常颠覆性的完善？-todo"><a href="#Dubbo的生态在最近有没有经常颠覆性的完善？-todo" class="headerlink" title="Dubbo的生态在最近有没有经常颠覆性的完善？ todo"></a>Dubbo的生态在最近有没有经常颠覆性的完善？ todo</h2><h2 id="为什么本地配置文件还要有从git加载的模式？-todo"><a href="#为什么本地配置文件还要有从git加载的模式？-todo" class="headerlink" title="为什么本地配置文件还要有从git加载的模式？ todo"></a>为什么本地配置文件还要有从git加载的模式？ todo</h2><h2 id="RefreshScope用法和避坑-todo"><a href="#RefreshScope用法和避坑-todo" class="headerlink" title="@RefreshScope用法和避坑 todo"></a>@RefreshScope用法和避坑 todo</h2><p>Refresh Scope<br>A Spring @Bean that is marked as @RefreshScope will get special treatment when there is a configuration change. This addresses the problem of stateful beans that only get their configuration injected when they are initialized. For instance if a DataSource has open connections when the database URL is changed via the Environment, we probably want the holders of those connections to be able to complete what they are doing. Then the next time someone borrows a connection from the pool he gets one with the new URL.</p>
+<p>Refresh scope beans are lazy proxies that initialize when they are used (i.e. when a method is called), and the scope acts as a cache of initialized values. To force a bean to re-initialize on the next method call you just need to invalidate its cache entry.</p>
+<h2 id="spring-cloud-config-uri的默认值作用是什么？启动警告是否需要排除掉？todo"><a href="#spring-cloud-config-uri的默认值作用是什么？启动警告是否需要排除掉？todo" class="headerlink" title="spring.cloud.config.uri的默认值作用是什么？启动警告是否需要排除掉？todo"></a>spring.cloud.config.uri的默认值作用是什么？启动警告是否需要排除掉？todo</h2><h2 id="SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别-todo"><a href="#SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别-todo" class="headerlink" title="@SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别 todo"></a>@SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别 todo</h2><h1 id="spring-profiles-yml配置文件"><a href="#spring-profiles-yml配置文件" class="headerlink" title="spring.profiles || yml配置文件"></a>spring.profiles || yml配置文件</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/25/Spring系列之SpringCloud/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/02/Spring系列之Cache/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -497,91 +584,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/21/DataGrip汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="NZ OR NORDIC.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/21/DataGrip汇总/" class="post-title-link" itemprop="url">DataGrip汇总</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-11-21 15:04:20" itemprop="dateCreated datePublished" datetime="2019-11-21T15:04:20+08:00">2019-11-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-22 11:01:22" itemprop="dateModified" datetime="2020-05-22T11:01:22+08:00">2020-05-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DataGrip/" itemprop="url" rel="index"><span itemprop="name">DataGrip</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Hotkey"><a href="#Hotkey" class="headerlink" title="Hotkey"></a>Hotkey</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Plug-ins | Database Tools and SQL | Transpose       快速转换查询结果的视图模式   ^+cmd+T</span><br><span class="line">Plug-ins | Database Tools and SQL | To Clipboard    快速导出查询结果    ^+cmd+C</span><br></pre></td></tr></table></figure>
-<h2 id="手动修改查询接口"><a href="#手动修改查询接口" class="headerlink" title="手动修改查询接口"></a>手动修改查询接口</h2><p>可以在Output上选中某一行按cmd+D，复制当前行</p>
-<h1 id="Live-Template"><a href="#Live-Template" class="headerlink" title="Live Template"></a>Live Template</h1><p>利用Live Template可以自定义一些快捷的SQL模板生成.</p>
-<h1 id="开启新的Tab展示查询结果"><a href="#开启新的Tab展示查询结果" class="headerlink" title="开启新的Tab展示查询结果"></a>开启新的Tab展示查询结果</h1><p>勾选Open results in new tab，这样子查看历史数据比较方便。</p>
-
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/21/DataGrip汇总/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -627,7 +629,7 @@
   <aside class="sidebar">
     <div class="sidebar-inner">
 
-      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=413142577&auto=1&height=66"></iframe>
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=191252&auto=0&height=66"></iframe>
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -653,7 +655,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">129</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

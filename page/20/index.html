@@ -164,6 +164,96 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/23/windows环境下mysql提示ERROR-1045-28000-Access-denied-for-user-root-localhost-using-passwor-YES-的解决办法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="NZ OR NORDIC.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/11/23/windows环境下mysql提示ERROR-1045-28000-Access-denied-for-user-root-localhost-using-passwor-YES-的解决办法/" class="post-title-link" itemprop="url">windows环境下mysql提示ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using passwor: YES)的解决办法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2016-11-23 10:16:34" itemprop="dateCreated datePublished" datetime="2016-11-23T10:16:34+08:00">2016-11-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-21 17:01:00" itemprop="dateModified" datetime="2020-04-21T17:01:00+08:00">2020-04-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>好久没用mysql，早上试了一下发现报了下面这个经典的错误，表示有点恶心。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\MySQL\MySQL Server 5.7\bin&gt;mysql -u root -p 12345678</span><br><span class="line">Enter password: ********</span><br><span class="line">ERROR 1045 (28000): Access denied for user &apos;root&apos;@&apos;localhost&apos; (using password: YES)</span><br></pre></td></tr></table></figure></p>
+<p>解决方法很简单，首先进入mysql的安装目录找到my.ini</p>
+<p>打开后，搜索mysqld关键字</p>
+<p>找到后，在mysqld下面添加skip-grant-tables，保存退出。</p>
+<p>如果提醒没有权限右键文件my.ini-&gt;安全-&gt;编辑-&gt;添加-&gt;高级-&gt;立即查找，把你当前账号添加进去，权限改成完全控制。</p>
+<p>然后运行cmd，cd进入你mysql安装目录的bin目录下，</p>
+<p>输入mysql -u root -p就可以不用密码登录了，出现password：的时候直接回车可以进入。</p>
+<p>如果没有输入密码还是报错的话可以再Enter password的时候输入你上一次的密码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\MySQL\MySQL Server 5.7\bin&gt;mysql -u root -p</span><br><span class="line">Enter password: **********</span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is 11</span><br><span class="line">Server version: 5.7.9-log</span><br></pre></td></tr></table></figure></p>
+<p>之后执行修改密码命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; alter user &apos;root&apos;@&apos;localhost&apos; identified by &apos;123456789&apos;;</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br></pre></td></tr></table></figure></p>
+<p>大告功成！！</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2016/11/23/windows环境下mysql提示ERROR-1045-28000-Access-denied-for-user-root-localhost-using-passwor-YES-的解决办法/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/25/ear-war-jar-区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -504,82 +594,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/22/游侵华日军南京大屠杀遇难同胞纪念馆有感/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="NZ OR NORDIC.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/04/22/游侵华日军南京大屠杀遇难同胞纪念馆有感/" class="post-title-link" itemprop="url">游侵华日军南京大屠杀遇难同胞纪念馆有感</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2017-04-22 18:47:18" itemprop="dateCreated datePublished" datetime="2017-04-22T18:47:18+08:00">2017-04-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-29 15:22:29" itemprop="dateModified" datetime="2020-03-29T15:22:29+08:00">2020-03-29</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="万人坑"><a href="#万人坑" class="headerlink" title="万人坑"></a>万人坑</h2><p>虽然早有预感，但是进去了还是有些压抑，看来我依然是个多愁善感的人，成具的尸骨，历历在目，不过像我这种6个罗的，不会有多少感触，何况我也算身经百战。</p>
-<h2 id="蜡像模拟还原现场"><a href="#蜡像模拟还原现场" class="headerlink" title="蜡像模拟还原现场"></a>蜡像模拟还原现场</h2><p>这个确实有点震撼到我，老旧年代的韵味，旁边有小孩和陪同他的妈妈在谅解，我在想，若是那个年纪的我来了，可能会怕得紧抓长辈裤腿，就是不知道抓谁的裤腿，反正爸妈是不可能。</p>
-<h2 id="屠生佛油画"><a href="#屠生佛油画" class="headerlink" title="屠生佛油画"></a>屠生佛油画</h2><p>画面实在血腥，在天朝，能够在公众示以如此画面，我想也只有这里了，毕竟残臂断头的，此画是星云大师牵引，台湾的星云大师听说过，竟然是江苏人，让我意外。</p>
-<h2 id="空袭"><a href="#空袭" class="headerlink" title="空袭"></a>空袭</h2><p>里面有个纪录片吸引我站那里看了好久，一个老奶奶讲述当年她被炸断腿，还有被炸死两个儿女，包括手里被炸飞的女儿，含泪的谈话中让我感受到无比的悲凉，和平年代还是要感谢那些年英勇抗战的勇士们。<br>展示空袭的区域头顶还一直播放着飞机轰炸的声音，仿佛身临其境。</p>
-<h2 id="吐槽"><a href="#吐槽" class="headerlink" title="吐槽"></a>吐槽</h2><p>导航图当前位置被扣掉，公共厕所永远没纸，在天朝我已经习惯，只是墙外某些国度我又再次向往了。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/04/22/游侵华日军南京大屠杀遇难同胞纪念馆有感/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -625,7 +639,7 @@
   <aside class="sidebar">
     <div class="sidebar-inner">
 
-      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=413142577&auto=1&height=66"></iframe>
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=191252&auto=0&height=66"></iframe>
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -651,7 +665,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">129</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

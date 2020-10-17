@@ -164,6 +164,98 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Redis汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="NZ OR NORDIC.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/15/Redis汇总/" class="post-title-link" itemprop="url">Redis汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-15 21:36:09" itemprop="dateCreated datePublished" datetime="2019-10-15T21:36:09+08:00">2019-10-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-23 16:42:20" itemprop="dateModified" datetime="2020-07-23T16:42:20+08:00">2020-07-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/redis/" itemprop="url" rel="index"><span itemprop="name">redis</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="那些数据适合存储进去-todo"><a href="#那些数据适合存储进去-todo" class="headerlink" title="那些数据适合存储进去? todo"></a>那些数据适合存储进去? todo</h2><pre><code>维护的增删改查应不应该放弃使用缓存（只是为了不出现一种情况，就是修改了数据库，缓存依然还是老的数据）
+另外还要考虑到维护的时候增删改其实使用的频率是不多的，所有没必要使用缓存，当然，高频率增删改的除外。
+使用到缓存的一般是可以是高频率的查询
+</code></pre><h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="redis数据持久化，一般重启不丢失"><a href="#redis数据持久化，一般重启不丢失" class="headerlink" title="redis数据持久化，一般重启不丢失"></a>redis数据持久化，一般重启不丢失</h2><p><a href="https://redis.io/topics/persistence" target="_blank" rel="noopener">https://redis.io/topics/persistence</a><br>会默认开启RDB 持久化</p>
+<h2 id="Redis的数据类型"><a href="#Redis的数据类型" class="headerlink" title="Redis的数据类型"></a>Redis的数据类型</h2><ol>
+<li>字符串（String）</li>
+<li>字符串列表（list）</li>
+<li>有序字符串集合（sorted set）</li>
+<li>哈希（hash）</li>
+<li>字符串集合（set）</li>
+</ol>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p><a href="https://www.runoob.com/redis/redis-commands.html" target="_blank" rel="noopener">https://www.runoob.com/redis/redis-commands.html</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">查询键keys * 查询所有的键,会遍历所有的键值,复杂度O(n)</span><br><span class="line">flushall</span><br><span class="line">incr num</span><br><span class="line">decr num</span><br><span class="line">incrby num 5</span><br><span class="line">decrby num 3</span><br><span class="line">append num str</span><br><span class="line">hset myhash keyname value</span><br><span class="line">hmset myhashs key1 v1 key2 v2</span><br><span class="line">hget myhashs key1</span><br><span class="line">hmget myhashs key1 key2</span><br><span class="line">hgetall myhashs</span><br><span class="line">hdel myhashs key1 key2</span><br><span class="line">hlen myhashs</span><br><span class="line">hkeys myhashs</span><br><span class="line">hvals myhashs</span><br><span class="line">lpush mylist a b c （左侧添加进去）</span><br><span class="line">rpush mylist 1 2 3 （右侧添加进去）</span><br><span class="line">lrange mylist 0 -1 (负数是倒数第n)</span><br><span class="line">lpop mylist （弹出首个）</span><br><span class="line">rpop mylist（弹出尾个）</span><br><span class="line">llen mylist</span><br><span class="line">lpushx mylist x （插入到头部）</span><br><span class="line">rpushx mylist x（插入到尾部）</span><br><span class="line">lrem mylist 2 3 (从头到尾删除2个值为3的元素)</span><br><span class="line">lrem mylist -2 3 (从尾到头删除2个值为3的元素)</span><br><span class="line">lrem mylist 0 3 （删除所有值为3的元素）</span><br><span class="line">lset mylist 3 mmm（在下标为3的位置插入mmm）</span><br><span class="line">linsert mylist before mmm haha（在第一个mmm之前插入haha）</span><br><span class="line">linsert mylist after mmm xixi（在第一个mmm之后插入xixi）</span><br><span class="line">rpoplpush mylist1 mylist2 （mylist1弹出首个元素给到mylist2）</span><br><span class="line">sadd myset a b c</span><br><span class="line">sismember myset a（判断是否成员）</span><br><span class="line">sdiff myset1 myset2（差集）</span><br><span class="line">sinter myset1 myset2（交集）</span><br><span class="line">sunion set1 set2 （并集）</span><br><span class="line">smembers myset</span><br><span class="line">scard myset</span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/15/Redis汇总/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Spring系列之SpringSecurity/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -527,92 +619,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/02/Vue系列之表严肃Vue视频教程笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="NZ OR NORDIC.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/02/Vue系列之表严肃Vue视频教程笔记/" class="post-title-link" itemprop="url">Vue系列之表严肃Vue视频教程笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-02 21:29:06" itemprop="dateCreated datePublished" datetime="2019-12-02T21:29:06+08:00">2019-12-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-16 20:58:54" itemprop="dateModified" datetime="2020-07-16T20:58:54+08:00">2020-07-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>参考自表严肃的视频教程 <a href="https://www.bilibili.com/video/av13450835?p=4" target="_blank" rel="noopener">https://www.bilibili.com/video/av13450835?p=4</a></p>
-</blockquote>
-<h1 id="常用feature"><a href="#常用feature" class="headerlink" title="常用feature"></a>常用feature</h1><h2 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;span v-for=&quot;(role) in scope.row.roleList&quot;&gt;</span><br><span class="line">                &lt;el-tag&gt;&#123;&#123;role.roleName&#125;&#125; &lt;/el-tag&gt;</span><br><span class="line">              &lt;/span&gt;</span><br></pre></td></tr></table></figure>
-<p>chrome的控制台可以动态直接通过js的api给页面update数据，比如：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/JOPVFM.png" alt></p>
-
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/12/02/Vue系列之表严肃Vue视频教程笔记/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -658,7 +664,7 @@
   <aside class="sidebar">
     <div class="sidebar-inner">
 
-      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=413142577&auto=1&height=66"></iframe>
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=191252&auto=0&height=66"></iframe>
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -684,7 +690,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">129</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
