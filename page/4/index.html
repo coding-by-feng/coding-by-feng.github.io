@@ -164,6 +164,95 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/24/从Eclipse转到IDEA的过程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="NZ OR NORDIC.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/02/24/从Eclipse转到IDEA的过程/" class="post-title-link" itemprop="url">从Eclipse转到IDEA的过程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-02-24 22:51:27" itemprop="dateCreated datePublished" datetime="2019-02-24T22:51:27+08:00">2019-02-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-04 17:57:42" itemprop="dateModified" datetime="2020-10-04T17:57:42+08:00">2020-10-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/IDEA/" itemprop="url" rel="index"><span itemprop="name">IDEA</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>这篇文章会比较乱，因为我不想做太多系列细分，就是单纯地把我从eclipse转到idea的经过写出来而已，公司的项目一直采用的&gt;是eclipse+maven+jboss的环境开发的，版本控制通过svn控制，这年代还用svn做控制确实有点更不上时代了，转的过程有点麻烦，但是最终我还是顺利用上idea，只是目前还不太习惯。想入坑idea很早之前就有这个想法了，eclipse我们公司一直都在用很古老的一个版本，隐藏的bug且不说，时不时的卡顿就够影响效率的了。</p>
+</blockquote>
+<h2 id="idea的subversion巨坑"><a href="#idea的subversion巨坑" class="headerlink" title="idea的subversion巨坑"></a>idea的subversion巨坑</h2><p>转idea遇到第一个大难题就是svn版本控制的转换，我司采用svn+ssh协议，还是秘钥文件+密码验证的。以前使用的一直是入职就分给我的一个ssh的秘钥文件eclipse专用的，还附带了一个ppk后缀的秘钥文件，但是ppk那个一直没有派上用途。idea的svn用户认证可能存在bug，我和在elipse上做了类似的svn地址和用户+秘钥文件的配置之后一直无法脸上代码仓库，一直无限弹出让我输入密码。搞得我一度想放弃。<br>后来在查了下，ssh+svn协议原则上是先通过ssh登录svn服务端的机器，等于先打通一条数据流通的渠道，然后svn的交互依赖于这条ssh的通道上面。一直依赖我都是直接在eclipse做svn的操作，没有考虑太多，于是我好奇用我的svn账号密码+ppk秘钥文件去登录svn指向ip的服务器，果然成功了，既然能登上去，说明idea只是没有正确通过ssh登录到svn服务器上而已，<strong><em>通过搜索我才知道，原来的ppk文件是putty的专用格式秘钥文件，而openssh一般采用pem，于是刻不容缓，我又查了下ppk转pem的方法，然后顺利转换到pem文件，在idea的preferences-&gt;Version Control-&gt;Subversion-&gt;SSH上面的Private key指向到新的pem秘钥文件，then connect svn server success，注意其他关于svn的设置先还原，保持默认即可。</em></strong></p>
+<h2 id="ssh-svn可以通过SSH-tunnel的方式连接"><a href="#ssh-svn可以通过SSH-tunnel的方式连接" class="headerlink" title="ssh+svn可以通过SSH tunnel的方式连接"></a>ssh+svn可以通过SSH tunnel的方式连接</h2><p>之前一定用pem秘钥的方式，有次突然抽风不能用了，于是改用SSH tunnel的方式。Subversion-&gt;SSH，勾选Subversion config，SSH tunnel用默认的：</p>
+<p>但是要先记住ssh的pem秘钥通过命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add -k /Users/zhanshifeng/Documents/ccssoftDocument/eclipse/zhanshifeng.pem</span><br></pre></td></tr></table></figure></p>
+<p>输入密码然后即可永久记住，测试是否可以登录成功：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh zhanshifeng@199.3.0.10</span><br></pre></td></tr></table></figure></p>
+<h2 id="不复存在的workspace"><a href="#不复存在的workspace" class="headerlink" title="不复存在的workspace"></a>不复存在的workspace</h2><p>使用eclipse的开发者转到idea最不习惯的地方之一就是idea没有eclipse对应的workspace，我们公司是采用maven来控制jar依赖的,<br>通过maven实现多个子工程（project-anything）继承一个父工程(project-parent)，父工程的依赖jar可以被子工程共用。我直接粗暴得将所有模块的根目录直接check out到新的目录（idea-all-project），然后选择idea的import project，因为eclipse不存在workspace的概念，所以我直接import idea-all-project这个跟目录，因为根目录也有一个pom.xml指向了project-parent，project-parent会因为子模块继承了它，它回去自动匹配到所哟偶子模块，只要在引入的时候勾选了项目是由maven做jar管控。<br>其实，很多时候如果存在子模块，或者其他模块不在所引入的目录之下可以通过project structure里面的modules去增减想要的模块。从这种角度上来讲，其实任何一个目录都是一个workspace，也可以说任何一个module都是workspace。</p>
+<h2 id="maven管控的企业级j2ee应用架构"><a href="#maven管控的企业级j2ee应用架构" class="headerlink" title="maven管控的企业级j2ee应用架构"></a>maven管控的企业级j2ee应用架构</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/02/24/从Eclipse转到IDEA的过程/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Mac汇总/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -554,98 +643,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/09/05/数据结构系列之队列-Java/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/08/English系列之情态动词/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="NZ OR NORDIC.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/08/English系列之情态动词/" class="post-title-link" itemprop="url">English系列之情态动词</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-08-08 09:28:30" itemprop="dateCreated datePublished" datetime="2020-08-08T09:28:30+08:00">2020-08-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-27 22:39:37" itemprop="dateModified" datetime="2020-09-27T22:39:37+08:00">2020-09-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>这篇笔记摘选自张满胜老师的《英语语法新思维中级教程通悟语法第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。<br>思维导图版本<a href="http://www.xmind.net/m/b3xU3U" target="_blank" rel="noopener">点击这里</a>（Web版的XMind有一些问题）。</p>
-</blockquote>
-<h2 id="多情多义的情态动词"><a href="#多情多义的情态动词" class="headerlink" title="多情多义的情态动词"></a>多情多义的情态动词</h2><h3 id="情态动词的“全家福”"><a href="#情态动词的“全家福”" class="headerlink" title="情态动词的“全家福”"></a>情态动词的“全家福”</h3><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/zMxKiC.png" alt><br>需要注意的是，四个情态动词的过去式could，might，would和should只是在形式上是can，may，will和shall的过去式，而在意义上并不是完全对应于can，may，will和shall。<br>一方面，现在式和过去式这两类情态动词的意义并不完全对等。例如，can和could的意义并不完全等同，它们既有共同的用法，如表示“能力”，也有各自不同的用法。另一方面，这四个过去形式的情态动词并不一定表示过去的时间（实际上通常都不是）。</p>
-<h3 id="情态动词的意义"><a href="#情态动词的意义" class="headerlink" title="情态动词的意义"></a>情态动词的意义</h3><p>情态动词（modals）用在实义动词（main verb）的前面， 以添加某种意思。比较下列句子用与不用情态动词在意义上的差别：<br>1） John isn’t in class. He is sick.<br>2） John isn’t in class. He must be sick.<br>在例句1）中，没有使用情态动词，只用了一般现在时态的is，表达的是一个客观事实。在例句2）中，用了情态动词must，则是表示说话人的主观猜测。我们看到，因为有了must，使得例句2）比例句1）更带有主观色彩，意思也不同了。<br>1） 约翰今天没上课，他病了。<br>2） 约翰今天没上课，他一定是病了。</p>
-<p>I must go to school today.<br>比较上面的例句2）和本句可以发现，两句中情态动词must的意思是不一样的：例句2）中的must表示推测，而本句中的must没有推测的意思，而是表示“必须”。<br>今天我一定得上学去。</p>
-<p>有时，即使是同一个句子，也可能会因为语境不同，其中的情态动词会有不同的理解。<br>He must drink a lot of milk.<br>没有上下文的语境，我们很难判断。即比如，如果这句话是出自医生之口，显然就会被理解成是医生对病人提的一个忠告或建议，即“他得多喝牛奶”。言外之意，就是说明喝牛奶对健康是有好处的。因此，此时的must是“必须”之意。我们再想象这句话可能出现的另一个场景，比如，有一天我们在商店里看到一个人买了很多牛奶，这时我们就可以推断说“He must drink a lot of milk”。<br>显然这时要说的意思是“他准是爱喝很多牛奶”。因此，此时的must表示的是推测。<br>情态动词的含义大致可以分为以下两大类：</p>
-<ul>
-<li>一类是表示“逻辑可能性”，将其称为推测用法，即表示人们对某件事发生的可能性大小所做的判断。</li>
-<li>另一类是各个情态动词有各自基本的意思，比如，can意为“能够”，must意为“必须”，should意为“应该”等等。</li>
-</ul>
-<p>关于“约翰生病”的例子：<br>1） John isn’t in class. He is sick.<br>2） John isn’t in class. He must be sick.<br>3） John isn’t in class. He may be sick.<br>例句1）没有使用情态动词，只用了一般现在时态的is，这表明说话人只是在陈述一个客观事实，即“约翰生病了”。这句话没有表明说话人的态度（the speaker’s attitude）。而例句2）和3）这两句使用了情态动词，表明了说话人的态度。例句2）用的是must，意为“一定是，准是”，这表明说话人对于“约翰生病了”这件事是很有把握和信心的一个推断（deduction）。例句3）用的是may，意为“可能是，或许是”，这表明说话人对于“约翰生病了”这件事是比较没有把握和信心的一个推断。说话人推断“约翰生病了”。<br>这件事从三个不同的角度（perspective）来表达：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/08/08/English系列之情态动词/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>

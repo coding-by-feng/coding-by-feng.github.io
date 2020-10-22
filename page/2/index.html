@@ -164,6 +164,91 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/26/linux常用命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="NZ OR NORDIC.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/02/26/linux常用命令/" class="post-title-link" itemprop="url">linux常用用命令</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-02-26 22:00:21" itemprop="dateCreated datePublished" datetime="2019-02-26T22:00:21+08:00">2019-02-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-18 20:19:27" itemprop="dateModified" datetime="2020-10-18T20:19:27+08:00">2020-10-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="查看所有可执行path"><a href="#查看所有可执行path" class="headerlink" title="查看所有可执行path"></a>查看所有可执行path</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;$PATH&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="返回上次所在目录"><a href="#返回上次所在目录" class="headerlink" title="返回上次所在目录"></a>返回上次所在目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd -</span><br><span class="line">cd $OLDPWD</span><br></pre></td></tr></table></figure>
+<h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 修改文件夹以及其子文件夹</span><br><span class="line">chmod -R 777 fileName</span><br></pre></td></tr></table></figure>
+<h2 id="find和grep"><a href="#find和grep" class="headerlink" title="find和grep"></a>find和grep</h2><p>find是在系统中搜索符合条件的文件名，grep是在文件中搜索符合条件的字符串。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">find ~/dir -name filename.txt</span><br><span class="line">grep &quot;someStr&quot; filename.txt</span><br><span class="line"># 查询某个文件夹下面大小大于某个值文件</span><br><span class="line">find ~/dir -type f -size +1G</span><br></pre></td></tr></table></figure></p>
+<h2 id="ls-查询目录具体file"><a href="#ls-查询目录具体file" class="headerlink" title="ls 查询目录具体file"></a>ls 查询目录具体file</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 按照时间升序</span><br><span class="line">ls -lrt</span><br><span class="line"># 按照时间降序</span><br><span class="line">ls -lt</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/02/26/linux常用命令/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/04/Combos/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -506,93 +591,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/09/28/Algorithm Compilation/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/iTerm2汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="NZ OR NORDIC.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/15/iTerm2汇总/" class="post-title-link" itemprop="url">iTerm2汇总</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-10-15 21:18:52" itemprop="dateCreated datePublished" datetime="2019-10-15T21:18:52+08:00">2019-10-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-15 12:12:13" itemprop="dateModified" datetime="2020-10-15T12:12:13+08:00">2020-10-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iTerm2/" itemprop="url" rel="index"><span itemprop="name">iTerm2</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="HotKey"><a href="#HotKey" class="headerlink" title="HotKey"></a>HotKey</h2><p>按方向切换 pane：⌘+Option+方向键<br>切分屏幕：⌘+d 水平切分，⌘+Shift+d 垂直切分<br>智能查找，支持正则查找：⌘+f<br>自动查找历史命令: ⌘+;<br>ctrl+r 搜索历史命令，一直按可以切换更多的关联历史<br>查看剪贴板历史: cmd+shift+h</p>
-<h2 id="keymap"><a href="#keymap" class="headerlink" title="keymap"></a>keymap</h2><p>新建标签：command + t</p>
-<p>关闭标签：command + w</p>
-<p>切换标签：command + 数字 command + 左右方向键</p>
-<p>切换全屏：command + enter</p>
-<p>查找：command + f</p>
-<p>垂直分屏：command + d</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/10/15/iTerm2汇总/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>

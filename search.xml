@@ -1602,7 +1602,10 @@ public class Apple {
 <h2 id="锁对象的声明"><a href="#锁对象的声明" class="headerlink" title="锁对象的声明"></a>锁对象的声明</h2><p>如果只是简单的一个锁对象，没有类额外的对象状态变更的话，可以将锁声明为final：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 来自org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter</span><br><span class="line">// Spring Security token校验机制</span><br><span class="line">private final Object delegateMonitor = new Object();</span><br></pre></td></tr></table></figure></p>
 <h2 id="乐观锁-vs-悲观锁（PCC）"><a href="#乐观锁-vs-悲观锁（PCC）" class="headerlink" title="乐观锁 vs 悲观锁（PCC）"></a>乐观锁 vs 悲观锁（PCC）</h2><p><a href="http://www.imooc.com/article/285147" target="_blank" rel="noopener">http://www.imooc.com/article/285147</a></p>
 <h2 id="为什么要写成-final-ReentrantLock-lock-this-lock"><a href="#为什么要写成-final-ReentrantLock-lock-this-lock" class="headerlink" title="为什么要写成 final ReentrantLock lock = this.lock; ?"></a>为什么要写成 final ReentrantLock lock = this.lock; ?</h2><p><a href="https://blog.csdn.net/zqz_zqz/article/details/79438502" target="_blank" rel="noopener">https://blog.csdn.net/zqz_zqz/article/details/79438502</a></p>
-<h2 id="LockSupport-parkNanos-1L"><a href="#LockSupport-parkNanos-1L" class="headerlink" title="LockSupport.parkNanos(1L); ???"></a>LockSupport.parkNanos(1L); ???</h2><blockquote>
+<h2 id="LockSupport-parkNanos-1L"><a href="#LockSupport-parkNanos-1L" class="headerlink" title="LockSupport.parkNanos(1L); ???"></a>LockSupport.parkNanos(1L); ???</h2><h2 id="统计当前线程存活量"><a href="#统计当前线程存活量" class="headerlink" title="统计当前线程存活量"></a>统计当前线程存活量</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">while (Thread.activeCount() &gt; 1) &#123;</span><br><span class="line">    // do something.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="单例双重锁定检查（Double-Checked-Locking-with-Singleton）"><a href="#单例双重锁定检查（Double-Checked-Locking-with-Singleton）" class="headerlink" title="单例双重锁定检查（Double-Checked Locking with Singleton）"></a>单例双重锁定检查（Double-Checked Locking with Singleton）</h2><p><a href="https://www.baeldung.com/java-singleton-double-checked-locking" target="_blank" rel="noopener">https://www.baeldung.com/java-singleton-double-checked-locking</a></p>
+<h2 id="必要时可以用上线程优先级来实现一些业务逻辑"><a href="#必要时可以用上线程优先级来实现一些业务逻辑" class="headerlink" title="必要时可以用上线程优先级来实现一些业务逻辑"></a>必要时可以用上线程优先级来实现一些业务逻辑</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Thread.currentThread().setPriority(Thread.MIN_PRIORITY);</span><br><span class="line">System.out.println(Thread.currentThread().getPriority());</span><br><span class="line">Thread.currentThread().setPriority(Thread.MAX_PRIORITY);</span><br></pre></td></tr></table></figure>
+<blockquote>
 <p><a href="http://note.youdao.com/noteshare?id=5a758a5214a793176ed9c543a2011217" target="_blank" rel="noopener">老旧的有道云笔记</a></p>
 </blockquote>
 ]]></content>
@@ -7121,9 +7124,26 @@ public class Apple {
 <h4 id="主句动作先于从句动作"><a href="#主句动作先于从句动作" class="headerlink" title="主句动作先于从句动作"></a>主句动作先于从句动作</h4><p>如果要表达在主句动作发生之后，紧接着从句动作就发生了。<br>表示这一时间关系的连词有：hardly…when，scarcely…when和no sooner…than。这些连词的用法和句式结构是不一样的，主从句时态一般也不一致。<br>1） No sooner had I arrived home than it began to rain.<br>2） It began to rain as soon as I arrived home.<br>在例句1）中，连词than后面的it began to rain是从句，had I arrived home是主句；主句had I arrived home用了过去完成时且是倒装结构，从句it began to rain用一般过去时。<br>在例句2）中，it began to rain是主句，I arrived home是从句；主句it began to rain和从句I arrived home都用一般过去时。</p>
 <p>No sooner had I started to type my paper than the telephone rang.<br>我刚开始打我的论文，这时电话铃响了。</p>
 <p>还可以用<code>hardly/scarcely…when</code>这一结构来表达同样的意思。<br>Hardly had I arrived home when it began to rain.<br>Scarcely had I started to type my paper when the telephone rang.</p>
-<h2 id="地点状语从句"><a href="#地点状语从句" class="headerlink" title="地点状语从句"></a>地点状语从句</h2><p>地点状语从句通常由where引导，用来表达主句的动作发生的场所。其结构通常就是“where+陈述句”，从句可以放在句首或句末。</p>
-<p>Stay where you are. 呆在原处别动。<br>Generally, air will be heavily polluted where there are factories. 一般在有工厂的地方，空气污染都会很严重。</p>
-]]></content>
+<h2 id="地点状语从句"><a href="#地点状语从句" class="headerlink" title="地点状语从句"></a>地点状语从句</h2><p>地点状语从句通常由where引导，用来表达主句的动作发生的场所。其结构通常就是“where+陈述句”，从句可以放在句首或句末。<br>Stay where you are. 呆在原处别动。<br>Generally, air will be heavily polluted where there are factories. 一般在有工厂的地方，空气污染都会很严重。</p>
+<p>地点状语从句若放在句首，在翻译时往往失去地点的含义，要灵活 处理。<br>Where there is a will, there is a way. 有志者，事竟成。<br>Where there is Love, there is also Wealth and Success! 只要有爱，就会有成功和财富！</p>
+<h2 id="原因状语从句"><a href="#原因状语从句" class="headerlink" title="原因状语从句"></a>原因状语从句</h2><h3 id="常见连词的用法"><a href="#常见连词的用法" class="headerlink" title="常见连词的用法"></a>常见连词的用法</h3><p>我们常用because，for，as和since这四个连词来引导原因状语从句。<br>because的语气最强，只有它才能用来回答why的问句，所引出的原因往往是听话人所不知道的或最感兴趣的；也只有because才能被强调词如only，just和perhaps等来修饰。<br>My friends dislike me because I’m handsome and successful.<br>我的朋友都不喜欢我，是因为我长相英俊又事业有成。<br>Perhaps because most of today’s cross-cultural marriages occur because of“true love”, these couples work hard to overcome their differences.<br>一般就不会说perhaps for<em>，perhaps as</em>或perhaps since*。<br>可能因为现在大多数跨国婚姻都是基于真爱，所以夫妇俩都很努力地克服双方的差异。</p>
+<p>连词since表示人们已知的事实，是不需强调的原因，所以常译成“既然”，通常放在句首。<br>Since we don’t have class tomorrow, why not go out for a picnic?<br>既然我们明天没有课，那么为什么不出去野餐呢？</p>
+<p>连词as与since的用法差不多，所引出的理由在说话人看来已经很明显，或已为听话人所熟悉而不需用because加以强调。<br>As Monday is a national holiday, all government offices will be closed.<br>由于周一是法定假日，所有的政府机关都将休息。</p>
+<p>连词for表示推断的理由，是对前面分句的内容加以解释或说明。<br>It rained last night, for the ground is wet this morning.<br>昨晚下雨了，因为今天早上地是湿的。</p>
+<p>相比较而言：</p>
+<ul>
+<li>as和for引导的主、从句，二者处于平等位置；</li>
+<li>because引导的从句显得比主句重要，强调原因；</li>
+<li>since引导的从句显得次要，而主句重要，以说明将要做什么事。</li>
+</ul>
+<h3 id="用介词表示因果关系"><a href="#用介词表示因果关系" class="headerlink" title="用介词表示因果关系"></a>用介词表示因果关系</h3><p>常用的介词有：because of，due to和owing to。因为是介词，所以其后面不能接从句。<br>We had an accident because he was careless.<br>We had an accident due to his carelessness.<br>Owing to his carelessness we had an accident.</p>
+<ul>
+<li>在例句1中，因为是从句，所以用连词because引导。</li>
+<li>在例句2中，因为是名词短语his carelessness，所以用介词连接。此处不能说due to he was careless*。</li>
+<li>在例句3中，同样是名词短语his carelessness，所以要用介词。一般来说，owing to常置于句首，而due to通常不这么用。</li>
+</ul>
+<p>由于他的粗心大意，我们出了车祸。</p>
+<h2 id="目的状语从句"><a href="#目的状语从句" class="headerlink" title="目的状语从句"></a>目的状语从句</h2>]]></content>
       <categories>
         <category>English</category>
       </categories>
@@ -8333,7 +8353,7 @@ public class Apple {
 <p>基于高速缓存的存储交互很好地解决了处理器与内存速度之间的矛盾，但是它引入了一个新的问题：缓存一致性（Cache Coherence）。<br>在多核处理器系统中，每个处理器都有自己的高速缓存，而它们又共享同一主内存（Main Memory），这种系统称为共享内存多核系统（Shared Memory Multiprocessors System）<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/qAaDqo.png" alt><br>除了增加高速缓存之外，为了使处理器内部的运算单元能尽量被充分利用，处理器可能会对输入代码进行乱序执行(Out-Of-Order Execution)优化，处理器会在计算之后将乱序执行的结果重组，保证该结果与顺序执行的结果是-致的，但并不保证程序中各个语句计算的先后顺序与输入代码中的顺序一致，因此如果存在一个计算任务依赖另外一个计算任务的中间结果，那么其顺序性并不能靠代码的先后顺序来保证。与处理器的乱序执行优化类似，Java虚拟机的即时编译器中也有指令重排序（Instruction Reorder）优化。</p>
 <h3 id="Java内存模型（Java-Memory-Model、JMM）"><a href="#Java内存模型（Java-Memory-Model、JMM）" class="headerlink" title="Java内存模型（Java Memory Model、JMM）"></a>Java内存模型（Java Memory Model、JMM）</h3><p>Java内存模型的主要目的是定义程序中各种变量的访问规则，即关注在虚拟机中把变量值存储到内存和从内存中取出变量值这样的底层细节。此处的变量与Java编程中所说的变量有所区别，它包括了实例字段、静态字段和构成数组对象的元素，但是不包括局部变量与方法参数，因为后者是线程私有的，不会被共享，自然就不会存在竞争问题。</p>
 <h4 id="主内存和工作内存"><a href="#主内存和工作内存" class="headerlink" title="主内存和工作内存"></a>主内存和工作内存</h4><p>Java内存模型规定了所有的变量都存储在主内存（Main Memory）中，每条线程还有自己的工作内存（Working Memory，可与前面讲的处理器高速缓存类比），线程的工作内存中保存了被该线程使用的变量的主内存副本，线程对变量的所有操作（读取、赋值等）都必须在工作内存中进行，而不能直接读写主内存中的数据。不同的线程之间也无法直接访问对方工作内存中的变量，线程间变量值的传递均需要通过主内存来完成。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/f0BuJZ.png" alt><br>主内存直接对应于物理硬件的内存，而为了获取更好的运行速度，虚拟机可能会让工作内存优先存储于寄存器和高速缓存中，因为程序运行时主要访问的是工作内存。</p>
-<h4 id="内存间的交互操作"><a href="#内存间的交互操作" class="headerlink" title="内存间的交互操作"></a>内存间的交互操作</h4><p>Java内存模型中定义了以下8种操作来完成主内存与工作内存之间具体的交互协议，每一种操作都是原子的、不可再分的：</p>
+<h4 id="内存间的交互操作（最新的JSR-133已经被抛弃的操作-Deprecated-JSR-133已将其由8种简化为4种）"><a href="#内存间的交互操作（最新的JSR-133已经被抛弃的操作-Deprecated-JSR-133已将其由8种简化为4种）" class="headerlink" title="内存间的交互操作（最新的JSR-133已经被抛弃的操作/Deprecated/JSR-133已将其由8种简化为4种）"></a>内存间的交互操作（最新的JSR-133已经被抛弃的操作/Deprecated/JSR-133已将其由8种简化为4种）</h4><p>Java内存模型中定义了以下8种操作来完成主内存与工作内存之间具体的交互协议，每一种操作都是原子的、不可再分的：</p>
 <ul>
 <li>lock (锁定) ：作用于主内存的变量，它把一个变量标识为一条线程独占的状态。</li>
 <li>unlock（解锁）：作用于主内存的变量，它把一个处于锁定状态的变量释放出来，释放后的变量才可以被其他线程锁定。</li>
@@ -8355,7 +8375,75 @@ public class Apple {
 <li>一个变量事先没有被lock操作锁定，那就不允许对它执行unlock操作，也不允许去unlock一个被其他线程锁定的变量。</li>
 <li>对一个变量执行unlock操作之前，必须先把此变量同步回主内存中（执行store、write操作）。</li>
 </ul>
-<h1 id="HotSpot参数大全"><a href="#HotSpot参数大全" class="headerlink" title="HotSpot参数大全"></a>HotSpot参数大全</h1><h2 id="Xmx"><a href="#Xmx" class="headerlink" title="-Xmx"></a>-Xmx</h2><h2 id="Xms"><a href="#Xms" class="headerlink" title="-Xms"></a>-Xms</h2><h2 id="Xmn"><a href="#Xmn" class="headerlink" title="-Xmn"></a>-Xmn</h2><p>分配给Minor的大小</p>
+<h4 id="volatile型变量的特殊规则"><a href="#volatile型变量的特殊规则" class="headerlink" title="volatile型变量的特殊规则"></a>volatile型变量的特殊规则</h4><p>当一个变量被定义成volatile之后，它将具备两项特性：</p>
+<h5 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h5><p>保证此变量对所有线程的可见性，这里的“可见性”是指当一条线程修改了这个变量的值，新值对于其他线程来说是可以立即得知的。而普通变量并不能做到这一点，普通变量的值在线程间传递时均需要通过主内存来完成。<br><strong><em>基于volatile变量的运算在并发下不一定是线程安全的，volatile变量在各个线程的工作内存中是不存在一致性问题的， 但是Java里面的运算操作符并非原子操作，这导致volatile变量的运算在并发下一样是不安全的。</em></strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @Description 基于volatile的可见性存在的高并发线程不安全问题测试</span><br><span class="line"> * @Author zhanshifeng</span><br><span class="line"> * @Date 2020/10/21 11:12 AM</span><br><span class="line"> */</span><br><span class="line">public class VolatileTest &#123;</span><br><span class="line"></span><br><span class="line">    public static volatile int race = 0;</span><br><span class="line"></span><br><span class="line">    public static void increase() &#123;</span><br><span class="line">        race++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static final int THREADS_COUNT = 100;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        /**</span><br><span class="line">         * IDEA默认main主方法会开启两个线程</span><br><span class="line">         * java.lang.ThreadGroup[name=main,maxpri=10]</span><br><span class="line">         *     Thread[main,5,main]</span><br><span class="line">         *     Thread[Monitor Ctrl-Break,5,main]</span><br><span class="line">         */</span><br><span class="line">        Thread.currentThread().getThreadGroup().list();</span><br><span class="line">        Thread[] threads = new Thread[THREADS_COUNT];</span><br><span class="line">        for (int i = 0; i &lt; THREADS_COUNT; i++) &#123;</span><br><span class="line">            threads[i] = new Thread(() -&gt; &#123;</span><br><span class="line">                for (int j = 0; j &lt; 10000; j++) &#123;</span><br><span class="line">                    increase();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        for (Thread thread : threads) &#123;</span><br><span class="line">            thread.start();</span><br><span class="line">        &#125;</span><br><span class="line">        while (Thread.activeCount() &gt; 2) &#123;</span><br><span class="line">            Thread.yield();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(race);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     *   public static void increase();</span><br><span class="line">     *     descriptor: ()V</span><br><span class="line">     *     flags: (0x0009) ACC_PUBLIC, ACC_STATIC</span><br><span class="line">     *     Code:</span><br><span class="line">     *       stack=2, locals=0, args_size=0</span><br><span class="line">     *          // 当getstatic指令把race的值取到操作栈顶时，volatile关键字保证了race的值在此时是正确的</span><br><span class="line">     *          0: getstatic     #2                  // Field race:I</span><br><span class="line">     *          //  但是在执行iconst_1、iadd这些指令的时候，其他线程可能已经把race的值改变了，而操作栈顶的值就变成了过期的数据</span><br><span class="line">     *          3: iconst_1</span><br><span class="line">     *          4: iadd</span><br><span class="line">     *          // 所以putstatic指令执行后就可能把较小的race值同步回主内存之中。</span><br><span class="line">     *          5: putstatic     #2                  // Field race:I</span><br><span class="line">     *          8: return</span><br><span class="line">     *       LineNumberTable:</span><br><span class="line">     *         line 13: 0</span><br><span class="line">     *         line 14: 8</span><br><span class="line">     */</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上代码计算完之后结果是随机的，可见volatile只能保证变量可见性，在实际开发使用中，还是要依赖锁机制来写代码。</p>
+<blockquote>
+<p>如果在对某个变量是处于分别多线程单一修改和分别多线程读取的情况，这个时候适合使用volatile修饰变量<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">volatile boolean isShutdown;</span><br><span class="line">public void shutdown() &#123;</span><br><span class="line">    this.isShutdown = true;</span><br><span class="line">&#125;</span><br><span class="line">public void run() &#123;</span><br><span class="line">    while (isShutdown) &#123;</span><br><span class="line">        // do something</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h5 id="指令重排序"><a href="#指令重排序" class="headerlink" title="指令重排序"></a>指令重排序</h5><p>使用volatile变量的另外一个作用是禁止指令重排序优化，普通的变量仅会保证在该方法的执行过程中所有依赖赋值结果的地方都能获取到正确的结果，而不能保证变量赋值操作的顺序与程序代码中的执行顺序一致。<br>这就是Java内存模型中描述的所谓“线程内表现为串行的语义”（Within-Thread As-If-Serial Semantics）。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/iGuv6y.png" alt><br>如果定义initialized变量时没有使用volatile修饰，就可能会由于指令重排序的优化，导致位于线程A中最后一条代码“initialized=true”被提前执行（机器级别的优化）。<br>在volatile修饰的变量做运算前，底层编译层汇编后，在赋值操作后，会多了一个内存屏障（Memory Barrier或Memory Fence），指重排序时不能把后面的指令重排序到内存屏障之前的位置，这个就能够保证其他线程读取变量值时的一致性。<br>从硬件架构上讲，指令重排序是指处理器采用了允许将多条指令不按程序规定的顺序分开发送给各个相应的电路单元进行处理，同时保证其计算结果的正确性。</p>
+<blockquote>
+<p>volatile变量读操作的性能消耗与普通变量几乎没有什么差别，但是写操作则可能会慢上一点，因为它需要在本地代码中插入许多内存屏障指令来保证处理器不发生乱序执行。<br>不过即便如此，大多数场景下volatile的总开销仍然要比锁来得更低。我们在volatile与锁中选择的唯一判断依据仅仅是volatile的语义能否满足使用场景的需求。</p>
+</blockquote>
+<h5 id="使用底层规则"><a href="#使用底层规则" class="headerlink" title="使用底层规则"></a>使用底层规则</h5><p>假定T表示一个线程，V分别表示volatile型变量，那么在进行read、load、use、assign、store和write操作时需要满足如下规则:</p>
+<ul>
+<li>只有当线程T对变量V执行的前一个动作是load的时候，线程T才能对变量V执行use动作；并且，只有当线程T对变量V执行的后一个动作是use的时候，线程T才能对变量V执行load动作。线程T对变量V的use动作可以认为是和线程T对变量V的load、read动作相关联的，必须连续且一起出现（作用于工作内存中，每次使用V前都必须先从主内存刷新最新的值，用于保证能看见其他线程对变量V所做的修改，这里将这个子规则简称为规则R）。</li>
+<li>只有当线程T对变量V执行的前一个动作是assign的时候，线程T才能对变量V执行store动作；并且，只有当线程T对变量V执行的后一个动作是store的时候，线程T才能对变量V执行assign动作。线程T对变量V的assign动作可以认为是和线程T对变量V的store、write动作相关联的，必须连续且一起出现（同样遵循子规则R）。</li>
+</ul>
+<h4 id="针对long和double型变量的特殊规则（64位数据类型）"><a href="#针对long和double型变量的特殊规则（64位数据类型）" class="headerlink" title="针对long和double型变量的特殊规则（64位数据类型）"></a>针对long和double型变量的特殊规则（64位数据类型）</h4><p>如果有多个线程共享并未声明为volatile的long或double类型的变量，并且同时对它们进行读取和修改操作，那么某些线程可能会读取到一个既不是原值，也不是其他线程修改值的代表了“半个变量’的数值（不过实际上出现的情况极其罕见）。<br>JDK 9起，HotSpot增加了一个实验性的参数<code>-XX: +AlwaysAtomicAccesses</code> （这是JEP 188对Java内存模型更新的一部分内容）来约束虚拟机对所有数据类型进行原子性的访问。</p>
+<h4 id="原子性、可见性与有序性"><a href="#原子性、可见性与有序性" class="headerlink" title="原子性、可见性与有序性"></a>原子性、可见性与有序性</h4><h5 id="原子性（Atomicity）"><a href="#原子性（Atomicity）" class="headerlink" title="原子性（Atomicity）"></a>原子性（Atomicity）</h5><p>synchronized块实际上会被编译成为两种指令：monitorenter和monitorexit来确保操作原子性。</p>
+<h5 id="可见性（Visibility）"><a href="#可见性（Visibility）" class="headerlink" title="可见性（Visibility）"></a>可见性（Visibility）</h5><p>可见性就是指当一个线程修改了共享变量的值时，其他线程能够立即得知这个修改，volatile、synchronized和final关键字都可以实现可见性。</p>
+<ul>
+<li>同步块的可见性是由“对一个变量执行unlock操作之前，必须先把此变量同步回主内存中（执行store、 write操作）”这条规则获得的。</li>
+<li>final关键字的可见性是指：<br>被final修饰的字段在构造器中一旦被初始化完成，并且构造器没有把“this”的引用传递出去（this引用逃逸是一件很危险的事情，其他线程有可能通过这个引用访问到“初始化了一半”的对象），那么在其他线程中就能看见final字段的值。<h5 id="有序性（Ordering）"><a href="#有序性（Ordering）" class="headerlink" title="有序性（Ordering）"></a>有序性（Ordering）</h5></li>
+</ul>
+<h4 id="先行发生规则"><a href="#先行发生规则" class="headerlink" title="先行发生规则"></a>先行发生规则</h4><p>Java语言提供了volatile和synchronized两个关键字来保证线程之间操作的有序性，volatile关键字本身就包含了禁止指令重排序的语义，而synchronized则是由”一个变量在同一个时刻只允许一条线程对其进行lock操作”这条规则获得的，这个规则决定了持有同一个锁的两个同步块只能串行地进入。<br>一个操作“时间上的先发生”不代表这个操作会是“先行发生”，反之也是。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 同个线程中进行以下操作</span><br><span class="line">int i = 1;</span><br><span class="line">int j = 2;</span><br></pre></td></tr></table></figure></p>
+<p>两条赋值语句在同一个线程之中，根据程序次序规则，“int i=1”的操作先行发生于“int j=2”，但是“int j=2”的代码完全可能先被处理器执行，这并不影响先行发生原则的正确性，因为我们在这条线程之中没有办法感知到这一点。</p>
+<h3 id="Java与线程"><a href="#Java与线程" class="headerlink" title="Java与线程"></a>Java与线程</h3><h4 id="线程的实现"><a href="#线程的实现" class="headerlink" title="线程的实现"></a>线程的实现</h4><p>线程是比进程更轻量级的调度执行单位，线程的引入，可以把一个进程的资源分配和执行调度分开，各个线程既可以共享进程资源（内存地址、文件I/O等），又可以独立调度。<br>实现线程主要有三种方式：</p>
+<ul>
+<li>使用内核线程实现(1: 1实现)</li>
+<li>使用用户线程实现(1: N实现)</li>
+<li>使用用户线程加轻量级进程混合实现(N: M实现)</li>
+</ul>
+<h5 id="内核线程实现"><a href="#内核线程实现" class="headerlink" title="内核线程实现"></a>内核线程实现</h5><p>内核线程(Kernel-Level Thread，KLT)就是直接由操作系统内核(Kernel)支持的线程，这种线程由内核来完成线程切换，内核通过操纵调度器(Scheduler)对线程进行调度，并负责将线程的任务映射到各个处理器上。每个内核线程可以视为内核的一个分身，这样操作系统就有能力同时处理多件事情，支持多线程的内核就称为多线程内核(Multi-Threads Kernel)。<br>程序一般不会直接使用内核线程，而是使用内核线程的一种高级接口–轻量级进程（Light Weight Process, LWP），轻量级进程就是我们通常意义上所讲的线程，由于每个轻量级进程都由一个内核线程支持，因此只有先支持内核线程，才能有轻量级进程。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/lu7hFR.png" alt><br>轻量级进程也具有它的局限性：</p>
+<ul>
+<li>由于是基于内核线程实现的，所以各种线程操作，如创建、析构及同步，都需要进行系统调用。而系统调用的代价相对较高，需要在用户态(User Mode)和内核态(Kernel Mode)中来回切换。</li>
+<li>每个轻量级进程都需要有一个内核线程的支持，因此轻量级进程要消耗一定的内核资源(如内核线程的栈空间)，因此一个系统支持轻量级进程的数量是有限的。</li>
+</ul>
+<h5 id="用户线程实现（User-Thread，UT）"><a href="#用户线程实现（User-Thread，UT）" class="headerlink" title="用户线程实现（User Thread，UT）"></a>用户线程实现（User Thread，UT）</h5><p>用户线程指的是完全建立在用户空间的线程库上，系统内核不能感知到用户线程的存在及如何实现的。用户线程的建立、同步、销毁和调度完全在用户态中完成，不需要内核的帮助。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/3Vd0km.png" alt><br>如果程序实现得当，这种线程不需要切换到内核态，因此操作可以是非常快速且低消耗的，也能够支持规模更大的线程数量，部分高性能数据库中的多线程就是由用户线程实现的。<br>但是用户线程实现方式也是优劣分明的，由于操作系统只把处理器资源分配到进程,那诸如“阻塞如何处理”“多处理器系统中如何将线程映射到其他处理器上”这类问题解决起来将会异常困难，甚至有些是不可能实现的。<br>Java语言曾经使用过用户线程，但后来还是放弃了，近些年倾向于高并发的编程语言又普遍支持用户线程，如Golang、Erlang等。</p>
+<h5 id="混合实现"><a href="#混合实现" class="headerlink" title="混合实现"></a>混合实现</h5><p>这种实现方式既存在用户线程，也存在轻量级进程。用户线程还是完全建立在用户空间中，因此用户线程的创建、切换、析构等操作依然廉价，并且可以支持大规模的用户线程并发。而操作系统支持的轻量级进程则作为用户线程和内核线程之间的桥梁，这样可以使用内核提供的线程调度功能及处理器映射，并且用户线程的系统调用要通过轻量级进程来完成，这大大降低了整个进程被完全阻塞的风险。他们之间是多对多的关系。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/NUce76.png" alt></p>
+<h5 id="Java线程的实现"><a href="#Java线程的实现" class="headerlink" title="Java线程的实现"></a>Java线程的实现</h5><p>“主流”商用Java虚拟机的线程模型普遍都使用基于操作系统原生线程模型来实现，即采用1: 1的线程模型。<br>每一个Java线程都是直接映射到操作系统原生线程来实现的，而且中间没有额外的间接结构，虚拟机是不会去干涉线程调度的（可以设置线程优先级给操作系统提供调度建议），全权交给底下的操作系统去处理，所以何时冻结或唤醒线程、该给线程分配多少处理器执行时间等，都是操作系统完成的。</p>
+<h6 id="Java线程的调度"><a href="#Java线程的调度" class="headerlink" title="Java线程的调度"></a>Java线程的调度</h6><p>线程调度是指系统为线程分配处理器使用权的过程，调度主要方式有两种：</p>
+<ul>
+<li>协同式（Cooperative Threads Scheduling）线程调度</li>
+<li>抢占式（Preemptive Threads-Scheduling）线程调度</li>
+</ul>
+<p>####### 协同式线程调度<br>这种方式的线程要把自己的事情干完后才会进行线程切换，切换操作对线程自己是可知的，所以一般没有什么线程同步的问题。Lua语言中的“协同例程”就是这类实现。<br>它的坏处也很明显：线程执行时间不可控制，甚至如果一个线程的代码编写有问题，一直不告知系统进行线程切换，那么程序就会一直阻塞在那里。</p>
+<p>####### 抢占式线程调度（Java的实现方式）<br>这种方式的线程将由系统来分配执行时间，线程的切换不由线程本身来决定。譬如在Java中，有Thread:yield()方法可以主动让出执行时间，但是不能想要主动获取执行权限。<br>这种设计不会有一个线程导致整个进程甚至整个系统阻塞的问题，虽然说Java线程调度是系统自动完成的，但是我们仍然可以“建议”操作系统给某些线程多分配一点执行时间，另外的一些线程则可以少分配一点（通过设置线程优先级）。<br>在两个线程同时处于Ready状态时，优先级越高的线程越容易被系统选择执行，但是线程优先级不是一项稳定的调借手段，存在不确定性。<br>Java语言一共设置了10个级别的线程优先级（Thread.MIN_PRIORITY至Thread.MAX_PRIORITY），但Windows中就只有七种优先级，因此在Windows下设置线程优先级为1和2、3和4、6和7、8和9的效果是完全相同的。<br>Java线程优先级与Windows线程优先级的对应关系：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/E9AsBW.png" alt><br>优先级可能会被系统自行改变。例如在Windows系统中存在一个叫“优先级推进器”的功能(Priority Boosting,当然它可以被关掉)，大致作用是当系统发现一个线程被执行得特别频繁时，可能会越过线程优先级去为它分配执行时间，从而减少因为线程频繁切换而带来的性能损耗。</p>
+<h6 id="状态切换"><a href="#状态切换" class="headerlink" title="状态切换"></a>状态切换</h6><p>Java定义了6种线程状态，在任意一个时间点中，一个线程只能有且只有其中的一种状态，并且可以通过特定的方法在不同状态之间转换。</p>
+<ul>
+<li>新建(New)：创建后尚未启动的线程处于这种状态。</li>
+<li>运行(Runnable)：包括操作系统线程状态中的Running和Ready，也就是处于此状态的线程有可能正在执行，也有可能正在等待着操作系统为它分配执行时间。</li>
+<li>无限期等待(Waiting)：处于这种状态的线程不会被分配处理器执行时间，它们要等待被其他线程显式唤醒。以下方法会让线程陷入无限期的等待状态：<ul>
+<li>没有设置Timeout参数的Object::wait()；</li>
+<li>没有设置Timeout参数的Thread::join()；</li>
+<li>LockSupport::park()方法；</li>
+</ul>
+</li>
+<li>限期等待(TimedWaiting)：处于这种状态的线程也不会被分配处理器执行时间，不过无须等待被其他线程显式唤醒，在一定时间之后它们会由系统自动唤醒。以下方法会让线程进入限期等待状态：<ul>
+<li>Thread::sleep()方法；</li>
+<li>设置了Timeout参数的Object::wait()方法；</li>
+<li>设置了Timeout参数的Thread:join()方法；</li>
+<li>LockSuppor t:parkNanos()方法；</li>
+<li>LockSupport::parkUntil()方法；</li>
+</ul>
+</li>
+<li>阻塞(Blocked)：线程被阻塞了，“阻塞状态”与“等待状态”的区别是“阻塞状态”在等待着获取到一个排它锁，这个事件将在另外一个线程放弃这个锁的时候发生；而“等待状态”则是在等待一段时间或者唤醒动作的发生。在程序等待进入同步区域的时候，线程将进入这种状态。</li>
+<li>结束(Terminated)：已终止线程的线程状态，线程已经结束执行。</li>
+</ul>
+<p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/ySGBse.png" alt></p>
+<h3 id="Java与协程"><a href="#Java与协程" class="headerlink" title="Java与协程"></a>Java与协程</h3><p>对于有栈协程OpenJDK 在2018年创建了Loom项目，这是Java用来应对，根据目前公开的信息，如无意外，日后该项目为Java语言引入的、与现在线程模型平行的新并发编程机制中应该也会采用“纤程”这个名字。<br>Loom团队在JVMLS 2018大会上公布了他们对Jetty基于纤程改造后的测试结果，同样在5000QPS的压力下，以容量为400的线程池的传统模式和每个请求配以一个纤程的新并发处理模式进行对比，前者的请求响应延迟在10000至20000毫秒之间，而后者的延迟普遍在200毫秒以下。</p>
+<h1 id="线程安全与锁优化"><a href="#线程安全与锁优化" class="headerlink" title="线程安全与锁优化"></a>线程安全与锁优化</h1><h1 id="HotSpot参数大全"><a href="#HotSpot参数大全" class="headerlink" title="HotSpot参数大全"></a>HotSpot参数大全</h1><h2 id="Xmx"><a href="#Xmx" class="headerlink" title="-Xmx"></a>-Xmx</h2><h2 id="Xms"><a href="#Xms" class="headerlink" title="-Xms"></a>-Xms</h2><h2 id="Xmn"><a href="#Xmn" class="headerlink" title="-Xmn"></a>-Xmn</h2><p>分配给Minor的大小</p>
 <h2 id="XX-PrintGCDetails"><a href="#XX-PrintGCDetails" class="headerlink" title="-XX:+PrintGCDetails"></a>-XX:+PrintGCDetails</h2><p>告诉虚拟机在发生垃圾收集行为时打印内存回收日志，并且在进程退出的时候输出当前的内存各区域分配情况。</p>
 <h2 id="verbose"><a href="#verbose" class="headerlink" title="-verbose:**"></a>-verbose:**</h2><h3 id="verbose-class"><a href="#verbose-class" class="headerlink" title="-verbose:class"></a>-verbose:class</h3><p>查看加载的类的情况。</p>
 <h3 id="–verbose-gc"><a href="#–verbose-gc" class="headerlink" title="–verbose:gc"></a>–verbose:gc</h3><p>打印出gc相关的信息；该信息不够高全面，等同于<code>-XX:+PrintGC</code>。其实只要设置<code>-XX:+PrintGCDetails</code>就会自动带上<code>-verbose:gc</code>和<code>-XX:+PrintGC</code></p>
@@ -8369,7 +8457,9 @@ public class Apple {
 <blockquote>
 <p>可以通过虚拟机的“-version”命令的输出结果显示出这三种模式（mixed mode、interpreted mode、compiled mode）。</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">└─(14:35:28)──&gt; java -version</span><br><span class="line">java version &quot;11.0.8&quot; 2020-07-14 LTS</span><br><span class="line">Java(TM) SE Runtime Environment 18.9 (build 11.0.8+10-LTS)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.8+10-LTS, mixed mode)</span><br><span class="line"></span><br><span class="line">└─(14:35:28)──&gt; java -Xint -version</span><br><span class="line">java version &quot;11.0.8&quot; 2020-07-14 LTS</span><br><span class="line">Java(TM) SE Runtime Environment 18.9 (build 11.0.8+10-LTS)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.8+10-LTS, interpreted mode)</span><br><span class="line"></span><br><span class="line">└─(14:35:28)──&gt; java -Xcomp -version</span><br><span class="line">java version &quot;11.0.8&quot; 2020-07-14 LTS</span><br><span class="line">Java(TM) SE Runtime Environment 18.9 (build 11.0.8+10-LTS)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.8+10-LTS, compiled mode)</span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">└─(14:35:28)──&gt; java -version</span><br><span class="line">java version &quot;11.0.8&quot; 2020-07-14 LTS</span><br><span class="line">Java(TM) SE Runtime Environment 18.9 (build 11.0.8+10-LTS)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.8+10-LTS, mixed mode)</span><br><span class="line"></span><br><span class="line">└─(14:35:28)──&gt; java -Xint -version</span><br><span class="line">java version &quot;11.0.8&quot; 2020-07-14 LTS</span><br><span class="line">Java(TM) SE Runtime Environment 18.9 (build 11.0.8+10-LTS)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.8+10-LTS, interpreted mode)</span><br><span class="line"></span><br><span class="line">└─(14:35:28)──&gt; java -Xcomp -version</span><br><span class="line">java version &quot;11.0.8&quot; 2020-07-14 LTS</span><br><span class="line">Java(TM) SE Runtime Environment 18.9 (build 11.0.8+10-LTS)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.8+10-LTS, compiled mode)</span><br></pre></td></tr></table></figure>
+<h2 id="XX-AlwaysAtomicAccesses"><a href="#XX-AlwaysAtomicAccesses" class="headerlink" title="-XX:+AlwaysAtomicAccesses"></a>-XX:+AlwaysAtomicAccesses</h2><p>JDK 9起，HotSpot增加了一个实验性的参数<code>-XX: +AlwaysAtomicAccesses</code> （这是JEP 188对Java内存模型更新的一部分内容）来约束虚拟机对所有数据类型进行原子性的访问。</p>
+]]></content>
       <categories>
         <category>Java</category>
       </categories>
