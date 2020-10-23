@@ -164,6 +164,181 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/30/Java系列之零碎笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="NZ OR NORDIC.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/30/Java系列之零碎笔记/" class="post-title-link" itemprop="url">Java系列之零碎笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-30 21:12:21" itemprop="dateCreated datePublished" datetime="2019-11-30T21:12:21+08:00">2019-11-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-23 23:08:24" itemprop="dateModified" datetime="2020-10-23T23:08:24+08:00">2020-10-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="基本类型的零值"><a href="#基本类型的零值" class="headerlink" title="基本类型的零值"></a>基本类型的零值</h2><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/2yFTP5.png" alt></p>
+<h2 id="自动类型转换顺序"><a href="#自动类型转换顺序" class="headerlink" title="自动类型转换顺序"></a>自动类型转换顺序</h2><p>char&gt;int&gt;long&gt;float&gt;double</p>
+<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><p>所有成员变量的调用附带上this，防止代码产生歧义或冲突。</p>
+<h3 id="synchronized"><a href="#synchronized" class="headerlink" title="synchronized"></a>synchronized</h3><p>以某个代码片段为例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public void fizz(Runnable printFizz) throws InterruptedException &#123;</span><br><span class="line">    while (i &lt;= n) &#123;</span><br><span class="line">        synchronized (this) &#123;</span><br><span class="line">            if (i % 3 == 0 &amp;&amp; i % 5 != 0) &#123;</span><br><span class="line">                printFizz.run();</span><br><span class="line">                i++;</span><br><span class="line">                this.notifyAll();</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                this.wait();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用javap -v命令查看其class文件，得到如下的字节码命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">public void fizz(java.lang.Runnable) throws java.lang.InterruptedException;</span><br><span class="line">    descriptor: (Ljava/lang/Runnable;)V</span><br><span class="line">    flags: ACC_PUBLIC</span><br><span class="line">    Code:</span><br><span class="line">      stack=3, locals=4, args_size=2</span><br><span class="line">         0: aload_0</span><br><span class="line">         1: getfield      #2                  // Field i:I</span><br><span class="line">         4: aload_0</span><br><span class="line">         5: getfield      #3                  // Field n:I</span><br><span class="line">         8: if_icmpgt     73</span><br><span class="line">        11: aload_0</span><br><span class="line">        12: dup</span><br><span class="line">        13: astore_2</span><br><span class="line">        14: monitorenter                      // 在这里锁住</span><br><span class="line">        15: aload_0</span><br><span class="line">        16: getfield      #2                  // Field i:I</span><br><span class="line">        19: iconst_3</span><br><span class="line">        20: irem</span><br><span class="line">        21: ifne          56</span><br><span class="line">        24: aload_0</span><br><span class="line">        25: getfield      #2                  // Field i:I</span><br><span class="line">        28: iconst_5</span><br><span class="line">        29: irem</span><br><span class="line">        30: ifeq          56</span><br><span class="line">        33: aload_1</span><br><span class="line">        34: invokeinterface #4,  1            // InterfaceMethod java/lang/Runnable.run:()V</span><br><span class="line">        39: aload_0</span><br><span class="line">        40: dup</span><br><span class="line">        41: getfield      #2                  // Field i:I</span><br><span class="line">        44: iconst_1</span><br><span class="line">        45: iadd</span><br><span class="line">        46: putfield      #2                  // Field i:I</span><br><span class="line">        49: aload_0</span><br><span class="line">        50: invokevirtual #5                  // Method java/lang/Object.notifyAll:()V</span><br><span class="line">        53: goto          60</span><br><span class="line">        56: aload_0</span><br><span class="line">        57: invokevirtual #6                  // Method java/lang/Object.wait:()V</span><br><span class="line">        60: aload_2</span><br><span class="line">        61: monitorexit                       // 在这里第一次释放锁</span><br><span class="line">        62: goto          70</span><br><span class="line">        65: astore_3</span><br><span class="line">        66: aload_2</span><br><span class="line">        67: monitorexit                       // 这里会再次释放锁</span><br><span class="line">        68: aload_3</span><br><span class="line">        69: athrow</span><br><span class="line">        70: goto          0</span><br><span class="line">        73: return</span><br><span class="line">      Exception table:</span><br><span class="line">         from    to  target type</span><br><span class="line">            15    62    65   any</span><br><span class="line">            65    68    65   any</span><br><span class="line">      LineNumberTable:</span><br><span class="line">        line 47: 0</span><br><span class="line">        line 48: 11</span><br><span class="line">        line 49: 15</span><br><span class="line">        line 50: 33</span><br><span class="line">        line 51: 39</span><br><span class="line">        line 52: 49</span><br><span class="line">        line 54: 56</span><br><span class="line">        line 56: 60</span><br><span class="line">        line 58: 73</span><br><span class="line">      LocalVariableTable:</span><br><span class="line">        Start  Length  Slot  Name   Signature</span><br><span class="line">            0      74     0  this   Lme/fengorz/leetcode/concurrency/fizz_buzz_multithreaded/FizzBuzz;</span><br><span class="line">            0      74     1 printFizz   Ljava/lang/Runnable;</span><br><span class="line">      StackMapTable: number_of_entries = 6</span><br><span class="line">        frame_type = 0 /* same */</span><br><span class="line">        frame_type = 252 /* append */</span><br><span class="line">          offset_delta = 55</span><br><span class="line">          locals = [ class java/lang/Object ]</span><br><span class="line">        frame_type = 3 /* same */</span><br><span class="line">        frame_type = 68 /* same_locals_1_stack_item */</span><br><span class="line">          stack = [ class java/lang/Throwable ]</span><br><span class="line">        frame_type = 250 /* chop */</span><br><span class="line">          offset_delta = 4</span><br><span class="line">        frame_type = 2 /* same */</span><br><span class="line">    Exceptions:</span><br><span class="line">      throws java.lang.InterruptedException</span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/30/Java系列之零碎笔记/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/17/English系列之状语从句/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="NZ OR NORDIC.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/17/English系列之状语从句/" class="post-title-link" itemprop="url">English系列之状语从句</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-10-17 20:14:43" itemprop="dateCreated datePublished" datetime="2020-10-17T20:14:43+08:00">2020-10-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-23 18:47:32" itemprop="dateModified" datetime="2020-10-23T18:47:32+08:00">2020-10-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>这篇笔记摘选自张满胜老师的《英语语法新思维中级教程第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。</p>
+</blockquote>
+<h2 id="时间状语从句"><a href="#时间状语从句" class="headerlink" title="时间状语从句"></a>时间状语从句</h2><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/eu3tlA.png" alt></p>
+<h3 id="时间连词when的用法特点"><a href="#时间连词when的用法特点" class="headerlink" title="时间连词when的用法特点"></a>时间连词when的用法特点</h3><p>when的意思相当于at that time（在……时刻），从句的谓语动词通常是短暂动词，表示某一时刻的动作（从句也可接延续动词，这时从句往往用过去进行时态）。</p>
+<h4 id="主句一般过去时-从句一般过去时"><a href="#主句一般过去时-从句一般过去时" class="headerlink" title="主句一般过去时+从句一般过去时"></a>主句一般过去时+从句一般过去时</h4><p>I started my dinner when he left. 他走了之后，我才开始吃晚饭。<br>He left when I got there. 我到了以后，他才离开。<br>若主从句都用一般过去时，则表示从句动作先发生。要强调从句动作先发生，从句还可以用过去完成时。</p>
+<h4 id="主句一般过去时-从句过去完成时"><a href="#主句一般过去时-从句过去完成时" class="headerlink" title="主句一般过去时+从句过去完成时"></a>主句一般过去时+从句过去完成时</h4><p>I started my dinner when he had left.<br>He left when I had got there.</p>
+<blockquote>
+<p>短暂动作用一般过去时，延续动作用过去进行时。</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/17/English系列之状语从句/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/09/《深入理解Java虚拟机第3版》阅读笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -195,7 +370,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-22 15:13:00" itemprop="dateModified" datetime="2020-10-22T15:13:00+08:00">2020-10-22</time>
+                <time title="Modified: 2020-10-23 09:34:16" itemprop="dateModified" datetime="2020-10-23T09:34:16+08:00">2020-10-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -352,96 +527,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/17/English系列之状语从句/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="NZ OR NORDIC.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/17/English系列之状语从句/" class="post-title-link" itemprop="url">English系列之状语从句</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-10-17 20:14:43" itemprop="dateCreated datePublished" datetime="2020-10-17T20:14:43+08:00">2020-10-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-21 21:36:23" itemprop="dateModified" datetime="2020-10-21T21:36:23+08:00">2020-10-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>这篇笔记摘选自张满胜老师的《英语语法新思维中级教程第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。</p>
-</blockquote>
-<h2 id="时间状语从句"><a href="#时间状语从句" class="headerlink" title="时间状语从句"></a>时间状语从句</h2><h3 id="时间连词when的用法特点"><a href="#时间连词when的用法特点" class="headerlink" title="时间连词when的用法特点"></a>时间连词when的用法特点</h3><p>when的意思相当于at that time（在……时刻），从句的谓语动词通常是短暂动词，表示某一时刻的动作（从句也可接延续动词，这时从句往往用过去进行时态）。</p>
-<h4 id="主句一般过去时-从句一般过去时"><a href="#主句一般过去时-从句一般过去时" class="headerlink" title="主句一般过去时+从句一般过去时"></a>主句一般过去时+从句一般过去时</h4><p>I started my dinner when he left. 他走了之后，我才开始吃晚饭。<br>He left when I got there. 我到了以后，他才离开。<br>若主从句都用一般过去时，则表示从句动作先发生。要强调从句动作先发生，从句还可以用过去完成时。</p>
-<h4 id="主句一般过去时-从句过去完成时"><a href="#主句一般过去时-从句过去完成时" class="headerlink" title="主句一般过去时+从句过去完成时"></a>主句一般过去时+从句过去完成时</h4><p>I started my dinner when he had left.<br>He left when I had got there.</p>
-<blockquote>
-<p>短暂动作用一般过去时，延续动作用过去进行时。</p>
-</blockquote>
-<h4 id="主句一般过去时-从句过去进行时"><a href="#主句一般过去时-从句过去进行时" class="headerlink" title="主句一般过去时+从句过去进行时"></a>主句一般过去时+从句过去进行时</h4>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/17/English系列之状语从句/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/05/业界内各种权威标准/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -528,91 +613,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2019/12/05/业界内各种权威标准/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/17/Docker汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="NZ OR NORDIC.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/17/Docker汇总/" class="post-title-link" itemprop="url">Docker汇总</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-01-17 09:38:28" itemprop="dateCreated datePublished" datetime="2020-01-17T09:38:28+08:00">2020-01-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-18 20:51:23" itemprop="dateModified" datetime="2020-10-18T20:51:23+08:00">2020-10-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html" target="_blank" rel="noopener">参考1</a><br><a href="https://www.jianshu.com/p/ca1623ac7723" target="_blank" rel="noopener">参考2</a></p>
-<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><p><a href="https://www.runoob.com/docker/docker-command-manual.html" target="_blank" rel="noopener">命令大全</a></p>
-<h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><h3 id="列出所有容器"><a href="#列出所有容器" class="headerlink" title="列出所有容器"></a>列出所有容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container ls</span><br></pre></td></tr></table></figure>
-<h3 id="查看所有容器，包括关闭的"><a href="#查看所有容器，包括关闭的" class="headerlink" title="查看所有容器，包括关闭的"></a>查看所有容器，包括关闭的</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker container ls --all</span><br><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
-<h3 id="删除具体的容器，根据container-id"><a href="#删除具体的容器，根据container-id" class="headerlink" title="删除具体的容器，根据container id"></a>删除具体的容器，根据container id</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container rm c8faeffaaa62</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/01/17/Docker汇总/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
