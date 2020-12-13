@@ -29,7 +29,7 @@
 <meta property="og:description" content="TodoItem深入理解IOC和DI之间的关系Basic KnowledgeService层的代码相互调用，可能会导致依赖死循环可以在二个需要相互依赖的Service之间抽出一层OperateService，通过OperateService解耦。 @Transactional引发的思考加入有这样的场景：AService.doA()方法调用到BService.doB()方法，而且二者都是注解了事务，">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/jvGK5D.png">
-<meta property="og:updated_time" content="2020-09-01T11:47:32.190Z">
+<meta property="og:updated_time" content="2020-11-19T01:53:36.900Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring系列之核心Feature">
 <meta name="twitter:description" content="TodoItem深入理解IOC和DI之间的关系Basic KnowledgeService层的代码相互调用，可能会导致依赖死循环可以在二个需要相互依赖的Service之间抽出一层OperateService，通过OperateService解耦。 @Transactional引发的思考加入有这样的场景：AService.doA()方法调用到BService.doB()方法，而且二者都是注解了事务，">
@@ -199,7 +199,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-01 19:47:32" itemprop="dateModified" datetime="2020-09-01T19:47:32+08:00">2020-09-01</time>
+                <time title="Modified: 2020-11-19 09:53:36" itemprop="dateModified" datetime="2020-11-19T09:53:36+08:00">2020-11-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -273,7 +273,22 @@
 </li>
 </ul>
 <h2 id="org-springframework-core-io-Resource"><a href="#org-springframework-core-io-Resource" class="headerlink" title="org.springframework.core.io.Resource"></a>org.springframework.core.io.Resource</h2><h2 id="Spring-AOP-vs-Aspectj"><a href="#Spring-AOP-vs-Aspectj" class="headerlink" title="Spring AOP vs Aspectj"></a>Spring AOP vs Aspectj</h2><p><a href="https://www.baeldung.com/spring-aop-vs-aspectj" target="_blank" rel="noopener">https://www.baeldung.com/spring-aop-vs-aspectj</a></p>
-<h2 id="Implementing-a-Custom-Spring-AOP-Annotation"><a href="#Implementing-a-Custom-Spring-AOP-Annotation" class="headerlink" title="Implementing a Custom Spring AOP Annotation"></a>Implementing a Custom Spring AOP Annotation</h2><p><a href="https://www.baeldung.com/spring-aop-annotation" target="_blank" rel="noopener">https://www.baeldung.com/spring-aop-annotation</a></p>
+<h2 id="Implementing-a-Custom-Spring-AOP-Annotation"><a href="#Implementing-a-Custom-Spring-AOP-Annotation" class="headerlink" title="Implementing a Custom Spring AOP Annotation"></a>Implementing a Custom Spring AOP Annotation</h2><p>Aspect Oriented Programming（AOP）：面向切面编程。</p>
+<ul>
+<li>连接点（JoinPoint） ：程序执行的某个特定位置，如某个方法调用前，调用后，方法抛出异常后，这些代码中的特定点称为连接点。简单来说，就是在哪加入你的逻辑增强，连接点表示具体要拦截的方法，切点是定义一个范围，而连接点是具体到某个方法；</li>
+<li>切点（PointCut）：每个程序的连接点有多个，如何定位到某个感兴趣的连接点，就需要通过切点来定位，切点用于来限定Spring-AOP启动的范围，通常我们采用表达式的方式来设置范围；</li>
+<li>增强（Advice） 增强是织入到目标类连接点上的一段程序代码；</li>
+<li>前置通知（before）：在执行业务代码前做些操作；</li>
+<li>后置通知（after）：在执行业务代码后做些操作，无论是否发生异常，它都会执行，比如关闭连接对象；</li>
+<li>异常通知（afterThrowing）：在执行业务代码后出现异常，需要做的操作，比如回滚事务；</li>
+<li>返回通知（afterReturning）：在执行业务代码后无异常，会执行的操作；</li>
+<li>环绕通知（around）：方法调用前后执行；</li>
+<li>目标对象（Target）：需要被加强的业务对象；</li>
+<li>织入（Weaving）：织入就是将增强添加到对目标类具体连接点上的过程，织入是一个形象的说法，具体来说，就是生成代理对象并将切面内容融入到业务流程的过程；</li>
+<li>代理类（Proxy）：一个类被AOP织入增强后，就产生了一个代理类；</li>
+<li>切面（Aspect）：切面由切点和增强组成，它既包括了横切逻辑的定义，也包括了连接点的定义，SpringAOP就是将切面所定义的横切逻辑织入到切面所制定的连接点中。</li>
+</ul>
+<p><a href="https://www.baeldung.com/spring-aop-annotation" target="_blank" rel="noopener">https://www.baeldung.com/spring-aop-annotation</a></p>
 <h2 id="Spring-AOP系列文章"><a href="#Spring-AOP系列文章" class="headerlink" title="Spring AOP系列文章"></a>Spring AOP系列文章</h2><p><a href="https://www.baeldung.com/spring-aop" target="_blank" rel="noopener">https://www.baeldung.com/spring-aop</a></p>
 <h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="Connection-will-not-be-managed-by-Spring"><a href="#Connection-will-not-be-managed-by-Spring" class="headerlink" title="Connection will not be managed by Spring"></a>Connection will not be managed by Spring</h2><p>原因是service 没有加@transactional 注解，未加注解的情况下，出现异常的时候spring将不会回滚事物 </p>
 <h2 id="Null-return-value-from-advice-does-not-match-primitive-return-type-for"><a href="#Null-return-value-from-advice-does-not-match-primitive-return-type-for" class="headerlink" title="Null return value from advice does not match primitive return type for"></a>Null return value from advice does not match primitive return type for</h2><p>如果是使用了Spring的异步处理注解@Async的方法，不要有返回，直接void</p>
@@ -383,7 +398,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">69</span>
+        <span class="site-state-item-count">67</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">

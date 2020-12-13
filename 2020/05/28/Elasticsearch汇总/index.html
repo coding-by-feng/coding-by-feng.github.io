@@ -20,18 +20,18 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Basic Knowledgespring-data-elasticsearch官方文档 查询类型termterm：代表完全匹配，即不进行分词器分析，文档中必须包含整个搜索的词汇 术语1PB是数据存储容量的单位，它等于2的50次方个字节，或者在数值上大约等于1000个TB。 Problem Solution">
+  <meta name="description" content="Basic Knowledgespring-data-elasticsearch官方文档 Elasticsearch Operations IndexOperations defines actions on index level like creating or deleting an index. DocumentOperations defines actions to store, up">
 <meta name="keywords" content="Elasticsearch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Elasticsearch汇总">
 <meta property="og:url" content="http://yoursite.com/2020/05/28/Elasticsearch汇总/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="Basic Knowledgespring-data-elasticsearch官方文档 查询类型termterm：代表完全匹配，即不进行分词器分析，文档中必须包含整个搜索的词汇 术语1PB是数据存储容量的单位，它等于2的50次方个字节，或者在数值上大约等于1000个TB。 Problem Solution">
+<meta property="og:description" content="Basic Knowledgespring-data-elasticsearch官方文档 Elasticsearch Operations IndexOperations defines actions on index level like creating or deleting an index. DocumentOperations defines actions to store, up">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-11T03:21:01.311Z">
+<meta property="og:updated_time" content="2020-11-17T12:58:28.497Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Elasticsearch汇总">
-<meta name="twitter:description" content="Basic Knowledgespring-data-elasticsearch官方文档 查询类型termterm：代表完全匹配，即不进行分词器分析，文档中必须包含整个搜索的词汇 术语1PB是数据存储容量的单位，它等于2的50次方个字节，或者在数值上大约等于1000个TB。 Problem Solution">
+<meta name="twitter:description" content="Basic Knowledgespring-data-elasticsearch官方文档 Elasticsearch Operations IndexOperations defines actions on index level like creating or deleting an index. DocumentOperations defines actions to store, up">
 
 <link rel="canonical" href="http://yoursite.com/2020/05/28/Elasticsearch汇总/">
 
@@ -197,7 +197,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-11 11:21:01" itemprop="dateModified" datetime="2020-06-11T11:21:01+08:00">2020-06-11</time>
+                <time title="Modified: 2020-11-17 20:58:28" itemprop="dateModified" datetime="2020-11-17T20:58:28+08:00">2020-11-17</time>
               </span>
 
           
@@ -212,9 +212,17 @@
 
       
         <h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><p><a href="https://spring.io/projects/spring-data-elasticsearch#learn" target="_blank" rel="noopener">spring-data-elasticsearch官方文档</a></p>
+<h2 id="Elasticsearch-Operations"><a href="#Elasticsearch-Operations" class="headerlink" title="Elasticsearch Operations"></a>Elasticsearch Operations</h2><ul>
+<li>IndexOperations defines actions on index level like creating or deleting an index.</li>
+<li>DocumentOperations defines actions to store, update and retrieve entities based on their id.</li>
+<li>SearchOperations define the actions to search for multiple entities using queries</li>
+<li>ElasticsearchOperations combines the DocumentOperations and SearchOperations interfaces.</li>
+</ul>
+<h2 id="Vue浏览器客户端"><a href="#Vue浏览器客户端" class="headerlink" title="Vue浏览器客户端"></a>Vue浏览器客户端</h2><p><a href="https://elasticvue.com/" target="_blank" rel="noopener">插件下载</a></p>
 <h2 id="查询类型"><a href="#查询类型" class="headerlink" title="查询类型"></a>查询类型</h2><h3 id="term"><a href="#term" class="headerlink" title="term"></a>term</h3><p>term：代表完全匹配，即不进行分词器分析，文档中必须包含整个搜索的词汇</p>
 <h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PB是数据存储容量的单位，它等于2的50次方个字节，或者在数值上大约等于1000个TB。</span><br></pre></td></tr></table></figure>
-<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1>
+<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="spring-data-elasticsearch-版本冲突问题"><a href="#spring-data-elasticsearch-版本冲突问题" class="headerlink" title="spring-data-elasticsearch 版本冲突问题"></a>spring-data-elasticsearch 版本冲突问题</h2><p>想用spring-data-elasticsearch4.1.1版本发现依赖的springboot版本太低，要升级到2.4才可以，不然即使spring-data-elasticsearch指定高版本也会被自动回退到3.1.10。</p>
+
     </div>
 
     
@@ -299,7 +307,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Knowledge"><span class="nav-number">1.</span> <span class="nav-text">Basic Knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查询类型"><span class="nav-number">1.1.</span> <span class="nav-text">查询类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#term"><span class="nav-number">1.1.1.</span> <span class="nav-text">term</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#术语"><span class="nav-number">1.2.</span> <span class="nav-text">术语</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Problem-Solution"><span class="nav-number">2.</span> <span class="nav-text">Problem Solution</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Knowledge"><span class="nav-number">1.</span> <span class="nav-text">Basic Knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Elasticsearch-Operations"><span class="nav-number">1.1.</span> <span class="nav-text">Elasticsearch Operations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue浏览器客户端"><span class="nav-number">1.2.</span> <span class="nav-text">Vue浏览器客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询类型"><span class="nav-number">1.3.</span> <span class="nav-text">查询类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#term"><span class="nav-number">1.3.1.</span> <span class="nav-text">term</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#术语"><span class="nav-number">1.4.</span> <span class="nav-text">术语</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Problem-Solution"><span class="nav-number">2.</span> <span class="nav-text">Problem Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#spring-data-elasticsearch-版本冲突问题"><span class="nav-number">2.1.</span> <span class="nav-text">spring-data-elasticsearch 版本冲突问题</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -320,7 +328,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">69</span>
+        <span class="site-state-item-count">67</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">

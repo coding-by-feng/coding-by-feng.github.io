@@ -164,6 +164,270 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/17/WebStorm汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="NZ OR NORDIC.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/17/WebStorm汇总/" class="post-title-link" itemprop="url">WebStorm汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-17 01:46:34" itemprop="dateCreated datePublished" datetime="2019-10-17T01:46:34+08:00">2019-10-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-16 20:58:54" itemprop="dateModified" datetime="2020-07-16T20:58:54+08:00">2020-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WebStorm/" itemprop="url" rel="index"><span itemprop="name">WebStorm</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="shortcut"><a href="#shortcut" class="headerlink" title="shortcut"></a>shortcut</h1><p>新建文件的时候可以这样操作来脱离鼠标：<br>cmd+1跳到Project目录上下移动到目标目录，然后cmd+shift+A跳出Action，输入new+文件类型或者手动选择文件类型就可以了。</p>
+<h1 id="高效率编码"><a href="#高效率编码" class="headerlink" title="高效率编码"></a>高效率编码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">&gt;：下一个子标签</span><br><span class="line">*：多少个标签</span><br><span class="line">$：标签的名称序号</span><br><span class="line">&#123;&#125;:标签的内容</span><br><span class="line">--&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入：h1,按tab键--&gt;</span><br><span class="line">&lt;h1&gt;&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入：div#abc,按Tab键--&gt;</span><br><span class="line">&lt;div id=&quot;abc&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入：div.abc,按Tab键--&gt;</span><br><span class="line">&lt;div class=&quot;abc&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入: div&gt;p*6 ,按Tab键--&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;p&gt;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入 a[href=#] 按tab键--&gt;</span><br><span class="line">&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入：ul.menu&gt;li*6&gt;a[href=#]&#123;HTML&#125; 按tab键--&gt;</span><br><span class="line">&lt;ul class=&quot;menu&quot;&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;HTML&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;HTML&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;HTML&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;HTML&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;HTML&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;HTML&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入  ul&gt;li*5&gt;a[href=#]&#123;我是第$个&#125; 再按tab键--&gt;</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;我是第1个&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;我是第2个&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;我是第3个&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;我是第4个&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;我是第5个&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入 img[src=&apos;images/$.jpg&apos;]*3 再按tab键--&gt;</span><br><span class="line">&lt;img src=&quot;images/1.jpg&quot; alt=&quot;&quot;&gt;     </span><br><span class="line">&lt;img src=&quot;images/2.jpg&quot; alt=&quot;&quot;&gt;     </span><br><span class="line">&lt;img src=&quot;images/3.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--输入 li*3&gt;div.img&gt;img[src=&apos;images/$.jpg&apos;] 再按tab键--&gt;</span><br><span class="line">&lt;li&gt;</span><br><span class="line">    &lt;div class=&quot;img&quot;&gt;&lt;img src=&quot;images/1.jpg&quot; alt=&quot;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/li&gt;</span><br><span class="line">&lt;li&gt;</span><br><span class="line">    &lt;div class=&quot;img&quot;&gt;&lt;img src=&quot;images/2.jpg&quot; alt=&quot;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/li&gt;</span><br><span class="line">&lt;li&gt;</span><br><span class="line">    &lt;div class=&quot;img&quot;&gt;&lt;img src=&quot;images/3.jpg&quot; alt=&quot;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/li&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/* for循环：输入itar,再点击tab键*/</span><br><span class="line">        for (var i = 0; i &lt; array.length; i++) &#123;</span><br><span class="line">            var obj = array[i];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">+ : 并列的标签</span><br><span class="line">&lt;!--div#tab1+div#tab2--&gt;</span><br><span class="line"></span><br><span class="line">&lt;div id=&quot;tab1&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;tab2&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://blog.csdn.net/sinat_31057219/article/details/79158978" target="_blank" rel="noopener">https://blog.csdn.net/sinat_31057219/article/details/79158978</a></p>
+</blockquote>
+<h1 id="Plugins"><a href="#Plugins" class="headerlink" title="Plugins"></a>Plugins</h1><h2 id="ESLint"><a href="#ESLint" class="headerlink" title="ESLint"></a>ESLint</h2><p>指定项目的eslint配置文件：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/yI1T2Z.png" alt><br>然后再快捷键设置 Fix ESLint Problems，将原来的代码格式化快捷键去掉，就可以取代WebStorm的格式化了。</p>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/17/WebStorm汇总/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/26/Spring系列之SpringMVC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="NZ OR NORDIC.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/26/Spring系列之SpringMVC/" class="post-title-link" itemprop="url">Spring系列之SpringMVC</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-26 20:06:19" itemprop="dateCreated datePublished" datetime="2019-11-26T20:06:19+08:00">2019-11-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-16 20:58:54" itemprop="dateModified" datetime="2020-07-16T20:58:54+08:00">2020-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/SpringMVC/" itemprop="url" rel="index"><span itemprop="name">SpringMVC</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="处理过的问题"><a href="#处理过的问题" class="headerlink" title="处理过的问题"></a>处理过的问题</h1><h4 id="Required-request-body-is-missing"><a href="#Required-request-body-is-missing" class="headerlink" title="Required request body is missing"></a>Required request body is missing</h4><p>一般都是@RequestBody注解的参数，而请求数据空；或者用postman的话，注意要这样选择参数：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/BiF57m.png" alt="image"></p>
+<h4 id="What-is-difference-between-RequestBody-and-RequestParam"><a href="#What-is-difference-between-RequestBody-and-RequestParam" class="headerlink" title="What is difference between @RequestBody and @RequestParam?"></a>What is difference between @RequestBody and @RequestParam?</h4><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/KCfLZy.png" alt="image"></p>
+<h4 id="postman请求时，如果Controller的方法出现参数接收不到为null"><a href="#postman请求时，如果Controller的方法出现参数接收不到为null" class="headerlink" title="postman请求时，如果Controller的方法出现参数接收不到为null"></a>postman请求时，如果Controller的方法出现参数接收不到为null</h4><p>这个时候考虑是否PostMapping注解的方法参数是否为多个，如果多个的话用postman请求记得不要在Body选择为raw和json类型，可以选择form-data或者x-www-form-urlencoded。</p>
+<h4 id="ResponseBody注解之后是在哪里将对象自动转成Json响应的"><a href="#ResponseBody注解之后是在哪里将对象自动转成Json响应的" class="headerlink" title="@ResponseBody注解之后是在哪里将对象自动转成Json响应的"></a>@ResponseBody注解之后是在哪里将对象自动转成Json响应的</h4><p>0 = {ManagedFilter@12664} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.web.servlet.filter.OrderedCharacterEncodingFilter, name=’characterEncodingFilter’}}”<br>1 = {ManagedFilter@12662} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter, name=’webMvcMetricsFilter’}}”<br>2 = {ManagedFilter@12658} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.web.servlet.filter.OrderedHiddenHttpMethodFilter, name=’hiddenHttpMethodFilter’}}”<br>3 = {ManagedFilter@12656} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.web.servlet.filter.OrderedFormContentFilter, name=’formContentFilter’}}”<br>4 = {ManagedFilter@12654} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.web.servlet.filter.OrderedRequestContextFilter, name=’requestContextFilter’}}”<br>5 = {ManagedFilter@12652} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.web.servlet.DelegatingFilterProxyRegistrationBean$1, name=’springSecurityFilterChain’}}”<br>6 = {ManagedFilter@12637} “ManagedFilter{filterInfo=FilterInfo{filterClass=class org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter, name=’httpTraceFilter’}}”</p>
+<p><a href="https://www.baeldung.com/spring-httpmessageconverter-rest" target="_blank" rel="noopener">how to Configure HttpMessageConverters in Spring.</a><br><a href="https://chenzhihao.cc/2019/06/13/Springmvc%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E7%9A%84%E4%BC%98%E9%9B%85%E5%A4%84%E6%96%B9%E5%BC%8F/" target="_blank" rel="noopener">参考1</a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/26/Spring系列之SpringMVC/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/13/Reactor响应式编程阅读源码有感/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="NZ OR NORDIC.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/13/Reactor响应式编程阅读源码有感/" class="post-title-link" itemprop="url">Reactor响应式编程阅读源码有感</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-13 20:57:04" itemprop="dateCreated datePublished" datetime="2019-12-13T20:57:04+08:00">2019-12-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-16 20:58:54" itemprop="dateModified" datetime="2020-07-16T20:58:54+08:00">2020-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Reactor/" itemprop="url" rel="index"><span itemprop="name">Reactor</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="https://projectreactor.io/docs/core/release/reference/" target="_blank" rel="noopener">官方参考文档</a><br><a href="https://www.baeldung.com/reactor-core" target="_blank" rel="noopener">baeldung参考文章</a></p>
+<h1 id="Flux"><a href="#Flux" class="headerlink" title="Flux"></a>Flux</h1><p>an Asynchronous Sequence of 0-N Items（是一个异步的处理序列，它有0或者多个条目）<br>官方对Flux的原理解析图解：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/2zMdgN.png" alt></p>
+<p>Spring Gateway的源码中重度依赖Reactor Project，比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return responseFlux.then(chain.filter(exchange));</span><br></pre></td></tr></table></figure></p>
+<p>这句代码的逻辑会这么走：要等到responseFlux被subscribe了之后，chain.filter(exchange)（这是一个Mono），才会被继续流转运行。</p>
+<h1 id="Mono"><a href="#Mono" class="headerlink" title="Mono"></a>Mono</h1><h2 id="Mono-just"><a href="#Mono-just" class="headerlink" title="Mono.just"></a>Mono.just</h2><p>I mean that calling Mono.just(System.currentTimeMillis()) will immediately invoke the currentTimeMillis() method and capture the result</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Mono&lt;Long&gt; clock = Mono.just(System.currentTimeMillis());</span><br><span class="line">//time == t0</span><br><span class="line"></span><br><span class="line">Thread.sleep(10_000);</span><br><span class="line">//time == t10</span><br><span class="line">clock.block(); //we use block for demonstration purposes, returns t0（代表这个时候获取clock的实际时间依然还是上面第一次调用System.currentTimeMillis()拿到的时间，下面雷同）</span><br><span class="line"></span><br><span class="line">Thread.sleep(7_000);</span><br><span class="line">//time == t17</span><br><span class="line">clock.block(); //we re-subscribe to clock, still returns t0</span><br></pre></td></tr></table></figure>
+<h2 id="Mono-defer"><a href="#Mono-defer" class="headerlink" title="Mono.defer"></a>Mono.defer</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/13/Reactor响应式编程阅读源码有感/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Spring系列之SpringBoot/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -347,256 +611,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/28/Elasticsearch汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="NZ OR NORDIC.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/28/Elasticsearch汇总/" class="post-title-link" itemprop="url">Elasticsearch汇总</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-28 15:36:09" itemprop="dateCreated datePublished" datetime="2020-05-28T15:36:09+08:00">2020-05-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-11 11:21:01" itemprop="dateModified" datetime="2020-06-11T11:21:01+08:00">2020-06-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><p><a href="https://spring.io/projects/spring-data-elasticsearch#learn" target="_blank" rel="noopener">spring-data-elasticsearch官方文档</a></p>
-<h2 id="查询类型"><a href="#查询类型" class="headerlink" title="查询类型"></a>查询类型</h2><h3 id="term"><a href="#term" class="headerlink" title="term"></a>term</h3><p>term：代表完全匹配，即不进行分词器分析，文档中必须包含整个搜索的词汇</p>
-<h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PB是数据存储容量的单位，它等于2的50次方个字节，或者在数值上大约等于1000个TB。</span><br></pre></td></tr></table></figure>
-<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/05/28/Elasticsearch汇总/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Maven汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="NZ OR NORDIC.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/15/Maven汇总/" class="post-title-link" itemprop="url">Maven汇总</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-10-15 21:29:45" itemprop="dateCreated datePublished" datetime="2019-10-15T21:29:45+08:00">2019-10-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-10 11:17:22" itemprop="dateModified" datetime="2020-06-10T11:17:22+08:00">2020-06-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/maven/" itemprop="url" rel="index"><span itemprop="name">maven</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><p><a href="https://www.cnblogs.com/shoshana-kong/p/11031388.html" target="_blank" rel="noopener">Maven常用命令</a></p>
-<h2 id="scope详解"><a href="#scope详解" class="headerlink" title="scope详解"></a>scope详解</h2><p><a href="https://www.cnblogs.com/hzzll/p/6738955.html" target="_blank" rel="noopener">https://www.cnblogs.com/hzzll/p/6738955.html</a></p>
-<h2 id="dependencies与dependencyManagement的区别"><a href="#dependencies与dependencyManagement的区别" class="headerlink" title="dependencies与dependencyManagement的区别"></a>dependencies与dependencyManagement的区别</h2><p>根据maven子模块继承父模块的特性，不难理解两者肯定都有继承父模块依赖的作用，但是要注意他们的区别是：</p>
-<p><strong><em>dependencies里面声明的依赖，子模块会默认全部继承，不用手动去引入依赖；而dependencyManagement里面声明的依赖，则不会再子模块中自动去隐式依赖，只有子模块中声明了依赖，并且没有指明依赖的版本这种情况才会到父模块中寻找dependencyManagement中的对应依赖，要注意的是，如果子模块声明了依赖版本号，那么在dependencyManagement中如果也有同一依赖库的不同版本共存的话，maven优先去依赖的是子模块自己的版本</em></strong></p>
-<h2 id="Maven仓库下载依赖太慢的解决方案"><a href="#Maven仓库下载依赖太慢的解决方案" class="headerlink" title="Maven仓库下载依赖太慢的解决方案"></a>Maven仓库下载依赖太慢的解决方案</h2><p>将仓库中心更改为阿里云的，修改setting.xml，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line"> &lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;</span><br><span class="line">  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">  xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd&quot;&gt;</span><br><span class="line">     &lt;mirrors&gt;</span><br><span class="line">         &lt;!-- 阿里云仓库 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://maven.aliyun.com/nexus/content/repositories/central/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line"></span><br><span class="line">         &lt;!-- 中央仓库1 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;repo1&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://repo1.maven.org/maven2/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line"></span><br><span class="line">         &lt;!-- 中央仓库2 --&gt;</span><br><span class="line">         &lt;mirror&gt;</span><br><span class="line">             &lt;id&gt;repo2&lt;/id&gt;</span><br><span class="line">             &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">             &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;</span><br><span class="line">             &lt;url&gt;http://repo2.maven.org/maven2/&lt;/url&gt;</span><br><span class="line">         &lt;/mirror&gt;</span><br><span class="line">     &lt;/mirrors&gt;</span><br><span class="line"> &lt;/settings&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="Maven-BOM"><a href="#Maven-BOM" class="headerlink" title="Maven BOM"></a>Maven BOM</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/10/15/Maven汇总/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/14/linux系列之问题汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="NZ OR NORDIC.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/14/linux系列之问题汇总/" class="post-title-link" itemprop="url">linux系列之问题汇总</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-14 18:11:33" itemprop="dateCreated datePublished" datetime="2020-05-14T18:11:33+08:00">2020-05-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-05 13:53:01" itemprop="dateModified" datetime="2020-06-05T13:53:01+08:00">2020-06-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="apt-get国内太慢"><a href="#apt-get国内太慢" class="headerlink" title="apt-get国内太慢"></a>apt-get国内太慢</h1><p>ubuntu和debian的镜像源都要换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list</span><br><span class="line">sed -i &apos;s/deb.debian.org/mirrors.ustc.edu.cn/g&apos; /etc/apt/sources.list</span><br></pre></td></tr></table></figure></p>
-<p>还原：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i s@/mirrors.aliyun.com/@/deb.debian.org/@g /etc/apt/sources.list</span><br></pre></td></tr></table></figure></p>
-<h2 id="更换163的镜像"><a href="#更换163的镜像" class="headerlink" title="更换163的镜像"></a>更换163的镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#更新apt-get源 使用163的源</span><br><span class="line">mv /etc/apt/sources.list /etc/apt/sources.list.bak &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-<h2 id="apk命令更换源"><a href="#apk命令更换源" class="headerlink" title="apk命令更换源"></a>apk命令更换源</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;http://mirrors.aliyun.com/alpine/v3.8/main&quot; &gt; /etc/apk/repositories \</span><br><span class="line">    &amp;&amp; echo &quot;http://mirrors.aliyun.com/alpine/v3.8/community&quot; &gt;&gt; /etc/apk/repositories \</span><br><span class="line">    &amp;&amp; apk update upgrade \</span><br></pre></td></tr></table></figure>
-<h2 id="将命令的返回值赋值给变量（Shell命令）"><a href="#将命令的返回值赋值给变量（Shell命令）" class="headerlink" title="将命令的返回值赋值给变量（Shell命令）"></a>将命令的返回值赋值给变量（Shell命令）</h2><ul>
-<li>A=<code>ls -la</code> 反引号，运行里面的命令，并把结果返回给变量A</li>
-<li>A=$(ls -la)等价于反引号</li>
-</ul>
-<h2 id="linux-shell通过curl获取HTTP请求的状态码"><a href="#linux-shell通过curl获取HTTP请求的状态码" class="headerlink" title="linux shell通过curl获取HTTP请求的状态码"></a>linux shell通过curl获取HTTP请求的状态码</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/05/14/linux系列之问题汇总/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -675,7 +689,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">69</span>
+        <span class="site-state-item-count">67</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">

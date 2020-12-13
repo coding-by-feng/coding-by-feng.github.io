@@ -164,6 +164,173 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/12/Mysql系列之性能优化与问题定位/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="NZ OR NORDIC.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/12/Mysql系列之性能优化与问题定位/" class="post-title-link" itemprop="url">Mysql系列之性能优化与问题定位</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-12 10:42:53" itemprop="dateCreated datePublished" datetime="2019-12-12T10:42:53+08:00">2019-12-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-23 14:55:58" itemprop="dateModified" datetime="2020-05-23T14:55:58+08:00">2020-05-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Server-Status-Variables"><a href="#Server-Status-Variables" class="headerlink" title="Server Status Variables"></a>Server Status Variables</h1><h2 id="设置事务自动提交"><a href="#设置事务自动提交" class="headerlink" title="设置事务自动提交"></a>设置事务自动提交</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 查看是否开启自动提交事务</span><br><span class="line">SHOW VARIABLES LIKE &apos;AUTOCOMMIT&apos;;</span><br><span class="line">select @@AUTOCOMMIT;</span><br></pre></td></tr></table></figure>
+<h1 id="设计优化"><a href="#设计优化" class="headerlink" title="设计优化"></a>设计优化</h1><h2 id="tinyint和char-1-性能对比"><a href="#tinyint和char-1-性能对比" class="headerlink" title="tinyint和char(1)性能对比"></a>tinyint和char(1)性能对比</h2><p><a href="https://blog.csdn.net/yzj5208/article/details/81214780?utm_source=blogxgwz6" target="_blank" rel="noopener">https://blog.csdn.net/yzj5208/article/details/81214780?utm_source=blogxgwz6</a></p>
+<h1 id="锁表、线程溢出常见处理方法"><a href="#锁表、线程溢出常见处理方法" class="headerlink" title="锁表、线程溢出常见处理方法"></a>锁表、线程溢出常见处理方法</h1><p>查询当前的线程信息，mysql会把当前正在运行的mysql线程信息实时更新到processlist表。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">show processlist; # 查询当前100条；等同于select * from information_schema.processlist;</span><br><span class="line">show full processlist; # 查询全部；</span><br><span class="line"># 查询非睡眠状态的连接</span><br><span class="line">select p.*</span><br><span class="line">from information_schema.processlist p</span><br><span class="line">where p.COMMAND != &apos;Sleep&apos;;</span><br><span class="line"># 查询并发最大连接数</span><br><span class="line">show variables like &apos;%max_connections%&apos;;</span><br><span class="line"># 查看当前线程连接数量信息 </span><br><span class="line">show status like &apos;Threads%&apos;;</span><br></pre></td></tr></table></figure></p>
+<h2 id="慢查询"><a href="#慢查询" class="headerlink" title="慢查询"></a>慢查询</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 查找当前正在执行超过1分钟的线程信息</span><br><span class="line">select * from information_schema.processlist where command != &apos;Sleep&apos; and time &gt; 60 order by time desc;</span><br><span class="line"># 不要轻易kill，注意看是否是system user或者是maxscale等代理监控的用户</span><br><span class="line"># 确定是慢查询的时候，可以执行kill id的操作</span><br><span class="line"># 命令行查看慢查询</span><br><span class="line">mysql -ureader -pread -e &apos;show full processlist&apos; | grep &quot;select &quot;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/12/Mysql系列之性能优化与问题定位/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/17/Element-ui汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="NZ OR NORDIC.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/17/Element-ui汇总/" class="post-title-link" itemprop="url">Element-ui汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-17 09:59:36" itemprop="dateCreated datePublished" datetime="2019-10-17T09:59:36+08:00">2019-10-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-22 22:23:05" itemprop="dateModified" datetime="2020-05-22T22:23:05+08:00">2020-05-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/element-ui/" itemprop="url" rel="index"><span itemprop="name">element-ui</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="v-contextmenu的使用-树形控件右键菜单"><a href="#v-contextmenu的使用-树形控件右键菜单" class="headerlink" title="v-contextmenu的使用(树形控件右键菜单)"></a>v-contextmenu的使用(树形控件右键菜单)</h1><p><a href="https://github.com/heynext/v-contextmenu/blob/a852e61278711ffaa811ad60bedef167e09782e8/examples/Simple.vue" target="_blank" rel="noopener">Simple Demo</a><br><a href="https://github.com/heynext/v-contextmenu" target="_blank" rel="noopener">Github 仓库代码</a></p>
+<h1 id="el-autocomplete失去焦点-获得焦点"><a href="#el-autocomplete失去焦点-获得焦点" class="headerlink" title="el-autocomplete失去焦点 获得焦点"></a>el-autocomplete失去焦点 获得焦点</h1><p><a href="https://blog.csdn.net/weixin_34138139/article/details/91427293" target="_blank" rel="noopener">https://blog.csdn.net/weixin_34138139/article/details/91427293</a></p>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/17/Element-ui汇总/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/21/DataGrip汇总/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -226,164 +393,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2019/11/21/DataGrip汇总/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/07/vim的使用技巧/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="NZ OR NORDIC.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/03/07/vim的使用技巧/" class="post-title-link" itemprop="url">vim的使用技巧</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-03-07 22:33:05" itemprop="dateCreated datePublished" datetime="2019-03-07T22:33:05+08:00">2019-03-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-21 23:50:52" itemprop="dateModified" datetime="2020-05-21T23:50:52+08:00">2020-05-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vim/" itemprop="url" rel="index"><span itemprop="name">vim</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="异常情况处理-todo"><a href="#异常情况处理-todo" class="headerlink" title="异常情况处理 todo"></a>异常情况处理 todo</h2><p>W10: Warning: Changing a readonly file</p>
-<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="Hotkeys-In-Normal-Mode"><a href="#Hotkeys-In-Normal-Mode" class="headerlink" title="Hotkeys In Normal Mode"></a>Hotkeys In Normal Mode</h2><h4 id="Moving-移动"><a href="#Moving-移动" class="headerlink" title="Moving(移动)"></a>Moving(移动)</h4><table>
-<thead>
-<tr>
-<th>key</th>
-<th>desc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>移动到行首</td>
-</tr>
-<tr>
-<td>$</td>
-<td>移动到行尾</td>
-</tr>
-<tr>
-<td>G</td>
-<td>移动到最后一行</td>
-</tr>
-<tr>
-<td>1G</td>
-<td>移动到第一行</td>
-</tr>
-<tr>
-<td>dG</td>
-<td>从当前行删除到最后一行</td>
-</tr>
-<tr>
-<td>v+hjkl</td>
-<td>从当前位置开始移动并选中</td>
-</tr>
-<tr>
-<td>V+jk</td>
-<td>从当前行开始移动并选中</td>
-</tr>
-<tr>
-<td>shift+<or shift+></or></td>
-<td>选择之后可以在命令行模式将代码进行左右移动。</td>
-</tr>
-</tbody>
-</table>
-<h4 id="Editing-编辑"><a href="#Editing-编辑" class="headerlink" title="Editing(编辑)"></a>Editing(编辑)</h4><table>
-<thead>
-<tr>
-<th>key</th>
-<th>desc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>dd</td>
-<td>删除当前行</td>
-</tr>
-<tr>
-<td>d1G</td>
-<td>从当前行删除到第一行</td>
-</tr>
-<tr>
-<td>Ndd</td>
-<td>删除光标以下的N行</td>
-</tr>
-<tr>
-<td>d$</td>
-<td>删除光标所在到行尾</td>
-</tr>
-<tr>
-<td>d0</td>
-<td>删除光标所在到行首</td>
-</tr>
-<tr>
-<td>daw</td>
-<td>删除光标所在单词</td>
-</tr>
-</tbody>
-</table>
-<h4 id="View-视图"><a href="#View-视图" class="headerlink" title="View(视图)"></a>View(视图)</h4>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/03/07/vim的使用技巧/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -576,94 +585,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/28/RabbitMQ汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="NZ OR NORDIC.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/28/RabbitMQ汇总/" class="post-title-link" itemprop="url">RabbitMQ汇总</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-10-28 09:53:25" itemprop="dateCreated datePublished" datetime="2019-10-28T09:53:25+08:00">2019-10-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-17 19:59:35" itemprop="dateModified" datetime="2020-05-17T19:59:35+08:00">2020-05-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/rabbitmq/" itemprop="url" rel="index"><span itemprop="name">rabbitmq</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="BASIC-KNOWLEDGE"><a href="#BASIC-KNOWLEDGE" class="headerlink" title="BASIC KNOWLEDGE"></a>BASIC KNOWLEDGE</h1><h2 id="网上的基础教程"><a href="#网上的基础教程" class="headerlink" title="网上的基础教程"></a>网上的基础教程</h2><p><a href="https://blog.csdn.net/hellozpc/article/details/81436980" target="_blank" rel="noopener">https://blog.csdn.net/hellozpc/article/details/81436980</a></p>
-<h2 id="两个消息分发机制"><a href="#两个消息分发机制" class="headerlink" title="两个消息分发机制"></a>两个消息分发机制</h2><ul>
-<li>Round-robin dispatch（轮训分发）</li>
-<li>Fair dispatch（公平分发）</li>
-</ul>
-<h2 id="开启Browser后台界面管理插件"><a href="#开启Browser后台界面管理插件" class="headerlink" title="开启Browser后台界面管理插件"></a>开启Browser后台界面管理插件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull rabbitmq:management</span><br><span class="line">docker run -d --hostname my-rabbit --name some-rabbit -p 15555:15672 rabbitmq:management</span><br></pre></td></tr></table></figure>
-<p>15555端口可以自定义</p>
-<h1 id="PROBLEM-SOLUTION"><a href="#PROBLEM-SOLUTION" class="headerlink" title="PROBLEM SOLUTION"></a>PROBLEM SOLUTION</h1><h2 id="guest取消本地登录限制"><a href="#guest取消本地登录限制" class="headerlink" title="guest取消本地登录限制"></a>guest取消本地登录限制</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/10/28/RabbitMQ汇总/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -742,7 +663,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">69</span>
+        <span class="site-state-item-count">67</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">

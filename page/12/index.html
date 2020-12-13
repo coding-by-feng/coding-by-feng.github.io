@@ -164,7 +164,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Mysql系列之备忘录/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/05/English系列之思维练习错题笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -178,7 +178,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/10/15/Mysql系列之备忘录/" class="post-title-link" itemprop="url">Mysql系列之备忘录</a>
+            <a href="/2020/08/05/English系列之思维练习错题笔记/" class="post-title-link" itemprop="url">English系列之思维练习错题笔记</a>
         </h2>
 
         <div class="post-meta">
@@ -188,14 +188,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2019-10-15 21:36:49" itemprop="dateCreated datePublished" datetime="2019-10-15T21:36:49+08:00">2019-10-15</time>
+              <time title="Created: 2020-08-05 22:47:26" itemprop="dateCreated datePublished" datetime="2020-08-05T22:47:26+08:00">2020-08-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-30 23:42:46" itemprop="dateModified" datetime="2020-07-30T23:42:46+08:00">2020-07-30</time>
+                <time title="Modified: 2020-09-25 10:42:36" itemprop="dateModified" datetime="2020-09-25T10:42:36+08:00">2020-09-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -203,7 +203,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a>
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
                 </span>
             </span>
 
@@ -218,13 +218,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h1><p><a href="https://help.aliyun.com/wordpower/2596091-1.html" target="_blank" rel="noopener">alibabaMysql开发规范和常见问题处理</a><br><a href="https://learnku.com/articles/25116" target="_blank" rel="noopener">参考1</a></p>
-<h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="SHOW-ENGINE-INNODB-STATUS-todo"><a href="#SHOW-ENGINE-INNODB-STATUS-todo" class="headerlink" title="SHOW ENGINE INNODB STATUS; todo"></a>SHOW ENGINE INNODB STATUS; todo</h2><h2 id="建模工具PDMan-todo"><a href="#建模工具PDMan-todo" class="headerlink" title="建模工具PDMan todo"></a>建模工具PDMan todo</h2><p>还是可视化视图清晰点，还可以导出自动生成sql。</p>
-<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"># 设置主键自增初始值</span><br><span class="line">alter table t_ins_sequence AUTO_INCREMENT = 100000;</span><br><span class="line"># 修改表名</span><br><span class="line">alter table sys_user_role rename to sys_user_role_rel;</span><br><span class="line"># 查询数据库里面各个表的大小</span><br><span class="line">SELECT CONCAT(table_schema,&apos;.&apos;,table_name) AS &apos;Table Name&apos;,</span><br><span class="line">    table_rows AS &apos;Number of Rows&apos;,</span><br><span class="line">    CONCAT(ROUND(data_length/(1024*1024*1024),6),&apos; G&apos;) AS &apos;Data Size&apos;,</span><br><span class="line">    CONCAT(ROUND(index_length/(1024*1024*1024),6),&apos; G&apos;) AS &apos;Index Size&apos; ,</span><br><span class="line">    CONCAT(ROUND((data_length+index_length)/(1024*1024*1024),6),&apos; G&apos;) AS&apos;Total&apos;</span><br><span class="line">FROM information_schema.TABLES</span><br><span class="line">WHERE table_schema LIKE &apos;inspect_db&apos;;</span><br><span class="line"># 修改主键自增</span><br><span class="line">alter table word_fetch_queue modify queue_id int auto_increment;</span><br><span class="line"># 修改主键被外键约束show create table table_name;</span><br><span class="line"></span><br><span class="line">SET FOREIGN_KEY_CHECKS = 0;</span><br><span class="line"># 约束解除，进行修改，完了还原</span><br><span class="line">SET FOREIGN_KEY_CHECKS = 1;</span><br><span class="line"># 查询表的建表DDL</span><br><span class="line">show create table table_name;</span><br><span class="line"># 查看表空间模式</span><br><span class="line">show variables like &apos;%innodb_file_per_table%&apos; ;</span><br><span class="line"># Mysql基本可以将schema当成database；下面二个命令都会创建对应数据库</span><br><span class="line">create schema xxxName;</span><br><span class="line">create databse xxxName;</span><br><span class="line"># 查询某个字符开头的所有表</span><br><span class="line">show tables like &apos;ACT_%&apos;;</span><br></pre></td></tr></table></figure>
-<h2 id="执行计划EXPLAIN"><a href="#执行计划EXPLAIN" class="headerlink" title="执行计划EXPLAIN"></a>执行计划EXPLAIN</h2>
+          <p>Yesterday I had a phone call from Clint. I was very surprised. I <strong>__</strong> （write） to him many times but he <strong>__</strong> （never, reply） to my letters.<br>答案：had written, had never replied<br>解析：两个或两个以上相继发生的动作，用and或but按动作发生的先后顺序连接，此时要用一般过去时，而不用过去完成时。过去完成时则强调主语在过去的某一时刻“回顾”更早的动作。具体来说，如果在谈论过去某一事件时，又想到在这之前已发生的某事，就要用过去完成时态。   </p>
+<p>A: I need to find a dermatologist.（皮肤科医生） You’re familiar with Dr. Smith. Do you recommend her?<br>B: Well, I <strong>__</strong> （see） by her a few times. And the best I can say for her is she has interesting magazines in her waiting room.<br>答案：have been seen<br>解析：在英语中，“动作表达”的完成时态强调最近发生的事件，而“状态表达”的完成时态强调“较远的过去”经历。   </p>
+<p>It’s reported that by the end of this month the output of cement in the factory <strong>__</strong> （rise） by about 10%.<br>答案：will have risen<br>解析：将来完成时是以“将来”作为“坐标时间”，来表示开始于将来之前（可能是过去、现在或将来）的动作持续到将来。但动作开始的时间并不重要，关键是说话人要站在将来的某一时间来谈某一动作的完成情况。</p>
+<p>I have entered the university for two years.<br>答案：错误，应改为：I have been in the university for two years，或者用一般过去时态说成：I entered the university two years ago.</p>
+<p>He has left his native place for three years.<br>答案：“单一事件”完成时的肯定句不与持续的时间状语连用，动词leave（left的原形）是非延续性动词，不能跟一段时间状语（否定句除外）。</p>
+<p>A: Are you glad you came to China?<br>B: Yes. Indeed. 我本来是要考虑去Tokyo or Singapore, but 我从不后 悔我的决定。<br>答案：I’d considered going to Tokyo or Singapore, but I’ve never regretted my decision.<br>解析：表示“非真实”的过去，主要是指intend，mean，hope，want，plan，suppose，expect， think，propose和wish等动词用于过去完成时，可表示过去未能实现的计划、设想、意图或希望等。   </p>
+<p>George would certainly have attended the proceedings <strong>__</strong>.<br>A. had he not had a flat tire<br>B. had the tire no flattened itself<br>C. if the flat tire hadn’t happened<br>D. if he didn’t get a flat tire<br>答案：A</p>
+<p>If Greek civilization <strong>__</strong> all of Europe, English wouldn’t contain so many Greek words.<br>A. hadn’t influenced<br>B. doesn’t influence<br>C. hasn’t influenced<br>D. didn’t influence<br>答案：A</p>
+<p>Nelson <strong>__</strong> the fight, with a little more training and a better manager.<br>A. would win<br>B. had won<br>C. could have won<br>D. won<br>答案：C<br>解析：尼尔森本可以赢得这场战斗，但需要更多的训练和更好的教练。</p>
+<p>He would rather <strong>__</strong> than worked last night.<br>A. have slept<br>B. has slept<br>C. sleep<br>D. slept<br>答案：A<br>解析：本题考查 would rather have done 的虚拟句型，本题相当于“He would rather have slept than have worked last night.” ，后边的 have 被省去了。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/10/15/Mysql系列之备忘录/#more" rel="contents">
+              <a class="btn" href="/2020/08/05/English系列之思维练习错题笔记/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -248,7 +254,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/04/Java-Bean-Validation-Basics/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Vue系列之基础知识/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -262,7 +268,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/04/04/Java-Bean-Validation-Basics/" class="post-title-link" itemprop="url">Java Bean Validation Basics</a>
+            <a href="/2019/10/15/Vue系列之基础知识/" class="post-title-link" itemprop="url">Vue系列之基础知识</a>
         </h2>
 
         <div class="post-meta">
@@ -272,14 +278,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-04-04 10:20:12" itemprop="dateCreated datePublished" datetime="2020-04-04T10:20:12+08:00">2020-04-04</time>
+              <time title="Created: 2019-10-15 21:11:24" itemprop="dateCreated datePublished" datetime="2019-10-15T21:11:24+08:00">2019-10-15</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-30 10:36:39" itemprop="dateModified" datetime="2020-07-30T10:36:39+08:00">2020-07-30</time>
+                <time title="Modified: 2020-09-17 09:11:57" itemprop="dateModified" datetime="2020-09-17T09:11:57+08:00">2020-09-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -287,7 +293,175 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                  <a href="/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="eslint-plugin-vue-todo"><a href="#eslint-plugin-vue-todo" class="headerlink" title="eslint-plugin-vue todo"></a>eslint-plugin-vue todo</h2><h2 id="调试技巧-todo"><a href="#调试技巧-todo" class="headerlink" title="调试技巧 todo"></a>调试技巧 todo</h2><h2 id="前端加密的库CryptoJS使用demo-todo"><a href="#前端加密的库CryptoJS使用demo-todo" class="headerlink" title="前端加密的库CryptoJS使用demo todo"></a>前端加密的库CryptoJS使用demo todo</h2><p>以及相同的流行的库有什么？</p>
+<h2 id="Vue的生命周期-todo"><a href="#Vue的生命周期-todo" class="headerlink" title="Vue的生命周期 todo"></a>Vue的生命周期 todo</h2><h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="Vue-js-devtools灰色状态"><a href="#Vue-js-devtools灰色状态" class="headerlink" title="Vue.js devtools灰色状态"></a>Vue.js devtools灰色状态</h2><p>首先要确保编译的控制台没有error,在Sources里面有源码可以debug。</p>
+<h2 id="Invalid-prop-type-check-failed-for-prop-“queryForm”-Expected-Array-got-Promise"><a href="#Invalid-prop-type-check-failed-for-prop-“queryForm”-Expected-Array-got-Promise" class="headerlink" title="Invalid prop: type check failed for prop “queryForm”. Expected Array, got Promise"></a>Invalid prop: type check failed for prop “queryForm”. Expected Array, got Promise</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/15/Vue系列之基础知识/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/Markdown汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="NZ OR NORDIC.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/29/Markdown汇总/" class="post-title-link" itemprop="url">Markdown汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-29 10:38:18" itemprop="dateCreated datePublished" datetime="2020-03-29T10:38:18+08:00">2020-03-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-12 20:46:47" itemprop="dateModified" datetime="2020-09-12T20:46:47+08:00">2020-09-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Markdown/" itemprop="url" rel="index"><span itemprop="name">Markdown</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><h2 id="标记"><a href="#标记" class="headerlink" title="标记"></a>标记</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">**这是加粗的文字**</span><br><span class="line">*这是倾斜的文字*`</span><br><span class="line">***这是斜体加粗的文字***</span><br><span class="line">~~这是加删除线的文字~~</span><br><span class="line">&gt;这是引用的内容</span><br><span class="line">==背景高亮==</span><br></pre></td></tr></table></figure>
+<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">----</span><br><span class="line">***</span><br><span class="line">*****</span><br></pre></td></tr></table></figure>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![图片alt](图片地址 &apos;&apos;图片title&apos;&apos;)</span><br></pre></td></tr></table></figure>
+<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[超链接名](超链接地址 &quot;超链接title&quot;)</span><br></pre></td></tr></table></figure>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/29/Markdown汇总/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/股票理财/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="NZ OR NORDIC.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/29/股票理财/" class="post-title-link" itemprop="url">股票理财</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-29 18:25:57" itemprop="dateCreated datePublished" datetime="2020-03-29T18:25:57+08:00">2020-03-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-05 22:10:32" itemprop="dateModified" datetime="2020-09-05T22:10:32+08:00">2020-09-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/理财/" itemprop="url" rel="index"><span itemprop="name">理财</span></a>
                 </span>
             </span>
 
@@ -303,286 +477,112 @@
 
       
           <blockquote>
-<p>参考来自www.baeldung.com的多篇文章</p>
+<p>这篇笔记总结自李哥说理财的股票教程，以及其他网上知识点收集，只是我自己的个人复习笔记。</p>
 </blockquote>
-<h1 id="Java-Bean-Validation的历史演变"><a href="#Java-Bean-Validation的历史演变" class="headerlink" title="Java Bean Validation的历史演变"></a>Java Bean Validation的历史演变</h1><ul>
-<li>原本以为JSR303就已经是够了，后面才发现这只是initial version，也就是Bean Validation 1.0；</li>
-<li>后面又推出了JSR349（Bean Validation 1.1）</li>
-<li>而最新版本是<a href="https://jcp.org/en/jsr/detail?id=380" target="_blank" rel="noopener">JSR380</a>（<a href="https://beanvalidation.org/2.0/" target="_blank" rel="noopener">Bean Validation 2.0</a>）</li>
+<h2 id="经济运作体系"><a href="#经济运作体系" class="headerlink" title="经济运作体系"></a>经济运作体系</h2><p><a href="https://youtu.be/rFV7wdEX-Mo" target="_blank" rel="noopener">经济机器是怎样运行的</a></p>
+<h2 id="非农时间"><a href="#非农时间" class="headerlink" title="非农时间"></a>非农时间</h2><p>什么是非农，通常说的是美国每月公布的非农业就业人口数据，在金融市场里非农会导致数据的波荡，这个波荡的数据会引起投资者的骚动。<br>非农数据，包括美国非农就业率，非农业就业人数与失业率这三个数值，反映了美国非农业部门的就业状况的数据指标。这三个数据每个月第一个周五北京时间（冬令时：11月–3月）21:30，（夏令时：4月–10月）20:30发布，这些数据来源于美国劳工部劳动统计局。<br>非农分为大非农和小非农之分，大非农一般是在每月第一周的周五，主要是大盘。小非农一般在每月的一周的周三，主要是微盘。大非农的数据波动比较大。<br>简单说来，这两个数据都是直接反应现实的失业和就业情况，我们需要这样理解，如果就业率高失业率低说明美国经济良好，美元走强;反之则美元走弱。所有与美元挂钩的投资，皆会因此而剧烈波动。当我们根据行情做单的时候，要看清楚数据，然后结合相关技术面顺势而为。<br>可以说小非农是非农前的一次预期行情美国非农数据对黄金交易的影响。两者是相互关系的，从小非农指数就可以推测大非农指数，但是想要看得准，那就需要一定的基本功和时间的累积，不是一朝一夕就可以熟练的。</p>
+<h3 id="非农数据与黄金的关系"><a href="#非农数据与黄金的关系" class="headerlink" title="非农数据与黄金的关系"></a>非农数据与黄金的关系</h3><blockquote>
+<p>非农是官方统计的数据对于一个市场的企业就业情况，从而就可以判断美国的美元经济趋势，大非农是每个月的一周的周五晚八点准时公布，主要是公布美国劳工部公布的一组民间调查的就业率和失业率，也可以判断美国美元趋势。贵金属，黄金，白银，铜，这些全部都是以美元为风向标，美元涨贵金属就跌，美元跌贵金属就涨。 所以能明白美国美元经济是利好利空就能判断黄金的方向了</p>
+</blockquote>
+<h2 id="股票代码"><a href="#股票代码" class="headerlink" title="股票代码"></a>股票代码</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/499PUR.png" alt></p>
+<h2 id="选股大法"><a href="#选股大法" class="headerlink" title="选股大法"></a>选股大法</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/29/股票理财/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/28/数据结构系列之链表-Java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="NZ OR NORDIC.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/28/数据结构系列之链表-Java/" class="post-title-link" itemprop="url">数据结构系列之链表（Java）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-04-28 18:22:07" itemprop="dateCreated datePublished" datetime="2019-04-28T18:22:07+08:00">2019-04-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-04 16:54:29" itemprop="dateModified" datetime="2020-09-04T16:54:29+08:00">2020-09-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="https://leetcode-cn.com/tag/linked-list/" target="_blank" rel="noopener">leetcode链表专题</a></p>
+<h2 id="链表分别都对应了那些Java类？"><a href="#链表分别都对应了那些Java类？" class="headerlink" title="链表分别都对应了那些Java类？"></a>链表分别都对应了那些Java类？</h2><ul>
+<li>java.util.ArrayList</li>
+<li>java.util.LinkedList</li>
+<li>java.util.concurrent.CopyOnWriteArrayList</li>
 </ul>
-<h1 id="依赖包"><a href="#依赖包" class="headerlink" title="依赖包"></a>依赖包</h1><p>在不使用第三方的框架提供的校验功能（比如Spring，Spring默认会引入依赖并对标准做了一些具体的实现）的情况下，想要使用Java Bean Validation的功能需要先引入标准API依赖(这里以2.0版本为准)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;javax.validation&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;validation-api&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.0.Final&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
-<p>除了引入标准之外，还要引入标准的实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.hibernate.validator&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;hibernate-validator&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;6.0.2.Final&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.hibernate.validator&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;hibernate-validator-annotation-processor&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;6.0.2.Final&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
-<p>这里只是引入的hibernate的validator部分，没有引入持久化的那部分。<br>再引入el表达式的依赖：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;javax.el&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;javax.el-api&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.0.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"> </span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.glassfish.web&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;javax.el&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.2.6&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
-<p>如果没有引入el表达式的依赖可能会报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HV000183: Unable to load ‘javax.el.ExpressionFactory&apos;. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead</span><br></pre></td></tr></table></figure></p>
-<h1 id="可以通过Validator对Bean进行数据校验"><a href="#可以通过Validator对Bean进行数据校验" class="headerlink" title="可以通过Validator对Bean进行数据校验"></a>可以通过Validator对Bean进行数据校验</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">public void test6() &#123;</span><br><span class="line">    FetchWordResultDTO fetchWordResultDTO = new FetchWordResultDTO();</span><br><span class="line">    ValidatorFactory factory = Validation.buildDefaultValidatorFactory();</span><br><span class="line">    Validator validator = factory.getValidator();</span><br><span class="line">    Set&lt;ConstraintViolation&lt;FetchWordResultDTO&gt;&gt; results = validator.validate(fetchWordResultDTO);</span><br><span class="line">    for (ConstraintViolation&lt;FetchWordResultDTO&gt; result : results) &#123;</span><br><span class="line">        System.out.println(result.getPropertyPath());</span><br><span class="line">        System.out.println(result.getMessage());</span><br><span class="line">        System.out.println(result.getInvalidValue());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/04/Java-Bean-Validation-Basics/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/网络、密码与安全/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="NZ OR NORDIC.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/15/网络、密码与安全/" class="post-title-link" itemprop="url">网络、密码与安全</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-10-15 21:13:59" itemprop="dateCreated datePublished" datetime="2019-10-15T21:13:59+08:00">2019-10-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-30 10:28:26" itemprop="dateModified" datetime="2020-07-30T10:28:26+08:00">2020-07-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网络安全/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网络安全/网络/" itemprop="url" rel="index"><span itemprop="name">网络</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="JWT-todo"><a href="#JWT-todo" class="headerlink" title="JWT todo"></a>JWT todo</h2><h2 id="互联网-20-大安全隐患-todo"><a href="#互联网-20-大安全隐患-todo" class="headerlink" title="互联网 20 大安全隐患 todo"></a>互联网 20 大安全隐患 todo</h2><h4 id="CSRF-攻击的应对之道-todo"><a href="#CSRF-攻击的应对之道-todo" class="headerlink" title="CSRF 攻击的应对之道 todo"></a>CSRF 攻击的应对之道 todo</h4><p><a href="https://www.ibm.com/developerworks/cn/web/1102_niugang_csrf/" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/web/1102_niugang_csrf/</a></p>
-<p><a href="https://segmentfault.com/a/1190000006944760?utm_source=tag-newest" target="_blank" rel="noopener">https://segmentfault.com/a/1190000006944760?utm_source=tag-newest</a></p>
-<p><a href="https://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html" target="_blank" rel="noopener">https://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html</a></p>
-<h2 id="RS256加密算法研究-todo"><a href="#RS256加密算法研究-todo" class="headerlink" title="RS256加密算法研究 todo"></a>RS256加密算法研究 todo</h2><h2 id="http-vs-https-todo"><a href="#http-vs-https-todo" class="headerlink" title="http vs https todo"></a>http vs https todo</h2><h2 id="SSL-vs-TLS-todo"><a href="#SSL-vs-TLS-todo" class="headerlink" title="SSL vs TLS todo"></a>SSL vs TLS todo</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/10/15/网络、密码与安全/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/JavaScript/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="NZ OR NORDIC.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/29/JavaScript/" class="post-title-link" itemprop="url">JavaScript</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-03-29 11:22:26" itemprop="dateCreated datePublished" datetime="2020-03-29T11:22:26+08:00">2020-03-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-26 15:07:10" itemprop="dateModified" datetime="2020-07-26T15:07:10+08:00">2020-07-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="判断true和false"><a href="#判断true和false" class="headerlink" title="判断true和false"></a>判断true和false</h2><ul>
-<li>如果逻辑对象无初始值或者其值为 0、-0、null、””、false、undefined 或者 NaN，那么对象的值为 false。否则，其值为 true（即使当自变量为字符串 “false” 时）！</li>
-<li>但是不要想当然的理解为 0 == null（结果为false） ，1 == “abc”（结果是false）， null == undefined （结果为false）</li>
-<li>不过 0 == false ， 1 == true（结果都为true）</li>
+<h2 id="单向链表"><a href="#单向链表" class="headerlink" title="单向链表"></a>单向链表</h2><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/X2alLM.png" alt><br>单向链表包含两个域：</p>
+<ul>
+<li>信息域（上图的data，存放结点数据）</li>
+<li>指针域（上图的next，链接指向列表中的下一个结点，而最后一个结点则指向一个空值）</li>
 </ul>
-<h2 id="任意类型的值转换为布尔类型的语法糖"><a href="#任意类型的值转换为布尔类型的语法糖" class="headerlink" title="任意类型的值转换为布尔类型的语法糖"></a>任意类型的值转换为布尔类型的语法糖</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!!val</span><br></pre></td></tr></table></figure>
-<p>一个！是取非 再一个！又取非 相当于把这个数据转换为boolean类型了</p>
-<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="Array-some"><a href="#Array-some" class="headerlink" title="Array.some()"></a>Array.some()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const array = [1, 2, 3, 4, 5];</span><br><span class="line"></span><br><span class="line">// checks whether an element is even</span><br><span class="line">const even = (element) =&gt; element % 2 === 0;</span><br><span class="line"></span><br><span class="line">console.log(array.some(even));</span><br><span class="line">// expected output: true</span><br></pre></td></tr></table></figure>
-<h2 id="沙箱"><a href="#沙箱" class="headerlink" title="沙箱"></a>沙箱</h2>
+<p><strong><em>每个结点只有一个指针的链表也叫单向链表，或者单链表。</em></strong></p>
+<h3 id="在链表表头插入新结点"><a href="#在链表表头插入新结点" class="headerlink" title="在链表表头插入新结点"></a>在链表表头插入新结点</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/AbY5Jl.png" alt><br>此时只需要变更Head的指向。</p>
+<h3 id="在链表中间插入新结点"><a href="#在链表中间插入新结点" class="headerlink" title="在链表中间插入新结点"></a>在链表中间插入新结点</h3>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/03/29/JavaScript/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/20/Git汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="NZ OR NORDIC.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/03/20/Git汇总/" class="post-title-link" itemprop="url">Git汇总</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-03-20 19:45:14" itemprop="dateCreated datePublished" datetime="2019-03-20T19:45:14+08:00">2019-03-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-24 14:01:29" itemprop="dateModified" datetime="2020-07-24T14:01:29+08:00">2020-07-24</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="git基本命令"><a href="#git基本命令" class="headerlink" title="git基本命令"></a>git基本命令</h1><p>最近打算搞个web应用，练习一下新的技术栈，所以在github建了个私库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">clone https://github.com/coding-by-feng/keep-yourself.git</span><br><span class="line">## 查看当前分支有哪些修改</span><br><span class="line">vi README.md</span><br><span class="line">git status</span><br><span class="line">## 提交为空，但是存在尚未跟踪的文件（使用 &quot;git add&quot; 建立跟踪）</span><br><span class="line">git add README.md</span><br><span class="line">## 提交 执行之后需要写入备注 </span><br><span class="line">git commit -m &quot;remark&quot;</span><br><span class="line">## 再次执行git status 提示无文件要提交</span><br><span class="line">## git push 推送本地文件到github</span><br><span class="line">## 回到过去</span><br><span class="line">git log</span><br><span class="line">git reset --hard XXXXX（当前版本指针）</span><br><span class="line">## git reflog找回被重置冲刷掉之前的log，防止错误重置。</span><br><span class="line">## 建立里程碑</span><br><span class="line">## 在github new Releases.</span><br></pre></td></tr></table></figure>
-<h2 id="git-pull和git-fetch"><a href="#git-pull和git-fetch" class="headerlink" title="git pull和git fetch"></a>git pull和git fetch</h2><p>git pull<br>如果需要取回origin主机的erp01分支与本地的master分支合并，则写为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin erp01:master</span><br></pre></td></tr></table></figure></p>
-<p>上面这句命令的意思相当于取回origin/erp01分支的代码在与当前的分支合并。<br>如果本地分支和远程分支之间建立了一种追踪的关系，那么我们git pull的时候就可以省略远程的分支名：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origing</span><br></pre></td></tr></table></figure></p>
-<p>上面命令表明本地分支自动与队对应的origin主机追踪分支进行合并。<br>git 允许手动建立追踪关系:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch --set-upstream master origin/erp01</span><br></pre></td></tr></table></figure></p>
-<p>git fetch<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch &lt;远程主机名&gt;（origin）&lt;分支名&gt;</span><br></pre></td></tr></table></figure></p>
-<p>如果想要取回特定分支的更新就可以指定分支名；<br>所取回的更新，在本地主机上要用“远程主机名/分支名”进行读取。比如origin主机的erp01，就要用origin/erp01读取。<br>接下来可以用git branch -r命令查看远程分支，如果用到 -a选项，则表明查看所有的分支；<br>如果你需要合并分支，就可以用merge或rebase：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git merge origin/erp01</span><br><span class="line">#或</span><br><span class="line">$ git rebase origin/erp01</span><br></pre></td></tr></table></figure></p>
-<p>git pull和git fetch区别<br>这两个命令的主要区别在与：git pull是拉下更新后就自动合并本地分支，而git fetch是先吧更新拉下来，在用merge或rebase进行合并。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/03/20/Git汇总/#more" rel="contents">
+              <a class="btn" href="/2019/04/28/数据结构系列之链表-Java/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -680,7 +680,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">69</span>
+        <span class="site-state-item-count">67</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -764,6 +764,61 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
