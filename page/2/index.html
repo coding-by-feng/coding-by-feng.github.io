@@ -164,6 +164,94 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/20/Git汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="NZ OR NORDIC.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/03/20/Git汇总/" class="post-title-link" itemprop="url">Git汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-03-20 19:45:14" itemprop="dateCreated datePublished" datetime="2019-03-20T19:45:14+08:00">2019-03-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-12-17 10:08:45" itemprop="dateModified" datetime="2020-12-17T10:08:45+08:00">2020-12-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="git基本命令"><a href="#git基本命令" class="headerlink" title="git基本命令"></a>git基本命令</h1><p>最近打算搞个web应用，练习一下新的技术栈，所以在github建了个私库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">clone https://github.com/coding-by-feng/keep-yourself.git</span><br><span class="line">## 查看当前分支有哪些修改</span><br><span class="line">vi README.md</span><br><span class="line">git status</span><br><span class="line">## 提交为空，但是存在尚未跟踪的文件（使用 &quot;git add&quot; 建立跟踪）</span><br><span class="line">git add README.md</span><br><span class="line">## 提交 执行之后需要写入备注 </span><br><span class="line">git commit -m &quot;remark&quot;</span><br><span class="line">## 再次执行git status 提示无文件要提交</span><br><span class="line">## git push 推送本地文件到github</span><br><span class="line">## 回到过去</span><br><span class="line">git log</span><br><span class="line">git reset --hard XXXXX（当前版本指针）</span><br><span class="line">## git reflog找回被重置冲刷掉之前的log，防止错误重置。</span><br><span class="line">## 建立里程碑</span><br><span class="line">## 在github new Releases.</span><br></pre></td></tr></table></figure>
+<h2 id="git-pull和git-fetch"><a href="#git-pull和git-fetch" class="headerlink" title="git pull和git fetch"></a>git pull和git fetch</h2><p>git pull<br>如果需要取回origin主机的erp01分支与本地的master分支合并，则写为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin erp01:master</span><br></pre></td></tr></table></figure></p>
+<p>上面这句命令的意思相当于取回origin/erp01分支的代码在与当前的分支合并。<br>如果本地分支和远程分支之间建立了一种追踪的关系，那么我们git pull的时候就可以省略远程的分支名：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origing</span><br></pre></td></tr></table></figure></p>
+<p>上面命令表明本地分支自动与队对应的origin主机追踪分支进行合并。<br>git 允许手动建立追踪关系:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch --set-upstream master origin/erp01</span><br></pre></td></tr></table></figure></p>
+<p>git fetch<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch &lt;远程主机名&gt;（origin）&lt;分支名&gt;</span><br></pre></td></tr></table></figure></p>
+<p>如果想要取回特定分支的更新就可以指定分支名；<br>所取回的更新，在本地主机上要用“远程主机名/分支名”进行读取。比如origin主机的erp01，就要用origin/erp01读取。<br>接下来可以用git branch -r命令查看远程分支，如果用到 -a选项，则表明查看所有的分支；<br>如果你需要合并分支，就可以用merge或rebase：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git merge origin/erp01</span><br><span class="line">#或</span><br><span class="line">$ git rebase origin/erp01</span><br></pre></td></tr></table></figure></p>
+<p>git pull和git fetch区别<br>这两个命令的主要区别在与：git pull是拉下更新后就自动合并本地分支，而git fetch是先吧更新拉下来，在用merge或rebase进行合并。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/03/20/Git汇总/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/09/《深入理解Java虚拟机第3版》阅读笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -230,105 +318,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/07/09/《深入理解Java虚拟机第3版》阅读笔记/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/27/Mind Mapping Compilation/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="NZ OR NORDIC.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/27/Mind Mapping Compilation/" class="post-title-link" itemprop="url">Mind Mapping Compilation</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-09-27 22:28:04" itemprop="dateCreated datePublished" datetime="2020-09-27T22:28:04+08:00">2020-09-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-16 10:36:27" itemprop="dateModified" datetime="2020-12-16T10:36:27+08:00">2020-12-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/思维导图/" itemprop="url" rel="index"><span itemprop="name">思维导图</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="English"><a href="#English" class="headerlink" title="English"></a>English</h1><ul>
-<li><a href="http://www.xmind.net/m/XReDCR" target="_blank" rel="noopener">一般将来时</a></li>
-<li><a href="http://www.xmind.net/m/b3xU3U" target="_blank" rel="noopener">情态动词</a></li>
-<li><a href="http://www.xmind.net/m/PdjmPE" target="_blank" rel="noopener">虚拟语气</a></li>
-<li><a href="http://www.xmind.net/m/FtkHvu" target="_blank" rel="noopener">定语从句</a></li>
-<li><a href="http://www.xmind.net/m/FFfGPz" target="_blank" rel="noopener">不定式</a></li>
-<li><a href="http://www.xmind.net/m/SeCXTS" target="_blank" rel="noopener">分词</a></li>
-<li><a href="http://www.xmind.net/m/4fcLKX" target="_blank" rel="noopener">从句与非谓语</a></li>
-</ul>
-<h1 id="Tech"><a href="#Tech" class="headerlink" title="Tech"></a>Tech</h1><ul>
-<li><a href="http://www.xmind.net/m/xcdF8N" target="_blank" rel="noopener">Java虚拟机</a></li>
-</ul>
-<h1 id="Life"><a href="#Life" class="headerlink" title="Life"></a>Life</h1><ul>
-<li><a href="http://www.xmind.net/m/7swavF" target="_blank" rel="noopener">眼科健康&amp;&amp;近视散光配镜</a></li>
-<li><a href="http://www.xmind.net/m/KJYKyn" target="_blank" rel="noopener">新手养猫笔记</a></li>
-<li><a href="http://www.xmind.net/m/QqyzaF" target="_blank" rel="noopener">社保&amp;公积金&amp;各种操蛋得手续办理</a></li>
-<li><a href="http://www.xmind.net/m/bVHjuf" target="_blank" rel="noopener">头发&amp;&amp;皮肤护理疗养</a></li>
-</ul>
-
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/27/Mind Mapping Compilation/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>

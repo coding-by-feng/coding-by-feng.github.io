@@ -6175,6 +6175,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 <li>蹊径</li>
 <li>何不食肉糜</li>
 <li>推波助澜</li>
+<li>举足轻重</li>
 </ul>
 <h1 id="Books"><a href="#Books" class="headerlink" title="Books"></a>Books</h1><blockquote>
 <p><a href="https://github.com/programthink/books" target="_blank" rel="noopener">编程随想的电子书清单</a></p>
@@ -7151,6 +7152,7 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
 </ul>
 <h1 id="Tech"><a href="#Tech" class="headerlink" title="Tech"></a>Tech</h1><ul>
 <li><a href="http://www.xmind.net/m/xcdF8N" target="_blank" rel="noopener">Java虚拟机</a></li>
+<li><a href="https://www.xmind.net/m/YpajfJ" target="_blank" rel="noopener">Interview Syllabus</a></li>
 </ul>
 <h1 id="Life"><a href="#Life" class="headerlink" title="Life"></a>Life</h1><ul>
 <li><a href="http://www.xmind.net/m/7swavF" target="_blank" rel="noopener">眼科健康&amp;&amp;近视散光配镜</a></li>
@@ -7406,7 +7408,17 @@ INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
     <content><![CDATA[<blockquote>
 <p>专用词汇至少要耳熟能详、”章口就来”。</p>
 </blockquote>
-<h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><h2 id="JVM-amp-amp-GC"><a href="#JVM-amp-amp-GC" class="headerlink" title="JVM &amp;&amp; GC"></a>JVM &amp;&amp; GC</h2><ul>
+<h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><h2 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h2><ul>
+<li>POJO（Plain Ordinary Java Object） </li>
+</ul>
+<h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2><ul>
+<li>AOP（Aspect-Oriented Programming）</li>
+<li>Transactional</li>
+<li>Autowired</li>
+<li>Qualifier</li>
+<li>Required</li>
+</ul>
+<h2 id="JVM-amp-amp-GC"><a href="#JVM-amp-amp-GC" class="headerlink" title="JVM &amp;&amp; GC"></a>JVM &amp;&amp; GC</h2><ul>
 <li>Serial</li>
 <li>Serial Old</li>
 <li>Parallel Old</li>
