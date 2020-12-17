@@ -164,93 +164,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/13/Reactor响应式编程阅读源码有感/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="NZ OR NORDIC.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/13/Reactor响应式编程阅读源码有感/" class="post-title-link" itemprop="url">Reactor响应式编程阅读源码有感</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-13 20:57:04" itemprop="dateCreated datePublished" datetime="2019-12-13T20:57:04+08:00">2019-12-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-16 20:58:54" itemprop="dateModified" datetime="2020-07-16T20:58:54+08:00">2020-07-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Reactor/" itemprop="url" rel="index"><span itemprop="name">Reactor</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://projectreactor.io/docs/core/release/reference/" target="_blank" rel="noopener">官方参考文档</a><br><a href="https://www.baeldung.com/reactor-core" target="_blank" rel="noopener">baeldung参考文章</a></p>
-<h1 id="Flux"><a href="#Flux" class="headerlink" title="Flux"></a>Flux</h1><p>an Asynchronous Sequence of 0-N Items（是一个异步的处理序列，它有0或者多个条目）<br>官方对Flux的原理解析图解：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/2zMdgN.png" alt></p>
-<p>Spring Gateway的源码中重度依赖Reactor Project，比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return responseFlux.then(chain.filter(exchange));</span><br></pre></td></tr></table></figure></p>
-<p>这句代码的逻辑会这么走：要等到responseFlux被subscribe了之后，chain.filter(exchange)（这是一个Mono），才会被继续流转运行。</p>
-<h1 id="Mono"><a href="#Mono" class="headerlink" title="Mono"></a>Mono</h1><h2 id="Mono-just"><a href="#Mono-just" class="headerlink" title="Mono.just"></a>Mono.just</h2><p>I mean that calling Mono.just(System.currentTimeMillis()) will immediately invoke the currentTimeMillis() method and capture the result</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Mono&lt;Long&gt; clock = Mono.just(System.currentTimeMillis());</span><br><span class="line">//time == t0</span><br><span class="line"></span><br><span class="line">Thread.sleep(10_000);</span><br><span class="line">//time == t10</span><br><span class="line">clock.block(); //we use block for demonstration purposes, returns t0（代表这个时候获取clock的实际时间依然还是上面第一次调用System.currentTimeMillis()拿到的时间，下面雷同）</span><br><span class="line"></span><br><span class="line">Thread.sleep(7_000);</span><br><span class="line">//time == t17</span><br><span class="line">clock.block(); //we re-subscribe to clock, still returns t0</span><br></pre></td></tr></table></figure>
-<h2 id="Mono-defer"><a href="#Mono-defer" class="headerlink" title="Mono.defer"></a>Mono.defer</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/12/13/Reactor响应式编程阅读源码有感/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Spring系列之SpringBoot/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -609,6 +522,93 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/25/Spring系列之SpringCloud/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="NZ OR NORDIC.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/25/Spring系列之SpringCloud/" class="post-title-link" itemprop="url">Spring系列之SpringCloud</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-25 21:30:37" itemprop="dateCreated datePublished" datetime="2019-11-25T21:30:37+08:00">2019-11-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-05 10:23:30" itemprop="dateModified" datetime="2020-06-05T10:23:30+08:00">2020-06-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/SpringCloud/" itemprop="url" rel="index"><span itemprop="name">SpringCloud</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？-todo"><a href="#整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？-todo" class="headerlink" title="整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？ todo"></a>整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？ todo</h2><h2 id="Dubbo的生态在最近有没有经常颠覆性的完善？-todo"><a href="#Dubbo的生态在最近有没有经常颠覆性的完善？-todo" class="headerlink" title="Dubbo的生态在最近有没有经常颠覆性的完善？ todo"></a>Dubbo的生态在最近有没有经常颠覆性的完善？ todo</h2><h2 id="为什么本地配置文件还要有从git加载的模式？-todo"><a href="#为什么本地配置文件还要有从git加载的模式？-todo" class="headerlink" title="为什么本地配置文件还要有从git加载的模式？ todo"></a>为什么本地配置文件还要有从git加载的模式？ todo</h2><h2 id="RefreshScope用法和避坑-todo"><a href="#RefreshScope用法和避坑-todo" class="headerlink" title="@RefreshScope用法和避坑 todo"></a>@RefreshScope用法和避坑 todo</h2><p>Refresh Scope<br>A Spring @Bean that is marked as @RefreshScope will get special treatment when there is a configuration change. This addresses the problem of stateful beans that only get their configuration injected when they are initialized. For instance if a DataSource has open connections when the database URL is changed via the Environment, we probably want the holders of those connections to be able to complete what they are doing. Then the next time someone borrows a connection from the pool he gets one with the new URL.</p>
+<p>Refresh scope beans are lazy proxies that initialize when they are used (i.e. when a method is called), and the scope acts as a cache of initialized values. To force a bean to re-initialize on the next method call you just need to invalidate its cache entry.</p>
+<h2 id="spring-cloud-config-uri的默认值作用是什么？启动警告是否需要排除掉？todo"><a href="#spring-cloud-config-uri的默认值作用是什么？启动警告是否需要排除掉？todo" class="headerlink" title="spring.cloud.config.uri的默认值作用是什么？启动警告是否需要排除掉？todo"></a>spring.cloud.config.uri的默认值作用是什么？启动警告是否需要排除掉？todo</h2><h2 id="SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别-todo"><a href="#SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别-todo" class="headerlink" title="@SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别 todo"></a>@SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别 todo</h2><h1 id="spring-profiles-yml配置文件"><a href="#spring-profiles-yml配置文件" class="headerlink" title="spring.profiles || yml配置文件"></a>spring.profiles || yml配置文件</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/25/Spring系列之SpringCloud/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -680,20 +680,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">130</span>
+          <span class="site-state-item-count">129</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-count">66</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">91</span>
+        <span class="site-state-item-count">90</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

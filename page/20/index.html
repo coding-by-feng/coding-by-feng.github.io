@@ -164,89 +164,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/25/Spring系列之SpringWebFlux/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="NZ OR NORDIC.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/25/Spring系列之SpringWebFlux/" class="post-title-link" itemprop="url">Spring系列之SpringWebFlux</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-04-25 21:16:57 / Modified: 23:17:52" itemprop="dateCreated datePublished" datetime="2020-04-25T21:16:57+08:00">2020-04-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/Spring-WebFlux/" itemprop="url" rel="index"><span itemprop="name">Spring WebFlux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="Http请求的总入口"><a href="#Http请求的总入口" class="headerlink" title="Http请求的总入口"></a>Http请求的总入口</h2><p>org.springframework.web.reactive.DispatcherHandler.handle</p>
-<h2 id="HandlerFunction-vs-RouterFunction"><a href="#HandlerFunction-vs-RouterFunction" class="headerlink" title="HandlerFunction vs RouterFunction"></a>HandlerFunction vs RouterFunction</h2><p>参考自：<a href="https://www.baeldung.com/spring-5-functional-web" target="_blank" rel="noopener">https://www.baeldung.com/spring-5-functional-web</a></p>
-<h3 id="HandlerFunction"><a href="#HandlerFunction" class="headerlink" title="HandlerFunction"></a>HandlerFunction</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">public interface HandlerFunction&lt;T extends ServerResponse&gt; &#123;</span><br><span class="line">    Mono&lt;T&gt; handle(ServerRequest request);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个接口的实现其实类似servlet，如果和标准的Servlet.service(ServletRequest req, ServletResponse res)比对的话，HandlerFunction返回的是一个响应，而不是将和Servlet一样，将ServerResponse作为参数，这样子几乎没有副作用，而且更方便测试和重用。</p>
-<h3 id="RouterFunction"><a href="#RouterFunction" class="headerlink" title="RouterFunction"></a>RouterFunction</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">public interface RouterFunction&lt;T extends ServerResponse&gt; &#123;</span><br><span class="line">    Mono&lt;HandlerFunction&lt;T&gt;&gt; route(ServerRequest request);</span><br><span class="line">    // ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static &lt;T extends ServerResponse&gt; RouterFunction&lt;T&gt; route(</span><br><span class="line">  RequestPredicate predicate,</span><br><span class="line">  HandlerFunction&lt;T&gt; handlerFunction)</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/25/Spring系列之SpringWebFlux/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Spring系列之SpringGateway/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -601,6 +518,90 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/30/PTE考试准备/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="NZ OR NORDIC.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/30/PTE考试准备/" class="post-title-link" itemprop="url">PTE考试准备</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-30 22:37:56" itemprop="dateCreated datePublished" datetime="2020-03-30T22:37:56+08:00">2020-03-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-31 17:43:37" itemprop="dateModified" datetime="2020-03-31T17:43:37+08:00">2020-03-31</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PTE/" itemprop="url" rel="index"><span itemprop="name">PTE</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h1 id="重要的备忘录"><a href="#重要的备忘录" class="headerlink" title="重要的备忘录"></a>重要的备忘录</h1><h2 id="模拟考网站"><a href="#模拟考网站" class="headerlink" title="模拟考网站"></a>模拟考网站</h2><p><a href="https://ptepractice.com" target="_blank" rel="noopener">https://ptepractice.com</a></p>
+<h2 id="官方的在线练习题目"><a href="#官方的在线练习题目" class="headerlink" title="官方的在线练习题目"></a>官方的在线练习题目</h2><p>Scored Practice Tests??</p>
+<h2 id="youtube资源"><a href="#youtube资源" class="headerlink" title="youtube资源"></a>youtube资源</h2><p>E2 PTE Academic</p>
+<h2 id="英语流利说"><a href="#英语流利说" class="headerlink" title="英语流利说"></a>英语流利说</h2><h2 id="大澳学院-微信公众号"><a href="#大澳学院-微信公众号" class="headerlink" title="大澳学院-微信公众号"></a>大澳学院-微信公众号</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/30/PTE考试准备/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -672,20 +673,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">130</span>
+          <span class="site-state-item-count">129</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-count">66</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">91</span>
+        <span class="site-state-item-count">90</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
