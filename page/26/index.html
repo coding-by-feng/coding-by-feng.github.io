@@ -20,16 +20,16 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="NZ OR NORDIC.">
+  <meta name="description" content="A Quiet Departure.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Feng&#39;s Blog">
 <meta property="og:url" content="http://yoursite.com/page/26/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="NZ OR NORDIC.">
+<meta property="og:description" content="A Quiet Departure.">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Feng&#39;s Blog">
-<meta name="twitter:description" content="NZ OR NORDIC.">
+<meta name="twitter:description" content="A Quiet Departure.">
 
 <link rel="canonical" href="http://yoursite.com/page/26/">
 
@@ -164,176 +164,12 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/oracle系列之DBLink的使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="NZ OR NORDIC.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/07/oracle系列之DBLink的使用/" class="post-title-link" itemprop="url">oracle系列之DBLink的使用</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-04-07 10:37:40" itemprop="dateCreated datePublished" datetime="2019-04-07T10:37:40+08:00">2019-04-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-05-15 12:29:35" itemprop="dateModified" datetime="2019-05-15T12:29:35+08:00">2019-05-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/oracle/" itemprop="url" rel="index"><span itemprop="name">oracle</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="赋予权限"><a href="#赋予权限" class="headerlink" title="赋予权限"></a>赋予权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- 查看feng用户是否具备创建database link 权限</span><br><span class="line">select * from user_sys_privs where privilege like upper(&apos;%DATABASE LINK%&apos;) AND USERNAME=&apos;FENG&apos;;</span><br><span class="line">-- 如果查出结果行说明没有权限，给FENG用户授予创建dblink的权限</span><br><span class="line">grant create public database link to feng;</span><br></pre></td></tr></table></figure>
-<h2 id="使用DBLink"><a href="#使用DBLink" class="headerlink" title="使用DBLink"></a>使用DBLink</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- sql创建DBlink，ORCL21是配置在tnsnames.ora的远程数据库的别名</span><br><span class="line">create public database link TESTLINK2 connect to FENG identified by &quot;123456&quot; USING &apos;ORCL21&apos;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>ORCL21=<br>   (DESCRIPTION =<br>    (ADDRESS_LIST =<br>      (ADDRESS = (PROTOCOL = TCP)(HOST = 127.0.0.1)(PORT = 1521))<br>    )<br>    (CONNECT_DATA =<br>      (SERVICE_NAME = reportdb)<br>    )<br>  )</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">--通过DBLink查询远程数据库的表</span><br><span class="line">select * from testTable@TESTLINK2 order by id;</span><br><span class="line">insert into testTable@TESTLINK2 values(...);</span><br><span class="line">udpate testTable@TESTLINK2 set infoColumn=&apos;test&apos; where ...;</span><br><span class="line">delete from testTable@TESTLINK2 where ...;</span><br></pre></td></tr></table></figure>
-<h2 id="创建同义词"><a href="#创建同义词" class="headerlink" title="创建同义词"></a>创建同义词</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- 创建同义词</span><br><span class="line">create synonym TESTSYNONYM FOR testTable@TESTLINK2;</span><br><span class="line">-- 查询ORCL2中FENG用户的表TESTable</span><br><span class="line">SELECT * FROM TESTSYNONYM order by id</span><br></pre></td></tr></table></figure>
-
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/04/07/oracle系列之DBLink的使用/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/28/Mac加虚拟机实现华为TSMAgent认证代理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="NZ OR NORDIC.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/28/Mac加虚拟机实现华为TSMAgent认证代理/" class="post-title-link" itemprop="url">Mac加虚拟机实现华为TSMAgent认证代理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-04-28 18:13:44 / Modified: 18:17:49" itemprop="dateCreated datePublished" datetime="2019-04-28T18:13:44+08:00">2019-04-28</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Mac/" itemprop="url" rel="index"><span itemprop="name">Mac</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="http://note.youdao.com/noteshare?id=38b5ac0d5bf70cd7796ca9a1e2f4bf4f" target="_blank" rel="noopener">http://note.youdao.com/noteshare?id=38b5ac0d5bf70cd7796ca9a1e2f4bf4f</a></p>
-
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/04/28/Mac加虚拟机实现华为TSMAgent认证代理/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/数据库三范式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="NZ OR NORDIC.">
+      <meta itemprop="description" content="A Quiet Departure.">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -414,7 +250,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="NZ OR NORDIC.">
+      <meta itemprop="description" content="A Quiet Departure.">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -556,14 +392,14 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Fengorz</p>
-  <div class="site-description" itemprop="description">NZ OR NORDIC.</div>
+  <div class="site-description" itemprop="description">A Quiet Departure.</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
