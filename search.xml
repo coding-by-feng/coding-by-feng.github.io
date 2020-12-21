@@ -1848,6 +1848,7 @@ public class Apple {
 <p>Dock的最佳位置是放在右边，并且隐藏起来，这样既有较大的屏幕可视区间，也不会经常因为移动鼠标到左边而误触，毕竟MacOS的窗口控制习惯是在左边。</p>
 <h2 id="通过命令和粘贴文件"><a href="#通过命令和粘贴文件" class="headerlink" title="通过命令和粘贴文件"></a>通过命令和粘贴文件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 将a.txt文件类容写入剪切板，相当于 cmd + C</span><br><span class="line">pbcopy &lt; blogpost.txt</span><br><span class="line">cat a.txt | pbcopy      </span><br><span class="line"># 将主目录的文件列表复制到剪贴板</span><br><span class="line">ls ~ | pbcopy      </span><br><span class="line"># 复制终端当前目录</span><br><span class="line">pwd | pbcopy</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 将刚刚存入剪切板的a.txt内容复制到终端，相当于 cmd + v</span><br><span class="line">pbpaste              </span><br><span class="line"># 追加内容到对应的文件</span><br><span class="line">pbpaste &gt;&gt; tasklist.txt</span><br></pre></td></tr></table></figure>
+<h2 id="Desktop"><a href="#Desktop" class="headerlink" title="Desktop"></a>Desktop</h2><p>把需要专注、高频使用到的软件窗口单独放到一个Desktop，四指滑动触摸板切换更加便捷，比如Xmind的多个窗口。</p>
 <h1 id="Alfred"><a href="#Alfred" class="headerlink" title="Alfred"></a>Alfred</h1><h2 id="Powerful-command"><a href="#Powerful-command" class="headerlink" title="Powerful command"></a>Powerful command</h2><p>command of close any app：quit<br>command of search anything in file: in<br>快速用类vim软件打开选中文件</p>
 <h2 id="不搜索Parallels-Desktop的内容"><a href="#不搜索Parallels-Desktop的内容" class="headerlink" title="不搜索Parallels Desktop的内容"></a>不搜索Parallels Desktop的内容</h2><p>打开spotlight-&gt;private，将Applications(Parallels)添加进来</p>
 <h2 id="有道词典的插件"><a href="#有道词典的插件" class="headerlink" title="有道词典的插件"></a>有道词典的插件</h2><p>通过yd 快捷翻译和查询，enter快捷复制。</p>
@@ -3433,6 +3434,7 @@ public class Apple {
 <li>C/S 一般建立在专用的网络上，小范围里的网络环境，局域网之间再通过专门服务器提供连接和数据交换服务。</li>
 <li>B/S 建立在广域网之上的，不必是专门的网络硬件环境，例如电话上网，租用设备，信息自己管理，有比C/S更强的适应范围，一般只要有操作系统和浏览器就行。</li>
 </ul>
+<h1 id="OSS（Operation-Support-Systems）"><a href="#OSS（Operation-Support-Systems）" class="headerlink" title="OSS（Operation Support Systems）"></a>OSS（Operation Support Systems）</h1><p>运营支撑系统，是电信业务开展和运营时所必需的支撑平台。OSS是电信运营商的一体化、信息资源共享的支持系统，它主要由网络管理、系统管理、计费、营业、账务和客户服务等部分组成，系统间通过统一的信息总线有机整合在一起。</p>
 <h1 id="SaaS"><a href="#SaaS" class="headerlink" title="SaaS"></a>SaaS</h1><p>买软件和买服务有着本质区别：<br><a href="https://zhuanlan.zhihu.com/p/27101211" target="_blank" rel="noopener">知乎这篇文章讲得很不错</a></p>
 <h1 id="SEO（Search-Engine-Optimization）"><a href="#SEO（Search-Engine-Optimization）" class="headerlink" title="SEO（Search Engine Optimization）"></a>SEO（Search Engine Optimization）</h1><p>汉译为搜索引擎优化。是一种方式：利用搜索引擎的规则提高网站在有关搜索引擎内的自然排名。目的是让其在行业内占据领先地位，获得品牌收益。</p>
 <h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><h2 id="JEP-JDK-Enhancement-Proposals-JDK增强提案"><a href="#JEP-JDK-Enhancement-Proposals-JDK增强提案" class="headerlink" title="JEP(JDK Enhancement Proposals)(JDK增强提案)"></a>JEP(JDK Enhancement Proposals)(JDK增强提案)</h2><p><a href="http://openjdk.java.net/jeps/0" target="_blank" rel="noopener">http://openjdk.java.net/jeps/0</a></p>
@@ -6058,6 +6060,11 @@ public class Apple {
 <blockquote>
 <p>Anki Notes这个软件就是根据这个原理设计的。</p>
 </blockquote>
+<h2 id="PDCA循环"><a href="#PDCA循环" class="headerlink" title="PDCA循环"></a>PDCA循环</h2><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/yDczS5.png" alt><br>最关键的地方是：对于没有解决的问题，应提交给下一个PDCA循环中去解决。</p>
+<h2 id="马斯洛需求层次模型"><a href="#马斯洛需求层次模型" class="headerlink" title="马斯洛需求层次模型"></a>马斯洛需求层次模型</h2><blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/41176561#:~:text=%E7%BE%8E%E5%9B%BD%E5%BF%83%E7%90%86%E5%AD%A6%E5%AE%B6%E4%BA%9A%E4%BC%AF%E6%8B%89%E7%BD%95,%E5%BD%A2%E6%88%90%E5%B9%B6%E5%BE%97%E5%88%B0%E6%BB%A1%E8%B6%B3%E7%9A%84%E3%80%82" target="_blank" rel="noopener">知乎的马斯洛需求层次理论模型</a></p>
+</blockquote>
+<p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/hZIl5U.png" alt></p>
 <h2 id="罗斯福专业法"><a href="#罗斯福专业法" class="headerlink" title="罗斯福专业法"></a>罗斯福专业法</h2><h2 id="达芬奇笔记"><a href="#达芬奇笔记" class="headerlink" title="达芬奇笔记"></a>达芬奇笔记</h2><h2 id="搜索引擎技巧"><a href="#搜索引擎技巧" class="headerlink" title="搜索引擎技巧"></a>搜索引擎技巧</h2><p><a href="https://zhuanlan.zhihu.com/p/58124215" target="_blank" rel="noopener">更多搜索技巧查看</a></p>
 <h3 id="准确搜索"><a href="#准确搜索" class="headerlink" title="准确搜索"></a>准确搜索</h3><p>在关键词上加上双引号, 这样搜索引擎只会返回和关键词完全吻合的搜索结果。</p>
 <h3 id="排除关键词"><a href="#排除关键词" class="headerlink" title="排除关键词"></a>排除关键词</h3><p>比如想要搜索”暴走大事件”且排除百度百科：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/MDEB69.png" alt></p>
@@ -6804,6 +6811,7 @@ public class Apple {
 <li>POJO（Plain Ordinary Java Object） </li>
 <li>Cloneable</li>
 <li>Executor</li>
+<li>Finalize</li>
 </ul>
 <h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2><ul>
 <li>AOP（Aspect-Oriented Programming）</li>
@@ -8490,6 +8498,7 @@ public class Apple {
 </ul>
 <h1 id="名言名句"><a href="#名言名句" class="headerlink" title="名言名句"></a>名言名句</h1><ul>
 <li>We’re here to put a dent in the world. Otherwise, why else even be here?</li>
+<li>Nothing is immortal.（没有什么是永垂不朽）</li>
 </ul>
 ]]></content>
       <categories>
