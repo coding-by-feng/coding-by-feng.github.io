@@ -46,7 +46,7 @@
 <meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/oblrFJ.png">
 <meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/p5lMPP.png">
 <meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/DyNHln.png">
-<meta property="og:updated_time" content="2020-10-08T01:36:43.904Z">
+<meta property="og:updated_time" content="2020-12-24T08:35:24.419Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构系列之树（Java）">
 <meta name="twitter:description" content="leetcode树专题  树的定义树是由n个有限节点组成一个具有层次关系的集合。把它叫做“树”是因为它看起来像一棵倒挂的树，也就是说它是根朝上，而叶朝下的。当n=0时，称为空树。 树的特点 每个节点都只有有限个子节点或无子节点； 没有父节点的节点称为根节点； 每一个非根节点有且只有一个父节点； 除了根节点外，每个子节点可以分为多个不相交的子树； 树里面没有环路(cycle)。   树的术语 根节">
@@ -216,7 +216,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-08 09:36:43" itemprop="dateModified" datetime="2020-10-08T09:36:43+08:00">2020-10-08</time>
+                <time title="Modified: 2020-12-24 16:35:24" itemprop="dateModified" datetime="2020-12-24T16:35:24+08:00">2020-12-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -346,9 +346,9 @@
 <li>出栈：1（遍历思想第2步）</li>
 <li>遍历思想第3步，此时发现右节点，进栈3（栈中：3）；</li>
 <li>遍历思想第4步，此时发现左节点，进栈6（栈中：3、6）；</li>
-<li>重复第2步2次，致词结束。</li>
+<li>重复第2步2次，至此结束。</li>
 </ul>
-<p>所以不难发现，其实真个过程只是在遍历思想的5步中循环，从第3步到第4步，只要访问想要的节点为空就退回到上一步然后继续往后走，直至栈空。</p>
+<p>所以不难发现，其实z整个过程只是在遍历思想的5步中循环，从第3步到第4步，只要访问想要的节点为空就退回到上一步然后继续往后走，直至栈空。</p>
 <blockquote>
 <p>BOILERPLATE：</p>
 </blockquote>
@@ -358,7 +358,7 @@
 <li>后序遍历右子树</li>
 <li>访问根节点</li>
 </ul>
-<p>比如以下二叉树遍历顺序是a、b、c，也就是4、5、2、1、6、3、1：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/kysHQi.png" alt></p>
+<p>比如以下二叉树遍历顺序是a、b、c，也就是4、5、2、6、3、1：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/kysHQi.png" alt></p>
 <h6 id="后序遍历的递归实现"><a href="#后序遍历的递归实现" class="headerlink" title="后序遍历的递归实现"></a>后序遍历的递归实现</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">private String postOrder(BinaryNode&lt;T&gt; node)&#123;</span><br><span class="line">    if (node!=null) &#123;</span><br><span class="line">        //遍历左子树</span><br><span class="line">        postOrder(node.left);</span><br><span class="line">        //遍历右子树</span><br><span class="line">        postOrder(node.right);</span><br><span class="line">        //先访问根节点</span><br><span class="line">        peek(node);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>同样也可以使用栈来实现。</p>
@@ -505,20 +505,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">65</span>
+        <span class="site-state-item-count">64</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-count">87</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
