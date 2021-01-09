@@ -20,20 +20,18 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="常用命名mysqladmin的用法1mysqladmin -u root -p status 然后输入密码，命令参考 Using Options on the Command Line(在命令行使用可选项)横线和下划线在命令中是可以互换来使用的，比如 –skip-grant-tables and –skip_grant_tables效果相同，但是官方默认使用的是-，看起来也比较直观。但是要注意的是">
-<meta name="keywords" content="mysql">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Mysql系列之官方文档总结">
-<meta property="og:url" content="http://yoursite.com/2019/12/12/Mysql系列之官方文档总结/index.html">
+  <meta name="description" content="Live only for yourself.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Feng&#39;s Blog">
+<meta property="og:url" content="http://yoursite.com/archives/2021/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="常用命名mysqladmin的用法1mysqladmin -u root -p status 然后输入密码，命令参考 Using Options on the Command Line(在命令行使用可选项)横线和下划线在命令中是可以互换来使用的，比如 –skip-grant-tables and –skip_grant_tables效果相同，但是官方默认使用的是-，看起来也比较直观。但是要注意的是">
+<meta property="og:description" content="Live only for yourself.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-17T02:19:52.813Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mysql系列之官方文档总结">
-<meta name="twitter:description" content="常用命名mysqladmin的用法1mysqladmin -u root -p status 然后输入密码，命令参考 Using Options on the Command Line(在命令行使用可选项)横线和下划线在命令中是可以互换来使用的，比如 –skip-grant-tables and –skip_grant_tables效果相同，但是官方默认使用的是-，看起来也比较直观。但是要注意的是">
+<meta name="twitter:title" content="Feng&#39;s Blog">
+<meta name="twitter:description" content="Live only for yourself.">
 
-<link rel="canonical" href="http://yoursite.com/2019/12/12/Mysql系列之官方文档总结/">
+<link rel="canonical" href="http://yoursite.com/archives/2021/">
 
 
 <script id="page-configurations">
@@ -41,12 +39,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-Hans'
   };
 </script>
 
-  <title>Mysql系列之官方文档总结 | Feng's Blog</title>
+  <title>Archive | Feng's Blog</title>
   
 
 
@@ -160,100 +158,51 @@
         <div class="content-wrap">
           
 
-          <div class="content post posts-expand">
+          <div class="content archive">
             
 
-    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/12/Mysql系列之官方文档总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="NZ OR NORDIC.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Mysql系列之官方文档总结
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-12 15:18:38" itemprop="dateCreated datePublished" datetime="2019-12-12T15:18:38+08:00">2019-12-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-17 10:19:52" itemprop="dateModified" datetime="2020-12-17T10:19:52+08:00">2020-12-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+  
+  <div class="post-block">
+    <div class="posts-collapse">
+      <div class="collection-title">
+        
+        <span class="collection-header">Good! 128 posts in total. Keep on posting.</span>
+      </div>
 
       
-        <h1 id="常用命名"><a href="#常用命名" class="headerlink" title="常用命名"></a>常用命名</h1><h2 id="mysqladmin的用法"><a href="#mysqladmin的用法" class="headerlink" title="mysqladmin的用法"></a>mysqladmin的用法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -u root -p status</span><br></pre></td></tr></table></figure>
-<p>然后输入密码，<a href="https://dev.mysql.com/doc/refman/8.0/en/mysqladmin.html" target="_blank" rel="noopener">命令参考</a></p>
-<h2 id="Using-Options-on-the-Command-Line-在命令行使用可选项"><a href="#Using-Options-on-the-Command-Line-在命令行使用可选项" class="headerlink" title="Using Options on the Command Line(在命令行使用可选项)"></a>Using Options on the Command Line(在命令行使用可选项)</h2><p>横线和下划线在命令中是可以互换来使用的，比如 –skip-grant-tables and –skip_grant_tables效果相同，但是官方默认使用的是-，看起来也比较直观。<br><strong><em>但是要注意的是，前面的起引导作用的横线不能被替换，–skip不能替换为__skip</em></strong></p>
-
+    <div class="collection-year">
+      <span class="collection-header">2021</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/mysql/" rel="tag"># mysql</a>
-          </div>
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2021-01-08T11:08:04+08:00"
+              content="2021-01-08">
+          01-08
+        </time>
+      </div>
 
-        
+      <div class="post-title">
+          <a class="post-title-link" href="/2021/01/08/Mac与Win兼容使用/" itemprop="url">
+            <span itemprop="name">Mac与Win兼容使用</span>
+          </a>
+      </div>
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2019/12/12/Mysql系列之性能优化与问题定位/" rel="prev" title="Mysql系列之性能优化与问题定位">
-      <i class="fa fa-chevron-left"></i> Mysql系列之性能优化与问题定位
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2019/12/13/Reactor响应式编程阅读源码有感/" rel="next" title="Reactor响应式编程阅读源码有感">
-      Reactor响应式编程阅读源码有感 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
+    </header>
   </article>
+
+
+    </div>
+  </div>
   
   
+  
+
   
 
 
@@ -308,34 +257,33 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常用命名"><span class="nav-number">1.</span> <span class="nav-text">常用命名</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mysqladmin的用法"><span class="nav-number">1.1.</span> <span class="nav-text">mysqladmin的用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Using-Options-on-the-Command-Line-在命令行使用可选项"><span class="nav-number">1.2.</span> <span class="nav-text">Using Options on the Command Line(在命令行使用可选项)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Fengorz</p>
-  <div class="site-description" itemprop="description">NZ OR NORDIC.</div>
+  <div class="site-description" itemprop="description">Live only for yourself.</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">130</span>
+          <span class="site-state-item-count">128</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-count">64</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">91</span>
+        <span class="site-state-item-count">88</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -362,7 +310,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
