@@ -164,6 +164,90 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/12/Mysql系列之性能优化与问题定位/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="Live only for yourself.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/12/Mysql系列之性能优化与问题定位/" class="post-title-link" itemprop="url">Mysql系列之性能优化与问题定位</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-12 10:42:53" itemprop="dateCreated datePublished" datetime="2019-12-12T10:42:53+08:00">2019-12-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-12-17 10:19:52" itemprop="dateModified" datetime="2020-12-17T10:19:52+08:00">2020-12-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Server-Status-Variables"><a href="#Server-Status-Variables" class="headerlink" title="Server Status Variables"></a>Server Status Variables</h1><h2 id="设置事务自动提交"><a href="#设置事务自动提交" class="headerlink" title="设置事务自动提交"></a>设置事务自动提交</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 查看是否开启自动提交事务</span><br><span class="line">SHOW VARIABLES LIKE &apos;AUTOCOMMIT&apos;;</span><br><span class="line">select @@AUTOCOMMIT;</span><br></pre></td></tr></table></figure>
+<h1 id="设计优化"><a href="#设计优化" class="headerlink" title="设计优化"></a>设计优化</h1><h2 id="tinyint和char-1-性能对比"><a href="#tinyint和char-1-性能对比" class="headerlink" title="tinyint和char(1)性能对比"></a>tinyint和char(1)性能对比</h2><p><a href="https://blog.csdn.net/yzj5208/article/details/81214780?utm_source=blogxgwz6" target="_blank" rel="noopener">https://blog.csdn.net/yzj5208/article/details/81214780?utm_source=blogxgwz6</a></p>
+<h1 id="锁表、线程溢出常见处理方法"><a href="#锁表、线程溢出常见处理方法" class="headerlink" title="锁表、线程溢出常见处理方法"></a>锁表、线程溢出常见处理方法</h1><p>查询当前的线程信息，mysql会把当前正在运行的mysql线程信息实时更新到processlist表。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">show processlist; # 查询当前100条；等同于select * from information_schema.processlist;</span><br><span class="line">show full processlist; # 查询全部；</span><br><span class="line"># 查询非睡眠状态的连接</span><br><span class="line">select p.*</span><br><span class="line">from information_schema.processlist p</span><br><span class="line">where p.COMMAND != &apos;Sleep&apos;;</span><br><span class="line"># 查询并发最大连接数</span><br><span class="line">show variables like &apos;%max_connections%&apos;;</span><br><span class="line"># 查看当前线程连接数量信息 </span><br><span class="line">show status like &apos;Threads%&apos;;</span><br></pre></td></tr></table></figure></p>
+<h2 id="慢查询"><a href="#慢查询" class="headerlink" title="慢查询"></a>慢查询</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 查找当前正在执行超过1分钟的线程信息</span><br><span class="line">select * from information_schema.processlist where command != &apos;Sleep&apos; and time &gt; 60 order by time desc;</span><br><span class="line"># 不要轻易kill，注意看是否是system user或者是maxscale等代理监控的用户</span><br><span class="line"># 确定是慢查询的时候，可以执行kill id的操作</span><br><span class="line"># 命令行查看慢查询</span><br><span class="line">mysql -ureader -pread -e &apos;show full processlist&apos; | grep &quot;select &quot;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/12/Mysql系列之性能优化与问题定位/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/20/Git汇总/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -475,98 +559,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/12/10/Kafka汇总/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Redis汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="Live only for yourself.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/15/Redis汇总/" class="post-title-link" itemprop="url">Redis汇总</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-10-15 21:36:09" itemprop="dateCreated datePublished" datetime="2019-10-15T21:36:09+08:00">2019-10-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-10 20:23:58" itemprop="dateModified" datetime="2020-12-10T20:23:58+08:00">2020-12-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/redis/" itemprop="url" rel="index"><span itemprop="name">redis</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="那些数据适合存储进去-todo"><a href="#那些数据适合存储进去-todo" class="headerlink" title="那些数据适合存储进去? todo"></a>那些数据适合存储进去? todo</h2><pre><code>维护的增删改查应不应该放弃使用缓存（只是为了不出现一种情况，就是修改了数据库，缓存依然还是老的数据）
-另外还要考虑到维护的时候增删改其实使用的频率是不多的，所有没必要使用缓存，当然，高频率增删改的除外。
-使用到缓存的一般是可以是高频率的查询
-</code></pre><h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="redis数据持久化，一般重启不丢失"><a href="#redis数据持久化，一般重启不丢失" class="headerlink" title="redis数据持久化，一般重启不丢失"></a>redis数据持久化，一般重启不丢失</h2><p><a href="https://redis.io/topics/persistence" target="_blank" rel="noopener">https://redis.io/topics/persistence</a><br>会默认开启RDB 持久化</p>
-<h2 id="Redis的数据类型"><a href="#Redis的数据类型" class="headerlink" title="Redis的数据类型"></a>Redis的数据类型</h2><ol>
-<li>字符串（String）</li>
-<li>字符串列表（list）</li>
-<li>有序字符串集合（sorted set）</li>
-<li>哈希（hash）</li>
-<li>字符串集合（set）</li>
-</ol>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p><a href="https://www.runoob.com/redis/redis-commands.html" target="_blank" rel="noopener">https://www.runoob.com/redis/redis-commands.html</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">查询键keys * 查询所有的键,会遍历所有的键值,复杂度O(n)</span><br><span class="line">flushall</span><br><span class="line">incr num</span><br><span class="line">decr num</span><br><span class="line">incrby num 5</span><br><span class="line">decrby num 3</span><br><span class="line">append num str</span><br><span class="line">hset myhash keyname value</span><br><span class="line">hmset myhashs key1 v1 key2 v2</span><br><span class="line">hget myhashs key1</span><br><span class="line">hmget myhashs key1 key2</span><br><span class="line">hgetall myhashs</span><br><span class="line">hdel myhashs key1 key2</span><br><span class="line">hlen myhashs</span><br><span class="line">hkeys myhashs</span><br><span class="line">hvals myhashs</span><br><span class="line">lpush mylist a b c （左侧添加进去）</span><br><span class="line">rpush mylist 1 2 3 （右侧添加进去）</span><br><span class="line">lrange mylist 0 -1 (负数是倒数第n)</span><br><span class="line">lpop mylist （弹出首个）</span><br><span class="line">rpop mylist（弹出尾个）</span><br><span class="line">llen mylist</span><br><span class="line">lpushx mylist x （插入到头部）</span><br><span class="line">rpushx mylist x（插入到尾部）</span><br><span class="line">lrem mylist 2 3 (从头到尾删除2个值为3的元素)</span><br><span class="line">lrem mylist -2 3 (从尾到头删除2个值为3的元素)</span><br><span class="line">lrem mylist 0 3 （删除所有值为3的元素）</span><br><span class="line">lset mylist 3 mmm（在下标为3的位置插入mmm）</span><br><span class="line">linsert mylist before mmm haha（在第一个mmm之前插入haha）</span><br><span class="line">linsert mylist after mmm xixi（在第一个mmm之后插入xixi）</span><br><span class="line">rpoplpush mylist1 mylist2 （mylist1弹出首个元素给到mylist2）</span><br><span class="line">sadd myset a b c</span><br><span class="line">sismember myset a（判断是否成员）</span><br><span class="line">sdiff myset1 myset2（差集）</span><br><span class="line">sinter myset1 myset2（交集）</span><br><span class="line">sunion set1 set2 （并集）</span><br><span class="line">smembers myset</span><br><span class="line">scard myset</span><br></pre></td></tr></table></figure></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/10/15/Redis汇总/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
