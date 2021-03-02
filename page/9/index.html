@@ -164,7 +164,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/24/Scientific Internet Access/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/06/English系列之一般将来时/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -178,7 +178,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/09/24/Scientific Internet Access/" class="post-title-link" itemprop="url">Scientific Internet Access</a>
+            <a href="/2020/06/06/English系列之一般将来时/" class="post-title-link" itemprop="url">English系列之一般将来时</a>
         </h2>
 
         <div class="post-meta">
@@ -188,14 +188,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2019-09-24 15:28:09" itemprop="dateCreated datePublished" datetime="2019-09-24T15:28:09+08:00">2019-09-24</time>
+              <time title="Created: 2020-06-06 10:53:47" itemprop="dateCreated datePublished" datetime="2020-06-06T10:53:47+08:00">2020-06-06</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-27 10:51:14" itemprop="dateModified" datetime="2020-09-27T10:51:14+08:00">2020-09-27</time>
+                <time title="Modified: 2020-09-27 22:38:33" itemprop="dateModified" datetime="2020-09-27T22:38:33+08:00">2020-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -203,7 +203,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/科学上网/" itemprop="url" rel="index"><span itemprop="name">科学上网</span></a>
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
                 </span>
             </span>
 
@@ -218,14 +218,114 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="弃用主流ssr转战V2ray"><a href="#弃用主流ssr转战V2ray" class="headerlink" title="弃用主流ssr转战V2ray"></a>弃用主流ssr转战V2ray</h1><h2 id="服务器搭建"><a href="#服务器搭建" class="headerlink" title="服务器搭建"></a>服务器搭建</h2><p>服务端安装要求及CentOS 7以上或者debain8及以上或者Ubuntu12以上<br>我使用的是vultr的CentOS 7服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">dnf install curl</span><br><span class="line">dnf install curl</span><br><span class="line">curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh</span><br><span class="line">bash install-release.sh</span><br><span class="line"># 安装结果</span><br><span class="line">[Service]</span><br><span class="line">ExecStart=</span><br><span class="line">ExecStart=/usr/local/bin/v2ray -config /usr/local/etc/v2ray/%i.json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">installed: /usr/local/bin/v2ray</span><br><span class="line">installed: /usr/local/bin/v2ctl</span><br><span class="line">installed: /usr/local/share/v2ray/geoip.dat</span><br><span class="line">installed: /usr/local/share/v2ray/geosite.dat</span><br><span class="line">installed: /usr/local/etc/v2ray/config.json</span><br><span class="line">installed: /var/log/v2ray/</span><br><span class="line">installed: /var/log/v2ray/access.log</span><br><span class="line">installed: /var/log/v2ray/error.log</span><br><span class="line">installed: /etc/systemd/system/v2ray.service</span><br><span class="line">installed: /etc/systemd/system/v2ray@.service</span><br><span class="line">removed: /tmp/tmp.rjtadx7eRQ</span><br><span class="line">info: V2Ray v4.29.0 is installed.</span><br><span class="line">You may need to execute a command to remove dependent software: dnf remove curl unzip</span><br><span class="line">Please execute the command: systemctl enable v2ray; systemctl start v2ray</span><br></pre></td></tr></table></figure></p>
-<h2 id="编辑服务器配置文件"><a href="#编辑服务器配置文件" class="headerlink" title="编辑服务器配置文件"></a>编辑服务器配置文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/local/etc/v2ray/config.json</span><br></pre></td></tr></table></figure>
-<p>配置文件如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;log&quot;: &#123;</span><br><span class="line">        &quot;loglevel&quot;: &quot;none&quot;,</span><br><span class="line">        &quot;access&quot;: &quot;/var/log/v2ray/access.log&quot;,</span><br><span class="line">        &quot;error&quot;: &quot;/var/log/v2ray/error.log&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;inbounds&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;port&quot;: 168,</span><br><span class="line">            &quot;protocol&quot;: &quot;vmess&quot;,</span><br><span class="line">            &quot;settings&quot;: &#123;</span><br><span class="line">                &quot;clients&quot;: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        &quot;id&quot;: &quot;5694c0ce-6227-4d65-a095-9bad28c42b25&quot;,</span><br><span class="line">                        &quot;alterId&quot;: 64</span><br><span class="line">                    &#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;tag&quot;: &quot;tg-in&quot;,</span><br><span class="line">            &quot;port&quot;: 9210,</span><br><span class="line">            &quot;protocol&quot;: &quot;mtproto&quot;,</span><br><span class="line">            &quot;settings&quot;: &#123;</span><br><span class="line">                &quot;users&quot;: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        &quot;secret&quot;: &quot;80e2e037610bac1444ac02979364f666&quot;</span><br><span class="line">                    &#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;outbounds&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;protocol&quot;: &quot;freedom&quot;,</span><br><span class="line">            &quot;settings&quot;: &#123;&#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;protocol&quot;: &quot;blackhole&quot;,</span><br><span class="line">            &quot;settings&quot;: &#123;</span><br><span class="line">                &quot;response&quot;: &#123;</span><br><span class="line">                    &quot;type&quot;: &quot;none&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;tag&quot;: &quot;blocked&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;tag&quot;: &quot;tg-out&quot;,</span><br><span class="line">            &quot;protocol&quot;: &quot;mtproto&quot;,</span><br><span class="line">            &quot;settings&quot;: &#123;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;routing&quot;: &#123;</span><br><span class="line">        &quot;domainStrategy&quot;: &quot;IPOnDemand&quot;,</span><br><span class="line">        &quot;settings&quot;: &#123;</span><br><span class="line">            &quot;rules&quot;: [</span><br><span class="line">                &#123;</span><br><span class="line">                    &quot;type&quot;: &quot;field&quot;,</span><br><span class="line">                    &quot;ip&quot;: [</span><br><span class="line">                        &quot;geoip:private&quot;</span><br><span class="line">                    ],</span><br><span class="line">                    &quot;outboundTag&quot;: &quot;blocked&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    &quot;type&quot;: &quot;field&quot;,</span><br><span class="line">                    &quot;inboundTag&quot;: [</span><br><span class="line">                        &quot;tg-in&quot;</span><br><span class="line">                    ],</span><br><span class="line">                    &quot;outboundTag&quot;: &quot;tg-out&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="V2Ray安装之后需要手动启动"><a href="#V2Ray安装之后需要手动启动" class="headerlink" title="V2Ray安装之后需要手动启动"></a>V2Ray安装之后需要手动启动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 启动</span><br><span class="line">sudo systemctl start v2ray</span><br><span class="line"></span><br><span class="line"># 停止</span><br><span class="line">sudo systemctl stop v2ray</span><br><span class="line"></span><br><span class="line"># 重启</span><br><span class="line">sudo systemctl restart v2ray</span><br></pre></td></tr></table></figure>
-<h2 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status v2ray</span><br></pre></td></tr></table></figure>
+          <blockquote>
+<p>这篇笔记摘选自张满胜老师的《英语语法新思维中级教程通悟语法第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。<br>思维导图版本<a href="http://www.xmind.net/m/XReDCR" target="_blank" rel="noopener">点击这里</a>（Web版的XMind有一些问题）。</p>
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>  从严格意义上来说，英文里是没有“将来时态”的， 而只有现在时态和过去时态这两种时态。</p>
+</blockquote>
+<p>从时态形式（tense form）的构成上来看。现在时态（present tense）的构成是用动词原形（basic verb form），或遇到单数第三人称主语，谓语动词加-s。过去时态（past tense）的构成则是动词变为过去式（如加-ed或其他特殊变形），对于现在时态和过去时态，都是在谓语动词的词尾上进行变形。但对于将来时态，在动词的词尾却没有任何变形。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/iXKRRi.png" alt><br>表格中的Tense（时）只有Past（过去时）和Present（现在时），而没有Future（将来时）。通常我们引入一个情态动词will来表示将来时态，但will的引入并不是谓语动词本身的词形变化。正是因为在表示将来时间内发生的事情时，英语谓语动词的词干（stem word）不会发生任何形式的变化，因此“将来时”的说法被看作是不贴切的。<br>表达将来时态，即人们谈论将来要发生的事情时，事实上是采取动词形式变化以外的其他方式来达到这一目的的。具体的方式非常多，比如使用情态动词will和be going to，比如使用现在进行时（be doing）表示将来的动作，以及采用其他的句型结构，如be to do或者be about to do等。从是否成为事实的角度（factual or non-factual）来看。将来的事情与发生在过去或现在的事情是完全不同的，发生在过去或现在的事情都已是确定无疑的，是一个事实（fact）。但谈论将来要发生的事情，就不可能成为一个确定无疑的事实，而只能是表示一种可能性。</p>
+<p>It will rain later. 过一会会下雨。<br>我们传统上是把这里的will rain看作是一般将来时态，但实际上这里只是情态动词will表示“推测”或确切地说“预测（prediction）”的一种用法。另外，我们还可以用其他情态动词来表示这种预测，比如说：<br>It may rain later. 过会可能会下雨。<br>It might rain later. 过会或许会下雨。<br>这里的may和might同样可以表示对将来事情的预测，只不过肯定程度是递减的——will比may的把握性大，may比might的把握性大。<br>由此可见，典型的一般将来时will do，在本质上只是情态动词will 的一种用法而已。从这个意义上来说，英语里没有将来时态。</p>
+<h2 id="三个概念"><a href="#三个概念" class="headerlink" title="三个概念"></a>三个概念</h2><ul>
+<li>预测（prediction）：表示说话人认为将来会发生某件事；</li>
+<li>事先计划（future plan）：表示说话人在头脑里已经做出决定将来要做某件事；</li>
+<li>意愿（willingness）：表示说话人既不是预计某事将会发生，也不是预先经过考虑决定将做某事，而是在说话的时刻立即做出决断表明他将去做某事。</li>
+</ul>
+<h2 id="will表示将来——预测"><a href="#will表示将来——预测" class="headerlink" title="will表示将来——预测"></a>will表示将来——预测</h2><p>读者对will应该是非常熟悉的，因为它通常被作为一般将来时态的“代言人”，其最典型的用法就是对未来进行“预测”。<br>I wonder what it will be like in the 21st century. But from the great advances in these past years I assume that we will be entering a new golden age of miracles and wonders. Life will be fantastic in the 21st century.<br>不知道到了21世纪我们的生活会是什么样子。但从近几年巨大的发展来看，我猜想我们一定会进入一个全新的充满奇迹的黄金时代。21世纪的生活一定非常美好。</p>
+<h2 id="be-going-to表示将来——预测"><a href="#be-going-to表示将来——预测" class="headerlink" title="be going to表示将来——预测"></a>be going to表示将来——预测</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/09/24/Scientific Internet Access/#more" rel="contents">
+              <a class="btn" href="/2020/06/06/English系列之一般将来时/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/02/English系列之虚拟语气/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="Live only for yourself.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/02/English系列之虚拟语气/" class="post-title-link" itemprop="url">English系列之虚拟语气</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-02 09:57:44" itemprop="dateCreated datePublished" datetime="2020-08-02T09:57:44+08:00">2020-08-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-27 22:38:26" itemprop="dateModified" datetime="2020-09-27T22:38:26+08:00">2020-09-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>这篇笔记摘选自张满胜老师的《英语语法新思维中级教程通悟语法第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。<br>思维导图版本<a href="http://www.xmind.net/m/PdjmPE" target="_blank" rel="noopener">点击这里</a>（Web版的XMind有一些问题）。</p>
+</blockquote>
+<p>表示说话者的一种主观愿望、假想和建议等等，实际上并不能实现。 这在英语里，用语法术语表达就叫“虚拟语气”。<br>If I could rearrange the alphabet, I would put U and I together.<br>一般来讲，英语中的虚拟语气可以分为两大体系：一是表示与事实相反的或假想的情形，通常由if引导，叫作“非真实条件句（unreal conditional）”，或者叫“虚拟条件句”；另一个体系是在名词从句中使用虚拟语气，表示建议、命令或要求等语气，这是一个完全不同于非真实条件句的虚拟的结构形式。</p>
+<h2 id="虚拟条件句：两类三时"><a href="#虚拟条件句：两类三时" class="headerlink" title="虚拟条件句：两类三时"></a>虚拟条件句：两类三时</h2><p>这里说的“两类三时”是指虚拟条件句具有两种类型，并会对三种时间进行虚拟。<br>具体来说，虚拟条件句的两种类型是：<strong><em>假设条件句 （hypothetical）和事实相反句（counterfactual）。 </em></strong><br>假设条件句，顾名思义，是表示一种假想的情形，表示说话者的一种主观愿望或态度等，实现的可能性不大或极小。<br>事实相反句，顾名思义，是表示与现在或过去的某个事实相反的情形。对三种时间进行虚拟，即是对将来、现在和过去这三种时间的虚拟。<br>对于将来的情形只能是假设；对于现在的情形既可以是假设，也可以是谈与现在事实相反的情况；对于过去，只能是谈与事实相反的情形。</p>
+<p>If I were to have the time tomorrow, I would help him.<br>这里是表示将来虚拟假设的情形。用了虚拟，就表明说话人“我”认为自己明天有时间的可能性不大，所以言外之意是“我”可能帮不了他。这里用虚拟只是说明可能性不大（unlikely），而不是表达与事实相违背的不可能的情形（impossible）。<br>If I had the time now, I would help him.<br>这里是表示现在虚拟假设的情形。用了虚拟，就表明说话人“我”认为自己现在有时间的可能性不大，所以言外之意是“我”可能帮不了他。这里用虚拟也只是说明可能性不大（unlikely），而不是表达与事实相违背的不可能的情形（impossible）。比如“我”现在完全可以抛开一切事情不做而去帮他，所以可能性还是存在的。<br>If I were you, I would help him.<br>这里是表示与现在事实相反的情形。因为“我”成为“你”是不可能发生的（impossible）情形，而不是可能性不大 （unlikely）的情形了。</p>
+<p>表示与现在事实相反的情形：<br>If I were the President, I would make some changes.<br>“我”现在不是“总统”，这是一个现在的事实，即这里是表示与现在事实相反的情形。<br>如果我是总统，我就会做一些改革。<br>If my grandfather were alive today, he would experience a very different world.<br>If my grandfather were here now, he would be angry.<br>“我爷爷”现在不在这里，这是一个现在的事实，即这里是表示与现在事实相反的情形。<br>如果我爷爷现在在这里，他会很生气的。<br>表示对过去事实虚拟的句子：<br>If I had had the time yesterday, I would have helped him.</p>
+<p>综上所述，假设条件句表达的是一种在将来或现在可能性不大（unlikely）的情形，但不是不可能（impossible）的情形，表示说话人认为不可能，是一种比较主观的表达，而不是与客观事实相反。它尤其用来谈将来的情形，也可以谈现在。事实相反句表达的是一种与现在或过去的事实相违背的情形，因此是不可能发生的，而不是可能性不大。它适合谈现在或过去。由此可见，谈将来的情形，只能是假设条件句；谈现在的情形，既可能是假设条件句，也可能是事实相反句；谈过去的情形，只能是事实相反句。</p>
+<h2 id="虚拟条件句的谓语变化"><a href="#虚拟条件句的谓语变化" class="headerlink" title="虚拟条件句的谓语变化"></a>虚拟条件句的谓语变化</h2><p>三种不同时间下的主、从句的谓语形式列表如下：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/3VPsxo.png" alt></p>
+<h2 id="将来虚拟（ZjCj）"><a href="#将来虚拟（ZjCj）" class="headerlink" title="将来虚拟（ZjCj）"></a>将来虚拟（ZjCj）</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/08/02/English系列之虚拟语气/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -488,102 +588,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/09/01/English系列之简单句和复合句/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/15/English系列之完成时态-现在完成时/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="Live only for yourself.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/15/English系列之完成时态-现在完成时/" class="post-title-link" itemprop="url">English系列之完成时态（现在完成时）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-06-15 20:05:55" itemprop="dateCreated datePublished" datetime="2020-06-15T20:05:55+08:00">2020-06-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-26 22:50:56" itemprop="dateModified" datetime="2020-09-26T22:50:56+08:00">2020-09-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>这篇笔记摘选自张满胜老师的《英语语法新思维中级教程通悟语法第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。</p>
-</blockquote>
-<h2 id="完成时态的构成"><a href="#完成时态的构成" class="headerlink" title="完成时态的构成"></a>完成时态的构成</h2><p>完成时态（perfect tense）的构成分为两部分：一是助动词have，二是实义动词的过去分词-ed。具体来说，用助动词have表示“时 （tense）”，以表明动作发生的时间是在过去、现在还是将来；用过去分词来表示动作的“体态（aspect）”，以表明该动作已经完成。用-ed来代替过去分词，于是完成时态的构成是“have+-ed”。<br>以动词work为例，三种完成时态的构成形式如下：<br>现在完成时：have worked<br>过去完成时：had worked<br>将来完成时：will have worked</p>
-<h2 id="完成时态的意义"><a href="#完成时态的意义" class="headerlink" title="完成时态的意义"></a>完成时态的意义</h2><p>完成时态的本质思维或者说其核心意义就是用来表示“回顾 （retrospect）”，既然是“回顾”，就必然要涉及两个时间点，即从一个时间点回顾到另外一个时间点，因此完成时态必定涉及前后两个时间。<br>现在完成时就是站在“现在 （present）”的时间角度回顾一个“过去”的事件，是把“过去”和“现在”这两个时间点联系在一起，来表达一个事件。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/mMpFDN.png" alt><br>过去完成时（past perfect tense）就是站在“过去（past）”的时间角度回顾“更远的过去”的事件，是把“更远的过去”和“过去”联系在一起来表达一个事件。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/NsvuM4.png?token=AFPEEZGDJOY3BIOXWYTR47K645W2W" alt><br>将来完成时（future perfect tense）则是站在未来的时间角度回顾在此之前发生的事件。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/N4ETrk.png?token=AFPEEZELV4GVMUBSYJQSIOC645XFE" alt></p>
-<hr>
-<p>现在完成时态就是站在“现在”回顾“过去”；<br>过去完成时态就是站在“过去”回顾“更远的过去”；<br>将来完成时就是站在未来的时间角度回顾在此之前发生的事件。<br>所以，完成时态表示的就是一个横跨前后两个时间点的事件。</p>
-<blockquote>
-<p>这个事件是如何把两个时间点联系起来的呢？</p>
-</blockquote>
-<ol>
-<li>一个事件从一个时间点“延续（continue）”到另外一个时间点； </li>
-<li>一个事件从一个时间点“重复（repeat）”到另外一个时间点； </li>
-<li>一个事件在前一个时间点已经结束，但它的影响“延续”到另外一个时间点。</li>
-</ol>
-<h1 id="现在完成时"><a href="#现在完成时" class="headerlink" title="现在完成时"></a>现在完成时</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/06/15/English系列之完成时态-现在完成时/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>

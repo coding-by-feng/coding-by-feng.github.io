@@ -164,7 +164,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/11/数据结构系列之树-Java/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/04/Mixture/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -178,7 +178,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/11/数据结构系列之树-Java/" class="post-title-link" itemprop="url">数据结构系列之树（Java）</a>
+            <a href="/2020/08/04/Mixture/" class="post-title-link" itemprop="url">Mixture</a>
         </h2>
 
         <div class="post-meta">
@@ -188,14 +188,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-09-11 21:33:45" itemprop="dateCreated datePublished" datetime="2020-09-11T21:33:45+08:00">2020-09-11</time>
+              <time title="Created: 2020-08-04 19:13:39" itemprop="dateCreated datePublished" datetime="2020-08-04T19:13:39+08:00">2020-08-04</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-24 16:35:24" itemprop="dateModified" datetime="2020-12-24T16:35:24+08:00">2020-12-24</time>
+                <time title="Modified: 2021-01-10 16:45:53" itemprop="dateModified" datetime="2021-01-10T16:45:53+08:00">2021-01-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -203,7 +203,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                  <a href="/categories/Mixture/" itemprop="url" rel="index"><span itemprop="name">Mixture</span></a>
                 </span>
             </span>
 
@@ -218,37 +218,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <blockquote>
-<p><a href="https://leetcode-cn.com/tag/tree/" target="_blank" rel="noopener">leetcode树专题</a></p>
+          <h1 id="专业方法和技巧"><a href="#专业方法和技巧" class="headerlink" title="专业方法和技巧"></a>专业方法和技巧</h1><h2 id="第一原理（第一性原理、第一思维方式）"><a href="#第一原理（第一性原理、第一思维方式）" class="headerlink" title="第一原理（第一性原理、第一思维方式）"></a>第一原理（第一性原理、第一思维方式）</h2><p><a href="https://wiki.mbalib.com/wiki/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86" target="_blank" rel="noopener">https://wiki.mbalib.com/wiki/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86</a><br>“我们运用第一性原理，而不是比较思维去思考问题是非常重要的。我们在生活中总是倾向于比较，对别人已经做过或者正在做的事情我们也都去做，这样发展的结果只能产生细小的迭代发展。第一性原理的思想方式是用物理学的角度看待世界，也就是说一层层拨开事物表象，看到里面的本质，再从本质一层层往上走。”这是马斯克眼中的“第一性原理思维模型”——回溯事物的本质，重新思考怎么做。</p>
+<h2 id="费曼4步学习法"><a href="#费曼4步学习法" class="headerlink" title="费曼4步学习法"></a>费曼4步学习法</h2><ul>
+<li>确定学习内容，并对内容进行认真的深入学习。</li>
+<li>想想自己是要教授该内容的老师，尝试对其进行讲解说明。</li>
+<li>填补知识缺口，在模拟讲解的过程中查漏补缺，重新加强学习的内容。</li>
+<li>继续”教授”，以通俗易懂的方式对内容再次进行自我讲解说明。</li>
+</ul>
+<h2 id="冥想（Meditation）"><a href="#冥想（Meditation）" class="headerlink" title="冥想（Meditation）"></a>冥想（Meditation）</h2><blockquote>
+<p>国外的冥想其实已经越来越火热了，国内的话目前了解并践行的人可能还是很少</p>
 </blockquote>
-<h2 id="树的定义"><a href="#树的定义" class="headerlink" title="树的定义"></a>树的定义</h2><p>树是由n个有限节点组成一个具有层次关系的集合。把它叫做“树”是因为它看起来像一棵倒挂的树，也就是说它是根朝上，而叶朝下的。<br>当n=0时，称为空树。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/pbMQ0p.png" alt></p>
-<h2 id="树的特点"><a href="#树的特点" class="headerlink" title="树的特点"></a>树的特点</h2><ul>
-<li>每个节点都只有有限个子节点或无子节点；</li>
-<li>没有父节点的节点称为根节点；</li>
-<li>每一个非根节点有且只有一个父节点；</li>
-<li>除了根节点外，每个子节点可以分为多个不相交的子树；</li>
-<li>树里面没有环路(cycle)。 </li>
-</ul>
-<h2 id="树的术语"><a href="#树的术语" class="headerlink" title="树的术语"></a>树的术语</h2><ul>
-<li>根节点： 根节点没有父节点，树中最多有一个根节点（如上图的Root）；</li>
-<li>节点的度：一个节点含有的子树的个数称为该节点的度（如上图的Root的度为3，L2_*所有节点的度为0）；</li>
-<li>树的度：树中最大的节点度称为树的度（如上图树的度=Root的度=L1_C的度）；</li>
-<li>叶节点（终端节点）：度为0的节点（如上图L2_*的所有节点）；</li>
-<li>父节点：若一个节点含有子节点，则这个节点称为其子节点的父节点；</li>
-<li>子节点：一个节点的子树的根节点称为其孩子节点；</li>
-<li>兄弟节点：具有相同父节点的节点互称为兄弟节点；</li>
-<li>树的层（节点的层）：从根开始定义起，根为第1层，根的子节点为第2层，以此类推；</li>
-<li>分支节点（非终端节点）：度不为零的节点；</li>
-<li>深度：对于任意节点n,n的深度为从根到n的唯一路径长，根的深度为0；</li>
-<li>高度：对于任意节点n,n的高度为从n到其子孙中的最长路径，所有树叶的高度为0；</li>
-<li>节点的祖先：从根到该节点所经分支上的所有节点；</li>
-<li>森林：由m（m&gt;=0）棵互不相交的树的集合称为森林；</li>
-<li>子孙：以某节点为根的子树中任一节点都称为该节点的子孙。</li>
-</ul>
-<h2 id="有序树"><a href="#有序树" class="headerlink" title="有序树"></a>有序树</h2><h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><p>二叉树（Binary tree）是每个节点最多只有两个分支（即不存在分支度大于2的节点）的树结构，是n(n≥0)个节点组成的有限集合：</p>
+<p><a href="https://b23.tv/6KR8Zo" target="_blank" rel="noopener">冥想是什么-为什么有那么多好处？</a><br><a href="https://youtu.be/Aw71zanwMnY" target="_blank" rel="noopener">The Scientific Power of Meditation</a><br><a href="https://youtu.be/qzR62JJCMBQ" target="_blank" rel="noopener">All it takes is 10 mindful minutes</a></p>
+<h2 id="斯多葛哲学（乔布斯、马斯克、扎克伯格都是信仰者）"><a href="#斯多葛哲学（乔布斯、马斯克、扎克伯格都是信仰者）" class="headerlink" title="斯多葛哲学（乔布斯、马斯克、扎克伯格都是信仰者）"></a>斯多葛哲学（乔布斯、马斯克、扎克伯格都是信仰者）</h2><blockquote>
+<p>相关书籍《像哲学家一样生活》、《沉思录》</p>
+</blockquote>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/09/11/数据结构系列之树-Java/#more" rel="contents">
+              <a class="btn" href="/2020/08/04/Mixture/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -272,7 +258,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/26/English系列之限定词-冠词/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/27/MybatisPlus汇总/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -286,7 +272,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/04/26/English系列之限定词-冠词/" class="post-title-link" itemprop="url">English系列之限定词（冠词）</a>
+            <a href="/2019/11/27/MybatisPlus汇总/" class="post-title-link" itemprop="url">MybatisPlus汇总</a>
         </h2>
 
         <div class="post-meta">
@@ -296,14 +282,195 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-04-26 21:58:41" itemprop="dateCreated datePublished" datetime="2020-04-26T21:58:41+08:00">2020-04-26</time>
+              <time title="Created: 2019-11-27 16:30:53" itemprop="dateCreated datePublished" datetime="2019-11-27T16:30:53+08:00">2019-11-27</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-22 22:31:38" itemprop="dateModified" datetime="2020-12-22T22:31:38+08:00">2020-12-22</time>
+                <time title="Modified: 2021-01-03 15:13:14" itemprop="dateModified" datetime="2021-01-03T15:13:14+08:00">2021-01-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MybatisPlus/" itemprop="url" rel="index"><span itemprop="name">MybatisPlus</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="各种查询条件组装"><a href="#各种查询条件组装" class="headerlink" title="各种查询条件组装"></a>各种查询条件组装</h2><p>参考：<a href="https://mynews.likecoder.com/News/54208" target="_blank" rel="noopener">https://mynews.likecoder.com/News/54208</a></p>
+<h2 id="mybaties数据源配置类型（POOLED、JNDI、UNPOOLED）"><a href="#mybaties数据源配置类型（POOLED、JNDI、UNPOOLED）" class="headerlink" title="mybaties数据源配置类型（POOLED、JNDI、UNPOOLED）"></a>mybaties数据源配置类型（POOLED、JNDI、UNPOOLED）</h2><ul>
+<li>dataSource的类型可以配置成其内置类型之一，如UNPOOLED、POOLED、JNDI。<ul>
+<li>如果将类型设置成UNPOOLED，mybaties会为每一个数据库操作创建一个新的连接，并关闭它。该方式适用于只有小规模数量并发用户的简单应用程序上。</li>
+<li>如果将属性设置成POOLED，mybaties会创建一个数据库连接池，连接池的一个连接将会被用作数据库操作。一旦数据库操作完成，mybaties会将此连接返回给连接池。在开发或测试环境中经常用到此方式。</li>
+<li>如果将类型设置成JNDI。mybaties会从在应用服务器向配置好的JNDI数据源DataSource获取数据库连接。在生产环境中优先考虑这种方式。</li>
+</ul>
+</li>
+</ul>
+<h2 id="自动分页要开启PaginationInterceptor插件"><a href="#自动分页要开启PaginationInterceptor插件" class="headerlink" title="自动分页要开启PaginationInterceptor插件"></a>自动分页要开启PaginationInterceptor插件</h2><p><a href="https://mybatis.plus/guide/page.html" target="_blank" rel="noopener">https://mybatis.plus/guide/page.html</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Bean</span><br><span class="line">public PaginationInterceptor paginationInterceptor() &#123;</span><br><span class="line">    PaginationInterceptor paginationInterceptor = new PaginationInterceptor();</span><br><span class="line">    paginationInterceptor.setCountSqlParser(new JsqlParserCountOptimize(true));</span><br><span class="line">    return paginationInterceptor;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="vs"><a href="#vs" class="headerlink" title="${} vs #{}"></a>${} vs #{}</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#方式能够很大程度防止sql注入。</span><br><span class="line">#方式会在外面加一层字符串标识的包装：&quot;xxx&quot; or &apos;xxx&apos;</span><br><span class="line">$方式无法防止Sql注入。</span><br></pre></td></tr></table></figure>
+<h2 id="mybatis的二级缓存-vs-redis"><a href="#mybatis的二级缓存-vs-redis" class="headerlink" title="mybatis的二级缓存 vs redis"></a>mybatis的二级缓存 vs redis</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/27/MybatisPlus汇总/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Interview汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="Live only for yourself.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/15/Interview汇总/" class="post-title-link" itemprop="url">Interview汇总</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-15 21:21:25" itemprop="dateCreated datePublished" datetime="2019-10-15T21:21:25+08:00">2019-10-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-03 10:32:21" itemprop="dateModified" datetime="2021-01-03T10:32:21+08:00">2021-01-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/interview/" itemprop="url" rel="index"><span itemprop="name">interview</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p><a href="http://www.xmind.net/m/RHmqYQ" target="_blank" rel="noopener">Interview Tech XMind</a></p>
+</blockquote>
+<h1 id="CS"><a href="#CS" class="headerlink" title="CS"></a>CS</h1><h2 id="32位和64位系统底层的本质区别是什么？"><a href="#32位和64位系统底层的本质区别是什么？" class="headerlink" title="32位和64位系统底层的本质区别是什么？"></a>32位和64位系统底层的本质区别是什么？</h2><h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><p><a href="https://juejin.im/post/5e37b8ea6fb9a030080ca2df" target="_blank" rel="noopener">2020年2月面试题100+大全（合适各级Java人员）</a></p>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="通过new-String-“test”-与-“test”-与运行时常量池的关系"><a href="#通过new-String-“test”-与-“test”-与运行时常量池的关系" class="headerlink" title="通过new String(“test”) 与 “test” 与运行时常量池的关系"></a>通过new String(“test”) 与 “test” 与运行时常量池的关系</h3><ul>
+<li>String a = “aaa”;（保存在常量池中的）</li>
+<li>String b = new String(“aaa”);（new创建的对象会存放在堆内存中）</li>
+</ul>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><h3 id="ArrayList-vs-LinkedList-vs-SynchronizedList-vs-CopyOnWriteArrayList"><a href="#ArrayList-vs-LinkedList-vs-SynchronizedList-vs-CopyOnWriteArrayList" class="headerlink" title="ArrayList vs LinkedList vs SynchronizedList vs CopyOnWriteArrayList"></a>ArrayList vs LinkedList vs SynchronizedList vs CopyOnWriteArrayList</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/15/Interview汇总/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/30/English系列之句型结构和短语大全/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="Live only for yourself.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/30/English系列之句型结构和短语大全/" class="post-title-link" itemprop="url">English系列之句型结构和短语大全</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-30 17:08:47" itemprop="dateCreated datePublished" datetime="2019-11-30T17:08:47+08:00">2019-11-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-12-27 20:22:38" itemprop="dateModified" datetime="2020-12-27T20:22:38+08:00">2020-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -326,20 +493,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <blockquote>
-<p>这篇笔记摘选自张满胜老师的《英语语法新思维初级教程通悟语法第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。</p>
-</blockquote>
-<h1 id="冠词"><a href="#冠词" class="headerlink" title="冠词"></a>冠词</h1><p>限定词与名词的关系最为密切， 因为它必然是修饰某个名词，以限定名词所指的范围，对名词起泛指或特指、定量或不定量等限定修饰作用。从名词短语（noun phrase）的角度来看，限定词或者是直接放在一个名词的前面来修饰它，构成“限定词+名词”这样的结构（如the teacher），或者是在“限定词+形容词+名词”（如the English teacher）这样的结构中来修饰名词。</p>
-<p>限定词包括：<br>冠词：the, an和a； </p>
-<p>基数词和序数词：one/first, two/second, three/third等； </p>
-<p>指示限定词：this, that, these和those； </p>
-<p>物主限定词：my, your, his, her, our和their； </p>
-<p>数量限定词：a few, a little, much, many, a lot of, some, any, enough, several, most和all等；</p>
-<p>个体限定词：each, every, either, neither和both等； </p>
-<p>名词属格：Mary’s, John’s和his father’s等。</p>
+          <h1 id="口语"><a href="#口语" class="headerlink" title="口语"></a>口语</h1><h1 id="写作短语词组"><a href="#写作短语词组" class="headerlink" title="写作短语词组"></a>写作短语词组</h1><ul>
+<li>In addition to</li>
+<li>For simplicity</li>
+<li>Straight away</li>
+<li>Less and less</li>
+</ul>
+<h1 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h1><h2 id="小品词"><a href="#小品词" class="headerlink" title="小品词"></a>小品词</h2><p>todo</p>
+<h2 id="交通工具介词"><a href="#交通工具介词" class="headerlink" title="交通工具介词"></a>交通工具介词</h2><p>在里面能够站直身体的用on：</p>
+<ul>
+<li>on a bus</li>
+<li>on a plane</li>
+<li>on a train</li>
+</ul>
+<p>在里面不能站直身体的用in：</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/04/26/English系列之限定词-冠词/#more" rel="contents">
+              <a class="btn" href="/2019/11/30/English系列之句型结构和短语大全/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -363,7 +533,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/09/English系列之名词/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/05/业界内各种权威标准/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -377,7 +547,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/04/09/English系列之名词/" class="post-title-link" itemprop="url">English系列之名词</a>
+            <a href="/2019/12/05/业界内各种权威标准/" class="post-title-link" itemprop="url">业界内各种权威、标准、协议</a>
         </h2>
 
         <div class="post-meta">
@@ -387,14 +557,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-04-09 13:07:43" itemprop="dateCreated datePublished" datetime="2020-04-09T13:07:43+08:00">2020-04-09</time>
+              <time title="Created: 2019-12-05 15:44:13" itemprop="dateCreated datePublished" datetime="2019-12-05T15:44:13+08:00">2019-12-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-22 20:43:08" itemprop="dateModified" datetime="2020-12-22T20:43:08+08:00">2020-12-22</time>
+                <time title="Modified: 2020-12-25 11:40:18" itemprop="dateModified" datetime="2020-12-25T11:40:18+08:00">2020-12-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -402,7 +572,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
+                  <a href="/categories/标准/" itemprop="url" rel="index"><span itemprop="name">标准</span></a>
                 </span>
             </span>
 
@@ -417,244 +587,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <blockquote>
-<p>这篇笔记摘选自张满胜老师的《英语语法新思维初级教程通悟语法第2版》，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。</p>
-</blockquote>
-<h1 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h1><h2 id="名词短语"><a href="#名词短语" class="headerlink" title="名词短语"></a>名词短语</h2><p>名词短语是由名词与它的修饰语一起构成的。名词的修饰语与名词的位置关系不外乎两种：一是放在被修饰名词的前面，我们称之为前置定语或定语；二是放在被修饰名词的后面，我们称之为后置定语。<br>一般来讲，名词前面有两种修饰语。其一是限定词，用来限定名词所指的范围，对名词起泛指或特指、定量或不定量等限定修饰作用。<br>其二是形容词，是用来表示名词的性质和特征的。</p>
-<h3 id="左二右六公式"><a href="#左二右六公式" class="headerlink" title="左二右六公式"></a>左二右六公式</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/4wFyg3.png" alt></p>
-<h3 id="汉语和英语很大的基本差别"><a href="#汉语和英语很大的基本差别" class="headerlink" title="汉语和英语很大的基本差别"></a>汉语和英语很大的基本差别</h3><p>汉语的定语一律是在名词的前面，而英语的定语有在名词前面的，也有在名词后面的，更多的定语是置于被修饰名词的后面，构成后置定语。</p>
-<h2 id="名词的分类"><a href="#名词的分类" class="headerlink" title="名词的分类"></a>名词的分类</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/z9DC7y.png" alt></p>
+          <h1 id="ISO-8601"><a href="#ISO-8601" class="headerlink" title="ISO 8601"></a>ISO 8601</h1><p>国际标准化组织的时间和日期的表达方法。</p>
+<h1 id="IEEE-754"><a href="#IEEE-754" class="headerlink" title="IEEE 754"></a>IEEE 754</h1><p>对于浮点数的运算，非精确的结果必须优先选择最低有效位为零的，也就是最接近数舍入模式。</p>
+<h1 id="cron-expressions"><a href="#cron-expressions" class="headerlink" title="cron expressions"></a>cron expressions</h1><p><a href="http://www.quartz-scheduler.org/documentation/quartz-2.x/tutorials/crontrigger.html" title="cron expressions教程参考" target="_blank" rel="noopener">cron expressions教程参考</a></p>
+<h1 id="GA-PRE-SNAPSHOT等各种版本含义"><a href="#GA-PRE-SNAPSHOT等各种版本含义" class="headerlink" title="GA/PRE/SNAPSHOT等各种版本含义"></a>GA/PRE/SNAPSHOT等各种版本含义</h1><ul>
+<li>GA General Availability,正式发布的版本，官方推荐使用该版本，国外很多项目都是使用GA来表示正式发布版本的</li>
+<li>PRE 预览版，主要是用来内部开发人员和测试人员测试使用，因此不建议使用</li>
+<li>SNAPSHOT 快照版，可以稳定使用，且该版本会一直进行小量的优化和改进</li>
+<li>RC (Release Candidate)：候选版本，几乎就是正式版了</li>
+<li>R (RELEASE) 正式版，等价于GA</li>
+<li>Alpha 内测版，BUG多，开发人员开发过程中使用，希腊字母α，第一，指最初版</li>
+<li>Beta 早期版本，有缺陷，无大BUG，可能加入新功能，进一步开发完善</li>
+<li>Gamma 经beta 版，完善修改，成为正式发布的候选版本（Release Candidate）</li>
+<li>Build 修正版</li>
+<li>Corporation或Enterprise：企业版</li>
+<li>Delux：豪华版</li>
+<li>DEMO：演示版，有功能限制</li>
+<li>Free：免费版</li>
+<li>Full：完全版</li>
+<li>Final：正式版</li>
+<li>Pro(professional)：专业版</li>
+<li>Plus：加强版</li>
+<li>Retail：零售版</li>
+<li>Shareware：共享版，虽然不会要求注册但是一般也有功能限制</li>
+<li>SR：修正版</li>
+<li>Trial：试用版（一般有时间或者功能限制）</li>
+<li>M Milestone build probably not feature complete; should be vaguely stable (i.e. it’s more than just a nightly snapshot) but may still have problems.</li>
+<li>LTS（Long Term Support）：长期演进版，Ubuntu会对这一版本的支持时间更长。目前Java也在运用这种方式</li>
+</ul>
+<h1 id="计算机内存存储数据原理"><a href="#计算机内存存储数据原理" class="headerlink" title="计算机内存存储数据原理"></a>计算机内存存储数据原理</h1><p><a href="https://www.iteye.com/blog/wwty-401713" target="_blank" rel="noopener">https://www.iteye.com/blog/wwty-401713</a></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/04/09/English系列之名词/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/09/《深入理解Java虚拟机第3版》阅读笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="Live only for yourself.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/09/《深入理解Java虚拟机第3版》阅读笔记/" class="post-title-link" itemprop="url">《深入理解Java虚拟机第3版》阅读笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-07-09 09:55:12" itemprop="dateCreated datePublished" datetime="2020-07-09T09:55:12+08:00">2020-07-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-22 09:24:54" itemprop="dateModified" datetime="2020-12-22T09:24:54+08:00">2020-12-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>这篇笔记总结、摘选自周志明老师的<a href="https://item.jd.com/12607299.html" target="_blank" rel="noopener">《深入理解Java虚拟机第3版》</a>，以及其他网上知识点收集，只是我自己的个人复习笔记，禁止转载，如有侵权，请联系我删除。<br>思维导图版本<a href="http://www.xmind.net/m/xcdF8N" target="_blank" rel="noopener">点击这里</a></p>
-</blockquote>
-<h1 id="虚拟机概述"><a href="#虚拟机概述" class="headerlink" title="虚拟机概述"></a>虚拟机概述</h1><h2 id="中间语言翻译（从Java翻译到机器码）"><a href="#中间语言翻译（从Java翻译到机器码）" class="headerlink" title="中间语言翻译（从Java翻译到机器码）"></a>中间语言翻译（从Java翻译到机器码）</h2><blockquote>
-<p>从中间语言翻译到机器码</p>
-</blockquote>
-<h3 id="通过C语言翻译（初JVM）"><a href="#通过C语言翻译（初JVM）" class="headerlink" title="通过C语言翻译（初JVM）"></a>通过C语言翻译（初JVM）</h3><p>通过将字节码class翻译成C语言，比如定义iadd这个字节码是相加的助记符，然后通过c语言来解析字节码中的iadd就是相加，并指向对应的c语言相加的c程序来做实际运算，这样子的话，这个解析字节码的C程序就是所谓的JVM，最简陋效率最低的初代JVM</p>
-<h3 id="直接翻译为机器码"><a href="#直接翻译为机器码" class="headerlink" title="直接翻译为机器码"></a>直接翻译为机器码</h3><h4 id="CS-IP"><a href="#CS-IP" class="headerlink" title="CS:IP"></a>CS:IP</h4><p>CS与IPO这是物理CPU内部的两个寄存器。对于一台物理机器而言，这两个寄存器是最重要的寄存器，因为CPU在取指令时便完全依靠这两个寄存器。CS寄存器保存段地址，IP保存偏移地址。CS和IP这两个寄存器的值能够唯一确定内存中的一个地址，CPU在执行机器指令之前，便通过这两个寄存器定位到目标内存位置，并将该位置处的机器指令取出来进行运算。函数跳转的本质其实便是修改CS和IP这两个寄存器的内容，使其指向到目标函数所在内存的首地址，这样CPU便能执行目标函数了。Java虚拟机要想让物理CPU直接执行Java程序所对应的目标机器码，也得修改这两个寄存器才能实现。</p>
-<p>在C语言中，能够使用语法糖来修改CS:IP段寄存器，这样C程序就能直接动态执行机器码。<br>既然都能在C语言中直接动态执行机器码了（可以简单理解为：C语言的变量里面可以复制解析出来的机器码，然后直接执行），我们只要将中间语言指令直接翻译为机器码，然后让CS:IP直接指向这段机器码执行，这也是现代JVM最重要的的基本原理之一。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/09/《深入理解Java虚拟机第3版》阅读笔记/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Mac汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="Live only for yourself.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/15/Mac汇总/" class="post-title-link" itemprop="url">Mac汇总</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-10-15 21:16:54" itemprop="dateCreated datePublished" datetime="2019-10-15T21:16:54+08:00">2019-10-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-21 11:47:30" itemprop="dateModified" datetime="2020-12-21T11:47:30+08:00">2020-12-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Mac/" itemprop="url" rel="index"><span itemprop="name">Mac</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Mac-Native-Function"><a href="#Mac-Native-Function" class="headerlink" title="Mac Native Function"></a>Mac Native Function</h1><h2 id="Mac-hotkey"><a href="#Mac-hotkey" class="headerlink" title="Mac hotkey"></a>Mac hotkey</h2><table>
-<thead>
-<tr>
-<th>key</th>
-<th>desc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>cmd + opt + esc</td>
-<td>强制退出某个软件。通常在软件无响应时使用</td>
-</tr>
-<tr>
-<td>cmd + shift+ 3</td>
-<td>对整个屏幕进行截图</td>
-</tr>
-<tr>
-<td>cmd + shift + 4</td>
-<td>对自行选择的区域进行截图</td>
-</tr>
-<tr>
-<td>cmd + shift + 5</td>
-<td>更多方式截图和录屏（新版本系统）</td>
-</tr>
-<tr>
-<td>cmd + `</td>
-<td>切换同个软件的不同窗口</td>
-</tr>
-<tr>
-<td>cmd + opt + 8</td>
-<td>open or close zoom</td>
-</tr>
-<tr>
-<td>cmd + opt + -</td>
-<td>zoom in</td>
-</tr>
-<tr>
-<td>cmd + opt + =</td>
-<td>zoom out</td>
-</tr>
-<tr>
-<td>opt + shift + 方向</td>
-<td>先用触摸板选中一处，然后可以通过方向键叠加选中的内容</td>
-</tr>
-<tr>
-<td>^ + A</td>
-<td>行首</td>
-</tr>
-<tr>
-<td>^ + E</td>
-<td>行尾</td>
-</tr>
-</tbody>
-</table>
-<h2 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h2><p>非必要更新软件一定要在空闲时间更新，比如这个：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/TmZg0s.png" alt="macOS_img"><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/yAU7qe.png" alt="macOS_img"></p>
-<p>Dock的最佳位置是放在右边，并且隐藏起来，这样既有较大的屏幕可视区间，也不会经常因为移动鼠标到左边而误触，毕竟MacOS的窗口控制习惯是在左边。</p>
-<h2 id="通过命令和粘贴文件"><a href="#通过命令和粘贴文件" class="headerlink" title="通过命令和粘贴文件"></a>通过命令和粘贴文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 将a.txt文件类容写入剪切板，相当于 cmd + C</span><br><span class="line">pbcopy &lt; blogpost.txt</span><br><span class="line">cat a.txt | pbcopy      </span><br><span class="line"># 将主目录的文件列表复制到剪贴板</span><br><span class="line">ls ~ | pbcopy      </span><br><span class="line"># 复制终端当前目录</span><br><span class="line">pwd | pbcopy</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 将刚刚存入剪切板的a.txt内容复制到终端，相当于 cmd + v</span><br><span class="line">pbpaste              </span><br><span class="line"># 追加内容到对应的文件</span><br><span class="line">pbpaste &gt;&gt; tasklist.txt</span><br></pre></td></tr></table></figure>
-<h2 id="Desktop"><a href="#Desktop" class="headerlink" title="Desktop"></a>Desktop</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/10/15/Mac汇总/#more" rel="contents">
+              <a class="btn" href="/2019/12/05/业界内各种权威标准/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -836,61 +800,6 @@
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-          load: ['[tex]/mhchem'],
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-          packages: {'[+]': ['mhchem']},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 
