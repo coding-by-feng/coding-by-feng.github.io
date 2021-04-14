@@ -164,7 +164,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/26/linux常用命令/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/20/Git汇总/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -178,7 +178,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/02/26/linux常用命令/" class="post-title-link" itemprop="url">linux常用命令</a>
+            <a href="/2019/03/20/Git汇总/" class="post-title-link" itemprop="url">Git汇总</a>
         </h2>
 
         <div class="post-meta">
@@ -188,14 +188,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2019-02-26 22:00:21" itemprop="dateCreated datePublished" datetime="2019-02-26T22:00:21+08:00">2019-02-26</time>
+              <time title="Created: 2019-03-20 19:45:14" itemprop="dateCreated datePublished" datetime="2019-03-20T19:45:14+08:00">2019-03-20</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-02 17:45:40" itemprop="dateModified" datetime="2021-03-02T17:45:40+08:00">2021-03-02</time>
+                <time title="Modified: 2021-04-09 17:31:16" itemprop="dateModified" datetime="2021-04-09T17:31:16+08:00">2021-04-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -203,7 +203,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                  <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
                 </span>
             </span>
 
@@ -218,277 +218,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="查看所有可执行path"><a href="#查看所有可执行path" class="headerlink" title="查看所有可执行path"></a>查看所有可执行path</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;$PATH&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="返回上次所在目录"><a href="#返回上次所在目录" class="headerlink" title="返回上次所在目录"></a>返回上次所在目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd -</span><br><span class="line">cd $OLDPWD</span><br></pre></td></tr></table></figure>
-<h2 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd - 返回进入此目录之前所在的目录</span><br><span class="line">cd .. 返回上级目录</span><br></pre></td></tr></table></figure>
-<h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 修改文件夹以及其子文件夹</span><br><span class="line">chmod -R 777 fileName</span><br></pre></td></tr></table></figure>
-<h2 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h2><h3 id="cp-omitting-directory"><a href="#cp-omitting-directory" class="headerlink" title="cp: omitting directory"></a>cp: omitting directory</h3>
+          <h1 id="git基本命令"><a href="#git基本命令" class="headerlink" title="git基本命令"></a>git基本命令</h1><p>最近打算搞个web应用，练习一下新的技术栈，所以在github建了个私库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">clone https://github.com/coding-by-feng/keep-yourself.git</span><br><span class="line">## 查看当前分支有哪些修改</span><br><span class="line">vi README.md</span><br><span class="line">git status</span><br><span class="line">## 提交为空，但是存在尚未跟踪的文件（使用 &quot;git add&quot; 建立跟踪）</span><br><span class="line">git add README.md</span><br><span class="line">## 提交 执行之后需要写入备注 </span><br><span class="line">git commit -m &quot;remark&quot;</span><br><span class="line">## 再次执行git status 提示无文件要提交</span><br><span class="line">## git push 推送本地文件到github</span><br><span class="line">## 回到过去</span><br><span class="line">git log</span><br><span class="line">git reset --hard XXXXX（当前版本指针）</span><br><span class="line">## git reflog找回被重置冲刷掉之前的log，防止错误重置。</span><br><span class="line">## 建立里程碑</span><br><span class="line">## 在github new Releases.</span><br></pre></td></tr></table></figure>
+<h2 id="git-pull和git-fetch"><a href="#git-pull和git-fetch" class="headerlink" title="git pull和git fetch"></a>git pull和git fetch</h2><p>git pull<br>如果需要取回origin主机的erp01分支与本地的master分支合并，则写为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin erp01:master</span><br></pre></td></tr></table></figure></p>
+<p>上面这句命令的意思相当于取回origin/erp01分支的代码在与当前的分支合并。<br>如果本地分支和远程分支之间建立了一种追踪的关系，那么我们git pull的时候就可以省略远程的分支名：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origing</span><br></pre></td></tr></table></figure></p>
+<p>上面命令表明本地分支自动与队对应的origin主机追踪分支进行合并。<br>git 允许手动建立追踪关系:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch --set-upstream master origin/erp01</span><br></pre></td></tr></table></figure></p>
+<p>git fetch<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch &lt;远程主机名&gt;（origin）&lt;分支名&gt;</span><br></pre></td></tr></table></figure></p>
+<p>如果想要取回特定分支的更新就可以指定分支名；<br>所取回的更新，在本地主机上要用“远程主机名/分支名”进行读取。比如origin主机的erp01，就要用origin/erp01读取。<br>接下来可以用git branch -r命令查看远程分支，如果用到 -a选项，则表明查看所有的分支；<br>如果你需要合并分支，就可以用merge或rebase：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git merge origin/erp01</span><br><span class="line">#或</span><br><span class="line">$ git rebase origin/erp01</span><br></pre></td></tr></table></figure></p>
+<p>git pull和git fetch区别<br>这两个命令的主要区别在与：git pull是拉下更新后就自动合并本地分支，而git fetch是先吧更新拉下来，在用merge或rebase进行合并。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/02/26/linux常用命令/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/12/Mysql系列之性能优化与问题定位/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="Live only for yourself.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/12/Mysql系列之性能优化与问题定位/" class="post-title-link" itemprop="url">Mysql系列之性能优化与问题定位</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-12 10:42:53" itemprop="dateCreated datePublished" datetime="2019-12-12T10:42:53+08:00">2019-12-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-02 10:35:23" itemprop="dateModified" datetime="2021-03-02T10:35:23+08:00">2021-03-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Server-Status-Variables"><a href="#Server-Status-Variables" class="headerlink" title="Server Status Variables"></a>Server Status Variables</h1><h2 id="设置事务自动提交"><a href="#设置事务自动提交" class="headerlink" title="设置事务自动提交"></a>设置事务自动提交</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 查看是否开启自动提交事务</span><br><span class="line">SHOW VARIABLES LIKE &apos;AUTOCOMMIT&apos;;</span><br><span class="line">select @@AUTOCOMMIT;</span><br></pre></td></tr></table></figure>
-<h1 id="设计优化"><a href="#设计优化" class="headerlink" title="设计优化"></a>设计优化</h1><h2 id="tinyint和char-1-性能对比"><a href="#tinyint和char-1-性能对比" class="headerlink" title="tinyint和char(1)性能对比"></a>tinyint和char(1)性能对比</h2><p><a href="https://blog.csdn.net/yzj5208/article/details/81214780?utm_source=blogxgwz6" target="_blank" rel="noopener">https://blog.csdn.net/yzj5208/article/details/81214780?utm_source=blogxgwz6</a></p>
-<h2 id="布尔类型字段的设计"><a href="#布尔类型字段的设计" class="headerlink" title="布尔类型字段的设计"></a>布尔类型字段的设计</h2><p>可以使用bit类型，节约磁盘存储空间。</p>
-<h1 id="锁表、线程溢出常见处理方法"><a href="#锁表、线程溢出常见处理方法" class="headerlink" title="锁表、线程溢出常见处理方法"></a>锁表、线程溢出常见处理方法</h1><p>查询当前的线程信息，mysql会把当前正在运行的mysql线程信息实时更新到processlist表。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">show processlist; # 查询当前100条；等同于select * from information_schema.processlist;</span><br><span class="line">show full processlist; # 查询全部；</span><br><span class="line"># 查询非睡眠状态的连接</span><br><span class="line">select p.*</span><br><span class="line">from information_schema.processlist p</span><br><span class="line">where p.COMMAND != &apos;Sleep&apos;;</span><br><span class="line"># 查询并发最大连接数</span><br><span class="line">show variables like &apos;%max_connections%&apos;;</span><br><span class="line"># 查看当前线程连接数量信息 </span><br><span class="line">show status like &apos;Threads%&apos;;</span><br></pre></td></tr></table></figure></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/12/12/Mysql系列之性能优化与问题定位/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/28/Algorithm Compilation/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="Live only for yourself.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/28/Algorithm Compilation/" class="post-title-link" itemprop="url">Algorithm Compilation</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-09-28 13:53:50" itemprop="dateCreated datePublished" datetime="2020-09-28T13:53:50+08:00">2020-09-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-02 09:14:09" itemprop="dateModified" datetime="2021-03-02T09:14:09+08:00">2021-03-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>程序 = 数据结构 + 算法</p>
-</blockquote>
-<h1 id="算法的效率度量"><a href="#算法的效率度量" class="headerlink" title="算法的效率度量"></a>算法的效率度量</h1><h2 id="时间复杂度（Time-complexity）"><a href="#时间复杂度（Time-complexity）" class="headerlink" title="时间复杂度（Time complexity）"></a>时间复杂度（Time complexity）</h2><p>算法的时间复杂度是一个函数，它定性描述该算法的运行时间，时间复杂度常用大O符号表述，不包括这个函数的低阶项和首项系数，使用这种方式时，时间复杂度可被称为是渐近的（渐近分析（asymptotic analysis、asymptotics），在数学分析中是一种描述函数在极限附近的行为的方法）。<br>例如，如果一个算法对于任何大小为n（必须比n0大）的输入，它至多需要$5n^{3}+3n$的时间运行完毕（也就是时间开销和问题规模n的关系为：$T_{(n)}=5n^{3}+3n$，这个时候，低阶项3n应该被抛弃，首项系数5也不保留），那么它的渐近时间复杂度是$O(n^{3})$；某个算法的运行时间至多需要$n^{2}+3n+1000$，那么其时间复杂度为$O(n^{2})$。</p>
-<p>渐近规则：</p>
-<ul>
-<li>多项相加，只保留最高阶的项，且系数变为1；</li>
-<li>多项相乘，都保留。</li>
-</ul>
-<p>阶数由低到高如下：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/0DiJ6d.png" alt><br>上图从左到右的算法中，随着问题规模的增大，时间开销会依次递增。</p>
-<blockquote>
-<p>BOILERPLATE:</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void test(int n)&#123;// n为问题规模</span><br><span class="line">    int i = 1; // 只运算1次</span><br><span class="line">    while(i&lt;=n)&#123; // 总共会运算n+1次</span><br><span class="line">        i++;     // 总共会运算n次</span><br><span class="line">        doSomething(i);  // 总共会运算n次</span><br><span class="line">    &#125;</span><br><span class="line">    doMore(i);   // 只运算1次</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个算法的时间开销与问题规模n关系如下：<br>$T(n)=3n+3$<br>换算成渐近的时间复杂度就是<code>O(n)</code>。<br>如果在while循环里面增加一个for循环：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void test(int n)&#123;// n为问题规模</span><br><span class="line">    int i = 1; // 只运算1次</span><br><span class="line">    while(i&lt;=n)&#123; // 总共会运算n+1次</span><br><span class="line">        i++;     // 总共会运算n次</span><br><span class="line">        doSomething(i);  // 总共会运算n次</span><br><span class="line">        for(int j = 0; j &lt; n; j++)&#123; // 共总会运算n次</span><br><span class="line">            doSomething(j);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    doMore(i);   // 只运算1次</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/28/Algorithm Compilation/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Mysql系列之基础知识/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="Live only for yourself.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/15/Mysql系列之基础知识/" class="post-title-link" itemprop="url">Mysql系列之基础知识</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-10-15 21:36:49" itemprop="dateCreated datePublished" datetime="2019-10-15T21:36:49+08:00">2019-10-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-25 10:56:45" itemprop="dateModified" datetime="2021-02-25T10:56:45+08:00">2021-02-25</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h1><p><a href="https://help.aliyun.com/wordpower/2596091-1.html" target="_blank" rel="noopener">alibabaMysql开发规范和常见问题处理</a><br><a href="https://learnku.com/articles/25116" target="_blank" rel="noopener">参考1</a></p>
-<h1 id="建模工具PDMan"><a href="#建模工具PDMan" class="headerlink" title="建模工具PDMan"></a>建模工具PDMan</h1><p>还是可视化视图清晰点，还可以导出自动生成sql。</p>
-<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h2><h3 id="MyISAM"><a href="#MyISAM" class="headerlink" title="MyISAM"></a>MyISAM</h3><p>MyISAM是MySQL的默认数据库引擎（5.5版之前），它不支持事务和表锁设计，支持全文索引，主要面向一些在线分析处理(OLAP)数据库应用。说白了主要就是查询数据，对数据的插入，更新操作比较少。</p>
-<h3 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h3><p>MySQL的默认存储引擎，它支持事务，其设计目标主要面向在线事务处理(OLTP)的应用。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/10/15/Mysql系列之基础知识/#more" rel="contents">
+              <a class="btn" href="/2019/03/20/Git汇总/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -543,7 +283,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-22 11:05:52" itemprop="dateModified" datetime="2021-02-22T11:05:52+08:00">2021-02-22</time>
+                <time title="Modified: 2021-04-09 17:01:18" itemprop="dateModified" datetime="2021-04-09T17:01:18+08:00">2021-04-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -657,6 +397,333 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2019/12/01/ IDEA Usage/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/26/linux常用命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="Live only for yourself.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/02/26/linux常用命令/" class="post-title-link" itemprop="url">linux常用命令</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-02-26 22:00:21" itemprop="dateCreated datePublished" datetime="2019-02-26T22:00:21+08:00">2019-02-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-24 15:53:50" itemprop="dateModified" datetime="2021-03-24T15:53:50+08:00">2021-03-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="查看所有可执行path"><a href="#查看所有可执行path" class="headerlink" title="查看所有可执行path"></a>查看所有可执行path</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;$PATH&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="返回上次所在目录"><a href="#返回上次所在目录" class="headerlink" title="返回上次所在目录"></a>返回上次所在目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd -</span><br><span class="line">cd $OLDPWD</span><br></pre></td></tr></table></figure>
+<h2 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd - 返回进入此目录之前所在的目录</span><br><span class="line">cd .. 返回上级目录</span><br></pre></td></tr></table></figure>
+<h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 修改文件夹以及其子文件夹</span><br><span class="line">chmod -R 777 fileName</span><br></pre></td></tr></table></figure>
+<h2 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h2><h3 id="cp-omitting-directory"><a href="#cp-omitting-directory" class="headerlink" title="cp: omitting directory"></a>cp: omitting directory</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/02/26/linux常用命令/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/07/vim的使用技巧/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="Live only for yourself.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/03/07/vim的使用技巧/" class="post-title-link" itemprop="url">vim的使用技巧</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-03-07 22:33:05" itemprop="dateCreated datePublished" datetime="2019-03-07T22:33:05+08:00">2019-03-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-24 15:00:03" itemprop="dateModified" datetime="2021-03-24T15:00:03+08:00">2021-03-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="异常情况处理-todo"><a href="#异常情况处理-todo" class="headerlink" title="异常情况处理 todo"></a>异常情况处理 todo</h2><p>W10: Warning: Changing a readonly file</p>
+<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="Hotkeys-In-Normal-Mode"><a href="#Hotkeys-In-Normal-Mode" class="headerlink" title="Hotkeys In Normal Mode"></a>Hotkeys In Normal Mode</h2><h4 id="Moving-移动"><a href="#Moving-移动" class="headerlink" title="Moving(移动)"></a>Moving(移动)</h4><table>
+<thead>
+<tr>
+<th>key</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>移动到行首</td>
+</tr>
+<tr>
+<td>$</td>
+<td>移动到行尾</td>
+</tr>
+<tr>
+<td>G</td>
+<td>移动到最后一行</td>
+</tr>
+<tr>
+<td>1G</td>
+<td>移动到第一行</td>
+</tr>
+<tr>
+<td>dG</td>
+<td>从当前行删除到最后一行</td>
+</tr>
+<tr>
+<td>v+hjkl</td>
+<td>从当前位置开始移动并选中</td>
+</tr>
+<tr>
+<td>V+jk</td>
+<td>从当前行开始移动并选中</td>
+</tr>
+<tr>
+<td>shift+<or shift+></or></td>
+<td>选择之后可以在命令行模式将代码进行左右移动。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Editing-编辑"><a href="#Editing-编辑" class="headerlink" title="Editing(编辑)"></a>Editing(编辑)</h4><table>
+<thead>
+<tr>
+<th>key</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dd</td>
+<td>删除当前行</td>
+</tr>
+<tr>
+<td>d1G</td>
+<td>从当前行删除到第一行</td>
+</tr>
+<tr>
+<td>Ndd</td>
+<td>删除光标以下的N行</td>
+</tr>
+<tr>
+<td>d$</td>
+<td>删除光标所在到行尾</td>
+</tr>
+<tr>
+<td>d0</td>
+<td>删除光标所在到行首</td>
+</tr>
+<tr>
+<td>daw</td>
+<td>删除光标所在单词</td>
+</tr>
+</tbody>
+</table>
+<h4 id="View-视图"><a href="#View-视图" class="headerlink" title="View(视图)"></a>View(视图)</h4>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/03/07/vim的使用技巧/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/Mysql系列之基础知识/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="Live only for yourself.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/15/Mysql系列之基础知识/" class="post-title-link" itemprop="url">Mysql系列之基础知识</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-15 21:36:49" itemprop="dateCreated datePublished" datetime="2019-10-15T21:36:49+08:00">2019-10-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-22 16:13:26" itemprop="dateModified" datetime="2021-03-22T16:13:26+08:00">2021-03-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h1><p><a href="https://help.aliyun.com/wordpower/2596091-1.html" target="_blank" rel="noopener">alibabaMysql开发规范和常见问题处理</a><br><a href="https://learnku.com/articles/25116" target="_blank" rel="noopener">参考1</a></p>
+<h1 id="建模工具PDMan"><a href="#建模工具PDMan" class="headerlink" title="建模工具PDMan"></a>建模工具PDMan</h1><p>还是可视化视图清晰点，还可以导出自动生成sql。</p>
+<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h2><h3 id="MyISAM"><a href="#MyISAM" class="headerlink" title="MyISAM"></a>MyISAM</h3><p>MyISAM是MySQL的默认数据库引擎（5.5版之前），它不支持事务和表锁设计，支持全文索引，主要面向一些在线分析处理(OLAP)数据库应用。说白了主要就是查询数据，对数据的插入，更新操作比较少。</p>
+<h3 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h3><p>MySQL的默认存储引擎，它支持事务，其设计目标主要面向在线事务处理(OLTP)的应用。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/15/Mysql系列之基础知识/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -838,61 +905,6 @@
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-          load: ['[tex]/mhchem'],
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-          packages: {'[+]': ['mhchem']},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 
