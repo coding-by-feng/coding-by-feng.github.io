@@ -164,173 +164,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/linux系列之防火墙iptable/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="Live only for yourself.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/15/linux系列之防火墙iptable/" class="post-title-link" itemprop="url">linux系列之防火墙iptable</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-04-15 21:48:58" itemprop="dateCreated datePublished" datetime="2019-04-15T21:48:58+08:00">2019-04-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-10 16:45:22" itemprop="dateModified" datetime="2019-11-10T16:45:22+08:00">2019-11-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>iptables是一个命令行防火墙实用程序，它使用策略链来允许或阻止流量。 当连接尝试在您的系上建立自己时，iptables会在其列表中查找与其匹配的规则。 如果不到，则转到默认操作。</p>
-<h4 id="drop-掉所有类型的端口"><a href="#drop-掉所有类型的端口" class="headerlink" title="drop 掉所有类型的端口"></a>drop 掉所有类型的端口</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iptables -P INPUT DROP</span><br><span class="line">iptables -P FORWARD DROP</span><br><span class="line">iptables -P OUTPUT DROP</span><br></pre></td></tr></table></figure>
-<h4 id="查看当前规则"><a href="#查看当前规则" class="headerlink" title="查看当前规则"></a>查看当前规则</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -L -n</span><br></pre></td></tr></table></figure>
-<h4 id="只打开22端口的进出配置以及保存命令如下："><a href="#只打开22端口的进出配置以及保存命令如下：" class="headerlink" title="只打开22端口的进出配置以及保存命令如下："></a>只打开22端口的进出配置以及保存命令如下：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p tcp --dport 26666 -j ACCEPT</span><br><span class="line">iptables -A OUTPUT -p tcp --sport 26666 -j ACCEPT</span><br><span class="line">service iptables save</span><br></pre></td></tr></table></figure>
-<p>-A 参数就看成是添加一条 INPUT 的规则<br>-p 指定是什么协议 我们常用的tcp 协议<br>–dport 就是目标端口 当数据从外部进入服务器为目标端口<br>反之 数据从服务器出去 则为数据源端口 使用 –sport<br>-j 就是指定是 ACCEPT 接收 或者 DROP 不接收</p>
-<h4 id="删除规则"><a href="#删除规则" class="headerlink" title="删除规则"></a>删除规则</h4><p>查看规则行标：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -L -n --line-number</span><br></pre></td></tr></table></figure></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/04/15/linux系列之防火墙iptable/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/JUnit汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="Live only for yourself.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/15/JUnit汇总/" class="post-title-link" itemprop="url">JUnit汇总</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-10-15 21:22:26 / Modified: 21:23:02" itemprop="dateCreated datePublished" datetime="2019-10-15T21:22:26+08:00">2019-10-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JUnit/" itemprop="url" rel="index"><span itemprop="name">JUnit</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="RunWith"><a href="#RunWith" class="headerlink" title="@RunWith"></a>@RunWith</h2><p>查阅官方API文档如下：<br>When a class is annotated with @RunWith or extends a class annotated with @RunWith, JUnit will invoke the class it references to run the tests in that class instead of the runner built into JUnit. We added this feature late in development. While it seems powerful we expect the runner API to change as we learn how people really use it. Some of the classes that are currently internal will likely be refined and become public. For example, suites in JUnit 4 are built using RunWith, and a custom runner named Suite:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@RunWith(Suite.class)</span><br><span class="line">@SuiteClasses(ATest.class, BTest.class, CTest.class)</span><br><span class="line">public class ABCSuite &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>翻译：当一个类被@RunWith所注解或者继承了一个被@RunWith注解的父类，那么Junit将会调用到这个类它所引用到的测试类，而不是通过Junit构建的runner（运行器）去调用。</p>
-<p>可以参考：<br><a href="https://www.tutorialspoint.com/junit/junit_suite_test.htm" target="_blank" rel="noopener">https://www.tutorialspoint.com/junit/junit_suite_test.htm</a><br><a href="https://www.codejava.net/testing/junit-test-suite-example-how-to-create-and-run-test-suite-in-command-line-and-eclipse" target="_blank" rel="noopener">https://www.codejava.net/testing/junit-test-suite-example-how-to-create-and-run-test-suite-in-command-line-and-eclipse</a></p>
-<h2 id="结合Spring上下文做测试"><a href="#结合Spring上下文做测试" class="headerlink" title="结合Spring上下文做测试"></a>结合Spring上下文做测试</h2><p>在以往的Spring项目中，很多同学可能没有做到真正的单元测试，可能都是基于测试环境启动整个应用来针对功能做测试，这种方式其实效率是非常低的，利用JUnit的特性做Spring的单元测试可以如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">import org.junit.Test;</span><br><span class="line">import org.junit.runner.RunWith;</span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.context.ApplicationContext;</span><br><span class="line">import org.springframework.test.context.ContextConfiguration;</span><br><span class="line">import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line"> * 代码来源：https://my.oschina.net/itblog/blog/1550753</span><br><span class="line"> */</span><br><span class="line">@RunWith(SpringJUnit4ClassRunner.class)</span><br><span class="line">@ContextConfiguration(locations = &#123; &quot;classpath:applicationContext.xml&quot; &#125;)</span><br><span class="line">public class UserManagerTest &#123;</span><br><span class="line">　　@Autowired</span><br><span class="line">　　ApplicationContext ctx;</span><br><span class="line"></span><br><span class="line">　　@Test</span><br><span class="line">　　public void testAddUser() &#123;</span><br><span class="line">　　　　try &#123;</span><br><span class="line">　　　　　　UserManager userManager = ctx.getBean(UserManager.class); </span><br><span class="line">　　　　　　userManager.addUser();</span><br><span class="line">　　　　&#125; catch (Exception e) &#123;</span><br><span class="line">　　　　　　e.printStackTrace();</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>上面的例子是指定一个Spring上下文配置文件的方式进行单元测试，这样子就加载很多本次单元测试不用到的注入，Spring官方文档给出了更加高效的方案：<br>Context Configuration with Annotated Classes<br>To load an ApplicationContext for your tests by using annotated classes (see Java-based container configuration), you can annotate your test class with @ContextConfiguration and configure the classes attribute with an array that contains references to annotated classes. The following example shows how to do so:<br>翻译：使用@ContextConfiguration里面的classes属性来指定加载的配置类信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@RunWith(SpringRunner.class)</span><br><span class="line">// ApplicationContext will be loaded from AppConfig and TestConfig</span><br><span class="line">@ContextConfiguration(classes = &#123;AppConfig.class, TestConfig.class&#125;) </span><br><span class="line">public class MyTest &#123;</span><br><span class="line">    // class body...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>If you omit the classes attribute from the @ContextConfiguration annotation, the TestContext framework tries to detect the presence of default configuration classes. Specifically, AnnotationConfigContextLoader and AnnotationConfigWebContextLoader detect all static nested classes of the test class that meet the requirements for configuration class implementations, as specified in the @Configuration javadoc. Note that the name of the configuration class is arbitrary. In addition, a test class can contain more than one static nested configuration class if desired. In the following example, the OrderServiceTest class declares a static nested configuration class named Config that is automatically used to load the ApplicationContext for the test class:<br>翻译：此外，Spring官方还提供了更加简要的方式，可以省略掉@ContextConfiguration里面的classes属性。因为TestContext框架会去检测默认存在的配置类，特别是，测试类中存在的内部静态配置类，比如下面代码中的静态配置类将被加载到测试的Spring上下文中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">@RunWith(SpringRunner.class)</span><br><span class="line">// ApplicationContext will be loaded from the</span><br><span class="line">// static nested Config class</span><br><span class="line">@ContextConfiguration </span><br><span class="line">public class OrderServiceTest &#123;</span><br><span class="line"></span><br><span class="line">    @Configuration</span><br><span class="line">    static class Config &#123;</span><br><span class="line"></span><br><span class="line">        // this bean will be injected into the OrderServiceTest class</span><br><span class="line">        @Bean</span><br><span class="line">        public OrderService orderService() &#123;</span><br><span class="line">            OrderService orderService = new OrderServiceImpl();</span><br><span class="line">            // set properties, etc.</span><br><span class="line">            return orderService;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private OrderService orderService;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void testOrderService() &#123;</span><br><span class="line">        // test the orderService</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="基于SpringBoot的单元测试"><a href="#基于SpringBoot的单元测试" class="headerlink" title="基于SpringBoot的单元测试"></a>基于SpringBoot的单元测试</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@RunWith(SpringRunner.class)</span><br><span class="line">@SpringBootTest</span><br><span class="line">@Import(MyTestsConfiguration.class)</span><br><span class="line">public class MyTests &#123;</span><br><span class="line"></span><br><span class="line">	@Test</span><br><span class="line">	public void exampleTest() &#123;</span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/10/15/JUnit汇总/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/关于安装shadowsocks之后的iptables配置的坑/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -490,7 +323,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/23/Java系列之工作流/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/15/设计模式系列之状态模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -504,7 +337,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/04/23/Java系列之工作流/" class="post-title-link" itemprop="url">Java系列之工作流</a>
+            <a href="/2019/05/15/设计模式系列之状态模式/" class="post-title-link" itemprop="url">设计模式系列之状态模式</a>
         </h2>
 
         <div class="post-meta">
@@ -513,27 +346,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2019-04-23 16:30:13" itemprop="dateCreated datePublished" datetime="2019-04-23T16:30:13+08:00">2019-04-23</time>
+              <time title="Created: 2019-05-15 16:00:38 / Modified: 16:08:07" itemprop="dateCreated datePublished" datetime="2019-05-15T16:00:38+08:00">2019-05-15</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-05-15 16:08:31" itemprop="dateModified" datetime="2019-05-15T16:08:31+08:00">2019-05-15</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/工作流/" itemprop="url" rel="index"><span itemprop="name">工作流</span></a>
+                  <a href="/categories/设计模式/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a>
                 </span>
             </span>
 
@@ -548,11 +371,169 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><a href="http://note.youdao.com/noteshare?id=7d92d13a66b9935efb45b39e504f228f" target="_blank" rel="noopener">http://note.youdao.com/noteshare?id=7d92d13a66b9935efb45b39e504f228f</a></p>
+          <p><a href="http://note.youdao.com/noteshare?id=9346be53ca0e314879de34bac525e06e" target="_blank" rel="noopener">http://note.youdao.com/noteshare?id=9346be53ca0e314879de34bac525e06e</a></p>
 
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/04/23/Java系列之工作流/#more" rel="contents">
+              <a class="btn" href="/2019/05/15/设计模式系列之状态模式/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/15/设计模式系列之策略模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="Live only for yourself.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/05/15/设计模式系列之策略模式/" class="post-title-link" itemprop="url">设计模式系列之策略模式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-05-15 15:59:13 / Modified: 16:00:15" itemprop="dateCreated datePublished" datetime="2019-05-15T15:59:13+08:00">2019-05-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="http://note.youdao.com/noteshare?id=ba9e1f8e3298f010daf0e795401e8555" target="_blank" rel="noopener">http://note.youdao.com/noteshare?id=ba9e1f8e3298f010daf0e795401e8555</a></p>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/05/15/设计模式系列之策略模式/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/28/oracle系列之性能调优/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="Live only for yourself.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/28/oracle系列之性能调优/" class="post-title-link" itemprop="url">oracle系列之性能调优</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-04-28 18:24:27" itemprop="dateCreated datePublished" datetime="2019-04-28T18:24:27+08:00">2019-04-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-05-15 15:55:56" itemprop="dateModified" datetime="2019-05-15T15:55:56+08:00">2019-05-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/oracle/" itemprop="url" rel="index"><span itemprop="name">oracle</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="http://note.youdao.com/noteshare?id=9162b83c7c234ae534289003bc2ebb0e" target="_blank" rel="noopener">http://note.youdao.com/noteshare?id=9162b83c7c234ae534289003bc2ebb0e</a></p>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/04/28/oracle系列之性能调优/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -575,7 +556,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/23/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><span class="page-number current">24</span><a class="page-number" href="/page/25/">25</a><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/25/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/23/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><span class="page-number current">24</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/25/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -643,20 +624,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">125</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-count">63</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">88</span>
+        <span class="site-state-item-count">87</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
