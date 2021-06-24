@@ -164,6 +164,90 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/04/oracle系列之触发器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="Live only for yourself.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/03/04/oracle系列之触发器/" class="post-title-link" itemprop="url">oracle系列之触发器</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-03-04 21:34:43" itemprop="dateCreated datePublished" datetime="2019-03-04T21:34:43+08:00">2019-03-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-29 15:22:29" itemprop="dateModified" datetime="2020-03-29T15:22:29+08:00">2020-03-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/oracle/" itemprop="url" rel="index"><span itemprop="name">oracle</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="什么是触发器"><a href="#什么是触发器" class="headerlink" title="什么是触发器"></a>什么是触发器</h2><p>触发器是一个特殊的存储过程，是一个与表相关联的，存储的PL/SQL程序，每当一个特定的数据操作语句（insert，update，delete）在指定的表上发出时，Oracle自动地执行触发器中定义的语句序列。</p>
+<h2 id="触发器的语法"><a href="#触发器的语法" class="headerlink" title="触发器的语法"></a>触发器的语法</h2><h4 id="如何创建触发器"><a href="#如何创建触发器" class="headerlink" title="如何创建触发器"></a>如何创建触发器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">--Print ’insert success‘ after insert record into the table.</span><br><span class="line">create [or replace] trigger trigger_name </span><br><span class="line">&#123;after|before&#125; &#123;insert|delete|update|of row_name&#125;</span><br><span class="line">on table_name</span><br><span class="line">[for each row [when(条件)]]</span><br><span class="line">declare</span><br><span class="line">begin</span><br><span class="line">    dbms_output.put_line(&apos;insert success!&apos;);</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+<h2 id="触发器的类型"><a href="#触发器的类型" class="headerlink" title="触发器的类型"></a>触发器的类型</h2><h4 id="语句级触发器和行级触发器"><a href="#语句级触发器和行级触发器" class="headerlink" title="语句级触发器和行级触发器"></a>语句级触发器和行级触发器</h4><p>语句级没有for each row，行级反之。<br>语句级触发器：在指定的操作语句操作之前或之后执行一次，不管这条语句影响了多少行。<br>行级触发器：触发语句作用的每条记录都被触发。在其中使用:old和:new伪记录变量，识别值的状态。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">insert into emp10 select * from emp where depno=10;</span><br><span class="line">-- 3 rows of records</span><br><span class="line">-- 语句级触发器：针对的是表，只执行一次。</span><br><span class="line">-- 行级触发器：针对的是行，执行了3次。</span><br></pre></td></tr></table></figure></p>
+<h2 id="触发器的具体应用场景"><a href="#触发器的具体应用场景" class="headerlink" title="触发器的具体应用场景"></a>触发器的具体应用场景</h2><h4 id="复杂的安全性检查"><a href="#复杂的安全性检查" class="headerlink" title="复杂的安全性检查"></a>复杂的安全性检查</h4>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/03/04/oracle系列之触发器/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/18/沾ibator的光，sql忘得不能再多了/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -494,108 +578,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/28/oracle系列之索引深入研究/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengorz">
-      <meta itemprop="description" content="Live only for yourself.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/28/oracle系列之索引深入研究/" class="post-title-link" itemprop="url">oracle系列之索引</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-04-28 18:20:48" itemprop="dateCreated datePublished" datetime="2019-04-28T18:20:48+08:00">2019-04-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-29 14:48:53" itemprop="dateModified" datetime="2020-03-29T14:48:53+08:00">2020-03-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/oracle/" itemprop="url" rel="index"><span itemprop="name">oracle</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="为什么加索引后会使写入、修改、删除变慢？"><a href="#为什么加索引后会使写入、修改、删除变慢？" class="headerlink" title="为什么加索引后会使写入、修改、删除变慢？"></a>为什么加索引后会使写入、修改、删除变慢？</h2><p>事物都是有两面的， 索引能让数据库查询数据的速度上升， 而使写入数据的速度下降，原因很简单的， 因为平衡树这个结构必须一直维持在一个正确的状态， 增删改数据都会改变平衡树各节点中的索引数据内容，破坏树结构， 因此，在每次数据改变时， DBMS必须去重新梳理树（索引）的结构以确保它的正确，这会带来不小的性能开销，也就是为什么索引会给查询以外的操作带来副作用的原因。</p>
-<h2 id="什么情况下要同时在两个字段上建索引？"><a href="#什么情况下要同时在两个字段上建索引？" class="headerlink" title="什么情况下要同时在两个字段上建索引？"></a>什么情况下要同时在两个字段上建索引？</h2><p>有一种例外可以不使用聚集索引就能查询出所需要的数据， 这种非主流的方法 称之为「覆盖索引」查询， 也就是平时所说的复合索引或者多字段索引查询。 文章上面的内容已经指出， 当为字段建立索引以后， 字段中的内容会被同步到索引之中， 如果为一个索引指定两个字段， 那么这个两个字段的内容都会被同步至索引之中。</p>
-<p>先看下面这个SQL语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//建立索引</span><br><span class="line">create index index_birthday on user_info(birthday);</span><br><span class="line">//查询生日在1991年11月1日出生用户的用户名</span><br><span class="line">select user_name from user_info where birthday = &apos;1991-11-1&apos;</span><br></pre></td></tr></table></figure></p>
-<p>这句SQL语句的执行过程如下</p>
-<ul>
-<li><p>首先，通过非聚集索引index_birthday查找birthday等于1991-11-1的所有记录的主键ID值</p>
-</li>
-<li><p>然后，通过得到的主键ID值执行聚集索引查找，找到主键ID值对就的真实数据（数据行）存储的位置</p>
-</li>
-<li><p>最后， 从得到的真实数据中取得user_name字段的值返回， 也就是取得最终的结果</p>
-</li>
-</ul>
-<p>我们把birthday字段上的索引改成双字段的覆盖索引<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create index index_birthday_and_user_name on user_info(birthday, user_name);</span><br></pre></td></tr></table></figure></p>
-<p>这句SQL语句的执行过程就会变为:</p>
-<blockquote>
-<p>通过非聚集索引index_birthday_and_user_name查找birthday等于1991-11-1的叶节点的内容，然而， 叶节点中除了有user_name表主键ID的值以外， user_name字段的值也在里面， 因此不需要通过主键ID值的查找数据行的真实所在， 直接取得叶节点中user_name的值返回即可。 通过这种覆盖索引直接查找的方式， 可以省略不使用覆盖索引查找的后面两个步骤， 大大的提高了查询性能.</p>
-<p><a href="https://www.cnblogs.com/aspwebchh/p/6652855.html" target="_blank" rel="noopener">https://www.cnblogs.com/aspwebchh/p/6652855.html</a></p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/04/28/oracle系列之索引深入研究/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/20/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/22/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/20/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/22/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -663,20 +649,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">125</span>
+          <span class="site-state-item-count">129</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-count">65</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">87</span>
+        <span class="site-state-item-count">89</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

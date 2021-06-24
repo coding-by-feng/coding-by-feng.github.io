@@ -20,18 +20,18 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="apt-get国内太慢ubuntu和debian的镜像源都要换12sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.listsed -i &amp;apos;s/deb.debian.org/mirrors.ustc.edu.cn/g&amp;apos; /etc/apt/sources.list 还原：1sed -i s@">
+  <meta name="description" content="apt-get国内太慢ubuntu和debian的镜像源都要换:12sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.listsed -i &amp;apos;s/deb.debian.org/mirrors.ustc.edu.cn/g&amp;apos; /etc/apt/sources.list 还原:1sed -i s">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux系列之问题汇总">
 <meta property="og:url" content="http://yoursite.com/2020/05/14/linux系列之问题汇总/index.html">
 <meta property="og:site_name" content="Feng&#39;s Blog">
-<meta property="og:description" content="apt-get国内太慢ubuntu和debian的镜像源都要换12sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.listsed -i &amp;apos;s/deb.debian.org/mirrors.ustc.edu.cn/g&amp;apos; /etc/apt/sources.list 还原：1sed -i s@">
+<meta property="og:description" content="apt-get国内太慢ubuntu和debian的镜像源都要换:12sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.listsed -i &amp;apos;s/deb.debian.org/mirrors.ustc.edu.cn/g&amp;apos; /etc/apt/sources.list 还原:1sed -i s">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-05T05:53:01.857Z">
+<meta property="og:updated_time" content="2021-06-12T05:11:54.370Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux系列之问题汇总">
-<meta name="twitter:description" content="apt-get国内太慢ubuntu和debian的镜像源都要换12sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.listsed -i &amp;apos;s/deb.debian.org/mirrors.ustc.edu.cn/g&amp;apos; /etc/apt/sources.list 还原：1sed -i s@">
+<meta name="twitter:description" content="apt-get国内太慢ubuntu和debian的镜像源都要换:12sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.listsed -i &amp;apos;s/deb.debian.org/mirrors.ustc.edu.cn/g&amp;apos; /etc/apt/sources.list 还原:1sed -i s">
 
 <link rel="canonical" href="http://yoursite.com/2020/05/14/linux系列之问题汇总/">
 
@@ -197,7 +197,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-05 13:53:01" itemprop="dateModified" datetime="2020-06-05T13:53:01+08:00">2020-06-05</time>
+                <time title="Modified: 2021-06-12 13:11:54" itemprop="dateModified" datetime="2021-06-12T13:11:54+08:00">2021-06-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -220,9 +220,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="apt-get国内太慢"><a href="#apt-get国内太慢" class="headerlink" title="apt-get国内太慢"></a>apt-get国内太慢</h1><p>ubuntu和debian的镜像源都要换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list</span><br><span class="line">sed -i &apos;s/deb.debian.org/mirrors.ustc.edu.cn/g&apos; /etc/apt/sources.list</span><br></pre></td></tr></table></figure></p>
-<p>还原：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i s@/mirrors.aliyun.com/@/deb.debian.org/@g /etc/apt/sources.list</span><br></pre></td></tr></table></figure></p>
-<h2 id="更换163的镜像"><a href="#更换163的镜像" class="headerlink" title="更换163的镜像"></a>更换163的镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#更新apt-get源 使用163的源</span><br><span class="line">mv /etc/apt/sources.list /etc/apt/sources.list.bak &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+        <h2 id="apt-get国内太慢"><a href="#apt-get国内太慢" class="headerlink" title="apt-get国内太慢"></a>apt-get国内太慢</h2><p>ubuntu和debian的镜像源都要换:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list</span><br><span class="line">sed -i &apos;s/deb.debian.org/mirrors.ustc.edu.cn/g&apos; /etc/apt/sources.list</span><br></pre></td></tr></table></figure></p>
+<p>还原:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i s@/mirrors.aliyun.com/@/deb.debian.org/@g /etc/apt/sources.list</span><br></pre></td></tr></table></figure></p>
+<p>更换163的镜像:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#更新apt-get源 使用163的源</span><br><span class="line">mv /etc/apt/sources.list /etc/apt/sources.list.bak &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list</span><br></pre></td></tr></table></figure></p>
 <h2 id="apk命令更换源"><a href="#apk命令更换源" class="headerlink" title="apk命令更换源"></a>apk命令更换源</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;http://mirrors.aliyun.com/alpine/v3.8/main&quot; &gt; /etc/apk/repositories \</span><br><span class="line">    &amp;&amp; echo &quot;http://mirrors.aliyun.com/alpine/v3.8/community&quot; &gt;&gt; /etc/apk/repositories \</span><br><span class="line">    &amp;&amp; apk update upgrade \</span><br></pre></td></tr></table></figure>
 <h2 id="将命令的返回值赋值给变量（Shell命令）"><a href="#将命令的返回值赋值给变量（Shell命令）" class="headerlink" title="将命令的返回值赋值给变量（Shell命令）"></a>将命令的返回值赋值给变量（Shell命令）</h2><ul>
 <li>A=<code>ls -la</code> 反引号，运行里面的命令，并把结果返回给变量A</li>
@@ -231,6 +231,7 @@
 <h2 id="linux-shell通过curl获取HTTP请求的状态码"><a href="#linux-shell通过curl获取HTTP请求的状态码" class="headerlink" title="linux shell通过curl获取HTTP请求的状态码"></a>linux shell通过curl获取HTTP请求的状态码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -I -m 10 -o /dev/null -s -w %&#123;http_code&#125; www.baidu.com</span><br></pre></td></tr></table></figure>
 <h2 id="shell获取系统当前时间并格式化"><a href="#shell获取系统当前时间并格式化" class="headerlink" title="shell获取系统当前时间并格式化"></a>shell获取系统当前时间并格式化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time=$(date &quot;+%Y-%m-%d %H:%M:%S&quot;)</span><br></pre></td></tr></table></figure>
 <h2 id="安装包打包命令"><a href="#安装包打包命令" class="headerlink" title="安装包打包命令"></a>安装包打包命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpmbuild / dpkg-deb 可以制作 rpm / deb package</span><br></pre></td></tr></table></figure>
+<h2 id="命令行特殊字符"><a href="#命令行特殊字符" class="headerlink" title="命令行特殊字符"></a>命令行特殊字符</h2><p>用双引号括起来<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sshpass -p &quot;R.XXXXXXXxxxx;/g4~&quot; ssh root@81.70.99.173</span><br></pre></td></tr></table></figure></p>
 
     </div>
 
@@ -316,7 +317,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#apt-get国内太慢"><span class="nav-number">1.</span> <span class="nav-text">apt-get国内太慢</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#更换163的镜像"><span class="nav-number">1.1.</span> <span class="nav-text">更换163的镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apk命令更换源"><span class="nav-number">1.2.</span> <span class="nav-text">apk命令更换源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将命令的返回值赋值给变量（Shell命令）"><span class="nav-number">1.3.</span> <span class="nav-text">将命令的返回值赋值给变量（Shell命令）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux-shell通过curl获取HTTP请求的状态码"><span class="nav-number">1.4.</span> <span class="nav-text">linux shell通过curl获取HTTP请求的状态码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shell获取系统当前时间并格式化"><span class="nav-number">1.5.</span> <span class="nav-text">shell获取系统当前时间并格式化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装包打包命令"><span class="nav-number">1.6.</span> <span class="nav-text">安装包打包命令</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#apt-get国内太慢"><span class="nav-number">1.</span> <span class="nav-text">apt-get国内太慢</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apk命令更换源"><span class="nav-number">2.</span> <span class="nav-text">apk命令更换源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将命令的返回值赋值给变量（Shell命令）"><span class="nav-number">3.</span> <span class="nav-text">将命令的返回值赋值给变量（Shell命令）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux-shell通过curl获取HTTP请求的状态码"><span class="nav-number">4.</span> <span class="nav-text">linux shell通过curl获取HTTP请求的状态码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shell获取系统当前时间并格式化"><span class="nav-number">5.</span> <span class="nav-text">shell获取系统当前时间并格式化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装包打包命令"><span class="nav-number">6.</span> <span class="nav-text">安装包打包命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令行特殊字符"><span class="nav-number">7.</span> <span class="nav-text">命令行特殊字符</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -330,20 +331,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">125</span>
+          <span class="site-state-item-count">129</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-count">65</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">87</span>
+        <span class="site-state-item-count">89</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
