@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.fengorz.me","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="TodoItem如果配置文件不再Application启动器的同目录或者子目录下，就需要采用@Import引入？ todo有没有自动生成banner的工具？ todo@SpringBootConfiguration和@SpringBootApplication区别 todobootstrap.yml非默认的情况下怎样才能被application.yml覆盖？todoBasic Knowledge采">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring系列之SpringBoot">
+<meta property="og:url" content="https://www.fengorz.me/2019/10/15/Spring%E7%B3%BB%E5%88%97%E4%B9%8BSpringBoot/index.html">
+<meta property="og:site_name" content="Feng&#39;s Blog">
+<meta property="og:description" content="TodoItem如果配置文件不再Application启动器的同目录或者子目录下，就需要采用@Import引入？ todo有没有自动生成banner的工具？ todo@SpringBootConfiguration和@SpringBootApplication区别 todobootstrap.yml非默认的情况下怎样才能被application.yml覆盖？todoBasic Knowledge采">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-10-15T13:32:15.000Z">
+<meta property="article:modified_time" content="2020-06-22T07:19:29.313Z">
+<meta property="article:author" content="Fengorz">
+<meta property="article:tag" content="Spring">
+<meta property="article:tag" content="SpringBoot">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.fengorz.me/2019/10/15/Spring%E7%B3%BB%E5%88%97%E4%B9%8BSpringBoot/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>Spring系列之SpringBoot | Feng's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Feng's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">kiwidict.com</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://www.fengorz.me/2019/10/15/Spring%E7%B3%BB%E5%88%97%E4%B9%8BSpringBoot/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="Live only for yourself.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Spring系列之SpringBoot
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-15 21:32:15 21:32:15" itemprop="dateCreated datePublished" datetime="2019-10-15T21:32:15+08:00">2019-10-15 21:32:15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-22 15:19:29 15:19:29" itemprop="dateModified" datetime="2020-06-22T15:19:29+08:00">2020-06-22 15:19:29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="如果配置文件不再Application启动器的同目录或者子目录下，就需要采用-Import引入？-todo"><a href="#如果配置文件不再Application启动器的同目录或者子目录下，就需要采用-Import引入？-todo" class="headerlink" title="如果配置文件不再Application启动器的同目录或者子目录下，就需要采用@Import引入？ todo"></a>如果配置文件不再Application启动器的同目录或者子目录下，就需要采用@Import引入？ todo</h2><h2 id="有没有自动生成banner的工具？-todo"><a href="#有没有自动生成banner的工具？-todo" class="headerlink" title="有没有自动生成banner的工具？ todo"></a>有没有自动生成banner的工具？ todo</h2><h2 id="SpringBootConfiguration和-SpringBootApplication区别-todo"><a href="#SpringBootConfiguration和-SpringBootApplication区别-todo" class="headerlink" title="@SpringBootConfiguration和@SpringBootApplication区别 todo"></a>@SpringBootConfiguration和@SpringBootApplication区别 todo</h2><h2 id="bootstrap-yml非默认的情况下怎样才能被application-yml覆盖？todo"><a href="#bootstrap-yml非默认的情况下怎样才能被application-yml覆盖？todo" class="headerlink" title="bootstrap.yml非默认的情况下怎样才能被application.yml覆盖？todo"></a>bootstrap.yml非默认的情况下怎样才能被application.yml覆盖？todo</h2><h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="采用SpringBoot处理国际化问题"><a href="#采用SpringBoot处理国际化问题" class="headerlink" title="采用SpringBoot处理国际化问题"></a>采用SpringBoot处理国际化问题</h2><p><a target="_blank" rel="noopener" href="https://www.baeldung.com/spring-boot-internationalization">Guide to Internationalization in Spring Boot</a></p>
+<h2 id="SpringBoot基础教程"><a href="#SpringBoot基础教程" class="headerlink" title="SpringBoot基础教程"></a>SpringBoot基础教程</h2><ul>
+<li><a href="baeldung.com/spring-boot-start">Spring Boot Tutorial – Bootstrap a Simple Application</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.baeldung.com/spring-boot-annotations">Spring Boot Annotations</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.baeldung.com/spring-boot-custom-auto-configuration">Create a Custom Auto-Configuration with Spring Boot</a><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 标记自动配置类的优先权</span><br><span class="line">@AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE)</span><br></pre></td></tr></table></figure></li>
+<li><a target="_blank" rel="noopener" href="https://www.baeldung.com/spring-boot-starters">Intro to Spring Boot Starters</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.baeldung.com/spring-boot-actuators#1-endpoints">Spring Boot Actuator</a></li>
+</ul>
+<h2 id="spring-boot-configuration-processor"><a href="#spring-boot-configuration-processor" class="headerlink" title="spring-boot-configuration-processor"></a>spring-boot-configuration-processor</h2><p>可以更加优雅地读取配置文件的值，参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/fzbbw/article/details/101175595">https://blog.csdn.net/fzbbw/article/details/101175595</a></p>
+<h2 id="远程Debug（Remote-Debug）"><a href="#远程Debug（Remote-Debug）" class="headerlink" title="远程Debug（Remote Debug）"></a>远程Debug（Remote Debug）</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42740530/article/details/89524509">https://blog.csdn.net/weixin_42740530&#x2F;article&#x2F;details&#x2F;89524509</a></p>
+<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="required-a-bean-of-type-‘javax-sql-DataSource’-that-could-not-be-found"><a href="#required-a-bean-of-type-‘javax-sql-DataSource’-that-could-not-be-found" class="headerlink" title="required a bean of type ‘javax.sql.DataSource’ that could not be found."></a>required a bean of type ‘javax.sql.DataSource’ that could not be found.</h2><p>需要手动配置spring-boot-starter-jdbc的依赖jar</p>
+<h2 id="Consider-revisiting-the-entries-above-or-defining-a-bean-of-type-‘org-springframework-security-core-userdetails-UserDetailsService’-in-your-configuration"><a href="#Consider-revisiting-the-entries-above-or-defining-a-bean-of-type-‘org-springframework-security-core-userdetails-UserDetailsService’-in-your-configuration" class="headerlink" title="Consider revisiting the entries above or defining a bean of type ‘org.springframework.security.core.userdetails.UserDetailsService’ in your configuration."></a>Consider revisiting the entries above or defining a bean of type ‘org.springframework.security.core.userdetails.UserDetailsService’ in your configuration.</h2><p>需要自己实现UserDetailsService，并注入到Spring。</p>
+<h2 id="2019-12-19-14-24-44-064-WARN-2849-—-XNIO-1-task-7-com-zaxxer-hikari-pool-PoolBase-HikariPool-1-Failed-to-validate-connection-com-mysql-cj-jdbc-ConnectionImpl-6bee636d-No-operations-allowed-after-connection-closed-Possibly-consider-using-a-shorter-maxLifetime-value"><a href="#2019-12-19-14-24-44-064-WARN-2849-—-XNIO-1-task-7-com-zaxxer-hikari-pool-PoolBase-HikariPool-1-Failed-to-validate-connection-com-mysql-cj-jdbc-ConnectionImpl-6bee636d-No-operations-allowed-after-connection-closed-Possibly-consider-using-a-shorter-maxLifetime-value" class="headerlink" title="2019-12-19 14:24:44.064  WARN 2849 — [  XNIO-1 task-7] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6bee636d (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value."></a>2019-12-19 14:24:44.064  WARN 2849 — [  XNIO-1 task-7] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6bee636d (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.</h2><p>使用hikari需要配置加上max-lifetime: 27700000，如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 数据源</span><br><span class="line">spring:</span><br><span class="line">  datasource:</span><br><span class="line">    type: com.zaxxer.hikari.HikariDataSource</span><br><span class="line">    driver-class-name: com.mysql.cj.jdbc.Driver</span><br><span class="line">    username: root</span><br><span class="line">    password: raubbhWy</span><br><span class="line">    url: jdbc:mysql://39.100.106.97:3306/inspect_db?characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=false&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Asia/Shanghai</span><br><span class="line">    hikari:</span><br><span class="line">      max-lifetime: 27700000</span><br></pre></td></tr></table></figure>
+
+<h2 id="Caused-by-java-lang-ClassNotFoundException-org-springframework-cloud-context-named-NamedContextFactory-Specification"><a href="#Caused-by-java-lang-ClassNotFoundException-org-springframework-cloud-context-named-NamedContextFactory-Specification" class="headerlink" title="Caused by: java.lang.ClassNotFoundException: org.springframework.cloud.context.named.NamedContextFactory$Specification"></a>Caused by: java.lang.ClassNotFoundException: org.springframework.cloud.context.named.NamedContextFactory$Specification</h2><p>原因：OpcApplication 中有注解@EnableFeignClients，但是在控制器或对外实现接口中，SpringBoot没有扫描到@FeignClient注解的程序</p>
+<p>解决：要么给程序加注解@FeignClient，要么把 OpcApplication 中有注解@EnableFeignClients 暂时去掉</p>
+<p>还有网上提到需要增加对应的依赖：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-cloud-context&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Spring/" rel="tag"># Spring</a>
+              <a href="/tags/SpringBoot/" rel="tag"># SpringBoot</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/10/15/Spring%E7%B3%BB%E5%88%97%E4%B9%8B%E6%A0%B8%E5%BF%83Feature/" rel="prev" title="Spring系列之核心Feature">
+      <i class="fa fa-chevron-left"></i> Spring系列之核心Feature
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/10/15/Spring%E7%B3%BB%E5%88%97%E4%B9%8BSpringCloudConfig/" rel="next" title="Spring系列之SpringCloudConfig">
+      Spring系列之SpringCloudConfig <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TodoItem"><span class="nav-number">1.</span> <span class="nav-text">TodoItem</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%B8%8D%E5%86%8DApplication%E5%90%AF%E5%8A%A8%E5%99%A8%E7%9A%84%E5%90%8C%E7%9B%AE%E5%BD%95%E6%88%96%E8%80%85%E5%AD%90%E7%9B%AE%E5%BD%95%E4%B8%8B%EF%BC%8C%E5%B0%B1%E9%9C%80%E8%A6%81%E9%87%87%E7%94%A8-Import%E5%BC%95%E5%85%A5%EF%BC%9F-todo"><span class="nav-number">1.1.</span> <span class="nav-text">如果配置文件不再Application启动器的同目录或者子目录下，就需要采用@Import引入？ todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E6%B2%A1%E6%9C%89%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90banner%E7%9A%84%E5%B7%A5%E5%85%B7%EF%BC%9F-todo"><span class="nav-number">1.2.</span> <span class="nav-text">有没有自动生成banner的工具？ todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBootConfiguration%E5%92%8C-SpringBootApplication%E5%8C%BA%E5%88%AB-todo"><span class="nav-number">1.3.</span> <span class="nav-text">@SpringBootConfiguration和@SpringBootApplication区别 todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bootstrap-yml%E9%9D%9E%E9%BB%98%E8%AE%A4%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E6%80%8E%E6%A0%B7%E6%89%8D%E8%83%BD%E8%A2%ABapplication-yml%E8%A6%86%E7%9B%96%EF%BC%9Ftodo"><span class="nav-number">1.4.</span> <span class="nav-text">bootstrap.yml非默认的情况下怎样才能被application.yml覆盖？todo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Knowledge"><span class="nav-number">2.</span> <span class="nav-text">Basic Knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%87%E7%94%A8SpringBoot%E5%A4%84%E7%90%86%E5%9B%BD%E9%99%85%E5%8C%96%E9%97%AE%E9%A2%98"><span class="nav-number">2.1.</span> <span class="nav-text">采用SpringBoot处理国际化问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBoot%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B"><span class="nav-number">2.2.</span> <span class="nav-text">SpringBoot基础教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring-boot-configuration-processor"><span class="nav-number">2.3.</span> <span class="nav-text">spring-boot-configuration-processor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8BDebug%EF%BC%88Remote-Debug%EF%BC%89"><span class="nav-number">2.4.</span> <span class="nav-text">远程Debug（Remote Debug）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Problem-Solution"><span class="nav-number">3.</span> <span class="nav-text">Problem Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#required-a-bean-of-type-%E2%80%98javax-sql-DataSource%E2%80%99-that-could-not-be-found"><span class="nav-number">3.1.</span> <span class="nav-text">required a bean of type ‘javax.sql.DataSource’ that could not be found.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Consider-revisiting-the-entries-above-or-defining-a-bean-of-type-%E2%80%98org-springframework-security-core-userdetails-UserDetailsService%E2%80%99-in-your-configuration"><span class="nav-number">3.2.</span> <span class="nav-text">Consider revisiting the entries above or defining a bean of type ‘org.springframework.security.core.userdetails.UserDetailsService’ in your configuration.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2019-12-19-14-24-44-064-WARN-2849-%E2%80%94-XNIO-1-task-7-com-zaxxer-hikari-pool-PoolBase-HikariPool-1-Failed-to-validate-connection-com-mysql-cj-jdbc-ConnectionImpl-6bee636d-No-operations-allowed-after-connection-closed-Possibly-consider-using-a-shorter-maxLifetime-value"><span class="nav-number">3.3.</span> <span class="nav-text">2019-12-19 14:24:44.064  WARN 2849 — [  XNIO-1 task-7] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6bee636d (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Caused-by-java-lang-ClassNotFoundException-org-springframework-cloud-context-named-NamedContextFactory-Specification"><span class="nav-number">3.4.</span> <span class="nav-text">Caused by: java.lang.ClassNotFoundException: org.springframework.cloud.context.named.NamedContextFactory$Specification</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Fengorz</p>
+  <div class="site-description" itemprop="description">Live only for yourself.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fengorz</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

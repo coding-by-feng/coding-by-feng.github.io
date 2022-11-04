@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.fengorz.me","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="基础判断true和false 如果逻辑对象无初始值或者其值为 0、-0、null、””、false、undefined 或者 NaN，那么对象的值为 false。否则，其值为 true（即使当自变量为字符串 “false” 时）！ 但是不要想当然的理解为 0 &#x3D;&#x3D; null（结果为false） ，1 &#x3D;&#x3D; “abc”（结果是false）， null &amp;#x3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript">
+<meta property="og:url" content="https://www.fengorz.me/2020/03/29/JavaScript/index.html">
+<meta property="og:site_name" content="Feng&#39;s Blog">
+<meta property="og:description" content="基础判断true和false 如果逻辑对象无初始值或者其值为 0、-0、null、””、false、undefined 或者 NaN，那么对象的值为 false。否则，其值为 true（即使当自变量为字符串 “false” 时）！ 但是不要想当然的理解为 0 &#x3D;&#x3D; null（结果为false） ，1 &#x3D;&#x3D; “abc”（结果是false）， null &amp;#x3">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-03-29T03:22:26.000Z">
+<meta property="article:modified_time" content="2020-11-19T12:28:46.778Z">
+<meta property="article:author" content="Fengorz">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.fengorz.me/2020/03/29/JavaScript/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>JavaScript | Feng's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Feng's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">kiwidict.com</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://www.fengorz.me/2020/03/29/JavaScript/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="Live only for yourself.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JavaScript
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-29 11:22:26 11:22:26" itemprop="dateCreated datePublished" datetime="2020-03-29T11:22:26+08:00">2020-03-29 11:22:26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-19 20:28:46 20:28:46" itemprop="dateModified" datetime="2020-11-19T20:28:46+08:00">2020-11-19 20:28:46</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="判断true和false"><a href="#判断true和false" class="headerlink" title="判断true和false"></a>判断true和false</h2><ul>
+<li>如果逻辑对象无初始值或者其值为 0、-0、null、””、false、undefined 或者 NaN，那么对象的值为 false。否则，其值为 true（即使当自变量为字符串 “false” 时）！</li>
+<li>但是不要想当然的理解为 0 &#x3D;&#x3D; null（结果为false） ，1 &#x3D;&#x3D; “abc”（结果是false）， null &#x3D;&#x3D; undefined （结果为false）</li>
+<li>不过 0 &#x3D;&#x3D; false ， 1 &#x3D;&#x3D; true（结果都为true）</li>
+</ul>
+<h2 id="任意类型的值转换为布尔类型的语法糖"><a href="#任意类型的值转换为布尔类型的语法糖" class="headerlink" title="任意类型的值转换为布尔类型的语法糖"></a>任意类型的值转换为布尔类型的语法糖</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!!val</span><br></pre></td></tr></table></figure>
+<p>一个！是取非 再一个！又取非 相当于把这个数据转换为boolean类型了</p>
+<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="Array-some"><a href="#Array-some" class="headerlink" title="Array.some()"></a>Array.some()</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const array = [1, 2, 3, 4, 5];</span><br><span class="line"></span><br><span class="line">// checks whether an element is even</span><br><span class="line">const even = (element) =&gt; element % 2 === 0;</span><br><span class="line"></span><br><span class="line">console.log(array.some(even));</span><br><span class="line">// expected output: true</span><br></pre></td></tr></table></figure>
+<h2 id="沙箱"><a href="#沙箱" class="headerlink" title="沙箱"></a>沙箱</h2><p><a target="_blank" rel="noopener" href="https://my.oschina.net/ivweb/blog/872949">参考文章</a></p>
+<h2 id="JS判断两个对象内容是否相等"><a href="#JS判断两个对象内容是否相等" class="headerlink" title="JS判断两个对象内容是否相等"></a>JS判断两个对象内容是否相等</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/7407bd65b15d">https://www.jianshu.com/p/7407bd65b15d</a></p>
+<h2 id="自定义sleep"><a href="#自定义sleep" class="headerlink" title="自定义sleep"></a>自定义sleep</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const sleep = function (time) &#123;</span><br><span class="line">  let startTime = new Date().getTime() + time * 1000</span><br><span class="line">  while (new Date().getTime() &lt; startTime) &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="判断字符包是否包含中文"><a href="#判断字符包是否包含中文" class="headerlink" title="判断字符包是否包含中文"></a>判断字符包是否包含中文</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/.*[\u4e00-\u9fa5]+.*$/.test(str)</span><br></pre></td></tr></table></figure>
+
+<h1 id="ES5"><a href="#ES5" class="headerlink" title="ES5"></a>ES5</h1><h2 id="ES5中bind-函数"><a href="#ES5中bind-函数" class="headerlink" title="ES5中bind()函数"></a>ES5中bind()函数</h2><h1 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h1><h2 id="ES6教程"><a href="#ES6教程" class="headerlink" title="ES6教程"></a>ES6教程</h2><p><a target="_blank" rel="noopener" href="http://es6.ruanyifeng.com/?search=%E8%A7%A3%E6%9E%84&amp;x=0&amp;y=0">http://es6.ruanyifeng.com/?search=%E8%A7%A3%E6%9E%84&amp;x=0&amp;y=0</a></p>
+<h2 id="ES6解构赋值"><a href="#ES6解构赋值" class="headerlink" title="ES6解构赋值"></a>ES6解构赋值</h2><p><a target="_blank" rel="noopener" href="http://es6.ruanyifeng.com/?search=%E8%A7%A3%E6%9E%84&amp;x=0&amp;y=0#docs/destructuring#%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC">http://es6.ruanyifeng.com/?search=%E8%A7%A3%E6%9E%84&amp;x=0&amp;y=0#docs/destructuring#%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC</a></p>
+<h2 id="Google-JavaScript-Style-Guide"><a href="#Google-JavaScript-Style-Guide" class="headerlink" title="Google JavaScript Style Guide"></a>Google JavaScript Style Guide</h2><p><a target="_blank" rel="noopener" href="https://google.github.io/styleguide/jsguide.html">https://google.github.io/styleguide/jsguide.html</a></p>
+<h2 id="let-vs-var"><a href="#let-vs-var" class="headerlink" title="let vs var"></a>let vs var</h2><p>在ES6之前，我们都是用var来声明变量，而且JS只有函数作用域和全局作用域，没有块级作用域，所以{}限定不了var声明变量的访问范围。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">  var i = 9;</span><br><span class="line">&#125; </span><br><span class="line">console.log(i);  // 9</span><br></pre></td></tr></table></figure>
+<p>ES6新增的let，可以声明块级作用域的变量。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">  let i = 9;     // i变量只在 花括号内有效！！！</span><br><span class="line">&#125; </span><br><span class="line">console.log(i);  // Uncaught ReferenceError: i is not defined</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/bd7f6cf64e41">https://www.jianshu.com/p/bd7f6cf64e41</a></p>
+<h2 id="const-vs-var-vs-let"><a href="#const-vs-var-vs-let" class="headerlink" title="const vs var vs let"></a>const vs var vs let</h2><p><a target="_blank" rel="noopener" href="https://tylermcginnis.com/var-let-const/">https://tylermcginnis.com/var-let-const/</a><br>简而言之：<br>1、var的作用域是函数级别，默认值是undefined；<br>2、let的作用域是代码块级别，未赋值就引用会抛出ReferenceError<br>3、const的作用域和let一样，但是const相当于是一个常量，赋值之后不能直接修改，不然会抛TypeError，但是如果是其指向的值是对象，那么可以修改对象的子属性，如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const person = &#123;</span><br><span class="line">  name: &#x27;Kim Kardashian&#x27;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">person.name = &#x27;Kim Kardashian West&#x27; // ✅</span><br><span class="line"></span><br><span class="line">person = &#123;&#125; // ❌ Assignment to constant variable.</span><br></pre></td></tr></table></figure>
+<h2 id="export"><a href="#export" class="headerlink" title="export"></a>export</h2><h4 id="export-vs-export-default"><a href="#export-vs-export-default" class="headerlink" title="export vs export default"></a>export vs export default</h4><p>其中export和export default最大的区别就是export不限变量数 可以一直写，而export default  只输出一次 而且 export出的变量想要使用必须使用{}来盛放，而export default 不需要 只要import任意一个名字来接收对象即可。</p>
+<h4 id="export-const"><a href="#export-const" class="headerlink" title="export const"></a>export const</h4><p>export const 可以导出多个对象，import的时候用{}承接。</p>
+<h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><h4 id="let-obj-x3D-content-todo"><a href="#let-obj-x3D-content-todo" class="headerlink" title="let obj &#x3D; {}, content; todo"></a>let obj &#x3D; {}, content; todo</h4><h2 id="ES6中import-as-xxx-from-‘xxx’的作用"><a href="#ES6中import-as-xxx-from-‘xxx’的作用" class="headerlink" title="ES6中import * as xxx from ‘xxx’的作用"></a>ES6中import * as xxx from ‘xxx’的作用</h2><p>import * as obj from ‘xx’  这种写法是把所有的输出包裹到obj对象里</p>
+<h2 id="BOM（浏览器窗口对象模型）"><a href="#BOM（浏览器窗口对象模型）" class="headerlink" title="BOM（浏览器窗口对象模型）"></a>BOM（浏览器窗口对象模型）</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/*保存的数据用于浏览器的一次会话（session），当会话结束（通常是窗口关闭），数据被清空*/</span><br><span class="line">window.sessionStorage.setItem(name, JSON.stringify(obj));</span><br><span class="line">/*保存的数据用于浏览器的一次会话（session），当会话结束（通常是窗口关闭），数据被清空*/</span><br><span class="line">window.sessionStorage.setItem(name, JSON.stringify(obj));</span><br></pre></td></tr></table></figure>
+<h2 id="Code-specification"><a href="#Code-specification" class="headerlink" title="Code specification"></a>Code specification</h2><table>
+<thead>
+<tr>
+<th>firm</th>
+<th>url</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>aotu</td>
+<td><a target="_blank" rel="noopener" href="https://guide.aotu.io/docs/js/code.html">https://guide.aotu.io/docs/js/code.html</a></td>
+</tr>
+<tr>
+<td>腾讯</td>
+<td><a target="_blank" rel="noopener" href="https://www.kancloud.cn/digest/code-guide/42604">https://www.kancloud.cn/digest/code-guide/42604</a></td>
+</tr>
+<tr>
+<td>alibaba</td>
+<td><a target="_blank" rel="noopener" href="https://www.cnblogs.com/whitewolf/p/4491447.html?spm=a2c4e.10696291.0.0.5e2f19a4kuyhbl#types">https://www.cnblogs.com/whitewolf/p/4491447.html?spm=a2c4e.10696291.0.0.5e2f19a4kuyhbl#types</a></td>
+</tr>
+</tbody></table>
+<h2 id="es6之扩展运算符…"><a href="#es6之扩展运算符…" class="headerlink" title="es6之扩展运算符…"></a>es6之扩展运算符…</h2><blockquote>
+<p>对象中的扩展运算符(…)用于取出参数对象中的所有可遍历属性，拷贝到当前对象之中</p>
+</blockquote>
+<h3 id="变量的扩展"><a href="#变量的扩展" class="headerlink" title="变量的扩展"></a>变量的扩展</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let bar = &#123; a: 1, b: 2 &#125;;</span><br><span class="line">let baz = &#123; ...bar &#125;; // &#123; a: 1, b: 2 &#125;</span><br></pre></td></tr></table></figure>
+<p>等同于：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let bar = &#123; a: 1, b: 2 &#125;;</span><br><span class="line">let baz = Object.assign(&#123;&#125;, bar); // &#123; a: 1, b: 2 &#125;</span><br></pre></td></tr></table></figure>
+<p>如果用户自定义的属性，放在扩展运算符后面，则扩展运算符内部的同名属性会被覆盖掉。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let bar = &#123;a: 1, b: 2&#125;;</span><br><span class="line">let baz = &#123;...bar, ...&#123;a:2, b: 4&#125;&#125;;  // &#123;a: 2, b: 4&#125;</span><br></pre></td></tr></table></figure>
+<p><em><strong>引用数据类型时，修改拷贝后的对象会影响到被拷贝的对象：</strong></em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let obj1 = &#123; a: 1, b: 2, c: &#123;nickName: &#x27;d&#x27;&#125;&#125;;</span><br><span class="line">let obj2 = &#123; ...obj1&#125;;</span><br><span class="line">obj2.c.nickName = &#x27;d-edited&#x27;;</span><br><span class="line">console.log(obj1); // &#123;a: 1, b: 2, c: &#123;nickName: &#x27;d-edited&#x27;&#125;&#125;</span><br><span class="line">console.log(obj2); // &#123;a: 1, b: 2, c: &#123;nickName: &#x27;d-edited&#x27;&#125;&#125;</span><br><span class="line">————————————————</span><br><span class="line">版权声明：本文为CSDN博主「astonishqft」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</span><br><span class="line">原文链接：https://blog.csdn.net/astonishqft/java/article/details/82899965</span><br></pre></td></tr></table></figure>
+
+<h3 id="数组的扩展"><a href="#数组的扩展" class="headerlink" title="数组的扩展"></a>数组的扩展</h3><h2 id="filter-数组过滤"><a href="#filter-数组过滤" class="headerlink" title="filter() 数组过滤"></a>filter() 数组过滤</h2><h3 id="判断数组的每个元素"><a href="#判断数组的每个元素" class="headerlink" title="判断数组的每个元素"></a>判断数组的每个元素</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 判断task.selected是在为true</span><br><span class="line">let newArr = this.list.filter(task =&gt; task.selected)</span><br></pre></td></tr></table></figure>
+<h3 id="去掉数组空字符串、undefined、null"><a href="#去掉数组空字符串、undefined、null" class="headerlink" title="去掉数组空字符串、undefined、null"></a>去掉数组空字符串、undefined、null</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let newArr = arr.filter(item =&gt; item)</span><br></pre></td></tr></table></figure>
+<h3 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let newArr = arr.filter((x, index,self)=&gt;self.indexOf(x)===index)</span><br></pre></td></tr></table></figure>
+<p>或者：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr  = [1,2,1,&#x27;1&#x27;,null,null,undefined,undefined,NaN,NaN]</span><br><span class="line">let res = Array.from(new Set(arr));</span><br><span class="line">//or</span><br><span class="line">let newArr = [...new Set(arr)]</span><br></pre></td></tr></table></figure>
+<h2 id="数组查询返回元素"><a href="#数组查询返回元素" class="headerlink" title="数组查询返回元素"></a>数组查询返回元素</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const result = arr.find(item=&gt;&#123;</span><br><span class="line">	return item.itemCode === itemCode</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h1><h2 id="Promise-all和Promise-race"><a href="#Promise-all和Promise-race" class="headerlink" title="Promise.all和Promise.race"></a>Promise.all和Promise.race</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/7e60fc1be1b2">https://www.jianshu.com/p/7e60fc1be1b2</a><br>还有最新的Promise.any，不过这个公司的架构中没有引进</p>
+<h1 id="babel"><a href="#babel" class="headerlink" title="babel"></a>babel</h1><p>可以增加了一个babel插件，现在支持<br>result &#x3D; 0 ?? result 这种写法</p>
+<p>类似  0 || result,<br> || 左侧条件是undefined,null,0<br>?? 左侧条件是undefined,null</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/29/Markdown%E6%B1%87%E6%80%BB/" rel="prev" title="Markdown汇总">
+      <i class="fa fa-chevron-left"></i> Markdown汇总
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/29/Java%E7%B3%BB%E5%88%97%E4%B9%8BTodoItem/" rel="next" title="Java系列之TodoItem">
+      Java系列之TodoItem <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A4%E6%96%ADtrue%E5%92%8Cfalse"><span class="nav-number">1.1.</span> <span class="nav-text">判断true和false</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%BB%E6%84%8F%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%80%BC%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B%E7%9A%84%E8%AF%AD%E6%B3%95%E7%B3%96"><span class="nav-number">1.2.</span> <span class="nav-text">任意类型的值转换为布尔类型的语法糖</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript"><span class="nav-number">2.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Array-some"><span class="nav-number">2.1.</span> <span class="nav-text">Array.some()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B2%99%E7%AE%B1"><span class="nav-number">2.2.</span> <span class="nav-text">沙箱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%AF%B9%E8%B1%A1%E5%86%85%E5%AE%B9%E6%98%AF%E5%90%A6%E7%9B%B8%E7%AD%89"><span class="nav-number">2.3.</span> <span class="nav-text">JS判断两个对象内容是否相等</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89sleep"><span class="nav-number">2.4.</span> <span class="nav-text">自定义sleep</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E5%AD%97%E7%AC%A6%E5%8C%85%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E4%B8%AD%E6%96%87"><span class="nav-number">2.5.</span> <span class="nav-text">判断字符包是否包含中文</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ES5"><span class="nav-number">3.</span> <span class="nav-text">ES5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ES5%E4%B8%ADbind-%E5%87%BD%E6%95%B0"><span class="nav-number">3.1.</span> <span class="nav-text">ES5中bind()函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ES6"><span class="nav-number">4.</span> <span class="nav-text">ES6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6%E6%95%99%E7%A8%8B"><span class="nav-number">4.1.</span> <span class="nav-text">ES6教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC"><span class="nav-number">4.2.</span> <span class="nav-text">ES6解构赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Google-JavaScript-Style-Guide"><span class="nav-number">4.3.</span> <span class="nav-text">Google JavaScript Style Guide</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#let-vs-var"><span class="nav-number">4.4.</span> <span class="nav-text">let vs var</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const-vs-var-vs-let"><span class="nav-number">4.5.</span> <span class="nav-text">const vs var vs let</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#export"><span class="nav-number">4.6.</span> <span class="nav-text">export</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#export-vs-export-default"><span class="nav-number">4.6.0.1.</span> <span class="nav-text">export vs export default</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#export-const"><span class="nav-number">4.6.0.2.</span> <span class="nav-text">export const</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#let"><span class="nav-number">4.7.</span> <span class="nav-text">let</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#let-obj-x3D-content-todo"><span class="nav-number">4.7.0.1.</span> <span class="nav-text">let obj &#x3D; {}, content; todo</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6%E4%B8%ADimport-as-xxx-from-%E2%80%98xxx%E2%80%99%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">4.8.</span> <span class="nav-text">ES6中import * as xxx from ‘xxx’的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BOM%EF%BC%88%E6%B5%8F%E8%A7%88%E5%99%A8%E7%AA%97%E5%8F%A3%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B%EF%BC%89"><span class="nav-number">4.9.</span> <span class="nav-text">BOM（浏览器窗口对象模型）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-specification"><span class="nav-number">4.10.</span> <span class="nav-text">Code specification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#es6%E4%B9%8B%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6%E2%80%A6"><span class="nav-number">4.11.</span> <span class="nav-text">es6之扩展运算符…</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E6%89%A9%E5%B1%95"><span class="nav-number">4.11.1.</span> <span class="nav-text">变量的扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E6%89%A9%E5%B1%95"><span class="nav-number">4.11.2.</span> <span class="nav-text">数组的扩展</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#filter-%E6%95%B0%E7%BB%84%E8%BF%87%E6%BB%A4"><span class="nav-number">4.12.</span> <span class="nav-text">filter() 数组过滤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E6%95%B0%E7%BB%84%E7%9A%84%E6%AF%8F%E4%B8%AA%E5%85%83%E7%B4%A0"><span class="nav-number">4.12.1.</span> <span class="nav-text">判断数组的每个元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%BB%E6%8E%89%E6%95%B0%E7%BB%84%E7%A9%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%81undefined%E3%80%81null"><span class="nav-number">4.12.2.</span> <span class="nav-text">去掉数组空字符串、undefined、null</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D"><span class="nav-number">4.12.3.</span> <span class="nav-text">数组去重</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E6%9F%A5%E8%AF%A2%E8%BF%94%E5%9B%9E%E5%85%83%E7%B4%A0"><span class="nav-number">4.13.</span> <span class="nav-text">数组查询返回元素</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Promise"><span class="nav-number">5.</span> <span class="nav-text">Promise</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise-all%E5%92%8CPromise-race"><span class="nav-number">5.1.</span> <span class="nav-text">Promise.all和Promise.race</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#babel"><span class="nav-number">6.</span> <span class="nav-text">babel</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Fengorz</p>
+  <div class="site-description" itemprop="description">Live only for yourself.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fengorz</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

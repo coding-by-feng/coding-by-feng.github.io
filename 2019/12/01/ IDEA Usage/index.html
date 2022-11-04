@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.fengorz.me","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="HOTKEYUsage Search（使用查询）key(Mac) | key(Win) | desc  | -cmd+opt+F7 | win+alt+F7 | 搜索光标所在方法的声明之处或者被调用到的地方，以弹窗方式显示opt+F7 | alt+F7 | 全局搜索引用cmd+shift+F7 | ^+shift+F7 | 高亮显示当前代码域使用到的地方F3 or shift+F3 | 搜索当前文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IDEA Usage">
+<meta property="og:url" content="https://www.fengorz.me/2019/12/01/%20IDEA%20Usage/index.html">
+<meta property="og:site_name" content="Feng&#39;s Blog">
+<meta property="og:description" content="HOTKEYUsage Search（使用查询）key(Mac) | key(Win) | desc  | -cmd+opt+F7 | win+alt+F7 | 搜索光标所在方法的声明之处或者被调用到的地方，以弹窗方式显示opt+F7 | alt+F7 | 全局搜索引用cmd+shift+F7 | ^+shift+F7 | 高亮显示当前代码域使用到的地方F3 or shift+F3 | 搜索当前文">
+<meta property="og:locale">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/EpjOSE.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/RWKXhb.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/A8xyJA.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/rXGSPh.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/dPTK3g.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/sSnMvO.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/7vAT8L.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/Qtfqng.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/RVmJT6.png">
+<meta property="article:published_time" content="2019-12-01T13:10:40.000Z">
+<meta property="article:modified_time" content="2022-01-04T03:13:14.677Z">
+<meta property="article:author" content="Fengorz">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="IDEA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/EpjOSE.png">
+
+<link rel="canonical" href="https://www.fengorz.me/2019/12/01/%20IDEA%20Usage/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>IDEA Usage | Feng's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Feng's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">kiwidict.com</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://www.fengorz.me/2019/12/01/%20IDEA%20Usage/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="Live only for yourself.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          IDEA Usage
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-01 21:10:40 21:10:40" itemprop="dateCreated datePublished" datetime="2019-12-01T21:10:40+08:00">2019-12-01 21:10:40</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-01-04 11:13:14 11:13:14" itemprop="dateModified" datetime="2022-01-04T11:13:14+08:00">2022-01-04 11:13:14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/IDEA/" itemprop="url" rel="index"><span itemprop="name">IDEA</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="HOTKEY"><a href="#HOTKEY" class="headerlink" title="HOTKEY"></a>HOTKEY</h1><h2 id="Usage-Search（使用查询）"><a href="#Usage-Search（使用查询）" class="headerlink" title="Usage Search（使用查询）"></a>Usage Search（使用查询）</h2><p>key(Mac) | key(Win) | desc</p>
+<ul>
+<li>| -<br>cmd+opt+F7 | win+alt+F7 | 搜索光标所在方法的声明之处或者被调用到的地方，以弹窗方式显示<br>opt+F7 | alt+F7 | 全局搜索引用<br>cmd+shift+F7 | ^+shift+F7 | 高亮显示当前代码域使用到的地方<br>F3 or shift+F3 | 搜索当前文件的模式下，按向下 or F3跳到下一处，按向上 or shift+F3跳到上一处<br>tab or tab+shift | 在ctrl+shift+f全局搜索的时候，可以通过tab和来移动输入聚焦，可以脱离鼠标来选择右上角的File mask</li>
+</ul>
+<h2 id="Editing（编辑）"><a href="#Editing（编辑）" class="headerlink" title="Editing（编辑）"></a>Editing（编辑）</h2><p>key(Mac) | key(Win)  | desc</p>
+<ul>
+<li>| -<br>cmd+P | ^+P |显示方法的参数，这个方法的强大之处在于，展示了参数之后，在写入传参的时候，弹框会一直存在，让参数更加直观<br>cmd++ | ^++ |展开折叠的代码<br>cmd+- | ^+- | 折叠代码<br>shift+上下方向键 | shift+上下方向键 | 有时候用vim插件的jk上下移动太慢了，而且又不能明确知道要用emacsIdeas调整到哪里，可以用idea自带的shift+上下方向键来快速上下移动代码<br>cmd+shift+F12 | ^+shift+F12 | 最大化编辑窗口<br>^+shift+P | ^+shift+P | 查看方法返回变量类型</li>
+</ul>
+<h2 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h2><p>key(Mac)| key(Win) | desc</p>
+<ul>
+<li>| -<br>cmd+shift+F8 | 查看断点信息<br>shift+F7 | 智能步入，断点所在行上有多个方法调用，会弹出进入哪个方法<br>^+F5 | 重启debug服务<br>cmd+F2 | 终止debug服务<br>^+cmd+W | 将Add to Watches绑定快捷键，可以快速查看变量或者表达式的值</li>
+</ul>
+<h2 id="Spring-Boot-微服务"><a href="#Spring-Boot-微服务" class="headerlink" title="Spring Boot 微服务"></a>Spring Boot 微服务</h2><p>cmd+8 弹出多个微服务的启动控制窗口，可以通过上下左右移动快速定位到某个微服务，通过快捷键^+shiftF10 Runing,或者通过^+shift+F9 Debuging</p>
+<h2 id="General（通用）"><a href="#General（通用）" class="headerlink" title="General（通用）"></a>General（通用）</h2><p>key(Mac) | key(Win) | desc</p>
+<ul>
+<li>| -<br>cmd+, | ^+Alt+S | 打开Settings<br>^+cmd+F | 切换全屏模式<br>^+cmd+C | 清理控制台的日志之类的，需要再keymap里面设置Other | Clear All<br>opt+F12 | 打开或关闭Terminal</li>
+</ul>
+<h2 id="Refactoring（重构）"><a href="#Refactoring（重构）" class="headerlink" title="Refactoring（重构）"></a>Refactoring（重构）</h2><table>
+<thead>
+<tr>
+<th>key</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F5</td>
+<td>复制文件到指定包路径</td>
+</tr>
+<tr>
+<td>F6</td>
+<td>移动文件到指定包路径</td>
+</tr>
+<tr>
+<td>opt+cmd+t</td>
+<td>surround with 快捷得用各种模板语法包括代码（这个很强大&#96;）</td>
+</tr>
+<tr>
+<td>opt+cmd+m</td>
+<td>提取代码为方法</td>
+</tr>
+<tr>
+<td>opt+cmd+c</td>
+<td>提取代码为常量</td>
+</tr>
+<tr>
+<td>opt+cmd+v</td>
+<td>提取代码为变量</td>
+</tr>
+<tr>
+<td>opt+cmd+f</td>
+<td>提取代码为成员变量</td>
+</tr>
+<tr>
+<td>opt+cmd+p</td>
+<td>提取代码为方法的形参</td>
+</tr>
+<tr>
+<td>opt+cmd+o</td>
+<td>快速去掉多余的import</td>
+</tr>
+</tbody></table>
+<h2 id="Navigation（导航）"><a href="#Navigation（导航）" class="headerlink" title="Navigation（导航）"></a>Navigation（导航）</h2><p>key(Mac) | key(Win) | desc</p>
+<ul>
+<li>| -<br>opt+F1 | alt+F1 | 跳转到当前代码文件很多相关的功能（强大）<br>cmd+u | 前往当前光标所在方法的父类的方法 &#x2F; 接口定义<br>cmd+b | 进入定义处<br>cmd+opt+b | 进入实现处<br>cmd+o | 查询当前类可以继承实现的所有方法<br>cmd+F12 | ^+F12 | 展示当前文件的结果大纲（可用于查询变量、方法等）<br>^+shift+B | 跳转到类型声明处，可以直接从类变量跳到对应的类里面<br>F12 | 返回前一个工具窗口<br>shift+esc | 隐藏当前或最后一个活动的窗口，且光标进入代码文件窗口<br>opt+F1 | 显示当前文件选择目标弹出层，弹出层中有很多目标可以进行选择（如在代码编辑窗口可以选择显示该文件的 Finder）<br>⌃H | 显示当前类的层次结构(在类的任何地方可以快速跳转到父类、父接口、子类)<br>^+opt+H | 显示所有调用的层次结构<br>^+h | 显示类的所有子类型的相关内容<br>shift+F4 | 在新窗口打开文件<br>^+F2 | 可以快速跳到idea的菜单栏，然后通过方向键和enter，可以快速进行一下菜单栏的操作，这个快捷键适合其他软件<br>^+opt+cmd+N | 跳到next method，这个是我自定义的<br>^+opt+cmd+P | 跳到previous method，这个是我自定义的<br>跳到光标所在方法的方法名 | 先^+opt+cmd+N再^+opt+cmd+P，如果是最后一个方法就反之<br>cmd+鼠标点击（在变量定义处） | 可以使用<code>Field Accessors Found</code>查找使用到该变量的地方</li>
+</ul>
+<h2 id="后缀补全"><a href="#后缀补全" class="headerlink" title="后缀补全"></a>后缀补全</h2><h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><p>声明变量或者调用方法之后输入<code>.var</code>，可以自动生成前面的变量声明</p>
+<h3 id="null"><a href="#null" class="headerlink" title="null"></a>null</h3><p>某个变量或者表达式之后输入<code>.null</code>，自动生成if空判断</p>
+<h3 id="nn"><a href="#nn" class="headerlink" title="nn"></a>nn</h3><p>某个变量或者表达式之后输入<code>.nn</code>，自动生成if不为空判断</p>
+<h3 id="not"><a href="#not" class="headerlink" title="not"></a>not</h3><p>某个变量或者表达式之后输入<code>.not</code>，自动生成取反</p>
+<h3 id="还有for、return、if、opt等等常用的"><a href="#还有for、return、if、opt等等常用的" class="headerlink" title="还有for、return、if、opt等等常用的"></a>还有for、return、if、opt等等常用的</h3><h1 id="PLUGIN-插件"><a href="#PLUGIN-插件" class="headerlink" title="PLUGIN(插件)"></a>PLUGIN(插件)</h1><h2 id="emacsIdeas-最强大没有之一"><a href="#emacsIdeas-最强大没有之一" class="headerlink" title="emacsIdeas 最强大没有之一"></a>emacsIdeas 最强大没有之一</h2><blockquote>
+<p>注意如果和IdeaVim一同使用的话，类似^+W的快捷键要更改，不然会和IdeaVim的屏幕分割快捷键冲突了</p>
+</blockquote>
+<h4 id="jump"><a href="#jump" class="headerlink" title="jump"></a>jump</h4><ul>
+<li>Plug-ins | emacsIDEAs | AceJumpSelect       选中当前位置到某个字符</li>
+<li>Plug-ins | emacsIDEAs | HighlightPrevSymbol 高亮跳到上一个一样的字符</li>
+<li>Plug-ins | emacsIDEAs | HighlightNextSymbol 高亮跳到下一个一样的字符</li>
+</ul>
+<h4 id="emacsIdeas-copy"><a href="#emacsIdeas-copy" class="headerlink" title="emacsIdeas copy"></a>emacsIdeas copy</h4><ul>
+<li>Plug-ins | emacsIDEAs | AceJumpCopy.Block       复制特定代码块到当前光标(可以是函数里面的整个形参定义)</li>
+<li>Plug-ins | emacsIDEAs | AceJumpCopy.Line        复制特定行到当前光标</li>
+<li>Plug-ins | emacsIDEAs | AceJumpCopy.Quote       复制特定的引用到当前光标，比如某个引号里面的内容</li>
+<li>Plug-ins | emacsIDEAs | AceJumpCopy.String      复制特定的代码到当前光标，一般是某块前后由空格隔开的代码</li>
+<li>Plug-ins | emacsIDEAs | AceJumpCopy.ToLineEnd   从当前位置复制到行尾</li>
+<li>Plug-ins | emacsIDEAs | AceJumpCopy.ToLineStart 从当前位置复制到行首</li>
+<li>Plug-ins | emacsIDEAs | AceJumpCopy.Paragraph   复制某个特定段落，比如类的某段注释</li>
+<li>Plug-ins | emacsIDEAs | AceJumpCopy.Group       复制某块代码，可以使某个判断的条件+整个花括号{}里面的内容</li>
+</ul>
+<h4 id="emacsIdeas-delete"><a href="#emacsIdeas-delete" class="headerlink" title="emacsIdeas delete"></a>emacsIdeas delete</h4><ul>
+<li>Plug-ins | emacsIDEAs | AceJumpCut                  从当前位置剪切到某个位置</li>
+<li>Plug-ins | emacsIDEAs | AceJumpDelete.Block         删除特定的代码块 </li>
+<li>Plug-ins | emacsIDEAs | AceJumpDelete.Line          删除特定的代码行</li>
+<li>Plug-ins | emacsIDEAs | AceJumpDelete.Quote         删除特定的引用代码，比如某个引号里面的内容</li>
+<li>Plug-ins | emacsIDEAs | AceJumpDelete.String        删除特定的二个空格之间的字符 </li>
+<li>Plug-ins | emacsIDEAs | AceJumpDelete.Word          删除特定的某个变量方法名（紧挨在一起的代码标识）</li>
+<li>Plug-ins | emacsIDEAs | AceJumpDelete.ToLineEnd     从当前位置删除到行尾</li>
+<li>Plug-ins | emacsIDEAs | AceJumpDelete.ToLineStart   从当前位置删除到行首</li>
+<li>Plug-ins | emacsIDEAs | AceJumpDelete.Paragraph     删除某个特定段落，比如类的某段注释</li>
+</ul>
+<h4 id="emacsIdeas-cut"><a href="#emacsIdeas-cut" class="headerlink" title="emacsIdeas cut"></a>emacsIdeas cut</h4><ul>
+<li>Plug-ins | emacsIDEAs | AceJumpCut  从光标当前位置剪切到某个位置</li>
+</ul>
+<h4 id="emacsIdeas-more"><a href="#emacsIdeas-more" class="headerlink" title="emacsIdeas more"></a>emacsIdeas more</h4><p>AceJumpMove模式，各种快捷键的变种和上面的一样.etc.</p>
+<h2 id="ideaVim"><a href="#ideaVim" class="headerlink" title="ideaVim"></a>ideaVim</h2><p>yy 复制当值当前行，或者选中后y复制，然后输入数字n，再输入p，代表连续粘贴n次。<br>gg 快速移动到文件的开头<br>G  快速移动到文件的结尾</p>
+<h2 id="CamelCase"><a href="#CamelCase" class="headerlink" title="CamelCase"></a>CamelCase</h2><p>opt+shift+u 可以对字符进行驼峰式的不同格式变换，非常实用。</p>
+<h2 id="Grep-Console"><a href="#Grep-Console" class="headerlink" title="Grep Console"></a>Grep Console</h2><p>安装该日志插件，控制台的日志输出可以更加直观，还可以自定义颜色。</p>
+<h2 id="spring-assistant-yml或者properties文件编写提示"><a href="#spring-assistant-yml或者properties文件编写提示" class="headerlink" title="spring assistant(yml或者properties文件编写提示)"></a>spring assistant(yml或者properties文件编写提示)</h2><p>编写yml配置文件的时候，可以自动提示，但是这个自动提示貌似自会提示Spring Boot的基础配置，如果是在配置中心的话，其他的第三方依赖配置要在配置中心引入其spring-boot-starter的依赖才能自动提示对应的配置。</p>
+<p><em><strong>如果对应的依赖引入了之后还不会自动提示，那就需要再idea的模块配置里面将自定义的配置文件加入到配置文件的类别中，如下图:</strong></em><br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/EpjOSE.png"><br>选择右边的第一个Configuration Files，因为通常配置中心新增的都不会是Bootstrap类别的配置文件，如下图，然后点击下面的绿色按钮，也就是最后一个按钮<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/RWKXhb.png"><br>再点击下面的+号，选择对一个的yml或者properties，然后确认就ok了。</p>
+<h2 id="RestfulToolkit"><a href="#RestfulToolkit" class="headerlink" title="RestfulToolkit"></a>RestfulToolkit</h2><p>这个插件可以自动收集项目的Restful风格的接口，还可以在idea里面直接填写参数调用接口<br>快捷键为<code>cmd+\</code></p>
+<h2 id="MyBatis-Log-Plugin"><a href="#MyBatis-Log-Plugin" class="headerlink" title="MyBatis Log Plugin"></a>MyBatis Log Plugin</h2><p>自动打印Mybatis的每一个SQL，有时候我们要抽取SQL不是很方便</p>
+<h2 id="Free-Mybatis-plugin"><a href="#Free-Mybatis-plugin" class="headerlink" title="Free Mybatis plugin"></a>Free Mybatis plugin</h2><p>Mapper与Mapper XML映射之间的调整，方便代码的跟踪查看。<br>而且还可以自动通过Mapper的方法矫正或者生成Mapper.xml的每个xml节点</p>
+<h2 id="ignore（版本控制忽略文件的好插件）支持各种文件忽略的配置"><a href="#ignore（版本控制忽略文件的好插件）支持各种文件忽略的配置" class="headerlink" title=".ignore（版本控制忽略文件的好插件）支持各种文件忽略的配置"></a>.ignore（版本控制忽略文件的好插件）支持各种文件忽略的配置</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/byy8023/article/details/82259155">https://blog.csdn.net/byy8023/article/details/82259155</a></p>
+<h3 id="可以根据项目的引用的构建工具能来针对性忽略"><a href="#可以根据项目的引用的构建工具能来针对性忽略" class="headerlink" title="可以根据项目的引用的构建工具能来针对性忽略"></a>可以根据项目的引用的构建工具能来针对性忽略</h3><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/A8xyJA.png"><br>比如我的项目选择了JetBrains、MacOS、Java、Maven、Example user template</p>
+<h3 id="如果出现-gitgnore忽略了某些要被纳入版本控制的文件或目录比如："><a href="#如果出现-gitgnore忽略了某些要被纳入版本控制的文件或目录比如：" class="headerlink" title="如果出现.gitgnore忽略了某些要被纳入版本控制的文件或目录比如："></a>如果出现.gitgnore忽略了某些要被纳入版本控制的文件或目录比如：</h3><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/rXGSPh.png"><br>直接删除掉想要重新纳入版本控制的目录或文件即可</p>
+<h3 id="maven的target反复被纳入版本控制"><a href="#maven的target反复被纳入版本控制" class="headerlink" title="maven的target反复被纳入版本控制"></a>maven的target反复被纳入版本控制</h3><p>这个是因为之前target目录已经被版本控制了，需要先关闭idea的自动编译，然后mvn clean一下，再提交所有删除的target文件，然后恢复自动编译配置。</p>
+<p>前提是.gitignore文件里面配置了Maven的忽略目录</p>
+<h2 id="JUnitGenerator-V2-0"><a href="#JUnitGenerator-V2-0" class="headerlink" title="JUnitGenerator V2.0"></a>JUnitGenerator V2.0</h2><p>选中代码中的类名，按cmd+shift+T，可以生成自定义测试类。<br><a target="_blank" rel="noopener" href="https://blog.51cto.com/12066352/2134091">https://blog.51cto.com/12066352/2134091</a></p>
+<h2 id="jclasslib-Bytecode-viewer"><a href="#jclasslib-Bytecode-viewer" class="headerlink" title="jclasslib Bytecode viewer"></a>jclasslib Bytecode viewer</h2><p>查看分析字节码的插件</p>
+<h2 id="JRebel"><a href="#JRebel" class="headerlink" title="JRebel"></a>JRebel</h2><p>热部署插件，修改代码不用重启服务。</p>
+<h2 id="Alibaba-Cloud-Toolkit"><a href="#Alibaba-Cloud-Toolkit" class="headerlink" title="Alibaba Cloud Toolkit"></a>Alibaba Cloud Toolkit</h2><p>阿里云发布的免费本地 IDE 插件，帮助开发者更高效地开发、测试、诊断并部署应用。通过插件，可以将本地应用一键部署到任意服务器，甚至云端（ECS、EDAS、ACK、ACR 和 小程序云等）；并且还内置了 Arthas 诊断、Dubbo工具、Terminal 终端、文件上传、函数计算 和 MySQL 执行器等工具。不仅仅有 IntelliJ IDEA 主流版本，还有 Eclipse、Pycharm、Maven 等其他版本。</p>
+<h1 id="IDEA调优记录"><a href="#IDEA调优记录" class="headerlink" title="IDEA调优记录"></a>IDEA调优记录</h1><h2 id="Server模式"><a href="#Server模式" class="headerlink" title="Server模式"></a>Server模式</h2><blockquote>
+<p>Selects server application runtime optimizations. The directory server will take longer to start and “warm up” but will be more aggressively optimized to produce higher throughput.</p>
+</blockquote>
+<p>服务器模式对于应用的运行时优化得更好，可能启动和”预热”会较慢，但将进行更积极的优化运行期的性能，以产生更高的吞吐量。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- server</span><br></pre></td></tr></table></figure>
+<h2 id="固定-Xmx与-Xms的大小，可能存在频繁扩容的消耗"><a href="#固定-Xmx与-Xms的大小，可能存在频繁扩容的消耗" class="headerlink" title="固定-Xmx与-Xms的大小，可能存在频繁扩容的消耗"></a>固定-Xmx与-Xms的大小，可能存在频繁扩容的消耗</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-Xms2048m</span><br><span class="line">-Xmx2048m</span><br></pre></td></tr></table></figure>
+<h2 id="提高Minor的内存容量"><a href="#提高Minor的内存容量" class="headerlink" title="提高Minor的内存容量"></a>提高Minor的内存容量</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-Xmn800m</span><br></pre></td></tr></table></figure>
+<h2 id="Xverify-none"><a href="#Xverify-none" class="headerlink" title="-Xverify:none"></a>-Xverify:none</h2><blockquote>
+<p>Enables verification for all non-bootstrap classes.</p>
+</blockquote>
+<p>该参数默认是<code>-Xverify:remote</code>等同于<code>-Xverify</code>，会对class加载验证，对性能有影响，毕竟IDEA已经被反复使用和验证过，没必要每次都验证。</p>
+<blockquote>
+<p>For compatibility, this parameter is accepted, but is equivalent to the default -Xverify.<br>Note: This setting might have an impact on performance(<code>-Xverify:all</code>).</p>
+</blockquote>
+<p>不过从JDK13开始，<code>-Xverify:none</code>已经被声明为<code>deprecated</code>了，并且在后面的版本中会有被删除的风险。</p>
+<blockquote>
+<p>The option -Xverify:none (and its equivalent -noverify) was deprecated in Java 13. Both options might be removed in a future release. OpenJ9 issues a warning if these options are used in Java 13 and later versions.<br><a target="_blank" rel="noopener" href="https://www.eclipse.org/openj9/docs/xverify/">参考来源</a></p>
+</blockquote>
+<h1 id="Others-其他"><a href="#Others-其他" class="headerlink" title="Others(其他)"></a>Others(其他)</h1><h2 id="修改包名要注意的地方"><a href="#修改包名要注意的地方" class="headerlink" title="修改包名要注意的地方"></a>修改包名要注意的地方</h2><p>修改了包名之后注意在编译输出的目录要清空之前的老的class，不然可能会引起意想不到的冲突。</p>
+<h2 id="有没有更加智能化的API注释查看方法，比如鼠标-cmd的方式就完整地将注释都展示出来？"><a href="#有没有更加智能化的API注释查看方法，比如鼠标-cmd的方式就完整地将注释都展示出来？" class="headerlink" title="有没有更加智能化的API注释查看方法，比如鼠标+cmd的方式就完整地将注释都展示出来？"></a>有没有更加智能化的API注释查看方法，比如鼠标+cmd的方式就完整地将注释都展示出来？</h2><p>ctrl+J<br>可以搜索keymap需改热键，Quick Documentation</p>
+<h2 id="debug的时候变量的多种不同的View"><a href="#debug的时候变量的多种不同的View" class="headerlink" title="debug的时候变量的多种不同的View"></a>debug的时候变量的多种不同的View</h2><p>在Variables右键要跟踪的变量,可以view text，或者view as 其他类型.</p>
+<h2 id="Performance-enhancements（性能增加）"><a href="#Performance-enhancements（性能增加）" class="headerlink" title="Performance enhancements（性能增加）"></a>Performance enhancements（性能增加）</h2><p>idea吃内存确实是有点恐怖，对于调大内存，网上基本都是说调整idea.vmoptions里面的这三个参数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-Xms1024m</span><br><span class="line">-Xmx3000m</span><br><span class="line">-XX:ReservedCodeCacheSize=1024m</span><br></pre></td></tr></table></figure>
+<p>但是我自己是基于2019.02的版本，发现即使调整了之后重启，idea右下角的内存显示还是原来的Max。<br>其实要这样调整才能真正生效：<br>Help-&gt;Edit Custom VM Options<br>打开这个会发现里面的配置还是原来的，在这里更改再重启，右下角的内存Max才会变大，才能生效。</p>
+<h2 id="cmd-shift-A按第二次的时候老是换出Terminal"><a href="#cmd-shift-A按第二次的时候老是换出Terminal" class="headerlink" title="cmd+shift+A按第二次的时候老是换出Terminal"></a>cmd+shift+A按第二次的时候老是换出Terminal</h2><p><a target="_blank" rel="noopener" href="https://intellij-support.jetbrains.com/hc/en-us/articles/360005137400-Cmd-Shift-A-hotkey-opens-Terminal-with-apropos-search-instead-of-the-Find-Action-dialog">https://intellij-support.jetbrains.com/hc/en-us/articles/360005137400-Cmd-Shift-A-hotkey-opens-Terminal-with-apropos-search-instead-of-the-Find-Action-dialog</a></p>
+<h2 id="Bug"><a href="#Bug" class="headerlink" title="Bug"></a>Bug</h2><p>有时候会出现复制进来的新文件编译之后没有被输出到target对应的目录，应该是idea潜在的bug，如果点击重新加载文件索引太慢了，一般重启一下重新编译可以解决。</p>
+<h2 id="search（搜索）"><a href="#search（搜索）" class="headerlink" title="search（搜索）"></a>search（搜索）</h2><p>全局搜索的时候记得利用好Scope，比如要搜索某个模块，某所最近更改的内容，搜索版本控制的所有更改等等。</p>
+<h2 id="Services"><a href="#Services" class="headerlink" title="Services"></a>Services</h2><p>cmd+8可以将多个SpringBoot的服务（微服务）整一个打开控制，可以结合其他快捷键进行启动、重启和停止，不过第一次使用需要再右下角的弹框中点击确认。<br>此外在Spring Cloud多个微服务的情况下，还可以将不同的微服务分组然后统一对某个组别进行run、debug或者静默断点等操作。</p>
+<h2 id="使用lombok跟踪bean属性调用栈"><a href="#使用lombok跟踪bean属性调用栈" class="headerlink" title="使用lombok跟踪bean属性调用栈"></a>使用lombok跟踪bean属性调用栈</h2><p>opt+F7依然可以看到getter和setter的调用栈。</p>
+<h2 id="SpringBoot-Application的热加载"><a href="#SpringBoot-Application的热加载" class="headerlink" title="SpringBoot Application的热加载"></a>SpringBoot Application的热加载</h2><p>要在debug模式下，设置Hot swap classes and update trigger file if failed，就可以自动热加载class了。</p>
+<h2 id="idea的svn的删除操作"><a href="#idea的svn的删除操作" class="headerlink" title="idea的svn的删除操作"></a>idea的svn的删除操作</h2><p>本地删除之后要在，Locally Deleted Files中点击Remove from VCS，然后再回来上面的Default Changelist去执行Commit删除。</p>
+<h2 id="折叠显示文件"><a href="#折叠显示文件" class="headerlink" title="折叠显示文件"></a>折叠显示文件</h2><p>可以在设置中搜索Soft-Wrap，根据文件格式配置是否折叠显示超过屏幕的行，也可以通过快捷键绑定折叠当前文件。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/dPTK3g.png"></p>
+<h2 id="提交代码前要先Optimize-Imports一下"><a href="#提交代码前要先Optimize-Imports一下" class="headerlink" title="提交代码前要先Optimize Imports一下"></a>提交代码前要先Optimize Imports一下</h2><p>可以cmd+9，在Default Changelist上Optimize Imports（opt+cmd+O）,这样就不会优化到其他没有修改到的代码，只操作自己改过的代码。</p>
+<h2 id="Run-x2F-Debug-Configurations中Build和Build-Project的区别"><a href="#Run-x2F-Debug-Configurations中Build和Build-Project的区别" class="headerlink" title="Run&#x2F;Debug Configurations中Build和Build Project的区别"></a>Run&#x2F;Debug Configurations中Build和Build Project的区别</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/sSnMvO.png"><br>Build只会编译配置依赖的模块，Build Project会编译模块依赖的所有项目，将编译器交给Maven代工的话注意要选择Build Project。</p>
+<h2 id="重要日志可以在控制台Create-Gist"><a href="#重要日志可以在控制台Create-Gist" class="headerlink" title="重要日志可以在控制台Create Gist"></a>重要日志可以在控制台Create Gist</h2><p>创建之后的日志会被发送到已经在Idea登录的github账号里面的Github Gist</p>
+<h2 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h2><p>自带的Maven功能中，注意小浮窗的右上角有个闪电符号（Toggle Skip Test），可以开启是否跳过Test。<br>扳手按钮里里面的Auto-Reload Settings可以设置是否自动探测任何pom.xml的改动自动重新加载。</p>
+<h2 id="只编译每次改动的每个module"><a href="#只编译每次改动的每个module" class="headerlink" title="只编译每次改动的每个module"></a>只编译每次改动的每个module</h2><p>在未commit的Default Changelist中，选中list，快捷键编译一下全部改动过的代码，idea会编译每个代码对应的module。</p>
+<h1 id="all-shortcut"><a href="#all-shortcut" class="headerlink" title="all shortcut"></a>all shortcut</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">新建文件的时候可以这样操作来脱离鼠标：</span><br><span class="line">cmd+1跳到Project目录上下移动到目标目录，然后cmd+shift+A跳出Action，输入new+文件类型或者手动选择文件类型就可以了。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">option+cmd+c 抽取局部字符串为静态变量</span><br><span class="line">cmd+shift+方向键  可以控制模态框的大小，和左右移动编辑区的内容</span><br><span class="line">ctrl+j  展示API文档</span><br><span class="line">ctrl+shift+F,[words 打钩可以搜索是否为单词]</span><br><span class="line">command+D,</span><br><span class="line">commond+F12(file structure)</span><br><span class="line">command+shift+N(search file&#x27;s name and global)</span><br><span class="line">commond+option+shift+N(search method d variable global)</span><br><span class="line">shirt + option + (向上箭头)/（向下箭头）(move codes up or down)</span><br><span class="line">Command + Option + L(Format code)</span><br><span class="line">option+enter（add javadoc）</span><br><span class="line">option+command+b(jump into the class impl)</span><br><span class="line">command+e(recent file)</span><br><span class="line">command+shift+a(search action)</span><br><span class="line">command+number(window tab jump)</span><br><span class="line">shift(ctrl)+command+del(last(next) edit location)</span><br><span class="line">F11，command+F11，ctrl+number(alphabet)(bookmarks)</span><br><span class="line">option+shift+F(add to favorites)</span><br><span class="line">shift+option+U(toggle case)</span><br><span class="line">command+1,esc(switch between file navigate and edit area)</span><br><span class="line">option+F7(find usage)</span><br><span class="line">shift+option+方向(move caret to next word)</span><br><span class="line">command+方向(move to first or end of line)</span><br><span class="line">ctrl+command+G(sellect all occurrences) HOT</span><br><span class="line">F2(Quickly locate the wrong line)</span><br><span class="line">option+command+V(generate locate variable)</span><br><span class="line">shift+command+enter(generate some code)</span><br><span class="line">option+enter(generate some method)</span><br><span class="line">command+R(replace)</span><br><span class="line">shift+F6(rename)</span><br><span class="line">option+command+V(Extract Variable)</span><br><span class="line">option+command+C(Extract static Variable) HOT</span><br><span class="line">option+command+F(Extract field Variable)</span><br><span class="line">option+command+P(Extract field Variable into method)</span><br><span class="line">option+command+M(Extract some code to be a new method)HOT</span><br><span class="line">shift+command+F8(show all breakPoints)</span><br><span class="line">shift+command+V(copy history)</span><br><span class="line">shift+option+command+U(show maven dependencies)</span><br><span class="line">option+command+U(show class inherit) HOT</span><br><span class="line">ctrl+option+H(call method or be called history)</span><br><span class="line">ctrl+N(Generate anything)</span><br><span class="line">ctrl+w(select something)</span><br><span class="line">ctrl+&lt; or &gt; (move up or down next method) HOT</span><br><span class="line">cmd+option+T (surround) HOT</span><br></pre></td></tr></table></figure>
+
+<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="编译出现莫名其妙的找不到符号的Error"><a href="#编译出现莫名其妙的找不到符号的Error" class="headerlink" title="编译出现莫名其妙的找不到符号的Error"></a>编译出现莫名其妙的找不到符号的Error</h2><p>如果找不到符号的错误行数，刚好式同包下的某个类找不到符号报错，那么可能式idea的类编译顺序冲突了，找到报错行上引用到的类，先单独编译应用到的类，再编译报错的类，最后编译整个项目就可以了。</p>
+<h2 id="非静默模式下断点失效-96"><a href="#非静默模式下断点失效-96" class="headerlink" title="非静默模式下断点失效&#96;"></a>非静默模式下断点失效&#96;</h2><p>断点处提示：idea debug no executable code found<br>这个一般是class和idea的代码不一致导致的。<br>解决办法：<br>1、invalidate Caches&#x2F;Restart<br>2、rebuild Project<br>3、class的输出路径正确<br>4、我自己是因为jboss的On ‘update’ action 被设置成了Restart Server，热部署应该改为：Update classes and resources</p>
+<h2 id="某个jar依赖冲突问题的解决"><a href="#某个jar依赖冲突问题的解决" class="headerlink" title="某个jar依赖冲突问题的解决"></a>某个jar依赖冲突问题的解决</h2><p>公司项目中cglib的包依赖了二个log4j的包，导致控制台启动会报错。 删除项目输出目录下的lib，设置依赖jar的scope为provided。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/7vAT8L.png"><br>然后重新部署启动就可以了。</p>
+<h2 id="debug启动微服务莫名其妙卡住的情况"><a href="#debug启动微服务莫名其妙卡住的情况" class="headerlink" title="debug启动微服务莫名其妙卡住的情况"></a>debug启动微服务莫名其妙卡住的情况</h2><p>竟然是因为我在某个方法的声明上打了断点，然后我静默断点时就可以debug启动微服务了：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/Qtfqng.png"><br>于是我果断把断点去掉，然后再检查一遍有没有打到方法声明上的断点，全都取消之后重启debug就可以了。</p>
+<h2 id="记录Idea关于Maven依赖的一个致命Bug"><a href="#记录Idea关于Maven依赖的一个致命Bug" class="headerlink" title="记录Idea关于Maven依赖的一个致命Bug"></a>记录Idea关于Maven依赖的一个致命Bug</h2><blockquote>
+<p>基于版本2019.3.4</p>
+</blockquote>
+<p>公司的微服务架构的用的Maven管理依赖，关于流程flowable的的模块ngbip-flow及其几个子模块我放在一个单独的文件夹下面；</p>
+<p>另外的一个项目也是基于微服务架构依赖ngbip-flow及其几个子模块，然后由于启动报了个莫名其妙的错误，于是我删掉了项目对公司自研的所有依赖，重新引入；</p>
+<p>但是这个时候idea移动将ngbip-flow的几个模块的依赖强制指向了上面提到的单独的文件夹下面的ngbip-flow几个子模块的代码文件，不走maven去依赖了，我TM是不同的文件夹（不同的工作区间啊，打开的是不同的idea窗口）；</p>
+<p>最后的硬核解决方法是，将原来的单独文件夹重命名个名字，这个时候另外的项目一下子就自动重新引入ngbip-flow的maven依赖，不会强制走开发机的其他文件夹下面的依赖，然后我再把文件夹名字改回来即可。</p>
+<h2 id="Maven代码不能指向本地工程module代码"><a href="#Maven代码不能指向本地工程module代码" class="headerlink" title="Maven代码不能指向本地工程module代码"></a>Maven代码不能指向本地工程module代码</h2><p>如果出现idea的Modules已经存在，但是代码不能通过Maven依赖到已经引入的module时（此时Maven管理界面可能会出现已经引入的model的maven可视化没有出现），这个时候在工程的Modules删除重新引入应该就可以了。</p>
+<h2 id="Idea出现所有引导到的类报错，连jdk的基础类也报错的情况"><a href="#Idea出现所有引导到的类报错，连jdk的基础类也报错的情况" class="headerlink" title="Idea出现所有引导到的类报错，连jdk的基础类也报错的情况"></a>Idea出现所有引导到的类报错，连jdk的基础类也报错的情况</h2><p>可能是不了心设置了Editor-&gt;File Type中忽略了*.class导致的。<br>如果是项目引入自己项目的代码也报错，可以删掉模块重新import。</p>
+<h2 id="Idea关闭写代码形参提示（会导致变卡）"><a href="#Idea关闭写代码形参提示（会导致变卡）" class="headerlink" title="Idea关闭写代码形参提示（会导致变卡）"></a>Idea关闭写代码形参提示（会导致变卡）</h2><p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/RVmJT6.png" alt="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/RVmJT6.png"></p>
+<blockquote>
+<p>有部分内容来自网络，一般都有注明出处，如若侵权，请联系我删除，谢谢！</p>
+</blockquote>
+<h2 id="将默认编译委托为Maven编译时，运行main方法报错"><a href="#将默认编译委托为Maven编译时，运行main方法报错" class="headerlink" title="将默认编译委托为Maven编译时，运行main方法报错"></a>将默认编译委托为Maven编译时，运行main方法报错</h2><p>默认的Application Run&#x2F;Debug Configurations配置的Before launch会有一个Build，要将其删掉，Before launch留空即可，因为此时Idea本身已经不再参与编译了，交由Maven来处理。</p>
+<h2 id="Cannot-start-under-Java-1-8-0-152-release-b1024-Java-11-or-later-is-required"><a href="#Cannot-start-under-Java-1-8-0-152-release-b1024-Java-11-or-later-is-required" class="headerlink" title="Cannot start under Java 1.8.0_152-release-b1024: Java 11 or later is required."></a>Cannot start under Java 1.8.0_152-release-b1024: Java 11 or later is required.</h2><p>通过<code>/usr/libexec/java_home</code>找到自己版本适合的jdk目录，在Mac下面修改Idea启动的依赖jdk即可：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /Users/zhanshifeng/Library/Application Support/JetBrains/IntelliJIdea2020.3/idea.jdk</span><br></pre></td></tr></table></figure>
+
+<h2 id="Idea出现写代码频繁卡死，特别是在括号之间输入一直卡死的问题"><a href="#Idea出现写代码频繁卡死，特别是在括号之间输入一直卡死的问题" class="headerlink" title="Idea出现写代码频繁卡死，特别是在括号之间输入一直卡死的问题"></a>Idea出现写代码频繁卡死，特别是在括号之间输入一直卡死的问题</h2><p>关闭Inspections里面的Ali-Check，阿里的东西，要慎用！</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/IDEA/" rel="tag"># IDEA</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/11/30/Java%E7%B3%BB%E5%88%97%E4%B9%8B%E9%9B%B6%E7%A2%8E%E7%AC%94%E8%AE%B0/" rel="prev" title="Java系列之零碎笔记">
+      <i class="fa fa-chevron-left"></i> Java系列之零碎笔记
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/12/02/Flowable%E6%B1%87%E6%80%BB/" rel="next" title="Flowable汇总">
+      Flowable汇总 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HOTKEY"><span class="nav-number">1.</span> <span class="nav-text">HOTKEY</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Usage-Search%EF%BC%88%E4%BD%BF%E7%94%A8%E6%9F%A5%E8%AF%A2%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">Usage Search（使用查询）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Editing%EF%BC%88%E7%BC%96%E8%BE%91%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">Editing（编辑）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#debug"><span class="nav-number">1.3.</span> <span class="nav-text">debug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Boot-%E5%BE%AE%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.4.</span> <span class="nav-text">Spring Boot 微服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#General%EF%BC%88%E9%80%9A%E7%94%A8%EF%BC%89"><span class="nav-number">1.5.</span> <span class="nav-text">General（通用）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Refactoring%EF%BC%88%E9%87%8D%E6%9E%84%EF%BC%89"><span class="nav-number">1.6.</span> <span class="nav-text">Refactoring（重构）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Navigation%EF%BC%88%E5%AF%BC%E8%88%AA%EF%BC%89"><span class="nav-number">1.7.</span> <span class="nav-text">Navigation（导航）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E7%BC%80%E8%A1%A5%E5%85%A8"><span class="nav-number">1.8.</span> <span class="nav-text">后缀补全</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#var"><span class="nav-number">1.8.1.</span> <span class="nav-text">var</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.8.2.</span> <span class="nav-text">null</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nn"><span class="nav-number">1.8.3.</span> <span class="nav-text">nn</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#not"><span class="nav-number">1.8.4.</span> <span class="nav-text">not</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%98%E6%9C%89for%E3%80%81return%E3%80%81if%E3%80%81opt%E7%AD%89%E7%AD%89%E5%B8%B8%E7%94%A8%E7%9A%84"><span class="nav-number">1.8.5.</span> <span class="nav-text">还有for、return、if、opt等等常用的</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PLUGIN-%E6%8F%92%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">PLUGIN(插件)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#emacsIdeas-%E6%9C%80%E5%BC%BA%E5%A4%A7%E6%B2%A1%E6%9C%89%E4%B9%8B%E4%B8%80"><span class="nav-number">2.1.</span> <span class="nav-text">emacsIdeas 最强大没有之一</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#jump"><span class="nav-number">2.1.0.1.</span> <span class="nav-text">jump</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emacsIdeas-copy"><span class="nav-number">2.1.0.2.</span> <span class="nav-text">emacsIdeas copy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emacsIdeas-delete"><span class="nav-number">2.1.0.3.</span> <span class="nav-text">emacsIdeas delete</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emacsIdeas-cut"><span class="nav-number">2.1.0.4.</span> <span class="nav-text">emacsIdeas cut</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emacsIdeas-more"><span class="nav-number">2.1.0.5.</span> <span class="nav-text">emacsIdeas more</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ideaVim"><span class="nav-number">2.2.</span> <span class="nav-text">ideaVim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CamelCase"><span class="nav-number">2.3.</span> <span class="nav-text">CamelCase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Grep-Console"><span class="nav-number">2.4.</span> <span class="nav-text">Grep Console</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring-assistant-yml%E6%88%96%E8%80%85properties%E6%96%87%E4%BB%B6%E7%BC%96%E5%86%99%E6%8F%90%E7%A4%BA"><span class="nav-number">2.5.</span> <span class="nav-text">spring assistant(yml或者properties文件编写提示)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RestfulToolkit"><span class="nav-number">2.6.</span> <span class="nav-text">RestfulToolkit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MyBatis-Log-Plugin"><span class="nav-number">2.7.</span> <span class="nav-text">MyBatis Log Plugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Free-Mybatis-plugin"><span class="nav-number">2.8.</span> <span class="nav-text">Free Mybatis plugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ignore%EF%BC%88%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6%E7%9A%84%E5%A5%BD%E6%8F%92%E4%BB%B6%EF%BC%89%E6%94%AF%E6%8C%81%E5%90%84%E7%A7%8D%E6%96%87%E4%BB%B6%E5%BF%BD%E7%95%A5%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="nav-number">2.9.</span> <span class="nav-text">.ignore（版本控制忽略文件的好插件）支持各种文件忽略的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E4%BB%A5%E6%A0%B9%E6%8D%AE%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%BC%95%E7%94%A8%E7%9A%84%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7%E8%83%BD%E6%9D%A5%E9%92%88%E5%AF%B9%E6%80%A7%E5%BF%BD%E7%95%A5"><span class="nav-number">2.9.1.</span> <span class="nav-text">可以根据项目的引用的构建工具能来针对性忽略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E5%87%BA%E7%8E%B0-gitgnore%E5%BF%BD%E7%95%A5%E4%BA%86%E6%9F%90%E4%BA%9B%E8%A6%81%E8%A2%AB%E7%BA%B3%E5%85%A5%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%9A%84%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95%E6%AF%94%E5%A6%82%EF%BC%9A"><span class="nav-number">2.9.2.</span> <span class="nav-text">如果出现.gitgnore忽略了某些要被纳入版本控制的文件或目录比如：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#maven%E7%9A%84target%E5%8F%8D%E5%A4%8D%E8%A2%AB%E7%BA%B3%E5%85%A5%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6"><span class="nav-number">2.9.3.</span> <span class="nav-text">maven的target反复被纳入版本控制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JUnitGenerator-V2-0"><span class="nav-number">2.10.</span> <span class="nav-text">JUnitGenerator V2.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jclasslib-Bytecode-viewer"><span class="nav-number">2.11.</span> <span class="nav-text">jclasslib Bytecode viewer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JRebel"><span class="nav-number">2.12.</span> <span class="nav-text">JRebel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Alibaba-Cloud-Toolkit"><span class="nav-number">2.13.</span> <span class="nav-text">Alibaba Cloud Toolkit</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IDEA%E8%B0%83%E4%BC%98%E8%AE%B0%E5%BD%95"><span class="nav-number">3.</span> <span class="nav-text">IDEA调优记录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Server%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text">Server模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BA%E5%AE%9A-Xmx%E4%B8%8E-Xms%E7%9A%84%E5%A4%A7%E5%B0%8F%EF%BC%8C%E5%8F%AF%E8%83%BD%E5%AD%98%E5%9C%A8%E9%A2%91%E7%B9%81%E6%89%A9%E5%AE%B9%E7%9A%84%E6%B6%88%E8%80%97"><span class="nav-number">3.2.</span> <span class="nav-text">固定-Xmx与-Xms的大小，可能存在频繁扩容的消耗</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E9%AB%98Minor%E7%9A%84%E5%86%85%E5%AD%98%E5%AE%B9%E9%87%8F"><span class="nav-number">3.3.</span> <span class="nav-text">提高Minor的内存容量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Xverify-none"><span class="nav-number">3.4.</span> <span class="nav-text">-Xverify:none</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Others-%E5%85%B6%E4%BB%96"><span class="nav-number">4.</span> <span class="nav-text">Others(其他)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%8C%85%E5%90%8D%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9C%B0%E6%96%B9"><span class="nav-number">4.1.</span> <span class="nav-text">修改包名要注意的地方</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E6%B2%A1%E6%9C%89%E6%9B%B4%E5%8A%A0%E6%99%BA%E8%83%BD%E5%8C%96%E7%9A%84API%E6%B3%A8%E9%87%8A%E6%9F%A5%E7%9C%8B%E6%96%B9%E6%B3%95%EF%BC%8C%E6%AF%94%E5%A6%82%E9%BC%A0%E6%A0%87-cmd%E7%9A%84%E6%96%B9%E5%BC%8F%E5%B0%B1%E5%AE%8C%E6%95%B4%E5%9C%B0%E5%B0%86%E6%B3%A8%E9%87%8A%E9%83%BD%E5%B1%95%E7%A4%BA%E5%87%BA%E6%9D%A5%EF%BC%9F"><span class="nav-number">4.2.</span> <span class="nav-text">有没有更加智能化的API注释查看方法，比如鼠标+cmd的方式就完整地将注释都展示出来？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#debug%E7%9A%84%E6%97%B6%E5%80%99%E5%8F%98%E9%87%8F%E7%9A%84%E5%A4%9A%E7%A7%8D%E4%B8%8D%E5%90%8C%E7%9A%84View"><span class="nav-number">4.3.</span> <span class="nav-text">debug的时候变量的多种不同的View</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Performance-enhancements%EF%BC%88%E6%80%A7%E8%83%BD%E5%A2%9E%E5%8A%A0%EF%BC%89"><span class="nav-number">4.4.</span> <span class="nav-text">Performance enhancements（性能增加）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cmd-shift-A%E6%8C%89%E7%AC%AC%E4%BA%8C%E6%AC%A1%E7%9A%84%E6%97%B6%E5%80%99%E8%80%81%E6%98%AF%E6%8D%A2%E5%87%BATerminal"><span class="nav-number">4.5.</span> <span class="nav-text">cmd+shift+A按第二次的时候老是换出Terminal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bug"><span class="nav-number">4.6.</span> <span class="nav-text">Bug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#search%EF%BC%88%E6%90%9C%E7%B4%A2%EF%BC%89"><span class="nav-number">4.7.</span> <span class="nav-text">search（搜索）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Services"><span class="nav-number">4.8.</span> <span class="nav-text">Services</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8lombok%E8%B7%9F%E8%B8%AAbean%E5%B1%9E%E6%80%A7%E8%B0%83%E7%94%A8%E6%A0%88"><span class="nav-number">4.9.</span> <span class="nav-text">使用lombok跟踪bean属性调用栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBoot-Application%E7%9A%84%E7%83%AD%E5%8A%A0%E8%BD%BD"><span class="nav-number">4.10.</span> <span class="nav-text">SpringBoot Application的热加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea%E7%9A%84svn%E7%9A%84%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C"><span class="nav-number">4.11.</span> <span class="nav-text">idea的svn的删除操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%98%E5%8F%A0%E6%98%BE%E7%A4%BA%E6%96%87%E4%BB%B6"><span class="nav-number">4.12.</span> <span class="nav-text">折叠显示文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81%E5%89%8D%E8%A6%81%E5%85%88Optimize-Imports%E4%B8%80%E4%B8%8B"><span class="nav-number">4.13.</span> <span class="nav-text">提交代码前要先Optimize Imports一下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Run-x2F-Debug-Configurations%E4%B8%ADBuild%E5%92%8CBuild-Project%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.14.</span> <span class="nav-text">Run&#x2F;Debug Configurations中Build和Build Project的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E6%97%A5%E5%BF%97%E5%8F%AF%E4%BB%A5%E5%9C%A8%E6%8E%A7%E5%88%B6%E5%8F%B0Create-Gist"><span class="nav-number">4.15.</span> <span class="nav-text">重要日志可以在控制台Create Gist</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven"><span class="nav-number">4.16.</span> <span class="nav-text">Maven</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AA%E7%BC%96%E8%AF%91%E6%AF%8F%E6%AC%A1%E6%94%B9%E5%8A%A8%E7%9A%84%E6%AF%8F%E4%B8%AAmodule"><span class="nav-number">4.17.</span> <span class="nav-text">只编译每次改动的每个module</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#all-shortcut"><span class="nav-number">5.</span> <span class="nav-text">all shortcut</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Problem-Solution"><span class="nav-number">6.</span> <span class="nav-text">Problem Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E5%87%BA%E7%8E%B0%E8%8E%AB%E5%90%8D%E5%85%B6%E5%A6%99%E7%9A%84%E6%89%BE%E4%B8%8D%E5%88%B0%E7%AC%A6%E5%8F%B7%E7%9A%84Error"><span class="nav-number">6.1.</span> <span class="nav-text">编译出现莫名其妙的找不到符号的Error</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E9%9D%99%E9%BB%98%E6%A8%A1%E5%BC%8F%E4%B8%8B%E6%96%AD%E7%82%B9%E5%A4%B1%E6%95%88-96"><span class="nav-number">6.2.</span> <span class="nav-text">非静默模式下断点失效&#96;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%90%E4%B8%AAjar%E4%BE%9D%E8%B5%96%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3"><span class="nav-number">6.3.</span> <span class="nav-text">某个jar依赖冲突问题的解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#debug%E5%90%AF%E5%8A%A8%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%8E%AB%E5%90%8D%E5%85%B6%E5%A6%99%E5%8D%A1%E4%BD%8F%E7%9A%84%E6%83%85%E5%86%B5"><span class="nav-number">6.4.</span> <span class="nav-text">debug启动微服务莫名其妙卡住的情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%B0%E5%BD%95Idea%E5%85%B3%E4%BA%8EMaven%E4%BE%9D%E8%B5%96%E7%9A%84%E4%B8%80%E4%B8%AA%E8%87%B4%E5%91%BDBug"><span class="nav-number">6.5.</span> <span class="nav-text">记录Idea关于Maven依赖的一个致命Bug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven%E4%BB%A3%E7%A0%81%E4%B8%8D%E8%83%BD%E6%8C%87%E5%90%91%E6%9C%AC%E5%9C%B0%E5%B7%A5%E7%A8%8Bmodule%E4%BB%A3%E7%A0%81"><span class="nav-number">6.6.</span> <span class="nav-text">Maven代码不能指向本地工程module代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Idea%E5%87%BA%E7%8E%B0%E6%89%80%E6%9C%89%E5%BC%95%E5%AF%BC%E5%88%B0%E7%9A%84%E7%B1%BB%E6%8A%A5%E9%94%99%EF%BC%8C%E8%BF%9Ejdk%E7%9A%84%E5%9F%BA%E7%A1%80%E7%B1%BB%E4%B9%9F%E6%8A%A5%E9%94%99%E7%9A%84%E6%83%85%E5%86%B5"><span class="nav-number">6.7.</span> <span class="nav-text">Idea出现所有引导到的类报错，连jdk的基础类也报错的情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Idea%E5%85%B3%E9%97%AD%E5%86%99%E4%BB%A3%E7%A0%81%E5%BD%A2%E5%8F%82%E6%8F%90%E7%A4%BA%EF%BC%88%E4%BC%9A%E5%AF%BC%E8%87%B4%E5%8F%98%E5%8D%A1%EF%BC%89"><span class="nav-number">6.8.</span> <span class="nav-text">Idea关闭写代码形参提示（会导致变卡）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%86%E9%BB%98%E8%AE%A4%E7%BC%96%E8%AF%91%E5%A7%94%E6%89%98%E4%B8%BAMaven%E7%BC%96%E8%AF%91%E6%97%B6%EF%BC%8C%E8%BF%90%E8%A1%8Cmain%E6%96%B9%E6%B3%95%E6%8A%A5%E9%94%99"><span class="nav-number">6.9.</span> <span class="nav-text">将默认编译委托为Maven编译时，运行main方法报错</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cannot-start-under-Java-1-8-0-152-release-b1024-Java-11-or-later-is-required"><span class="nav-number">6.10.</span> <span class="nav-text">Cannot start under Java 1.8.0_152-release-b1024: Java 11 or later is required.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Idea%E5%87%BA%E7%8E%B0%E5%86%99%E4%BB%A3%E7%A0%81%E9%A2%91%E7%B9%81%E5%8D%A1%E6%AD%BB%EF%BC%8C%E7%89%B9%E5%88%AB%E6%98%AF%E5%9C%A8%E6%8B%AC%E5%8F%B7%E4%B9%8B%E9%97%B4%E8%BE%93%E5%85%A5%E4%B8%80%E7%9B%B4%E5%8D%A1%E6%AD%BB%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">6.11.</span> <span class="nav-text">Idea出现写代码频繁卡死，特别是在括号之间输入一直卡死的问题</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Fengorz</p>
+  <div class="site-description" itemprop="description">Live only for yourself.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fengorz</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

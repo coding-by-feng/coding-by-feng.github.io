@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.fengorz.me","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="基础基本类型的零值 自动类型转换顺序char&gt;int&gt;long&gt;float&gt;double 关键字所有成员变量的调用附带上this，防止代码产生歧义或冲突。 synchronized以某个代码片段为例子： 12345678910111213public void fizz(Runnable printFizz) throws InterruptedException &amp;#12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java系列之零碎笔记">
+<meta property="og:url" content="https://www.fengorz.me/2019/11/30/Java%E7%B3%BB%E5%88%97%E4%B9%8B%E9%9B%B6%E7%A2%8E%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Feng&#39;s Blog">
+<meta property="og:description" content="基础基本类型的零值 自动类型转换顺序char&gt;int&gt;long&gt;float&gt;double 关键字所有成员变量的调用附带上this，防止代码产生歧义或冲突。 synchronized以某个代码片段为例子： 12345678910111213public void fizz(Runnable printFizz) throws InterruptedException &amp;#12">
+<meta property="og:locale">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/2yFTP5.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/FIG9fa.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/36r68I.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/xLpjyO.png">
+<meta property="article:published_time" content="2019-11-30T13:12:21.000Z">
+<meta property="article:modified_time" content="2020-12-16T02:36:13.522Z">
+<meta property="article:author" content="Fengorz">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/2yFTP5.png">
+
+<link rel="canonical" href="https://www.fengorz.me/2019/11/30/Java%E7%B3%BB%E5%88%97%E4%B9%8B%E9%9B%B6%E7%A2%8E%E7%AC%94%E8%AE%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>Java系列之零碎笔记 | Feng's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Feng's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">kiwidict.com</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://www.fengorz.me/2019/11/30/Java%E7%B3%BB%E5%88%97%E4%B9%8B%E9%9B%B6%E7%A2%8E%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="Live only for yourself.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java系列之零碎笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-30 21:12:21 21:12:21" itemprop="dateCreated datePublished" datetime="2019-11-30T21:12:21+08:00">2019-11-30 21:12:21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-12-16 10:36:13 10:36:13" itemprop="dateModified" datetime="2020-12-16T10:36:13+08:00">2020-12-16 10:36:13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="基本类型的零值"><a href="#基本类型的零值" class="headerlink" title="基本类型的零值"></a>基本类型的零值</h2><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/2yFTP5.png"></p>
+<h2 id="自动类型转换顺序"><a href="#自动类型转换顺序" class="headerlink" title="自动类型转换顺序"></a>自动类型转换顺序</h2><p>char&gt;int&gt;long&gt;float&gt;double</p>
+<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><p>所有成员变量的调用附带上this，防止代码产生歧义或冲突。</p>
+<h3 id="synchronized"><a href="#synchronized" class="headerlink" title="synchronized"></a>synchronized</h3><p>以某个代码片段为例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public void fizz(Runnable printFizz) throws InterruptedException &#123;</span><br><span class="line">    while (i &lt;= n) &#123;</span><br><span class="line">        synchronized (this) &#123;</span><br><span class="line">            if (i % 3 == 0 &amp;&amp; i % 5 != 0) &#123;</span><br><span class="line">                printFizz.run();</span><br><span class="line">                i++;</span><br><span class="line">                this.notifyAll();</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                this.wait();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用javap -v命令查看其class文件，得到如下的字节码命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">public void fizz(java.lang.Runnable) throws java.lang.InterruptedException;</span><br><span class="line">    descriptor: (Ljava/lang/Runnable;)V</span><br><span class="line">    flags: ACC_PUBLIC</span><br><span class="line">    Code:</span><br><span class="line">      stack=3, locals=4, args_size=2</span><br><span class="line">         0: aload_0</span><br><span class="line">         1: getfield      #2                  // Field i:I</span><br><span class="line">         4: aload_0</span><br><span class="line">         5: getfield      #3                  // Field n:I</span><br><span class="line">         8: if_icmpgt     73</span><br><span class="line">        11: aload_0</span><br><span class="line">        12: dup</span><br><span class="line">        13: astore_2</span><br><span class="line">        14: monitorenter                      // 在这里锁住</span><br><span class="line">        15: aload_0</span><br><span class="line">        16: getfield      #2                  // Field i:I</span><br><span class="line">        19: iconst_3</span><br><span class="line">        20: irem</span><br><span class="line">        21: ifne          56</span><br><span class="line">        24: aload_0</span><br><span class="line">        25: getfield      #2                  // Field i:I</span><br><span class="line">        28: iconst_5</span><br><span class="line">        29: irem</span><br><span class="line">        30: ifeq          56</span><br><span class="line">        33: aload_1</span><br><span class="line">        34: invokeinterface #4,  1            // InterfaceMethod java/lang/Runnable.run:()V</span><br><span class="line">        39: aload_0</span><br><span class="line">        40: dup</span><br><span class="line">        41: getfield      #2                  // Field i:I</span><br><span class="line">        44: iconst_1</span><br><span class="line">        45: iadd</span><br><span class="line">        46: putfield      #2                  // Field i:I</span><br><span class="line">        49: aload_0</span><br><span class="line">        50: invokevirtual #5                  // Method java/lang/Object.notifyAll:()V</span><br><span class="line">        53: goto          60</span><br><span class="line">        56: aload_0</span><br><span class="line">        57: invokevirtual #6                  // Method java/lang/Object.wait:()V</span><br><span class="line">        60: aload_2</span><br><span class="line">        61: monitorexit                       // 在这里第一次释放锁</span><br><span class="line">        62: goto          70</span><br><span class="line">        65: astore_3</span><br><span class="line">        66: aload_2</span><br><span class="line">        67: monitorexit                       // 这里会再次释放锁</span><br><span class="line">        68: aload_3</span><br><span class="line">        69: athrow</span><br><span class="line">        70: goto          0</span><br><span class="line">        73: return</span><br><span class="line">      Exception table:</span><br><span class="line">         from    to  target type</span><br><span class="line">            15    62    65   any</span><br><span class="line">            65    68    65   any</span><br><span class="line">      LineNumberTable:</span><br><span class="line">        line 47: 0</span><br><span class="line">        line 48: 11</span><br><span class="line">        line 49: 15</span><br><span class="line">        line 50: 33</span><br><span class="line">        line 51: 39</span><br><span class="line">        line 52: 49</span><br><span class="line">        line 54: 56</span><br><span class="line">        line 56: 60</span><br><span class="line">        line 58: 73</span><br><span class="line">      LocalVariableTable:</span><br><span class="line">        Start  Length  Slot  Name   Signature</span><br><span class="line">            0      74     0  this   Lme/fengorz/leetcode/concurrency/fizz_buzz_multithreaded/FizzBuzz;</span><br><span class="line">            0      74     1 printFizz   Ljava/lang/Runnable;</span><br><span class="line">      StackMapTable: number_of_entries = 6</span><br><span class="line">        frame_type = 0 /* same */</span><br><span class="line">        frame_type = 252 /* append */</span><br><span class="line">          offset_delta = 55</span><br><span class="line">          locals = [ class java/lang/Object ]</span><br><span class="line">        frame_type = 3 /* same */</span><br><span class="line">        frame_type = 68 /* same_locals_1_stack_item */</span><br><span class="line">          stack = [ class java/lang/Throwable ]</span><br><span class="line">        frame_type = 250 /* chop */</span><br><span class="line">          offset_delta = 4</span><br><span class="line">        frame_type = 2 /* same */</span><br><span class="line">    Exceptions:</span><br><span class="line">      throws java.lang.InterruptedException</span><br></pre></td></tr></table></figure>
+<p>发现上面有两条关键字节码<code>monitorenter</code>和<code>monitorexit</code>：</p>
+<ul>
+<li>每个对象有一个监视器锁（monitor）。当monitor被占用时就会处于锁定状态，线程执行<code>monitorenter</code>指令时尝试获取monitor的所有权。</li>
+<li>monitorexit会释放锁</li>
+</ul>
+<p>上面的字节码文件中出现了一次<code>monitorenter</code>和二次<code>monitorexit</code>。</p>
+<blockquote>
+<p>两次<code>monitorexit</code>指令的原因是为了保证抛异常的情况下也能释放锁，所以javac为同步代码块添加了一个隐式的try-finally，在finally中会调用<code>monitorexit</code>命令释放锁。</p>
+</blockquote>
+<h3 id="transient"><a href="#transient" class="headerlink" title="transient"></a>transient</h3><p><a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1636557218432721275&wfr=spider&for=pc">https://baijiahao.baidu.com/s?id=1636557218432721275&wfr=spider&for=pc</a></p>
+<h3 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void.class // 罕见又骚气的用法</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public &lt;T&gt; T readObjectData(ByteBuffer buffer, Class&lt;T&gt; type) &#123;</span><br><span class="line">...</span><br><span class="line">T retVal = (T) summaries;</span><br><span class="line">return retVal;</span><br></pre></td></tr></table></figure>
+<p>我在stackoverflow发现一个很好的解析：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public &lt;T&gt; T readObjectData(...</span><br><span class="line">        ^  ^</span><br><span class="line">        |  + Return type</span><br><span class="line">        + Generic type argument</span><br></pre></td></tr></table></figure>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><h3 id="Unimagined"><a href="#Unimagined" class="headerlink" title="Unimagined"></a>Unimagined</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 一个集合并入到另一个集合的安全写法</span><br><span class="line">Collections.addAll(Collection&lt;? super T&gt; c, T... elements);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Collections.singletonMap(...);</span><br></pre></td></tr></table></figure>
+<h3 id="快速失败机制（fast-fail）"><a href="#快速失败机制（fast-fail）" class="headerlink" title="快速失败机制（fast-fail）"></a>快速失败机制（fast-fail）</h3><p>集合常见的快速失败检查都是通过如下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">final void checkForComodification() &#123;</span><br><span class="line">    if (modCount != expectedModCount)</span><br><span class="line">        throw new ConcurrentModificationException();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="来自网上的Java集合体系图"><a href="#来自网上的Java集合体系图" class="headerlink" title="来自网上的Java集合体系图"></a>来自网上的Java集合体系图</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/FIG9fa.png"><br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/36r68I.png"></p>
+<h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><h3 id="一些自定义常用异常可以抽成公用的静态final异常，如："><a href="#一些自定义常用异常可以抽成公用的静态final异常，如：" class="headerlink" title="一些自定义常用异常可以抽成公用的静态final异常，如："></a>一些自定义常用异常可以抽成公用的静态final异常，如：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public final class PrematureCloseException extends IOException &#123;</span><br><span class="line"></span><br><span class="line">	public static final PrematureCloseException BEFORE_RESPONSE_SENDING_REQUEST =</span><br><span class="line">			new PrematureCloseException(&quot;Connection has been closed BEFORE response, while sending request body&quot;);</span><br><span class="line"></span><br><span class="line">	public static final PrematureCloseException BEFORE_RESPONSE =</span><br><span class="line">			new PrematureCloseException(&quot;Connection prematurely closed BEFORE response&quot;);</span><br><span class="line"></span><br><span class="line">	public static final PrematureCloseException DURING_RESPONSE =</span><br><span class="line">			new PrematureCloseException(&quot;Connection prematurely closed DURING response&quot;);</span><br><span class="line"></span><br><span class="line">	PrematureCloseException(String message) &#123;</span><br><span class="line">		super(message);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public synchronized Throwable fillInStackTrace() &#123;</span><br><span class="line">		// omit stacktrace for this exception</span><br><span class="line">		return this;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="一些运行时异常可以用Spring内置的断言API比较高逼格"><a href="#一些运行时异常可以用Spring内置的断言API比较高逼格" class="headerlink" title="一些运行时异常可以用Spring内置的断言API比较高逼格"></a>一些运行时异常可以用Spring内置的断言API比较高逼格</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Assert.notNull etc.</span><br></pre></td></tr></table></figure>
+
+<h2 id="非null异常的优雅写法"><a href="#非null异常的优雅写法" class="headerlink" title="非null异常的优雅写法"></a>非null异常的优雅写法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Objects.requireNonNull(obj);</span><br></pre></td></tr></table></figure>
+
+<h2 id="try资源句式"><a href="#try资源句式" class="headerlink" title="try资源句式"></a>try资源句式</h2><p>如果代码调用的类是实现java.lang.AutoCloseable的，用try资源句式来释放关闭资源这样代码就优雅多了。</p>
+<h2 id="PropertyDescriptor"><a href="#PropertyDescriptor" class="headerlink" title="PropertyDescriptor"></a>PropertyDescriptor</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PropertyDescriptor descriptor = new PropertyDescriptor(&quot;propertyName&quot;, param.getClass());</span><br><span class="line">Method getPropertyMethod = descriptor.getReadMethod();</span><br><span class="line">property = (Integer) getPropertyMethod.invoke(param);</span><br></pre></td></tr></table></figure>
+
+<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><h3 id="String-format"><a href="#String-format" class="headerlink" title="String.format"></a>String.format</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u010137760/article/details/82869637">https://blog.csdn.net/u010137760/article/details/82869637</a></p>
+<h3 id="String-intern"><a href="#String-intern" class="headerlink" title="String.intern"></a>String.intern</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Yintianhao/p/12273714.html">https://www.cnblogs.com/Yintianhao/p/12273714.html</a></p>
+<h2 id="n次方写法"><a href="#n次方写法" class="headerlink" title="n次方写法"></a>n次方写法</h2><p>在Java中一个数的N次方不可以写成：a^0这种形式，算得的数不正确；<br>正确的写法为Math.pow(a,0);</p>
+<h2 id="废弃对象手动赋值为null有助于GC即将生效"><a href="#废弃对象手动赋值为null有助于GC即将生效" class="headerlink" title="废弃对象手动赋值为null有助于GC即将生效"></a>废弃对象手动赋值为null有助于GC即将生效</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Object o = new Object();</span><br><span class="line">o = null;</span><br><span class="line">o = new Object(); // 这里将触发上面null的GC，又或者调用System.gc(); 但是System.gc()是Full GC</span><br></pre></td></tr></table></figure>
+
+<h2 id="Integer-valueOf-x-缓存"><a href="#Integer-valueOf-x-缓存" class="headerlink" title="Integer.valueOf(x)缓存"></a>Integer.valueOf(x)缓存</h2><p>如果x的范围在-128~127之间，那么会直接返回缓存中的对象，也就是只要数值被调用过一次，以后返回的都是同个对象实例了。</p>
+<hr>
+<h1 id="避坑"><a href="#避坑" class="headerlink" title="避坑"></a>避坑</h1><h2 id="代码格式"><a href="#代码格式" class="headerlink" title="代码格式"></a>代码格式</h2><p>一个团队你的代码格式一定要统一，不然代码冲突时，比对代码非常麻烦。</p>
+<h2 id="Service与Controller的交互"><a href="#Service与Controller的交互" class="headerlink" title="Service与Controller的交互"></a>Service与Controller的交互</h2><p>Service最终返回给Controller层的数据如果比较复杂，尽量不要用Map，可以封装成DTO，而且这样一来还可以结合JSR303或者其各种扩展，对DTO进行优雅的数据校验。</p>
+<h2 id="减少箭头型代码"><a href="#减少箭头型代码" class="headerlink" title="减少箭头型代码"></a>减少箭头型代码</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_33858485/article/details/88768985">https://blog.csdn.net/weixin_33858485/article/details/88768985</a><br>但是个人认为，一味的追求箭头代码也会有弊端，比如这样:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Task task = monTask.getTask();</span><br><span class="line">if (task == null) &#123;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">MonAssignTaskExample monAssignTaskExample = new MonAssignTaskExample();</span><br><span class="line">monAssignTaskExample.createCriteria().andTaskIdEqualTo(task.getTaskId()).andDealObjectIdEqualTo(task.getDealObjectId())</span><br><span class="line">        .andIsFinishEqualTo(&quot;N&quot;);</span><br><span class="line">List&lt;MonAssignTask&gt; monAssignTasks = this.baseMonAssignTaskBO.selectByExample(monAssignTaskExample);</span><br><span class="line">if (ObjectUtils.isEmpty(monAssignTasks)) &#123;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">for (MonAssignTask monAssignTask : monAssignTasks) &#123;</span><br><span class="line">    // do something</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样写固然是可以减少箭头代码，但是如若这段代码下面今后要添加一些额外的业务逻辑，这些业务逻辑与task是否为null没有必要的联系，<br>那么可能会因为task&#x3D;&#x3D;null退出了整个函数，导致额外的业务逻辑不被执行。</p>
+<h2 id="Utils-工具类的命名"><a href="#Utils-工具类的命名" class="headerlink" title="Utils 工具类的命名"></a>Utils 工具类的命名</h2><p>每次在使用工具类的时候，总是会出现一个类名出现N个工具类比如：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/xLpjyO.png" alt="image"><br>而且自己也会有自定义的Utils类，为了更好地区分，我喜欢在Utils类价格前缀Enhanced，这样找自己的工具类就方便多了，比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EnhancedBeanUtils</span><br></pre></td></tr></table></figure>
+<h2 id="Deprecated"><a href="#Deprecated" class="headerlink" title="@Deprecated"></a>@Deprecated</h2><p>有些被封装的业务方法或者工具类方法如果有做修改，增加了方法的升级版，老旧的方法可以用@Deprecated标记为过时，防止新业务逻辑用到废弃的API。</p>
+<h2 id="魔法值应该尽量避免"><a href="#魔法值应该尽量避免" class="headerlink" title="魔法值应该尽量避免"></a>魔法值应该尽量避免</h2><p>阿里巴巴说java规范里面说杜绝一切魔法值，但是我觉得也不用可以完全追求零魔法值，我认为需要用常量代替魔法值的有以下这些：</p>
+<ol>
+<li>使用频率高的，或者被频繁调用的逻辑块中的魔法值。</li>
+<li>可读性很差的魔法值和表达式，应该禁止，最好都声明成可读性较好的常量或者变量。</li>
+</ol>
+<h2 id="多余的super"><a href="#多余的super" class="headerlink" title="多余的super();"></a>多余的super();</h2><p>在看公司的上古代码发现这种写法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public CreateRepairBillThread(SaInterfaceAccept accept) &#123;</span><br><span class="line">	super();</span><br><span class="line">	this.accept = accept;</span><br><span class="line">	this.timeout = timeout * 60L * 1000L;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里面super();是一句多余的代码，因为子类的构造器会默认先调用父类无参构造器。</p>
+<h2 id="尽量避免大对象"><a href="#尽量避免大对象" class="headerlink" title="尽量避免大对象"></a>尽量避免大对象</h2><p>大对象就是指需要大量连续内存空间的Java对象，最典型的大对象便是那种很长的字符串，或者元素数量很庞大的数组。<br>比遇到大对象更加坏的消息就是遇到一群“朝生夕灭”的“短命大对象”，我们写程序的时候应注意避免。<br>在Java虚拟机中要避免大对象的原因是，在分配空间时，它容易导致内存明明还有不少空间时就提前触发垃圾收集，以获取足够的连续空间才能安置好它们，而当复制对象时，大对象就意味着高额的内存复制开销。HotSpot虚拟机提供了<code>-XX: PretenureSizeThreshold</code>参数， 指定大于该设置值的对象直接在老年代分配，这样做的目的就是避免在Eden区及两个Survivor区之间来回复制，产生大量的内存复制操作。</p>
+<h2 id="接口与方法的实现注意形参尽量用可传送的DTO对象（实现Serializable）"><a href="#接口与方法的实现注意形参尽量用可传送的DTO对象（实现Serializable）" class="headerlink" title="接口与方法的实现注意形参尽量用可传送的DTO对象（实现Serializable）"></a>接口与方法的实现注意形参尽量用可传送的DTO对象（实现Serializable）</h2><p>这个将来方便各种动态扩展参数。</p>
+<h2 id="自动装箱和拆箱的坑"><a href="#自动装箱和拆箱的坑" class="headerlink" title="自动装箱和拆箱的坑"></a>自动装箱和拆箱的坑</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    Integer a = 1;</span><br><span class="line">    Integer b = 2;</span><br><span class="line">    Integer c = 3;</span><br><span class="line">    Integer d = 3;</span><br><span class="line">    Integer e = 128;</span><br><span class="line">    Integer f = 128;</span><br><span class="line">    Integer e1 = 127;</span><br><span class="line">    Integer f1 = 127;</span><br><span class="line">    Long g = 3L;</span><br><span class="line">    System.out.println(c.equals(d));</span><br><span class="line">    System.out.println(e == f);// 不在-128~127范围内不相等</span><br><span class="line">    System.out.println(e.equals(f));// 替换成equals才会相等</span><br><span class="line">    System.out.println(e1 == f1);// 只有在-128~127之间，读取缓存中的值才会相等</span><br><span class="line">    System.out.println(g == (a + b));// == 会处理自动类型转换</span><br><span class="line">    System.out.println(g.equals(a + b));// equals方法不处理自动类型转换</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="涉及到日志输出注意避免无意义日志大量产生"><a href="#涉及到日志输出注意避免无意义日志大量产生" class="headerlink" title="涉及到日志输出注意避免无意义日志大量产生"></a>涉及到日志输出注意避免无意义日志大量产生</h2><p>对于某些重复性很高的业务逻辑，日志的输出要注意在可控的范围内，千万不能引起日志巨量产生而导致磁盘爆满。</p>
+<h2 id="读取IO流要注意尾部数据失真问题"><a href="#读取IO流要注意尾部数据失真问题" class="headerlink" title="读取IO流要注意尾部数据失真问题"></a>读取IO流要注意尾部数据失真问题</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">temps = response.getOutputStream();</span><br><span class="line">in = new DataInputStream(inputStream);</span><br><span class="line">// 这个方法写入音频流时有个致命问题，如果是音频流会出现尾部有杂音，因为byte数组如果尾部空流在音频当还是会被当做声音处理</span><br><span class="line">// 如果采用下面注释掉的这种写法的话</span><br><span class="line">byte[] b = new byte[2048];</span><br><span class="line">while ((in.read(b)) != -1) &#123;</span><br><span class="line">    temps.write(b);</span><br><span class="line">    temps.flush();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以采用HuTool工具API，或者使用其内部的实现机制：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">byte[] b = new byte[length];</span><br><span class="line">int readLength;</span><br><span class="line">try &#123;</span><br><span class="line">    readLength = in.read(b);</span><br><span class="line">&#125; catch (IOException e) &#123;</span><br><span class="line">    throw new IORuntimeException(e);</span><br><span class="line">&#125;</span><br><span class="line">if (readLength &gt; 0 &amp;&amp; readLength &lt; length) &#123;</span><br><span class="line">    byte[] b2 = new byte[length];</span><br><span class="line">    System.arraycopy(b, 0, b2, 0, readLength);</span><br><span class="line">    return b2;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    return b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">byte[] b = IoUtil.readBytes(in, 1024);</span><br><span class="line">while (b != null &amp;&amp; b.length &gt; 0) &#123;</span><br><span class="line">    temps.write(b);</span><br><span class="line">    temps.flush();</span><br><span class="line">    b = IoUtil.readBytes(in, 1024);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="集合在new的时候通过构造器传入初始数据时，要避免是null值"><a href="#集合在new的时候通过构造器传入初始数据时，要避免是null值" class="headerlink" title="集合在new的时候通过构造器传入初始数据时，要避免是null值"></a>集合在new的时候通过构造器传入初始数据时，要避免是null值</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List list = new LinkedLIst(...);</span><br><span class="line">// ...里面要避免是null值</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Combo"><a href="#Combo" class="headerlink" title="Combo"></a>Combo</h1><h2 id="jar"><a href="#jar" class="headerlink" title="jar"></a>jar</h2><h3 id="Mac中jar运行之后窗口无法粘贴"><a href="#Mac中jar运行之后窗口无法粘贴" class="headerlink" title="Mac中jar运行之后窗口无法粘贴"></a>Mac中jar运行之后窗口无法粘贴</h3><p>有些情况下需要使用windows的复制粘贴快捷键才能生效</p>
+<h3 id="jar指定目录的所有classes去打包"><a href="#jar指定目录的所有classes去打包" class="headerlink" title="jar指定目录的所有classes去打包"></a>jar指定目录的所有classes去打包</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar cvf test.jar -C unwoven-classes .</span><br></pre></td></tr></table></figure>
+
+<h2 id="Jackson-Convert-Error-Cannot-construct-instance-of-java-time-LocalDateTime"><a href="#Jackson-Convert-Error-Cannot-construct-instance-of-java-time-LocalDateTime" class="headerlink" title="Jackson Convert Error: Cannot construct instance of java.time.LocalDateTime"></a>Jackson Convert Error: Cannot construct instance of <code>java.time.LocalDateTime</code></h2><p>LocalDateTime属性加上注解<br>@JsonDeserialize(using &#x3D; LocalDateTimeDeserializer.class)<br>@JsonSerialize(using &#x3D; LocalDateTimeSerializer.class)</p>
+<h2 id="Thread-sleep-使用-TimeUnit-XXX-sleep-x-代替（可读性更好）"><a href="#Thread-sleep-使用-TimeUnit-XXX-sleep-x-代替（可读性更好）" class="headerlink" title="Thread.sleep 使用 TimeUnit.XXX.sleep(x) 代替（可读性更好）"></a>Thread.sleep 使用 TimeUnit.XXX.sleep(x) 代替（可读性更好）</h2><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/9587673/thread-sleep-vs-timeunit-seconds-sleep">https://stackoverflow.com/questions/9587673/thread-sleep-vs-timeunit-seconds-sleep</a></p>
+<h2 id="音频格式转换"><a href="#音频格式转换" class="headerlink" title="音频格式转换"></a>音频格式转换</h2><p>使用<a target="_blank" rel="noopener" href="http://www.sauronsoftware.it/projects/jave/manual.php#2">JAVE 音频转换包</a>库</p>
+<h2 id="Mac下JDK目录"><a href="#Mac下JDK目录" class="headerlink" title="Mac下JDK目录"></a>Mac下JDK目录</h2><p>可以通过<code>/usr/libexec</code>目录下的<code>java_home</code>命令找到Mac下安装过的JDK所在目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;/usr/libexec&#125; # ./java_home</span><br><span class="line">/Library/Java/JavaVirtualMachines/jdk-11.0.8.jdk/Contents/Home</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/11/30/English%E7%B3%BB%E5%88%97%E4%B9%8B%E5%8F%A5%E5%9E%8B%E7%BB%93%E6%9E%84%E5%92%8C%E7%9F%AD%E8%AF%AD%E5%A4%A7%E5%85%A8/" rel="prev" title="English系列之句型结构和短语大全">
+      <i class="fa fa-chevron-left"></i> English系列之句型结构和短语大全
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/12/01/%20IDEA%20Usage/" rel="next" title="IDEA Usage">
+      IDEA Usage <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E7%9A%84%E9%9B%B6%E5%80%BC"><span class="nav-number">1.1.</span> <span class="nav-text">基本类型的零值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E9%A1%BA%E5%BA%8F"><span class="nav-number">1.2.</span> <span class="nav-text">自动类型转换顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.3.</span> <span class="nav-text">关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#synchronized"><span class="nav-number">1.3.1.</span> <span class="nav-text">synchronized</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#transient"><span class="nav-number">1.3.2.</span> <span class="nav-text">transient</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class"><span class="nav-number">1.3.3.</span> <span class="nav-text">Class</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%9B%E5%9E%8B"><span class="nav-number">1.4.</span> <span class="nav-text">泛型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88"><span class="nav-number">1.5.</span> <span class="nav-text">集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Unimagined"><span class="nav-number">1.5.1.</span> <span class="nav-text">Unimagined</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E5%A4%B1%E8%B4%A5%E6%9C%BA%E5%88%B6%EF%BC%88fast-fail%EF%BC%89"><span class="nav-number">1.5.2.</span> <span class="nav-text">快速失败机制（fast-fail）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%A5%E8%87%AA%E7%BD%91%E4%B8%8A%E7%9A%84Java%E9%9B%86%E5%90%88%E4%BD%93%E7%B3%BB%E5%9B%BE"><span class="nav-number">1.5.3.</span> <span class="nav-text">来自网上的Java集合体系图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8"><span class="nav-number">1.6.</span> <span class="nav-text">异常</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B8%B8%E7%94%A8%E5%BC%82%E5%B8%B8%E5%8F%AF%E4%BB%A5%E6%8A%BD%E6%88%90%E5%85%AC%E7%94%A8%E7%9A%84%E9%9D%99%E6%80%81final%E5%BC%82%E5%B8%B8%EF%BC%8C%E5%A6%82%EF%BC%9A"><span class="nav-number">1.6.1.</span> <span class="nav-text">一些自定义常用异常可以抽成公用的静态final异常，如：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BC%82%E5%B8%B8%E5%8F%AF%E4%BB%A5%E7%94%A8Spring%E5%86%85%E7%BD%AE%E7%9A%84%E6%96%AD%E8%A8%80API%E6%AF%94%E8%BE%83%E9%AB%98%E9%80%BC%E6%A0%BC"><span class="nav-number">1.6.2.</span> <span class="nav-text">一些运行时异常可以用Spring内置的断言API比较高逼格</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9Enull%E5%BC%82%E5%B8%B8%E7%9A%84%E4%BC%98%E9%9B%85%E5%86%99%E6%B3%95"><span class="nav-number">1.7.</span> <span class="nav-text">非null异常的优雅写法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#try%E8%B5%84%E6%BA%90%E5%8F%A5%E5%BC%8F"><span class="nav-number">1.8.</span> <span class="nav-text">try资源句式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PropertyDescriptor"><span class="nav-number">1.9.</span> <span class="nav-text">PropertyDescriptor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String"><span class="nav-number">1.10.</span> <span class="nav-text">String</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#String-format"><span class="nav-number">1.10.1.</span> <span class="nav-text">String.format</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-intern"><span class="nav-number">1.10.2.</span> <span class="nav-text">String.intern</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#n%E6%AC%A1%E6%96%B9%E5%86%99%E6%B3%95"><span class="nav-number">1.11.</span> <span class="nav-text">n次方写法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%9F%E5%BC%83%E5%AF%B9%E8%B1%A1%E6%89%8B%E5%8A%A8%E8%B5%8B%E5%80%BC%E4%B8%BAnull%E6%9C%89%E5%8A%A9%E4%BA%8EGC%E5%8D%B3%E5%B0%86%E7%94%9F%E6%95%88"><span class="nav-number">1.12.</span> <span class="nav-text">废弃对象手动赋值为null有助于GC即将生效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Integer-valueOf-x-%E7%BC%93%E5%AD%98"><span class="nav-number">1.13.</span> <span class="nav-text">Integer.valueOf(x)缓存</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%81%BF%E5%9D%91"><span class="nav-number">2.</span> <span class="nav-text">避坑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.1.</span> <span class="nav-text">代码格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Service%E4%B8%8EController%E7%9A%84%E4%BA%A4%E4%BA%92"><span class="nav-number">2.2.</span> <span class="nav-text">Service与Controller的交互</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%8F%E5%B0%91%E7%AE%AD%E5%A4%B4%E5%9E%8B%E4%BB%A3%E7%A0%81"><span class="nav-number">2.3.</span> <span class="nav-text">减少箭头型代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Utils-%E5%B7%A5%E5%85%B7%E7%B1%BB%E7%9A%84%E5%91%BD%E5%90%8D"><span class="nav-number">2.4.</span> <span class="nav-text">Utils 工具类的命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deprecated"><span class="nav-number">2.5.</span> <span class="nav-text">@Deprecated</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AD%94%E6%B3%95%E5%80%BC%E5%BA%94%E8%AF%A5%E5%B0%BD%E9%87%8F%E9%81%BF%E5%85%8D"><span class="nav-number">2.6.</span> <span class="nav-text">魔法值应该尽量避免</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E4%BD%99%E7%9A%84super"><span class="nav-number">2.7.</span> <span class="nav-text">多余的super();</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%BD%E9%87%8F%E9%81%BF%E5%85%8D%E5%A4%A7%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.8.</span> <span class="nav-text">尽量避免大对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%96%B9%E6%B3%95%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%B3%A8%E6%84%8F%E5%BD%A2%E5%8F%82%E5%B0%BD%E9%87%8F%E7%94%A8%E5%8F%AF%E4%BC%A0%E9%80%81%E7%9A%84DTO%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%AE%9E%E7%8E%B0Serializable%EF%BC%89"><span class="nav-number">2.9.</span> <span class="nav-text">接口与方法的实现注意形参尽量用可传送的DTO对象（实现Serializable）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E5%92%8C%E6%8B%86%E7%AE%B1%E7%9A%84%E5%9D%91"><span class="nav-number">2.10.</span> <span class="nav-text">自动装箱和拆箱的坑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B6%89%E5%8F%8A%E5%88%B0%E6%97%A5%E5%BF%97%E8%BE%93%E5%87%BA%E6%B3%A8%E6%84%8F%E9%81%BF%E5%85%8D%E6%97%A0%E6%84%8F%E4%B9%89%E6%97%A5%E5%BF%97%E5%A4%A7%E9%87%8F%E4%BA%A7%E7%94%9F"><span class="nav-number">2.11.</span> <span class="nav-text">涉及到日志输出注意避免无意义日志大量产生</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96IO%E6%B5%81%E8%A6%81%E6%B3%A8%E6%84%8F%E5%B0%BE%E9%83%A8%E6%95%B0%E6%8D%AE%E5%A4%B1%E7%9C%9F%E9%97%AE%E9%A2%98"><span class="nav-number">2.12.</span> <span class="nav-text">读取IO流要注意尾部数据失真问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E5%9C%A8new%E7%9A%84%E6%97%B6%E5%80%99%E9%80%9A%E8%BF%87%E6%9E%84%E9%80%A0%E5%99%A8%E4%BC%A0%E5%85%A5%E5%88%9D%E5%A7%8B%E6%95%B0%E6%8D%AE%E6%97%B6%EF%BC%8C%E8%A6%81%E9%81%BF%E5%85%8D%E6%98%AFnull%E5%80%BC"><span class="nav-number">2.13.</span> <span class="nav-text">集合在new的时候通过构造器传入初始数据时，要避免是null值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Combo"><span class="nav-number">3.</span> <span class="nav-text">Combo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jar"><span class="nav-number">3.1.</span> <span class="nav-text">jar</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mac%E4%B8%ADjar%E8%BF%90%E8%A1%8C%E4%B9%8B%E5%90%8E%E7%AA%97%E5%8F%A3%E6%97%A0%E6%B3%95%E7%B2%98%E8%B4%B4"><span class="nav-number">3.1.1.</span> <span class="nav-text">Mac中jar运行之后窗口无法粘贴</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jar%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95%E7%9A%84%E6%89%80%E6%9C%89classes%E5%8E%BB%E6%89%93%E5%8C%85"><span class="nav-number">3.1.2.</span> <span class="nav-text">jar指定目录的所有classes去打包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jackson-Convert-Error-Cannot-construct-instance-of-java-time-LocalDateTime"><span class="nav-number">3.2.</span> <span class="nav-text">Jackson Convert Error: Cannot construct instance of java.time.LocalDateTime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Thread-sleep-%E4%BD%BF%E7%94%A8-TimeUnit-XXX-sleep-x-%E4%BB%A3%E6%9B%BF%EF%BC%88%E5%8F%AF%E8%AF%BB%E6%80%A7%E6%9B%B4%E5%A5%BD%EF%BC%89"><span class="nav-number">3.3.</span> <span class="nav-text">Thread.sleep 使用 TimeUnit.XXX.sleep(x) 代替（可读性更好）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9F%B3%E9%A2%91%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2"><span class="nav-number">3.4.</span> <span class="nav-text">音频格式转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac%E4%B8%8BJDK%E7%9B%AE%E5%BD%95"><span class="nav-number">3.5.</span> <span class="nav-text">Mac下JDK目录</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Fengorz</p>
+  <div class="site-description" itemprop="description">Live only for yourself.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fengorz</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

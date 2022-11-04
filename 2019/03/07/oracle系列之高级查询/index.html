@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.fengorz.me","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="分组查询常用分组函数12-- avg,sum,min,max,count,wm_concatselect avg(sal),sum(sal),min(sal),max(sal),count(sal) from emp; 1select count(*),count(comm) from emp; 上面二个值不一样，是因为分组函数会自动忽略空值，会自动忽略空值。NVL函数可以使分组函数无法忽略空值，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="oracle系列之高级查询">
+<meta property="og:url" content="https://www.fengorz.me/2019/03/07/oracle%E7%B3%BB%E5%88%97%E4%B9%8B%E9%AB%98%E7%BA%A7%E6%9F%A5%E8%AF%A2/index.html">
+<meta property="og:site_name" content="Feng&#39;s Blog">
+<meta property="og:description" content="分组查询常用分组函数12-- avg,sum,min,max,count,wm_concatselect avg(sal),sum(sal),min(sal),max(sal),count(sal) from emp; 1select count(*),count(comm) from emp; 上面二个值不一样，是因为分组函数会自动忽略空值，会自动忽略空值。NVL函数可以使分组函数无法忽略空值，">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-03-07T14:42:09.000Z">
+<meta property="article:modified_time" content="2019-04-07T02:33:57.799Z">
+<meta property="article:author" content="Fengorz">
+<meta property="article:tag" content="oracle">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.fengorz.me/2019/03/07/oracle%E7%B3%BB%E5%88%97%E4%B9%8B%E9%AB%98%E7%BA%A7%E6%9F%A5%E8%AF%A2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>oracle系列之高级查询 | Feng's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Feng's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">kiwidict.com</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://www.fengorz.me/2019/03/07/oracle%E7%B3%BB%E5%88%97%E4%B9%8B%E9%AB%98%E7%BA%A7%E6%9F%A5%E8%AF%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="Live only for yourself.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          oracle系列之高级查询
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-03-07 22:42:09 22:42:09" itemprop="dateCreated datePublished" datetime="2019-03-07T22:42:09+08:00">2019-03-07 22:42:09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-04-07 10:33:57 10:33:57" itemprop="dateModified" datetime="2019-04-07T10:33:57+08:00">2019-04-07 10:33:57</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/oracle/" itemprop="url" rel="index"><span itemprop="name">oracle</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h2><h4 id="常用分组函数"><a href="#常用分组函数" class="headerlink" title="常用分组函数"></a>常用分组函数</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- avg,sum,min,max,count,wm_concat</span><br><span class="line">select avg(sal),sum(sal),min(sal),max(sal),count(sal) from emp;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count(*),count(comm) from emp;</span><br></pre></td></tr></table></figure>
+<p><em><strong>上面二个值不一样，是因为分组函数会自动忽略空值，会自动忽略空值。NVL函数可以使分组函数无法忽略空值，例如下面的sql：</strong></em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count(*),count(nvl(comm, 0)) from emp;</span><br></pre></td></tr></table></figure>
+<h4 id="group-by语句"><a href="#group-by语句" class="headerlink" title="group by语句"></a>group by语句</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select column, from table_name [where condition] [group by group_by_condition] [having group_condition] [order by column];</span><br><span class="line">-- 平均工资</span><br><span class="line">select deptno,avg(sal) from emp group by deptno;</span><br></pre></td></tr></table></figure>
+<p><em><strong>错误写法：</strong></em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select a,b,avg(x) from emp group by a;</span><br><span class="line">-- b必须出现在group by 后面。</span><br></pre></td></tr></table></figure>
+<p><em><strong>注意：在select列表中所有未包含在组函数中的列都应该包含在group by子句中；包含在group by子句中的列不必包含在select列表中。</strong></em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-- 按照部门，不同职位，统计员工的工资总额</span><br><span class="line">select deptno,job,sum(sal) from emp group by deptno,job order by deptno;</span><br><span class="line">-- 分组按照group by子句列的先后顺序。</span><br></pre></td></tr></table></figure>
+<h4 id="过滤分组-having子句语法"><a href="#过滤分组-having子句语法" class="headerlink" title="过滤分组,having子句语法"></a>过滤分组,having子句语法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 求平均工资大于2000的部门</span><br><span class="line">select deptno,avg(sal) from emp group by deptno having avg(sal) &gt; 2000;</span><br></pre></td></tr></table></figure>
+<p><em><strong>注意：where子句不能使用组函数，having才可以。没有组函数的时候，条件写在二者之后都是可以的，但是从sql优化的角度上，where的效率会更加高。</strong></em></p>
+<blockquote>
+<p>having是先分组，后过滤。where是先过滤，后分组。</p>
+</blockquote>
+<h4 id="分组函数的嵌套"><a href="#分组函数的嵌套" class="headerlink" title="分组函数的嵌套"></a>分组函数的嵌套</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 求部门平均工资的最大值</span><br><span class="line">select max(avg(sal)) from emp group by deptno;</span><br></pre></td></tr></table></figure>
+
+<h4 id="group-by-的增强-rollup-a-b"><a href="#group-by-的增强-rollup-a-b" class="headerlink" title="group by 的增强 rollup(a,b)"></a>group by 的增强 rollup(a,b)</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">group by rollup(a,b)</span><br><span class="line">-- 等价于</span><br><span class="line">group by a,b </span><br><span class="line">+</span><br><span class="line">group by a </span><br><span class="line">+</span><br><span class="line">group by null(不分组)</span><br></pre></td></tr></table></figure>
+<p><em><strong>rollup用于报表的生成非常有用</strong></em></p>
+<blockquote>
+<p>break on deptno skip 2（相同的部门号只显示一次，不同的部门号跳过2行）<br>select deptno,job,sum(sal) from emp group by rollup(deptno, job);–生成升序报表</p>
+</blockquote>
+<h4 id="order-by-排序"><a href="#order-by-排序" class="headerlink" title="order by 排序"></a>order by 排序</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select deptno,avg(sal) 平均工资 from emp group by deptno order by 平均工资</span><br></pre></td></tr></table></figure>
+<p><em><strong>上面平均工资也可以用2来代替，2代表select出来的列的序号。</strong></em></p>
+<h2 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h2><h4 id="笛卡尔积"><a href="#笛卡尔积" class="headerlink" title="笛卡尔积"></a>笛卡尔积</h4><blockquote>
+<p>假定有部门表dept和员工表emp</p>
+</blockquote>
+<p>笛卡尔全集的列数&#x3D;dept行数*emp行数.<br>sql拼写的时候一定要注意避免错误的笛卡尔全集。</p>
+<h4 id="等值连接"><a href="#等值连接" class="headerlink" title="等值连接"></a>等值连接</h4><blockquote>
+<p>连接条件中如果是等于号，那就是等值连接。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 查询二个表的员工信息</span><br><span class="line">select ... from emp e, dept d where e.deptno=d.deptno</span><br></pre></td></tr></table></figure>
+<h4 id="不等值连接"><a href="#不等值连接" class="headerlink" title="不等值连接"></a>不等值连接</h4><blockquote>
+<p>连接条件中如果不是等于号，那就是等值连接。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-- salgrade薪水级别表</span><br><span class="line">select ... from emp e, salgrade s where e.sal between s.lowsal and s.highsal</span><br><span class="line">-- 使用between一定要注意小的在前大的在后</span><br></pre></td></tr></table></figure>
+<h4 id="外链接"><a href="#外链接" class="headerlink" title="外链接"></a>外链接</h4><blockquote>
+<p>核心：通过外链接，把对于连接条件不成立的记录，仍然包含在最后的结果中。<br>左外连接：当连接条件不成立的时候，等号左边的表仍然被包含。<br>右外链接：当连接条件不成立的时候，等号右边的表仍然被包含。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-- 右外链接</span><br><span class="line">select ... from emp e, dept d where e.deptno(+)=d.deptno group by ...;</span><br><span class="line">-- 左外链接反之</span><br></pre></td></tr></table></figure>
+<h4 id="自连接"><a href="#自连接" class="headerlink" title="自连接"></a>自连接</h4><blockquote>
+<p>通过别名，将同一张表视为多张表</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 查询员工的老板，mgr员工老板的empno</span><br><span class="line">select ... from emp a, emp b where a.mgr=b.eepno;</span><br></pre></td></tr></table></figure>
+<h5 id="自连接存在的问题"><a href="#自连接存在的问题" class="headerlink" title="自连接存在的问题"></a>自连接存在的问题</h5><blockquote>
+<p>根据笛卡尔积，n个别名表，自连接的总行数是表记录的n次方，所以自连接不适合操作大表，解决方法：层次查询。</p>
+</blockquote>
+<h4 id="层次查询"><a href="#层次查询" class="headerlink" title="层次查询"></a>层次查询</h4><blockquote>
+<p>单表查询，树结构查询</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- 管理者和下属可以理解为树结构关系，emp.mgr指向管理者emp.empno</span><br><span class="line">select level, empno, ename, sal, mgr from emp connect by prior empno=mgr</span><br><span class="line">start with mgr is null order by 1;</span><br><span class="line">-- level是一个伪劣，相当于树结构的层次，越高层越小，从1开始，order by 1代表根据level排序</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>自连接优点是直观，缺点是不适合操作大表。<br>层次查询有点是单表查询，不会产生笛卡尔积，缺点是结果不直观，可能不满足某些应用场景。</p>
+</blockquote>
+<h2 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h2><blockquote>
+<p>子查询说白了只是select语句的嵌套。</p>
+</blockquote>
+<h4 id="子查询要注意的10个问题"><a href="#子查询要注意的10个问题" class="headerlink" title="子查询要注意的10个问题"></a>子查询要注意的10个问题</h4><ol>
+<li>语法的小括号不可缺少</li>
+<li>书写风格，让语句方便阅读</li>
+<li>可以使用子查询的位置：where，select，having，from</li>
+<li>不可以使用子查询的位置：group by</li>
+<li>强调：from后面的子查询</li>
+<li>主查询和子查询可以不是同一张表</li>
+<li>一般不在子查询中使用排序，但在top-n分析问题中，必须对子查询排序</li>
+<li>一般先执行子查询，再执行主查询；但是相关子查询例外</li>
+<li>单行子查询只能使用单行操作符；多行子查询只能使用多行操作符</li>
+<li>注意：子查询中是null值问题</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-- top-n分析问题</span><br><span class="line">-- 找到员工表中工资最高的前三名</span><br><span class="line">-- rownum：行号，伪列</span><br><span class="line"></span><br><span class="line">--以下是错误写法：</span><br><span class="line">select rownum, empno, ename, sal from emp where rownum&lt;=3 order by sal desc;</span><br></pre></td></tr></table></figure>
+<p><em><strong>rownum 行号永远按照默认的顺序生成，行号只能使用&lt;, &lt;&#x3D;; 不能使用&gt;, &gt;&#x3D;。默认顺序是指select不加排序条件查出来的顺序，使用rownum排序是误区。</strong></em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 正确的写法</span><br><span class="line">select rownum, empno, ename, sal from（select * from emp order by sal desc）where rownum&lt;=3;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">--一般先执行子查询，再执行主查询；但是相关子查询例外,例如下面的相关子查询（子查询要依赖于父查询）。</span><br><span class="line">-- 找到员工表中薪水大于本部门平均薪水的员工</span><br><span class="line">select empno，ename，sal, (select avg(e2.sal) from emp e where e2.dept=e1.dept) avgsal from emp e where e.sal &gt; (select avg(e2.sal) from emp e where e2.dept=e1.dept);</span><br><span class="line">以上就是相关子查询实例，</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="子查询的类型"><a href="#子查询的类型" class="headerlink" title="子查询的类型"></a>子查询的类型</h4><blockquote>
+<p>子查询分单行子查询和多行子查询。<br>多行操作符：in，any，all</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">-- 查询工资大于部门号30的任意一个员工工资的员工</span><br><span class="line">select * from emp e where e.sal &gt; any (select sal from emp where deptno=30);</span><br><span class="line">-- 或者使用min函数</span><br><span class="line">select * from emp e where e.sal &gt; (select min(sal) from emp where deptno=30);</span><br><span class="line">查询工资大于部门号30所有人工资的员工</span><br><span class="line">select * from emp e where e.sal &gt; any (select sal from emp where deptno=30);</span><br><span class="line">-- 同样可以用max函数</span><br><span class="line">-- 查询不是老板的员工</span><br><span class="line">-- 下面是错误写法：</span><br><span class="line">select * from emp where empno not in (select mgr from emp);--空结果</span><br><span class="line">--原因：a not in (10,20,null) == a!=10 and a!=20 and a!=null  最后一个条件永远不假</span><br><span class="line">-- 正确写法</span><br><span class="line">select * from emp where empno not in (select mgr from emp where mgr is not null);</span><br></pre></td></tr></table></figure>
+
+<h2 id="综合示例"><a href="#综合示例" class="headerlink" title="综合示例"></a>综合示例</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-- 分页案例 查询排序后的5到8条记录</span><br><span class="line">select * from (select rownum r,* from (select * from emp order by desc) e1  where rownum &lt;= 8) e2 where e2.r &gt; 5;</span><br><span class="line"></span><br><span class="line">-- 按照入职年份查询员工的人数, 例如1981</span><br><span class="line">select count(*) total, sum(decode(to_char(hiredate, &#x27;YYYY&#x27;), &#x27;1981&#x27;, 1, 0)) &#x27;1981&#x27; from emp;</span><br><span class="line">select (select count(*) from emp) total, (select count(*) from emp where ...) &#x27;1981&#x27; fro dual;</span><br></pre></td></tr></table></figure>
+<p><em><strong>相关子查询效率正常比多表查询快</strong></em></p>
+<h2 id="Extra-notes"><a href="#Extra-notes" class="headerlink" title="Extra notes"></a>Extra notes</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- desc emp</span><br><span class="line">-- show user</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/oracle/" rel="tag"># oracle</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/03/07/vim%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" rel="prev" title="vim的使用技巧">
+      <i class="fa fa-chevron-left"></i> vim的使用技巧
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/03/20/K8S%E6%B1%87%E6%80%BB/" rel="next" title="K8S汇总">
+      K8S汇总 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2"><span class="nav-number">1.</span> <span class="nav-text">分组查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0"><span class="nav-number">1.0.1.</span> <span class="nav-text">常用分组函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#group-by%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.0.2.</span> <span class="nav-text">group by语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%87%E6%BB%A4%E5%88%86%E7%BB%84-having%E5%AD%90%E5%8F%A5%E8%AF%AD%E6%B3%95"><span class="nav-number">1.0.3.</span> <span class="nav-text">过滤分组,having子句语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0%E7%9A%84%E5%B5%8C%E5%A5%97"><span class="nav-number">1.0.4.</span> <span class="nav-text">分组函数的嵌套</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#group-by-%E7%9A%84%E5%A2%9E%E5%BC%BA-rollup-a-b"><span class="nav-number">1.0.5.</span> <span class="nav-text">group by 的增强 rollup(a,b)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#order-by-%E6%8E%92%E5%BA%8F"><span class="nav-number">1.0.6.</span> <span class="nav-text">order by 排序</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.</span> <span class="nav-text">多表查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF"><span class="nav-number">2.0.1.</span> <span class="nav-text">笛卡尔积</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AD%89%E5%80%BC%E8%BF%9E%E6%8E%A5"><span class="nav-number">2.0.2.</span> <span class="nav-text">等值连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8D%E7%AD%89%E5%80%BC%E8%BF%9E%E6%8E%A5"><span class="nav-number">2.0.3.</span> <span class="nav-text">不等值连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%96%E9%93%BE%E6%8E%A5"><span class="nav-number">2.0.4.</span> <span class="nav-text">外链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E8%BF%9E%E6%8E%A5"><span class="nav-number">2.0.5.</span> <span class="nav-text">自连接</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%87%AA%E8%BF%9E%E6%8E%A5%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">2.0.5.1.</span> <span class="nav-text">自连接存在的问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%82%E6%AC%A1%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.0.6.</span> <span class="nav-text">层次查询</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="nav-number">3.</span> <span class="nav-text">子查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%90%E6%9F%A5%E8%AF%A2%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%8410%E4%B8%AA%E9%97%AE%E9%A2%98"><span class="nav-number">3.0.1.</span> <span class="nav-text">子查询要注意的10个问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%90%E6%9F%A5%E8%AF%A2%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.0.2.</span> <span class="nav-text">子查询的类型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%BC%E5%90%88%E7%A4%BA%E4%BE%8B"><span class="nav-number">4.</span> <span class="nav-text">综合示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Extra-notes"><span class="nav-number">5.</span> <span class="nav-text">Extra notes</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Fengorz</p>
+  <div class="site-description" itemprop="description">Live only for yourself.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fengorz</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

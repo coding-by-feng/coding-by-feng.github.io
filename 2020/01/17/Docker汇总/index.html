@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.fengorz.me","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="参考1参考2 常用命令命令大全 容器列出所有容器1docker container ls 查看所有容器，包括关闭的12docker container ls --alldocker ps -a 删除具体的容器，根据container id1docker container rm c8faeffaaa62">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker汇总">
+<meta property="og:url" content="https://www.fengorz.me/2020/01/17/Docker%E6%B1%87%E6%80%BB/index.html">
+<meta property="og:site_name" content="Feng&#39;s Blog">
+<meta property="og:description" content="参考1参考2 常用命令命令大全 容器列出所有容器1docker container ls 查看所有容器，包括关闭的12docker container ls --alldocker ps -a 删除具体的容器，根据container id1docker container rm c8faeffaaa62">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-01-17T01:38:28.000Z">
+<meta property="article:modified_time" content="2021-08-02T05:00:28.239Z">
+<meta property="article:author" content="Fengorz">
+<meta property="article:tag" content="docker">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.fengorz.me/2020/01/17/Docker%E6%B1%87%E6%80%BB/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>Docker汇总 | Feng's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Feng's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">kiwidict.com</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://www.fengorz.me/2020/01/17/Docker%E6%B1%87%E6%80%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="Live only for yourself.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Docker汇总
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-17 09:38:28 09:38:28" itemprop="dateCreated datePublished" datetime="2020-01-17T09:38:28+08:00">2020-01-17 09:38:28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-08-02 13:00:28 13:00:28" itemprop="dateModified" datetime="2021-08-02T13:00:28+08:00">2021-08-02 13:00:28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html">参考1</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ca1623ac7723">参考2</a></p>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><p><a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-command-manual.html">命令大全</a></p>
+<h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><h3 id="列出所有容器"><a href="#列出所有容器" class="headerlink" title="列出所有容器"></a>列出所有容器</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container ls</span><br></pre></td></tr></table></figure>
+<h3 id="查看所有容器，包括关闭的"><a href="#查看所有容器，包括关闭的" class="headerlink" title="查看所有容器，包括关闭的"></a>查看所有容器，包括关闭的</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker container ls --all</span><br><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+<h3 id="删除具体的容器，根据container-id"><a href="#删除具体的容器，根据container-id" class="headerlink" title="删除具体的容器，根据container id"></a>删除具体的容器，根据container id</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container rm c8faeffaaa62</span><br></pre></td></tr></table></figure>
+<h3 id="查看容器IP"><a href="#查看容器IP" class="headerlink" title="查看容器IP"></a>查看容器IP</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect 容器ID | grep IPAddress</span><br></pre></td></tr></table></figure>
+<h3 id="启动某个容器"><a href="#启动某个容器" class="headerlink" title="启动某个容器"></a>启动某个容器</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart 1b4671904bfa</span><br></pre></td></tr></table></figure>
+<h3 id="查看容器内存使用情况（支持多个同时查）"><a href="#查看容器内存使用情况（支持多个同时查）" class="headerlink" title="查看容器内存使用情况（支持多个同时查）"></a>查看容器内存使用情况（支持多个同时查）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stats containerName1 containerName2</span><br></pre></td></tr></table></figure>
+<h3 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs -f 122482b4b37f</span><br></pre></td></tr></table></figure>
+<h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo docker exec -it containerName bash</span><br><span class="line">sudo docker attach 44fc0f0582d9</span><br></pre></td></tr></table></figure>
+<h3 id="docker限制容器的内存使用"><a href="#docker限制容器的内存使用" class="headerlink" title="docker限制容器的内存使用"></a>docker限制容器的内存使用</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37611270/article/details/97243704">https://blog.csdn.net/qq_37611270&#x2F;article&#x2F;details&#x2F;97243704</a></p>
+<h2 id="状态信息"><a href="#状态信息" class="headerlink" title="状态信息"></a>状态信息</h2><h2 id="列出docker-name"><a href="#列出docker-name" class="headerlink" title="列出docker name"></a>列出docker name</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker inspect -f=&#x27;&#123;&#123;.Name&#125;&#125;&#x27; $(sudo docker ps -a -q)</span><br></pre></td></tr></table></figure>
+<h3 id="列出docker-ip"><a href="#列出docker-ip" class="headerlink" title="列出docker ip"></a>列出docker ip</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker inspect -f=&#x27;&#123;&#123;.NetworkSettings.IPAddress&#125;&#125;&#x27; $(sudo docker ps -a -q)</span><br></pre></td></tr></table></figure>
+<h3 id="列出所有容器对应的名称，端口，及ip"><a href="#列出所有容器对应的名称，端口，及ip" class="headerlink" title="列出所有容器对应的名称，端口，及ip"></a>列出所有容器对应的名称，端口，及ip</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect -f=&#x27;&#123;&#123;.Name&#125;&#125; &#123;&#123;.NetworkSettings.IPAddress&#125;&#125; &#123;&#123;.HostConfig.PortBindings&#125;&#125;&#x27; $(docker ps -aq)</span><br></pre></td></tr></table></figure>
+<h3 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status docker</span><br></pre></td></tr></table></figure>
+<h2 id="数据卷"><a href="#数据卷" class="headerlink" title="数据卷"></a>数据卷</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker inspect 容器id</span><br><span class="line"># 可以查看容器信息  “HostConfig下的Binds 可以看到数据卷绑定  Mounts下Souce和Destination也可以看到数据卷绑定信息”</span><br></pre></td></tr></table></figure>
+<h2 id="清理数据"><a href="#清理数据" class="headerlink" title="清理数据"></a>清理数据</h2><p>自动清理空间</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker system prune</span><br></pre></td></tr></table></figure>
+<h1 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/sablier/p/11605606.html">参考</a><br>目录映射时，容器里面的目录会在容器启动的时候自动创建。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 3306:3306 --name mysql \</span><br><span class="line">-v /usr/local/docker/mysql/conf:/etc/mysql \</span><br><span class="line">-v /usr/local/docker/mysql/logs:/var/log/mysql \</span><br><span class="line">-v /usr/local/docker/mysql/data:/var/lib/mysql \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=raubbhWy \</span><br><span class="line">-d mysql:5.7</span><br></pre></td></tr></table></figure>
+
+<p>进入docker本地连接mysql客户端</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo docker exec -it mysql bash</span><br><span class="line">mysql -uroot -p123456</span><br></pre></td></tr></table></figure>
+
+<h1 id="Fastdfs"><a href="#Fastdfs" class="headerlink" title="Fastdfs"></a>Fastdfs</h1><p><a target="_blank" rel="noopener" href="https://hub.docker.com/r/season/fastdfs">season&#x2F;fastdfs</a><br><a target="_blank" rel="noopener" href="http://www.zuidaima.com/blog/4653383732808704.htm">参考1</a><br><a target="_blank" rel="noopener" href="https://blog.502.li/archives/docker-deploy-fastdfs.html">参考2</a><br><a target="_blank" rel="noopener" href="https://v3u.cn/a_id_78">参考3</a></p>
+<h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><p><a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-install-redis.html">https://www.runoob.com/docker/docker-install-redis.html</a></p>
+<h1 id="rabbitmq"><a href="#rabbitmq" class="headerlink" title="rabbitmq"></a>rabbitmq</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull rabbitmq:management</span><br><span class="line">docker run -d --hostname my-rabbit --name some-rabbit -p 15555:15672 rabbitmq:management</span><br></pre></td></tr></table></figure>
+<p>默认账号密码：guest和guest</p>
+<h1 id="docker跑SpringCloud微服务"><a href="#docker跑SpringCloud微服务" class="headerlink" title="docker跑SpringCloud微服务"></a>docker跑SpringCloud微服务</h1><h1 id="dockerfile-maven"><a href="#dockerfile-maven" class="headerlink" title="dockerfile-maven"></a>dockerfile-maven</h1><h1 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h1><p>在Docker中创建镜像最常用的方式，就是使用Dockerfile。Dockerfile是一个Docker镜像的描述文件，我们可以理解成火箭发射的A、B、C、D…的步骤。Dockerfile其内部包含了一条条的指令，每一条指令构建一层，因此每一条指令的内容，就是描述该层应当如何构建。<br><a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-dockerfile.html">Dockerfile基础知识</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lingfengblogs/p/11093246.html">Dockerfile命令大全</a></p>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="EXPOSE"><a href="#EXPOSE" class="headerlink" title="EXPOSE"></a>EXPOSE</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_17639365/article/details/86655177">https://blog.csdn.net/qq_17639365&#x2F;article&#x2F;details&#x2F;86655177</a></p>
+<h3 id="VOLUME"><a href="#VOLUME" class="headerlink" title="VOLUME"></a>VOLUME</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ExMan/p/12017896.html">https://www.cnblogs.com/ExMan/p/12017896.html</a></p>
+<ul>
+<li>通过docker run命令的-v标识创建的挂载点只能对创建的容器有效。</li>
+<li>通过dockerfile的 VOLUME 指令可以在镜像中创建挂载点，这样只要通过该镜像创建的容器都有了挂载点。</li>
+<li>还有一个区别是，通过 VOLUME 指令创建的挂载点，无法指定主机上对应的目录，是自动生成的。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#test</span><br><span class="line">FROM ubuntu</span><br><span class="line">MAINTAINER hello1</span><br><span class="line">VOLUME [&quot;/data1&quot;,&quot;/data2&quot;]</span><br></pre></td></tr></table></figure>
+上面的dockfile文件通过VOLUME指令指定了两个挂载点 &#x2F;data1 和 &#x2F;data2.</li>
+</ul>
+<p>我们通过docker inspect 查看通过该dockerfile创建的镜像生成的容器，可以看到如下信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&quot;Mounts&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;Name&quot;: &quot;d411f6b8f17f4418629d4e5a1ab69679dee369b39e13bb68bed77aa4a0d12d21&quot;,</span><br><span class="line">            &quot;Source&quot;: &quot;/var/lib/docker/volumes/d411f6b8f17f4418629d4e5a1ab69679dee369b39e13bb68bed77aa4a0d12d21/_data&quot;,</span><br><span class="line">            &quot;Destination&quot;: &quot;/data1&quot;,</span><br><span class="line">            &quot;Driver&quot;: &quot;local&quot;,</span><br><span class="line">            &quot;Mode&quot;: &quot;&quot;,</span><br><span class="line">            &quot;RW&quot;: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;Name&quot;: &quot;6d3badcf47c4ac5955deda6f6ae56f4aaf1037a871275f46220c14ebd762fc36&quot;,</span><br><span class="line">            &quot;Source&quot;: &quot;/var/lib/docker/volumes/6d3badcf47c4ac5955deda6f6ae56f4aaf1037a871275f46220c14ebd762fc36/_data&quot;,</span><br><span class="line">            &quot;Destination&quot;: &quot;/data2&quot;,</span><br><span class="line">            &quot;Driver&quot;: &quot;local&quot;,</span><br><span class="line">            &quot;Mode&quot;: &quot;&quot;,</span><br><span class="line">            &quot;RW&quot;: true</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br></pre></td></tr></table></figure>
+
+<h2 id="apt-get更换国内源解决Dockerfile构建速度过慢"><a href="#apt-get更换国内源解决Dockerfile构建速度过慢" class="headerlink" title="apt-get更换国内源解决Dockerfile构建速度过慢"></a>apt-get更换国内源解决Dockerfile构建速度过慢</h2><p>ubuntu和debian的镜像源都要换</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RUN  sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list</span><br><span class="line">RUN  sed -i &#x27;s/deb.debian.org/mirrors.ustc.edu.cn/g&#x27; /etc/apt/sources.list</span><br><span class="line">RUN  apt-get clean</span><br><span class="line">RUN  apt-get update</span><br></pre></td></tr></table></figure>
+<p>或者：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FROM ubuntu:20.04</span><br><span class="line">RUN sed -i &#x27;s/ports.ubuntu.com/mirror.tuna.tsinghua.edu.cn/g&#x27; /etc/apt/sources.list</span><br><span class="line">RUN apt-get install vim</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/dakewei/p/12783717.html">https://www.cnblogs.com/dakewei/p/12783717.html</a></p>
+<h3 id="163的镜像"><a href="#163的镜像" class="headerlink" title="163的镜像"></a>163的镜像</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#更新apt-get源 使用163的源</span><br><span class="line">RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list &amp;&amp; \</span><br><span class="line">    echo &quot;deb-src http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<h1 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker-compose"></a>docker-compose</h1><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/90bf0e231e5a">docker-compose.yml文件详解</a><br><a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-compose.html">基础</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/williamjie/p/9103327.html">参考1</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<p>如果从github拉下来安装之后无法执行docker-compose命令的话，可以采用本机电脑下载之后上传到服务器，在chmod修改可执行权限就可以了。</p>
+<h2 id="命令-1"><a href="#命令-1" class="headerlink" title="命令"></a>命令</h2><h3 id="后台执行"><a href="#后台执行" class="headerlink" title="后台执行"></a>后台执行</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+
+<h2 id="docker-compose中解决depends-on无效问题"><a href="#docker-compose中解决depends-on无效问题" class="headerlink" title="docker-compose中解决depends_on无效问题"></a>docker-compose中解决depends_on无效问题</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RUN apt-get -q update &amp;&amp; apt-get -qy install netcat</span><br><span class="line"># docker-compose.yml 加上下面</span><br><span class="line">command: sh -c &#x27;./wait-for.sh kiwi-microservice-local:5001/actuator/info -- echo kiwi-word-biz already started&#x27;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="http://www.zyiz.net/tech/detail-98533.html">http://www.zyiz.net/tech/detail-98533.html</a><br><a target="_blank" rel="noopener" href="https://github.com/Eficode/wait-for">https://github.com/Eficode/wait-for</a></p>
+<h1 id="Mac上跑docker"><a href="#Mac上跑docker" class="headerlink" title="Mac上跑docker"></a>Mac上跑docker</h1><p><a target="_blank" rel="noopener" href="https://www.runoob.com/docker/macos-docker-install.html">https://www.runoob.com/docker/macos-docker-install.html</a></p>
+<h1 id="docker-service的配置"><a href="#docker-service的配置" class="headerlink" title="docker.service的配置"></a>docker.service的配置</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/nihaorz/p/12131873.html">https://www.cnblogs.com/nihaorz/p/12131873.html</a></p>
+<h1 id="更换国内的镜像"><a href="#更换国内的镜像" class="headerlink" title="更换国内的镜像"></a>更换国内的镜像</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u012081441/article/details/104553145/">https://blog.csdn.net/u012081441/article/details/104553145/</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/s_lisheng/article/details/79871086">https://blog.csdn.net/s_lisheng&#x2F;article&#x2F;details&#x2F;79871086</a></p>
+<h1 id="在docker跑nginx的vue项目"><a href="#在docker跑nginx的vue项目" class="headerlink" title="在docker跑nginx的vue项目"></a>在docker跑nginx的vue项目</h1><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/422b61100273">https://www.jianshu.com/p/422b61100273</a></p>
+<h2 id="nginx80端口被占用修改"><a href="#nginx80端口被占用修改" class="headerlink" title="nginx80端口被占用修改"></a>nginx80端口被占用修改</h2><p><a target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/3aed632efb150a701080912f.html">https://jingyan.baidu.com/article/3aed632efb150a701080912f.html</a></p>
+<h2 id="验证nginx配置"><a href="#验证nginx配置" class="headerlink" title="验证nginx配置"></a>验证nginx配置</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./sbin/nginx -t</span><br></pre></td></tr></table></figure>
+<h2 id="各种配置"><a href="#各种配置" class="headerlink" title="各种配置"></a>各种配置</h2><p><a target="_blank" rel="noopener" href="https://www.jqhtml.com/34815.html">https://www.jqhtml.com/34815.html</a></p>
+<h1 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker network ls</span><br><span class="line">docker network inspect bridge</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/chenpython123/p/10823879.html">https://www.cnblogs.com/chenpython123/p/10823879.html</a></p>
+<h1 id="Docker根据名称查询容器ID镜像ID并停止删除"><a href="#Docker根据名称查询容器ID镜像ID并停止删除" class="headerlink" title="Docker根据名称查询容器ID镜像ID并停止删除"></a>Docker根据名称查询容器ID镜像ID并停止删除</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zimou5581/article/details/94012682">https://blog.csdn.net/zimou5581/article/details/94012682</a></p>
+<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="bash-vi-command-not-found"><a href="#bash-vi-command-not-found" class="headerlink" title="bash: vi: command not found"></a>bash: vi: command not found</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it &lt;container&gt; bash</span><br><span class="line">apt-get update</span><br><span class="line">apt-get install vim</span><br></pre></td></tr></table></figure>
+
+<h2 id="Error-response-from-daemon-Get-https-registry-1-docker-io-v2-net-x2F-http-TLS-handshake-timeout"><a href="#Error-response-from-daemon-Get-https-registry-1-docker-io-v2-net-x2F-http-TLS-handshake-timeout" class="headerlink" title="Error response from daemon: Get https://registry-1.docker.io/v2/: net&#x2F;http: TLS handshake timeout"></a>Error response from daemon: Get <a target="_blank" rel="noopener" href="https://registry-1.docker.io/v2/">https://registry-1.docker.io/v2/</a>: net&#x2F;http: TLS handshake timeout</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/BigData_Mining/article/details/87869147">网上的解决方案</a></p>
+<h2 id="Current-command-vanished-from-the-unit-file-execution-of-the-command-list-won’t-be-resumed"><a href="#Current-command-vanished-from-the-unit-file-execution-of-the-command-list-won’t-be-resumed" class="headerlink" title="Current command vanished from the unit file, execution of the command list won’t be resumed."></a>Current command vanished from the unit file, execution of the command list won’t be resumed.</h2><p>可能是有docker的相关进程没有杀干净。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef|grep docker</span><br><span class="line">kill -9 pid</span><br></pre></td></tr></table></figure>
+
+<h2 id="远程2375连接不上"><a href="#远程2375连接不上" class="headerlink" title="远程2375连接不上"></a>远程2375连接不上</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/lib/systemd/system/docker.service</span><br></pre></td></tr></table></figure>
+<p>vim进入命令行模式输入?ExecStart，找到如下一行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ExecStart=/usr/bin/dockerd -H unix://var/run/docker.sock \</span><br></pre></td></tr></table></figure>
+<p>在后面加上-H tcp:&#x2F;&#x2F;0.0.0.0:2375</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock -H tcp://0.0.0.0:2375</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service docker restart</span><br></pre></td></tr></table></figure>
+<p>之后要注意重启之前的容器。</p>
+<h2 id="ERROR-Version-in-“-x2F-docker-compose-yml”-is-invalid-You-might-be-seeing-this-error-because-you’re-using-the-wrong-Compose-file-version-Either-specify-a-supported-version-e-g-“2-2”-or-“3-3”"><a href="#ERROR-Version-in-“-x2F-docker-compose-yml”-is-invalid-You-might-be-seeing-this-error-because-you’re-using-the-wrong-Compose-file-version-Either-specify-a-supported-version-e-g-“2-2”-or-“3-3”" class="headerlink" title="ERROR: Version in “.&#x2F;docker-compose.yml” is invalid. You might be seeing this error because you’re using the wrong Compose file version. Either specify a supported version (e.g “2.2” or “3.3”)"></a>ERROR: Version in “.&#x2F;docker-compose.yml” is invalid. You might be seeing this error because you’re using the wrong Compose file version. Either specify a supported version (e.g “2.2” or “3.3”)</h2><p>把docker-compose.yml里面的version改一下，改成2.2或3.3（根据提示改）</p>
+<h2 id="docker-启动-nginx-访问不了的问题"><a href="#docker-启动-nginx-访问不了的问题" class="headerlink" title="docker 启动 nginx 访问不了的问题"></a>docker 启动 nginx 访问不了的问题</h2><p>如果容器的nginx服务没有启动</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#  进入容器</span><br><span class="line">/usr/sbin/nginx</span><br><span class="line"># 看下报什么错</span><br></pre></td></tr></table></figure>
+<h2 id="vue-config-js设置代理之后，nginx反向代理-404"><a href="#vue-config-js设置代理之后，nginx反向代理-404" class="headerlink" title="vue.config.js设置代理之后，nginx反向代理 404"></a>vue.config.js设置代理之后，nginx反向代理 404</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/60833019">https://zhuanlan.zhihu.com/p/60833019</a><br>&#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;default.conf</p>
+<p>nginx关键配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">root /usr/share/nginx/html;</span><br><span class="line">index index.html index.htm;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /auth &#123;</span><br><span class="line">	proxy_pass http://kiwi-microservice:9991;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /wordBiz &#123;</span><br><span class="line">    proxy_pass http://kiwi-microservice:9991;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /code &#123;</span><br><span class="line">    proxy_pass http://kiwi-microservice:9991;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Published-ports-are-discarded-when-using-host-network-mode"><a href="#Published-ports-are-discarded-when-using-host-network-mode" class="headerlink" title="Published ports are discarded when using host network mode"></a>Published ports are discarded when using host network mode</h2><p>host的网络模式不能-p映射端口</p>
+<h2 id="OCI-runtime-exec-failed-exec-failed-container-linux-go-349-starting-container-process-caused-“exec-quot-bash-quot-executable-file-not-found-in-PATH”-unknown"><a href="#OCI-runtime-exec-failed-exec-failed-container-linux-go-349-starting-container-process-caused-“exec-quot-bash-quot-executable-file-not-found-in-PATH”-unknown" class="headerlink" title="OCI runtime exec failed: exec failed: container_linux.go:349: starting container process caused “exec: &quot;bash&quot;: executable file not found in $PATH”: unknown"></a>OCI runtime exec failed: exec failed: container_linux.go:349: starting container process caused “exec: &quot;bash&quot;: executable file not found in $PATH”: unknown</h2><p>三种模式选择一种试试：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it 1e33b26152e1 /bin/sh</span><br><span class="line">docker exec -it 1e33b26152e1 bash</span><br><span class="line">docker exec -it 1e33b26152e1 sh</span><br></pre></td></tr></table></figure>
+
+<h2 id="mkdir-can’t-create-directory-‘-x2F-tmp’-File-exists"><a href="#mkdir-can’t-create-directory-‘-x2F-tmp’-File-exists" class="headerlink" title="mkdir: can’t create directory ‘&#x2F;tmp’: File exists"></a>mkdir: can’t create directory ‘&#x2F;tmp’: File exists</h2><p>Dockerfile里面RUN命令创建文件夹的时候注意不要和系统同路径，不然会报错。</p>
+<h2 id="openjdk-8-jdk-alpine进入容器"><a href="#openjdk-8-jdk-alpine进入容器" class="headerlink" title="openjdk:8-jdk-alpine进入容器"></a>openjdk:8-jdk-alpine进入容器</h2><p>用传统的<code>docker exec -it ? bash</code>进不去要改成：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it ? /bin/sh</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/40944479/how-to-use-bash-with-an-alpine-based-docker-image/40944512">https://stackoverflow.com/questions/40944479/how-to-use-bash-with-an-alpine-based-docker-image/40944512</a><br>查看其java_home：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-java-home</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动容易报错"><a href="#启动容易报错" class="headerlink" title="启动容易报错"></a>启动容易报错</h2><p>可以通过查看docker状态，看看报错的log：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status docker -l</span><br></pre></td></tr></table></figure>
+
+<h2 id="jmap等命令在openjdk-8-jdk-alpine不灵"><a href="#jmap等命令在openjdk-8-jdk-alpine不灵" class="headerlink" title="jmap等命令在openjdk:8-jdk-alpine不灵"></a>jmap等命令在openjdk:8-jdk-alpine不灵</h2><h2 id="容器修改了配置启动不来的处理方法"><a href="#容器修改了配置启动不来的处理方法" class="headerlink" title="容器修改了配置启动不来的处理方法"></a>容器修改了配置启动不来的处理方法</h2><p>可以通过<code>docker inspect xxxid</code>查看<code>GraphDriver</code>的容器依赖物理文件目录，进去找到修改过的配置文件改回来</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/docker/" rel="tag"># docker</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/07/arthas%E6%B1%87%E6%80%BB/" rel="prev" title="arthas汇总">
+      <i class="fa fa-chevron-left"></i> arthas汇总
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/18/jenkins%E6%B1%87%E6%80%BB/" rel="next" title="jenkins汇总">
+      jenkins汇总 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8"><span class="nav-number">1.1.</span> <span class="nav-text">容器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E5%87%BA%E6%89%80%E6%9C%89%E5%AE%B9%E5%99%A8"><span class="nav-number">1.1.1.</span> <span class="nav-text">列出所有容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%89%80%E6%9C%89%E5%AE%B9%E5%99%A8%EF%BC%8C%E5%8C%85%E6%8B%AC%E5%85%B3%E9%97%AD%E7%9A%84"><span class="nav-number">1.1.2.</span> <span class="nav-text">查看所有容器，包括关闭的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%85%B7%E4%BD%93%E7%9A%84%E5%AE%B9%E5%99%A8%EF%BC%8C%E6%A0%B9%E6%8D%AEcontainer-id"><span class="nav-number">1.1.3.</span> <span class="nav-text">删除具体的容器，根据container id</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%AE%B9%E5%99%A8IP"><span class="nav-number">1.1.4.</span> <span class="nav-text">查看容器IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%9F%90%E4%B8%AA%E5%AE%B9%E5%99%A8"><span class="nav-number">1.1.5.</span> <span class="nav-text">启动某个容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%AE%B9%E5%99%A8%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5%EF%BC%88%E6%94%AF%E6%8C%81%E5%A4%9A%E4%B8%AA%E5%90%8C%E6%97%B6%E6%9F%A5%EF%BC%89"><span class="nav-number">1.1.6.</span> <span class="nav-text">查看容器内存使用情况（支持多个同时查）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%BF%97"><span class="nav-number">1.1.7.</span> <span class="nav-text">查看日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5%E5%AE%B9%E5%99%A8"><span class="nav-number">1.1.8.</span> <span class="nav-text">进入容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker%E9%99%90%E5%88%B6%E5%AE%B9%E5%99%A8%E7%9A%84%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8"><span class="nav-number">1.1.9.</span> <span class="nav-text">docker限制容器的内存使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E4%BF%A1%E6%81%AF"><span class="nav-number">1.2.</span> <span class="nav-text">状态信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%97%E5%87%BAdocker-name"><span class="nav-number">1.3.</span> <span class="nav-text">列出docker name</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E5%87%BAdocker-ip"><span class="nav-number">1.3.1.</span> <span class="nav-text">列出docker ip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E5%87%BA%E6%89%80%E6%9C%89%E5%AE%B9%E5%99%A8%E5%AF%B9%E5%BA%94%E7%9A%84%E5%90%8D%E7%A7%B0%EF%BC%8C%E7%AB%AF%E5%8F%A3%EF%BC%8C%E5%8F%8Aip"><span class="nav-number">1.3.2.</span> <span class="nav-text">列出所有容器对应的名称，端口，及ip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%8A%B6%E6%80%81"><span class="nav-number">1.3.3.</span> <span class="nav-text">查看状态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%8D%B7"><span class="nav-number">1.4.</span> <span class="nav-text">数据卷</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%85%E7%90%86%E6%95%B0%E6%8D%AE"><span class="nav-number">1.5.</span> <span class="nav-text">清理数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mysql"><span class="nav-number">2.</span> <span class="nav-text">Mysql</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fastdfs"><span class="nav-number">3.</span> <span class="nav-text">Fastdfs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#redis"><span class="nav-number">4.</span> <span class="nav-text">redis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#rabbitmq"><span class="nav-number">5.</span> <span class="nav-text">rabbitmq</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#docker%E8%B7%91SpringCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1"><span class="nav-number">6.</span> <span class="nav-text">docker跑SpringCloud微服务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dockerfile-maven"><span class="nav-number">7.</span> <span class="nav-text">dockerfile-maven</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dockerfile"><span class="nav-number">8.</span> <span class="nav-text">Dockerfile</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4"><span class="nav-number">8.1.</span> <span class="nav-text">命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#EXPOSE"><span class="nav-number">8.1.1.</span> <span class="nav-text">EXPOSE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VOLUME"><span class="nav-number">8.1.2.</span> <span class="nav-text">VOLUME</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apt-get%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85%E6%BA%90%E8%A7%A3%E5%86%B3Dockerfile%E6%9E%84%E5%BB%BA%E9%80%9F%E5%BA%A6%E8%BF%87%E6%85%A2"><span class="nav-number">8.2.</span> <span class="nav-text">apt-get更换国内源解决Dockerfile构建速度过慢</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#163%E7%9A%84%E9%95%9C%E5%83%8F"><span class="nav-number">8.2.1.</span> <span class="nav-text">163的镜像</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#docker-compose"><span class="nav-number">9.</span> <span class="nav-text">docker-compose</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">9.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4-1"><span class="nav-number">9.2.</span> <span class="nav-text">命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E5%8F%B0%E6%89%A7%E8%A1%8C"><span class="nav-number">9.2.1.</span> <span class="nav-text">后台执行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker-compose%E4%B8%AD%E8%A7%A3%E5%86%B3depends-on%E6%97%A0%E6%95%88%E9%97%AE%E9%A2%98"><span class="nav-number">9.3.</span> <span class="nav-text">docker-compose中解决depends_on无效问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mac%E4%B8%8A%E8%B7%91docker"><span class="nav-number">10.</span> <span class="nav-text">Mac上跑docker</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#docker-service%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="nav-number">11.</span> <span class="nav-text">docker.service的配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85%E7%9A%84%E9%95%9C%E5%83%8F"><span class="nav-number">12.</span> <span class="nav-text">更换国内的镜像</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%A8docker%E8%B7%91nginx%E7%9A%84vue%E9%A1%B9%E7%9B%AE"><span class="nav-number">13.</span> <span class="nav-text">在docker跑nginx的vue项目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx80%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8%E4%BF%AE%E6%94%B9"><span class="nav-number">13.1.</span> <span class="nav-text">nginx80端口被占用修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81nginx%E9%85%8D%E7%BD%AE"><span class="nav-number">13.2.</span> <span class="nav-text">验证nginx配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%84%E7%A7%8D%E9%85%8D%E7%BD%AE"><span class="nav-number">13.3.</span> <span class="nav-text">各种配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C"><span class="nav-number">14.</span> <span class="nav-text">网络</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker%E6%A0%B9%E6%8D%AE%E5%90%8D%E7%A7%B0%E6%9F%A5%E8%AF%A2%E5%AE%B9%E5%99%A8ID%E9%95%9C%E5%83%8FID%E5%B9%B6%E5%81%9C%E6%AD%A2%E5%88%A0%E9%99%A4"><span class="nav-number">15.</span> <span class="nav-text">Docker根据名称查询容器ID镜像ID并停止删除</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Problem-Solution"><span class="nav-number">16.</span> <span class="nav-text">Problem Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bash-vi-command-not-found"><span class="nav-number">16.1.</span> <span class="nav-text">bash: vi: command not found</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Error-response-from-daemon-Get-https-registry-1-docker-io-v2-net-x2F-http-TLS-handshake-timeout"><span class="nav-number">16.2.</span> <span class="nav-text">Error response from daemon: Get https:&#x2F;&#x2F;registry-1.docker.io&#x2F;v2&#x2F;: net&#x2F;http: TLS handshake timeout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Current-command-vanished-from-the-unit-file-execution-of-the-command-list-won%E2%80%99t-be-resumed"><span class="nav-number">16.3.</span> <span class="nav-text">Current command vanished from the unit file, execution of the command list won’t be resumed.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B2375%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A"><span class="nav-number">16.4.</span> <span class="nav-text">远程2375连接不上</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ERROR-Version-in-%E2%80%9C-x2F-docker-compose-yml%E2%80%9D-is-invalid-You-might-be-seeing-this-error-because-you%E2%80%99re-using-the-wrong-Compose-file-version-Either-specify-a-supported-version-e-g-%E2%80%9C2-2%E2%80%9D-or-%E2%80%9C3-3%E2%80%9D"><span class="nav-number">16.5.</span> <span class="nav-text">ERROR: Version in “.&#x2F;docker-compose.yml” is invalid. You might be seeing this error because you’re using the wrong Compose file version. Either specify a supported version (e.g “2.2” or “3.3”)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker-%E5%90%AF%E5%8A%A8-nginx-%E8%AE%BF%E9%97%AE%E4%B8%8D%E4%BA%86%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">16.6.</span> <span class="nav-text">docker 启动 nginx 访问不了的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-config-js%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86%E4%B9%8B%E5%90%8E%EF%BC%8Cnginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86-404"><span class="nav-number">16.7.</span> <span class="nav-text">vue.config.js设置代理之后，nginx反向代理 404</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Published-ports-are-discarded-when-using-host-network-mode"><span class="nav-number">16.8.</span> <span class="nav-text">Published ports are discarded when using host network mode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OCI-runtime-exec-failed-exec-failed-container-linux-go-349-starting-container-process-caused-%E2%80%9Cexec-quot-bash-quot-executable-file-not-found-in-PATH%E2%80%9D-unknown"><span class="nav-number">16.9.</span> <span class="nav-text">OCI runtime exec failed: exec failed: container_linux.go:349: starting container process caused “exec: &quot;bash&quot;: executable file not found in $PATH”: unknown</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mkdir-can%E2%80%99t-create-directory-%E2%80%98-x2F-tmp%E2%80%99-File-exists"><span class="nav-number">16.10.</span> <span class="nav-text">mkdir: can’t create directory ‘&#x2F;tmp’: File exists</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#openjdk-8-jdk-alpine%E8%BF%9B%E5%85%A5%E5%AE%B9%E5%99%A8"><span class="nav-number">16.11.</span> <span class="nav-text">openjdk:8-jdk-alpine进入容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E5%AE%B9%E6%98%93%E6%8A%A5%E9%94%99"><span class="nav-number">16.12.</span> <span class="nav-text">启动容易报错</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jmap%E7%AD%89%E5%91%BD%E4%BB%A4%E5%9C%A8openjdk-8-jdk-alpine%E4%B8%8D%E7%81%B5"><span class="nav-number">16.13.</span> <span class="nav-text">jmap等命令在openjdk:8-jdk-alpine不灵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8%E4%BF%AE%E6%94%B9%E4%BA%86%E9%85%8D%E7%BD%AE%E5%90%AF%E5%8A%A8%E4%B8%8D%E6%9D%A5%E7%9A%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95"><span class="nav-number">16.14.</span> <span class="nav-text">容器修改了配置启动不来的处理方法</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Fengorz</p>
+  <div class="site-description" itemprop="description">Live only for yourself.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fengorz</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

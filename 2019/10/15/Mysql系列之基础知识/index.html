@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.fengorz.me","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="规范alibabaMysql开发规范和常见问题处理参考1 建模工具PDMan还是可视化视图清晰点，还可以导出自动生成sql。 Basic Knowledge存储引擎MyISAMMyISAM是MySQL的默认数据库引擎（5.5版之前），它不支持事务和表锁设计，支持全文索引，主要面向一些在线分析处理(OLAP)数据库应用。说白了主要就是查询数据，对数据的插入，更新操作比较少。 InnoDBMySQL的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mysql系列之基础知识">
+<meta property="og:url" content="https://www.fengorz.me/2019/10/15/Mysql%E7%B3%BB%E5%88%97%E4%B9%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:site_name" content="Feng&#39;s Blog">
+<meta property="og:description" content="规范alibabaMysql开发规范和常见问题处理参考1 建模工具PDMan还是可视化视图清晰点，还可以导出自动生成sql。 Basic Knowledge存储引擎MyISAMMyISAM是MySQL的默认数据库引擎（5.5版之前），它不支持事务和表锁设计，支持全文索引，主要面向一些在线分析处理(OLAP)数据库应用。说白了主要就是查询数据，对数据的插入，更新操作比较少。 InnoDBMySQL的">
+<meta property="og:locale">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/43t5XR.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/3Ha1lc.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/l55Uqw.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/l55Uqw.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/otmOCJ.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/ghPynv.png">
+<meta property="article:published_time" content="2019-10-15T13:36:49.000Z">
+<meta property="article:modified_time" content="2021-08-02T05:36:39.734Z">
+<meta property="article:author" content="Fengorz">
+<meta property="article:tag" content="mysql">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/43t5XR.png">
+
+<link rel="canonical" href="https://www.fengorz.me/2019/10/15/Mysql%E7%B3%BB%E5%88%97%E4%B9%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>Mysql系列之基础知识 | Feng's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Feng's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">kiwidict.com</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://www.fengorz.me/2019/10/15/Mysql%E7%B3%BB%E5%88%97%E4%B9%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="Live only for yourself.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Mysql系列之基础知识
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-15 21:36:49 21:36:49" itemprop="dateCreated datePublished" datetime="2019-10-15T21:36:49+08:00">2019-10-15 21:36:49</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-08-02 13:36:39 13:36:39" itemprop="dateModified" datetime="2021-08-02T13:36:39+08:00">2021-08-02 13:36:39</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h1><p><a target="_blank" rel="noopener" href="https://help.aliyun.com/wordpower/2596091-1.html">alibabaMysql开发规范和常见问题处理</a><br><a target="_blank" rel="noopener" href="https://learnku.com/articles/25116">参考1</a></p>
+<h1 id="建模工具PDMan"><a href="#建模工具PDMan" class="headerlink" title="建模工具PDMan"></a>建模工具PDMan</h1><p>还是可视化视图清晰点，还可以导出自动生成sql。</p>
+<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h2><h3 id="MyISAM"><a href="#MyISAM" class="headerlink" title="MyISAM"></a>MyISAM</h3><p>MyISAM是MySQL的默认数据库引擎（5.5版之前），它不支持事务和表锁设计，支持全文索引，主要面向一些在线分析处理(OLAP)数据库应用。说白了主要就是查询数据，对数据的插入，更新操作比较少。</p>
+<h3 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h3><p>MySQL的默认存储引擎，它支持事务，其设计目标主要面向在线事务处理(OLTP)的应用。</p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"># 设置主键自增初始值</span><br><span class="line">alter table t_ins_sequence AUTO_INCREMENT = 100000;</span><br><span class="line"># 修改表名</span><br><span class="line">alter table sys_user_role rename to sys_user_role_rel;</span><br><span class="line"># 查询数据库里面各个表的大小</span><br><span class="line">SELECT CONCAT(table_schema,&#x27;.&#x27;,table_name) AS &#x27;Table Name&#x27;,</span><br><span class="line">    table_rows AS &#x27;Number of Rows&#x27;,</span><br><span class="line">    CONCAT(ROUND(data_length/(1024*1024*1024),6),&#x27; G&#x27;) AS &#x27;Data Size&#x27;,</span><br><span class="line">    CONCAT(ROUND(index_length/(1024*1024*1024),6),&#x27; G&#x27;) AS &#x27;Index Size&#x27; ,</span><br><span class="line">    CONCAT(ROUND((data_length+index_length)/(1024*1024*1024),6),&#x27; G&#x27;) AS&#x27;Total&#x27;</span><br><span class="line">FROM information_schema.TABLES</span><br><span class="line">WHERE table_schema LIKE &#x27;inspect_db&#x27;;</span><br><span class="line"># 修改主键自增</span><br><span class="line">alter table word_fetch_queue modify queue_id int auto_increment;</span><br><span class="line"># 修改主键被外键约束show create table table_name;</span><br><span class="line"></span><br><span class="line">SET FOREIGN_KEY_CHECKS = 0;</span><br><span class="line"># 约束解除，进行修改，完了还原</span><br><span class="line">SET FOREIGN_KEY_CHECKS = 1;</span><br><span class="line"># 查询表的建表DDL</span><br><span class="line">show create table table_name;</span><br><span class="line"># 查询表的索引</span><br><span class="line">SHOW INDEX FROM &lt;tablename&gt;;</span><br><span class="line"># 查看表空间模式</span><br><span class="line">show variables like &#x27;%innodb_file_per_table%&#x27; ;</span><br><span class="line"># Mysql基本可以将schema当成database；下面二个命令都会创建对应数据库</span><br><span class="line">create schema xxxName;</span><br><span class="line">create databse xxxName;</span><br><span class="line"># 查询某个字符开头的所有表</span><br><span class="line">show tables like &#x27;ACT_%&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="mysqladmin的用法"><a href="#mysqladmin的用法" class="headerlink" title="mysqladmin的用法"></a>mysqladmin的用法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -u root -p status</span><br></pre></td></tr></table></figure>
+<p>然后输入密码，<a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/8.0/en/mysqladmin.html">命令参考</a></p>
+<h3 id="Using-Options-on-the-Command-Line-在命令行使用可选项"><a href="#Using-Options-on-the-Command-Line-在命令行使用可选项" class="headerlink" title="Using Options on the Command Line(在命令行使用可选项)"></a>Using Options on the Command Line(在命令行使用可选项)</h3><p>横线和下划线在命令中是可以互换来使用的，比如 –skip-grant-tables and –skip_grant_tables效果相同，但是官方默认使用的是-，看起来也比较直观。<br><em><strong>但是要注意的是，前面的起引导作用的横线不能被替换，–skip不能替换为__skip</strong></em></p>
+<h2 id="执行计划EXPLAIN"><a href="#执行计划EXPLAIN" class="headerlink" title="执行计划EXPLAIN"></a>执行计划EXPLAIN</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/tufujie/p/9413852.html">Mysql执行计划教程</a></p>
+<h2 id="Mysql的级联更新"><a href="#Mysql的级联更新" class="headerlink" title="Mysql的级联更新"></a>Mysql的级联更新</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">update tb1,</span><br><span class="line">tb2</span><br><span class="line">set tb1.a=tb2.a,tb1.b=tb2.b</span><br><span class="line">where tb1.id=tb2.id;</span><br><span class="line"></span><br><span class="line">update tb1,</span><br><span class="line">(select * from tb2 where xxx) as tb2</span><br><span class="line">set tb1.a=tb2.a,tb1.b=tb2.b</span><br><span class="line">where tb1.id=tb2.id;</span><br><span class="line"></span><br><span class="line">update (select * from tb1 group by C) as temp,</span><br><span class="line">       tb2,</span><br><span class="line">       tb1</span><br><span class="line">set tb1.a = tb2.a,</span><br><span class="line">    tb1.b = tb2.b</span><br><span class="line">where tb1.id = tb2.id and</span><br><span class="line">      temp.id = tb2.id;</span><br><span class="line"></span><br><span class="line">update tb1 left join tb2 on tb1.id = tb2.id</span><br><span class="line">set tb1.a = tb2.a,</span><br><span class="line">    tb1.b = tb2.b</span><br><span class="line">where xxx;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Mysql和Oracle的Sql的不同之处"><a href="#Mysql和Oracle的Sql的不同之处" class="headerlink" title="Mysql和Oracle的Sql的不同之处"></a>Mysql和Oracle的Sql的不同之处</h2><p>delete在oracle中是支持别名的，mysql不支持</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete from table_name tn;// mysql error</span><br></pre></td></tr></table></figure>
+<p>Oracle可以直接sequence，Mysql不能，如果非要在Mysql使用类似Oracle的sequence功能，可以通过一张表来模拟，参考：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/u012373815/article/details/78179411" title="标题">https://blog.csdn.net/u012373815/article/details/78179411</a></p>
+<p>Mysql没有类似Oracle一样的表空间概念，mysql的表空间分为两个文件一个是*.ibd文件存储数据索引…等数据信息，且只针对一张表，还有一个文件是*.frm这个文件是存储表的元数据。</p>
+<h2 id="time、timestamp、date、datetime"><a href="#time、timestamp、date、datetime" class="headerlink" title="time、timestamp、date、datetime"></a>time、timestamp、date、datetime</h2><p>DATE: It is used for values with a date part but no time part. MySQL retrieves and displays DATE values in YYYY-MM-DD format. The supported range is 1000-01-01 to 9999-12-31.</p>
+<p>DATETIME: It is used for values that contain both date and time parts. MySQL retrieves and displays DATETIME values in YYYY-MM-DD HH:MM:SS format. The supported range is 1000-01-01 00:00:00 to 9999-12-31 23:59:59.</p>
+<p>TIMESTAMP: It is used for values that contain both date and time parts. TIMESTAMP has a range of 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC.</p>
+<p>TIME: Its values are in HH:MM:SS format (or HHH:MM:SS format for large hours values). TIME values may range from -838:59:59 to 838:59:59. The hours part may be so large because the TIME type can be used not only to represent a time of day (which must be less than 24 hours), but also elapsed time or a time interval between two events (which may be much greater than 24 hours, or even negative).</p>
+<h2 id="char-vs-varchar"><a href="#char-vs-varchar" class="headerlink" title="char vs varchar"></a>char vs varchar</h2><p>MySQL - CHAR vs VARCHAR - What is the difference? CHAR is fixed length while VARCHAR is variable length. That means, a CHAR(x) string has exactly x characters in length, including spaces. A VARCHAR(x) string can have up to x characters and it cuts off trailing spaces, thus might be shorter than the declared length.</p>
+<h2 id="Mysql一对多数据显示成一行"><a href="#Mysql一对多数据显示成一行" class="headerlink" title="Mysql一对多数据显示成一行"></a>Mysql一对多数据显示成一行</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lucky-girl/p/9482169.html">使用GROUP_CONCAT</a></p>
+<h2 id="Mysql常用函数大全"><a href="#Mysql常用函数大全" class="headerlink" title="Mysql常用函数大全"></a>Mysql常用函数大全</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/panchanggui/p/10652322.html">常用函数</a></p>
+<h2 id="数据库的导入导出（数据迁移、数据备份恢复）"><a href="#数据库的导入导出（数据迁移、数据备份恢复）" class="headerlink" title="数据库的导入导出（数据迁移、数据备份恢复）"></a>数据库的导入导出（数据迁移、数据备份恢复）</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c3d8366326c1">mysqldump导入导出</a></p>
+</blockquote>
+<h3 id="快速备份某个表"><a href="#快速备份某个表" class="headerlink" title="快速备份某个表"></a>快速备份某个表</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE IF EXISTS B;</span><br><span class="line">CREATE TABLE B LIKE A;</span><br><span class="line">INSERT INTO B SELECT * FROM A;</span><br></pre></td></tr></table></figure>
+<h3 id="导出备份单个表"><a href="#导出备份单个表" class="headerlink" title="导出备份单个表"></a>导出备份单个表</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p dbname tablename &gt; table.sql</span><br></pre></td></tr></table></figure>
+<h3 id="导出备份整个库"><a href="#导出备份整个库" class="headerlink" title="导出备份整个库"></a>导出备份整个库</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p dbname &gt; db.sql</span><br></pre></td></tr></table></figure>
+<h3 id="导入通过mysql命令"><a href="#导入通过mysql命令" class="headerlink" title="导入通过mysql命令"></a>导入通过mysql命令</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p vocabulary_enhancer_db &lt; /mysql_sql_temp/old_bak.sql</span><br></pre></td></tr></table></figure>
+<h3 id="临时表备份"><a href="#临时表备份" class="headerlink" title="临时表备份"></a>临时表备份</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TEMPORARY TABLE tmp_table SELECT * FROM table_name;</span><br></pre></td></tr></table></figure>
+<h3 id="跨服务器导出导入数据"><a href="#跨服务器导出导入数据" class="headerlink" title="跨服务器导出导入数据"></a>跨服务器导出导入数据</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump --host=cdb-0bhxucw9.gz.tencentcdb.com --port=10069 -uroot -pfengORZ123 -C --databases kiwi_db |mysql --host=localhost -uroot -pfengORZ123 kiwi_db</span><br></pre></td></tr></table></figure>
+
+<h2 id="所有子查询都要用唯一别名"><a href="#所有子查询都要用唯一别名" class="headerlink" title="所有子查询都要用唯一别名"></a>所有子查询都要用唯一别名</h2><h2 id="主键插入返回"><a href="#主键插入返回" class="headerlink" title="主键插入返回"></a>主键插入返回</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;insert id=&quot;genSequence&quot; parameterType=&quot;com.ccssoft.ngbip.sdk.core.entity.Sequence&quot;&gt;</span><br><span class="line">    insert into $&#123;tableName&#125; (stub) values (&#x27;b&#x27;)</span><br><span class="line">    &lt;selectKey resultType=&quot;integer&quot; keyProperty=&quot;id&quot;&gt;</span><br><span class="line">        select last_insert_id() as id</span><br><span class="line">        &lt;!-- select &#x27;NEXT VALUE FOR MYCATSEQ_$&#123;tableName&#125;&#x27; as id --&gt;</span><br><span class="line">    &lt;/selectKey&gt;</span><br><span class="line">&lt;/insert&gt;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/czd3355/article/details/71302441/">https://blog.csdn.net/czd3355/article/details/71302441/</a></p>
+<h1 id="表设计"><a href="#表设计" class="headerlink" title="表设计"></a>表设计</h1><h2 id="外键设计"><a href="#外键设计" class="headerlink" title="外键设计"></a>外键设计</h2><p>尽量避免使用外键，如果一定要使用外键的情况下，必须要考虑是否要在主表加上ON DELETE CASCADE或者ON UPDATE CASCADE，大部分情况下是必须要加上这个级联约束的，但是要注意的是，关系表中的外键，一定要建索引，否则在删除主键时级联删除外键会很慢很慢。</p>
+<h2 id="主键使用uuid和自增int的区别"><a href="#主键使用uuid和自增int的区别" class="headerlink" title="主键使用uuid和自增int的区别"></a>主键使用uuid和自增int的区别</h2><p><a target="_blank" rel="noopener" href="http://www.mysqltutorial.org/mysql-uuid/">http://www.mysqltutorial.org/mysql-uuid/</a><br><a target="_blank" rel="noopener" href="https://juejin.im/post/5c32a7a86fb9a049ad7734b3">https://juejin.im/post/5c32a7a86fb9a049ad7734b3</a><br>最近在重构公司一个老的模块，重构当然要从数据库开始着手，关于数据表主键的实现方式选择，我想到的有二种方式，一种是uuid，一种是自增int，<br>先抛开是否分布式架构不说，选用uuid网上都会提到两个明显的弊端：<br>1、是数据暂用空间大.<br>2、数据无序性对索引这种树结构的存储有性能上的影响。</p>
+<p>第一点我倒是觉得没什么大的影响，现在的硬盘已经不是缺那点点存储的问题了。<br>选用自增int的话，也有两个明显的弊端：<br>1、存在安全性问题，将一个已知主键加减某个值就得到另外一个主键了。<br>2、如果多个表数据合并，可能自增主键存在冲突。</p>
+<p>真到了分布式的可以有第三方成熟的实现方案可供选择。<br>结论：尽量使用整型做主键，数据无序性的开销太大了，这点足以让整型的弊端再多，也必须竭力去解决弊端后选择整型做主键。</p>
+<h2 id="主键自增int的实现方式"><a href="#主键自增int的实现方式" class="headerlink" title="主键自增int的实现方式"></a>主键自增int的实现方式</h2><h3 id="通过全局自增序列实现"><a href="#通过全局自增序列实现" class="headerlink" title="通过全局自增序列实现"></a>通过全局自增序列实现</h3><p>全局表设计：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">id   int(20) auto_increment</span><br><span class="line">    primary key,</span><br><span class="line">stub char not null</span><br></pre></td></tr></table></figure>
+<p>stub用于标识不同表、不同业务<br>在利用last_insert_id()获取最新的ID，当对table进行insert操作时，返回具有Auto_increment（自动增长）特性的属性列的最新值。</p>
+<h2 id="主键int还是bigint"><a href="#主键int还是bigint" class="headerlink" title="主键int还是bigint"></a>主键int还是bigint</h2><p>int的范围：从 -2^31 (-2,147,483,648) 到 2^31 - 1 (2,147,483,647) 的整型数据（所有数字）。存储大小为 4 个字节。int 的 SQL-92 同义字为 integer。<br>bigint的范围：从 -2^63 (-9223372036854775808) 到 2^63-1 (9223372036854775807) 的整型数据（所有数字）。存储大小为 8 个字节。</p>
+<p>int的上限已经很大了，一般的应用不会超出这个范围，所以主键一般使用int，也可以节省存储。</p>
+<h2 id="分布式主键自增实现方案"><a href="#分布式主键自增实现方案" class="headerlink" title="分布式主键自增实现方案"></a>分布式主键自增实现方案</h2><p><a target="_blank" rel="noopener" href="https://tech.meituan.com/2017/04/21/mt-leaf.html">美团Leaf</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/relucent/p/4955340.html">twitter的snowflake</a></p>
+<h2 id="创建和更新时间"><a href="#创建和更新时间" class="headerlink" title="创建和更新时间"></a>创建和更新时间</h2><p>必要时，尽量在表里面添加创建时间（create_time）和更新事件（update_time）</p>
+<h2 id="表的DDL维护成本高，必要时可以考虑多留几个扩展字段备用"><a href="#表的DDL维护成本高，必要时可以考虑多留几个扩展字段备用" class="headerlink" title="表的DDL维护成本高，必要时可以考虑多留几个扩展字段备用"></a>表的DDL维护成本高，必要时可以考虑多留几个扩展字段备用</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/47a1d7998fe0">https://www.jianshu.com/p/47a1d7998fe0</a></p>
+<h2 id="Mysql-的表尽量设置成-K-V-Key-Value-结构，什么情况下适合设计成K-V结构？"><a href="#Mysql-的表尽量设置成-K-V-Key-Value-结构，什么情况下适合设计成K-V结构？" class="headerlink" title="Mysql 的表尽量设置成 K-V (Key-Value) 结构，什么情况下适合设计成K-V结构？"></a>Mysql 的表尽量设置成 K-V (Key-Value) 结构，什么情况下适合设计成K-V结构？</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zcl_love_wx/article/details/81178339">表Key-value结构介绍</a><br>在存储一些数据结构经常变动的数据适合采用K-V结构。</p>
+<h2 id="为什么要尽量避免表字段为NULL值"><a href="#为什么要尽量避免表字段为NULL值" class="headerlink" title="为什么要尽量避免表字段为NULL值"></a>为什么要尽量避免表字段为NULL值</h2><p>表字段避免 null 值出现，null 值很难查询优化且占用额外的索引空间，推荐默认数字 0 代替 null。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/43t5XR.png"></p>
+<h2 id="字段类型的选择"><a href="#字段类型的选择" class="headerlink" title="字段类型的选择"></a>字段类型的选择</h2><ul>
+<li>尽量使用 INT 而非 BIGINT，如果非负则加上 UNSIGNED（这样数值容量会扩大一倍），当然能使用 TINYINT、SMALLINT、MEDIUM_INT 更好。</li>
+<li>使用整数代替字符串类型</li>
+<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/news/155166">枚举类型的弊端</a></li>
+</ul>
+<h2 id="IP使用整型来存储"><a href="#IP使用整型来存储" class="headerlink" title="IP使用整型来存储"></a>IP使用整型来存储</h2><p><a target="_blank" rel="noopener" href="https://bafford.com/2009/03/09/mysql-performance-benefits-of-storing-integer-ip-addresses/">为什么推荐使用</a><br>注意最后一段：<br>The load on MySQL when inserting integer IPs could likely be slightly reduced by doing that conversion in your application, rather than using MySQL’s INET_ATON() function.<br>ip的转换可以考虑放到应用程序来做，而不是通过Mysql的函数做转换。</p>
+<h2 id="Mysql的分库分表，水平拆分-垂直拆分-todo"><a href="#Mysql的分库分表，水平拆分-垂直拆分-todo" class="headerlink" title="Mysql的分库分表，水平拆分-垂直拆分 todo"></a>Mysql的分库分表，水平拆分-垂直拆分 todo</h2><h2 id="共享表空间和独享表空间的区别和优缺点"><a href="#共享表空间和独享表空间的区别和优缺点" class="headerlink" title="共享表空间和独享表空间的区别和优缺点"></a>共享表空间和独享表空间的区别和优缺点</h2><p><a target="_blank" rel="noopener" href="http://blog.itpub.net/15498/viewspace-2124040/">http://blog.itpub.net/15498/viewspace-2124040/</a></p>
+<h2 id="单表大小限制与表空间的关系"><a href="#单表大小限制与表空间的关系" class="headerlink" title="单表大小限制与表空间的关系"></a>单表大小限制与表空间的关系</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wsh900221/article/details/80242299">https://blog.csdn.net/wsh900221/article/details/80242299</a></p>
+<h2 id="timestamp-默认当前时间不能同时是not-null"><a href="#timestamp-默认当前时间不能同时是not-null" class="headerlink" title="timestamp 默认当前时间不能同时是not null"></a>timestamp 默认当前时间不能同时是not null</h2><h2 id="char-和-varchar-的区别"><a href="#char-和-varchar-的区别" class="headerlink" title="char 和 varchar 的区别"></a>char 和 varchar 的区别</h2><p>char列长度固定为创建表时声明的长度，长度值范围是1到255当char值被存储时，它们被用空格填充到特定长度。</p>
+<h2 id="非负值的字段注意使用无符号数"><a href="#非负值的字段注意使用无符号数" class="headerlink" title="非负值的字段注意使用无符号数"></a>非负值的字段注意使用无符号数</h2><p>合适的字符存储长度，不但节约数据库表空间、节约索引存储，更重要的是提升检索速度。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/3Ha1lc.png"></p>
+<h2 id="布尔类型字段"><a href="#布尔类型字段" class="headerlink" title="布尔类型字段"></a>布尔类型字段</h2><p>表字段类型可以使用bit，同时类映射字段使用Boolean。</p>
+<h2 id="Mysql的int和bigint字段类型，映射到Java的Integer和Long类型时，勾选UNSIGNED无符号会导致越界转换"><a href="#Mysql的int和bigint字段类型，映射到Java的Integer和Long类型时，勾选UNSIGNED无符号会导致越界转换" class="headerlink" title="Mysql的int和bigint字段类型，映射到Java的Integer和Long类型时，勾选UNSIGNED无符号会导致越界转换"></a>Mysql的int和bigint字段类型，映射到Java的Integer和Long类型时，勾选UNSIGNED无符号会导致越界转换</h2><p>使用Mysql查询数据时，自动映射数据类型。<br>有时候Mysql的int字段，会正确映射到Java的Integer类型，有时候又会映射到Java的Long类型上，最后终于找到原因。<br>原来是Mysql的int字段，勾选了unsigned无符号选项，这样就导致int类型，变成了long类型。<br>同理，MySQL的bigint类型，本来应该映射到Java的Long类型。但是如果勾选了unsigned无符号，则也会映射为BigInteger类型。<br>————————————————<br>版权声明：本文为CSDN博主「dalu2048」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42127613/article/details/84791794">https://blog.csdn.net/weixin_42127613/article/details/84791794</a></p>
+<h1 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h1><ul>
+<li>索引使用_ind结尾，字段的多个单词取单词的首字母组合，例如：sample 表 member_id 上的索引:sample_mid_ind。</li>
+<li>主键约束: pk 结尾，_pk;</li>
+<li>unique 约束:_uk 结尾，uk;</li>
+<li>check 约束: _ck 结尾，ck;</li>
+<li>外键约束: _fk 结尾，以 pri 连接本表与主表，_pri_fk;</li>
+<li>数据库表示是与否的值，使用 tinyint 类型，坚持 is_xxx 的 命名方式是为了明确其取值含义与取值范围;</li>
+<li>表名、字段名必须使用小写字母或数字，禁止出现数字开头，禁止两个下划线中间只<br>出现数字。数据库字段名的修改代价很大，因为无法进行预发布，所以字段名称需要慎重考虑;</li>
+</ul>
+<h2 id="Mysql关键字大全"><a href="#Mysql关键字大全" class="headerlink" title="Mysql关键字大全"></a>Mysql关键字大全</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43201975/article/details/88953903">https://blog.csdn.net/weixin_43201975&#x2F;article&#x2F;details&#x2F;88953903</a></p>
+<h1 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h1><h2 id="为什么推荐外键约束放在应用层，不在数据库库"><a href="#为什么推荐外键约束放在应用层，不在数据库库" class="headerlink" title="为什么推荐外键约束放在应用层，不在数据库库?"></a>为什么推荐外键约束放在应用层，不在数据库库?</h2><p><a target="_blank" rel="noopener" href="https://learnku.com/articles/25116">https://learnku.com/articles/25116</a></p>
+<h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><ul>
+<li>索引并不是越多越好，要根据查询有针对性的创建，考虑在 WHERE 和 ORDER BY 命令上涉及的列建立索引，可根据 EXPLAIN 来查看是否用了索引还是全表扫描</li>
+<li>应尽量避免在 WHERE 子句中对字段进行 NULL 值判断，否则将导致引擎放弃使用索引而进行全表扫描</li>
+<li>值分布很稀少的字段不适合建索引，例如 “性别” 这种只有两三个值的字段</li>
+<li>字符字段太长的话，考虑用前缀索引</li>
+<li>字符字段最好不要做主键 - 超过三个表禁止 join。需要 join 的字段，数据类型必须绝对一致;多表关联查询时， 保证被关联的字段需要有索引。(即使双表 join 也要注意表索引、SQL 性能)</li>
+</ul>
+<h2 id="前缀索引"><a href="#前缀索引" class="headerlink" title="前缀索引"></a>前缀索引</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ma2595162349/article/details/79449493">前缀索引解释</a><br>如果是对已经存在的表建前缀索引，要先去比较重复率再择优创建索引：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/l55Uqw.png"></p>
+<h2 id="联合索引之最左原则（左前缀原则）"><a href="#联合索引之最左原则（左前缀原则）" class="headerlink" title="联合索引之最左原则（左前缀原则）"></a>联合索引之最左原则（左前缀原则）</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wdjxxl/article/details/79790421">https://blog.csdn.net/wdjxxl/article/details/79790421</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/Wuhaotian1996/article/details/80469353">https://blog.csdn.net/Wuhaotian1996/article/details/80469353</a></p>
+<h2 id="多对多的关联表索引"><a href="#多对多的关联表索引" class="headerlink" title="多对多的关联表索引"></a>多对多的关联表索引</h2><p>一般是在二个关联的主键字典建唯一联合索引，避免重复数据，提升查询效率。</p>
+<h2 id="覆盖索引"><a href="#覆盖索引" class="headerlink" title="覆盖索引"></a>覆盖索引</h2><p>Order by的时候，如果一个索引包含(或覆盖)所有需要查询的字段的值，称为‘覆盖索引’。即只需扫描索引而无须扫表。</p>
+<h2 id="order-by出现file-sort"><a href="#order-by出现file-sort" class="headerlink" title="order by出现file_sort"></a>order by出现file_sort</h2><p><a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/8.0/en/order-by-optimization.html">order by 官方的优化文档</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/developer_chan/p/9225638.html">Order by 优化</a><br>没有使用到索引来排序是，执行计划会显示file_sort。<br>需要重点注意的是，索引创建是也是有排序的，默认是ASC，如果Order by的排序和索引创建的时候指定的不一致，也会导致file_sort。  </p>
+<p>非联合索引不受order by后面的升序和降序影响到是否使用索引排序，联合索引的情况下应该考虑order  by的升序降序是否和索引创建时一致。</p>
+<h2 id="适合建立聚集索引的要求"><a href="#适合建立聚集索引的要求" class="headerlink" title="适合建立聚集索引的要求"></a>适合建立聚集索引的要求</h2><p>既不能绝大多数都相同，又不能只有极少数相同。</p>
+<h2 id="聚集索引和非聚集索引使用原则"><a href="#聚集索引和非聚集索引使用原则" class="headerlink" title="聚集索引和非聚集索引使用原则"></a>聚集索引和非聚集索引使用原则</h2><p>动作描述             使用聚集索引   使用非聚集索引<br>列经常被分组排序     应             应<br>返回某范围内的数据   应             不应<br>一个或极少不同值     不应           不应<br>小数目的不同值       应             不应<br>大数目的不同值       不应           应<br>频繁更新的列         不应           应<br>外键列               应             应<br>主键列               应             应<br>频繁修改索引列       不应           应</p>
+<h2 id="时间类字段是否应该建索引"><a href="#时间类字段是否应该建索引" class="headerlink" title="时间类字段是否应该建索引"></a>时间类字段是否应该建索引</h2><p>我自己测试了一下建索引确实是性能上有明显提升的，<br>没加索引：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2019-12-25 15:13:59] 1 row retrieved starting from 1 in 592 ms (execution: 576 ms, fetching: 16 ms)</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/l55Uqw.png"><br>加上索引之后：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2019-12-25 15:19:28] 1 row retrieved starting from 1 in 258 ms (execution: 239 ms, fetching: 19 ms)</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/otmOCJ.png"></p>
+<h2 id="什么情况下SQL不会使用到索引"><a href="#什么情况下SQL不会使用到索引" class="headerlink" title="什么情况下SQL不会使用到索引"></a>什么情况下SQL不会使用到索引</h2><ul>
+<li>like出现左匹配：’%XXX’</li>
+<li>where语句中使用&lt;&gt;, !&#x3D;, not in</li>
+<li>where语句中使用 or，但是没有把or中所有字段加上索引，这种情况，如果需要使用索引需要将or中所有的字段都加上索引。</li>
+<li>where语句中对字段表达式操作（包括使用一些函数，比如if()等）</li>
+<li>使用索引的时候没有遵从索引的左前缀原则</li>
+</ul>
+<h2 id="SQL编写优化"><a href="#SQL编写优化" class="headerlink" title="SQL编写优化"></a>SQL编写优化</h2><ul>
+<li>避免 select *，将需要查找的字段列出来，这里并不是因为select * 就一定是性能明显更差的原因，具体解释参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38836118/article/details/88708933">https://blog.csdn.net/qq_38836118&#x2F;article&#x2F;details&#x2F;88708933</a></li>
+</ul>
+<h2 id="SQL手工拼写的防止注入"><a href="#SQL手工拼写的防止注入" class="headerlink" title="SQL手工拼写的防止注入"></a>SQL手工拼写的防止注入</h2><p>varchar类型的字段，在拼写条件值得时候，外面用单引号包围起来，如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ objId + &quot; and o.disp_object_type=&#x27;&quot; + objType + &quot;&#x27;&quot;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="The-last-packet-sent-successfully-to-the-server-was-0-milliseconds-ago-The-driver-has-not-received-any-packets-from-the-server"><a href="#The-last-packet-sent-successfully-to-the-server-was-0-milliseconds-ago-The-driver-has-not-received-any-packets-from-the-server" class="headerlink" title="The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server."></a>The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.</h2><p>大部分原因是由于数据库回收了连接，而系统的缓冲池不知道，继续使用被回收的连接所致的。<br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/6865538/solving-a-communications-link-failure-with-jdbc-and-mysql">https://stackoverflow.com/questions/6865538/solving-a-communications-link-failure-with-jdbc-and-mysql</a><br>很有可能是jdk的版本有问题，比如我自己用到的：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/ghPynv.png"><br>换成常用的hostpot就可以了</p>
+<p>也可能是数据连接池满了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">show global status like &#x27;Max_used_connections&#x27;;</span><br><span class="line">show variables like &#x27;%max_connections%&#x27;;</span><br></pre></td></tr></table></figure>
+<p>也可以是时区问题：<br><a target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/647f01150f03557f2048a86c.html">mysql修改时区</a><br>jdbc连接的url可以加上时区：<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/coderLeo/p/12739535.html">https://www.cnblogs.com/coderLeo/p/12739535.html</a></p>
+<h2 id="required-a-bean-of-type-‘org-springframework-cache-CacheManager’-that-could-not-be-found"><a href="#required-a-bean-of-type-‘org-springframework-cache-CacheManager’-that-could-not-be-found" class="headerlink" title="required a bean of type ‘org.springframework.cache.CacheManager’ that could not be found."></a>required a bean of type ‘org.springframework.cache.CacheManager’ that could not be found.</h2><p>需要再spring.foctories添加org.springframework.boot.autoconfigure.EnableAutoConfiguration配置，<br>至少需要配置RedisTemplate</p>
+<h2 id="ERROR-2002-HY000-Can’t-connect-to-local-MySQL-server-through-socket-‘-x2F-tmp-x2F-mysql-sock’-111"><a href="#ERROR-2002-HY000-Can’t-connect-to-local-MySQL-server-through-socket-‘-x2F-tmp-x2F-mysql-sock’-111" class="headerlink" title="ERROR 2002 (HY000): Can’t connect to local MySQL server through socket ‘&#x2F;tmp&#x2F;mysql.sock’ (111)"></a>ERROR 2002 (HY000): Can’t connect to local MySQL server through socket ‘&#x2F;tmp&#x2F;mysql.sock’ (111)</h2><p>可能是数据库服务资源紧张挂掉了，mysqld进程我已查看都不在了，重启mysql就好了，当然也有其他原因也会导致这个报错。</p>
+<h2 id="delete语句子查询not-exists是不会生效的"><a href="#delete语句子查询not-exists是不会生效的" class="headerlink" title="delete语句子查询not exists是不会生效的"></a>delete语句子查询not exists是不会生效的</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">delete</span><br><span class="line">from word_paraphrase_star_rel</span><br><span class="line">where not exists(select * from word_paraphrase wp where wp.paraphrase_id = paraphrase_id);</span><br></pre></td></tr></table></figure>
+<p>需要改成：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">delete</span><br><span class="line">from word_paraphrase_star_rel</span><br><span class="line">where paraphrase_id in (select tmp.paraphrase_id</span><br><span class="line">                        from (select wpsr.paraphrase_id</span><br><span class="line">                              from word_paraphrase_star_rel wpsr</span><br><span class="line">                              where not exists(</span><br><span class="line">                                      select *</span><br><span class="line">                                      from word_paraphrase wp</span><br><span class="line">                                      where wp.paraphrase_id = wpsr.paraphrase_id)) tmp)</span><br></pre></td></tr></table></figure>
+
+<h2 id="You-can’t-specify-target-table-‘word-paraphrase-star-rel’-for-update-in-FROM-clause"><a href="#You-can’t-specify-target-table-‘word-paraphrase-star-rel’-for-update-in-FROM-clause" class="headerlink" title="You can’t specify target table ‘word_paraphrase_star_rel’ for update in FROM clause"></a>You can’t specify target table ‘word_paraphrase_star_rel’ for update in FROM clause</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">delete</span><br><span class="line">from word_paraphrase_star_rel</span><br><span class="line">where paraphrase_id in (select wpsr.paraphrase_id</span><br><span class="line">                        from word_paraphrase_star_rel wpsr</span><br><span class="line">                        where not exists(</span><br><span class="line">                                select * from word_paraphrase wp where wp.paraphrase_id = wpsr.paraphrase_id))</span><br></pre></td></tr></table></figure>
+
+<p>改成下面即可：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">delete</span><br><span class="line">from word_paraphrase_star_rel</span><br><span class="line">where paraphrase_id in (select tmp.paraphrase_id</span><br><span class="line">                        from (select wpsr.paraphrase_id</span><br><span class="line">                              from word_paraphrase_star_rel wpsr</span><br><span class="line">                              where not exists(</span><br><span class="line">                                      select *</span><br><span class="line">                                      from word_paraphrase wp</span><br><span class="line">                                      where wp.paraphrase_id = wpsr.paraphrase_id)) tmp)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Show-Status"><a href="#Show-Status" class="headerlink" title="Show Status"></a>Show Status</h1><p>MySQL的 show status命令<br>命令：show status like ‘%下面变量%’;</p>
+<p>Aborted_clients 由于客户没有正确关闭连接已经死掉，已经放弃的连接数量。</p>
+<p>Aborted_connects 尝试已经失败的MySQL服务器的连接的次数。</p>
+<p>Connections 试图连接MySQL服务器的次数。</p>
+<p>Created_tmp_tables 当执行语句时，已经被创造了的隐含临时表的数量。</p>
+<p>Delayed_insert_threads 正在使用的延迟插入处理器线程的数量。</p>
+<p>Delayed_writes 用INSERT DELAYED写入的行数。</p>
+<p>Delayed_errors 用INSERT DELAYED写入的发生某些错误(可能重复键值)的行数。</p>
+<p>Flush_commands 执行FLUSH命令的次数。</p>
+<p>Handler_delete 请求从一张表中删除行的次数。</p>
+<p>Handler_read_first 请求读入表中第一行的次数。</p>
+<p>Handler_read_key 请求数字基于键读行。</p>
+<p>Handler_read_next 请求读入基于一个键的一行的次数。</p>
+<p>Handler_read_rnd 请求读入基于一个固定位置的一行的次数。</p>
+<p>Handler_update 请求更新表中一行的次数。</p>
+<p>Handler_write 请求向表中插入一行的次数。</p>
+<p>Key_blocks_used 用于关键字缓存的块的数量。</p>
+<p>Key_read_requests 请求从缓存读入一个键值的次数。</p>
+<p>Key_reads 从磁盘物理读入一个键值的次数。</p>
+<p>Key_write_requests 请求将一个关键字块写入缓存次数。</p>
+<p>Key_writes 将一个键值块物理写入磁盘的次数。</p>
+<p>Max_used_connections 同时使用的连接的最大数目。</p>
+<p>Not_flushed_key_blocks 在键缓存中已经改变但是还没被清空到磁盘上的键块。</p>
+<p>Not_flushed_delayed_rows 在INSERT DELAY队列中等待写入的行的数量。</p>
+<p>Open_tables 打开表的数量。</p>
+<p>Open_files 打开文件的数量。</p>
+<p>Open_streams 打开流的数量(主要用于日志记载）</p>
+<p>Opened_tables 已经打开的表的数量。</p>
+<p>Questions 发往服务器的查询的数量。</p>
+<p>Slow_queries 要花超过long_query_time时间的查询数量。</p>
+<p>Threads_connected 当前打开的连接的数量。</p>
+<p>Threads_running 不在睡眠的线程数量。</p>
+<p>Uptime 服务器工作了多少秒。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/mysql/" rel="tag"># mysql</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/10/15/Redis%E6%B1%87%E6%80%BB/" rel="prev" title="Redis汇总">
+      <i class="fa fa-chevron-left"></i> Redis汇总
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/10/17/WebStorm%E6%B1%87%E6%80%BB/" rel="next" title="WebStorm汇总">
+      WebStorm汇总 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%84%E8%8C%83"><span class="nav-number">1.</span> <span class="nav-text">规范</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BB%BA%E6%A8%A1%E5%B7%A5%E5%85%B7PDMan"><span class="nav-number">2.</span> <span class="nav-text">建模工具PDMan</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Knowledge"><span class="nav-number">3.</span> <span class="nav-text">Basic Knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="nav-number">3.1.</span> <span class="nav-text">存储引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MyISAM"><span class="nav-number">3.1.1.</span> <span class="nav-text">MyISAM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InnoDB"><span class="nav-number">3.1.2.</span> <span class="nav-text">InnoDB</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">3.2.</span> <span class="nav-text">常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mysqladmin%E7%9A%84%E7%94%A8%E6%B3%95"><span class="nav-number">3.2.1.</span> <span class="nav-text">mysqladmin的用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Using-Options-on-the-Command-Line-%E5%9C%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BD%BF%E7%94%A8%E5%8F%AF%E9%80%89%E9%A1%B9"><span class="nav-number">3.2.2.</span> <span class="nav-text">Using Options on the Command Line(在命令行使用可选项)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E8%AE%A1%E5%88%92EXPLAIN"><span class="nav-number">3.3.</span> <span class="nav-text">执行计划EXPLAIN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql%E7%9A%84%E7%BA%A7%E8%81%94%E6%9B%B4%E6%96%B0"><span class="nav-number">3.4.</span> <span class="nav-text">Mysql的级联更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql%E5%92%8COracle%E7%9A%84Sql%E7%9A%84%E4%B8%8D%E5%90%8C%E4%B9%8B%E5%A4%84"><span class="nav-number">3.5.</span> <span class="nav-text">Mysql和Oracle的Sql的不同之处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#time%E3%80%81timestamp%E3%80%81date%E3%80%81datetime"><span class="nav-number">3.6.</span> <span class="nav-text">time、timestamp、date、datetime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#char-vs-varchar"><span class="nav-number">3.7.</span> <span class="nav-text">char vs varchar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql%E4%B8%80%E5%AF%B9%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%98%BE%E7%A4%BA%E6%88%90%E4%B8%80%E8%A1%8C"><span class="nav-number">3.8.</span> <span class="nav-text">Mysql一对多数据显示成一行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E5%A4%A7%E5%85%A8"><span class="nav-number">3.9.</span> <span class="nav-text">Mysql常用函数大全</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA%EF%BC%88%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E3%80%81%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%EF%BC%89"><span class="nav-number">3.10.</span> <span class="nav-text">数据库的导入导出（数据迁移、数据备份恢复）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E5%A4%87%E4%BB%BD%E6%9F%90%E4%B8%AA%E8%A1%A8"><span class="nav-number">3.10.1.</span> <span class="nav-text">快速备份某个表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%BC%E5%87%BA%E5%A4%87%E4%BB%BD%E5%8D%95%E4%B8%AA%E8%A1%A8"><span class="nav-number">3.10.2.</span> <span class="nav-text">导出备份单个表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%BC%E5%87%BA%E5%A4%87%E4%BB%BD%E6%95%B4%E4%B8%AA%E5%BA%93"><span class="nav-number">3.10.3.</span> <span class="nav-text">导出备份整个库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E9%80%9A%E8%BF%87mysql%E5%91%BD%E4%BB%A4"><span class="nav-number">3.10.4.</span> <span class="nav-text">导入通过mysql命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%B4%E6%97%B6%E8%A1%A8%E5%A4%87%E4%BB%BD"><span class="nav-number">3.10.5.</span> <span class="nav-text">临时表备份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="nav-number">3.10.6.</span> <span class="nav-text">跨服务器导出导入数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%80%E6%9C%89%E5%AD%90%E6%9F%A5%E8%AF%A2%E9%83%BD%E8%A6%81%E7%94%A8%E5%94%AF%E4%B8%80%E5%88%AB%E5%90%8D"><span class="nav-number">3.11.</span> <span class="nav-text">所有子查询都要用唯一别名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%94%AE%E6%8F%92%E5%85%A5%E8%BF%94%E5%9B%9E"><span class="nav-number">3.12.</span> <span class="nav-text">主键插入返回</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A8%E8%AE%BE%E8%AE%A1"><span class="nav-number">4.</span> <span class="nav-text">表设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%96%E9%94%AE%E8%AE%BE%E8%AE%A1"><span class="nav-number">4.1.</span> <span class="nav-text">外键设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%94%AE%E4%BD%BF%E7%94%A8uuid%E5%92%8C%E8%87%AA%E5%A2%9Eint%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.2.</span> <span class="nav-text">主键使用uuid和自增int的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%94%AE%E8%87%AA%E5%A2%9Eint%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-number">4.3.</span> <span class="nav-text">主键自增int的实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E5%85%A8%E5%B1%80%E8%87%AA%E5%A2%9E%E5%BA%8F%E5%88%97%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.3.1.</span> <span class="nav-text">通过全局自增序列实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%94%AEint%E8%BF%98%E6%98%AFbigint"><span class="nav-number">4.4.</span> <span class="nav-text">主键int还是bigint</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%BB%E9%94%AE%E8%87%AA%E5%A2%9E%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88"><span class="nav-number">4.5.</span> <span class="nav-text">分布式主键自增实现方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%92%8C%E6%9B%B4%E6%96%B0%E6%97%B6%E9%97%B4"><span class="nav-number">4.6.</span> <span class="nav-text">创建和更新时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E7%9A%84DDL%E7%BB%B4%E6%8A%A4%E6%88%90%E6%9C%AC%E9%AB%98%EF%BC%8C%E5%BF%85%E8%A6%81%E6%97%B6%E5%8F%AF%E4%BB%A5%E8%80%83%E8%99%91%E5%A4%9A%E7%95%99%E5%87%A0%E4%B8%AA%E6%89%A9%E5%B1%95%E5%AD%97%E6%AE%B5%E5%A4%87%E7%94%A8"><span class="nav-number">4.7.</span> <span class="nav-text">表的DDL维护成本高，必要时可以考虑多留几个扩展字段备用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql-%E7%9A%84%E8%A1%A8%E5%B0%BD%E9%87%8F%E8%AE%BE%E7%BD%AE%E6%88%90-K-V-Key-Value-%E7%BB%93%E6%9E%84%EF%BC%8C%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E9%80%82%E5%90%88%E8%AE%BE%E8%AE%A1%E6%88%90K-V%E7%BB%93%E6%9E%84%EF%BC%9F"><span class="nav-number">4.8.</span> <span class="nav-text">Mysql 的表尽量设置成 K-V (Key-Value) 结构，什么情况下适合设计成K-V结构？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%B0%BD%E9%87%8F%E9%81%BF%E5%85%8D%E8%A1%A8%E5%AD%97%E6%AE%B5%E4%B8%BANULL%E5%80%BC"><span class="nav-number">4.9.</span> <span class="nav-text">为什么要尽量避免表字段为NULL值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E6%AE%B5%E7%B1%BB%E5%9E%8B%E7%9A%84%E9%80%89%E6%8B%A9"><span class="nav-number">4.10.</span> <span class="nav-text">字段类型的选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP%E4%BD%BF%E7%94%A8%E6%95%B4%E5%9E%8B%E6%9D%A5%E5%AD%98%E5%82%A8"><span class="nav-number">4.11.</span> <span class="nav-text">IP使用整型来存储</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql%E7%9A%84%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%EF%BC%8C%E6%B0%B4%E5%B9%B3%E6%8B%86%E5%88%86-%E5%9E%82%E7%9B%B4%E6%8B%86%E5%88%86-todo"><span class="nav-number">4.12.</span> <span class="nav-text">Mysql的分库分表，水平拆分-垂直拆分 todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B1%E4%BA%AB%E8%A1%A8%E7%A9%BA%E9%97%B4%E5%92%8C%E7%8B%AC%E4%BA%AB%E8%A1%A8%E7%A9%BA%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8C%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">4.13.</span> <span class="nav-text">共享表空间和独享表空间的区别和优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E8%A1%A8%E5%A4%A7%E5%B0%8F%E9%99%90%E5%88%B6%E4%B8%8E%E8%A1%A8%E7%A9%BA%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">4.14.</span> <span class="nav-text">单表大小限制与表空间的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#timestamp-%E9%BB%98%E8%AE%A4%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4%E4%B8%8D%E8%83%BD%E5%90%8C%E6%97%B6%E6%98%AFnot-null"><span class="nav-number">4.15.</span> <span class="nav-text">timestamp 默认当前时间不能同时是not null</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#char-%E5%92%8C-varchar-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.16.</span> <span class="nav-text">char 和 varchar 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E8%B4%9F%E5%80%BC%E7%9A%84%E5%AD%97%E6%AE%B5%E6%B3%A8%E6%84%8F%E4%BD%BF%E7%94%A8%E6%97%A0%E7%AC%A6%E5%8F%B7%E6%95%B0"><span class="nav-number">4.17.</span> <span class="nav-text">非负值的字段注意使用无符号数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B%E5%AD%97%E6%AE%B5"><span class="nav-number">4.18.</span> <span class="nav-text">布尔类型字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql%E7%9A%84int%E5%92%8Cbigint%E5%AD%97%E6%AE%B5%E7%B1%BB%E5%9E%8B%EF%BC%8C%E6%98%A0%E5%B0%84%E5%88%B0Java%E7%9A%84Integer%E5%92%8CLong%E7%B1%BB%E5%9E%8B%E6%97%B6%EF%BC%8C%E5%8B%BE%E9%80%89UNSIGNED%E6%97%A0%E7%AC%A6%E5%8F%B7%E4%BC%9A%E5%AF%BC%E8%87%B4%E8%B6%8A%E7%95%8C%E8%BD%AC%E6%8D%A2"><span class="nav-number">4.19.</span> <span class="nav-text">Mysql的int和bigint字段类型，映射到Java的Integer和Long类型时，勾选UNSIGNED无符号会导致越界转换</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%91%BD%E5%90%8D"><span class="nav-number">5.</span> <span class="nav-text">命名</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql%E5%85%B3%E9%94%AE%E5%AD%97%E5%A4%A7%E5%85%A8"><span class="nav-number">5.1.</span> <span class="nav-text">Mysql关键字大全</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%A6%E6%9D%9F"><span class="nav-number">6.</span> <span class="nav-text">约束</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%8E%A8%E8%8D%90%E5%A4%96%E9%94%AE%E7%BA%A6%E6%9D%9F%E6%94%BE%E5%9C%A8%E5%BA%94%E7%94%A8%E5%B1%82%EF%BC%8C%E4%B8%8D%E5%9C%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%93"><span class="nav-number">6.1.</span> <span class="nav-text">为什么推荐外键约束放在应用层，不在数据库库?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95"><span class="nav-number">7.</span> <span class="nav-text">索引</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%BC%80%E7%B4%A2%E5%BC%95"><span class="nav-number">7.1.</span> <span class="nav-text">前缀索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%94%E5%90%88%E7%B4%A2%E5%BC%95%E4%B9%8B%E6%9C%80%E5%B7%A6%E5%8E%9F%E5%88%99%EF%BC%88%E5%B7%A6%E5%89%8D%E7%BC%80%E5%8E%9F%E5%88%99%EF%BC%89"><span class="nav-number">7.2.</span> <span class="nav-text">联合索引之最左原则（左前缀原则）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E5%AF%B9%E5%A4%9A%E7%9A%84%E5%85%B3%E8%81%94%E8%A1%A8%E7%B4%A2%E5%BC%95"><span class="nav-number">7.3.</span> <span class="nav-text">多对多的关联表索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A6%86%E7%9B%96%E7%B4%A2%E5%BC%95"><span class="nav-number">7.4.</span> <span class="nav-text">覆盖索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#order-by%E5%87%BA%E7%8E%B0file-sort"><span class="nav-number">7.5.</span> <span class="nav-text">order by出现file_sort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%82%E5%90%88%E5%BB%BA%E7%AB%8B%E8%81%9A%E9%9B%86%E7%B4%A2%E5%BC%95%E7%9A%84%E8%A6%81%E6%B1%82"><span class="nav-number">7.6.</span> <span class="nav-text">适合建立聚集索引的要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%9A%E9%9B%86%E7%B4%A2%E5%BC%95%E5%92%8C%E9%9D%9E%E8%81%9A%E9%9B%86%E7%B4%A2%E5%BC%95%E4%BD%BF%E7%94%A8%E5%8E%9F%E5%88%99"><span class="nav-number">7.7.</span> <span class="nav-text">聚集索引和非聚集索引使用原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E7%B1%BB%E5%AD%97%E6%AE%B5%E6%98%AF%E5%90%A6%E5%BA%94%E8%AF%A5%E5%BB%BA%E7%B4%A2%E5%BC%95"><span class="nav-number">7.8.</span> <span class="nav-text">时间类字段是否应该建索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8BSQL%E4%B8%8D%E4%BC%9A%E4%BD%BF%E7%94%A8%E5%88%B0%E7%B4%A2%E5%BC%95"><span class="nav-number">7.9.</span> <span class="nav-text">什么情况下SQL不会使用到索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL%E7%BC%96%E5%86%99%E4%BC%98%E5%8C%96"><span class="nav-number">7.10.</span> <span class="nav-text">SQL编写优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL%E6%89%8B%E5%B7%A5%E6%8B%BC%E5%86%99%E7%9A%84%E9%98%B2%E6%AD%A2%E6%B3%A8%E5%85%A5"><span class="nav-number">7.11.</span> <span class="nav-text">SQL手工拼写的防止注入</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Problem-Solution"><span class="nav-number">8.</span> <span class="nav-text">Problem Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#The-last-packet-sent-successfully-to-the-server-was-0-milliseconds-ago-The-driver-has-not-received-any-packets-from-the-server"><span class="nav-number">8.1.</span> <span class="nav-text">The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#required-a-bean-of-type-%E2%80%98org-springframework-cache-CacheManager%E2%80%99-that-could-not-be-found"><span class="nav-number">8.2.</span> <span class="nav-text">required a bean of type ‘org.springframework.cache.CacheManager’ that could not be found.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ERROR-2002-HY000-Can%E2%80%99t-connect-to-local-MySQL-server-through-socket-%E2%80%98-x2F-tmp-x2F-mysql-sock%E2%80%99-111"><span class="nav-number">8.3.</span> <span class="nav-text">ERROR 2002 (HY000): Can’t connect to local MySQL server through socket ‘&#x2F;tmp&#x2F;mysql.sock’ (111)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#delete%E8%AF%AD%E5%8F%A5%E5%AD%90%E6%9F%A5%E8%AF%A2not-exists%E6%98%AF%E4%B8%8D%E4%BC%9A%E7%94%9F%E6%95%88%E7%9A%84"><span class="nav-number">8.4.</span> <span class="nav-text">delete语句子查询not exists是不会生效的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#You-can%E2%80%99t-specify-target-table-%E2%80%98word-paraphrase-star-rel%E2%80%99-for-update-in-FROM-clause"><span class="nav-number">8.5.</span> <span class="nav-text">You can’t specify target table ‘word_paraphrase_star_rel’ for update in FROM clause</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Show-Status"><span class="nav-number">9.</span> <span class="nav-text">Show Status</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Fengorz</p>
+  <div class="site-description" itemprop="description">Live only for yourself.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fengorz</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

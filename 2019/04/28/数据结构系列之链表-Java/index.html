@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.fengorz.me","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="leetcode链表专题 链表分别都对应了那些Java类？ java.util.ArrayList java.util.LinkedList java.util.concurrent.CopyOnWriteArrayList  单向链表单向链表包含两个域：  信息域（上图的data，存放结点数据） 指针域（上图的next，链接指向列表中的下一个结点，而最后一个结点则指向一个空值）  每个结点只有一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构系列之链表（Java）">
+<meta property="og:url" content="https://www.fengorz.me/2019/04/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B3%BB%E5%88%97%E4%B9%8B%E9%93%BE%E8%A1%A8-Java/index.html">
+<meta property="og:site_name" content="Feng&#39;s Blog">
+<meta property="og:description" content="leetcode链表专题 链表分别都对应了那些Java类？ java.util.ArrayList java.util.LinkedList java.util.concurrent.CopyOnWriteArrayList  单向链表单向链表包含两个域：  信息域（上图的data，存放结点数据） 指针域（上图的next，链接指向列表中的下一个结点，而最后一个结点则指向一个空值）  每个结点只有一">
+<meta property="og:locale">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/X2alLM.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/AbY5Jl.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/zFgr4G.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/rlUd5C.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/odYgoS.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/hW9eHt.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/PWjUfy.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/GW4slV.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/Y1Zb9A.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/gNi1Bf.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/zhs4xu.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/q0mXuS.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/PJEkBp.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/eyY1Zv.png">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/X64NBw.png">
+<meta property="article:published_time" content="2019-04-28T10:22:07.000Z">
+<meta property="article:modified_time" content="2020-09-04T08:54:29.725Z">
+<meta property="article:author" content="Fengorz">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="链表">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/X2alLM.png">
+
+<link rel="canonical" href="https://www.fengorz.me/2019/04/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B3%BB%E5%88%97%E4%B9%8B%E9%93%BE%E8%A1%A8-Java/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>数据结构系列之链表（Java） | Feng's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Feng's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">kiwidict.com</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://www.fengorz.me/2019/04/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B3%BB%E5%88%97%E4%B9%8B%E9%93%BE%E8%A1%A8-Java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="Live only for yourself.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数据结构系列之链表（Java）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-04-28 18:22:07 18:22:07" itemprop="dateCreated datePublished" datetime="2019-04-28T18:22:07+08:00">2019-04-28 18:22:07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-04 16:54:29 16:54:29" itemprop="dateModified" datetime="2020-09-04T16:54:29+08:00">2020-09-04 16:54:29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/tag/linked-list/">leetcode链表专题</a></p>
+<h2 id="链表分别都对应了那些Java类？"><a href="#链表分别都对应了那些Java类？" class="headerlink" title="链表分别都对应了那些Java类？"></a>链表分别都对应了那些Java类？</h2><ul>
+<li>java.util.ArrayList</li>
+<li>java.util.LinkedList</li>
+<li>java.util.concurrent.CopyOnWriteArrayList</li>
+</ul>
+<h2 id="单向链表"><a href="#单向链表" class="headerlink" title="单向链表"></a>单向链表</h2><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/X2alLM.png"><br>单向链表包含两个域：</p>
+<ul>
+<li>信息域（上图的data，存放结点数据）</li>
+<li>指针域（上图的next，链接指向列表中的下一个结点，而最后一个结点则指向一个空值）</li>
+</ul>
+<p><em><strong>每个结点只有一个指针的链表也叫单向链表，或者单链表。</strong></em></p>
+<h3 id="在链表表头插入新结点"><a href="#在链表表头插入新结点" class="headerlink" title="在链表表头插入新结点"></a>在链表表头插入新结点</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/AbY5Jl.png"><br>此时只需要变更Head的指向。</p>
+<h3 id="在链表中间插入新结点"><a href="#在链表中间插入新结点" class="headerlink" title="在链表中间插入新结点"></a>在链表中间插入新结点</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/zFgr4G.png"><br>此时需要变更front node的next值，将其指向new node，new node的next值指向next node。</p>
+<h3 id="带头结点和尾结点的单链表"><a href="#带头结点和尾结点的单链表" class="headerlink" title="带头结点和尾结点的单链表"></a>带头结点和尾结点的单链表</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/rlUd5C.png"><br>在不带头结点的单链表中，插入和删除都需要区分操作的结点下标，在链表表头插入新结点与在链表中间插入新结点是不同的。<br>而在带头结点的单链表中，就不再需要做这样的区分。<br>在带头结点的链表表头插入新结点：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/odYgoS.png"><br>在带头结点的链表中间插入新结点：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/hW9eHt.png"><br>上面操作都是变更front node的next值，将其指向new node，new node的next值指向next node。<br>删除结点同理。</p>
+<h4 id="尾部插入"><a href="#尾部插入" class="headerlink" title="尾部插入"></a>尾部插入</h4><p>为了使链表在尾部插入时也和上面的头部、中间插入一直，以及达到更加高效，可在链表增加一个尾部指向的尾结点，这样一来，在尾部添加结点时，只要通过尾结点直接操作即可，无需从表头遍历到表尾。<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/PWjUfy.png"><br>如上图，通过尾结点可能快速定位到front node，然后操作依然是变更front node的next值，将其指向new node，new node的next值指向next node（尾结点）。</p>
+<blockquote>
+<p>这样一来，头部、中间和尾部插入就可以视为同一种操作逻辑了。</p>
+</blockquote>
+<h3 id="循环单链表"><a href="#循环单链表" class="headerlink" title="循环单链表"></a>循环单链表</h3><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/GW4slV.png"><br>循环链表在实现遍历的时候要注意避免死循环，判断遍历到尾结点即可停止。</p>
+<h3 id="单链表-vs-顺序表"><a href="#单链表-vs-顺序表" class="headerlink" title="单链表 vs 顺序表"></a>单链表 vs 顺序表</h3><p>由于不必须按顺序存储，链表在插入的时候可以达到 O(1) 的复杂度，比另一种线性表 —— 顺序表快得多，但是查找一个结点或者访问特定编号的结点则需要 O(n) 的时间，而顺序表相应的时间复杂度分别是 O(log n) 和 O(1)。<br>使用链表结构可以克服数组链表需要预先知道数据大小的缺点，链表结构可以充分利用计算机内存空间，实现灵活的内存动态管理。但是链表失去了数组随机读取的优点，同时链表由于增加了结点的指针域，空间开销比较大。<br>在计算机科学中，链表作为一种基础的数据结构可以用来生成其它类型的数据结构。链表通常由一连串结点组成，每个结点包含任意的实例数据（data fields）和一或两个用来指向上一个&#x2F;或下一个结点的位置的链接（links）。链表最明显的好处就是，常规数组排列关联项目的方式可能不同于这些数据项目在记忆体或磁盘上顺序，数据的访问往往要在不同的排列顺序中转换。而链表是一种自我指示数据类型，因为它包含指向另一个相同类型的数据的指针（链接）。</p>
+<blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/tag/linked-list/">https://leetcode-cn.com/tag/linked-list/</a></p>
+</blockquote>
+<h3 id="单链表的弊端"><a href="#单链表的弊端" class="headerlink" title="单链表的弊端"></a>单链表的弊端</h3><p>指针域中没有前驱指针，无法知道前驱结点，假如指针this指向某个结点，想要在this的前面插入一个结点或删除this所在结点时，必须从链表的表头遍历至this的前一个结点再执行插入或者删除操作，这种情况使用双链表就更为高效了。</p>
+<h2 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h2><p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/Y1Zb9A.png"></p>
+<ul>
+<li>信息域（存放结点数据）</li>
+<li>指针域（有两个链接）<ul>
+<li>前链接：指向前一个结点，当此“前链接”为第一个时，指向空值或者空列表；</li>
+<li>后链接：指向下一个结点，当此“后连接”为最后一个时，指向空值或者空列表；</li>
+</ul>
+</li>
+</ul>
+<p>双向链表也叫双链表。双链表可以从任何一个结点访问前一个结点，当然也可以访问后一个结点，</p>
+<h3 id="java-util-LinkedList双链表的实现逻辑"><a href="#java-util-LinkedList双链表的实现逻辑" class="headerlink" title="java.util.LinkedList双链表的实现逻辑"></a>java.util.LinkedList双链表的实现逻辑</h3><blockquote>
+<p>分析java.util.LinkedList的源码可以发现有成员变量<code>transient Node&lt;E&gt; first;</code>和<code>transient Node&lt;E&gt; last;</code>。</p>
+</blockquote>
+<p>初始化状态：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/gNi1Bf.png"><br>java.util.LinkedList插入数据的代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">private static class Node&lt;E&gt; &#123;</span><br><span class="line">    E item;</span><br><span class="line">    Node&lt;E&gt; next;</span><br><span class="line">    Node&lt;E&gt; prev;</span><br><span class="line"></span><br><span class="line">    Node(Node&lt;E&gt; prev, E element, Node&lt;E&gt; next) &#123;</span><br><span class="line">        this.item = element;</span><br><span class="line">        this.next = next;</span><br><span class="line">        this.prev = prev;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public boolean add(E e) &#123;</span><br><span class="line">    linkLast(e);</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void linkLast(E e) &#123;</span><br><span class="line">    final Node&lt;E&gt; l = last;</span><br><span class="line">    final Node&lt;E&gt; newNode = new Node&lt;&gt;(l, e, null);</span><br><span class="line">    last = newNode;</span><br><span class="line">    if (l == null)</span><br><span class="line">        first = newNode;</span><br><span class="line">    else</span><br><span class="line">        l.next = newNode;</span><br><span class="line">    size++;</span><br><span class="line">    modCount++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可见空双链表插入第一个结点时，判断尾结点是否为空，如果为空是在first头结点插入，否则是插入到尾部结点之后，如图：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/zhs4xu.png"><br>当再次插入新结点时，如图：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/q0mXuS.png"></p>
+<h2 id="循环双链表"><a href="#循环双链表" class="headerlink" title="循环双链表"></a>循环双链表</h2><p>空循环双链表：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/PJEkBp.png"><br>插入新结点：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/eyY1Zv.png"></p>
+<h2 id="排序双链表"><a href="#排序双链表" class="headerlink" title="排序双链表"></a>排序双链表</h2><p>元素对象可以实现Comoarable接口，通过<code>compareTo</code>方法在插入元素的时候做对比。</p>
+<h2 id="静态链表"><a href="#静态链表" class="headerlink" title="静态链表"></a>静态链表</h2><p>分配一整片连续的内存空间，各个结点集中安置。如图（图片来源王道考研）：<br><img src="https://gitee.com/fengorz/oss/raw/master/uPic/X64NBw.png"></p>
+<blockquote>
+<p>静态链表内部也是要基于数组来实现。</p>
+</blockquote>
+<h2 id="链表的利与弊"><a href="#链表的利与弊" class="headerlink" title="链表的利与弊"></a>链表的利与弊</h2><p>使用链表的好处：</p>
+<ul>
+<li>链表在初始化时仅需要分配一个元素的存储空间，在内存分配上可以是不连续的内存，也不需要做任何内存复制和重新分配的操作，在访问单个元素的时间开销会更少。</li>
+<li>链表在插入和删除结点方面相较于顺序表是十分高效的，因此链表比较适合那些插入删除频繁的场景使用。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"># 数据结构</a>
+              <a href="/tags/%E9%93%BE%E8%A1%A8/" rel="tag"># 链表</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/04/28/oracle%E7%B3%BB%E5%88%97%E4%B9%8B%E7%B4%A2%E5%BC%95%E6%B7%B1%E5%85%A5%E7%A0%94%E7%A9%B6/" rel="prev" title="oracle系列之索引">
+      <i class="fa fa-chevron-left"></i> oracle系列之索引
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/04/28/oracle%E7%B3%BB%E5%88%97%E4%B9%8B%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/" rel="next" title="oracle系列之性能调优">
+      oracle系列之性能调优 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%93%BE%E8%A1%A8%E5%88%86%E5%88%AB%E9%83%BD%E5%AF%B9%E5%BA%94%E4%BA%86%E9%82%A3%E4%BA%9BJava%E7%B1%BB%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">链表分别都对应了那些Java类？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E5%90%91%E9%93%BE%E8%A1%A8"><span class="nav-number">2.</span> <span class="nav-text">单向链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E9%93%BE%E8%A1%A8%E8%A1%A8%E5%A4%B4%E6%8F%92%E5%85%A5%E6%96%B0%E7%BB%93%E7%82%B9"><span class="nav-number">2.1.</span> <span class="nav-text">在链表表头插入新结点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E9%93%BE%E8%A1%A8%E4%B8%AD%E9%97%B4%E6%8F%92%E5%85%A5%E6%96%B0%E7%BB%93%E7%82%B9"><span class="nav-number">2.2.</span> <span class="nav-text">在链表中间插入新结点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%A6%E5%A4%B4%E7%BB%93%E7%82%B9%E5%92%8C%E5%B0%BE%E7%BB%93%E7%82%B9%E7%9A%84%E5%8D%95%E9%93%BE%E8%A1%A8"><span class="nav-number">2.3.</span> <span class="nav-text">带头结点和尾结点的单链表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%BE%E9%83%A8%E6%8F%92%E5%85%A5"><span class="nav-number">2.3.1.</span> <span class="nav-text">尾部插入</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E5%8D%95%E9%93%BE%E8%A1%A8"><span class="nav-number">2.4.</span> <span class="nav-text">循环单链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8-vs-%E9%A1%BA%E5%BA%8F%E8%A1%A8"><span class="nav-number">2.5.</span> <span class="nav-text">单链表 vs 顺序表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E5%BC%8A%E7%AB%AF"><span class="nav-number">2.6.</span> <span class="nav-text">单链表的弊端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8"><span class="nav-number">3.</span> <span class="nav-text">双向链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#java-util-LinkedList%E5%8F%8C%E9%93%BE%E8%A1%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E9%80%BB%E8%BE%91"><span class="nav-number">3.1.</span> <span class="nav-text">java.util.LinkedList双链表的实现逻辑</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E5%8F%8C%E9%93%BE%E8%A1%A8"><span class="nav-number">4.</span> <span class="nav-text">循环双链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E5%8F%8C%E9%93%BE%E8%A1%A8"><span class="nav-number">5.</span> <span class="nav-text">排序双链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E9%93%BE%E8%A1%A8"><span class="nav-number">6.</span> <span class="nav-text">静态链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%93%BE%E8%A1%A8%E7%9A%84%E5%88%A9%E4%B8%8E%E5%BC%8A"><span class="nav-number">7.</span> <span class="nav-text">链表的利与弊</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Fengorz</p>
+  <div class="site-description" itemprop="description">Live only for yourself.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fengorz</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.fengorz.me","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="期货交易原理期货一般是买方（多方）&lt;&#x3D;&gt;卖方（空方） 双方指定在未来的某个时间一手交钱一手交货，前提是双方签订之日都交保证金（比如这一单的10%） 期货平仓机制空方卖给多方按照合约的价格P1和时间的交易过程叫【开仓】 如果出现异常情况不能【开仓】，那么就会启动【平仓】操作：多方把合约还给空方，此时采用另外一个价格P2（该价格随着市场的波动变化）【平仓】，【强制平仓】可以及时止">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原油宝事件简单分析">
+<meta property="og:url" content="https://www.fengorz.me/2020/04/26/%E5%8E%9F%E6%B2%B9%E5%AE%9D%E4%BA%8B%E4%BB%B6%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90/index.html">
+<meta property="og:site_name" content="Feng&#39;s Blog">
+<meta property="og:description" content="期货交易原理期货一般是买方（多方）&lt;&#x3D;&gt;卖方（空方） 双方指定在未来的某个时间一手交钱一手交货，前提是双方签订之日都交保证金（比如这一单的10%） 期货平仓机制空方卖给多方按照合约的价格P1和时间的交易过程叫【开仓】 如果出现异常情况不能【开仓】，那么就会启动【平仓】操作：多方把合约还给空方，此时采用另外一个价格P2（该价格随着市场的波动变化）【平仓】，【强制平仓】可以及时止">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-04-26T13:49:30.000Z">
+<meta property="article:modified_time" content="2020-05-01T01:56:30.148Z">
+<meta property="article:author" content="Fengorz">
+<meta property="article:tag" content="理财">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.fengorz.me/2020/04/26/%E5%8E%9F%E6%B2%B9%E5%AE%9D%E4%BA%8B%E4%BB%B6%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>原油宝事件简单分析 | Feng's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Feng's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">kiwidict.com</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://www.fengorz.me/2020/04/26/%E5%8E%9F%E6%B2%B9%E5%AE%9D%E4%BA%8B%E4%BB%B6%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="Live only for yourself.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          原油宝事件简单分析
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-26 21:49:30 21:49:30" itemprop="dateCreated datePublished" datetime="2020-04-26T21:49:30+08:00">2020-04-26 21:49:30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-01 09:56:30 09:56:30" itemprop="dateModified" datetime="2020-05-01T09:56:30+08:00">2020-05-01 09:56:30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%90%86%E8%B4%A2/" itemprop="url" rel="index"><span itemprop="name">理财</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="期货交易原理"><a href="#期货交易原理" class="headerlink" title="期货交易原理"></a>期货交易原理</h2><p>期货一般是买方（多方）&lt;&#x3D;&gt;卖方（空方）</p>
+<p>双方指定在未来的某个时间一手交钱一手交货，前提是双方签订之日都交保证金（比如这一单的10%）</p>
+<h4 id="期货平仓机制"><a href="#期货平仓机制" class="headerlink" title="期货平仓机制"></a>期货平仓机制</h4><p>空方卖给多方按照合约的价格P1和时间的交易过程叫【开仓】</p>
+<p>如果出现异常情况不能【开仓】，那么就会启动【平仓】操作：多方把合约还给空方，此时采用另外一个价格P2（该价格随着市场的波动变化）【平仓】，【强制平仓】可以及时止损。</p>
+<p>综上所述：</p>
+<p>如果P1&lt;P2，多方就赚了，空方亏了，因为多方在过去的时间以低价位拿到货，而在交易时日时，平仓的时候空方要重新拿回来合约要以更高的价格结算；</p>
+<p>如果P1&gt;P2，反之，多方亏了，空方赚了。</p>
+<h4 id="期货保证金交易制度"><a href="#期货保证金交易制度" class="headerlink" title="期货保证金交易制度"></a>期货保证金交易制度</h4><h5 id="假如油价在拟定合约后上涨的情况"><a href="#假如油价在拟定合约后上涨的情况" class="headerlink" title="假如油价在拟定合约后上涨的情况"></a>假如油价在拟定合约后上涨的情况</h5><p>期货市场的【平仓保证金交易制度】（假如以10%结算）：</p>
+<table>
+<thead>
+<tr>
+<th>交易阶段</th>
+<th>买方（多方）保证金账户</th>
+<th>卖方（空方）保证金账户</th>
+<th>输方的资金流入</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>期货合约拟定（总价比如20000$）</td>
+<td>2000$</td>
+<td>2000$</td>
+<td>0$</td>
+</tr>
+<tr>
+<td>临近交货时日价格变动之后（假如油价上涨8个点，总价25000）</td>
+<td>2500$（从空方划走500$）</td>
+<td>2500$（保证金不足，要再充值1500元）</td>
+<td>1500$</td>
+</tr>
+</tbody></table>
+<p>如果有一方因为交不起保证金的情况下，交易所就会强行平仓，这样一来，【原本的空方就要变成买房来重新买回来之前的合约，不过是以更高的价位买入，也就是上文提到的P2】</p>
+<h5 id="假如油价在拟定合约后下跌的情况"><a href="#假如油价在拟定合约后下跌的情况" class="headerlink" title="假如油价在拟定合约后下跌的情况"></a>假如油价在拟定合约后下跌的情况</h5><p>保证金在下跌的情况，合约签订时计算好的保证金已经交足，所以保证金账户余额里面就一直是充足的，无需追加保证金。【应该是这样】</p>
+<p>单看价格下跌，其实如果是直接期货交易完成，对于两方来说是无伤大雅，但是不要忘了，期货是要实货交易的，这就是原油宝问题的致命之处。</p>
+<h4 id="原油宝事件的致命问题"><a href="#原油宝事件的致命问题" class="headerlink" title="原油宝事件的致命问题"></a>原油宝事件的致命问题</h4><p>如果说按照合约规定，到期后在一定的短时间内，多方（原油宝客户 约等于 中行）去美国的油库提油，那么问题不大，可惜没有这个如果，中行没有能力在短时间内拿出设备和运载工具去提油！</p>
+<p>既然无法真实交易，那么交易所会自动强行平仓，这下麻烦大了，按照当前负油价，那么原油宝客户方一下子从多方变成空方，空方此时卖原油是要倒贴钱的啊！</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%90%86%E8%B4%A2/" rel="tag"># 理财</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/25/Spring%E7%B3%BB%E5%88%97%E4%B9%8BSpringWebFlux/" rel="prev" title="Spring系列之SpringWebFlux">
+      <i class="fa fa-chevron-left"></i> Spring系列之SpringWebFlux
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/26/English%E7%B3%BB%E5%88%97%E4%B9%8B%E9%99%90%E5%AE%9A%E8%AF%8D-%E5%86%A0%E8%AF%8D/" rel="next" title="English系列之限定词（冠词）">
+      English系列之限定词（冠词） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%9F%E8%B4%A7%E4%BA%A4%E6%98%93%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">期货交易原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%9F%E8%B4%A7%E5%B9%B3%E4%BB%93%E6%9C%BA%E5%88%B6"><span class="nav-number">1.0.1.</span> <span class="nav-text">期货平仓机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%9F%E8%B4%A7%E4%BF%9D%E8%AF%81%E9%87%91%E4%BA%A4%E6%98%93%E5%88%B6%E5%BA%A6"><span class="nav-number">1.0.2.</span> <span class="nav-text">期货保证金交易制度</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%81%87%E5%A6%82%E6%B2%B9%E4%BB%B7%E5%9C%A8%E6%8B%9F%E5%AE%9A%E5%90%88%E7%BA%A6%E5%90%8E%E4%B8%8A%E6%B6%A8%E7%9A%84%E6%83%85%E5%86%B5"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">假如油价在拟定合约后上涨的情况</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%81%87%E5%A6%82%E6%B2%B9%E4%BB%B7%E5%9C%A8%E6%8B%9F%E5%AE%9A%E5%90%88%E7%BA%A6%E5%90%8E%E4%B8%8B%E8%B7%8C%E7%9A%84%E6%83%85%E5%86%B5"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">假如油价在拟定合约后下跌的情况</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E6%B2%B9%E5%AE%9D%E4%BA%8B%E4%BB%B6%E7%9A%84%E8%87%B4%E5%91%BD%E9%97%AE%E9%A2%98"><span class="nav-number">1.0.3.</span> <span class="nav-text">原油宝事件的致命问题</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Fengorz</p>
+  <div class="site-description" itemprop="description">Live only for yourself.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fengorz</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

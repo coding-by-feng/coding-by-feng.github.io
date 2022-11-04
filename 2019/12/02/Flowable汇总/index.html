@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.fengorz.me","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="flowable涉及到的表123456789101112131415161718192021222324252627282930313233343536373839ACT_GE_BYTEARRAY	通用的流程定义和流程资源ACT_GE_PROPERTY	系统相关属性# 流程历史记录ACT_HI_ACTINST	历史的流程实例ACT_HI_ATTACHMENT	历史的流程附件ACT_HI_COMME">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flowable汇总">
+<meta property="og:url" content="https://www.fengorz.me/2019/12/02/Flowable%E6%B1%87%E6%80%BB/index.html">
+<meta property="og:site_name" content="Feng&#39;s Blog">
+<meta property="og:description" content="flowable涉及到的表123456789101112131415161718192021222324252627282930313233343536373839ACT_GE_BYTEARRAY	通用的流程定义和流程资源ACT_GE_PROPERTY	系统相关属性# 流程历史记录ACT_HI_ACTINST	历史的流程实例ACT_HI_ATTACHMENT	历史的流程附件ACT_HI_COMME">
+<meta property="og:locale">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/g6DpP6.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/Sk9V5Z.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/NQoyiB.png">
+<meta property="article:published_time" content="2019-12-02T01:23:07.000Z">
+<meta property="article:modified_time" content="2020-07-16T12:58:54.965Z">
+<meta property="article:author" content="Fengorz">
+<meta property="article:tag" content="Flowable">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/g6DpP6.png">
+
+<link rel="canonical" href="https://www.fengorz.me/2019/12/02/Flowable%E6%B1%87%E6%80%BB/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>Flowable汇总 | Feng's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Feng's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">kiwidict.com</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://www.fengorz.me/2019/12/02/Flowable%E6%B1%87%E6%80%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="Live only for yourself.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Flowable汇总
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-02 09:23:07 09:23:07" itemprop="dateCreated datePublished" datetime="2019-12-02T09:23:07+08:00">2019-12-02 09:23:07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-16 20:58:54 20:58:54" itemprop="dateModified" datetime="2020-07-16T20:58:54+08:00">2020-07-16 20:58:54</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Flowable/" itemprop="url" rel="index"><span itemprop="name">Flowable</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="flowable涉及到的表"><a href="#flowable涉及到的表" class="headerlink" title="flowable涉及到的表"></a>flowable涉及到的表</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">ACT_GE_BYTEARRAY	通用的流程定义和流程资源</span><br><span class="line">ACT_GE_PROPERTY	系统相关属性</span><br><span class="line"># 流程历史记录</span><br><span class="line">ACT_HI_ACTINST	历史的流程实例</span><br><span class="line">ACT_HI_ATTACHMENT	历史的流程附件</span><br><span class="line">ACT_HI_COMMENT	历史的说明性信息</span><br><span class="line">ACT_HI_DETAIL	历史的流程运行中的细节信息</span><br><span class="line">ACT_HI_IDENTITYLINK	历史的流程运行过程中用户关系</span><br><span class="line">ACT_HI_PROCINST	历史的流程实例</span><br><span class="line">ACT_HI_TASKINST	历史的任务实例</span><br><span class="line">ACT_HI_VARINST	历史的流程运行中的变量信息</span><br><span class="line"># 用户用户组表</span><br><span class="line">ACT_ID_BYTEARRAY	二进制数据表</span><br><span class="line">ACT_ID_GROUP	用户组信息表</span><br><span class="line">ACT_ID_INFO	用户信息详情表</span><br><span class="line">ACT_ID_MEMBERSHIP	人与组关系表</span><br><span class="line">ACT_ID_PRIV	权限表</span><br><span class="line">ACT_ID_PRIV_MAPPING	用户或组权限关系表</span><br><span class="line">ACT_ID_PROPERTY	属性表</span><br><span class="line">ACT_ID_TOKEN	系统登录日志表</span><br><span class="line">ACT_ID_USER	用户表</span><br><span class="line"># 流程定义表</span><br><span class="line">ACT_RE_DEPLOYMENT	部署单元信息</span><br><span class="line">ACT_RE_MODEL	模型信息</span><br><span class="line">ACT_RE_PROCDEF	已部署的流程定义</span><br><span class="line"># 运行实例表</span><br><span class="line">ACT_RU_DEADLETTER_JOB	正在运行的任务表</span><br><span class="line">ACT_RU_EVENT_SUBSCR	运行时事件</span><br><span class="line">ACT_RU_EXECUTION	运行时流程执行实例</span><br><span class="line">ACT_RU_HISTORY_JOB	历史作业表</span><br><span class="line">ACT_RU_IDENTITYLINK	运行时用户关系信息</span><br><span class="line">ACT_RU_JOB	运行时作业表</span><br><span class="line">ACT_RU_SUSPENDED_JOB	暂停作业表</span><br><span class="line">ACT_RU_TASK	运行时任务表</span><br><span class="line">ACT_RU_TIMER_JOB	定时作业表</span><br><span class="line">ACT_RU_VARIABLE	运行时变量表</span><br><span class="line"># 其他表	</span><br><span class="line">ACT_EVT_LOG	事件日志表</span><br><span class="line">ACT_PROCDEF_INFO	流程定义信息</span><br></pre></td></tr></table></figure>
+
+<h1 id="整合启动flowable-modeler"><a href="#整合启动flowable-modeler" class="headerlink" title="整合启动flowable-modeler"></a>整合启动flowable-modeler</h1><p>官网下载的zip包中将wars里面的flowable-admin.war, flowable-idm.war, flowable-modeler.war and flowable-task.war放到tomcat的webapps目录，解压出来后修改每个war里面对应的properties里面的数据源，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  classes pwd</span><br><span class="line">/Users/zhanshifeng/Documents/ccssoftDocument/flowable/apache-tomcat-7.0.99/webapps/flowable-idm/WEB-INF/classes</span><br><span class="line">➜  classes vi flowable-default.properties</span><br></pre></td></tr></table></figure>
+<p>然后启动tomcat访问<a target="_blank" rel="noopener" href="http://localhost:8080/flowable-modeler">http://localhost:8080/flowable-modeler</a></p>
+<h1 id="Events（事件）"><a href="#Events（事件）" class="headerlink" title="Events（事件）"></a>Events（事件）</h1><p>Events are used to model something that happens during the lifetime of a process. Events are always visualized as a circle. In BPMN 2.0, there exist two main event categories: catching and throwing events.</p>
+<p>事件的类别主要有：捕捉事件和投掷事件。</p>
+<h2 id="Timer-Event-Definitions（定时器事件定义）"><a href="#Timer-Event-Definitions（定时器事件定义）" class="headerlink" title="Timer Event Definitions（定时器事件定义）"></a>Timer Event Definitions（定时器事件定义）</h2><p>Timer events are events that are triggered by a defined timer. They can be used as start event, intermediate event or boundary event.</p>
+<p>定时器事件由某个被预定义的定时器所触发，通常被用作于开始事件、中间事件或边界事件，定时器事件中所以和事件相关的定义或变量值，都必须遵循ISO 8601标准。</p>
+<ul>
+<li><strong>timeDate</strong> 具体的时间点，当时间点到达，将触发事件。</li>
+<li><strong>timeDuration</strong> 每隔一个自定义的时间周期，将触发事件。</li>
+<li><strong>timeCycle</strong> 每隔一个自定义的时间周期，将触发事件，触发次数可以差异化，此外，它还具有一个EndDate属性，这个属性代表，当endDate的时间已到达，事件将不被触发，EndDate属性有两种写法，如下：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;timerEventDefinition&gt;</span><br><span class="line">    &lt;timeCycle flowable:endDate=&quot;2015-02-25T16:42:11+00:00&quot;&gt;R3/PT10H&lt;/timeCycle&gt;</span><br><span class="line">&lt;/timerEventDefinition&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;timerEventDefinition&gt;</span><br><span class="line">    &lt;timeCycle&gt;R3/PT10H/$&#123;EndDate&#125;&lt;/timeCycle&gt;</span><br><span class="line">&lt;/timerEventDefinition&gt;</span><br></pre></td></tr></table></figure>
+两种写法都存在同一个定时器事件的时候，Flowable默认采用第一种。</li>
+</ul>
+<h2 id="Signal-Event-Definitions（信号事件定义）"><a href="#Signal-Event-Definitions（信号事件定义）" class="headerlink" title="Signal Event Definitions（信号事件定义）"></a>Signal Event Definitions（信号事件定义）</h2><p>运行时通过代码抛出信号事件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RuntimeService.signalEventReceived(String signalName);</span><br><span class="line">RuntimeService.signalEventReceived(String signalName, String executionId);</span><br></pre></td></tr></table></figure>
+<h4 id="Querying-for-Signal-Event-subscriptions（信号事件订阅查询）"><a href="#Querying-for-Signal-Event-subscriptions（信号事件订阅查询）" class="headerlink" title="Querying for Signal Event subscriptions（信号事件订阅查询）"></a>Querying for Signal Event subscriptions（信号事件订阅查询）</h4><p>查询所有订阅的特定信号事件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Execution&gt; executions = runtimeService.createExecutionQuery()</span><br><span class="line">      .signalEventSubscriptionName(&quot;alert&quot;)</span><br><span class="line">      .list();</span><br></pre></td></tr></table></figure>
+<h4 id="Signal-event-scope（信号事件的作用域）"><a href="#Signal-event-scope（信号事件的作用域）" class="headerlink" title="Signal event scope（信号事件的作用域）"></a>Signal event scope（信号事件的作用域）</h4><p>By default, signals are broadcast process engine wide. This means that you can throw a signal event in a process instance, and other process instances with different process definitions can react on the occurrence of this event.<br>默认，信号事件的作用域是整个广播流程引擎的范围，如果要将作用域限制在某个特定的流程实例以内i，就需要将信号事件绑定在特定的流程定义上。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;signal id=&quot;alertSignal&quot; name=&quot;alert&quot; flowable:scope=&quot;processInstance&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<p>scope属性值默认是”global”，全局。</p>
+<h2 id="Message-Event-Definitions（消息事件定义）"><a href="#Message-Event-Definitions（消息事件定义）" class="headerlink" title="Message Event Definitions（消息事件定义）"></a>Message Event Definitions（消息事件定义）</h2><p>消息事件的定义demo：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;definitions id=&quot;definitions&quot;</span><br><span class="line">  xmlns=&quot;http://www.omg.org/spec/BPMN/20100524/MODEL&quot;</span><br><span class="line">  xmlns:flowable=&quot;http://flowable.org/bpmn&quot;</span><br><span class="line">  targetNamespace=&quot;Examples&quot;</span><br><span class="line">  xmlns:tns=&quot;Examples&quot;&gt;</span><br><span class="line"></span><br><span class="line">  &lt;message id=&quot;newInvoice&quot; name=&quot;newInvoiceMessage&quot; /&gt;</span><br><span class="line">  &lt;message id=&quot;payment&quot; name=&quot;paymentMessage&quot; /&gt;</span><br><span class="line"></span><br><span class="line">  &lt;process id=&quot;invoiceProcess&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;startEvent id=&quot;messageStart&quot; &gt;</span><br><span class="line">    	&lt;messageEventDefinition messageRef=&quot;newInvoice&quot; /&gt;</span><br><span class="line">    &lt;/startEvent&gt;</span><br><span class="line">    ...</span><br><span class="line">    &lt;intermediateCatchEvent id=&quot;paymentEvt&quot; &gt;</span><br><span class="line">    	&lt;messageEventDefinition messageRef=&quot;payment&quot; /&gt;</span><br><span class="line">    &lt;/intermediateCatchEvent&gt;</span><br><span class="line">    ...</span><br><span class="line">  &lt;/process&gt;</span><br><span class="line"></span><br><span class="line">&lt;/definitions&gt;</span><br></pre></td></tr></table></figure>
+<p>As an embeddable process engine, Flowable is not concerned with actually receiving a message. This would be environment dependent and entail platform-specific activities, such as connecting to a JMS (Java Messaging Service) Queue&#x2F;Topic or processing a Webservice or REST request. The reception of messages is therefore something you have to implement as part of the application or infrastructure into which the process engine is embedded.（大概意思是flowable没有局限消息接收的具体实现，这部分由开发者自定义，可以是JMS、消息队列、WebService或者是REST风格的请求）</p>
+<p>通过消息来触发启动流程实例可以有如下二个API可供选择：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ProcessInstance startProcessInstanceByMessage(String messageName);</span><br><span class="line">ProcessInstance startProcessInstanceByMessage(String messageName, Map&lt;String, Object&gt; processVariables);</span><br><span class="line">ProcessInstance startProcessInstanceByMessage(String messageName, String businessKey,</span><br><span class="line">    Map&lt;String, Object&gt; processVariables);</span><br></pre></td></tr></table></figure>
+<p>If the message needs to be received by an existing process instance, you first have to correlate the message to a specific process instance (see next section) and then trigger the continuation of the waiting execution. The runtime service offers the following methods for triggering an execution based on a message event subscription:(两个方法关联消息去触发继续某个正在等待状态的流程)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">void messageEventReceived(String messageName, String executionId);</span><br><span class="line">void messageEventReceived(String messageName, String executionId, HashMap&lt;String, Object&gt; processVariables);</span><br></pre></td></tr></table></figure>
+<p>使用ProcessDefinitionQuery来绑定消息订阅查询拿到流程定义ProcessDefinition：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery()</span><br><span class="line">      .messageEventSubscription(&quot;newCallCenterBooking&quot;)</span><br><span class="line">      .singleResult();</span><br></pre></td></tr></table></figure>
+<p>或者使用ExecutionQuery来绑定消息订阅查询特定的执行对象Execution。</p>
+<h2 id="Start-Events（开始事件）"><a href="#Start-Events（开始事件）" class="headerlink" title="Start Events（开始事件）"></a>Start Events（开始事件）</h2><p>概念上来说，开始事件总是在等待着捕捉一个触发的发生.<br>开始事件的定义demo：<br>initiator: 指向一个认证的用户id，应该是被纳入IDM范围内的一个用户对象的id。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;startEvent id=&quot;request&quot; flowable:initiator=&quot;initiator&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="Timer-Start-Event（定时器开始事件）"><a href="#Timer-Start-Event（定时器开始事件）" class="headerlink" title="Timer Start Event（定时器开始事件）"></a>Timer Start Event（定时器开始事件）</h4><p>XML定义的demo：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;startEvent id=&quot;theStart&quot;&gt;</span><br><span class="line">  &lt;timerEventDefinition&gt;</span><br><span class="line">    &lt;timeCycle&gt;R4/2011-03-11T12:13/PT5M&lt;/timeCycle&gt;</span><br><span class="line">  &lt;/timerEventDefinition&gt;</span><br><span class="line">&lt;/startEvent&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="Message-Start-Event（消息开始事件）"><a href="#Message-Start-Event（消息开始事件）" class="headerlink" title="Message Start Event（消息开始事件）"></a>Message Start Event（消息开始事件）</h4><p>流程定义引用到消息开始事件的时候：<br>The name of the message start event must be unique across a given process definition. A process definition must not have multiple message start events with the same name. Flowable throws an exception upon deployment of a process definition containing two or more message start events referencing the same message, or if two or more message start events reference messages with the same message name.（消息开始事件在流程定义中必须是唯一的，一个流程定义如果引用多个名字相同的消息开始事件的话，会抛出异常，或者多个消息开始事件被定义成相同的name也会抛出异常；如果流程部署了一个新的版本，那么老旧的版本中的消息订阅将会被移除）</p>
+<p>如上文所讲到的，消息事件通过这些API调用来触发：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ProcessInstance startProcessInstanceByMessage(String messageName);</span><br><span class="line">ProcessInstance startProcessInstanceByMessage(String messageName, Map&lt;String, Object&gt; processVariables);</span><br><span class="line">ProcessInstance startProcessInstanceByMessage(String messageName, String businessKey,</span><br><span class="line">    Map&lt;String, Object&lt; processVariables);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>多个消息开始事件的流程通过runtimeService.startProcessInstanceByMessage(…​)启动</li>
+<li>拥有一个空的开始事件可以通过实例id启动流程实例</li>
+<li>没有空的开始事件的话通过实例id启动流程会抛异常</li>
+</ul>
+<p>xml定义demo：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;definitions id=&quot;definitions&quot;</span><br><span class="line">  xmlns=&quot;http://www.omg.org/spec/BPMN/20100524/MODEL&quot;</span><br><span class="line">  xmlns:flowable=&quot;http://flowable.org/bpmn&quot;</span><br><span class="line">  targetNamespace=&quot;Examples&quot;</span><br><span class="line">  xmlns:tns=&quot;Examples&quot;&gt;</span><br><span class="line"></span><br><span class="line">  &lt;message id=&quot;newInvoice&quot; name=&quot;newInvoiceMessage&quot; /&gt;</span><br><span class="line"></span><br><span class="line">  &lt;process id=&quot;invoiceProcess&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;startEvent id=&quot;messageStart&quot; &gt;</span><br><span class="line">    	&lt;messageEventDefinition messageRef=&quot;tns:newInvoice&quot; /&gt;</span><br><span class="line">    &lt;/startEvent&gt;</span><br><span class="line">    ...</span><br><span class="line">  &lt;/process&gt;</span><br><span class="line"></span><br><span class="line">&lt;/definitions&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="Signal-Start-Event（信号开始事件）"><a href="#Signal-Start-Event（信号开始事件）" class="headerlink" title="Signal Start Event（信号开始事件）"></a>Signal Start Event（信号开始事件）</h4><p>xml定义的配置demo：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;signal id=&quot;theSignal&quot; name=&quot;The Signal&quot; /&gt;</span><br><span class="line"></span><br><span class="line">&lt;process id=&quot;processWithSignalStart1&quot;&gt;</span><br><span class="line">  &lt;startEvent id=&quot;theStart&quot;&gt;</span><br><span class="line">    &lt;signalEventDefinition id=&quot;theSignalEventDefinition&quot; signalRef=&quot;theSignal&quot;  /&gt;</span><br><span class="line">  &lt;/startEvent&gt;</span><br><span class="line">  &lt;sequenceFlow id=&quot;flow1&quot; sourceRef=&quot;theStart&quot; targetRef=&quot;theTask&quot; /&gt;</span><br><span class="line">  &lt;userTask id=&quot;theTask&quot; name=&quot;Task in process A&quot; /&gt;</span><br><span class="line">  &lt;sequenceFlow id=&quot;flow2&quot; sourceRef=&quot;theTask&quot; targetRef=&quot;theEnd&quot; /&gt;</span><br><span class="line">  &lt;endEvent id=&quot;theEnd&quot; /&gt;</span><br><span class="line">&lt;/process&gt;</span><br></pre></td></tr></table></figure>
+<p>可以通过runtimeService.signalEventReceivedXXX触发。</p>
+<h4 id="Error-Start-Even（错误开始事件）"><a href="#Error-Start-Even（错误开始事件）" class="headerlink" title="Error Start Even（错误开始事件）"></a>Error Start Even（错误开始事件）</h4><p>An error start event can be used to trigger an Event Sub-Process. An error start event cannot be used for starting a process instance.（错误开始事件只能用来发出子流程，不能触发整个的流程实例？？）</p>
+<h2 id="End-Events（结束事件）"><a href="#End-Events（结束事件）" class="headerlink" title="End Events（结束事件）"></a>End Events（结束事件）</h2><h4 id="None-End-Event（空结束事件）"><a href="#None-End-Event（空结束事件）" class="headerlink" title="None End Event（空结束事件）"></a>None End Event（空结束事件）</h4><p>xml定义demo：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;endEvent id=&quot;end&quot; name=&quot;my end event&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="Error-End-Event（错误结束事件）"><a href="#Error-End-Event（错误结束事件）" class="headerlink" title="Error End Event（错误结束事件）"></a>Error End Event（错误结束事件）</h4><p>xml定义demo：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;endEvent id=&quot;myErrorEndEvent&quot;&gt;</span><br><span class="line">  &lt;errorEventDefinition errorRef=&quot;myError&quot; /&gt;</span><br><span class="line">&lt;/endEvent&gt;</span><br></pre></td></tr></table></figure>
+<p>具体的错误能够被定义在流程之外，如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;error id=&quot;myError&quot; errorCode=&quot;123&quot; /&gt;</span><br><span class="line">...</span><br><span class="line">&lt;process id=&quot;myProcess&quot;&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>errorCode会被用来匹配一个等待被捕捉的边界错误事件，如果匹配不到，那么errorCode会被等同于id来使用，比如下面的二个代码片段作用一样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;error id=&quot;myError&quot; errorCode=&quot;error123&quot; /&gt;</span><br><span class="line">...</span><br><span class="line">&lt;process id=&quot;myProcess&quot;&gt;</span><br><span class="line">...</span><br><span class="line">  &lt;endEvent id=&quot;myErrorEndEvent&quot;&gt;</span><br><span class="line">    &lt;errorEventDefinition errorRef=&quot;myError&quot; /&gt;</span><br><span class="line">  &lt;/endEvent&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;endEvent id=&quot;myErrorEndEvent&quot;&gt;</span><br><span class="line">  &lt;errorEventDefinition errorRef=&quot;error123&quot; /&gt;</span><br><span class="line">&lt;/endEvent&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="Terminate-End-Event（终止结束事件）"><a href="#Terminate-End-Event（终止结束事件）" class="headerlink" title="Terminate End Event（终止结束事件）"></a>Terminate End Event（终止结束事件）</h4><p>xml定义demo：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;endEvent id=&quot;myEndEvent &gt;</span><br><span class="line">  &lt;terminateEventDefinition flowable:terminateAll=&quot;true&quot;&gt;&lt;/terminateEventDefinition&gt;</span><br><span class="line">&lt;/endEvent&gt;</span><br></pre></td></tr></table></figure>
+<p>如果terminateAll为true，会总之所有整个流程以及相关子流程。</p>
+<h4 id="Cancel-End-Event（取消结束事件）"><a href="#Cancel-End-Event（取消结束事件）" class="headerlink" title="Cancel End Event（取消结束事件）"></a>Cancel End Event（取消结束事件）</h4><p>xm定义demo：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;endEvent id=&quot;myCancelEndEvent&quot;&gt;</span><br><span class="line">  &lt;cancelEventDefinition /&gt;</span><br><span class="line">&lt;/endEvent&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="Boundary-Events（边界事件）"><a href="#Boundary-Events（边界事件）" class="headerlink" title="Boundary Events（边界事件）"></a>Boundary Events（边界事件）</h2><p>边界事件的定义规则如下：</p>
+<ul>
+<li>在流程范围内是唯一的</li>
+<li>通过attachedToRef属性附加到一个引用的Activity，但是边界事件和它附着的活动是同一等级的，不是上下级关系？？<br>xml定义demo：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;boundaryEvent id=&quot;myBoundaryEvent&quot; attachedToRef=&quot;theActivity&quot;&gt;</span><br><span class="line">      &lt;XXXEventDefinition/&gt;</span><br><span class="line">&lt;/boundaryEvent&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="Timer-Boundary-Event（定时器边界事件）"><a href="#Timer-Boundary-Event（定时器边界事件）" class="headerlink" title="Timer Boundary Event（定时器边界事件）"></a>Timer Boundary Event（定时器边界事件）</h4><p>xml定义demo：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;boundaryEvent id=&quot;escalationTimer&quot; cancelActivity=&quot;true&quot; attachedToRef=&quot;firstLineSupport&quot;&gt;</span><br><span class="line">  &lt;timerEventDefinition&gt;</span><br><span class="line">    &lt;timeDuration&gt;PT4H&lt;/timeDuration&gt;</span><br><span class="line">  &lt;/timerEventDefinition&gt;</span><br><span class="line">&lt;/boundaryEvent&gt;</span><br></pre></td></tr></table></figure>
+<p>有个关键的不同点是：Non-interrupting 和 Interrupting，前者是不会打断流程原来的活动，后者反之，边界事件默认是会打断的，可以通过cancelActivity属性自定义</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;boundaryEvent id=&quot;escalationTimer&quot; cancelActivity=&quot;false&quot; attachedToRef=&quot;firstLineSupport&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<p>Note: boundary timer events are only fired when the async executor is enabled (asyncExecutorActivate needs to be set to true in the flowable.cfg.xml, since the async executor is disabled by default).<br>注意要开启异步执行器，flowable默认是关闭该配置的。<br>官方给出的demo（通过定时器边界事件来对Task额外的邮件通知做处理，同时不影响原来Task的继续执行）：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/g6DpP6.png"></p>
+<h4 id="Known-issue-with-boundary-events（边界事件已知问题）"><a href="#Known-issue-with-boundary-events（边界事件已知问题）" class="headerlink" title="Known issue with boundary events（边界事件已知问题）"></a>Known issue with boundary events（边界事件已知问题）</h4><p>无论是那种类型的边界事件，都不允许直接并发触发多个外部的序列流程，必须通过并行网关来处理：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/Sk9V5Z.png"></p>
+<h4 id="Error-Boundary-Event（错误边界事件）"><a href="#Error-Boundary-Event（错误边界事件）" class="headerlink" title="Error Boundary Event（错误边界事件）"></a>Error Boundary Event（错误边界事件）</h4><p>xml定义demo：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;boundaryEvent id=&quot;catchError&quot; attachedToRef=&quot;mySubProcess&quot;&gt;</span><br><span class="line">  &lt;errorEventDefinition errorRef=&quot;myError&quot;/&gt;</span><br><span class="line">&lt;/boundaryEvent&gt;</span><br><span class="line"></span><br><span class="line">&lt;error id=&quot;myError&quot; errorCode=&quot;123&quot; /&gt;</span><br><span class="line">...</span><br><span class="line">&lt;process id=&quot;myProcess&quot;&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果errorRef被省略，那么边界错误事件将捕获任何错误事件，如果errorRef指向的error存在，那么将只捕捉对应的error，如果error不存在，那么会将errorRef的值视为对应的error，就像错误结束事件一样。<br>官方给出的demo（）：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/NQoyiB.png"><br>还有官方根据上图demo做的测试类：<a target="_blank" rel="noopener" href="https://github.com/flowable/flowable-engine/blob/master/modules/flowable-engine/src/test/java/org/flowable/examples/bpmn/event/error/BoundaryErrorEventTest.java">BoundaryErrorEventTest.java</a></li>
+</ul>
+<h4 id="Signal-Boundary-Event（信号边界事件）"><a href="#Signal-Boundary-Event（信号边界事件）" class="headerlink" title="Signal Boundary Event（信号边界事件）"></a>Signal Boundary Event（信号边界事件）</h4><p>信号边界事件是不可消耗的，意思是，如果一个信号事件被抛出，那么捕捉这个信号事件的所有流程实例的活动都会被触发，因为信号事件的作用域是全局的，它能够在任何地方被抛出，在任何地方被捕捉。<br>xml定义demo：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;boundaryEvent id=&quot;boundary&quot; attachedToRef=&quot;task&quot; cancelActivity=&quot;true&quot;&gt;</span><br><span class="line">    &lt;signalEventDefinition signalRef=&quot;alertSignal&quot;/&gt;</span><br><span class="line">&lt;/boundaryEvent&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="Message-Boundary-Event（消息边界事件）"><a href="#Message-Boundary-Event（消息边界事件）" class="headerlink" title="Message Boundary Event（消息边界事件）"></a>Message Boundary Event（消息边界事件）</h4><p>xml定义demo：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;boundaryEvent id=&quot;boundary&quot; attachedToRef=&quot;task&quot; cancelActivity=&quot;true&quot;&gt;</span><br><span class="line">    &lt;messageEventDefinition messageRef=&quot;newCustomerMessage&quot;/&gt;</span><br><span class="line">&lt;/boundaryEvent&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="Cancel-Boundary-Event（取消边界事件）"><a href="#Cancel-Boundary-Event（取消边界事件）" class="headerlink" title="Cancel Boundary Event（取消边界事件）"></a>Cancel Boundary Event（取消边界事件）</h4><h4 id="compensation-boundary-event（补偿边界事件）"><a href="#compensation-boundary-event（补偿边界事件）" class="headerlink" title="compensation boundary event（补偿边界事件）"></a>compensation boundary event（补偿边界事件）</h4><p>补偿边界事件被定义做一个典型的边界事件，xml定义demo：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;boundaryEvent id=&quot;compensateBookHotelEvt&quot; attachedToRef=&quot;bookHotel&quot; &gt;</span><br><span class="line">    &lt;compensateEventDefinition /&gt;</span><br><span class="line">&lt;/boundaryEvent&gt;</span><br><span class="line"></span><br><span class="line">&lt;association associationDirection=&quot;One&quot; id=&quot;a1&quot;</span><br><span class="line">    sourceRef=&quot;compensateBookHotelEvt&quot; targetRef=&quot;undoBookHotel&quot; /&gt;</span><br><span class="line"></span><br><span class="line">&lt;serviceTask id=&quot;undoBookHotel&quot; isForCompensation=&quot;true&quot; flowable:class=&quot;...&quot; /</span><br></pre></td></tr></table></figure>
+<ul>
+<li>When compensation is triggered, the compensation handler associated with the compensation boundary event is invoked the same number of times the activity it is attached to completed successfully.（当补偿被触发，补偿边界事件绑定的补偿处理器被调用的次数和事件依附在流程活动的次数是一样的）</li>
+<li>If a compensation boundary event is attached to an activity with multiple instance characteristics, a compensation event subscription is created for each instance.（如果补偿边界事件被绑定在多个不同的流程实例，那么每个流程实例都将创建一个事件订阅）</li>
+<li>If a compensation boundary event is attached to an activity that is contained inside a loop, a compensation event subscription is created each time the activity is executed.（如果事件的绑定逻辑在内部的循环里，那么事件订阅的创建也将跟随着每个循环都创建一次）</li>
+<li>If the process instance ends, the subscriptions to compensation events are canceled.（流程实例结束，补偿事件的订阅也将取消）</li>
+</ul>
+<h2 id="Intermediate-Catching-Events（中间捕捉事件）"><a href="#Intermediate-Catching-Events（中间捕捉事件）" class="headerlink" title="Intermediate Catching Events（中间捕捉事件）"></a>Intermediate Catching Events（中间捕捉事件）</h2><p>所有中间捕捉事件的定义方式，同个流程范围内必须唯一：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;intermediateCatchEvent id=&quot;myIntermediateCatchEvent&quot; &gt;</span><br><span class="line">    &lt;XXXEventDefinition/&gt;</span><br><span class="line">&lt;/intermediateCatchEvent&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="Timer-Intermediate-Catching-Event（定时器中间捕捉事件）"><a href="#Timer-Intermediate-Catching-Event（定时器中间捕捉事件）" class="headerlink" title="Timer Intermediate Catching Event（定时器中间捕捉事件）"></a>Timer Intermediate Catching Event（定时器中间捕捉事件）</h4><h4 id="Signal-Intermediate-Catching-Event（信号中间捕捉事件）"><a href="#Signal-Intermediate-Catching-Event（信号中间捕捉事件）" class="headerlink" title="Signal Intermediate Catching Event（信号中间捕捉事件）"></a>Signal Intermediate Catching Event（信号中间捕捉事件）</h4><h4 id="Message-Intermediate-Catching-Event（消息中间捕捉事件）"><a href="#Message-Intermediate-Catching-Event（消息中间捕捉事件）" class="headerlink" title="Message Intermediate Catching Event（消息中间捕捉事件）"></a>Message Intermediate Catching Event（消息中间捕捉事件）</h4><h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="upgrading-flowable-engine-schema-from-6-4-1-1-to-6-5-0-1"><a href="#upgrading-flowable-engine-schema-from-6-4-1-1-to-6-5-0-1" class="headerlink" title="upgrading flowable engine schema from 6.4.1.1 to 6.5.0.1"></a>upgrading flowable engine schema from 6.4.1.1 to 6.5.0.1</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">performing upgrade on engine with resource org/flowable/db/upgrade/flowable.mysql.upgradestep.6411.to.6412.engine.sql</span><br></pre></td></tr></table></figure>
+<p>这个报错是因为默认配置的dbSchemaUpgrade是true，这个会在流程初始化的时候去对Flowable版本和数据库存的Flowable版本做比对并做一些初始化的处理，如果要快速启动忽略版本比对问题的话改成false，如果还有问题干脆改成”none”。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Flowable/" rel="tag"># Flowable</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/12/01/%20IDEA%20Usage/" rel="prev" title="IDEA Usage">
+      <i class="fa fa-chevron-left"></i> IDEA Usage
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/12/02/Vue%E7%B3%BB%E5%88%97%E4%B9%8B%E8%A1%A8%E4%B8%A5%E8%82%83Vue%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%E7%AC%94%E8%AE%B0/" rel="next" title="Vue系列之表严肃Vue视频教程笔记">
+      Vue系列之表严肃Vue视频教程笔记 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#flowable%E6%B6%89%E5%8F%8A%E5%88%B0%E7%9A%84%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text">flowable涉及到的表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B4%E5%90%88%E5%90%AF%E5%8A%A8flowable-modeler"><span class="nav-number">2.</span> <span class="nav-text">整合启动flowable-modeler</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Events%EF%BC%88%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">Events（事件）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Timer-Event-Definitions%EF%BC%88%E5%AE%9A%E6%97%B6%E5%99%A8%E4%BA%8B%E4%BB%B6%E5%AE%9A%E4%B9%89%EF%BC%89"><span class="nav-number">3.1.</span> <span class="nav-text">Timer Event Definitions（定时器事件定义）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Signal-Event-Definitions%EF%BC%88%E4%BF%A1%E5%8F%B7%E4%BA%8B%E4%BB%B6%E5%AE%9A%E4%B9%89%EF%BC%89"><span class="nav-number">3.2.</span> <span class="nav-text">Signal Event Definitions（信号事件定义）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Querying-for-Signal-Event-subscriptions%EF%BC%88%E4%BF%A1%E5%8F%B7%E4%BA%8B%E4%BB%B6%E8%AE%A2%E9%98%85%E6%9F%A5%E8%AF%A2%EF%BC%89"><span class="nav-number">3.2.0.1.</span> <span class="nav-text">Querying for Signal Event subscriptions（信号事件订阅查询）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Signal-event-scope%EF%BC%88%E4%BF%A1%E5%8F%B7%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F%EF%BC%89"><span class="nav-number">3.2.0.2.</span> <span class="nav-text">Signal event scope（信号事件的作用域）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Message-Event-Definitions%EF%BC%88%E6%B6%88%E6%81%AF%E4%BA%8B%E4%BB%B6%E5%AE%9A%E4%B9%89%EF%BC%89"><span class="nav-number">3.3.</span> <span class="nav-text">Message Event Definitions（消息事件定义）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Start-Events%EF%BC%88%E5%BC%80%E5%A7%8B%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-number">3.4.</span> <span class="nav-text">Start Events（开始事件）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Timer-Start-Event%EF%BC%88%E5%AE%9A%E6%97%B6%E5%99%A8%E5%BC%80%E5%A7%8B%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-number">3.4.0.1.</span> <span class="nav-text">Timer Start Event（定时器开始事件）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Message-Start-Event%EF%BC%88%E6%B6%88%E6%81%AF%E5%BC%80%E5%A7%8B%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-number">3.4.0.2.</span> <span class="nav-text">Message Start Event（消息开始事件）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Signal-Start-Event%EF%BC%88%E4%BF%A1%E5%8F%B7%E5%BC%80%E5%A7%8B%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-number">3.4.0.3.</span> <span class="nav-text">Signal Start Event（信号开始事件）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Error-Start-Even%EF%BC%88%E9%94%99%E8%AF%AF%E5%BC%80%E5%A7%8B%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-number">3.4.0.4.</span> <span class="nav-text">Error Start Even（错误开始事件）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#End-Events%EF%BC%88%E7%BB%93%E6%9D%9F%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-number">3.5.</span> <span class="nav-text">End Events（结束事件）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#None-End-Event%EF%BC%88%E7%A9%BA%E7%BB%93%E6%9D%9F%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-number">3.5.0.1.</span> <span class="nav-text">None End Event（空结束事件）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Error-End-Event%EF%BC%88%E9%94%99%E8%AF%AF%E7%BB%93%E6%9D%9F%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-number">3.5.0.2.</span> <span class="nav-text">Error End Event（错误结束事件）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Terminate-End-Event%EF%BC%88%E7%BB%88%E6%AD%A2%E7%BB%93%E6%9D%9F%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-number">3.5.0.3.</span> <span class="nav-text">Terminate End Event（终止结束事件）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cancel-End-Event%EF%BC%88%E5%8F%96%E6%B6%88%E7%BB%93%E6%9D%9F%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-number">3.5.0.4.</span> <span class="nav-text">Cancel End Event（取消结束事件）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Boundary-Events%EF%BC%88%E8%BE%B9%E7%95%8C%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-number">3.6.</span> <span class="nav-text">Boundary Events（边界事件）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Timer-Boundary-Event%EF%BC%88%E5%AE%9A%E6%97%B6%E5%99%A8%E8%BE%B9%E7%95%8C%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-number">3.6.0.1.</span> <span class="nav-text">Timer Boundary Event（定时器边界事件）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Known-issue-with-boundary-events%EF%BC%88%E8%BE%B9%E7%95%8C%E4%BA%8B%E4%BB%B6%E5%B7%B2%E7%9F%A5%E9%97%AE%E9%A2%98%EF%BC%89"><span class="nav-number">3.6.0.2.</span> <span class="nav-text">Known issue with boundary events（边界事件已知问题）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Error-Boundary-Event%EF%BC%88%E9%94%99%E8%AF%AF%E8%BE%B9%E7%95%8C%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-number">3.6.0.3.</span> <span class="nav-text">Error Boundary Event（错误边界事件）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Signal-Boundary-Event%EF%BC%88%E4%BF%A1%E5%8F%B7%E8%BE%B9%E7%95%8C%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-number">3.6.0.4.</span> <span class="nav-text">Signal Boundary Event（信号边界事件）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Message-Boundary-Event%EF%BC%88%E6%B6%88%E6%81%AF%E8%BE%B9%E7%95%8C%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-number">3.6.0.5.</span> <span class="nav-text">Message Boundary Event（消息边界事件）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cancel-Boundary-Event%EF%BC%88%E5%8F%96%E6%B6%88%E8%BE%B9%E7%95%8C%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-number">3.6.0.6.</span> <span class="nav-text">Cancel Boundary Event（取消边界事件）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#compensation-boundary-event%EF%BC%88%E8%A1%A5%E5%81%BF%E8%BE%B9%E7%95%8C%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-number">3.6.0.7.</span> <span class="nav-text">compensation boundary event（补偿边界事件）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Intermediate-Catching-Events%EF%BC%88%E4%B8%AD%E9%97%B4%E6%8D%95%E6%8D%89%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-number">3.7.</span> <span class="nav-text">Intermediate Catching Events（中间捕捉事件）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Timer-Intermediate-Catching-Event%EF%BC%88%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E9%97%B4%E6%8D%95%E6%8D%89%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-number">3.7.0.1.</span> <span class="nav-text">Timer Intermediate Catching Event（定时器中间捕捉事件）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Signal-Intermediate-Catching-Event%EF%BC%88%E4%BF%A1%E5%8F%B7%E4%B8%AD%E9%97%B4%E6%8D%95%E6%8D%89%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-number">3.7.0.2.</span> <span class="nav-text">Signal Intermediate Catching Event（信号中间捕捉事件）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Message-Intermediate-Catching-Event%EF%BC%88%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E6%8D%95%E6%8D%89%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-number">3.7.0.3.</span> <span class="nav-text">Message Intermediate Catching Event（消息中间捕捉事件）</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Problem-Solution"><span class="nav-number">4.</span> <span class="nav-text">Problem Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#upgrading-flowable-engine-schema-from-6-4-1-1-to-6-5-0-1"><span class="nav-number">4.1.</span> <span class="nav-text">upgrading flowable engine schema from 6.4.1.1 to 6.5.0.1</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Fengorz</p>
+  <div class="site-description" itemprop="description">Live only for yourself.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fengorz</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.fengorz.me","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="TodoItem深入理解IOC和DI之间的关系Basic KnowledgeService层的代码相互调用，可能会导致依赖死循环可以在二个需要相互依赖的Service之间抽出一层OperateService，通过OperateService解耦。 @Transactional引发的思考加入有这样的场景：AService.doA()方法调用到BService.doB()方法，而且二者都是注解了事务，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring系列之核心Feature">
+<meta property="og:url" content="https://www.fengorz.me/2019/10/15/Spring%E7%B3%BB%E5%88%97%E4%B9%8B%E6%A0%B8%E5%BF%83Feature/index.html">
+<meta property="og:site_name" content="Feng&#39;s Blog">
+<meta property="og:description" content="TodoItem深入理解IOC和DI之间的关系Basic KnowledgeService层的代码相互调用，可能会导致依赖死循环可以在二个需要相互依赖的Service之间抽出一层OperateService，通过OperateService解耦。 @Transactional引发的思考加入有这样的场景：AService.doA()方法调用到BService.doB()方法，而且二者都是注解了事务，">
+<meta property="og:locale">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/jvGK5D.png">
+<meta property="article:published_time" content="2019-10-15T13:31:20.000Z">
+<meta property="article:modified_time" content="2020-11-19T01:53:36.900Z">
+<meta property="article:author" content="Fengorz">
+<meta property="article:tag" content="Spring">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/jvGK5D.png">
+
+<link rel="canonical" href="https://www.fengorz.me/2019/10/15/Spring%E7%B3%BB%E5%88%97%E4%B9%8B%E6%A0%B8%E5%BF%83Feature/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>Spring系列之核心Feature | Feng's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Feng's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">kiwidict.com</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://www.fengorz.me/2019/10/15/Spring%E7%B3%BB%E5%88%97%E4%B9%8B%E6%A0%B8%E5%BF%83Feature/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="Live only for yourself.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Spring系列之核心Feature
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-15 21:31:20 21:31:20" itemprop="dateCreated datePublished" datetime="2019-10-15T21:31:20+08:00">2019-10-15 21:31:20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-19 09:53:36 09:53:36" itemprop="dateModified" datetime="2020-11-19T09:53:36+08:00">2020-11-19 09:53:36</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="深入理解IOC和DI之间的关系"><a href="#深入理解IOC和DI之间的关系" class="headerlink" title="深入理解IOC和DI之间的关系"></a>深入理解IOC和DI之间的关系</h2><h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="Service层的代码相互调用，可能会导致依赖死循环"><a href="#Service层的代码相互调用，可能会导致依赖死循环" class="headerlink" title="Service层的代码相互调用，可能会导致依赖死循环"></a>Service层的代码相互调用，可能会导致依赖死循环</h2><p>可以在二个需要相互依赖的Service之间抽出一层OperateService，通过OperateService解耦。</p>
+<h2 id="Transactional引发的思考"><a href="#Transactional引发的思考" class="headerlink" title="@Transactional引发的思考"></a>@Transactional引发的思考</h2><p>加入有这样的场景：<br>AService.doA()方法调用到BService.doB()方法，而且二者都是注解了事务，抛出异常时会回滚。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@Transactional(rollbackFor = Exception.class)</span><br></pre></td></tr></table></figure>
+<p>加入在doA()中调用了doB()之后才出现的异常，这个时候doB()的事务会不会回滚？<br>根据我自己的测试，doB()中正常执行完毕，这个时候事务依然还不会被提交，而doA()在doB()执行完了之后如果抛出异常，那么doA()和doB都会回滚。<br><em><strong>那么问题来了，如果有这样的业务场景，需要在doB执行之后必须提交事务，即使在其执行之后doA()后面的逻辑抛出异常，doB的事务也要提交到数据库的时候，要怎么处理?</strong></em><br>可以通过@Trancational注解去处理，注解在doB上：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@Transactional(rollbackFor = Exception.class, noRollbackFor = ServiceDoAException.class)</span><br></pre></td></tr></table></figure>
+
+<h4 id="Transactional什么时候加，什么时候由Spring自动加"><a href="#Transactional什么时候加，什么时候由Spring自动加" class="headerlink" title="@Transactional什么时候加，什么时候由Spring自动加"></a>@Transactional什么时候加，什么时候由Spring自动加</h4><h2 id="Primary"><a href="#Primary" class="headerlink" title="@Primary"></a>@Primary</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Indicates that a bean should be given preference when multiple candidates are qualified to autowire a single-valued dependency. If exactly one &#x27;primary&#x27; bean exists among the candidates, it will be the autowired value.</span><br><span class="line">This annotation is semantically equivalent to the &lt;bean&gt; element&#x27;s primary attribute in Spring XML.</span><br><span class="line">May be used on any class directly or indirectly annotated with @Component or on methods annotated with @Bean.</span><br></pre></td></tr></table></figure>
+<p>比如接口有多个候选依赖，指定一个具体的依赖实现用于自动注入。</p>
+<h2 id="Order"><a href="#Order" class="headerlink" title="@Order"></a>@Order</h2><p>自定义不指定其顺序的优先权值小一些，很多时候配置可能没有覆盖掉Spring默认的配置类。</p>
+<h2 id="ControllerAdvice-vs-RestControllerAdvice"><a href="#ControllerAdvice-vs-RestControllerAdvice" class="headerlink" title="@ControllerAdvice vs @RestControllerAdvice"></a>@ControllerAdvice vs @RestControllerAdvice</h2><p>@ControllerAdvice can be used even for REST web services as well, but you need to additionally use @ResponseBody.</p>
+<h2 id="Spring封装好的便捷线程池ThreadPoolTaskExecutor"><a href="#Spring封装好的便捷线程池ThreadPoolTaskExecutor" class="headerlink" title="Spring封装好的便捷线程池ThreadPoolTaskExecutor"></a>Spring封装好的便捷线程池ThreadPoolTaskExecutor</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/achengmu/p/8137276.html">https://www.cnblogs.com/achengmu/p/8137276.html</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/lipc_/article/details/52786377">https://blog.csdn.net/lipc_&#x2F;article&#x2F;details&#x2F;52786377</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">corePoolSize： 线程池维护线程的最少数量 </span><br><span class="line">keepAliveSeconds  线程池维护线程所允许的空闲时间（TimeUnit unit: 时间单位,现有纳秒,微秒,毫秒,秒枚举值. ）</span><br><span class="line">maxPoolSize   线程池维护线程的最大数量 </span><br><span class="line">queueCapacity 线程池所使用的缓冲队列 </span><br></pre></td></tr></table></figure>
+<p>当一个任务通过execute(Runnable)方法欲添加到线程池时，线程池的处理逻辑如下：</p>
+<ul>
+<li>如果此时线程池中的数量小于corePoolSize，即使线程池中的线程都处于空闲状态，也要创建新的线程来处理被添加的任务。</li>
+<li>如果此时线程池中的数量等于corePoolSize，但是缓冲队列workQueue未满，那么任务被放入缓冲队列。 </li>
+<li>如果此时线程池中的数量大于corePoolSize，缓冲队列workQueue满，并且线程池中的数量小于maximumPoolSize，建新的线程来处理被添加的任务。</li>
+<li>如果此时线程池中的数量大于corePoolSize，缓冲队列workQueue满，并且线程池中的数量等于maximumPoolSize，那么通过 handler所指定的策略来处理此任务。也就是：处理任务的优先级为：核心线程corePoolSize、任务队列workQueue、最大线程 maximumPoolSize，如果三者都满了，使用handler处理被拒绝的任务。<br>线程池自我维护的功能：</li>
+<li>当线程池中的线程数量大于corePoolSize时，如果某线程空闲时间超过keepAliveTime，线程将被终止。这样，线程池可以动态的调整池中的线程数。</li>
+</ul>
+<h3 id="RejectedExecutionHandler"><a href="#RejectedExecutionHandler" class="headerlink" title="RejectedExecutionHandler"></a>RejectedExecutionHandler</h3><p>RejectedExecutionHandler handler: 用来拒绝一个任务的执行，有两种情况会触发拒绝处理器：</p>
+<ul>
+<li>在execute方法中若addIfUnderMaximumPoolSize(command)为false，即线程池已经饱和。</li>
+<li>在execute方法中, 发现runState!&#x3D;RUNNING || poolSize &#x3D;&#x3D; 0,即已经shutdown,就调用ensureQueuedTaskHandled(Runnable command)，在该方法中有可能调用reject。</li>
+</ul>
+<h2 id="Async注解其背后的原理"><a href="#Async注解其背后的原理" class="headerlink" title="@Async注解其背后的原理"></a>@Async注解其背后的原理</h2><p>Spring默认的线程执行器defaultExecutor为什么要用SingletonSupplier封装起来？<br>ConcurrentHashMap</p>
+<p>Spring线程池debug跟到最底层如下，用到的也是Java的ExecutorService。<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/jvGK5D.png" alt="image"></p>
+<h2 id="ResourceLoader和ResourceLoaderAware"><a href="#ResourceLoader和ResourceLoaderAware" class="headerlink" title="ResourceLoader和ResourceLoaderAware"></a>ResourceLoader和ResourceLoaderAware</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/achengmu/p/8430961.html">参考文章</a></p>
+<h2 id="为什么Spring5注入推荐用final去声明？"><a href="#为什么Spring5注入推荐用final去声明？" class="headerlink" title="为什么Spring5注入推荐用final去声明？"></a>为什么Spring5注入推荐用final去声明？</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/joemsu/p/7688307.html">浅谈spring为什么推荐使用构造器注入</a></p>
+<h4 id="总结来说有这几个优点"><a href="#总结来说有这几个优点" class="headerlink" title="总结来说有这几个优点"></a>总结来说有这几个优点</h4><ol>
+<li>保证依赖不可变（final关键字）</li>
+<li>保证依赖不为空（省去了我们对其检查）</li>
+<li>保证返回客户端（调用）的代码的时候是完全初始化的状态</li>
+<li>避免了循环依赖</li>
+<li>提升了代码的可复用性<br><a target="_blank" rel="noopener" href="https://spring.io/blog/2007/07/11/setter-injection-versus-constructor-injection-and-the-use-of-required/">Setter injection versus constructor injection and the use of @Required</a></li>
+</ol>
+<h2 id="Spring中propagation的7种事务配置"><a href="#Spring中propagation的7种事务配置" class="headerlink" title="Spring中propagation的7种事务配置"></a>Spring中propagation的7种事务配置</h2><ul>
+<li><p>REQUIRED：支持当前事务，如果当前没有事务，就新建一个事务。这是最常见的选择。 </p>
+</li>
+<li><p>SUPPORTS：支持当前事务，如果当前没有事务，就以非事务方式执行。 </p>
+</li>
+<li><p>MANDATORY：支持当前事务，如果当前没有事务，就抛出异常。 </p>
+</li>
+<li><p>REQUIRES_NEW：新建事务，如果当前存在事务，把当前事务挂起。 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">标志REQUIRES_NEW会新开启事务，外层事务不会影响内部事务的提交/回滚</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>- NOT_SUPPORTED：以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。 </p>
+<p>- NEVER：以非事务方式执行，如果当前存在事务，则抛出异常。 </p>
+<ul>
+<li>NESTED：支持当前事务，如果当前事务存在，则执行一个嵌套事务，如果当前没有事务，就新建一个事务。<br>————————————————<br>版权声明：本文为CSDN博主「sayok_why」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/sayoko06/article/details/79164858">https://blog.csdn.net/sayoko06/article/details/79164858</a></li>
+</ul>
+<h2 id="org-springframework-core-io-Resource"><a href="#org-springframework-core-io-Resource" class="headerlink" title="org.springframework.core.io.Resource"></a>org.springframework.core.io.Resource</h2><h2 id="Spring-AOP-vs-Aspectj"><a href="#Spring-AOP-vs-Aspectj" class="headerlink" title="Spring AOP vs Aspectj"></a>Spring AOP vs Aspectj</h2><p><a target="_blank" rel="noopener" href="https://www.baeldung.com/spring-aop-vs-aspectj">https://www.baeldung.com/spring-aop-vs-aspectj</a></p>
+<h2 id="Implementing-a-Custom-Spring-AOP-Annotation"><a href="#Implementing-a-Custom-Spring-AOP-Annotation" class="headerlink" title="Implementing a Custom Spring AOP Annotation"></a>Implementing a Custom Spring AOP Annotation</h2><p>Aspect Oriented Programming（AOP）：面向切面编程。</p>
+<ul>
+<li>连接点（JoinPoint） ：程序执行的某个特定位置，如某个方法调用前，调用后，方法抛出异常后，这些代码中的特定点称为连接点。简单来说，就是在哪加入你的逻辑增强，连接点表示具体要拦截的方法，切点是定义一个范围，而连接点是具体到某个方法；</li>
+<li>切点（PointCut）：每个程序的连接点有多个，如何定位到某个感兴趣的连接点，就需要通过切点来定位，切点用于来限定Spring-AOP启动的范围，通常我们采用表达式的方式来设置范围；</li>
+<li>增强（Advice） 增强是织入到目标类连接点上的一段程序代码；</li>
+<li>前置通知（before）：在执行业务代码前做些操作；</li>
+<li>后置通知（after）：在执行业务代码后做些操作，无论是否发生异常，它都会执行，比如关闭连接对象；</li>
+<li>异常通知（afterThrowing）：在执行业务代码后出现异常，需要做的操作，比如回滚事务；</li>
+<li>返回通知（afterReturning）：在执行业务代码后无异常，会执行的操作；</li>
+<li>环绕通知（around）：方法调用前后执行；</li>
+<li>目标对象（Target）：需要被加强的业务对象；</li>
+<li>织入（Weaving）：织入就是将增强添加到对目标类具体连接点上的过程，织入是一个形象的说法，具体来说，就是生成代理对象并将切面内容融入到业务流程的过程；</li>
+<li>代理类（Proxy）：一个类被AOP织入增强后，就产生了一个代理类；</li>
+<li>切面（Aspect）：切面由切点和增强组成，它既包括了横切逻辑的定义，也包括了连接点的定义，SpringAOP就是将切面所定义的横切逻辑织入到切面所制定的连接点中。</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.baeldung.com/spring-aop-annotation">https://www.baeldung.com/spring-aop-annotation</a></p>
+<h2 id="Spring-AOP系列文章"><a href="#Spring-AOP系列文章" class="headerlink" title="Spring AOP系列文章"></a>Spring AOP系列文章</h2><p><a target="_blank" rel="noopener" href="https://www.baeldung.com/spring-aop">https://www.baeldung.com/spring-aop</a></p>
+<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="Connection-will-not-be-managed-by-Spring"><a href="#Connection-will-not-be-managed-by-Spring" class="headerlink" title="Connection will not be managed by Spring"></a>Connection will not be managed by Spring</h2><p>原因是service 没有加@transactional 注解，未加注解的情况下，出现异常的时候spring将不会回滚事物 </p>
+<h2 id="Null-return-value-from-advice-does-not-match-primitive-return-type-for"><a href="#Null-return-value-from-advice-does-not-match-primitive-return-type-for" class="headerlink" title="Null return value from advice does not match primitive return type for"></a>Null return value from advice does not match primitive return type for</h2><p>如果是使用了Spring的异步处理注解@Async的方法，不要有返回，直接void</p>
+<h2 id="开启ajc编译的事务问题"><a href="#开启ajc编译的事务问题" class="headerlink" title="开启ajc编译的事务问题"></a>开启ajc编译的事务问题</h2>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Spring/" rel="tag"># Spring</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/10/15/Maven%E6%B1%87%E6%80%BB/" rel="prev" title="Maven汇总">
+      <i class="fa fa-chevron-left"></i> Maven汇总
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/10/15/Spring%E7%B3%BB%E5%88%97%E4%B9%8BSpringBoot/" rel="next" title="Spring系列之SpringBoot">
+      Spring系列之SpringBoot <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TodoItem"><span class="nav-number">1.</span> <span class="nav-text">TodoItem</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3IOC%E5%92%8CDI%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">1.1.</span> <span class="nav-text">深入理解IOC和DI之间的关系</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Knowledge"><span class="nav-number">2.</span> <span class="nav-text">Basic Knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Service%E5%B1%82%E7%9A%84%E4%BB%A3%E7%A0%81%E7%9B%B8%E4%BA%92%E8%B0%83%E7%94%A8%EF%BC%8C%E5%8F%AF%E8%83%BD%E4%BC%9A%E5%AF%BC%E8%87%B4%E4%BE%9D%E8%B5%96%E6%AD%BB%E5%BE%AA%E7%8E%AF"><span class="nav-number">2.1.</span> <span class="nav-text">Service层的代码相互调用，可能会导致依赖死循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transactional%E5%BC%95%E5%8F%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">2.2.</span> <span class="nav-text">@Transactional引发的思考</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Transactional%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8A%A0%EF%BC%8C%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E7%94%B1Spring%E8%87%AA%E5%8A%A8%E5%8A%A0"><span class="nav-number">2.2.0.1.</span> <span class="nav-text">@Transactional什么时候加，什么时候由Spring自动加</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Primary"><span class="nav-number">2.3.</span> <span class="nav-text">@Primary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Order"><span class="nav-number">2.4.</span> <span class="nav-text">@Order</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ControllerAdvice-vs-RestControllerAdvice"><span class="nav-number">2.5.</span> <span class="nav-text">@ControllerAdvice vs @RestControllerAdvice</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring%E5%B0%81%E8%A3%85%E5%A5%BD%E7%9A%84%E4%BE%BF%E6%8D%B7%E7%BA%BF%E7%A8%8B%E6%B1%A0ThreadPoolTaskExecutor"><span class="nav-number">2.6.</span> <span class="nav-text">Spring封装好的便捷线程池ThreadPoolTaskExecutor</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RejectedExecutionHandler"><span class="nav-number">2.6.1.</span> <span class="nav-text">RejectedExecutionHandler</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Async%E6%B3%A8%E8%A7%A3%E5%85%B6%E8%83%8C%E5%90%8E%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">2.7.</span> <span class="nav-text">@Async注解其背后的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ResourceLoader%E5%92%8CResourceLoaderAware"><span class="nav-number">2.8.</span> <span class="nav-text">ResourceLoader和ResourceLoaderAware</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88Spring5%E6%B3%A8%E5%85%A5%E6%8E%A8%E8%8D%90%E7%94%A8final%E5%8E%BB%E5%A3%B0%E6%98%8E%EF%BC%9F"><span class="nav-number">2.9.</span> <span class="nav-text">为什么Spring5注入推荐用final去声明？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E6%9D%A5%E8%AF%B4%E6%9C%89%E8%BF%99%E5%87%A0%E4%B8%AA%E4%BC%98%E7%82%B9"><span class="nav-number">2.9.0.1.</span> <span class="nav-text">总结来说有这几个优点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring%E4%B8%ADpropagation%E7%9A%847%E7%A7%8D%E4%BA%8B%E5%8A%A1%E9%85%8D%E7%BD%AE"><span class="nav-number">2.10.</span> <span class="nav-text">Spring中propagation的7种事务配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#org-springframework-core-io-Resource"><span class="nav-number">2.11.</span> <span class="nav-text">org.springframework.core.io.Resource</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-AOP-vs-Aspectj"><span class="nav-number">2.12.</span> <span class="nav-text">Spring AOP vs Aspectj</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Implementing-a-Custom-Spring-AOP-Annotation"><span class="nav-number">2.13.</span> <span class="nav-text">Implementing a Custom Spring AOP Annotation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-AOP%E7%B3%BB%E5%88%97%E6%96%87%E7%AB%A0"><span class="nav-number">2.14.</span> <span class="nav-text">Spring AOP系列文章</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Problem-Solution"><span class="nav-number">3.</span> <span class="nav-text">Problem Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Connection-will-not-be-managed-by-Spring"><span class="nav-number">3.1.</span> <span class="nav-text">Connection will not be managed by Spring</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Null-return-value-from-advice-does-not-match-primitive-return-type-for"><span class="nav-number">3.2.</span> <span class="nav-text">Null return value from advice does not match primitive return type for</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%90%AFajc%E7%BC%96%E8%AF%91%E7%9A%84%E4%BA%8B%E5%8A%A1%E9%97%AE%E9%A2%98"><span class="nav-number">3.3.</span> <span class="nav-text">开启ajc编译的事务问题</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Fengorz</p>
+  <div class="site-description" itemprop="description">Live only for yourself.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fengorz</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

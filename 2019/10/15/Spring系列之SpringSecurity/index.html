@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.fengorz.me","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="TodoItemOAuth2标准研究 todoAuthorizationServerConfigurerAdapter vsWebSecurityConfigurerAdapter todo判断是否超时的逻辑 todoCORS todoJSR-250 todoBasic Knowledge很好的基础教程Security with Spring token值在哪里生成？怎么生成？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring系列之SpringSecurity">
+<meta property="og:url" content="https://www.fengorz.me/2019/10/15/Spring%E7%B3%BB%E5%88%97%E4%B9%8BSpringSecurity/index.html">
+<meta property="og:site_name" content="Feng&#39;s Blog">
+<meta property="og:description" content="TodoItemOAuth2标准研究 todoAuthorizationServerConfigurerAdapter vsWebSecurityConfigurerAdapter todo判断是否超时的逻辑 todoCORS todoJSR-250 todoBasic Knowledge很好的基础教程Security with Spring token值在哪里生成？怎么生成？">
+<meta property="og:locale">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/wH4Lai.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/cTim2v.png">
+<meta property="article:published_time" content="2019-10-15T13:23:15.000Z">
+<meta property="article:modified_time" content="2021-11-20T01:50:59.710Z">
+<meta property="article:author" content="Fengorz">
+<meta property="article:tag" content="Spring">
+<meta property="article:tag" content="SpringSecurity">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/wH4Lai.png">
+
+<link rel="canonical" href="https://www.fengorz.me/2019/10/15/Spring%E7%B3%BB%E5%88%97%E4%B9%8BSpringSecurity/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>Spring系列之SpringSecurity | Feng's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Feng's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">kiwidict.com</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://www.fengorz.me/2019/10/15/Spring%E7%B3%BB%E5%88%97%E4%B9%8BSpringSecurity/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="Live only for yourself.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Spring系列之SpringSecurity
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-15 21:23:15 21:23:15" itemprop="dateCreated datePublished" datetime="2019-10-15T21:23:15+08:00">2019-10-15 21:23:15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-11-20 09:50:59 09:50:59" itemprop="dateModified" datetime="2021-11-20T09:50:59+08:00">2021-11-20 09:50:59</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/SpringSecurity/" itemprop="url" rel="index"><span itemprop="name">SpringSecurity</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="OAuth2标准研究-todo"><a href="#OAuth2标准研究-todo" class="headerlink" title="OAuth2标准研究 todo"></a>OAuth2标准研究 todo</h2><h2 id="AuthorizationServerConfigurerAdapter-vsWebSecurityConfigurerAdapter-todo"><a href="#AuthorizationServerConfigurerAdapter-vsWebSecurityConfigurerAdapter-todo" class="headerlink" title="AuthorizationServerConfigurerAdapter vsWebSecurityConfigurerAdapter todo"></a>AuthorizationServerConfigurerAdapter vsWebSecurityConfigurerAdapter todo</h2><h2 id="判断是否超时的逻辑-todo"><a href="#判断是否超时的逻辑-todo" class="headerlink" title="判断是否超时的逻辑 todo"></a>判断是否超时的逻辑 todo</h2><h2 id="CORS-todo"><a href="#CORS-todo" class="headerlink" title="CORS todo"></a>CORS todo</h2><h2 id="JSR-250-todo"><a href="#JSR-250-todo" class="headerlink" title="JSR-250 todo"></a>JSR-250 todo</h2><h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="很好的基础教程"><a href="#很好的基础教程" class="headerlink" title="很好的基础教程"></a>很好的基础教程</h2><p><a target="_blank" rel="noopener" href="https://www.baeldung.com/security-spring">Security with Spring</a></p>
+<h2 id="token值在哪里生成？怎么生成？"><a href="#token值在哪里生成？怎么生成？" class="headerlink" title="token值在哪里生成？怎么生成？"></a>token值在哪里生成？怎么生成？</h2><p>默认鉴权生成token的url是”&#x2F;oauth&#x2F;token”，在TokenEndpoint里面生成。<br>SpringSecurity默认的token生成url是：<a href="http://hostname:port/oauth/token">http://hostname:port/oauth/token</a><br>但是要进入到真正的TokenEndpoint里面还需要经过一道道关卡：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">0 = &#123;WebAsyncManagerIntegrationFilter@13114&#125; </span><br><span class="line">1 = &#123;SecurityContextPersistenceFilter@13113&#125; </span><br><span class="line">2 = &#123;HeaderWriterFilter@13112&#125; </span><br><span class="line">3 = &#123;LogoutFilter@13111&#125; </span><br><span class="line">4 = &#123;ClientCredentialsTokenEndpointFilter@13110&#125; </span><br><span class="line">5 = &#123;BasicAuthenticationFilter@13108&#125; </span><br><span class="line">6 = &#123;RequestCacheAwareFilter@13248&#125; </span><br><span class="line">7 = &#123;SecurityContextHolderAwareRequestFilter@13247&#125; </span><br><span class="line">8 = &#123;AnonymousAuthenticationFilter@13246&#125; </span><br><span class="line">9 = &#123;SessionManagementFilter@13245&#125; </span><br><span class="line">10 = &#123;ExceptionTranslationFilter@13244&#125; </span><br><span class="line">11 = &#123;FilterSecurityInterceptor@13243&#125; </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">0 = &#123;OrderedGatewayFilter@13342&#125; &quot;OrderedGatewayFilter&#123;delegate=GatewayFilterAdapter&#123;delegate=org.springframework.cloud.gateway.filter.RemoveCachedBodyFilter@25a2c4dc&#125;, order=-2147483648&#125;&quot;</span><br><span class="line">1 = &#123;OrderedGatewayFilter@13343&#125; &quot;OrderedGatewayFilter&#123;delegate=GatewayFilterAdapter&#123;delegate=org.springframework.cloud.gateway.filter.AdaptCachedBodyGlobalFilter@62dfe152&#125;, order=-2147482648&#125;&quot;</span><br><span class="line">2 = &#123;OrderedGatewayFilter@13344&#125; &quot;OrderedGatewayFilter&#123;delegate=GatewayFilterAdapter&#123;delegate=me.fengorz.kiwi.gateway.filter.GenericRequestGlobalFilter@430f0c63&#125;, order=-1000&#125;&quot;</span><br><span class="line">3 = &#123;OrderedGatewayFilter@13345&#125; &quot;OrderedGatewayFilter&#123;delegate=GatewayFilterAdapter&#123;delegate=org.springframework.cloud.gateway.filter.NettyWriteResponseFilter@1e75af65&#125;, order=-1&#125;&quot;</span><br><span class="line">4 = &#123;OrderedGatewayFilter@13346&#125; &quot;OrderedGatewayFilter&#123;delegate=GatewayFilterAdapter&#123;delegate=org.springframework.cloud.gateway.filter.ForwardPathFilter@2bee1c13&#125;, order=0&#125;&quot;</span><br><span class="line">5 = &#123;OrderedGatewayFilter@13347&#125; &quot;OrderedGatewayFilter&#123;delegate=GatewayFilterAdapter&#123;delegate=org.springframework.cloud.gateway.filter.GatewayMetricsFilter@71098fb3&#125;, order=0&#125;&quot;</span><br><span class="line">6 = &#123;OrderedGatewayFilter@13936&#125; &quot;OrderedGatewayFilter&#123;delegate=me.fengorz.kiwi.gateway.filter.ValidateCodeGatewayFilter$$Lambda$854/120561697@1f06c463, order=1&#125;&quot;</span><br><span class="line">7 = &#123;OrderedGatewayFilter@14156&#125; &quot;OrderedGatewayFilter&#123;delegate=me.fengorz.kiwi.gateway.filter.PasswordDecoderGatewayFilter$$Lambda$855/473170143@13f576a8, order=2&#125;&quot;</span><br><span class="line">8 = &#123;OrderedGatewayFilter@13349&#125; &quot;OrderedGatewayFilter&#123;delegate=GatewayFilterAdapter&#123;delegate=org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter@29d81c22&#125;, order=10000&#125;&quot;</span><br><span class="line">9 = &#123;OrderedGatewayFilter@13350&#125; &quot;OrderedGatewayFilter&#123;delegate=GatewayFilterAdapter&#123;delegate=org.springframework.cloud.gateway.filter.LoadBalancerClientFilter@25a52a60&#125;, order=10100&#125;&quot;</span><br><span class="line">10 = &#123;OrderedGatewayFilter@13351&#125; &quot;OrderedGatewayFilter&#123;delegate=GatewayFilterAdapter&#123;delegate=org.springframework.cloud.gateway.filter.WebsocketRoutingFilter@1859b996&#125;, order=2147483646&#125;&quot;</span><br><span class="line">11 = &#123;OrderedGatewayFilter@13352&#125; &quot;OrderedGatewayFilter&#123;delegate=GatewayFilterAdapter&#123;delegate=org.springframework.cloud.gateway.filter.NettyRoutingFilter@15549dd7&#125;, order=2147483647&#125;&quot;</span><br><span class="line">12 = &#123;OrderedGatewayFilter@13353&#125; &quot;OrderedGatewayFilter&#123;delegate=GatewayFilterAdapter&#123;delegate=org.springframework.cloud.gateway.filter.ForwardRoutingFilter@18d396eb&#125;, order=2147483647&#125;&quot;</span><br></pre></td></tr></table></figure>
+
+<p>最终默认情况下是通过DefaultTokenServices里面的createAccessToken方法调用到RedisTokenStore的storeAccessToken方法对token一系列的详细信息存储到redis里面。</p>
+<h2 id="Spring-Security默认的过滤器栈"><a href="#Spring-Security默认的过滤器栈" class="headerlink" title="Spring Security默认的过滤器栈"></a>Spring Security默认的过滤器栈</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">0 = &#123;WebAsyncManagerIntegrationFilter@12983&#125; </span><br><span class="line">1 = &#123;SecurityContextPersistenceFilter@12982&#125; </span><br><span class="line">2 = &#123;HeaderWriterFilter@12981&#125; </span><br><span class="line">3 = &#123;LogoutFilter@12980&#125; </span><br><span class="line">4 = &#123;ClientCredentialsTokenEndpointFilter@12979&#125; </span><br><span class="line">5 = &#123;BasicAuthenticationFilter@12977&#125; </span><br><span class="line">6 = &#123;RequestCacheAwareFilter@13387&#125; </span><br><span class="line">7 = &#123;SecurityContextHolderAwareRequestFilter@13386&#125; </span><br><span class="line">8 = &#123;AnonymousAuthenticationFilter@13385&#125; </span><br><span class="line">9 = &#123;SessionManagementFilter@13384&#125; </span><br><span class="line">10 = &#123;ExceptionTranslationFilter@13383&#125; </span><br><span class="line">11 = &#123;FilterSecurityInterceptor@13382&#125; </span><br></pre></td></tr></table></figure>
+
+<h2 id="AuthorizationServerSecurityConfigurer"><a href="#AuthorizationServerSecurityConfigurer" class="headerlink" title="AuthorizationServerSecurityConfigurer"></a>AuthorizationServerSecurityConfigurer</h2><p>allowFormAuthenticationForClients()：<br>在BasicAuthenticationFilter之前添加clientCredentialsTokenEndpointFilter。</p>
+<h1 id="Problem-Solution"><a href="#Problem-Solution" class="headerlink" title="Problem Solution"></a>Problem Solution</h1><h2 id="maven依赖出现了不同版本的TokenEndpoint"><a href="#maven依赖出现了不同版本的TokenEndpoint" class="headerlink" title="maven依赖出现了不同版本的TokenEndpoint"></a>maven依赖出现了不同版本的TokenEndpoint</h2><p>原因是Spring自己的依赖冲突了，在父工程根目录的dependencyManagement里面添加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--稳定版本，替代spring security bom内置--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.security.oauth&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-security-oauth2&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;$&#123;security.oauth.version&#125;&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="权限校验的配置不能冲突"><a href="#权限校验的配置不能冲突" class="headerlink" title="权限校验的配置不能冲突"></a>权限校验的配置不能冲突</h2><p>比如我在某个配置类配置了：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/wH4Lai.png"><br>这样会导致全局的权限放开失效：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 直接放行URL</span><br><span class="line">ignore:</span><br><span class="line">  urls:</span><br><span class="line">    - /EnhancerTokenEndpoint/**</span><br></pre></td></tr></table></figure>
+<p>全局的安全配置一般放在common-security模块：<br><img src="https://cdn.jsdelivr.net/gh/coding-by-feng/oss@master/uPic/cTim2v.png"></p>
+<h2 id="Spring-Security默认不会打印debug日志"><a href="#Spring-Security默认不会打印debug日志" class="headerlink" title="Spring Security默认不会打印debug日志"></a>Spring Security默认不会打印debug日志</h2><p>可通过配置类打开：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public void configure(WebSecurity web) throws Exception &#123;</span><br><span class="line">    web.debug(true);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是这种配置类打印的error日志不全，很多时候一些深层次的报错是不会打印出来的，因为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">catch (AuthenticationException failed) &#123;</span><br><span class="line">	SecurityContextHolder.clearContext();</span><br><span class="line"></span><br><span class="line">	if (debug) &#123;</span><br><span class="line">		this.logger.debug(&quot;Authentication request for failed: &quot; + failed);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	this.rememberMeServices.loginFail(request, response);</span><br><span class="line"></span><br><span class="line">	onUnsuccessfulAuthentication(request, response, failed);</span><br><span class="line"></span><br><span class="line">	if (this.ignoreFailure) &#123;</span><br><span class="line">		chain.doFilter(request, response);</span><br><span class="line">	&#125;</span><br><span class="line">	else &#123;</span><br><span class="line">		this.authenticationEntryPoint.commence(request, response, failed);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	return;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>类似这样的代码都有判断if(debug),这种事因为spring security默认用的是logback-classic，需要在classpath加上logback-spring.xml日志打印配置文件。</p>
+<h2 id="通过postman调用接口token验证不通过"><a href="#通过postman调用接口token验证不通过" class="headerlink" title="通过postman调用接口token验证不通过"></a>通过postman调用接口token验证不通过</h2><p>我有二个微服务应用，一个是可以正常验证通过，另一个不能，这种问题只能跟源码分析了，最开始发现问题的端倪是：<br>接口请求之后，SpringSecurity会自动将严重的token转发给<a target="_blank" rel="noopener" href="http://localhost:9991/auth/oauth/token%E5%9C%A8%E5%86%85%E9%83%A8%E5%81%9A%E9%AA%8C%E8%AF%81%EF%BC%8C%E9%80%9A%E8%BF%87%E7%9A%84%E8%AF%9D%E5%86%8D%E7%BB%A7%E7%BB%AD%E8%B5%B0%E4%B8%9A%E5%8A%A1%E6%8E%A5%E5%8F%A3%E3%80%82">http://localhost:9991/auth/oauth/token在内部做验证，通过的话再继续走业务接口。</a><br>在<a target="_blank" rel="noopener" href="http://localhost:9991/auth/oauth/token%E9%AA%8C%E8%AF%81%E6%8E%A5%E5%8F%A3%E9%9C%80%E8%A6%81%E7%BB%8F%E8%BF%87%E4%B8%80%E4%BA%9B%E5%88%97%E7%9A%84%E8%BF%87%E6%BB%A4%E5%99%A8%EF%BC%8C%E4%B8%8A%E9%9D%A2%E6%9C%89%E6%8F%90%E5%88%B0%E3%80%82">http://localhost:9991/auth/oauth/token验证接口需要经过一些列的过滤器，上面有提到。</a><br>在BasicAuthenticationFilter的doFilterInternal方法中对：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String header = request.getHeader(&quot;Authorization&quot;);</span><br></pre></td></tr></table></figure>
+<p>这个Authorization进行解密，异常的应用解密出来是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tokens = &#123;String[2]@15312&#125; </span><br><span class="line"> 0 = &quot;null&quot;</span><br><span class="line"> 1 = &quot;5951061b-856f-47cf-8f1b-dc34f975438c&quot;</span><br></pre></td></tr></table></figure>
+<p>这里null就出现问题了，因为正常的那个不会是null，所以要研究一下转发到<a target="_blank" rel="noopener" href="http://localhost:9991/auth/oauth/token%E4%B9%8B%E5%89%8D%E5%A1%9E%E8%BF%9BHeader%E9%87%8C%E9%9D%A2%E7%9A%84Authorization%E6%98%AF%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84%EF%BC%9F">http://localhost:9991/auth/oauth/token之前塞进Header里面的Authorization是怎么来的？</a><br>于是只能先从SpringSecurity的过滤器栈中每个过滤器跟起，最终发现是在OAuth2AuthenticationProcessingFilter的doFilter方法的这一行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Authentication authResult = authenticationManager.authenticate(authentication);</span><br></pre></td></tr></table></figure>
+<p>发现了这里的authentication里面的getCredentials()返回是null，这才导致了上面转发到<a target="_blank" rel="noopener" href="http://localhost:9991/auth/oauth/token%E9%AA%8C%E8%AF%81token%E7%9A%84%E6%97%B6%E5%80%99%E5%87%BA%E7%8E%B00">http://localhost:9991/auth/oauth/token验证token的时候出现0</a> &#x3D; “null”，继续跟踪getCredentials()的来源，然后发现credentials是依赖于RemoteTokenServices的clientId属性，getPrincipal()依赖的是clientSecret属性，接着跟一下RemoteTokenServices是在哪里被注入到Spring的，发现其注入如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">         @Bean</span><br><span class="line">public RemoteTokenServices remoteTokenServices() &#123;</span><br><span class="line">	RemoteTokenServices services = new RemoteTokenServices();</span><br><span class="line">	services.setCheckTokenEndpointUrl(this.resource.getTokenInfoUri());</span><br><span class="line">	services.setClientId(this.resource.getClientId());</span><br><span class="line">	services.setClientSecret(this.resource.getClientSecret());</span><br><span class="line">	return services;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>this.resource，属性如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@ConfigurationProperties(prefix = &quot;security.oauth2.resource&quot;)</span><br><span class="line">public class ResourceServerProperties implements BeanFactoryAware, InitializingBean &#123;</span><br><span class="line"></span><br><span class="line">	@JsonIgnore</span><br><span class="line">	private final String clientId;</span><br><span class="line"></span><br><span class="line">	@JsonIgnore</span><br><span class="line">	private final String clientSecret;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这就和明确了，yml或者properties没有配置这二个对应的属性，于是配置上，这里采用了jasypt的加密方式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">security:</span><br><span class="line">  oauth2:</span><br><span class="line">    client:</span><br><span class="line">      client-id: ENC(wORgugqWfXlIuzbal/3pjXTNXij/RSpo)</span><br><span class="line">      client-secret: ENC(rMd1buB3iI+si+W99eB+QFa3QburIEmY)</span><br><span class="line">      scope: server</span><br></pre></td></tr></table></figure>
+<p>本来以为这个就正常了，结果报了新的错误：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Caused by: java.lang.IllegalArgumentException: Authorities must be either a String or a Collection</span><br></pre></td></tr></table></figure>
+<p>debug了一下，发现上面的client-id和client-secret是注入成功的，那么异常应该是出现在其他地方，继续跟进。<br>最终发现，是在EnhancerUserAuthenticationConverter这个token认证转换器中的extractAuthentication方法报错，报错原因是因为admin用户没有赋权，在这段代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">private Collection&lt;? extends GrantedAuthority&gt; getAuthorities(Map&lt;String, ?&gt; map) &#123;</span><br><span class="line">    Object authorities = map.get(AUTHORITIES);</span><br><span class="line"></span><br><span class="line">    List&lt;String&gt; userNames = this.filterIgnorePropertiesConfig.getUserNames();</span><br><span class="line">    if (CollUtil.contains(userNames, map.get(SecurityConstants.DETAILS_USERNAME))) &#123;</span><br><span class="line">        authorities = CommonConstants.EMPTY;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (authorities instanceof String) &#123;</span><br><span class="line">        return AuthorityUtils.commaSeparatedStringToAuthorityList((String) authorities);</span><br><span class="line">    &#125;</span><br><span class="line">    if (authorities instanceof Collection) &#123;</span><br><span class="line">        return AuthorityUtils.commaSeparatedStringToAuthorityList(StringUtils</span><br><span class="line">                .collectionToCommaDelimitedString((Collection&lt;?&gt;) authorities));</span><br><span class="line">    &#125;</span><br><span class="line">    throw new IllegalArgumentException(&quot;Authorities must be either a String or a Collection&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样如果直接写死代码忽略admin用户的话代码就太硬了，于是通过yml配置映射到配置独享filterIgnorePropertiesConfig，这样子比较灵活。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Spring/" rel="tag"># Spring</a>
+              <a href="/tags/SpringSecurity/" rel="tag"># SpringSecurity</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/10/15/JUnit%E6%B1%87%E6%80%BB/" rel="prev" title="JUnit汇总">
+      <i class="fa fa-chevron-left"></i> JUnit汇总
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/10/15/Maven%E6%B1%87%E6%80%BB/" rel="next" title="Maven汇总">
+      Maven汇总 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TodoItem"><span class="nav-number">1.</span> <span class="nav-text">TodoItem</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OAuth2%E6%A0%87%E5%87%86%E7%A0%94%E7%A9%B6-todo"><span class="nav-number">1.1.</span> <span class="nav-text">OAuth2标准研究 todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AuthorizationServerConfigurerAdapter-vsWebSecurityConfigurerAdapter-todo"><span class="nav-number">1.2.</span> <span class="nav-text">AuthorizationServerConfigurerAdapter vsWebSecurityConfigurerAdapter todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E8%B6%85%E6%97%B6%E7%9A%84%E9%80%BB%E8%BE%91-todo"><span class="nav-number">1.3.</span> <span class="nav-text">判断是否超时的逻辑 todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CORS-todo"><span class="nav-number">1.4.</span> <span class="nav-text">CORS todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSR-250-todo"><span class="nav-number">1.5.</span> <span class="nav-text">JSR-250 todo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Knowledge"><span class="nav-number">2.</span> <span class="nav-text">Basic Knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%88%E5%A5%BD%E7%9A%84%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B"><span class="nav-number">2.1.</span> <span class="nav-text">很好的基础教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#token%E5%80%BC%E5%9C%A8%E5%93%AA%E9%87%8C%E7%94%9F%E6%88%90%EF%BC%9F%E6%80%8E%E4%B9%88%E7%94%9F%E6%88%90%EF%BC%9F"><span class="nav-number">2.2.</span> <span class="nav-text">token值在哪里生成？怎么生成？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Security%E9%BB%98%E8%AE%A4%E7%9A%84%E8%BF%87%E6%BB%A4%E5%99%A8%E6%A0%88"><span class="nav-number">2.3.</span> <span class="nav-text">Spring Security默认的过滤器栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AuthorizationServerSecurityConfigurer"><span class="nav-number">2.4.</span> <span class="nav-text">AuthorizationServerSecurityConfigurer</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Problem-Solution"><span class="nav-number">3.</span> <span class="nav-text">Problem Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#maven%E4%BE%9D%E8%B5%96%E5%87%BA%E7%8E%B0%E4%BA%86%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC%E7%9A%84TokenEndpoint"><span class="nav-number">3.1.</span> <span class="nav-text">maven依赖出现了不同版本的TokenEndpoint</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%83%E9%99%90%E6%A0%A1%E9%AA%8C%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8D%E8%83%BD%E5%86%B2%E7%AA%81"><span class="nav-number">3.2.</span> <span class="nav-text">权限校验的配置不能冲突</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Security%E9%BB%98%E8%AE%A4%E4%B8%8D%E4%BC%9A%E6%89%93%E5%8D%B0debug%E6%97%A5%E5%BF%97"><span class="nav-number">3.3.</span> <span class="nav-text">Spring Security默认不会打印debug日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E8%BF%87postman%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3token%E9%AA%8C%E8%AF%81%E4%B8%8D%E9%80%9A%E8%BF%87"><span class="nav-number">3.4.</span> <span class="nav-text">通过postman调用接口token验证不通过</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Fengorz</p>
+  <div class="site-description" itemprop="description">Live only for yourself.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fengorz</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.fengorz.me","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="TodoItem整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？ todoDubbo的生态在最近有没有经常颠覆性的完善？ todo为什么本地配置文件还要有从git加载的模式？ todo@RefreshScope用法和避坑 todoRefresh ScopeA Spring @Bean that is marked as @RefreshScope will">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring系列之SpringCloud">
+<meta property="og:url" content="https://www.fengorz.me/2019/11/25/Spring%E7%B3%BB%E5%88%97%E4%B9%8BSpringCloud/index.html">
+<meta property="og:site_name" content="Feng&#39;s Blog">
+<meta property="og:description" content="TodoItem整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？ todoDubbo的生态在最近有没有经常颠覆性的完善？ todo为什么本地配置文件还要有从git加载的模式？ todo@RefreshScope用法和避坑 todoRefresh ScopeA Spring @Bean that is marked as @RefreshScope will">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-11-25T13:30:37.000Z">
+<meta property="article:modified_time" content="2020-06-05T02:23:30.584Z">
+<meta property="article:author" content="Fengorz">
+<meta property="article:tag" content="Spring">
+<meta property="article:tag" content="SpringCloud">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.fengorz.me/2019/11/25/Spring%E7%B3%BB%E5%88%97%E4%B9%8BSpringCloud/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>Spring系列之SpringCloud | Feng's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Feng's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">kiwidict.com</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://www.fengorz.me/2019/11/25/Spring%E7%B3%BB%E5%88%97%E4%B9%8BSpringCloud/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="Live only for yourself.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Spring系列之SpringCloud
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-25 21:30:37 21:30:37" itemprop="dateCreated datePublished" datetime="2019-11-25T21:30:37+08:00">2019-11-25 21:30:37</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-05 10:23:30 10:23:30" itemprop="dateModified" datetime="2020-06-05T10:23:30+08:00">2020-06-05 10:23:30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/SpringCloud/" itemprop="url" rel="index"><span itemprop="name">SpringCloud</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="TodoItem"><a href="#TodoItem" class="headerlink" title="TodoItem"></a>TodoItem</h1><h2 id="整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？-todo"><a href="#整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？-todo" class="headerlink" title="整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？ todo"></a>整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？ todo</h2><h2 id="Dubbo的生态在最近有没有经常颠覆性的完善？-todo"><a href="#Dubbo的生态在最近有没有经常颠覆性的完善？-todo" class="headerlink" title="Dubbo的生态在最近有没有经常颠覆性的完善？ todo"></a>Dubbo的生态在最近有没有经常颠覆性的完善？ todo</h2><h2 id="为什么本地配置文件还要有从git加载的模式？-todo"><a href="#为什么本地配置文件还要有从git加载的模式？-todo" class="headerlink" title="为什么本地配置文件还要有从git加载的模式？ todo"></a>为什么本地配置文件还要有从git加载的模式？ todo</h2><h2 id="RefreshScope用法和避坑-todo"><a href="#RefreshScope用法和避坑-todo" class="headerlink" title="@RefreshScope用法和避坑 todo"></a>@RefreshScope用法和避坑 todo</h2><p>Refresh Scope<br>A Spring @Bean that is marked as @RefreshScope will get special treatment when there is a configuration change. This addresses the problem of stateful beans that only get their configuration injected when they are initialized. For instance if a DataSource has open connections when the database URL is changed via the Environment, we probably want the holders of those connections to be able to complete what they are doing. Then the next time someone borrows a connection from the pool he gets one with the new URL.</p>
+<p>Refresh scope beans are lazy proxies that initialize when they are used (i.e. when a method is called), and the scope acts as a cache of initialized values. To force a bean to re-initialize on the next method call you just need to invalidate its cache entry.</p>
+<h2 id="spring-cloud-config-uri的默认值作用是什么？启动警告是否需要排除掉？todo"><a href="#spring-cloud-config-uri的默认值作用是什么？启动警告是否需要排除掉？todo" class="headerlink" title="spring.cloud.config.uri的默认值作用是什么？启动警告是否需要排除掉？todo"></a>spring.cloud.config.uri的默认值作用是什么？启动警告是否需要排除掉？todo</h2><h2 id="SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别-todo"><a href="#SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别-todo" class="headerlink" title="@SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别 todo"></a>@SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别 todo</h2><h1 id="spring-profiles-yml配置文件"><a href="#spring-profiles-yml配置文件" class="headerlink" title="spring.profiles || yml配置文件"></a>spring.profiles || yml配置文件</h1><p>关于spring boot profiles可以参考：<br><a target="_blank" rel="noopener" href="https://dzone.com/articles/spring-boot-profiles-1">https://dzone.com/articles/spring-boot-profiles-1</a><br>文中翻译的大概意思如下：<br>spring.profiles会以灵活切换的方式切换整个应用环境配置的各种相关属性，通过相关属性所在配置文件的文件名为条件做切换。</p>
+<h4 id="spring-profiles-active-native"><a href="#spring-profiles-active-native" class="headerlink" title="spring.profiles.active:native"></a>spring.profiles.active:native</h4><p>这个标记为配置文件从本地路径加载，但是有点奇怪，按道理这么危险的配置文件应该只能本地才对，即使从svn或者git上加载也只能从私服去取，在非开发模式下不应该存在去公网取配置文件才对。<br>网上说可以从native，svn和git加载，但是官方的最新文档其comma-separated list出现的有</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">active: dev,mysql,git,redis,awss3,credhub,composite,vault</span><br></pre></td></tr></table></figure>
+<p>在查阅官方文档之后发现这几段话：</p>
+<blockquote>
+<p>There is also a “native” profile in the Config Server that does not use Git but loads the config files from the local classpath or file system (any static URL you want to point to with spring.cloud.config.server.native.searchLocations). To use the native profile, launch the Config Server with spring.profiles.active&#x3D;native.</p>
+</blockquote>
+<p>意思是，当spring.profiles.active&#x3D;native，配置服务会从本地的类路径classpath读取配置文件，如果指定了spring.cloud.config.server.native.searchLocations的话，那么将从指定的路径去读取配置属性文件。</p>
+<blockquote>
+<p>Remember to use the file: prefix for file resources (the default without a prefix is usually the classpath). As with any Spring Boot configuration, you can embed ${}-style environment placeholders, but remember that absolute paths in Windows require an extra &#x2F; (for example, file:&#x2F;&#x2F;&#x2F;${user.home}&#x2F;config-repo).</p>
+</blockquote>
+<p>意思是，spring.cloud.config.server.native.searchLocations可以用${}引用变量这种占位符的方式指定路径。</p>
+<blockquote>
+<p>The default value of the searchLocations is identical to a local Spring Boot application (that is, [classpath:&#x2F;, classpath:&#x2F;config, file:.&#x2F;, file:.&#x2F;config]). This does not expose the application.properties from the server to all clients, because any property sources present in the server are removed before being sent to the client.</p>
+</blockquote>
+<p>意思是，spring.cloud.config.server.native.searchLocations有四个默认值，在不配置它的时候可以默认生效,并且如果配置了native的话，路径下所有的配置文件都会被默认加载。</p>
+<h4 id="prefer-ip-address"><a href="#prefer-ip-address" class="headerlink" title="prefer-ip-address"></a>prefer-ip-address</h4><p>这个配置我在官方文档找到的解释是这样的：<br>In some cases, it is preferable for Eureka to advertise the IP addresses of services rather than the hostname. Set eureka.instance.preferIpAddress to true and, when the application registers with eureka, it uses its IP address rather than its hostname.<br>翻译：在某些情况下，Eureka显示服务列表用ip地址的形式来展示比用hostname的形式可能更加合适。把eureka.instance.preferIpAddress（低版本）设置为true，当服务被注册到eureka的时候，注册中心会使用它的ip地址而不是hostname。</p>
+<h4 id="lease-renewal-interval-in-seconds"><a href="#lease-renewal-interval-in-seconds" class="headerlink" title="lease-renewal-interval-in-seconds"></a>lease-renewal-interval-in-seconds</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">   /**</span><br><span class="line"> * Indicates how often (in seconds) the eureka client needs to send heartbeats to</span><br><span class="line"> * eureka server to indicate that it is still alive. If the heartbeats are not</span><br><span class="line"> * received for the period specified in leaseExpirationDurationInSeconds, eureka</span><br><span class="line"> * server will remove the instance from its view, there by disallowing traffic to this</span><br><span class="line"> * instance.</span><br><span class="line"> *</span><br><span class="line"> * Note that the instance could still not take traffic if it implements</span><br><span class="line"> * HealthCheckCallback and then decides to make itself unavailable.</span><br><span class="line"> */</span><br><span class="line">private int leaseRenewalIntervalInSeconds = 30;</span><br></pre></td></tr></table></figure>
+<p>翻译：指定一个eureka客户端发送心跳包给eureka服务的频率（以秒为单位），以此来确保服务是否还活着。如果心跳包在leaseExpirationDurationInSeconds指定的时间段之内没有收到回应，那么eureka的服务将从他们可用微服务列表中移除掉对应的微服务实例，不再允许向该实例发送流量。要注意的是，如果实例实现了HealthCheckCallback接口，并且决定让实例自己置为不可用的话，那么它任然是不能接受流量的。</p>
+<h4 id="lease-expiration-duration-in-seconds"><a href="#lease-expiration-duration-in-seconds" class="headerlink" title="lease-expiration-duration-in-seconds"></a>lease-expiration-duration-in-seconds</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">   /**</span><br><span class="line"> * Indicates the time in seconds that the eureka server waits since it received the</span><br><span class="line"> * last heartbeat before it can remove this instance from its view and there by</span><br><span class="line"> * disallowing traffic to this instance.</span><br><span class="line"> *</span><br><span class="line"> * Setting this value too long could mean that the traffic could be routed to the</span><br><span class="line"> * instance even though the instance is not alive. Setting this value too small could</span><br><span class="line"> * mean, the instance may be taken out of traffic because of temporary network</span><br><span class="line"> * glitches.This value to be set to atleast higher than the value specified in</span><br><span class="line"> * leaseRenewalIntervalInSeconds.</span><br><span class="line"> */</span><br><span class="line">private int leaseExpirationDurationInSeconds = 90;</span><br></pre></td></tr></table></figure>
+<p>翻译：指定一个从它最后一次接收某个服务实例的心跳包后等待的时间（以秒为单位），如果超过这个时间还不能接收到心跳包，那么eureka将会从他的服务列表中移除该实例，并不再允许向该实例发送流量。设置leaseExpirationDurationInSeconds的值太大的话，可能意味着某个实例不是活着的情况下，流量依然被发送到该实例中。设置的值太小的话，可能会由于临时网络故障导致实例抛弃了流量。这个值至少要比leaseRenewalIntervalInSeconds的值要高，也就是上面提到的lease-renewal-interval-in-seconds。</p>
+<h4 id="registry-fetch-interval-seconds"><a href="#registry-fetch-interval-seconds" class="headerlink" title="registry-fetch-interval-seconds"></a>registry-fetch-interval-seconds</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  /**</span><br><span class="line">* Indicates how often(in seconds) to fetch the registry information from the eureka</span><br><span class="line">* server.</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<p>翻译：指定从eureka抓取注册服务的信息的频率（以秒为单位）</p>
+<h4 id="spring-cloud-config-fail-fast"><a href="#spring-cloud-config-fail-fast" class="headerlink" title="spring.cloud.config.fail-fast"></a>spring.cloud.config.fail-fast</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/liubenlong007/article/details/87885567">https://blog.csdn.net/liubenlong007/article/details/87885567</a></p>
+<h1 id="处理过的问题"><a href="#处理过的问题" class="headerlink" title="处理过的问题"></a>处理过的问题</h1><h4 id="Request-execution-error-endpoint-x3D-DefaultEndpoint-serviceUrl-x3D-’XX’"><a href="#Request-execution-error-endpoint-x3D-DefaultEndpoint-serviceUrl-x3D-’XX’" class="headerlink" title="Request execution error. endpoint&#x3D;DefaultEndpoint{ serviceUrl&#x3D;’XX’}"></a>Request execution error. endpoint&#x3D;DefaultEndpoint{ serviceUrl&#x3D;’XX’}</h4><p>这个报错非常奇葩，我是从网上下的手脚架，运行起来直接报错，后来通过谷歌找到了解决方案，就是在eureka服务的配置文件中加入register-with-eureka和fetch-registry:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 注册中心配置</span><br><span class="line">eureka:</span><br><span class="line">  instance:</span><br><span class="line">    prefer-ip-address: true</span><br><span class="line">    hostname: pig-eureka</span><br><span class="line">  client:</span><br><span class="line">    register-with-eureka: false</span><br><span class="line">    fetch-registry: false</span><br><span class="line">    service-url:</span><br><span class="line">      defaultZone: http://pig:pig@pig-eureka:8761/eureka/</span><br></pre></td></tr></table></figure>
+<p>后来再仔细跟一下，发现我是忘记先把eureka注册中心的服务启动了。。。</p>
+<h4 id="Cannot-execute-request-on-any-known-server"><a href="#Cannot-execute-request-on-any-known-server" class="headerlink" title="Cannot execute request on any known server"></a>Cannot execute request on any known server</h4><p>确认yml配置文件地址和格式没有问题的话，那么可能是eureka注册中心的服务没有关闭csrf，在eureka注册中心增加WebSecurityConfigurerAdapter，如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@EnableWebSecurity</span><br><span class="line">public class WebSecurityConfig extends WebSecurityConfigurerAdapter &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void configure(HttpSecurity http) throws Exception &#123;</span><br><span class="line">        http.csrf().disable();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="java-lang-NoClassDefFoundError-com-x2F-netflix-x2F-hystrix-x2F-contrib-x2F-javanica-x2F-aop-x2F-aspectj-x2F-HystrixCommandAspect"><a href="#java-lang-NoClassDefFoundError-com-x2F-netflix-x2F-hystrix-x2F-contrib-x2F-javanica-x2F-aop-x2F-aspectj-x2F-HystrixCommandAspect" class="headerlink" title="java.lang.NoClassDefFoundError: com&#x2F;netflix&#x2F;hystrix&#x2F;contrib&#x2F;javanica&#x2F;aop&#x2F;aspectj&#x2F;HystrixCommandAspect"></a>java.lang.NoClassDefFoundError: com&#x2F;netflix&#x2F;hystrix&#x2F;contrib&#x2F;javanica&#x2F;aop&#x2F;aspectj&#x2F;HystrixCommandAspect</h4><p>需要增加断容器依赖spring-cloud-starter-netflix-hystrix</p>
+<h4 id="org-springframework-beans-factory-annotation-Qualifier-value-x3D-webFluxConversionService"><a href="#org-springframework-beans-factory-annotation-Qualifier-value-x3D-webFluxConversionService" class="headerlink" title="@org.springframework.beans.factory.annotation.Qualifier(value&#x3D;webFluxConversionService)}"></a>@org.springframework.beans.factory.annotation.Qualifier(value&#x3D;webFluxConversionService)}</h4><p>如果引入一些第三方的Spring<br>抛出了这个依赖异常，原因是我同时引入依赖：spring-cloud-starter-gateway 和 spring-boot-starter-web。去除了父模块的spring-boot-starter-web依赖即可。</p>
+<h4 id="If-you-want-an-embedded-database-H2-HSQL-or-Derby-please-put-it-on-the-classpath"><a href="#If-you-want-an-embedded-database-H2-HSQL-or-Derby-please-put-it-on-the-classpath" class="headerlink" title="If you want an embedded database (H2, HSQL or Derby), please put it on the classpath."></a>If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.</h4><p>如果遇到新建的微服务报错如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">***************************</span><br><span class="line">APPLICATION FAILED TO START</span><br><span class="line">***************************</span><br><span class="line"></span><br><span class="line">Description:</span><br><span class="line"></span><br><span class="line">Failed to configure a DataSource: &#x27;url&#x27; attribute is not specified and no embedded datasource could be configured.</span><br><span class="line"></span><br><span class="line">Reason: Failed to determine a suitable driver class</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Action:</span><br><span class="line"></span><br><span class="line">Consider the following:</span><br><span class="line">	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.</span><br><span class="line">	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).</span><br></pre></td></tr></table></figure>
+<p>检查关于数据库的链接拼写，和驱动包依赖，如果都没问题，有可能是因为新的微服务使用了配置中心忘记引用配置中心的客户端pom依赖了，我就是忘记下面这个引用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-config&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p>另外，可能性也会有如下几点：<br>1，yml，properties文件缺失、配置写错等；<br>2，没有在@SpringBootApplication注解的Application的同级包或者子级包下增加配置类也会报这个错;<br>3，也有可能是因为引入了不必要的spring-boot-starter-web模块，这个模块会强制要配置数据源；<br>4，引入了其他依赖到数据源配置的包比如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--mybatis-plus--&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;com.baomidou&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;mybatis-plus.version&#125;&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="Feign-PathVariable-annotation-was-empty-on-param-0"><a href="#Feign-PathVariable-annotation-was-empty-on-param-0" class="headerlink" title="Feign PathVariable annotation was empty on param 0."></a>Feign PathVariable annotation was empty on param 0.</h4><p>使用Feign的时候,如果参数中带有@PathVariable形式的参数,则要用value&#x3D;””标明对应的参数,否则会抛出IllegalStateException异常</p>
+<h4 id="The-bean-‘ngbip-baf-service-FeignClientSpecification’-could-not-be-registered-A-bean-with-that-name-has-already-been-defined-and-overriding-is-disabled"><a href="#The-bean-‘ngbip-baf-service-FeignClientSpecification’-could-not-be-registered-A-bean-with-that-name-has-already-been-defined-and-overriding-is-disabled" class="headerlink" title="The bean ‘ngbip-baf-service.FeignClientSpecification’ could not be registered. A bean with that name has already been defined and overriding is disabled."></a>The bean ‘ngbip-baf-service.FeignClientSpecification’ could not be registered. A bean with that name has already been defined and overriding is disabled.</h4><p>这个原因基本是因为注解了FeignClient的客户端类，同个id的要被重复注册进注册中心才报的错，可以检查一下是否有@FeignClient的id重复，或者pom的依赖重复了导致feign服务注册多次。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Spring/" rel="tag"># Spring</a>
+              <a href="/tags/SpringCloud/" rel="tag"># SpringCloud</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/11/22/%E6%98%BE%E7%A4%BA%E5%99%A8%E9%80%89%E8%B4%AD%E6%8C%87%E5%8D%97/" rel="prev" title="显示器选购指南">
+      <i class="fa fa-chevron-left"></i> 显示器选购指南
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/11/26/Spring%E7%B3%BB%E5%88%97%E4%B9%8BSpringMVC/" rel="next" title="Spring系列之SpringMVC">
+      Spring系列之SpringMVC <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TodoItem"><span class="nav-number">1.</span> <span class="nav-text">TodoItem</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B4%E7%90%86%E4%B8%80%E4%B8%8Bspringcloud%E4%B8%80%E7%AB%99%E5%BC%8F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E7%9A%84%E6%AF%8F%E4%B8%AA%E7%8E%AF%E8%8A%82%E4%B8%AD%EF%BC%8C%E7%8E%B0%E5%9C%A8%E6%9C%89%E5%93%AA%E4%BA%9B%E6%A1%86%E6%9E%B6%E5%B7%B2%E7%BB%8F%E6%98%AF%E4%B8%8D%E7%BB%B4%E6%8A%A4%E7%9A%84%EF%BC%9F-todo"><span class="nav-number">1.1.</span> <span class="nav-text">整理一下springcloud一站式解决方案的每个环节中，现在有哪些框架已经是不维护的？ todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dubbo%E7%9A%84%E7%94%9F%E6%80%81%E5%9C%A8%E6%9C%80%E8%BF%91%E6%9C%89%E6%B2%A1%E6%9C%89%E7%BB%8F%E5%B8%B8%E9%A2%A0%E8%A6%86%E6%80%A7%E7%9A%84%E5%AE%8C%E5%96%84%EF%BC%9F-todo"><span class="nav-number">1.2.</span> <span class="nav-text">Dubbo的生态在最近有没有经常颠覆性的完善？ todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%BF%98%E8%A6%81%E6%9C%89%E4%BB%8Egit%E5%8A%A0%E8%BD%BD%E7%9A%84%E6%A8%A1%E5%BC%8F%EF%BC%9F-todo"><span class="nav-number">1.3.</span> <span class="nav-text">为什么本地配置文件还要有从git加载的模式？ todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RefreshScope%E7%94%A8%E6%B3%95%E5%92%8C%E9%81%BF%E5%9D%91-todo"><span class="nav-number">1.4.</span> <span class="nav-text">@RefreshScope用法和避坑 todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring-cloud-config-uri%E7%9A%84%E9%BB%98%E8%AE%A4%E5%80%BC%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E5%90%AF%E5%8A%A8%E8%AD%A6%E5%91%8A%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E6%8E%92%E9%99%A4%E6%8E%89%EF%BC%9Ftodo"><span class="nav-number">1.5.</span> <span class="nav-text">spring.cloud.config.uri的默认值作用是什么？启动警告是否需要排除掉？todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBootApplication%E4%B8%AD%E6%8C%87%E5%AE%9AscanBasePackages%E5%92%8C%E4%B8%8D%E6%8C%87%E5%AE%9AscanBasePackages%E7%9A%84%E5%8C%BA%E5%88%AB-todo"><span class="nav-number">1.6.</span> <span class="nav-text">@SpringBootApplication中指定scanBasePackages和不指定scanBasePackages的区别 todo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#spring-profiles-yml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">spring.profiles || yml配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-profiles-active-native"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">spring.profiles.active:native</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#prefer-ip-address"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">prefer-ip-address</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lease-renewal-interval-in-seconds"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">lease-renewal-interval-in-seconds</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lease-expiration-duration-in-seconds"><span class="nav-number">2.0.0.4.</span> <span class="nav-text">lease-expiration-duration-in-seconds</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#registry-fetch-interval-seconds"><span class="nav-number">2.0.0.5.</span> <span class="nav-text">registry-fetch-interval-seconds</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-cloud-config-fail-fast"><span class="nav-number">2.0.0.6.</span> <span class="nav-text">spring.cloud.config.fail-fast</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">处理过的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Request-execution-error-endpoint-x3D-DefaultEndpoint-serviceUrl-x3D-%E2%80%99XX%E2%80%99"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">Request execution error. endpoint&#x3D;DefaultEndpoint{ serviceUrl&#x3D;’XX’}</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cannot-execute-request-on-any-known-server"><span class="nav-number">3.0.0.2.</span> <span class="nav-text">Cannot execute request on any known server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java-lang-NoClassDefFoundError-com-x2F-netflix-x2F-hystrix-x2F-contrib-x2F-javanica-x2F-aop-x2F-aspectj-x2F-HystrixCommandAspect"><span class="nav-number">3.0.0.3.</span> <span class="nav-text">java.lang.NoClassDefFoundError: com&#x2F;netflix&#x2F;hystrix&#x2F;contrib&#x2F;javanica&#x2F;aop&#x2F;aspectj&#x2F;HystrixCommandAspect</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org-springframework-beans-factory-annotation-Qualifier-value-x3D-webFluxConversionService"><span class="nav-number">3.0.0.4.</span> <span class="nav-text">@org.springframework.beans.factory.annotation.Qualifier(value&#x3D;webFluxConversionService)}</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#If-you-want-an-embedded-database-H2-HSQL-or-Derby-please-put-it-on-the-classpath"><span class="nav-number">3.0.0.5.</span> <span class="nav-text">If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Feign-PathVariable-annotation-was-empty-on-param-0"><span class="nav-number">3.0.0.6.</span> <span class="nav-text">Feign PathVariable annotation was empty on param 0.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-bean-%E2%80%98ngbip-baf-service-FeignClientSpecification%E2%80%99-could-not-be-registered-A-bean-with-that-name-has-already-been-defined-and-overriding-is-disabled"><span class="nav-number">3.0.0.7.</span> <span class="nav-text">The bean ‘ngbip-baf-service.FeignClientSpecification’ could not be registered. A bean with that name has already been defined and overriding is disabled.</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Fengorz</p>
+  <div class="site-description" itemprop="description">Live only for yourself.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fengorz</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.fengorz.me","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Interview Tech XMind  CS32位和64位系统底层的本质区别是什么？Java2020年2月面试题100+大全（合适各级Java人员） 基础通过new String(“test”) 与 “test” 与运行时常量池的关系 String a &#x3D; “aaa”;（保存在常量池中的） String b &#x3D; new String(“aaa”);（new创建的对象会存放">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Interview汇总">
+<meta property="og:url" content="https://www.fengorz.me/2019/10/15/Interview%E6%B1%87%E6%80%BB/index.html">
+<meta property="og:site_name" content="Feng&#39;s Blog">
+<meta property="og:description" content="Interview Tech XMind  CS32位和64位系统底层的本质区别是什么？Java2020年2月面试题100+大全（合适各级Java人员） 基础通过new String(“test”) 与 “test” 与运行时常量池的关系 String a &#x3D; “aaa”;（保存在常量池中的） String b &#x3D; new String(“aaa”);（new创建的对象会存放">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-10-15T13:21:25.000Z">
+<meta property="article:modified_time" content="2021-01-03T02:32:21.325Z">
+<meta property="article:author" content="Fengorz">
+<meta property="article:tag" content="interview">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.fengorz.me/2019/10/15/Interview%E6%B1%87%E6%80%BB/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>Interview汇总 | Feng's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Feng's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">kiwidict.com</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://www.fengorz.me/2019/10/15/Interview%E6%B1%87%E6%80%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="Live only for yourself.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Interview汇总
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-15 21:21:25 21:21:25" itemprop="dateCreated datePublished" datetime="2019-10-15T21:21:25+08:00">2019-10-15 21:21:25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-03 10:32:21 10:32:21" itemprop="dateModified" datetime="2021-01-03T10:32:21+08:00">2021-01-03 10:32:21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/interview/" itemprop="url" rel="index"><span itemprop="name">interview</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p><a target="_blank" rel="noopener" href="http://www.xmind.net/m/RHmqYQ">Interview Tech XMind</a></p>
+</blockquote>
+<h1 id="CS"><a href="#CS" class="headerlink" title="CS"></a>CS</h1><h2 id="32位和64位系统底层的本质区别是什么？"><a href="#32位和64位系统底层的本质区别是什么？" class="headerlink" title="32位和64位系统底层的本质区别是什么？"></a>32位和64位系统底层的本质区别是什么？</h2><h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><p><a target="_blank" rel="noopener" href="https://juejin.im/post/5e37b8ea6fb9a030080ca2df">2020年2月面试题100+大全（合适各级Java人员）</a></p>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="通过new-String-“test”-与-“test”-与运行时常量池的关系"><a href="#通过new-String-“test”-与-“test”-与运行时常量池的关系" class="headerlink" title="通过new String(“test”) 与 “test” 与运行时常量池的关系"></a>通过new String(“test”) 与 “test” 与运行时常量池的关系</h3><ul>
+<li>String a &#x3D; “aaa”;（保存在常量池中的）</li>
+<li>String b &#x3D; new String(“aaa”);（new创建的对象会存放在堆内存中）</li>
+</ul>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><h3 id="ArrayList-vs-LinkedList-vs-SynchronizedList-vs-CopyOnWriteArrayList"><a href="#ArrayList-vs-LinkedList-vs-SynchronizedList-vs-CopyOnWriteArrayList" class="headerlink" title="ArrayList vs LinkedList vs SynchronizedList vs CopyOnWriteArrayList"></a>ArrayList vs LinkedList vs SynchronizedList vs CopyOnWriteArrayList</h3><h4 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h4><p>ArrayList底层使用的是数组实现，也就是基于顺序表的原理，是线程不安全的。<br>默认初始化的时候，其内部的数组是一个静态的空数组：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">private static final int DEFAULT_CAPACITY = 10;</span><br><span class="line">private static final Object[] EMPTY_ELEMENTDATA = &#123;&#125;;</span><br><span class="line">private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = &#123;&#125;;</span><br><span class="line">transient Object[] elementData; // non-private to simplify nested class access</span><br><span class="line">private int size;</span><br><span class="line">public ArrayList() &#123;</span><br><span class="line">    this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>也可以在初始化的时候指定默认容量，或者指定默认要承接的集合数据：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public ArrayList(int initialCapacity) &#123;</span><br><span class="line">    if (initialCapacity &gt; 0) &#123;</span><br><span class="line">        this.elementData = new Object[initialCapacity];</span><br><span class="line">    &#125; else if (initialCapacity == 0) &#123;</span><br><span class="line">        this.elementData = EMPTY_ELEMENTDATA;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        throw new IllegalArgumentException(&quot;Illegal Capacity: &quot;+</span><br><span class="line">                                           initialCapacity);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public ArrayList(Collection&lt;? extends E&gt; c) &#123;</span><br><span class="line">    elementData = c.toArray();</span><br><span class="line">    if ((size = elementData.length) != 0) &#123;</span><br><span class="line">        // c.toArray might (incorrectly) not return Object[] (see 6260652)</span><br><span class="line">        if (elementData.getClass() != Object[].class)</span><br><span class="line">            elementData = Arrays.copyOf(elementData, size, Object[].class);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        // replace with empty array.</span><br><span class="line">        this.elementData = EMPTY_ELEMENTDATA;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当数组为空或者数组长度不够进行扩容的长度增长因子一般是1.5（但是要注意极端情况下，扩容到大于<code>Integer.MAX_VALUE-8</code>，会默认增长到ArrayList的最大长度<code>Integer.MAX_VALUE</code>，超过最大长度将抛出OutOfMemoryError异常）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">private void grow(int minCapacity) &#123;</span><br><span class="line">    // overflow-conscious code</span><br><span class="line">    int oldCapacity = elementData.length;</span><br><span class="line">    int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);</span><br><span class="line">    if (newCapacity - minCapacity &lt; 0)</span><br><span class="line">        newCapacity = minCapacity;</span><br><span class="line">    if (newCapacity - MAX_ARRAY_SIZE &gt; 0)</span><br><span class="line">        newCapacity = hugeCapacity(minCapacity);</span><br><span class="line">    // minCapacity is usually close to size, so this is a win:</span><br><span class="line">    elementData = Arrays.copyOf(elementData, newCapacity);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>ArrayList因为其扩容因子是<code>1.5</code>，其内部的数组会预留出一定的空间，所以从资源利用的角度来讲，这存在一定程度的浪费。<br>正因为是基于顺序表原来实现，ArrayList元素的物理存储地址是连续的，在其内部数组中间插入或者删除元素的话，其后面的所有元素都要进行移位，所以性能开销会相对较大。</p>
+</blockquote>
+<h4 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h4><p>LinkedList底层使用的是双链表来实现的，它默认初始化之后有着头尾两个空结点，同样也是线程不安全的。<br>可见空双链表插入第一个结点时，判断尾结点是否为空，如果为空是在first头结点插入，否则是插入到尾部结点之后。</p>
+<blockquote>
+<p>LinkedList得益于双链表的数据结构优势，在对单个元素的插入和删除操作上，一般性能开销会相对较小，但是在单个元素的访问上，会表现较差。</p>
+</blockquote>
+<h4 id="快速失败迭代器（fail-fast-Iterator）"><a href="#快速失败迭代器（fail-fast-Iterator）" class="headerlink" title="快速失败迭代器（fail-fast Iterator）"></a>快速失败迭代器（fail-fast Iterator）</h4><p>ArrayList、LinkedList等很多常用集合的Iterator实现中，都是通过快速失败检查机制来检查数据是否在外部不被期望的情况下修改了，常见的快速失败检查都是通过如下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">final void checkForComodification() &#123;</span><br><span class="line">    if (modCount != expectedModCount)</span><br><span class="line">        throw new ConcurrentModificationException();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>异常时通过判断expectedModCount是否等于modCount，如果不相等就抛出异常。</p>
+<ul>
+<li>expectedModCount：被期望的修改次数，在Iterator初始化的时候被赋值，<code>int expectedModCount = modCount;</code>，在调用迭代器的remove方法时会被更新。</li>
+<li>modCount：真实的修改次数，每次调用add()，remove()方法（非迭代器的方法）会导致modCount+1。</li>
+</ul>
+<p>迭代器在调用<code>next()</code>和<code>remove()</code>都会做<code>ConcurrentModificationException</code>的异常检测。</p>
+<blockquote>
+<p>所以，当集合是使用迭代器Iterator来遍历的时候，删除集合的元素记得用迭代器的<code>remove()</code>方法。</p>
+</blockquote>
+<h4 id="SynchronizedList（线程安全）"><a href="#SynchronizedList（线程安全）" class="headerlink" title="SynchronizedList（线程安全）"></a>SynchronizedList（线程安全）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 线程安全List的创建方式</span><br><span class="line">List&lt;Object&gt; syncArrayList = Collections.synchronizedList(new ArrayList&lt;&gt;());</span><br><span class="line">List&lt;Object&gt; syncLinkedList = Collections.synchronizedList(new LinkedList&lt;&gt;());</span><br></pre></td></tr></table></figure>
+<p>线程安全实现原理：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">final Object mutex;     // Object on which to synchronize</span><br></pre></td></tr></table></figure>
+<p>其内部具有线程安全问题的方法都被互斥量加了锁：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public int size() &#123;</span><br><span class="line">    synchronized (mutex) &#123;return c.size();&#125;</span><br><span class="line">&#125;</span><br><span class="line">public boolean add(E e) &#123;</span><br><span class="line">    synchronized (mutex) &#123;return c.add(e);&#125;</span><br><span class="line">&#125;</span><br><span class="line">public boolean remove(Object o) &#123;</span><br><span class="line">    synchronized (mutex) &#123;return c.remove(o);&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="CopyOnWriteArrayList"><a href="#CopyOnWriteArrayList" class="headerlink" title="CopyOnWriteArrayList"></a>CopyOnWriteArrayList</h4><p>CopyOnWriteArrayList和ArrayList类似，其内部也是基于数组实现的，但是还额外多出了一个可重入锁：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/** The lock protecting all mutators */</span><br><span class="line">final transient ReentrantLock lock = new ReentrantLock();</span><br><span class="line">/** The array, accessed only via getArray/setArray. */</span><br><span class="line">private transient volatile Object[] array;</span><br></pre></td></tr></table></figure>
+<p>因为加了transient修饰，所以其数据不支持序列化。<br>另外其内部存储数据的数组是通过volatile修饰的，避免了线程安全的问题。<br>插入和删除操作也加了锁机制：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">public boolean add(E e) &#123;</span><br><span class="line">    final ReentrantLock lock = this.lock;</span><br><span class="line">    lock.lock();</span><br><span class="line">    try &#123;</span><br><span class="line">        Object[] elements = getArray();</span><br><span class="line">        int len = elements.length;</span><br><span class="line">        Object[] newElements = Arrays.copyOf(elements, len + 1);</span><br><span class="line">        newElements[len] = e;</span><br><span class="line">        setArray(newElements);</span><br><span class="line">        return true;</span><br><span class="line">    &#125; finally &#123;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public E remove(int index) &#123;</span><br><span class="line">    final ReentrantLock lock = this.lock;</span><br><span class="line">    lock.lock();</span><br><span class="line">    try &#123;</span><br><span class="line">        Object[] elements = getArray();</span><br><span class="line">        int len = elements.length;</span><br><span class="line">        E oldValue = get(elements, index);</span><br><span class="line">        int numMoved = len - index - 1;</span><br><span class="line">        if (numMoved == 0)</span><br><span class="line">            setArray(Arrays.copyOf(elements, len - 1));</span><br><span class="line">        else &#123;</span><br><span class="line">            Object[] newElements = new Object[len - 1];</span><br><span class="line">            System.arraycopy(elements, 0, newElements, 0, index);</span><br><span class="line">            System.arraycopy(elements, index + 1, newElements, index,</span><br><span class="line">                             numMoved);</span><br><span class="line">            setArray(newElements);</span><br><span class="line">        &#125;</span><br><span class="line">        return oldValue;</span><br><span class="line">    &#125; finally &#123;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>SynchronizedList是通过对读写方法使用synchronized修饰来实现同步的，即便只是多个线程在读数据，也不能进行，如果是读比较多的场景下，会性能不高，所以适合读写均匀的情况。<br>而CopyOnWriteArrayList是读写分离的，只对写操作加锁，但是每次写操作(添加和删除元素等)时都会复制出一个新数组，完成修改后，然后将新数组设置到旧数组的引用上，所以在写比较多的情况下，会有很大的性能开销，所以适合读比较多的应用场景。</p>
+</blockquote>
+<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="B-树和二叉树的区别"><a href="#B-树和二叉树的区别" class="headerlink" title="B+树和二叉树的区别"></a>B+树和二叉树的区别</h2><h2 id="红黑树和跳表"><a href="#红黑树和跳表" class="headerlink" title="红黑树和跳表"></a>红黑树和跳表</h2><h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="一个接口太多事务操作是否要使用批量事务？"><a href="#一个接口太多事务操作是否要使用批量事务？" class="headerlink" title="一个接口太多事务操作是否要使用批量事务？"></a>一个接口太多事务操作是否要使用批量事务？</h2><h1 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h1><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ffe5ebe17c3a">SpringBoot VS Spring</a></p>
+<h2 id="SpringBoot自动装配原理"><a href="#SpringBoot自动装配原理" class="headerlink" title="SpringBoot自动装配原理"></a>SpringBoot自动装配原理</h2><h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="OLAP和OLTP"><a href="#OLAP和OLTP" class="headerlink" title="OLAP和OLTP"></a>OLAP和OLTP</h2><h2 id="冗余字段"><a href="#冗余字段" class="headerlink" title="冗余字段"></a>冗余字段</h2><p>微服务架构加上前后端分离的情况下。后端接口很多时候会出现太多联表查询的情况。其实可以数据库存储空间大小允许的情况下，留出一些关键字段的冗余字段来代替联表查询。甚至可以将一些数据拆分出来查询封装成比较合适的数据JSON结构，然后可以将需要连表查询的逻辑放到前端去计算拼接，这样一来可以减少服务器和数据库的压力，同时前端做这部分的计算能力其实也是绰绰有余了，毕竟目前相对来说这是一个用户端性能过剩的时代。</p>
+<p>尽可能多的冗余字段也可以为一定业务场景带来便捷的查询，没必要一味得遵循数据库三方式。</p>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>必要时，时间字段也要上索引，索引一般是建立在字段值重复性比较少的，很多时候，时间字段基本不会重复，而且查询排序经常用到。</p>
+<h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><h2 id="redis如何清理过期key"><a href="#redis如何清理过期key" class="headerlink" title="redis如何清理过期key"></a>redis如何清理过期key</h2><h2 id="redis内存不足时的策略"><a href="#redis内存不足时的策略" class="headerlink" title="redis内存不足时的策略"></a>redis内存不足时的策略</h2><h2 id="缓存更新的套路"><a href="#缓存更新的套路" class="headerlink" title="缓存更新的套路"></a>缓存更新的套路</h2><p><a target="_blank" rel="noopener" href="https://coolshell.cn/articles/17416.html[]">https://coolshell.cn/articles/17416.html[]</a>(<a target="_blank" rel="noopener" href="https://coolshell.cn/articles/17416.html">https://coolshell.cn/articles/17416.html</a> “”)</p>
+<h3 id="Cache-Aside-Pattern"><a href="#Cache-Aside-Pattern" class="headerlink" title="Cache Aside Pattern"></a>Cache Aside Pattern</h3><h3 id="Read-x2F-Write-Through-Pattern"><a href="#Read-x2F-Write-Through-Pattern" class="headerlink" title="Read&#x2F;Write Through Pattern"></a>Read&#x2F;Write Through Pattern</h3><h3 id="Write-Behind-Caching-Pattern"><a href="#Write-Behind-Caching-Pattern" class="headerlink" title="Write Behind Caching Pattern"></a>Write Behind Caching Pattern</h3><h1 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h1><h2 id="Ribbon或者Nacos负载均衡有多少种实现机制？"><a href="#Ribbon或者Nacos负载均衡有多少种实现机制？" class="headerlink" title="Ribbon或者Nacos负载均衡有多少种实现机制？"></a>Ribbon或者Nacos负载均衡有多少种实现机制？</h2><h3 id="轮询调用"><a href="#轮询调用" class="headerlink" title="轮询调用"></a>轮询调用</h3><h2 id="注册中心"><a href="#注册中心" class="headerlink" title="注册中心"></a>注册中心</h2><h3 id="注册中心的作用是什么？"><a href="#注册中心的作用是什么？" class="headerlink" title="注册中心的作用是什么？"></a>注册中心的作用是什么？</h3><h3 id="注册中心的实现机制"><a href="#注册中心的实现机制" class="headerlink" title="注册中心的实现机制"></a>注册中心的实现机制</h3><ul>
+<li>基于心跳包在注册中心与各个微服务之间保持通讯</li>
+</ul>
+<h3 id="Eureka-VS-Nacos"><a href="#Eureka-VS-Nacos" class="headerlink" title="Eureka VS Nacos"></a>Eureka VS Nacos</h3><h1 id="Combo"><a href="#Combo" class="headerlink" title="Combo"></a>Combo</h1><h2 id="后端架构"><a href="#后端架构" class="headerlink" title="后端架构"></a>后端架构</h2><p>每一个单一表的对应Service类里面有且只能有一个Mapper，这也遵守了类的单一责任原则。</p>
+<h3 id="微服务架构的好处"><a href="#微服务架构的好处" class="headerlink" title="微服务架构的好处"></a>微服务架构的好处</h3><ul>
+<li>解耦：系统之间业务的解耦，代码的维护和扩展比较方面；</li>
+<li>影响面会更小：降低系统的依赖风险，微服务之后，如果某个单一模块业务代码出现问题，其影响可以控制在相对来说较小的范围；</li>
+<li>三高：高并发、高流量、高可用性；扩容的时候可以针对某些处理业务比较繁忙的微服务模块进行水平扩容。</li>
+</ul>
+<h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><p>类似DO、DTO、VO这种有可能要做传输的类一定不要忘记实现Serializable，和唯一标识化serialVersionUID。</p>
+<h2 id="COW（写时复制-x2F-Copy-on-write）"><a href="#COW（写时复制-x2F-Copy-on-write）" class="headerlink" title="COW（写时复制&#x2F;Copy-on-write）"></a>COW（写时复制&#x2F;Copy-on-write）</h2><p>Copy-on-write在对数据进行修改的时候，不会直接在原来的数据位置上进行操作，而是重新找个位置修改，这样的好处是一旦系统故障，能保证数据的完整性，容易恢复。</p>
+<ul>
+<li>比如说：要修改数据块A的内容，先把A读出来，写到B块里面去。如果这时候断电了，原来A的内容还在！</li>
+</ul>
+<h1 id="各种问题模拟回答"><a href="#各种问题模拟回答" class="headerlink" title="各种问题模拟回答"></a>各种问题模拟回答</h1><h2 id="描述一下什么是IO-x2F-NIO，以及它的原理和各种主流技术之间的关系？"><a href="#描述一下什么是IO-x2F-NIO，以及它的原理和各种主流技术之间的关系？" class="headerlink" title="描述一下什么是IO&#x2F;NIO，以及它的原理和各种主流技术之间的关系？"></a>描述一下什么是IO&#x2F;NIO，以及它的原理和各种主流技术之间的关系？</h2><p>IO是Input&#x2F;Output的简写，然后NIO是New IO的简写，简单来说IO就是我的代码程序去跟计算机的硬件资源做读写交互的一个过程，比如与内存、CPU和硬盘之间的输入和输出交互，与Java相关最常见的就是Socket通讯、文件流的读写、输入流输出流这一些，在Linux系统上可以通过strace命令去跟踪IO流的整一个详细的过程，早期的IO其实存在着一些明显弊端，对计算机的硬件资源利用不够充分，比较浪费CPU和内存资源，所以后面通过技术的改进才有个NIO。<br>NIO最关键的地方就是基于Linux的epoll对IO做了一个很大的改进，epoll更充分发挥硬件资源，尽量不浪费CPU和内存资源，现在主流的Redis、Nginx和消息队列Kafka这些其实底层都是基于NIO在计算机的一些端口去做网络请求的监听的。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/interview/" rel="tag"># interview</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/10/15/iTerm2%E6%B1%87%E6%80%BB/" rel="prev" title="iTerm2汇总">
+      <i class="fa fa-chevron-left"></i> iTerm2汇总
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/10/15/JUnit%E6%B1%87%E6%80%BB/" rel="next" title="JUnit汇总">
+      JUnit汇总 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CS"><span class="nav-number">1.</span> <span class="nav-text">CS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#32%E4%BD%8D%E5%92%8C64%E4%BD%8D%E7%B3%BB%E7%BB%9F%E5%BA%95%E5%B1%82%E7%9A%84%E6%9C%AC%E8%B4%A8%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">32位和64位系统底层的本质区别是什么？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java"><span class="nav-number">2.</span> <span class="nav-text">Java</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80"><span class="nav-number">2.1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87new-String-%E2%80%9Ctest%E2%80%9D-%E4%B8%8E-%E2%80%9Ctest%E2%80%9D-%E4%B8%8E%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">2.1.1.</span> <span class="nav-text">通过new String(“test”) 与 “test” 与运行时常量池的关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88"><span class="nav-number">2.2.</span> <span class="nav-text">集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList-vs-LinkedList-vs-SynchronizedList-vs-CopyOnWriteArrayList"><span class="nav-number">2.2.1.</span> <span class="nav-text">ArrayList vs LinkedList vs SynchronizedList vs CopyOnWriteArrayList</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ArrayList"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LinkedList"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">LinkedList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E5%A4%B1%E8%B4%A5%E8%BF%AD%E4%BB%A3%E5%99%A8%EF%BC%88fail-fast-Iterator%EF%BC%89"><span class="nav-number">2.2.1.3.</span> <span class="nav-text">快速失败迭代器（fail-fast Iterator）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SynchronizedList%EF%BC%88%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%EF%BC%89"><span class="nav-number">2.2.1.4.</span> <span class="nav-text">SynchronizedList（线程安全）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CopyOnWriteArrayList"><span class="nav-number">2.2.1.5.</span> <span class="nav-text">CopyOnWriteArrayList</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">3.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#B-%E6%A0%91%E5%92%8C%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.1.</span> <span class="nav-text">B+树和二叉树的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%A2%E9%BB%91%E6%A0%91%E5%92%8C%E8%B7%B3%E8%A1%A8"><span class="nav-number">3.2.</span> <span class="nav-text">红黑树和跳表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring"><span class="nav-number">4.</span> <span class="nav-text">Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E6%8E%A5%E5%8F%A3%E5%A4%AA%E5%A4%9A%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C%E6%98%AF%E5%90%A6%E8%A6%81%E4%BD%BF%E7%94%A8%E6%89%B9%E9%87%8F%E4%BA%8B%E5%8A%A1%EF%BC%9F"><span class="nav-number">4.1.</span> <span class="nav-text">一个接口太多事务操作是否要使用批量事务？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringBoot"><span class="nav-number">5.</span> <span class="nav-text">SpringBoot</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBoot%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D%E5%8E%9F%E7%90%86"><span class="nav-number">5.1.</span> <span class="nav-text">SpringBoot自动装配原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">6.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OLAP%E5%92%8COLTP"><span class="nav-number">6.1.</span> <span class="nav-text">OLAP和OLTP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%97%E4%BD%99%E5%AD%97%E6%AE%B5"><span class="nav-number">6.2.</span> <span class="nav-text">冗余字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95"><span class="nav-number">6.3.</span> <span class="nav-text">索引</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#redis"><span class="nav-number">7.</span> <span class="nav-text">redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#redis%E5%A6%82%E4%BD%95%E6%B8%85%E7%90%86%E8%BF%87%E6%9C%9Fkey"><span class="nav-number">7.1.</span> <span class="nav-text">redis如何清理过期key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis%E5%86%85%E5%AD%98%E4%B8%8D%E8%B6%B3%E6%97%B6%E7%9A%84%E7%AD%96%E7%95%A5"><span class="nav-number">7.2.</span> <span class="nav-text">redis内存不足时的策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E7%9A%84%E5%A5%97%E8%B7%AF"><span class="nav-number">7.3.</span> <span class="nav-text">缓存更新的套路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cache-Aside-Pattern"><span class="nav-number">7.3.1.</span> <span class="nav-text">Cache Aside Pattern</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-x2F-Write-Through-Pattern"><span class="nav-number">7.3.2.</span> <span class="nav-text">Read&#x2F;Write Through Pattern</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Write-Behind-Caching-Pattern"><span class="nav-number">7.3.3.</span> <span class="nav-text">Write Behind Caching Pattern</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1"><span class="nav-number">8.</span> <span class="nav-text">微服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ribbon%E6%88%96%E8%80%85Nacos%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E6%9C%89%E5%A4%9A%E5%B0%91%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6%EF%BC%9F"><span class="nav-number">8.1.</span> <span class="nav-text">Ribbon或者Nacos负载均衡有多少种实现机制？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AE%E8%AF%A2%E8%B0%83%E7%94%A8"><span class="nav-number">8.1.1.</span> <span class="nav-text">轮询调用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83"><span class="nav-number">8.2.</span> <span class="nav-text">注册中心</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">8.2.1.</span> <span class="nav-text">注册中心的作用是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6"><span class="nav-number">8.2.2.</span> <span class="nav-text">注册中心的实现机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Eureka-VS-Nacos"><span class="nav-number">8.2.3.</span> <span class="nav-text">Eureka VS Nacos</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Combo"><span class="nav-number">9.</span> <span class="nav-text">Combo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF%E6%9E%B6%E6%9E%84"><span class="nav-number">9.1.</span> <span class="nav-text">后端架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="nav-number">9.1.1.</span> <span class="nav-text">微服务架构的好处</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96"><span class="nav-number">9.2.</span> <span class="nav-text">序列化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#COW%EF%BC%88%E5%86%99%E6%97%B6%E5%A4%8D%E5%88%B6-x2F-Copy-on-write%EF%BC%89"><span class="nav-number">9.3.</span> <span class="nav-text">COW（写时复制&#x2F;Copy-on-write）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%84%E7%A7%8D%E9%97%AE%E9%A2%98%E6%A8%A1%E6%8B%9F%E5%9B%9E%E7%AD%94"><span class="nav-number">10.</span> <span class="nav-text">各种问题模拟回答</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0%E4%B8%80%E4%B8%8B%E4%BB%80%E4%B9%88%E6%98%AFIO-x2F-NIO%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%AE%83%E7%9A%84%E5%8E%9F%E7%90%86%E5%92%8C%E5%90%84%E7%A7%8D%E4%B8%BB%E6%B5%81%E6%8A%80%E6%9C%AF%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%EF%BC%9F"><span class="nav-number">10.1.</span> <span class="nav-text">描述一下什么是IO&#x2F;NIO，以及它的原理和各种主流技术之间的关系？</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Fengorz</p>
+  <div class="site-description" itemprop="description">Live only for yourself.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fengorz</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

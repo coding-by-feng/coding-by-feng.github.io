@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.fengorz.me","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="查看所有可执行path1echo &quot;$PATH&quot;  返回上次所在目录12cd -cd $OLDPWD  cd12cd - 返回进入此目录之前所在的目录cd .. 返回上级目录  修改权限12# 修改文件夹以及其子文件夹chmod -R 777 fileName  cpcp: omitting directory">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux常用命令与知识点">
+<meta property="og:url" content="https://www.fengorz.me/2019/02/26/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E4%B8%8E%E7%9F%A5%E8%AF%86%E7%82%B9/index.html">
+<meta property="og:site_name" content="Feng&#39;s Blog">
+<meta property="og:description" content="查看所有可执行path1echo &quot;$PATH&quot;  返回上次所在目录12cd -cd $OLDPWD  cd12cd - 返回进入此目录之前所在的目录cd .. 返回上级目录  修改权限12# 修改文件夹以及其子文件夹chmod -R 777 fileName  cpcp: omitting directory">
+<meta property="og:locale">
+<meta property="og:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/HNv4GG.png">
+<meta property="article:published_time" content="2019-02-26T14:00:21.000Z">
+<meta property="article:modified_time" content="2021-05-27T11:07:30.000Z">
+<meta property="article:author" content="Fengorz">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/fengorz/oss/raw/master/uPic/HNv4GG.png">
+
+<link rel="canonical" href="https://www.fengorz.me/2019/02/26/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E4%B8%8E%E7%9F%A5%E8%AF%86%E7%82%B9/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>linux常用命令与知识点 | Feng's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Feng's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">kiwidict.com</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://www.fengorz.me/2019/02/26/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E4%B8%8E%E7%9F%A5%E8%AF%86%E7%82%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="Live only for yourself.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          linux常用命令与知识点
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-02-26 22:00:21 22:00:21" itemprop="dateCreated datePublished" datetime="2019-02-26T22:00:21+08:00">2019-02-26 22:00:21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-05-27 19:07:30 19:07:30" itemprop="dateModified" datetime="2021-05-27T19:07:30+08:00">2021-05-27 19:07:30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="查看所有可执行path"><a href="#查看所有可执行path" class="headerlink" title="查看所有可执行path"></a>查看所有可执行path</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;$PATH&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="返回上次所在目录"><a href="#返回上次所在目录" class="headerlink" title="返回上次所在目录"></a>返回上次所在目录</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd -</span><br><span class="line">cd $OLDPWD</span><br></pre></td></tr></table></figure>
+
+<h2 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd - 返回进入此目录之前所在的目录</span><br><span class="line">cd .. 返回上级目录</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 修改文件夹以及其子文件夹</span><br><span class="line">chmod -R 777 fileName</span><br></pre></td></tr></table></figure>
+
+<h2 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h2><h3 id="cp-omitting-directory"><a href="#cp-omitting-directory" class="headerlink" title="cp: omitting directory"></a>cp: omitting directory</h3><p>增加-r</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -r ...</span><br></pre></td></tr></table></figure>
+
+<h2 id="find和grep"><a href="#find和grep" class="headerlink" title="find和grep"></a>find和grep</h2><p>find是在系统中搜索符合条件的文件名，grep是在文件中搜索符合条件的字符串。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">find ~/dir -name filename.txt</span><br><span class="line">grep &quot;someStr&quot; filename.txt</span><br><span class="line"># 查询某个文件夹下面大小大于某个值文件</span><br><span class="line">find ~/dir -type f -size +1G</span><br></pre></td></tr></table></figure>
+<h2 id="ls-查询目录具体file"><a href="#ls-查询目录具体file" class="headerlink" title="ls 查询目录具体file"></a>ls 查询目录具体file</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 按照时间升序</span><br><span class="line">ls -lrt</span><br><span class="line"># 按照时间降序</span><br><span class="line">ls -lt</span><br></pre></td></tr></table></figure>
+
+<h2 id="ll按时间排序"><a href="#ll按时间排序" class="headerlink" title="ll按时间排序"></a>ll按时间排序</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 升序</span><br><span class="line">ll -rt</span><br><span class="line"># 降序</span><br><span class="line">ll -t</span><br></pre></td></tr></table></figure>
+
+<h2 id="ll按大小排序"><a href="#ll按大小排序" class="headerlink" title="ll按大小排序"></a>ll按大小排序</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 大小单位按照human-readable</span><br><span class="line">ll -Sh</span><br></pre></td></tr></table></figure>
+<h2 id="ln链接命令"><a href="#ln链接命令" class="headerlink" title="ln链接命令"></a>ln链接命令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ln -s [源文件] [目标文件]</span><br><span class="line"># -s软链接，不带-s是硬链接，硬链接等于是copy了一份文件，软链接相当于window的快捷方式。</span><br><span class="line"># 硬链接不能对目录使用，删除源文件，硬链接可以正常使用，软连接不可以。</span><br></pre></td></tr></table></figure>
+<h2 id="wget命令"><a href="#wget命令" class="headerlink" title="wget命令"></a>wget命令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># 拉取文件</span><br></pre></td></tr></table></figure>
+<h2 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h2><p>tar -zxvf 用于解压  .tar.gz 后缀结尾的</p>
+<p>tar -xvf 用于解压   .tar后缀结尾的</p>
+<h2 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 创建空白文件</span><br><span class="line">touch filename</span><br></pre></td></tr></table></figure>
+
+<h2 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h2><p>后台不挂断执行，执行某个脚本，并将脚本的执行打印日志追加写入到某个文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup xxx.sh &gt;&gt; /usr/local/node/output.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<p>jboss:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 启动指定部署目录：</span><br><span class="line">nohup ./run.sh -c web38b -b 0.0.0.0  &gt;/dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>&#x2F;dev&#x2F;null redirects standard output (stdout) to &#x2F;dev&#x2F;null, which discards it.<br>(The &gt;&gt; seems sort of superfluous, since &gt;&gt; means append while &gt; means truncate and write, and either appending to or writing to &#x2F;dev&#x2F;null has the same net effect. I usually just use &gt; for that reason.)<br>2&gt;&amp;1 redirects standard error (2) to standard output (1), which then discards it as well since standard output has already been redirected.</p>
+</blockquote>
+</blockquote>
+<h2 id="更改所有子文件和子目录所有者权限"><a href="#更改所有子文件和子目录所有者权限" class="headerlink" title="更改所有子文件和子目录所有者权限"></a>更改所有子文件和子目录所有者权限</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod -R 777 fileDir</span><br></pre></td></tr></table></figure>
+
+<h2 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h2><p>curl -H “Content-Type:application&#x2F;json” -X POST -d ‘json data’ URL</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -H &quot;Content-Type:application/json&quot; -X POST -d &#x27;&#123;&quot;user&quot;: &quot;admin&quot;, &quot;passwd&quot;:&quot;12345678&quot;&#125;&#x27; http://127.0.0.1:8000/login</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -d &quot;user=admin&amp;passwd=12345678&quot; http://127.0.0.1:8080/login</span><br></pre></td></tr></table></figure>
+<p>监控某个网站的网页响应下载时间：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o /dev/null -s -w ‘%&#123;time_total&#125;’ https://www.fengorz.me</span><br></pre></td></tr></table></figure>
+<p>更多用法参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/taosim/articles/4092572.html">https://www.cnblogs.com/taosim/articles/4092572.html</a></p>
+<h3 id="结果格式化"><a href="#结果格式化" class="headerlink" title="结果格式化"></a>结果格式化</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g json</span><br><span class="line">curl -X GET &quot;http://127.0.0.1:9200/kiwi_vocabulary/_search&quot; -s | json</span><br></pre></td></tr></table></figure>
+
+<h2 id="df命令详解（清理磁盘空间）"><a href="#df命令详解（清理磁盘空间）" class="headerlink" title="df命令详解（清理磁盘空间）"></a>df命令详解（清理磁盘空间）</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 先列出大文件</span><br><span class="line">du -sh *</span><br></pre></td></tr></table></figure>
+
+<p>whereis<br>which<br>xargs<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wzzfeitian/article/details/40985549">https://blog.csdn.net/wzzfeitian/article/details/40985549</a></p>
+<hr>
+<p>标准输出重定向<br>标准输出重定向到空，相当于忽略输出</p>
+<hr>
+<h2 id="查看防火墙，放开端口"><a href="#查看防火墙，放开端口" class="headerlink" title="查看防火墙，放开端口"></a>查看防火墙，放开端口</h2><h2 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h2><h2 id="killall"><a href="#killall" class="headerlink" title="killall"></a>killall</h2><p>结束所有进程</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall -9 picName  </span><br></pre></td></tr></table></figure>
+
+<p>##线上日志文件查看</p>
+<h3 id="查看文件内容more命令"><a href="#查看文件内容more命令" class="headerlink" title="查看文件内容more命令"></a>查看文件内容more命令</h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-more.html">https://www.runoob.com/linux/linux-comm-more.html</a></p>
+<h3 id="less命令"><a href="#less命令" class="headerlink" title="less命令"></a>less命令</h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-less.html">https://www.runoob.com/linux/linux-comm-less.html</a></p>
+<h4 id="less搜索"><a href="#less搜索" class="headerlink" title="less搜索"></a>less搜索</h4><p>&#x2F;字符串：向下搜索”字符串”的功能<br>?字符串：向上搜索”字符串”的功能</p>
+<p>ps查看进程信息并通过less分页显示:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | less</span><br></pre></td></tr></table></figure>
+<p>历史命令信息分页：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">history|grep cd |less</span><br></pre></td></tr></table></figure>
+<p>参数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-N 显示每行的行号</span><br><span class="line">/字符串：向下搜索&quot;字符串&quot;的功能</span><br><span class="line">?字符串：向上搜索&quot;字符串&quot;的功能</span><br><span class="line">n：重复前一个搜索（与 / 或 ? 有关）</span><br><span class="line">N：反向重复前一个搜索（与 / 或 ? 有关）</span><br><span class="line">b 向后翻一页</span><br></pre></td></tr></table></figure>
+
+<h2 id="解压war包"><a href="#解压war包" class="headerlink" title="解压war包"></a>解压war包</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 解压到当前目录</span><br><span class="line">jar -xvf</span><br><span class="line"># 解压到指定目录</span><br><span class="line">unzip pay.war -d /home/zookeeper1/test/pay</span><br></pre></td></tr></table></figure>
+
+<h2 id="du"><a href="#du" class="headerlink" title="du"></a>du</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zzldm/article/details/82804557">https://blog.csdn.net/zzldm/article/details/82804557</a></p>
+<p>查看对应目录大小</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">du -sh 路径</span><br><span class="line">du -sh 　　　　显示当前目录所占空间大小</span><br><span class="line">df 显示磁盘占用信息</span><br><span class="line">直接df默认一k为单位</span><br><span class="line">df -lh 显示本地系统的占用信息，以K，M，G为单位</span><br></pre></td></tr></table></figure>
+
+<h2 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h2><p>Linux sed 命令是利用脚本来处理文本文件。</p>
+<p>sed 可依照脚本的指令来处理、编辑文本文件。</p>
+<p>Sed 主要用来自动编辑一个或多个文件、简化对文件的反复操作、编写转换程序等。</p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-sed.html">https://www.runoob.com/linux/linux-comm-sed.html</a></p>
+<h2 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h2><p>从本地复制到远程：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">scp local_file remote_username@remote_ip:remote_folder </span><br><span class="line">或者 </span><br><span class="line">scp local_file remote_username@remote_ip:remote_file </span><br><span class="line">或者 scp local_file remote_ip:remote_folder </span><br><span class="line">或者 </span><br><span class="line">scp local_file remote_ip:remote_file </span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-scp.html">https://www.runoob.com/linux/linux-comm-scp.html</a></p>
+<h2 id="远程调用shell命令"><a href="#远程调用shell命令" class="headerlink" title="远程调用shell命令"></a>远程调用shell命令</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ilfmonday/p/ShellRemote.html">https://www.cnblogs.com/ilfmonday/p/ShellRemote.html</a></p>
+<h2 id="Linux下如何查看版本信息"><a href="#Linux下如何查看版本信息" class="headerlink" title="Linux下如何查看版本信息"></a>Linux下如何查看版本信息</h2><p>[<a target="_blank" rel="noopener" href="https://www.cnblogs.com/williamjie/p/10271945.html]">https://www.cnblogs.com/williamjie/p/10271945.html]</a>(<a target="_blank" rel="noopener" href="https://www.cnsnap/">https://www.cnsnap</a> install coreblogs.com&#x2F;williamjie&#x2F;p&#x2F;10271945.html “”)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/os-release</span><br><span class="line">hostnamectl</span><br><span class="line">uname -r</span><br></pre></td></tr></table></figure>
+
+<h2 id="sleep"><a href="#sleep" class="headerlink" title="sleep"></a>sleep</h2><p>睡眠一段时间（5秒）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sleep 5s</span><br></pre></td></tr></table></figure>
+
+<h2 id="利用管道kill掉监听端口的进程"><a href="#利用管道kill掉监听端口的进程" class="headerlink" title="利用管道kill掉监听端口的进程"></a>利用管道kill掉监听端口的进程</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -9 `lsof -i -n -P | grep ? | awk &#x27;&#123;print $2&#125;&#x27;`</span><br></pre></td></tr></table></figure>
+<p>将问号换成对应的端口号</p>
+<h2 id="tldr"><a href="#tldr" class="headerlink" title="tldr"></a>tldr</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="top-查看内存状态"><a href="#top-查看内存状态" class="headerlink" title="top(查看内存状态)"></a>top(查看内存状态)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">top -i（不显示任何闲置(Idle)或无用(Zombie)的行程）</span><br><span class="line">cat /proc/meminfo</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/255b54b5445f">https://www.jianshu.com/p/255b54b5445f</a></p>
+<h2 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h2><p>查看日志使用tail是不会显示行号的，如果要具体比对某些行，可以使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat -n xxx</span><br></pre></td></tr></table></figure>
+<p>创建空文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; filename</span><br></pre></td></tr></table></figure>
+<p>将几个文件合并为一个文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat file1 file2 &gt; file</span><br></pre></td></tr></table></figure>
+<p>清空文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /dev/null &gt; textfile2</span><br></pre></td></tr></table></figure>
+
+<h2 id="man"><a href="#man" class="headerlink" title="man"></a>man</h2><p>你可以使用<code>man</code>命令来查看各个命令的使用文档，如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man cp</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/fengorz/oss/raw/master/uPic/HNv4GG.png"></p>
+<h2 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h2><p>查看网络监听状态</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -natp</span><br></pre></td></tr></table></figure>
+
+<h2 id="gt-gt"><a href="#gt-gt" class="headerlink" title="&gt;&gt;"></a>&gt;&gt;</h2><h2 id="公钥ssh登录"><a href="#公钥ssh登录" class="headerlink" title="公钥ssh登录"></a>公钥ssh登录</h2><h2 id="history"><a href="#history" class="headerlink" title="history"></a>history</h2><p>查看某个命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">history|grep xxx</span><br></pre></td></tr></table></figure>
+
+<h2 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h2><p>通过行号查看的一些方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 显示行数可以不用n</span><br><span class="line">tail -10 xxx.log</span><br><span class="line"># 查询日志尾部最后10行的日志</span><br><span class="line">tail  -n  10   test.log</span><br><span class="line"># 查询10行之后的所有日志</span><br><span class="line">tail  -n +10   test.log</span><br><span class="line"># 循环实时查看最后1000行记录(最常用的)</span><br><span class="line">tail  -fn 10   test.log</span><br></pre></td></tr></table></figure>
+<p>可以只抓取刚刚刷新的指定行数，而不滚动去刷新：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -q -n 100 /opt/app/nginx-1.19.2/logs/access.log</span><br></pre></td></tr></table></figure>
+<p>可以结合grep只实时抓取想要的日志：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tail -n 1000 /opt/app/nginx-1.19.2/logs/access.log |grep &#x27;XXX&#x27;</span><br><span class="line">tail -f /opt/app/nginx-1.19.2/logs/access.log |grep &#x27;XXX&#x27;</span><br><span class="line">tail -fn 1000 test.log | grep &#x27;XXX&#x27;</span><br></pre></td></tr></table></figure>
+<p>可以结合less一起查看日志：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -5000 /opt/app/nginx-1.19.2/logs/access.log |less</span><br></pre></td></tr></table></figure>
+
+<h2 id="crontab"><a href="#crontab" class="headerlink" title="crontab"></a>crontab</h2><h2 id="清空日志"><a href="#清空日志" class="headerlink" title="清空日志"></a>清空日志</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">第一种：cat /dev/null &gt; filename</span><br><span class="line">第二种：: &gt; filename</span><br><span class="line">第三种：&gt; filename</span><br><span class="line">第四种：echo &quot;&quot; &gt; filename</span><br><span class="line">第五种：echo &gt; filename</span><br></pre></td></tr></table></figure>
+
+<h2 id="sh"><a href="#sh" class="headerlink" title="sh"></a>sh</h2><p>可以用sh命令执行脚本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh xxx.sh</span><br></pre></td></tr></table></figure>
+
+<h2 id="解压缩"><a href="#解压缩" class="headerlink" title="解压缩"></a>解压缩</h2><h3 id="gz"><a href="#gz" class="headerlink" title="gz"></a>gz</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip -d xxx.gz</span><br></pre></td></tr></table></figure>
+
+<h2 id="各个目录作用"><a href="#各个目录作用" class="headerlink" title="各个目录作用"></a>各个目录作用</h2><p>1、&#x2F; 根目录 ——— 所有目录挂在其下<br>2、&#x2F;boot　——— 存放Ubuntu内核和系统启动文件。系统启动时这些文件先被装载。<br>3、&#x2F;etc　——— 系统的配置文件目录。密码文件、设置网卡信息、环境变量的设置等都在此目录中，许多网络配置文件也在其中。<br>4、&#x2F;lib ——— 根文件系统目录下程序和核心模块的共享库。这个目录里存放着系统最基本的动态链接共享库，类似于Windows下的system32目录，几乎所有的应用程序都需要用到这些共享库。<br>5、&#x2F;media ——— 主要用于挂载多媒体设备。ubuntu系统自动挂载的光驱、usb设备，存放临时读入的文件。<br>6、&#x2F;proc ——— 这个目录是系统内存的映射，我们可以直接访问这个目录来获取系统信息。也就是说，这个目录的内容不在硬盘上而是在内存里。<br>7、&#x2F;sbin 　 ——— s就是Super User的意思，这里存放的是系统管理员使用的系统管理程序，如系统管理、目录查询等关键命令文件。<br>8、&#x2F;tmp ——— 这个目录是用来存放一些临时文件的，所有用户对此目录都有读写权限。<br>9、&#x2F;home　 ——— 用户的主目录。下面是自己定义的用户名的文件夹。每个用户的设置文件，用户的桌面文件夹，还有用户的数据都放在这里。<br>10、&#x2F;mnt 　 ——— 此目录主要是作为挂载点使用。通常包括系统引导后被挂载的文件系统的挂载点。如挂载Windows下的某个分区。<br>11、&#x2F;root ——— 系统管理员（超级用户），即根用户的主目录。<br>12、&#x2F;srv　 ——— 存储系统提供的服务数据。<br>13、&#x2F;usr　——— 包括与系统用户直接有关的文件和目录。<br>&#x2F;usr&#x2F;X11R6 　　 存放X-Windows的目录；<br>&#x2F;usr&#x2F;games 　　存放着XteamLinux自带的小游戏；<br>&#x2F;usr&#x2F;bin 　　　 用户和管理员的标准命令；<br>&#x2F;usr&#x2F;sbin 　　　　存放root超级用户使用的管理程序；<br>&#x2F;usr&#x2F;doc 　　　　 Linux技术文档；<br>&#x2F;usr&#x2F;include　　　来存放Linux下开发和编译应用程序所需要的头文件，for c 或者c++；<br>&#x2F;usr&#x2F;lib 　　　　 应用程序和程序包的连接库；<br>&#x2F;usr&#x2F;local　　　　 系统管理员安装的应用程序目录；<br>&#x2F;usr&#x2F;man 　　　　帮助文档所在的目录；<br>&#x2F;usr&#x2F;src　　　　　Linux开放的源代码；<br>&#x2F;usr&#x2F;share　　 用于存放一些共享的数据，比如音乐文件或者图标等等<br>14、&#x2F;var 　 ——— 用于存放很多不断变化的文件，例如日志文件等。包含了日志文件、计划性任务和邮件等内容。<br>&#x2F;var&#x2F;cache 应用程序缓存目录；<br>&#x2F;var&#x2F;crash 系统错误信息；<br>&#x2F;var&#x2F;games 游戏数据；<br>&#x2F;var&#x2F;log 日志文件；<br>&#x2F;var&#x2F;mail 电子邮件；<br>&#x2F;var&#x2F;tmp 临时文件目录；<br>15、&#x2F;bin 　———bin是binary的缩写。这个目录沿袭了UNIX系统的结构，存放着使用者最经常使用的命令。例如cp、ls、cat，等等。<br>————————————————<br>版权声明：本文为CSDN博主「王立平的博客」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37131111/article/details/82082630">https://blog.csdn.net/qq_37131111/article/details/82082630</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># linux</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/02/24/%E4%BB%8EEclipse%E8%BD%AC%E5%88%B0IDEA%E7%9A%84%E8%BF%87%E7%A8%8B/" rel="prev" title="从Eclipse转到IDEA的过程">
+      <i class="fa fa-chevron-left"></i> 从Eclipse转到IDEA的过程
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/03/04/oracle%E7%B3%BB%E5%88%97%E4%B9%8B%E8%A7%A6%E5%8F%91%E5%99%A8/" rel="next" title="oracle系列之触发器">
+      oracle系列之触发器 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%89%80%E6%9C%89%E5%8F%AF%E6%89%A7%E8%A1%8Cpath"><span class="nav-number">1.</span> <span class="nav-text">查看所有可执行path</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E4%B8%8A%E6%AC%A1%E6%89%80%E5%9C%A8%E7%9B%AE%E5%BD%95"><span class="nav-number">2.</span> <span class="nav-text">返回上次所在目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cd"><span class="nav-number">3.</span> <span class="nav-text">cd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90"><span class="nav-number">4.</span> <span class="nav-text">修改权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cp"><span class="nav-number">5.</span> <span class="nav-text">cp</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cp-omitting-directory"><span class="nav-number">5.1.</span> <span class="nav-text">cp: omitting directory</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#find%E5%92%8Cgrep"><span class="nav-number">6.</span> <span class="nav-text">find和grep</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ls-%E6%9F%A5%E8%AF%A2%E7%9B%AE%E5%BD%95%E5%85%B7%E4%BD%93file"><span class="nav-number">7.</span> <span class="nav-text">ls 查询目录具体file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ll%E6%8C%89%E6%97%B6%E9%97%B4%E6%8E%92%E5%BA%8F"><span class="nav-number">8.</span> <span class="nav-text">ll按时间排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ll%E6%8C%89%E5%A4%A7%E5%B0%8F%E6%8E%92%E5%BA%8F"><span class="nav-number">9.</span> <span class="nav-text">ll按大小排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ln%E9%93%BE%E6%8E%A5%E5%91%BD%E4%BB%A4"><span class="nav-number">10.</span> <span class="nav-text">ln链接命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wget%E5%91%BD%E4%BB%A4"><span class="nav-number">11.</span> <span class="nav-text">wget命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tar"><span class="nav-number">12.</span> <span class="nav-text">tar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#touch"><span class="nav-number">13.</span> <span class="nav-text">touch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nohup"><span class="nav-number">14.</span> <span class="nav-text">nohup</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E6%89%80%E6%9C%89%E5%AD%90%E6%96%87%E4%BB%B6%E5%92%8C%E5%AD%90%E7%9B%AE%E5%BD%95%E6%89%80%E6%9C%89%E8%80%85%E6%9D%83%E9%99%90"><span class="nav-number">15.</span> <span class="nav-text">更改所有子文件和子目录所有者权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#curl"><span class="nav-number">16.</span> <span class="nav-text">curl</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="nav-number">16.1.</span> <span class="nav-text">结果格式化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#df%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3%EF%BC%88%E6%B8%85%E7%90%86%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%EF%BC%89"><span class="nav-number">17.</span> <span class="nav-text">df命令详解（清理磁盘空间）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E9%98%B2%E7%81%AB%E5%A2%99%EF%BC%8C%E6%94%BE%E5%BC%80%E7%AB%AF%E5%8F%A3"><span class="nav-number">18.</span> <span class="nav-text">查看防火墙，放开端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ps"><span class="nav-number">19.</span> <span class="nav-text">ps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#killall"><span class="nav-number">20.</span> <span class="nav-text">killall</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9more%E5%91%BD%E4%BB%A4"><span class="nav-number">20.1.</span> <span class="nav-text">查看文件内容more命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#less%E5%91%BD%E4%BB%A4"><span class="nav-number">20.2.</span> <span class="nav-text">less命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#less%E6%90%9C%E7%B4%A2"><span class="nav-number">20.2.1.</span> <span class="nav-text">less搜索</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%8E%8Bwar%E5%8C%85"><span class="nav-number">21.</span> <span class="nav-text">解压war包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#du"><span class="nav-number">22.</span> <span class="nav-text">du</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sed"><span class="nav-number">23.</span> <span class="nav-text">sed</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scp"><span class="nav-number">24.</span> <span class="nav-text">scp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8shell%E5%91%BD%E4%BB%A4"><span class="nav-number">25.</span> <span class="nav-text">远程调用shell命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E4%B8%8B%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="nav-number">26.</span> <span class="nav-text">Linux下如何查看版本信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sleep"><span class="nav-number">27.</span> <span class="nav-text">sleep</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A9%E7%94%A8%E7%AE%A1%E9%81%93kill%E6%8E%89%E7%9B%91%E5%90%AC%E7%AB%AF%E5%8F%A3%E7%9A%84%E8%BF%9B%E7%A8%8B"><span class="nav-number">28.</span> <span class="nav-text">利用管道kill掉监听端口的进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tldr"><span class="nav-number">29.</span> <span class="nav-text">tldr</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#top-%E6%9F%A5%E7%9C%8B%E5%86%85%E5%AD%98%E7%8A%B6%E6%80%81"><span class="nav-number">30.</span> <span class="nav-text">top(查看内存状态)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cat"><span class="nav-number">31.</span> <span class="nav-text">cat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#man"><span class="nav-number">32.</span> <span class="nav-text">man</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#netstat"><span class="nav-number">33.</span> <span class="nav-text">netstat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gt-gt"><span class="nav-number">34.</span> <span class="nav-text">&gt;&gt;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E9%92%A5ssh%E7%99%BB%E5%BD%95"><span class="nav-number">35.</span> <span class="nav-text">公钥ssh登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#history"><span class="nav-number">36.</span> <span class="nav-text">history</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tail"><span class="nav-number">37.</span> <span class="nav-text">tail</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#crontab"><span class="nav-number">38.</span> <span class="nav-text">crontab</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%85%E7%A9%BA%E6%97%A5%E5%BF%97"><span class="nav-number">39.</span> <span class="nav-text">清空日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sh"><span class="nav-number">40.</span> <span class="nav-text">sh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%8E%8B%E7%BC%A9"><span class="nav-number">41.</span> <span class="nav-text">解压缩</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gz"><span class="nav-number">41.1.</span> <span class="nav-text">gz</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%84%E4%B8%AA%E7%9B%AE%E5%BD%95%E4%BD%9C%E7%94%A8"><span class="nav-number">42.</span> <span class="nav-text">各个目录作用</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Fengorz</p>
+  <div class="site-description" itemprop="description">Live only for yourself.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fengorz</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.fengorz.me","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="@RunWith查阅官方API文档如下：When a class is annotated with @RunWith or extends a class annotated with @RunWith, JUnit will invoke the class it references to run the tests in that class instead of the runner b">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JUnit汇总">
+<meta property="og:url" content="https://www.fengorz.me/2019/10/15/JUnit%E6%B1%87%E6%80%BB/index.html">
+<meta property="og:site_name" content="Feng&#39;s Blog">
+<meta property="og:description" content="@RunWith查阅官方API文档如下：When a class is annotated with @RunWith or extends a class annotated with @RunWith, JUnit will invoke the class it references to run the tests in that class instead of the runner b">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-10-15T13:22:26.000Z">
+<meta property="article:modified_time" content="2019-10-15T13:23:02.635Z">
+<meta property="article:author" content="Fengorz">
+<meta property="article:tag" content="JUnit">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.fengorz.me/2019/10/15/JUnit%E6%B1%87%E6%80%BB/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>JUnit汇总 | Feng's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Feng's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">kiwidict.com</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://www.fengorz.me/2019/10/15/JUnit%E6%B1%87%E6%80%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengorz">
+      <meta itemprop="description" content="Live only for yourself.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feng's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JUnit汇总
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-15 21:22:26 21:22:26" itemprop="dateCreated datePublished" datetime="2019-10-15T21:22:26+08:00">2019-10-15 21:22:26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-15 21:23:02 21:23:02" itemprop="dateModified" datetime="2019-10-15T21:23:02+08:00">2019-10-15 21:23:02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JUnit/" itemprop="url" rel="index"><span itemprop="name">JUnit</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="RunWith"><a href="#RunWith" class="headerlink" title="@RunWith"></a>@RunWith</h2><p>查阅官方API文档如下：<br>When a class is annotated with @RunWith or extends a class annotated with @RunWith, JUnit will invoke the class it references to run the tests in that class instead of the runner built into JUnit. We added this feature late in development. While it seems powerful we expect the runner API to change as we learn how people really use it. Some of the classes that are currently internal will likely be refined and become public. For example, suites in JUnit 4 are built using RunWith, and a custom runner named Suite:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@RunWith(Suite.class)</span><br><span class="line">@SuiteClasses(ATest.class, BTest.class, CTest.class)</span><br><span class="line">public class ABCSuite &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>翻译：当一个类被@RunWith所注解或者继承了一个被@RunWith注解的父类，那么Junit将会调用到这个类它所引用到的测试类，而不是通过Junit构建的runner（运行器）去调用。</p>
+<p>可以参考：<br><a target="_blank" rel="noopener" href="https://www.tutorialspoint.com/junit/junit_suite_test.htm">https://www.tutorialspoint.com/junit/junit_suite_test.htm</a><br><a target="_blank" rel="noopener" href="https://www.codejava.net/testing/junit-test-suite-example-how-to-create-and-run-test-suite-in-command-line-and-eclipse">https://www.codejava.net/testing/junit-test-suite-example-how-to-create-and-run-test-suite-in-command-line-and-eclipse</a></p>
+<h2 id="结合Spring上下文做测试"><a href="#结合Spring上下文做测试" class="headerlink" title="结合Spring上下文做测试"></a>结合Spring上下文做测试</h2><p>在以往的Spring项目中，很多同学可能没有做到真正的单元测试，可能都是基于测试环境启动整个应用来针对功能做测试，这种方式其实效率是非常低的，利用JUnit的特性做Spring的单元测试可以如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">import org.junit.Test;</span><br><span class="line">import org.junit.runner.RunWith;</span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.context.ApplicationContext;</span><br><span class="line">import org.springframework.test.context.ContextConfiguration;</span><br><span class="line">import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line"> * 代码来源：https://my.oschina.net/itblog/blog/1550753</span><br><span class="line"> */</span><br><span class="line">@RunWith(SpringJUnit4ClassRunner.class)</span><br><span class="line">@ContextConfiguration(locations = &#123; &quot;classpath:applicationContext.xml&quot; &#125;)</span><br><span class="line">public class UserManagerTest &#123;</span><br><span class="line">　　@Autowired</span><br><span class="line">　　ApplicationContext ctx;</span><br><span class="line"></span><br><span class="line">　　@Test</span><br><span class="line">　　public void testAddUser() &#123;</span><br><span class="line">　　　　try &#123;</span><br><span class="line">　　　　　　UserManager userManager = ctx.getBean(UserManager.class); </span><br><span class="line">　　　　　　userManager.addUser();</span><br><span class="line">　　　　&#125; catch (Exception e) &#123;</span><br><span class="line">　　　　　　e.printStackTrace();</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的例子是指定一个Spring上下文配置文件的方式进行单元测试，这样子就加载很多本次单元测试不用到的注入，Spring官方文档给出了更加高效的方案：<br>Context Configuration with Annotated Classes<br>To load an ApplicationContext for your tests by using annotated classes (see Java-based container configuration), you can annotate your test class with @ContextConfiguration and configure the classes attribute with an array that contains references to annotated classes. The following example shows how to do so:<br>翻译：使用@ContextConfiguration里面的classes属性来指定加载的配置类信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@RunWith(SpringRunner.class)</span><br><span class="line">// ApplicationContext will be loaded from AppConfig and TestConfig</span><br><span class="line">@ContextConfiguration(classes = &#123;AppConfig.class, TestConfig.class&#125;) </span><br><span class="line">public class MyTest &#123;</span><br><span class="line">    // class body...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>If you omit the classes attribute from the @ContextConfiguration annotation, the TestContext framework tries to detect the presence of default configuration classes. Specifically, AnnotationConfigContextLoader and AnnotationConfigWebContextLoader detect all static nested classes of the test class that meet the requirements for configuration class implementations, as specified in the @Configuration javadoc. Note that the name of the configuration class is arbitrary. In addition, a test class can contain more than one static nested configuration class if desired. In the following example, the OrderServiceTest class declares a static nested configuration class named Config that is automatically used to load the ApplicationContext for the test class:<br>翻译：此外，Spring官方还提供了更加简要的方式，可以省略掉@ContextConfiguration里面的classes属性。因为TestContext框架会去检测默认存在的配置类，特别是，测试类中存在的内部静态配置类，比如下面代码中的静态配置类将被加载到测试的Spring上下文中：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">@RunWith(SpringRunner.class)</span><br><span class="line">// ApplicationContext will be loaded from the</span><br><span class="line">// static nested Config class</span><br><span class="line">@ContextConfiguration </span><br><span class="line">public class OrderServiceTest &#123;</span><br><span class="line"></span><br><span class="line">    @Configuration</span><br><span class="line">    static class Config &#123;</span><br><span class="line"></span><br><span class="line">        // this bean will be injected into the OrderServiceTest class</span><br><span class="line">        @Bean</span><br><span class="line">        public OrderService orderService() &#123;</span><br><span class="line">            OrderService orderService = new OrderServiceImpl();</span><br><span class="line">            // set properties, etc.</span><br><span class="line">            return orderService;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private OrderService orderService;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void testOrderService() &#123;</span><br><span class="line">        // test the orderService</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="基于SpringBoot的单元测试"><a href="#基于SpringBoot的单元测试" class="headerlink" title="基于SpringBoot的单元测试"></a>基于SpringBoot的单元测试</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@RunWith(SpringRunner.class)</span><br><span class="line">@SpringBootTest</span><br><span class="line">@Import(MyTestsConfiguration.class)</span><br><span class="line">public class MyTests &#123;</span><br><span class="line"></span><br><span class="line">	@Test</span><br><span class="line">	public void exampleTest() &#123;</span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="指定类别的方式去进行多个单元测试"><a href="#指定类别的方式去进行多个单元测试" class="headerlink" title="指定类别的方式去进行多个单元测试"></a>指定类别的方式去进行多个单元测试</h2><p><a target="_blank" rel="noopener" href="https://github.com/junit-team/junit4/wiki/Categories">https://github.com/junit-team/junit4/wiki/Categories</a></p>
+<h2 id="可以自定义参数化的单元测试"><a href="#可以自定义参数化的单元测试" class="headerlink" title="可以自定义参数化的单元测试"></a>可以自定义参数化的单元测试</h2><p><a target="_blank" rel="noopener" href="https://github.com/junit-team/junit4/wiki/Parameterized-tests">https://github.com/junit-team/junit4/wiki/Parameterized-tests</a><br><em><strong>这个暂时还来不及分析场景和用例</strong></em></p>
+<p>更多的单元测试尽在<a target="_blank" rel="noopener" href="https://github.com/junit-team/junit4/wiki">https://github.com/junit-team/junit4/wiki</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JUnit/" rel="tag"># JUnit</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/10/15/Interview%E6%B1%87%E6%80%BB/" rel="prev" title="Interview汇总">
+      <i class="fa fa-chevron-left"></i> Interview汇总
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/10/15/Spring%E7%B3%BB%E5%88%97%E4%B9%8BSpringSecurity/" rel="next" title="Spring系列之SpringSecurity">
+      Spring系列之SpringSecurity <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RunWith"><span class="nav-number">1.</span> <span class="nav-text">@RunWith</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E5%90%88Spring%E4%B8%8A%E4%B8%8B%E6%96%87%E5%81%9A%E6%B5%8B%E8%AF%95"><span class="nav-number">2.</span> <span class="nav-text">结合Spring上下文做测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8ESpringBoot%E7%9A%84%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="nav-number">3.</span> <span class="nav-text">基于SpringBoot的单元测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%88%AB%E7%9A%84%E6%96%B9%E5%BC%8F%E5%8E%BB%E8%BF%9B%E8%A1%8C%E5%A4%9A%E4%B8%AA%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="nav-number">4.</span> <span class="nav-text">指定类别的方式去进行多个单元测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E4%BB%A5%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%82%E6%95%B0%E5%8C%96%E7%9A%84%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="nav-number">5.</span> <span class="nav-text">可以自定义参数化的单元测试</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Fengorz</p>
+  <div class="site-description" itemprop="description">Live only for yourself.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fengorz</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
